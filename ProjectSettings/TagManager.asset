@@ -11,9 +11,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Player
+  - Bullets
+  - Walls
   - 
   - 
   - 
@@ -40,4 +40,22 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Ground
+    uniqueID: 1679456885
+    locked: 0
+  - name: Water
+    uniqueID: 951699719
+    locked: 0
+  - name: Walls
+    uniqueID: 4290607887
+    locked: 0
+  - name: Enemies
+    uniqueID: 1617481309
+    locked: 0
+  - name: Bullets
+    uniqueID: 3485463937
+    locked: 0
+  - name: Player
+    uniqueID: 3679157101
     locked: 0
