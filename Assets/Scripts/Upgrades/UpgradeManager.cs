@@ -61,21 +61,21 @@ public static class UpgradeManager {
                Upgrades[3].MovementSpeedMultiplier *
                Upgrades[4].MovementSpeedMultiplier;
     }
-    
-    public static void Fire(IUpgradeable upgradeable) {
-        Upgrades[0].Fire(upgradeable);
-        Upgrades[1].Fire(upgradeable);
-        Upgrades[2].Fire(upgradeable);
-        Upgrades[3].Fire(upgradeable);
-        Upgrades[4].Fire(upgradeable);
+
+    public static void OnFire(IUpgradeable upgradeable) {
+        Upgrades[0].OnFire(upgradeable);
+        Upgrades[1].OnFire(upgradeable);
+        Upgrades[2].OnFire(upgradeable);
+        Upgrades[3].OnFire(upgradeable);
+        Upgrades[4].OnFire(upgradeable);
     }
 
-    public static void Block(IUpgradeable upgradeable) {
-        Upgrades[0].Block(upgradeable);
-        Upgrades[1].Block(upgradeable);
-        Upgrades[2].Block(upgradeable);
-        Upgrades[3].Block(upgradeable);
-        Upgrades[4].Block(upgradeable);
+    public static void OnBlock(IUpgradeable upgradeable) {
+        Upgrades[0].OnBlock(upgradeable);
+        Upgrades[1].OnBlock(upgradeable);
+        Upgrades[2].OnBlock(upgradeable);
+        Upgrades[3].OnBlock(upgradeable);
+        Upgrades[4].OnBlock(upgradeable);
     }
 
     public static void BulletUpdate(IUpgradeable upgradeable) {
@@ -92,5 +92,21 @@ public static class UpgradeManager {
         Upgrades[2].PlayerUpdate(upgradeable);
         Upgrades[3].PlayerUpdate(upgradeable);
         Upgrades[4].PlayerUpdate(upgradeable);
+    }
+
+    public static void OnBulletImpact(IUpgradeable upgradeable) {
+        Upgrades[0].OnBulletImpact(upgradeable);
+        Upgrades[1].OnBulletImpact(upgradeable);
+        Upgrades[2].OnBulletImpact(upgradeable);
+        Upgrades[3].OnBulletImpact(upgradeable);
+        Upgrades[4].OnBulletImpact(upgradeable);
+    }
+
+    public static void OnPlayerDeath(IUpgradeable upgradeable) {
+        Upgrades[0].OnPlayerDeath(upgradeable);
+        Upgrades[1].OnPlayerDeath(upgradeable);
+        Upgrades[2].OnPlayerDeath(upgradeable);
+        Upgrades[3].OnPlayerDeath(upgradeable);
+        Upgrades[4].OnPlayerDeath(upgradeable);
     }
 }

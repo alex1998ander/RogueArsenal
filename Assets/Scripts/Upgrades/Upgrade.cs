@@ -18,13 +18,13 @@ public abstract class Upgrade {
     /// Optional action that is performed when the player fires
     /// </summary>
     /// <param name="upgradeable">Player reference</param>
-    public virtual void Fire(IUpgradeable upgradeable) { }
+    public virtual void OnFire(IUpgradeable upgradeable) { }
 
     /// <summary>
     /// Optional action that is performed when the player blocks
     /// </summary>
     /// <param name="upgradeable">Player reference</param>
-    public virtual void Block(IUpgradeable upgradeable) { }
+    public virtual void OnBlock(IUpgradeable upgradeable) { }
 
     /// <summary>
     /// Optional action that is executed every frame while the bullet is flying
@@ -37,5 +37,17 @@ public abstract class Upgrade {
     /// </summary>
     /// <param name="upgradeable">Player reference</param>
     public virtual void PlayerUpdate(IUpgradeable upgradeable) { }
+
+    /// <summary>
+    /// Optional action that is executed when the bullet hits something
+    /// </summary>
+    /// <param name="upgradeable">Player reference</param>
+    public virtual void OnBulletImpact(IUpgradeable upgradeable) { }
+
+    /// <summary>
+    /// Optional action that is executed when the player dies
+    /// </summary>
+    /// <param name="upgradeable">Player reference</param>
+    public virtual void OnPlayerDeath(IUpgradeable upgradeable) { }
 
 }
