@@ -73,8 +73,8 @@ public class UpgradeHealingField : Upgrade {
     
     public override float HealthMultiplier => 1.3f;
     
-    public override void OnFire(IUpgradeable upgradeable) {
-        upgradeable.ExecuteHealingField_OnFire();
+    public override void OnBlock(IUpgradeable upgradeable) {
+        upgradeable.ExecuteHealingField_OnBlock();
     }
 }
 
