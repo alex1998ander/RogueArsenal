@@ -1,11 +1,7 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.Serialization;
+using System.Collections;
 using Pathfinding;
-using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 /// <summary>
@@ -19,25 +15,23 @@ public class EnemyController : MonoBehaviour
     // HP of enemy.
     public int hitPoints;
 
-    // How many times a second the enemy path is updated
+    // How many times a second the enemy path is updated.
     public float pathUpdateRate = 0.5f;
 
     // Distance how close the enemy needs to be to a waypoint until he moves on to the next one.
     public float nextWaypointDistance = 1f;
 
-
+    // Size of the Bounding Box around the player for target location.
     public float playerBounds = 5f;
 
+    // Layer mask of the walls of the level.
     public LayerMask wallLayer;
 
     // Target location for pathfinding.
     private Vector3 _targetLocation;
 
-    // Transform of the Player
+    // Transform of the Player.
     private Transform _playerTransform;
-
-    // Vector representing the direction from the enemy to the player
-    private Vector2 _toPlayerDirection;
 
     // Current path that the enemy is following.
     private Path _path;
@@ -45,20 +39,24 @@ public class EnemyController : MonoBehaviour
     // Current waypoint along the targeted path.
     private int _currentWaypoint = 0;
 
-    // Whether the enemy reached the end of the path or not.
-    private bool _reachedEndOfPath = false;
-
     // Seeker script which is responsible for creating paths.
     private Seeker _seeker;
 
     // Rigidbody of enemy.
     private Rigidbody2D _rb;
 
+    // Weapon of the enemy.
+    private Weapon _weapon;
+
+    // Current state of the enemy.
+    private EnemyState _state = EnemyState.SEARCHING;
+
     private void Start()
     {
         _playerTransform = GameObject.Find("AimPlayer").GetComponent<Transform>();
         _seeker = GetComponent<Seeker>();
         _rb = GetComponent<Rigidbody2D>();
+        _weapon = GetComponentInChildren<Weapon>();
 
         // update the path every 'pathUpdateRate' seconds (default 0.5)
         InvokeRepeating(nameof(UpdatePath), 0f, pathUpdateRate);
@@ -71,59 +69,31 @@ public class EnemyController : MonoBehaviour
             return;
         }
 
-        // Is the end of the path reached?
-        if (_currentWaypoint >= _path.vectorPath.Count)
+        switch (_state)
         {
-            PickNewTargetLocationNearPlayer();
-            return;
-        }
-        else
-        {
-            _reachedEndOfPath = false;
+            case EnemyState.SEARCHING:
+            {
+                PickNewTargetLocationNearPlayer();
+                break;
+            }
+            case EnemyState.MOVING:
+            {
+                FollowPath();
+                break;
+            }
+            case EnemyState.ATTACKING:
+            {
+                AttackPlayer();
+                break;
+            }
         }
 
-        // Direction of the player to the next waypoint
-        Vector2 direction = ((Vector2) _path.vectorPath[_currentWaypoint] - _rb.position).normalized;
-
-        // Move the enemy in the direction of the next waypoint
-        Vector2 force = direction * (speed * Time.fixedDeltaTime);
-        // _rb.AddForce(force, ForceMode2D.Force);
-        _rb.velocity = force;
-
-        // Calculate distance between enemy and next waypoint, if close enough, go to next waypoint
-        float distance = Vector2.Distance(_rb.position, _path.vectorPath[_currentWaypoint]);
-        if (distance < nextWaypointDistance)
-        {
-            _currentWaypoint++;
-        }
+        Debug.Log("state: " + _state);
     }
 
     /// <summary>
-    /// Updates the path from the enemy position to the target
-    /// </summary>
-    private void UpdatePath()
-    {
-        if (_seeker.IsDone())
-        {
-            _seeker.StartPath(_rb.position, _targetLocation, OnPathComplete);
-        }
-    }
-
-    /// <summary>
-    /// Is called when the path from start to finish was successfully calculated.
-    /// </summary>
-    /// <param name="p">Calculated path</param>
-    private void OnPathComplete(Path p)
-    {
-        if (!p.error)
-        {
-            _path = p;
-            _currentWaypoint = 0;
-        }
-    }
-
-    /// <summary>
-    /// Picks a new target location in an area around the player
+    /// Picks a new target location in an area around the player.
+    /// Makes sure that the enemy has a line of sight to the player.
     /// </summary>
     private void PickNewTargetLocationNearPlayer()
     {
@@ -154,9 +124,90 @@ public class EnemyController : MonoBehaviour
         if (!Physics.Raycast(nodePosition, nodeToPlayer, distance, wallLayer))
         {
             _targetLocation = nodePosition;
+            _state = EnemyState.MOVING;
+        }
+    }
+
+
+    /// <summary>
+    /// The enemy follows the calculated path.
+    /// If path end was reached, initiates attack state.
+    /// </summary>
+    private void FollowPath()
+    {
+        // Is the end of the path reached?
+        if (_currentWaypoint >= _path.vectorPath.Count)
+        {
+            _state = EnemyState.ATTACKING;
+            return;
         }
 
-        _reachedEndOfPath = true;
+        // Direction of the enemy to the next waypoint
+        Vector2 direction = ((Vector2) _path.vectorPath[_currentWaypoint] - _rb.position).normalized;
+
+        // Move the enemy in the direction of the next waypoint
+        Vector2 force = direction * (speed * Time.fixedDeltaTime);
+        // _rb.AddForce(force, ForceMode2D.Force);
+        _rb.velocity = force;
+
+        RotateTowardsDirection(direction);
+
+        // Calculate distance between enemy and next waypoint, if close enough, go to next waypoint
+        float distance = Vector2.Distance(_rb.position, _path.vectorPath[_currentWaypoint]);
+        if (distance < nextWaypointDistance)
+        {
+            _currentWaypoint++;
+        }
+    }
+
+    /// <summary>
+    /// Enemy attacks the player.
+    /// </summary>
+    private void AttackPlayer()
+    {
+        Vector2 toPlayerDirection = ((Vector2) _playerTransform.position - _rb.position).normalized;
+        RotateTowardsDirection(toPlayerDirection);
+
+        _weapon.Fire();
+        _state = EnemyState.SEARCHING;
+    }
+
+    /// <summary>
+    /// Updates the path from the enemy position to the target
+    /// </summary>
+    private void UpdatePath()
+    {
+        if (_seeker.IsDone())
+        {
+            _seeker.StartPath(_rb.position, _targetLocation, OnPathComplete);
+        }
+    }
+
+    /// <summary>
+    /// Is called when the path from start to finish was successfully calculated.
+    /// </summary>
+    /// <param name="p">Calculated path</param>
+    private void OnPathComplete(Path p)
+    {
+        if (!p.error)
+        {
+            _path = p;
+            _currentWaypoint = 0;
+        }
+    }
+
+    /// <summary>
+    /// Rotates the enemy so he looks towards the given direction.
+    /// </summary>
+    /// <param name="direction">Direction the enemy should look at.</param>
+    private void RotateTowardsDirection(Vector2 direction)
+    {
+        if (direction != Vector2.zero)
+        {
+            // -90f to account for "forwards" of the enemy being the up vector and not the right vector
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+            _rb.rotation = angle;
+        }
     }
 
     /// <summary>
