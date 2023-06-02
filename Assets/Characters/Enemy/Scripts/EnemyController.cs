@@ -25,7 +25,10 @@ public class EnemyController : MonoBehaviour
     // Distance how close the enemy needs to be to a waypoint until he moves on to the next one.
     public float nextWaypointDistance = 1f;
 
+
     public float playerBounds = 5f;
+
+    public LayerMask wallLayer;
 
     // Target location for pathfinding.
     private Vector3 _targetLocation;
@@ -35,8 +38,6 @@ public class EnemyController : MonoBehaviour
 
     // Vector representing the direction from the enemy to the player
     private Vector2 _toPlayerDirection;
-
-    private GridNode[] _walkableNodes;
 
     // Current path that the enemy is following.
     private Path _path;
@@ -58,21 +59,6 @@ public class EnemyController : MonoBehaviour
         _playerTransform = GameObject.Find("AimPlayer").GetComponent<Transform>();
         _seeker = GetComponent<Seeker>();
         _rb = GetComponent<Rigidbody2D>();
-
-        // Get the gridGraph of the level
-        GridGraph gridGraph = AstarPath.active.data.gridGraph;
-        List<GridNode> nodes = gridGraph.nodes.ToList();
-
-        List<GridNode> walkableNodes = new List<GridNode>();
-        foreach (GridNode node in nodes)
-        {
-            if (node.Walkable)
-            {
-                walkableNodes.Add(node);
-            }
-        }
-
-        _walkableNodes = walkableNodes.ToArray();
 
         // update the path every 'pathUpdateRate' seconds (default 0.5)
         InvokeRepeating(nameof(UpdatePath), 0f, pathUpdateRate);
@@ -141,25 +127,36 @@ public class EnemyController : MonoBehaviour
     /// </summary>
     private void PickNewTargetLocationNearPlayer()
     {
-        _reachedEndOfPath = true;
-        // GridNode randomWalkableNode = _walkableNodes[Random.Range(0, _walkableNodes.Length)];
-        // _targetLocation = (Vector3) randomWalkableNode.position;
-
         // Create bounding box at player position using playerBounds
         Bounds bounds = new Bounds();
         bounds.center = _playerTransform.position;
         bounds.size = new Vector3(playerBounds, playerBounds, 1);
 
         // Save all nodes near the Player
+        // TODO: "pool the list" according to 'GetNodesInRegion' summary
         List<GraphNode> nodesNearPlayer = AstarPath.active.data.gridGraph.GetNodesInRegion(bounds);
-        
+
         // Pick a random node
-        // If this node is also walkable, choose its location as the next target
         GraphNode randomNode = nodesNearPlayer[Random.Range(0, nodesNearPlayer.Count)];
-        if (randomNode.Walkable)
+
+        // Exit if node isn't walkable
+        if (!randomNode.Walkable)
         {
-            _targetLocation = (Vector3) nodesNearPlayer[Random.Range(0, nodesNearPlayer.Count)].position;
+            return;
         }
+
+        Vector3 nodePosition = (Vector3) randomNode.position;
+        Vector3 nodeToPlayer = _playerTransform.position - nodePosition;
+        float distance = nodeToPlayer.magnitude;
+
+        // Check if there is a wall between the picked node and the player
+        // Only set target location if there isn't a wall in between (the enemy has a clear line of sight)
+        if (!Physics.Raycast(nodePosition, nodeToPlayer, distance, wallLayer))
+        {
+            _targetLocation = nodePosition;
+        }
+
+        _reachedEndOfPath = true;
     }
 
     /// <summary>

@@ -103,8 +103,10 @@ MonoBehaviour:
   hitPoints: 5
   pathUpdateRate: 0.5
   nextWaypointDistance: 1
-  maxDistanceFromPlayer: 5
-  minDistanceFromPlayer: 1
+  playerBounds: 5
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!58 &609955918937179358
 CircleCollider2D:
   m_ObjectHideFlags: 0
