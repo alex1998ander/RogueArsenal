@@ -57,7 +57,7 @@ public class AimPlayerController : MonoBehaviour
             }
             _angle = Mathf.Atan2(_aimDirection.y, _aimDirection.x) * Mathf.Rad2Deg - 90;
             rb.rotation = _angle;
-            Debug.Log(_angle);
+            // Debug.Log(_angle);
         }
         
     }

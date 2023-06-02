@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1358329203599744736}
   - component: {fileID: 1612771981469089847}
+  - component: {fileID: 8153214160604273801}
   - component: {fileID: 4098208804057565171}
   - component: {fileID: 609955918937179358}
   - component: {fileID: 8807399335478438892}
@@ -64,6 +65,28 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
+--- !u!114 &8153214160604273801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358329203599744738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb6a34d769a1e4ac7b0b30e433aa443c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  smoothType: 0
+  subdivisions: 2
+  iterations: 2
+  strength: 0.5
+  uniformLength: 1
+  maxSegmentLength: 2
+  bezierTangentLength: 0.4
+  offset: 0.2
+  factor: 0.1
 --- !u!114 &4098208804057565171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,10 +99,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94b809abfd708b14a83dbb75151569dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   speed: 400
-  nextWaypointDistance: 3
   hitPoints: 5
+  pathUpdateRate: 0.5
+  nextWaypointDistance: 1
+  maxDistanceFromPlayer: 5
+  minDistanceFromPlayer: 1
 --- !u!58 &609955918937179358
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -109,7 +134,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 2.5
+  m_LinearDrag: 20
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
