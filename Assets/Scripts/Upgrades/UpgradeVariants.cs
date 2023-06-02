@@ -1,12 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class UpgradeFastBall : Upgrade {
-    public override string Name => "FastBall";
+public class UpgradeHitman : Upgrade {
+    public override string Name => "Hitman";
     public override string Description => "Break the sound barrier with bullets that leave enemies in awe and questioning their life choices.";
 
-    public override float BulletSpeedMultiplier => 3.5f;
+    public override float BulletRangeMultiplier => 3.5f;
     public override float AttackSpeedMultiplier => 0.5f;
 }
 
@@ -14,7 +10,7 @@ public class UpgradeBuckshot : Upgrade {
     public override string Name => "Buckshot";
     public override string Description => "Unleash a shotgun-inspired impact that scatters enemies like confetti.";
 
-    public override float BulletCountMultiplier => 5.0f;
+    public override int BulletCountAdjustment => 4;
     public override float BulletDamageMultiplier => 0.4f;
 }
 
@@ -24,8 +20,8 @@ public class UpgradeBurst : Upgrade {
     
     public override float BulletDamageMultiplier => 0.4f;
 
-    public override void OnFire(IUpgradeable upgradeable) {
-        upgradeable.ExecuteBurst_OnFire();
+    public override void OnFire(IUpgradeablePlayer upgradeablePlayer) {
+        upgradeablePlayer.ExecuteBurst_OnFire();
     }
 }
 
@@ -35,8 +31,8 @@ public class UpgradeBounce : Upgrade {
     
     public override float BulletDamageMultiplier => 1.25f;
 
-    public override void BulletUpdate(IUpgradeable upgradeable) {
-        upgradeable.ExecuteBounce_BulletUpdate();
+    public override void BulletUpdate(IUpgradableBullet upgradeableBullet) {
+        upgradeableBullet.ExecuteBounce_BulletUpdate();
     }
 }
 
@@ -62,8 +58,8 @@ public class UpgradeExplosiveBullet : Upgrade {
     
     public override float AttackSpeedMultiplier => 0.3f;
     
-    public override void OnBulletImpact(IUpgradeable upgradeable) {
-        upgradeable.ExecuteExplosiveBullet_OnBulletImpact();
+    public override void OnBulletImpact(IUpgradableBullet upgradeableBullet) {
+        upgradeableBullet.ExecuteExplosiveBullet_OnBulletImpact();
     }
 }
 
@@ -73,8 +69,8 @@ public class UpgradeHealingField : Upgrade {
     
     public override float HealthMultiplier => 1.3f;
     
-    public override void OnBlock(IUpgradeable upgradeable) {
-        upgradeable.ExecuteHealingField_OnBlock();
+    public override void OnBlock(IUpgradeablePlayer upgradeablePlayer) {
+        upgradeablePlayer.ExecuteHealingField_OnBlock();
     }
 }
 
@@ -85,8 +81,8 @@ public class UpgradeTargetTracer : Upgrade {
     public override float BulletDamageMultiplier => 0.75f;
     public override float AttackSpeedMultiplier => 0.75f;
     
-    public override void BulletUpdate(IUpgradeable upgradeable) {
-        upgradeable.ExecuteTargetTracer_BulletUpdate();
+    public override void BulletUpdate(IUpgradableBullet upgradeableBullet) {
+        upgradeableBullet.ExecuteTargetTracer_BulletUpdate();
     }
 }
 
@@ -96,7 +92,7 @@ public class UpgradePhoenix : Upgrade {
     
     public override float HealthMultiplier => 0.60f;
     
-    public override void OnPlayerDeath(IUpgradeable upgradeable) {
-        upgradeable.ExecutePhoenix_OnPlayerDeath();
+    public override void OnPlayerDeath(IUpgradeablePlayer upgradeablePlayer) {
+        upgradeablePlayer.ExecutePhoenix_OnPlayerDeath();
     }
 }
