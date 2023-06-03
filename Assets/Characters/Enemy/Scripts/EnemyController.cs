@@ -24,6 +24,9 @@ public class EnemyController : MonoBehaviour
     // Size of the Bounding Box around the player for target location.
     public float playerBounds = 5f;
 
+    // Time in seconds the enemy is aiming at the player before attacking
+    public float aimTime = 0.5f;
+
     // Layer mask of the walls of the level.
     public LayerMask wallLayer;
 
@@ -81,6 +84,11 @@ public class EnemyController : MonoBehaviour
                 FollowPath();
                 break;
             }
+            case EnemyState.AIMING:
+            {
+                AimAtPlayer();
+                break;
+            }
             case EnemyState.ATTACKING:
             {
                 AttackPlayer();
@@ -124,6 +132,7 @@ public class EnemyController : MonoBehaviour
         if (!Physics.Raycast(nodePosition, nodeToPlayer, distance, wallLayer))
         {
             _targetLocation = nodePosition;
+            UpdatePath();
             _state = EnemyState.MOVING;
         }
     }
@@ -138,7 +147,8 @@ public class EnemyController : MonoBehaviour
         // Is the end of the path reached?
         if (_currentWaypoint >= _path.vectorPath.Count)
         {
-            _state = EnemyState.ATTACKING;
+            _state = EnemyState.AIMING;
+            StartCoroutine(AimTime());
             return;
         }
 
@@ -161,13 +171,28 @@ public class EnemyController : MonoBehaviour
     }
 
     /// <summary>
+    /// Switches the state to attacking after the enemy aimed at the player.
+    /// </summary>
+    private IEnumerator AimTime()
+    {
+        yield return new WaitForSeconds(aimTime);
+        _state = EnemyState.ATTACKING;
+    }
+
+    /// <summary>
+    /// Enemy aims (looks in the direction of) the player
+    /// </summary>
+    private void AimAtPlayer()
+    {
+        Vector2 toPlayerDirection = ((Vector2) _playerTransform.position - _rb.position).normalized;
+        RotateTowardsDirection(toPlayerDirection);
+    }
+
+    /// <summary>
     /// Enemy attacks the player.
     /// </summary>
     private void AttackPlayer()
     {
-        Vector2 toPlayerDirection = ((Vector2) _playerTransform.position - _rb.position).normalized;
-        RotateTowardsDirection(toPlayerDirection);
-
         _weapon.Fire();
         _state = EnemyState.SEARCHING;
     }
