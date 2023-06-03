@@ -104,7 +104,9 @@ MonoBehaviour:
   hitPoints: 5
   pathUpdateRate: 0.5
   nextWaypointDistance: 0.5
-  playerBounds: 5
+  minDistanceFromPlayer: 4
+  maxDistanceFromPlayer: 6
+  aimTime: 0.5
   wallLayer:
     serializedVersion: 2
     m_Bits: 256

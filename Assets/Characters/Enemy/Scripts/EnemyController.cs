@@ -1,7 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Collections;
+using System.Linq;
 using Pathfinding;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 /// <summary>
@@ -21,8 +23,11 @@ public class EnemyController : MonoBehaviour
     // Distance how close the enemy needs to be to a waypoint until he moves on to the next one.
     public float nextWaypointDistance = 1f;
 
-    // Size of the Bounding Box around the player for target location.
-    public float playerBounds = 5f;
+    // Size of the bounding box around the player where the enemy IS NOT allowed to move.
+    public float minDistanceFromPlayer = 4f;
+
+    // Size of the bounding box around the player where the enemy IS allowed to move.
+    public float maxDistanceFromPlayer = 6f;
 
     // Time in seconds the enemy is aiming at the player before attacking
     public float aimTime = 0.5f;
@@ -105,17 +110,24 @@ public class EnemyController : MonoBehaviour
     /// </summary>
     private void PickNewTargetLocationNearPlayer()
     {
-        // Create bounding box at player position using playerBounds
-        Bounds bounds = new Bounds();
-        bounds.center = _playerTransform.position;
-        bounds.size = new Vector3(playerBounds, playerBounds, 1);
+        // Create big and small bounding boxes at player position using playerBounds
+        Bounds outerBounds = new Bounds();
+        Bounds innerBounds = new Bounds();
+        outerBounds.center = _playerTransform.position;
+        innerBounds.center = _playerTransform.position;
+        outerBounds.size = new Vector3(maxDistanceFromPlayer, maxDistanceFromPlayer, 1);
+        innerBounds.size = new Vector3(minDistanceFromPlayer, minDistanceFromPlayer, 1);
 
-        // Save all nodes near the Player
+        // Save all nodes near the Player in two separate lists
         // TODO: "pool the list" according to 'GetNodesInRegion' summary
-        List<GraphNode> nodesNearPlayer = AstarPath.active.data.gridGraph.GetNodesInRegion(bounds);
+        List<GraphNode> outerNodesNearPlayer = AstarPath.active.data.gridGraph.GetNodesInRegion(outerBounds);
+        List<GraphNode> innerNodesNearPlayer = AstarPath.active.data.gridGraph.GetNodesInRegion(innerBounds);
 
-        // Pick a random node
-        GraphNode randomNode = nodesNearPlayer[Random.Range(0, nodesNearPlayer.Count)];
+        // Remove the inner nodes from the outer nodes list so the enemy doesn't move closer than allowed to the player
+        List<GraphNode> allowedNodes = outerNodesNearPlayer.Except(innerNodesNearPlayer).ToList();
+
+        // Pick a random node from the allowed nodes
+        GraphNode randomNode = allowedNodes[Random.Range(0, allowedNodes.Count)];
 
         // Exit if node isn't walkable
         if (!randomNode.Walkable)
@@ -125,11 +137,10 @@ public class EnemyController : MonoBehaviour
 
         Vector3 nodePosition = (Vector3) randomNode.position;
         Vector3 nodeToPlayer = _playerTransform.position - nodePosition;
-        float distance = nodeToPlayer.magnitude;
 
         // Check if there is a wall between the picked node and the player
         // Only set target location if there isn't a wall in between (the enemy has a clear line of sight)
-        if (!Physics.Raycast(nodePosition, nodeToPlayer, distance, wallLayer))
+        if (!Physics.Raycast(nodePosition, nodeToPlayer, nodeToPlayer.magnitude, wallLayer))
         {
             _targetLocation = nodePosition;
             UpdatePath();
