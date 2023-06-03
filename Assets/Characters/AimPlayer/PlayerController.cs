@@ -8,7 +8,9 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer {
     private PlayerInput _playerInput;
 
     [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float maxHealth = 100f;
     [SerializeField] private Weapon weapon;
+
     private Rigidbody2D _rb;
 
     private Vector2 _mousePosition;
@@ -17,18 +19,22 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer {
     private Vector3 _aimDirection;
     private float _angle;
 
+    private float _currentHealth;
+
     private void Awake() {
         _playerInput = GetComponent<PlayerInput>();
         _rb = GetComponent<Rigidbody2D>();
+
+        ResetHealth();
     }
 
     void FixedUpdate() {
-        _rb.MovePosition(_rb.position + (_movementInput * (moveSpeed * Time.fixedDeltaTime)));
+        _rb.MovePosition(_rb.position + _movementInput * (moveSpeed * UpgradeManager.GetMovementSpeedMultiplier() * Time.fixedDeltaTime));
         UpgradeManager.MovementUpdate(this);
     }
-
+    
     private void OnMove(InputValue value) {
-        _movementInput = value.Get<Vector2>() * UpgradeManager.GetMovementSpeedMultiplier();
+        _movementInput = value.Get<Vector2>();
     }
 
     private void OnFire() {
@@ -49,6 +55,30 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer {
         }
     }
 
+    /// <summary>
+    /// Resets the player's health. The currently active upgrades are taken into account.
+    /// </summary>
+    public void ResetHealth() {
+        _currentHealth = maxHealth * UpgradeManager.GetHealthMultiplier();
+    }
+
+    /// <summary>
+    /// Decreases the player's health by the specified value and checks if the player dies. If so, affecting upgrades are performed and further actions are initiated.
+    /// </summary>
+    /// <param name="damageAmount">Amount of damage the player should take</param>
+    public void TakeDamage(float damageAmount) {
+        _currentHealth -= damageAmount;
+
+        if (_currentHealth <= 0) {
+            UpgradeManager.OnPlayerDeath(this);
+            if (_currentHealth <= 0) {
+                // further actions
+            }
+        }
+    }
+
+    #region Upgrade implementation
+
     public void ExecuteBurst_OnFire() {
         StartCoroutine(BurstCoroutine());
     }
@@ -65,6 +95,8 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer {
     }
 
     public void ExecutePhoenix_OnPlayerDeath() {
-        throw new NotImplementedException();
+        ResetHealth();
     }
+
+    #endregion
 }
