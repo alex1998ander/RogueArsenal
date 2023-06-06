@@ -9,7 +9,9 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer {
 
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private Weapon weapon;
-    private Rigidbody2D _rb;
+
+    private Rigidbody2D _rigidbody;
+    private PlayerHealth _playerHealth;
 
     private Vector2 _mousePosition;
     private Vector2 _movementInput;
@@ -19,16 +21,21 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer {
 
     private void Awake() {
         _playerInput = GetComponent<PlayerInput>();
-        _rb = GetComponent<Rigidbody2D>();
+        _rigidbody = GetComponent<Rigidbody2D>();
+        _playerHealth = GetComponent<PlayerHealth>();
+
+        _playerHealth.ResetHealth();
+
+        UpgradeManager.Init(this);
     }
 
     void FixedUpdate() {
-        _rb.MovePosition(_rb.position + (_movementInput * (moveSpeed * Time.fixedDeltaTime)));
-        UpgradeManager.MovementUpdate(this);
+        _rigidbody.MovePosition(_rigidbody.position + _movementInput * (moveSpeed * UpgradeManager.GetMovementSpeedMultiplier() * Time.fixedDeltaTime));
+        UpgradeManager.PlayerUpdate(this);
     }
 
     private void OnMove(InputValue value) {
-        _movementInput = value.Get<Vector2>() * UpgradeManager.GetMovementSpeedMultiplier();
+        _movementInput = value.Get<Vector2>();
     }
 
     private void OnFire() {
@@ -40,14 +47,15 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer {
         _aimDirection = value.Get<Vector2>();
         if (Vector2.Distance(Vector2.zero, _aimDirection) > 0.5) {
             if (_playerInput.currentControlScheme.Equals("Keyboard&Mouse")) {
-                _aimDirection = (Vector2)Camera.main.ScreenToWorldPoint(_aimDirection) - _rb.position;
+                _aimDirection = (Vector2)Camera.main.ScreenToWorldPoint(_aimDirection) - _rigidbody.position;
             }
 
             _angle = Mathf.Atan2(_aimDirection.y, _aimDirection.x) * Mathf.Rad2Deg - 90;
-            _rb.rotation = _angle;
-            Debug.Log(_angle);
+            _rigidbody.rotation = _angle;
         }
     }
+
+    #region Upgrade implementation
 
     public void ExecuteBurst_OnFire() {
         StartCoroutine(BurstCoroutine());
@@ -65,6 +73,8 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer {
     }
 
     public void ExecutePhoenix_OnPlayerDeath() {
-        throw new NotImplementedException();
+        _playerHealth.ResetHealth();
     }
+
+    #endregion
 }
