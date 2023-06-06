@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class UpgradeHitman : Upgrade {
     public override string Name => "Hitman";
     public override string Description => "Break the sound barrier with bullets that leave enemies in awe and questioning their life choices.";
@@ -31,8 +33,12 @@ public class UpgradeBounce : Upgrade {
     
     public override float BulletDamageMultiplier => 1.25f;
 
-    public override void BulletUpdate(IUpgradableBullet upgradeableBullet) {
-        upgradeableBullet.ExecuteBounce_BulletUpdate();
+    public override void Init(IUpgradeableBullet upgradeableBullet) {
+        upgradeableBullet.InitBounce();
+    }
+
+    public override bool OnBulletImpact(IUpgradeableBullet upgradeableBullet, Collision2D collision) {
+        return upgradeableBullet.ExecuteBounce_OnBulletImpact(collision);
     }
 }
 
@@ -58,8 +64,8 @@ public class UpgradeExplosiveBullet : Upgrade {
     
     public override float AttackSpeedMultiplier => 0.3f;
     
-    public override void OnBulletImpact(IUpgradableBullet upgradeableBullet) {
-        upgradeableBullet.ExecuteExplosiveBullet_OnBulletImpact();
+    public override bool OnBulletImpact(IUpgradeableBullet upgradeableBullet, Collision2D collision) {
+        return upgradeableBullet.ExecuteExplosiveBullet_OnBulletImpact(collision);
     }
 }
 
@@ -81,7 +87,7 @@ public class UpgradeTargetTracer : Upgrade {
     public override float BulletDamageMultiplier => 0.75f;
     public override float AttackSpeedMultiplier => 0.75f;
     
-    public override void BulletUpdate(IUpgradableBullet upgradeableBullet) {
+    public override void BulletUpdate(IUpgradeableBullet upgradeableBullet) {
         upgradeableBullet.ExecuteTargetTracer_BulletUpdate();
     }
 }

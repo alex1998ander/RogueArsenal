@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public static class UpgradeManager {
-    private static readonly Upgrade[] Upgrades = {new UpgradeBurst(), new UpgradeBuckshot(), new(), new(), new()};
+    private static readonly Upgrade[] Upgrades = { new UpgradeBurst(), new UpgradeBounce(), new UpgradeBuckshot(), new(), new() };
     private static byte _currentUpgradeIndex = 0;
 
     /// <summary>
@@ -14,6 +14,10 @@ public static class UpgradeManager {
         Upgrades[_currentUpgradeIndex++] = upgrade;
     }
 
+    /// <summary>
+    /// Calculates the bullet range multiplier of all upgrades.
+    /// </summary>
+    /// <returns>Common bullet range multiplier</returns>
     public static float GetBulletRangeMultiplier() {
         return Upgrades[0].BulletRangeMultiplier *
                Upgrades[1].BulletRangeMultiplier *
@@ -22,6 +26,10 @@ public static class UpgradeManager {
                Upgrades[4].BulletRangeMultiplier;
     }
 
+    /// <summary>
+    /// Calculates the bullet count adjustment of all upgrades.
+    /// </summary>
+    /// <returns>Common bullet count adjustment</returns>
     public static int GetBulletCountAdjustment() {
         return Upgrades[0].BulletCountAdjustment +
                Upgrades[1].BulletCountAdjustment +
@@ -30,6 +38,10 @@ public static class UpgradeManager {
                Upgrades[4].BulletCountAdjustment;
     }
 
+    /// <summary>
+    /// Calculates the bullet damage multiplier of all upgrades.
+    /// </summary>
+    /// <returns>Common bullet damage multiplier</returns>
     public static float GetBulletDamageMultiplier() {
         return Upgrades[0].BulletDamageMultiplier *
                Upgrades[1].BulletDamageMultiplier *
@@ -38,6 +50,10 @@ public static class UpgradeManager {
                Upgrades[4].BulletDamageMultiplier;
     }
 
+    /// <summary>
+    /// Calculates the attack speed multiplier of all upgrades.
+    /// </summary>
+    /// <returns>Common attack speed multiplier</returns>
     public static float GetAttackSpeedMultiplier() {
         return Upgrades[0].AttackSpeedMultiplier *
                Upgrades[1].AttackSpeedMultiplier *
@@ -46,6 +62,10 @@ public static class UpgradeManager {
                Upgrades[4].AttackSpeedMultiplier;
     }
 
+    /// <summary>
+    /// Calculates the health multiplier of all upgrades.
+    /// </summary>
+    /// <returns>Common health multiplier</returns>
     public static float GetHealthMultiplier() {
         return Upgrades[0].HealthMultiplier *
                Upgrades[1].HealthMultiplier *
@@ -54,6 +74,10 @@ public static class UpgradeManager {
                Upgrades[4].HealthMultiplier;
     }
 
+    /// <summary>
+    /// Calculates the movement speed multiplier of all upgrades.
+    /// </summary>
+    /// <returns>Common movement speed multiplier</returns>
     public static float GetMovementSpeedMultiplier() {
         return Upgrades[0].MovementSpeedMultiplier *
                Upgrades[1].MovementSpeedMultiplier *
@@ -62,6 +86,34 @@ public static class UpgradeManager {
                Upgrades[4].MovementSpeedMultiplier;
     }
 
+    /// <summary>
+    /// Executes the player initialization functions of all assigned upgrades
+    /// </summary>
+    /// <param name="upgradeablePlayer">Player reference</param>
+    public static void Init(IUpgradeablePlayer upgradeablePlayer) {
+        Upgrades[0].Init(upgradeablePlayer);
+        Upgrades[1].Init(upgradeablePlayer);
+        Upgrades[2].Init(upgradeablePlayer);
+        Upgrades[3].Init(upgradeablePlayer);
+        Upgrades[4].Init(upgradeablePlayer);
+    }
+
+    /// <summary>
+    /// Executes the bullet initialization functions of all assigned upgrades
+    /// </summary>
+    /// <param name="upgradeableBullet">Bullet reference</param>
+    public static void Init(IUpgradeableBullet upgradeableBullet) {
+        Upgrades[0].Init(upgradeableBullet);
+        Upgrades[1].Init(upgradeableBullet);
+        Upgrades[2].Init(upgradeableBullet);
+        Upgrades[3].Init(upgradeableBullet);
+        Upgrades[4].Init(upgradeableBullet);
+    }
+
+    /// <summary>
+    /// Executes the functionalities of all assigned upgrades when the player fires
+    /// </summary>
+    /// <param name="upgradeablePlayer">Player reference</param>
     public static void OnFire(IUpgradeablePlayer upgradeablePlayer) {
         Upgrades[0].OnFire(upgradeablePlayer);
         Upgrades[1].OnFire(upgradeablePlayer);
@@ -70,6 +122,10 @@ public static class UpgradeManager {
         Upgrades[4].OnFire(upgradeablePlayer);
     }
 
+    /// <summary>
+    /// Executes the functionalities of all assigned upgrades when the player blocks
+    /// </summary>
+    /// <param name="upgradeablePlayer">Player reference</param>
     public static void OnBlock(IUpgradeablePlayer upgradeablePlayer) {
         Upgrades[0].OnBlock(upgradeablePlayer);
         Upgrades[1].OnBlock(upgradeablePlayer);
@@ -78,7 +134,11 @@ public static class UpgradeManager {
         Upgrades[4].OnBlock(upgradeablePlayer);
     }
 
-    public static void BulletUpdate(IUpgradableBullet upgradeableBullet) {
+    /// <summary>
+    /// Executes the functionalities of all assigned upgrades every frame while the bullet is flying
+    /// </summary>
+    /// <param name="upgradeableBullet">Bullet reference</param>
+    public static void BulletUpdate(IUpgradeableBullet upgradeableBullet) {
         Upgrades[0].BulletUpdate(upgradeableBullet);
         Upgrades[1].BulletUpdate(upgradeableBullet);
         Upgrades[2].BulletUpdate(upgradeableBullet);
@@ -86,7 +146,11 @@ public static class UpgradeManager {
         Upgrades[4].BulletUpdate(upgradeableBullet);
     }
 
-    public static void MovementUpdate(IUpgradeablePlayer upgradeablePlayer) {
+    /// <summary>
+    /// Executes the functionalities of all assigned upgrades for the player every frame 
+    /// </summary>
+    /// <param name="upgradeablePlayer">Player reference</param>
+    public static void PlayerUpdate(IUpgradeablePlayer upgradeablePlayer) {
         Upgrades[0].PlayerUpdate(upgradeablePlayer);
         Upgrades[1].PlayerUpdate(upgradeablePlayer);
         Upgrades[2].PlayerUpdate(upgradeablePlayer);
@@ -94,14 +158,25 @@ public static class UpgradeManager {
         Upgrades[4].PlayerUpdate(upgradeablePlayer);
     }
 
-    public static void OnBulletImpact(IUpgradableBullet upgradeableBullet) {
-        Upgrades[0].OnBulletImpact(upgradeableBullet);
-        Upgrades[1].OnBulletImpact(upgradeableBullet);
-        Upgrades[2].OnBulletImpact(upgradeableBullet);
-        Upgrades[3].OnBulletImpact(upgradeableBullet);
-        Upgrades[4].OnBulletImpact(upgradeableBullet);
+    /// <summary>
+    /// Executes the functionalities of all assigned upgrades when the bullet hits something
+    /// </summary>
+    /// <param name="upgradeableBullet">Bullet reference</param>
+    /// <param name="collision">Collision information</param>
+    /// <returns>Bool, whether the bullet should be destroyed afterwards</returns>
+    public static bool OnBulletImpact(IUpgradeableBullet upgradeableBullet, Collision2D collision) {
+        // binary unconditional logical OR ('|' not '||') needed to evaluate every operand (no short-circuiting)
+        return Upgrades[0].OnBulletImpact(upgradeableBullet, collision) |
+               Upgrades[1].OnBulletImpact(upgradeableBullet, collision) |
+               Upgrades[2].OnBulletImpact(upgradeableBullet, collision) |
+               Upgrades[3].OnBulletImpact(upgradeableBullet, collision) |
+               Upgrades[4].OnBulletImpact(upgradeableBullet, collision);
     }
 
+    /// <summary>
+    /// Executes the functionalities of all assigned upgrades when the player dies
+    /// </summary>
+    /// <param name="upgradeablePlayer">Player reference</param>
     public static void OnPlayerDeath(IUpgradeablePlayer upgradeablePlayer) {
         Upgrades[0].OnPlayerDeath(upgradeablePlayer);
         Upgrades[1].OnPlayerDeath(upgradeablePlayer);

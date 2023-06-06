@@ -31,7 +31,7 @@ public class Event<T> {
     }
 
     public void Unsubscribe(Action<T> func) {
-        Action += func;
+        Action -= func;
     }
     
 }
