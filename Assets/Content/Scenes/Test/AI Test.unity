@@ -904,7 +904,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3840289595821779532, guid: bc26a143b63ff9447bdfab64a6b708b8, type: 3}
       propertyPath: m_Name
-      value: AimPlayer
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc26a143b63ff9447bdfab64a6b708b8, type: 3}

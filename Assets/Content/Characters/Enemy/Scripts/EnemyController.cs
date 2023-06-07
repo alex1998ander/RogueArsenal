@@ -61,7 +61,7 @@ public class EnemyController : MonoBehaviour
 
     private void Start()
     {
-        _playerTransform = GameObject.Find("AimPlayer").GetComponent<Transform>();
+        _playerTransform = GameObject.Find("Player").GetComponent<Transform>();
         _seeker = GetComponent<Seeker>();
         _rb = GetComponent<Rigidbody2D>();
         _weapon = GetComponentInChildren<Weapon>();
