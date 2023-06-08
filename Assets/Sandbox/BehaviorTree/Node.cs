@@ -63,6 +63,22 @@ namespace BehaviorTree
         public virtual NodeState Evaluate() => NodeState.FAILURE;
 
         /// <summary>
+        /// Sets a key-value-pair in the root node of the tree.
+        /// </summary>
+        /// <param name="key">Key of new value.</param>
+        /// <param name="value">New value.</param>
+        public void SetDataInRoot(string key, object value)
+        {
+            Node node = this;
+            while (node.parent != null)
+            {
+                node = node.parent;
+            }
+
+            node.SetData(key, value);
+        }
+
+        /// <summary>
         /// Sets a key-value-pair of the shared data.
         /// </summary>
         /// <param name="key">Key of new value.</param>

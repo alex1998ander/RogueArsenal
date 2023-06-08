@@ -42,7 +42,7 @@ public class TaskPatrol : Node
             else
             {
                 _transform.position =
-                    Vector3.MoveTowards(_transform.position, wp.position, EnemyBT.speed * Time.fixedDeltaTime);
+                    Vector3.MoveTowards(_transform.position, wp.position, 1f * Time.fixedDeltaTime);
                 _transform.LookAt(wp.position);
             }
         }
