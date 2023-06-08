@@ -6,7 +6,7 @@ using BehaviorTree;
 /// <summary>
 /// Tasks which lets the enemy aim at the player.
 /// </summary>
-public class TaskAimAtPlayer : Node
+public class TaskLookAtPlayer : Node
 {
     // Rigidbody of the enemy
     private Rigidbody2D _rb;
@@ -14,10 +14,8 @@ public class TaskAimAtPlayer : Node
     // Transform of the player
     private Transform _playerTransform;
 
-    private float _aimTime = 0.5f;
-    private float _aimCounter = 0f;
 
-    public TaskAimAtPlayer(Rigidbody2D rb, Transform playerTransform) : base()
+    public TaskLookAtPlayer(Rigidbody2D rb, Transform playerTransform) : base()
     {
         _rb = rb;
         _playerTransform = playerTransform;
@@ -35,15 +33,7 @@ public class TaskAimAtPlayer : Node
             _rb.rotation = angle;
         }
 
-        _aimCounter += Time.fixedDeltaTime;
-        if (_aimCounter >= _aimTime)
-        {
-            _aimCounter = 0f;
-            state = NodeState.SUCCESS;
-            return state;
-        }
-
-        state = NodeState.FAILURE;
+        state = NodeState.SUCCESS;
         return state;
     }
 }

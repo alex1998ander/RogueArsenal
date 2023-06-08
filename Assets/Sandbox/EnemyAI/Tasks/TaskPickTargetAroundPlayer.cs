@@ -35,15 +35,18 @@ public class TaskPickTargetAroundPlayer : Node
         // Remove the inner nodes from the outer nodes list so the enemy doesn't move closer than allowed to the player
         List<GraphNode> allowedNodes = outerNodesNearPlayer.Except(innerNodesNearPlayer).ToList();
 
+        // Remove all nodes that aren't walkable
+        allowedNodes.RemoveAll(node => !node.Walkable);
+
         // Pick a random node from the allowed nodes
         GraphNode randomNode = allowedNodes[Random.Range(0, allowedNodes.Count)];
 
-        // Exit if node isn't walkable
-        if (!randomNode.Walkable)
-        {
-            return NodeState.FAILURE;
-        }
+        // Save position of the random node in the shared context
+        SetDataInRoot("target", (Vector3) randomNode.position);
 
-        return NodeState.SUCCESS;
+        // TODO: If no random node found, state = failure, do something else
+
+        state = NodeState.SUCCESS;
+        return state;
     }
 }
