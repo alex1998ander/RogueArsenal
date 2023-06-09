@@ -9,6 +9,8 @@ public class Weapon : MonoBehaviour
 
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firePoint;
+    
+    [SerializeField] private bool playerIsHolder;
 
     [SerializeField] private float fireForce = 20f;
 
@@ -20,7 +22,7 @@ public class Weapon : MonoBehaviour
         {
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             //TODO: Correct parameters 
-            bullet.GetComponent<Bullet>().Init(0, transform.parent.gameObject);
+            bullet.GetComponent<Bullet>().Init(34.0f * UpgradeManager.GetBulletDamageMultiplier(), transform.parent.gameObject, playerIsHolder);
             bullet.GetComponent<Rigidbody2D>().velocity =
                 (Vector2) (Quaternion.Euler(0, 0, (i - (bulletCount - 1) / 2.0f) * DefaultBulletSpreadAngle) *
                            firePoint.up) * fireForce;

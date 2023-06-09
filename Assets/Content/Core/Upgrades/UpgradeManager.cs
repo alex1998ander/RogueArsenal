@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public static class UpgradeManager {
-    private static readonly Upgrade[] Upgrades = { new UpgradeBurst(), new UpgradeBounce(), new UpgradeBuckshot(), new(), new() };
+    private static readonly Upgrade[] Upgrades = { new UpgradeHitman(), new(), new(), new(), new() };
     private static byte _currentUpgradeIndex = 0;
 
     /// <summary>
@@ -163,7 +163,7 @@ public static class UpgradeManager {
     /// </summary>
     /// <param name="upgradeableBullet">Bullet reference</param>
     /// <param name="collision">Collision information</param>
-    /// <returns>Bool, whether the bullet should be destroyed afterwards</returns>
+    /// <returns>Bool, whether the bullet should NOT be destroyed afterwards</returns>
     public static bool OnBulletImpact(IUpgradeableBullet upgradeableBullet, Collision2D collision) {
         // binary unconditional logical OR ('|' not '||') needed to evaluate every operand (no short-circuiting)
         return Upgrades[0].OnBulletImpact(upgradeableBullet, collision) |

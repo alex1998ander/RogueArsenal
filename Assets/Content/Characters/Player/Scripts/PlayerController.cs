@@ -4,14 +4,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour, IUpgradeablePlayer {
+public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterController {
     private PlayerInput _playerInput;
 
     [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float defaultFireDelay= 0.2f;
     [SerializeField] private Weapon weapon;
 
     private Rigidbody2D _rigidbody;
     private PlayerHealth _playerHealth;
+
+    private float _nextShot = 0.0f;
 
     private Vector2 _mousePosition;
     private Vector2 _movementInput;
@@ -39,8 +42,13 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer {
     }
 
     private void OnFire() {
-        weapon.Fire();
-        UpgradeManager.OnFire(this);
+        if (Time.time > _nextShot)
+        {
+            weapon.Fire();
+            UpgradeManager.OnFire(this);
+
+            _nextShot = Time.time + defaultFireDelay * (1 / UpgradeManager.GetAttackSpeedMultiplier());
+        }
     }
 
     private void OnAim(InputValue value) {

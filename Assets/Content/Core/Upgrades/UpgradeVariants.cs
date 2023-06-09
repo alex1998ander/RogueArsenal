@@ -12,6 +12,7 @@ public class UpgradeBuckshot : Upgrade {
     public override string Name => "Buckshot";
     public override string Description => "Unleash a shotgun-inspired impact that scatters enemies like confetti.";
 
+    public override float BulletRangeMultiplier => 0.5f;
     public override int BulletCountAdjustment => 4;
     public override float BulletDamageMultiplier => 0.4f;
 }

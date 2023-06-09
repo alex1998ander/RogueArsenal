@@ -9,13 +9,10 @@ using Random = UnityEngine.Random;
 /// <summary>
 /// Controls enemy behaviour.
 /// </summary>
-public class EnemyController : MonoBehaviour
+public class EnemyController : MonoBehaviour,  ICharacterController
 {
     // Walking speed.
     public float speed = 200f;
-
-    // HP of enemy.
-    public int hitPoints;
 
     // How many times a second the enemy path is updated.
     public float pathUpdateRate = 0.5f;
@@ -246,20 +243,21 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// When enemy collides with other object, check if it's a player bullet.
-    /// If so, reduce HP.
-    /// </summary>
-    /// <param name="other">collision info</param>
-    public void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("PlayerBullet"))
-        {
-            hitPoints--;
-            if (hitPoints <= 0)
-            {
-                Destroy(gameObject);
-            }
-        }
-    }
+    //TODO: Delete
+    // /// <summary>
+    // /// When enemy collides with other object, check if it's a player bullet.
+    // /// If so, reduce HP.
+    // /// </summary>
+    // /// <param name="other">collision info</param>
+    // public void OnCollisionEnter2D(Collision2D other)
+    // {
+    //     if (other.gameObject.CompareTag("PlayerBullet"))
+    //     {
+    //         hitPoints--;
+    //         if (hitPoints <= 0)
+    //         {
+    //             Destroy(gameObject);
+    //         }
+    //     }
+    // }
 }

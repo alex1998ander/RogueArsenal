@@ -52,9 +52,9 @@ public class Upgrade {
     /// </summary>
     /// <param name="upgradeableBullet">Bullet reference</param>
     /// <param name="collision">Collision information</param>
-    /// <returns>Bool, whether the bullet should be destroyed afterwards</returns>
+    /// <returns>Bool, whether the bullet should NOT be destroyed afterwards</returns>
     public virtual bool OnBulletImpact(IUpgradeableBullet upgradeableBullet, Collision2D collision) {
-        return true;
+        return false;
     }
 
     /// <summary>
