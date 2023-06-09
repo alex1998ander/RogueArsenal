@@ -37,6 +37,11 @@ namespace BehaviorTree
             parent = null;
         }
 
+        public Node(Node child)
+        {
+            _Attach(child);
+        }
+
         public Node(List<Node> children)
         {
             foreach (Node child in children)

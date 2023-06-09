@@ -27,33 +27,48 @@ public class FollowingEnemyBT : BTree
         Weapon weapon = GetComponentInChildren<Weapon>();
         Seeker seeker = GetComponent<Seeker>();
 
-        Node root = new Sequence(new List<Node>()
+        Node root = new Selector(new List<Node>()
         {
-            // Check first if target has been defined
-            // If not, pick a new target around the player
-            new Selector(new List<Node>()
+            // Attack the target
+            new Sequence(new List<Node>()
             {
-                new CheckTargetIsDefined(),
-                new TaskPickTargetAroundPlayer(playerTransform)
-            }),
-            // Check if enemy is at target
-            // If not, continue moving towards it
-            new Selector(new List<Node>()
-            {
+                // Is enemy at target?
                 new CheckIsAtTarget(rb),
-                new TaskMoveToTarget(rb, seeker)
+                // if so: Either check if the player is NOT visible from its location
+                // If it's not, clear the target
+                new Selector(new List<Node>()
+                {
+                    new CheckPlayerVisible(rb, playerTransform, wallLayer),
+                    // Invert because if we get here, we want the selector to return a failure state
+                    // so the sequence can quit
+                    new Inverter(new TaskClearTarget()),
+                }),
+
+                // Else, aim at the player and shoot
+                new TaskLookAtPlayer(rb, playerTransform),
+                new TaskAim(),
+                new TaskAttackPlayer(weapon),
+                new TaskClearTarget(),
             }),
-            new TaskLookAtMovementDirection(rb), // Look at movement direction
-            new CheckPlayerVisible(rb, playerTransform,
-                wallLayer), // Check if player is visible after target was reached
-            new CheckIsAtTarget(rb), // TODO: Secondary CheckIsAtTarget kinda sucks
-            new TaskLookAtPlayer(rb, playerTransform), // Look towards the player
-            new TaskAim(), // Aim at the player
-            new TaskAttackPlayer(weapon), // Attack the player
-            new TaskClearTarget() // Clear target so a new one is picked
+            // Move to target
+            new Sequence(new List<Node>()
+            {
+                // Only move the enemy if he isn't currently aiming
+                new Inverter(new CheckIsAiming()),
+                // Check first if target has been defined
+                // If not, pick a new target around the player
+                new Selector(new List<Node>()
+                {
+                    new CheckTargetIsDefined(),
+                    new TaskPickTargetAroundPlayer(playerTransform),
+                }),
+                new TaskMoveToTarget(rb, seeker),
+                new TaskLookAtMovementDirection(rb), // Look at movement direction
+            }),
         });
-        
+
         root.SetData("targetReached", false);
+        root.SetData("isAiming", false);
 
         return root;
     }

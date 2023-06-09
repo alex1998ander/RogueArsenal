@@ -1,12 +1,17 @@
-using BehaviorTree;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using BehaviorTree;
 
-public class CheckTargetIsDefined : Node
+public class CheckIsAiming : Node
 {
+    public CheckIsAiming() : base()
+    {
+    }
+
     public override NodeState Evaluate()
     {
-        object t = GetData("target");
-        if (t != null)
+        if ((bool) GetData("isAiming"))
         {
             state = NodeState.SUCCESS;
         }

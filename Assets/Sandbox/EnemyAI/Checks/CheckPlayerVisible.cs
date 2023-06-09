@@ -26,10 +26,6 @@ public class CheckPlayerVisible : Node
             return state;
         }
 
-        // Clear the target since the enemy has to find a new position now
-        ClearData("target");
-        SetDataInRoot("targetReached", false);
-
         state = NodeState.FAILURE;
         return state;
     }

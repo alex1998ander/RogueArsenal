@@ -30,6 +30,8 @@ public class TaskMoveToTarget : Node
         {
             _target = (Vector3) GetData("target");
             _targetSaved = true;
+            _seeker.StartPath(_rb.position, _target, OnPathComplete);
+            Debug.Log("target set");
         }
 
         // Updates the path from the enemy position to the target
@@ -48,6 +50,7 @@ public class TaskMoveToTarget : Node
             {
                 SetDataInRoot("targetReached", true);
                 _targetSaved = false;
+                _path = null;
                 state = NodeState.SUCCESS;
                 return state;
             }

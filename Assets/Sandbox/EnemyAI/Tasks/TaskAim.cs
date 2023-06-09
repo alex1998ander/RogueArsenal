@@ -13,12 +13,16 @@ public class TaskAim : Node
         _aimCounter += Time.fixedDeltaTime;
         if (_aimCounter >= _aimTime)
         {
+            SetDataInRoot("isAiming", false);
             _aimCounter = 0f;
             state = NodeState.SUCCESS;
+            Debug.Log("state: " + state);
             return state;
         }
 
+        SetDataInRoot("isAiming", true);
         state = NodeState.FAILURE;
+        
         return state;
     }
 }
