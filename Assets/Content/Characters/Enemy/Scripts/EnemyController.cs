@@ -51,7 +51,7 @@ public class EnemyController : MonoBehaviour,  ICharacterController
     private Rigidbody2D _rb;
 
     // Weapon of the enemy.
-    private Weapon _weapon;
+    private EnemyWeapon _enemyWeapon;
 
     // Current state of the enemy.
     private EnemyState _state = EnemyState.SEARCHING;
@@ -61,7 +61,7 @@ public class EnemyController : MonoBehaviour,  ICharacterController
         _playerTransform = GameObject.Find("Player").GetComponent<Transform>();
         _seeker = GetComponent<Seeker>();
         _rb = GetComponent<Rigidbody2D>();
-        _weapon = GetComponentInChildren<Weapon>();
+        _enemyWeapon = GetComponentInChildren<EnemyWeapon>();
 
         // update the path every 'pathUpdateRate' seconds (default 0.5)
         InvokeRepeating(nameof(UpdatePath), 0f, pathUpdateRate);
@@ -201,7 +201,7 @@ public class EnemyController : MonoBehaviour,  ICharacterController
     /// </summary>
     private void AttackPlayer()
     {
-        _weapon.Fire();
+        _enemyWeapon.Fire();
         _state = EnemyState.SEARCHING;
     }
 

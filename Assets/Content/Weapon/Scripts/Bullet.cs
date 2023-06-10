@@ -6,7 +6,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour, IUpgradeableBullet
 {
     [SerializeField] private PhysicsMaterial2D bulletBouncePhysicsMaterial;
-    [SerializeField] private int maxBounces = 3;
+    [SerializeField] private int maxBounces = 2;
     [SerializeField] private float defaultLifetime = 0.5f;
 
     private float _assignedDamage;
@@ -75,6 +75,14 @@ public class Bullet : MonoBehaviour, IUpgradeableBullet
         _assignedDamage = assignedDamage;
         _sourceCharacter = sourceCharacter;
         _playerBullet = playerBullet;
+        if (playerBullet)
+        {
+            gameObject.layer = LayerMask.NameToLayer("PlayerBullets");
+        }
+        else
+        {
+            gameObject.layer = LayerMask.NameToLayer("EnemyBullets");
+        }
     }
 
     public void InitBounce()

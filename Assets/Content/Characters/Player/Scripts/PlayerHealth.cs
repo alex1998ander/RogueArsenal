@@ -36,6 +36,7 @@ public class PlayerHealth : MonoBehaviour
             if (_currentHealth <= 0)
             {
                 EventManager.OnPlayerDeath.Trigger();
+                Destroy(gameObject);
             }
         }
     }

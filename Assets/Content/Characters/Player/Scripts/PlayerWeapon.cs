@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Weapon : MonoBehaviour
+public class PlayerWeapon : MonoBehaviour
 {
     private const int DefaultBulletCount = 1;
     private const float DefaultBulletSpreadAngle = 2f;
 
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firePoint;
-    
-    [SerializeField] private bool playerIsHolder;
 
     [SerializeField] private float fireForce = 20f;
+    [SerializeField] private float defaultDamage = 35f;
 
     public void Fire()
     {
@@ -21,8 +20,7 @@ public class Weapon : MonoBehaviour
         for (int i = 0; i < bulletCount; i++)
         {
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-            //TODO: Correct parameters 
-            bullet.GetComponent<Bullet>().Init(34.0f * UpgradeManager.GetBulletDamageMultiplier(), transform.parent.gameObject, playerIsHolder);
+            bullet.GetComponent<Bullet>().Init(defaultDamage * UpgradeManager.GetBulletDamageMultiplier(), transform.parent.gameObject, true);
             bullet.GetComponent<Rigidbody2D>().velocity =
                 (Vector2) (Quaternion.Euler(0, 0, (i - (bulletCount - 1) / 2.0f) * DefaultBulletSpreadAngle) *
                            firePoint.up) * fireForce;

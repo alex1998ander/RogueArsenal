@@ -100,7 +100,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 1845687642861211236, guid: ccca05043d315cd4599f956c6a2b6ae8, type: 3}
   firePoint: {fileID: 3840289595281950065}
-  playerIsHolder: 1
   fireForce: 20
 --- !u!1 &3840289595281950064
 GameObject:
@@ -249,7 +248,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  weapon: {fileID: 3840289594856838949}
+  defaultFireDelay: 0.2
+  playerWeapon: {fileID: 3840289594856838949}
 --- !u!58 &3840289595821779531
 CircleCollider2D:
   m_ObjectHideFlags: 0

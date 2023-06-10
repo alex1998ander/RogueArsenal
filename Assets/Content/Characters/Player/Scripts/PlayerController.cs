@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterController {
+public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterController
+{
     private PlayerInput _playerInput;
 
     [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private float defaultFireDelay= 0.2f;
-    [SerializeField] private Weapon weapon;
+    [SerializeField] private float defaultFireDelay = 0.4f;
+    [SerializeField] private PlayerWeapon playerWeapon;
 
     private Rigidbody2D _rigidbody;
     private PlayerHealth _playerHealth;
@@ -22,7 +23,10 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
     private Vector3 _aimDirection;
     private float _angle;
 
-    private void Awake() {
+    private bool _phoenixed = false;
+
+    private void Awake()
+    {
         _playerInput = GetComponent<PlayerInput>();
         _rigidbody = GetComponent<Rigidbody2D>();
         _playerHealth = GetComponent<PlayerHealth>();
@@ -32,29 +36,35 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
         UpgradeManager.Init(this);
     }
 
-    void FixedUpdate() {
+    void FixedUpdate()
+    {
         _rigidbody.MovePosition(_rigidbody.position + _movementInput * (moveSpeed * UpgradeManager.GetMovementSpeedMultiplier() * Time.fixedDeltaTime));
         UpgradeManager.PlayerUpdate(this);
     }
 
-    private void OnMove(InputValue value) {
+    private void OnMove(InputValue value)
+    {
         _movementInput = value.Get<Vector2>();
     }
 
-    private void OnFire() {
+    private void OnFire()
+    {
         if (Time.time > _nextShot)
         {
-            weapon.Fire();
+            playerWeapon.Fire();
             UpgradeManager.OnFire(this);
 
-            _nextShot = Time.time + defaultFireDelay * (1 / UpgradeManager.GetAttackSpeedMultiplier());
+            _nextShot = Time.time + defaultFireDelay * UpgradeManager.GetAttackDelayMultiplier();
         }
     }
 
-    private void OnAim(InputValue value) {
+    private void OnAim(InputValue value)
+    {
         _aimDirection = value.Get<Vector2>();
-        if (Vector2.Distance(Vector2.zero, _aimDirection) > 0.5) {
-            if (_playerInput.currentControlScheme.Equals("Keyboard&Mouse")) {
+        if (Vector2.Distance(Vector2.zero, _aimDirection) > 0.5)
+        {
+            if (_playerInput.currentControlScheme.Equals("Keyboard&Mouse"))
+            {
                 _aimDirection = (Vector2)Camera.main.ScreenToWorldPoint(_aimDirection) - _rigidbody.position;
             }
 
@@ -65,23 +75,32 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
 
     #region Upgrade implementation
 
-    public void ExecuteBurst_OnFire() {
+    public void ExecuteBurst_OnFire()
+    {
         StartCoroutine(BurstCoroutine());
     }
 
-    private IEnumerator BurstCoroutine() {
+    private IEnumerator BurstCoroutine()
+    {
         yield return new WaitForSeconds(0.2f);
-        weapon.Fire();
+        playerWeapon.Fire();
         yield return new WaitForSeconds(0.2f);
-        weapon.Fire();
+        playerWeapon.Fire();
     }
 
-    public void ExecuteHealingField_OnBlock() {
+    public void ExecuteHealingField_OnBlock()
+    {
         throw new NotImplementedException();
     }
 
-    public void ExecutePhoenix_OnPlayerDeath() {
-        _playerHealth.ResetHealth();
+    public void ExecutePhoenix_OnPlayerDeath()
+    {
+        if (!_phoenixed)
+        {
+            Debug.Log("The player has died, but he rises from the ashes with the power of a phoenix");
+            _playerHealth.ResetHealth();
+            _phoenixed = true;
+        }
     }
 
     #endregion
