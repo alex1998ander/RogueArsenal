@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour, IUpgradeableBullet
+public class PlayerBullet : MonoBehaviour, IUpgradeableBullet
 {
     [SerializeField] private PhysicsMaterial2D bulletBouncePhysicsMaterial;
     [SerializeField] private int maxBounces = 2;
@@ -11,7 +11,6 @@ public class Bullet : MonoBehaviour, IUpgradeableBullet
 
     private float _assignedDamage;
     private GameObject _sourceCharacter;
-    private bool _playerBullet;
 
     private bool _currentlyColliding = false;
     private int _bouncesLeft;
@@ -20,7 +19,7 @@ public class Bullet : MonoBehaviour, IUpgradeableBullet
     {
         _bouncesLeft = maxBounces;
         UpgradeManager.Init(this);
-        Destroy(gameObject,defaultLifetime * UpgradeManager.GetBulletRangeMultiplier());
+        Destroy(gameObject, defaultLifetime * UpgradeManager.GetBulletRangeMultiplier());
     }
 
     private void FixedUpdate()
@@ -35,25 +34,15 @@ public class Bullet : MonoBehaviour, IUpgradeableBullet
             Destroy(gameObject);
         }
 
-        //TODO: tag enemy
         // Enemy hit
         if (other.gameObject.CompareTag("Enemy"))
         {
             other.gameObject.GetComponent<EnemyHealth>().InflictDamage(_assignedDamage);
         }
-        // Player hit
+        // Player hits themself
         else if (other.gameObject.CompareTag("Player"))
         {
-            if (_playerBullet)
-            {
-                // Player hits themself
-                other.gameObject.GetComponent<PlayerHealth>().InflictDamage(_assignedDamage, _sourceCharacter.GetComponent<PlayerController>());
-            }
-            else
-            {
-                // Player hits enemy
-                other.gameObject.GetComponent<PlayerHealth>().InflictDamage(_assignedDamage, _sourceCharacter.GetComponent<EnemyController>());
-            }
+            other.gameObject.GetComponent<PlayerHealth>().InflictDamage(_assignedDamage, _sourceCharacter.GetComponent<PlayerController>());
         }
 
         _currentlyColliding = true;
@@ -69,20 +58,10 @@ public class Bullet : MonoBehaviour, IUpgradeableBullet
     /// </summary>
     /// <param name="assignedDamage">Amount of damage caused by this bullet.</param>
     /// <param name="sourceCharacter">Reference of the character who shot this bullet.</param>
-    /// <param name="playerBullet">Indicates whether the bullet was shot from the player or from the enemy.</param>
-    public void Init(float assignedDamage, GameObject sourceCharacter, bool playerBullet)
+    public void Init(float assignedDamage, GameObject sourceCharacter)
     {
         _assignedDamage = assignedDamage;
         _sourceCharacter = sourceCharacter;
-        _playerBullet = playerBullet;
-        if (playerBullet)
-        {
-            gameObject.layer = LayerMask.NameToLayer("PlayerBullets");
-        }
-        else
-        {
-            gameObject.layer = LayerMask.NameToLayer("EnemyBullets");
-        }
     }
 
     public void InitBounce()
@@ -97,7 +76,7 @@ public class Bullet : MonoBehaviour, IUpgradeableBullet
 
     public bool ExecuteBounce_OnBulletImpact(Collision2D collision)
     {
-        if (_bouncesLeft > 0)
+        if (_bouncesLeft > 0 && !collision.gameObject.CompareTag("Enemy"))
         {
             _bouncesLeft--;
             return true;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyWeapon : MonoBehaviour
 {
-    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private GameObject enemyBulletPrefab;
     [SerializeField] private Transform firePoint;
 
     [SerializeField] private float fireForce = 20f;
@@ -12,8 +12,8 @@ public class EnemyWeapon : MonoBehaviour
 
     public void Fire()
     {
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        bullet.GetComponent<Bullet>().Init(defaultDamage, transform.parent.gameObject, false);
+        GameObject bullet = Instantiate(enemyBulletPrefab, firePoint.position, firePoint.rotation);
+        bullet.GetComponent<EnemyBullet>().Init(defaultDamage, transform.parent.gameObject);
         bullet.GetComponent<Rigidbody2D>().velocity = firePoint.up * fireForce;
     }
 }
