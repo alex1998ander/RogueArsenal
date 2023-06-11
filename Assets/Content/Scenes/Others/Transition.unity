@@ -548,7 +548,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc1c8ffa04bd5b34a90b388b2ce52c74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeDescription: []
+  upgradeDescription:
+  - {fileID: 1942876714}
+  - {fileID: 759342530}
+  - {fileID: 1524318143}
 --- !u!114 &534843588
 MonoBehaviour:
   m_ObjectHideFlags: 0
