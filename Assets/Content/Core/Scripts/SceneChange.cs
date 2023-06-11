@@ -9,16 +9,26 @@ public class SceneChange : MonoBehaviour
 {
     //Counter for amount of upgrades needed for scene change
     private int _chosenUpgradeCount = 0;
-    
+    private int _maxSceneCount = 0;
+
+    private static int lastScene = -1;
+    private static int preLastScene = -2;
+
+    private void Start()
+    {
+        _maxSceneCount = SceneManager.sceneCountInBuildSettings - 1;
+    }
+
     /// <summary>
     /// Loading card choosing scene.
     /// </summary>
     /// <param name="other">Object that hit the trigger box</param>
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("Hello");
         if (other.CompareTag("Player"))
         {
-            SceneManager.LoadScene(3); 
+            SceneManager.LoadScene(0); 
         }
     }
 
@@ -31,7 +41,28 @@ public class SceneChange : MonoBehaviour
     {
         if (_chosenUpgradeCount == 2)
         {
-            int nextScene = Random.Range(0, 2);
+            int nextScene = Random.Range(1, _maxSceneCount);
+            Debug.Log("Found Scene: " + nextScene);
+            if (nextScene == lastScene)
+            {
+                if (preLastScene > lastScene)
+                {
+                    nextScene--;
+                }
+                else
+                {
+                    nextScene++;
+                }
+            }
+
+            nextScene %= (_maxSceneCount + 1);
+            if (nextScene == 0)
+            {
+                nextScene++;
+            }
+            preLastScene = lastScene;
+            lastScene = nextScene;
+            Debug.Log("Load Scene: " + nextScene);
             SceneManager.LoadScene(nextScene);
         }
         else _chosenUpgradeCount++;
