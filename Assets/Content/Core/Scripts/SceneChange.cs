@@ -7,7 +7,8 @@ using Random = UnityEngine.Random;
 
 public class SceneChange : MonoBehaviour
 {
-    private int _choosenUpgradeCount = 0;
+    //Counter for amount of upgrades needed for scene change
+    private int _chosenUpgradeCount = 0;
     
     /// <summary>
     /// Loading card choosing scene.
@@ -15,8 +16,10 @@ public class SceneChange : MonoBehaviour
     /// <param name="other">Object that hit the trigger box</param>
     private void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene(3);
-        
+        if (other.CompareTag("Player"))
+        {
+            SceneManager.LoadScene(3); 
+        }
     }
 
     /// <summary>
@@ -26,12 +29,12 @@ public class SceneChange : MonoBehaviour
     /// </summary>
     public void ChangeToLevel()
     {
-        if (_choosenUpgradeCount == 2)
+        if (_chosenUpgradeCount == 2)
         {
             int nextScene = Random.Range(0, 2);
             SceneManager.LoadScene(nextScene);
         }
-        else _choosenUpgradeCount++;
+        else _chosenUpgradeCount++;
 
     }
 }
