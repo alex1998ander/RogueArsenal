@@ -11,6 +11,7 @@ public class TaskMoveToTarget : Node
     private Seeker _seeker;
 
     private Vector3 _target;
+    private Vector3 _oldTarget;
     private bool _targetSaved;
 
     private int _currentWaypoint = 0;
@@ -26,12 +27,13 @@ public class TaskMoveToTarget : Node
 
     public override NodeState Evaluate()
     {
-        if (!_targetSaved)
+        Vector3 newTarget = (Vector3) GetData("target");
+        if (!_targetSaved || _oldTarget != newTarget)
         {
-            _target = (Vector3) GetData("target");
+            _oldTarget = _target;
+            _target = newTarget;
             _targetSaved = true;
-            _seeker.StartPath(_rb.position, _target, OnPathComplete);
-            Debug.Log("target set");
+            // _seeker.StartPath(_rb.position, _target, OnPathComplete);
         }
 
         // Updates the path from the enemy position to the target
@@ -85,6 +87,7 @@ public class TaskMoveToTarget : Node
         {
             _path = p;
             _currentWaypoint = 0;
+            Debug.Log("Path updated on: " + this);
         }
     }
 }
