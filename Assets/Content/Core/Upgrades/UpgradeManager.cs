@@ -59,6 +59,20 @@ public static class UpgradeManager
     }
 
     /// <summary>
+    /// Calculates the bullet size multiplier of all upgrades.
+    /// </summary>
+    /// <returns>Common bullet size multiplier</returns>
+    public static float GetBulletSizeMultiplier()
+    {
+        return 1 +
+               Upgrades[0].BulletSize +
+               Upgrades[1].BulletSize +
+               Upgrades[2].BulletSize +
+               Upgrades[3].BulletSize +
+               Upgrades[4].BulletSize;
+    }
+
+    /// <summary>
     /// Calculates the attack delay multiplier of all upgrades.
     /// </summary>
     /// <returns>Common attack delayw multiplier</returns>

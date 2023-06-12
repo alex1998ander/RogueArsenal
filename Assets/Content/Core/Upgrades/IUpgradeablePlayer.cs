@@ -7,6 +7,11 @@ public interface IUpgradeablePlayer
     /// </summary>
     public void ExecuteBurst_OnFire();
 
+    /// <summary>
+    /// Executes the Demonic Pact upgrade when the player fires
+    /// </summary>
+    public void ExecuteDemonicPact_OnFire();
+
     #endregion
 
 

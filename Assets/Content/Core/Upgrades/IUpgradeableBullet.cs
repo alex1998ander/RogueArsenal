@@ -38,5 +38,19 @@ public interface IUpgradeableBullet
     /// <returns>Bool, whether the bullet should NOT be destroyed afterwards</returns>
     public bool ExecuteExplosiveBullet_OnBulletImpact(Collision2D collision);
 
+    /// <summary>
+    /// Executes the Mental Meltdown upgrade when the bullet impacts
+    /// </summary>
+    /// <param name="collision">Collision data</param>
+    /// <returns>Bool, whether the bullet should NOT be destroyed afterwards</returns>
+    public bool ExecuteMentalMeltdown_OnBulletImpact(Collision2D collision);
+
+    /// <summary>
+    /// Executes the Wall Piercer upgrade when the bullet impacts
+    /// </summary>
+    /// <param name="collision">Collision data</param>
+    /// <returns>Bool, whether the bullet should NOT be destroyed afterwards</returns>
+    public bool ExecuteWallPiercer_OnBulletImpact(Collision2D collision);
+
     #endregion
 }

@@ -8,6 +8,7 @@ public class Upgrade
     public virtual float BulletRange { get; private set; } = 0f;
     public virtual int BulletCount { get; private set; } = 0;
     public virtual float BulletDamage { get; private set; } = 0f;
+    public virtual float BulletSize { get; private set; } = 0f;
     public virtual float AttackDelay { get; private set; } = 0f;
     public virtual float Health { get; private set; } = 0f;
     public virtual float MovementSpeed { get; private set; } = 0f;
