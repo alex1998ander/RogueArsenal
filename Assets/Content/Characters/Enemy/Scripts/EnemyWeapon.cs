@@ -14,6 +14,5 @@ public class EnemyWeapon : MonoBehaviour
     {
         GameObject bullet = Instantiate(enemyBulletPrefab, firePoint.position, firePoint.rotation);
         bullet.GetComponent<EnemyBullet>().Init(defaultDamage, transform.parent.gameObject);
-        bullet.GetComponent<Rigidbody2D>().velocity = firePoint.up * fireForce;
     }
 }

@@ -6,6 +6,9 @@ using UnityEngine;
 public class EnemyBullet : MonoBehaviour
 {
     [SerializeField] private float defaultLifetime = 0.5f;
+    [SerializeField] private float defaultBulletSpeed = 10f;
+    
+    private Rigidbody2D _rb;
 
     private float _assignedDamage;
     private GameObject _sourceCharacter;
@@ -15,7 +18,13 @@ public class EnemyBullet : MonoBehaviour
 
     private void Awake()
     {
+        _rb = GetComponent<Rigidbody2D>();
         Destroy(gameObject, defaultLifetime);
+    }
+    
+    private void Start()
+    {
+        _rb.velocity = transform.up * defaultBulletSpeed;
     }
 
     private void OnCollisionEnter2D(Collision2D other)

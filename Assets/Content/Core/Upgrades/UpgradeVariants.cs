@@ -81,15 +81,15 @@ public class UpgradeHealingField : Upgrade {
     }
 }
 
-public class UpgradeTargetTracer : Upgrade {
-    public override string Name => "Target Tracer";
+public class UpgradeHoming : Upgrade {
+    public override string Name => "Homing";
     public override string Description => "Give your bullets a crash course in stalking 101, turning them into slightly creepy projectiles that relentlessly pursue visible targets.";
     
     public override float BulletDamage => -0.25f;
-    public override float AttackDelay => 0.50f;
+    public override float AttackDelay => 0.5f;
     
     public override void BulletUpdate(IUpgradeableBullet upgradeableBullet) {
-        upgradeableBullet.ExecuteTargetTracer_BulletUpdate();
+        upgradeableBullet.ExecuteHoming_BulletUpdate();
     }
 }
 

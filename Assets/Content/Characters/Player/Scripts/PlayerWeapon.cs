@@ -10,7 +10,6 @@ public class PlayerWeapon : MonoBehaviour
     [SerializeField] private GameObject playerBulletPrefab;
     [SerializeField] private Transform firePoint;
 
-    [SerializeField] private float fireForce = 20f;
     [SerializeField] private float defaultDamage = 35f;
 
     public void Fire()
@@ -19,11 +18,8 @@ public class PlayerWeapon : MonoBehaviour
 
         for (int i = 0; i < bulletCount; i++)
         {
-            GameObject bullet = Instantiate(playerBulletPrefab, firePoint.position, firePoint.rotation);
+            GameObject bullet = Instantiate(playerBulletPrefab, firePoint.position, firePoint.rotation * Quaternion.Euler(0,  0,  (i - (bulletCount - 1) / 2.0f) * DefaultBulletSpreadAngle));
             bullet.GetComponent<PlayerBullet>().Init(defaultDamage * UpgradeManager.GetBulletDamageMultiplier(), transform.parent.gameObject);
-            bullet.GetComponent<Rigidbody2D>().velocity =
-                (Vector2) (Quaternion.Euler(0, 0, (i - (bulletCount - 1) / 2.0f) * DefaultBulletSpreadAngle) *
-                           firePoint.up) * fireForce;
         }
     }
 }
