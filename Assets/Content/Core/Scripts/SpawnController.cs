@@ -43,7 +43,7 @@ public class SpawnController : MonoBehaviour
             {
                 Instantiate(enemy, transform.GetChild(i).GetChild(spawnPoint).transform.position,
                     transform.GetChild(i).GetChild(spawnPoint).transform.rotation);
-                transform.GetChild(i).GetChild(spawnPoint).gameObject.SetActive(true);
+                //transform.GetChild(i).GetChild(spawnPoint).gameObject.SetActive(true);
             }
         }
     }
