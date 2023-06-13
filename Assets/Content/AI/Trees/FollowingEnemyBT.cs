@@ -24,7 +24,7 @@ public class FollowingEnemyBT : BTree
     {
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         Transform playerTransform = GameObject.Find("Player").GetComponent<Transform>();
-        Weapon weapon = GetComponentInChildren<Weapon>();
+        EnemyWeapon weapon = GetComponentInChildren<EnemyWeapon>();
         Seeker seeker = GetComponent<Seeker>();
 
         Node root = new Selector(new List<Node>()

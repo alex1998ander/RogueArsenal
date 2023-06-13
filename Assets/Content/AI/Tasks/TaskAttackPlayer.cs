@@ -5,9 +5,9 @@ using BehaviorTree;
 
 public class TaskAttackPlayer : Node
 {
-    private Weapon _weapon;
+    private EnemyWeapon _weapon;
 
-    public TaskAttackPlayer(Weapon weapon) : base()
+    public TaskAttackPlayer(EnemyWeapon weapon) : base()
     {
         _weapon = weapon;
     }

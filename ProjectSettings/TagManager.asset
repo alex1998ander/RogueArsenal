@@ -15,11 +15,11 @@ TagManager:
   - Water
   - UI
   - Player
-  - Bullets
+  - 
   - Walls
   - Enemies
-  - 
-  - 
+  - PlayerBullets
+  - EnemyBullets
   - 
   - 
   - 
