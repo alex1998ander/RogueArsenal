@@ -46,11 +46,11 @@ public interface IUpgradeableBullet
     public bool ExecuteMentalMeltdown_OnBulletImpact(Collision2D collision);
 
     /// <summary>
-    /// Executes the Wall Piercer upgrade when the bullet impacts
+    /// Executes the Drill upgrade when the bullet impacts
     /// </summary>
     /// <param name="collision">Collision data</param>
     /// <returns>Bool, whether the bullet should NOT be destroyed afterwards</returns>
-    public bool ExecuteWallPiercer_OnBulletImpact(Collision2D collision);
+    public bool ExecuteDrill_OnBulletImpact(Collision2D collision);
 
     #endregion
 }

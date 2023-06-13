@@ -62,7 +62,7 @@ public class PlayerBullet : MonoBehaviour, IUpgradeableBullet
         // Player hits themself
         else if (other.gameObject.CompareTag("Player"))
         {
-            other.gameObject.GetComponent<PlayerHealth>().InflictDamage(_assignedDamage, _sourceCharacter.GetComponent<PlayerController>());
+            other.gameObject.GetComponent<PlayerHealth>().InflictDamage(_assignedDamage, true, _sourceCharacter.GetComponent<PlayerController>());
         }
 
         _currentlyColliding = true;
@@ -84,11 +84,26 @@ public class PlayerBullet : MonoBehaviour, IUpgradeableBullet
         _sourceCharacter = sourceCharacter;
     }
 
+
+    // Upgrade: Bounce
     public void InitBounce()
     {
         GetComponent<Rigidbody2D>().sharedMaterial = bulletBouncePhysicsMaterial;
     }
+    
+    public bool ExecuteBounce_OnBulletImpact(Collision2D collision)
+    {
+        if (_bouncesLeft > 0 && !collision.gameObject.CompareTag("Enemy"))
+        {
+            _bouncesLeft--;
+            return true;
+        }
 
+        return false;
+    }
+    
+
+    // Upgrade: Homing
     public void ExecuteHoming_BulletUpdate()
     {
         Vector2 targetPos = Vector2.zero;
@@ -117,6 +132,12 @@ public class PlayerBullet : MonoBehaviour, IUpgradeableBullet
         }
     }
 
+    /// <summary>
+    /// Checks if a target is in the field of view of this bullet
+    /// </summary>
+    /// <param name="closestTarget">Position of the closest target</param>
+    /// <param name="directionToTarget">Direction in which the target is located</param>
+    /// <returns>Bool, whether a target is in the field of view of this bullet</returns>
     private bool CheckCharacterInFieldOfView(ref Vector2 closestTarget, ref Vector2 directionToTarget)
     {
         Collider2D[] rangeCheck = Physics2D.OverlapCircleAll(transform.position, radius, targetLayer);
@@ -147,22 +168,28 @@ public class PlayerBullet : MonoBehaviour, IUpgradeableBullet
         return Vector2.Angle(transform.up, directionToTarget) < angleHalf /*&& !Physics2D.Raycast(position, directionToTarget, closestDistance)*/;
     }
 
-    public bool ExecuteBounce_OnBulletImpact(Collision2D collision)
-    {
-        if (_bouncesLeft > 0 && !collision.gameObject.CompareTag("Enemy"))
-        {
-            _bouncesLeft--;
-            return true;
-        }
 
-        return false;
-    }
-
+    // Upgrade: Explosive Bullet
     public bool ExecuteExplosiveBullet_OnBulletImpact(Collision2D collision)
     {
         throw new NotImplementedException();
     }
 
+
+    // Upgrade: Mental Meltdown
+    public bool ExecuteMentalMeltdown_OnBulletImpact(Collision2D collision)
+    {
+        throw new NotImplementedException();
+    }
+
+
+    // Upgrade: Drill
+    public bool ExecuteDrill_OnBulletImpact(Collision2D collision)
+    {
+        throw new NotImplementedException();
+    }
+
+    
 #if UNITY_EDITOR //////////////////////////////////////////////////////////////////////////////////
     private void OnDrawGizmos()
     {

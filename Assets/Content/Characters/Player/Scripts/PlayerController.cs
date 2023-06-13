@@ -7,15 +7,12 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterController
 {
     private PlayerInput _playerInput;
-
+    private Rigidbody2D _rigidbody;
+    private PlayerHealth _playerHealth;
+    
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float defaultFireDelay = 0.4f;
     [SerializeField] private PlayerWeapon playerWeapon;
-
-    private Rigidbody2D _rigidbody;
-    private PlayerHealth _playerHealth;
-
-    private float _nextShot = 0.0f;
 
     private Vector2 _mousePosition;
     private Vector2 _movementInput;
@@ -23,7 +20,16 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
     private Vector3 _aimDirection;
     private float _angle;
 
-    private bool _phoenixed = false;
+    private float _nextShot;
+
+    // Upgrade: Burst
+    [Header("Upgrade: Burst")][SerializeField] private float burstDelayInSec = 0.2f;
+    
+    // Upgrade: Demonic Pact 
+    [Header("Upgrade: Demonic Pact")][SerializeField] private float demonicPactHealthLoss = 10f;
+    
+    // Upgrade: Phoenix
+    private bool _phoenixed;
 
     private void Awake()
     {
@@ -42,6 +48,8 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
         UpgradeManager.PlayerUpdate(this);
     }
 
+    #region Player input
+
     private void OnMove(InputValue value)
     {
         _movementInput = value.Get<Vector2>();
@@ -51,10 +59,11 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
     {
         if (Time.time > _nextShot)
         {
+            // This assignment has to be done before "UpgradeManager.OnFire()" so that the variable can be overwritten by this function if necessary
+            _nextShot = Time.time + defaultFireDelay * UpgradeManager.GetAttackDelayMultiplier();
+            
             playerWeapon.Fire();
             UpgradeManager.OnFire(this);
-
-            _nextShot = Time.time + defaultFireDelay * UpgradeManager.GetAttackDelayMultiplier();
         }
     }
 
@@ -73,8 +82,11 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
         }
     }
 
+    #endregion
+
     #region Upgrade implementation
 
+    // Upgrade: Burst
     public void ExecuteBurst_OnFire()
     {
         StartCoroutine(BurstCoroutine());
@@ -82,17 +94,30 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
 
     private IEnumerator BurstCoroutine()
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(burstDelayInSec);
         playerWeapon.Fire();
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(burstDelayInSec);
         playerWeapon.Fire();
     }
 
+
+    // Upgrade: Demonic Pact 
+
+    public void ExecuteDemonicPact_OnFire()
+    {
+        _playerHealth.InflictDamage(demonicPactHealthLoss, false, this);
+        _nextShot = 0f;
+    }
+
+
+    // Upgrade: Healing Field 
     public void ExecuteHealingField_OnBlock()
     {
         throw new NotImplementedException();
     }
 
+
+    // Upgrade: Phoenix
     public void ExecutePhoenix_OnPlayerDeath()
     {
         if (!_phoenixed)

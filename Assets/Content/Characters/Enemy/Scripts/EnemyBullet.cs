@@ -37,7 +37,7 @@ public class EnemyBullet : MonoBehaviour
         // Player hit
         if (other.gameObject.CompareTag("Player"))
         {
-            other.gameObject.GetComponent<PlayerHealth>().InflictDamage(_assignedDamage, _sourceCharacter.GetComponent<PlayerController>());
+            other.gameObject.GetComponent<PlayerHealth>().InflictDamage(_assignedDamage, true, _sourceCharacter.GetComponent<PlayerController>());
         }
 
         _currentlyColliding = true;
