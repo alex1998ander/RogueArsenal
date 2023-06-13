@@ -5,17 +5,27 @@ using UnityEngine;
 public static class UpgradeManager
 {
     private static readonly Upgrade[] Upgrades = { new UpgradeHoming(), new(), new UpgradeDemonicPact(), new(), new() };
-    private static byte _currentUpgradeIndex = 0;
+    private static byte _currentUpgrade = 0;
 
+    
+    /// <summary>
+    /// Returns the bound upgrade at the passed index.
+    /// </summary>
+    /// <param name="index">Upgrade index</param>
+    /// <returns>Upgrade at index</returns>
+    public static Upgrade GetUpgradeAtIndex(int index)
+    {
+        return Upgrades[index];
+    }
+    
     /// <summary>
     /// Binds an upgrade into the upgrade inventory on the oldest upgrade's position.
     /// </summary>
     /// <param name="upgrade">New Upgrade</param>
     public static void BindUpgrade(Upgrade upgrade)
     {
-        Upgrades[_currentUpgradeIndex++] = upgrade;
+        Upgrades[_currentUpgrade++ % 5] = upgrade;
     }
-    
 
     /// <summary>
     /// Calculates the bullet range multiplier of all upgrades.
