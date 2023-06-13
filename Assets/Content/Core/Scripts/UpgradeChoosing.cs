@@ -38,6 +38,6 @@ public class UpgradeChoosing : MonoBehaviour
     {
         string clickedButtonName = EventSystem.current.currentSelectedGameObject.name;
         int i = (int) Char.GetNumericValue(clickedButtonName[5]) - 1;
-        UpgradeManager.BindUpgrade(_listOfUpgrades[i]);
+        //UpgradeManager.BindUpgrade(_listOfUpgrades[i]);
     }
 }

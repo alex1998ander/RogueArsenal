@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
     private PlayerInput _playerInput;
     private Rigidbody2D _rigidbody;
     private PlayerHealth _playerHealth;
-    
+
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float defaultFireDelay = 0.4f;
     [SerializeField] private PlayerWeapon playerWeapon;
@@ -23,11 +23,11 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
     private float _nextShot;
 
     // Upgrade: Burst
-    [Header("Upgrade: Burst")][SerializeField] private float burstDelayInSec = 0.2f;
-    
+    [Header("Upgrade: Burst")] [SerializeField] private float burstDelayInSec = 0.2f;
+
     // Upgrade: Demonic Pact 
-    [Header("Upgrade: Demonic Pact")][SerializeField] private float demonicPactHealthLoss = 10f;
-    
+    [Header("Upgrade: Demonic Pact")] [SerializeField] private float demonicPactHealthLoss = 10f;
+
     // Upgrade: Phoenix
     private bool _phoenixed;
 
@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
         {
             // This assignment has to be done before "UpgradeManager.OnFire()" so that the variable can be overwritten by this function if necessary
             _nextShot = Time.time + defaultFireDelay * UpgradeManager.GetAttackDelayMultiplier();
-            
+
             playerWeapon.Fire();
             UpgradeManager.OnFire(this);
         }
