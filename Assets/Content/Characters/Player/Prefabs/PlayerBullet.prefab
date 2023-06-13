@@ -145,4 +145,4 @@ MonoBehaviour:
   rotationSpeed: 250
   targetLayer:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 576

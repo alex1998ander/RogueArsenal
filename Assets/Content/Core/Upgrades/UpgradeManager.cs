@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class UpgradeManager
 {
-    private static readonly Upgrade[] Upgrades = { new UpgradeHoming(), new(), new UpgradeDemonicPact(), new(), new() };
+    private static readonly Upgrade[] Upgrades = { new UpgradeHoming(), new UpgradeBounce(), new(), new(), new() };
     private static byte _currentUpgrade = 0;
 
     

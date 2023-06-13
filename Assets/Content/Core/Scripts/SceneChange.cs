@@ -3,12 +3,69 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 public class SceneChange : MonoBehaviour
 {
-    private string _nextScene;
-    private void OnTriggerEnter(Collider other)
+    //Counter for amount of upgrades needed for scene change
+    private int _chosenUpgradeCount = 0;
+    private int _maxSceneCount = 0;
+
+    private static int lastScene = -1;
+    private static int preLastScene = -2;
+
+    private void Start()
     {
-        SceneManager.LoadScene(_nextScene);
+        _maxSceneCount = SceneManager.sceneCountInBuildSettings - 1;
+    }
+
+    /// <summary>
+    /// Loading card choosing scene.
+    /// </summary>
+    /// <param name="other">Object that hit the trigger box</param>
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("Hello");
+        if (other.CompareTag("Player"))
+        {
+            SceneManager.LoadScene(0); 
+        }
+    }
+
+    /// <summary>
+    /// This function is called when a button is pressed.
+    /// Loads one of the levels randomly.
+    /// (changes scene after 3 upgrades have been chosen)
+    /// </summary>
+    public void ChangeToLevel()
+    {
+        //if (_chosenUpgradeCount == 2)
+        //{
+            int nextScene = Random.Range(1, _maxSceneCount);
+            Debug.Log("Found Scene: " + nextScene);
+            if (nextScene == lastScene)
+            {
+                if (preLastScene > lastScene)
+                {
+                    nextScene--;
+                }
+                else
+                {
+                    nextScene++;
+                }
+            }
+
+            nextScene %= (_maxSceneCount + 1);
+            if (nextScene == 0)
+            {
+                nextScene++;
+            }
+            preLastScene = lastScene;
+            lastScene = nextScene;
+            Debug.Log("Load Scene: " + nextScene);
+            SceneManager.LoadScene(nextScene);
+        //}
+        //else _chosenUpgradeCount++;
+
     }
 }
