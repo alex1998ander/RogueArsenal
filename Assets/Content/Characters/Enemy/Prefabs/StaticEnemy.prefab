@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 4355964344345712702}
   - component: {fileID: 609955918937179358}
   - component: {fileID: 8807399335478438892}
+  - component: {fileID: -8034749186099594801}
   m_Layer: 9
   m_Name: StaticEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -88,6 +89,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &-8034749186099594801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358329203599744738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef42adb358a7e8b4f8d7bc563efbdf7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
 --- !u!1 &2295058313951207627
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,7 +344,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8752020241937266114}
   - component: {fileID: 8708900572070088425}
-  - component: {fileID: 7722741886240048971}
+  - component: {fileID: 5140704707803325192}
   m_Layer: 9
   m_Name: Weapon
   m_TagString: Untagged
@@ -406,7 +420,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7722741886240048971
+--- !u!114 &5140704707803325192
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -415,9 +429,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6007049234129733462}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1255bcec77fd4c48816d7eb78744a93, type: 3}
+  m_Script: {fileID: 11500000, guid: 350bb070d1e08a041be30db685047734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 1845687642861211236, guid: ccca05043d315cd4599f956c6a2b6ae8, type: 3}
+  enemyBulletPrefab: {fileID: 1845687642861211236, guid: e8f28205521d5364db79c8abc134746a, type: 3}
   firePoint: {fileID: 7730465753498084907}
   fireForce: 20
+  defaultDamage: 35

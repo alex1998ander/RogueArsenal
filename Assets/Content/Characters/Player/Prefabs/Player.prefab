@@ -98,9 +98,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1255bcec77fd4c48816d7eb78744a93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 1845687642861211236, guid: ccca05043d315cd4599f956c6a2b6ae8, type: 3}
+  playerBulletPrefab: {fileID: 1845687642861211236, guid: ccca05043d315cd4599f956c6a2b6ae8, type: 3}
   firePoint: {fileID: 3840289595281950065}
-  fireForce: 20
+  fireForce: 1
+  defaultDamage: 35
 --- !u!1 &3840289595281950064
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,7 +249,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  weapon: {fileID: 3840289594856838949}
+  defaultFireDelay: 0.2
+  playerWeapon: {fileID: 3840289594856838949}
 --- !u!58 &3840289595821779531
 CircleCollider2D:
   m_ObjectHideFlags: 0

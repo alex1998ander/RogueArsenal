@@ -14,7 +14,7 @@ public static class EventManager {
     /// <summary>
     /// The player takes damage. The amount of damage is passed as a parameter.
     /// </summary>
-    public static readonly Event<Damage> OnPlayerDamage = new();
+    public static readonly Event<float, ICharacterController> OnPlayerDamage = new();
 
     /// <summary>
     /// The player dies.
@@ -30,7 +30,7 @@ public static class EventManager {
     /// <summary>
     /// A Enemy takes damage. The amount of damage is passed as a parameter.
     /// </summary>
-    public static readonly Event<Damage> OnEnemyDamage = new();
+    public static readonly Event<float> OnEnemyDamage = new();
 
     /// <summary>
     /// The player dies.
