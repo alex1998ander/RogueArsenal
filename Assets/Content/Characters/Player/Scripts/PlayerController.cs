@@ -4,14 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour, IUpgradeablePlayer {
+public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterController
+{
     private PlayerInput _playerInput;
-
-    [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private Weapon weapon;
-
     private Rigidbody2D _rigidbody;
     private PlayerHealth _playerHealth;
+    
+    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float defaultFireDelay = 0.4f;
+    [SerializeField] private PlayerWeapon playerWeapon;
 
     private Vector2 _mousePosition;
     private Vector2 _movementInput;
@@ -19,7 +20,19 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer {
     private Vector3 _aimDirection;
     private float _angle;
 
-    private void Awake() {
+    private float _nextShot;
+
+    // Upgrade: Burst
+    [Header("Upgrade: Burst")][SerializeField] private float burstDelayInSec = 0.2f;
+    
+    // Upgrade: Demonic Pact 
+    [Header("Upgrade: Demonic Pact")][SerializeField] private float demonicPactHealthLoss = 10f;
+    
+    // Upgrade: Phoenix
+    private bool _phoenixed;
+
+    private void Awake()
+    {
         _playerInput = GetComponent<PlayerInput>();
         _rigidbody = GetComponent<Rigidbody2D>();
         _playerHealth = GetComponent<PlayerHealth>();
@@ -29,24 +42,38 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer {
         UpgradeManager.Init(this);
     }
 
-    void FixedUpdate() {
+    void FixedUpdate()
+    {
         _rigidbody.MovePosition(_rigidbody.position + _movementInput * (moveSpeed * UpgradeManager.GetMovementSpeedMultiplier() * Time.fixedDeltaTime));
         UpgradeManager.PlayerUpdate(this);
     }
 
-    private void OnMove(InputValue value) {
+    #region Player input
+
+    private void OnMove(InputValue value)
+    {
         _movementInput = value.Get<Vector2>();
     }
 
-    private void OnFire() {
-        weapon.Fire();
-        UpgradeManager.OnFire(this);
+    private void OnFire()
+    {
+        if (Time.time > _nextShot)
+        {
+            // This assignment has to be done before "UpgradeManager.OnFire()" so that the variable can be overwritten by this function if necessary
+            _nextShot = Time.time + defaultFireDelay * UpgradeManager.GetAttackDelayMultiplier();
+            
+            playerWeapon.Fire();
+            UpgradeManager.OnFire(this);
+        }
     }
 
-    private void OnAim(InputValue value) {
+    private void OnAim(InputValue value)
+    {
         _aimDirection = value.Get<Vector2>();
-        if (Vector2.Distance(Vector2.zero, _aimDirection) > 0.5) {
-            if (_playerInput.currentControlScheme.Equals("Keyboard&Mouse")) {
+        if (Vector2.Distance(Vector2.zero, _aimDirection) > 0.5)
+        {
+            if (_playerInput.currentControlScheme.Equals("Keyboard&Mouse"))
+            {
                 _aimDirection = (Vector2)Camera.main.ScreenToWorldPoint(_aimDirection) - _rigidbody.position;
             }
 
@@ -55,25 +82,50 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer {
         }
     }
 
+    #endregion
+
     #region Upgrade implementation
 
-    public void ExecuteBurst_OnFire() {
+    // Upgrade: Burst
+    public void ExecuteBurst_OnFire()
+    {
         StartCoroutine(BurstCoroutine());
     }
 
-    private IEnumerator BurstCoroutine() {
-        yield return new WaitForSeconds(0.2f);
-        weapon.Fire();
-        yield return new WaitForSeconds(0.2f);
-        weapon.Fire();
+    private IEnumerator BurstCoroutine()
+    {
+        yield return new WaitForSeconds(burstDelayInSec);
+        playerWeapon.Fire();
+        yield return new WaitForSeconds(burstDelayInSec);
+        playerWeapon.Fire();
     }
 
-    public void ExecuteHealingField_OnBlock() {
+
+    // Upgrade: Demonic Pact 
+
+    public void ExecuteDemonicPact_OnFire()
+    {
+        _playerHealth.InflictDamage(demonicPactHealthLoss, false, this);
+        _nextShot = 0f;
+    }
+
+
+    // Upgrade: Healing Field 
+    public void ExecuteHealingField_OnBlock()
+    {
         throw new NotImplementedException();
     }
 
-    public void ExecutePhoenix_OnPlayerDeath() {
-        _playerHealth.ResetHealth();
+
+    // Upgrade: Phoenix
+    public void ExecutePhoenix_OnPlayerDeath()
+    {
+        if (!_phoenixed)
+        {
+            Debug.Log("The player has died, but he rises from the ashes with the power of a phoenix");
+            _playerHealth.ResetHealth();
+            _phoenixed = true;
+        }
     }
 
     #endregion
