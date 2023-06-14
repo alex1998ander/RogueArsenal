@@ -1,13 +1,35 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public static class UpgradeManager
 {
-    private static readonly Upgrade[] Upgrades = { new UpgradeHoming(), new UpgradeBounce(), new(), new(), new() };
-    private static byte _currentUpgrade = 0;
+    private static readonly Upgrade[] Upgrades = { new EmptyUpgradeSlot(), new EmptyUpgradeSlot(), new EmptyUpgradeSlot(), new EmptyUpgradeSlot(), new EmptyUpgradeSlot() };
+    private static int _nextReplacementIndex;
 
-    
+    private static Upgrade[] _currentUpgradeSelection = { new EmptyUpgradeSlot(), new EmptyUpgradeSlot(), new EmptyUpgradeSlot(), new EmptyUpgradeSlot(), new EmptyUpgradeSlot() };
+
+    private static readonly List<Upgrade> UpgradePool = new()
+    {
+        new UpgradeHitman(),
+        new UpgradeBuckshot(),
+        new UpgradeBurst(),
+        new UpgradeBounce(),
+        new UpgradeCarefulPlanning(),
+        new UpgradeTank(),
+        new UpgradeExplosiveBullet(),
+        new UpgradeHealingField(),
+        new UpgradeHoming(),
+        new UpgradePhoenix(),
+        new UpgradeBigBullet(),
+        new UpgradeMentalMeltdown(),
+        new UpgradeDemonicPact(),
+        new UpgradeDrill(),
+        new UpgradeGlassCannon()
+    };
+
     /// <summary>
     /// Returns the bound upgrade at the passed index.
     /// </summary>
@@ -17,14 +39,41 @@ public static class UpgradeManager
     {
         return Upgrades[index];
     }
-    
+
     /// <summary>
-    /// Binds an upgrade into the upgrade inventory on the oldest upgrade's position.
+    /// Binds an upgrade from the current upgrade selection to the upgrade inventory to the upgrade slot of the current oldest upgrade.
     /// </summary>
-    /// <param name="upgrade">New Upgrade</param>
-    public static void BindUpgrade(Upgrade upgrade)
+    /// <param name="selectionIdx">Index of the new upgrade in the upgrade selection</param>
+    public static void BindUpgrade(int selectionIdx)
     {
-        Upgrades[_currentUpgrade++ % 5] = upgrade;
+        Upgrade oldUpgrade = Upgrades[_nextReplacementIndex];
+        Upgrade newUpgrade = _currentUpgradeSelection[selectionIdx];
+
+        // Replace upgrade
+        Upgrades[_nextReplacementIndex] = newUpgrade;
+        
+        // Remove new upgrade from upgrade pool
+        UpgradePool.Remove(newUpgrade);
+        
+        // Add old update back to the upgrade pool
+        if (oldUpgrade is not EmptyUpgradeSlot)
+        {
+            UpgradePool.Add(oldUpgrade);
+        }
+
+        _nextReplacementIndex = (_nextReplacementIndex + 1) % 5;
+    }
+
+    /// <summary>
+    /// Generates a new random upgrade selection from all currently unused upgrades.
+    /// </summary>
+    /// <returns>New random upgrade selection</returns>
+    public static Upgrade[] GenerateNewRandomUpgradeSelection()
+    {
+        System.Random rnd = new System.Random();
+        _currentUpgradeSelection = UpgradePool.OrderBy(x => rnd.Next()).Take(5).ToArray();
+
+        return _currentUpgradeSelection;
     }
 
     /// <summary>
