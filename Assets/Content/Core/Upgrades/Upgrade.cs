@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Upgrade
 {
-    public virtual string Name { get; } = "";
+    public  virtual string Name { get; } = "";
     public virtual string Description { get; private set; } = "";
 
     public virtual float BulletRange { get; private set; } = 0f;
