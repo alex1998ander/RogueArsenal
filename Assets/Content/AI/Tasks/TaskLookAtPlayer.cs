@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using BehaviorTree;
 
 /// <summary>
-/// Tasks which lets the enemy aim at the player.
+/// Task for the enemy to look at the player.
 /// </summary>
 public class TaskLookAtPlayer : Node
 {
@@ -14,8 +12,7 @@ public class TaskLookAtPlayer : Node
     // Transform of the player
     private Transform _playerTransform;
 
-
-    public TaskLookAtPlayer(Rigidbody2D rb, Transform playerTransform) : base()
+    public TaskLookAtPlayer(Rigidbody2D rb, Transform playerTransform)
     {
         _rb = rb;
         _playerTransform = playerTransform;

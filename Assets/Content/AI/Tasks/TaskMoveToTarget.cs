@@ -1,27 +1,48 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using BehaviorTree;
 using Pathfinding;
 
+/// <summary>
+/// Task to move at the pathfinding target
+/// </summary>
 public class TaskMoveToTarget : Node
 {
+    // Rigidbody of enemy
     private Rigidbody2D _rb;
+
+    // Walking speed
+    private float _walkingSpeed = 200f;
+
+    // The path the enemy takes to reach its pathfinding target
     private Path _path;
+
+    // Calculates the path from the enemy's current position to its target
     private Seeker _seeker;
 
+    // Position of pathfinding target
     private Vector3 _target;
+
+    // Old position of pathfinding target
     private Vector3 _oldTarget;
+
+    // Whether a new target has been determined for pathfinding
     private bool _targetSaved;
 
+    // Current waypoint of the path the enemy is following 
     private int _currentWaypoint = 0;
 
+    private float _nextWaypointDistance = 0.5f;
+
+    // Interval in seconds between path updates 
     private float _pathUpdateTime = 0.5f;
+
+    // Time counter
     private float _pathUpdateCounter = 0f;
 
-    public TaskMoveToTarget(Rigidbody2D rb, Seeker seeker) : base()
+    public TaskMoveToTarget(Rigidbody2D rb, float walkingSpeed, Seeker seeker)
     {
         _rb = rb;
+        _walkingSpeed = walkingSpeed;
         _seeker = seeker;
     }
 
@@ -61,13 +82,13 @@ public class TaskMoveToTarget : Node
             Vector2 direction = ((Vector2) _path.vectorPath[_currentWaypoint] - _rb.position).normalized;
 
             // Move the enemy in the direction of the next waypoint
-            Vector2 force = direction * (FollowingEnemyBT.Speed * Time.fixedDeltaTime);
+            Vector2 force = direction * (_walkingSpeed * Time.fixedDeltaTime);
             // _rb.AddForce(force, ForceMode2D.Force);
             _rb.velocity = force;
 
             // Calculate distance between enemy and next waypoint, if close enough, go to next waypoint
             float distance = Vector2.Distance(_rb.position, _path.vectorPath[_currentWaypoint]);
-            if (distance < FollowingEnemyBT.NextWaypointDistance)
+            if (distance < _nextWaypointDistance)
             {
                 _currentWaypoint++;
             }
