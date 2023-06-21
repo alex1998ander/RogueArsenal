@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 // Event naming convention: On + [contributor] + [action / event]
 // Examples for contributors: Player, Enemy, Weapon
@@ -14,7 +15,7 @@ public static class EventManager {
     /// <summary>
     /// The player takes damage. The amount of damage is passed as a parameter.
     /// </summary>
-    public static readonly Event<float, ICharacterController> OnPlayerDamage = new();
+    public static readonly Event<float> OnPlayerDamage = new();
 
     /// <summary>
     /// The player dies.
@@ -35,7 +36,7 @@ public static class EventManager {
     /// <summary>
     /// The player dies.
     /// </summary>
-    public static readonly Event<EnemyController> OnEnemyDeath = new();
+    public static readonly Event<GameObject> OnEnemyDeath = new();
 
     #endregion
 

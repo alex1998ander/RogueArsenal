@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
 
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float defaultFireDelay = 0.4f;
+    [SerializeField] private float defaultBlockDelay = 5.0f;
     [SerializeField] private PlayerWeapon playerWeapon;
 
     private Vector2 _mousePosition;
@@ -20,13 +21,17 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
     private Vector3 _aimDirection;
     private float _angle;
 
-    private float _nextShot;
+    private float _fireCooldownEndTimestamp;
+    private float _blockCooldownEndTimestamp;
 
     // Upgrade: Burst
     [Header("Upgrade: Burst")] [SerializeField] private float burstDelayInSec = 0.2f;
 
     // Upgrade: Demonic Pact 
     [Header("Upgrade: Demonic Pact")] [SerializeField] private float demonicPactHealthLoss = 10f;
+
+    // Upgrade: Healing Field 
+    [Header("Upgrade: Healing Field")] [SerializeField] private GameObject healingFieldPrefab;
 
     // Upgrade: Phoenix
     private bool _phoenixed;
@@ -47,6 +52,16 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
         _rigidbody.MovePosition(_rigidbody.position + _movementInput * (moveSpeed * UpgradeManager.GetMovementSpeedMultiplier() * Time.fixedDeltaTime));
         UpgradeManager.PlayerUpdate(this);
     }
+    
+    public ICharacterHealth GetHealthManager()
+    {
+        return _playerHealth;
+    }
+
+    public void StunCharacter()
+    {
+        throw new NotImplementedException();
+    }
 
     #region Player input
 
@@ -57,13 +72,24 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
 
     private void OnFire()
     {
-        if (Time.time > _nextShot)
+        if (Time.time > _fireCooldownEndTimestamp)
         {
             // This assignment has to be done before "UpgradeManager.OnFire()" so that the variable can be overwritten by this function if necessary
-            _nextShot = Time.time + defaultFireDelay * UpgradeManager.GetAttackDelayMultiplier();
+            _fireCooldownEndTimestamp = Time.time + defaultFireDelay * UpgradeManager.GetFireDelayMultiplier();
 
             playerWeapon.Fire();
             UpgradeManager.OnFire(this);
+        }
+    }
+
+    private void OnBlock()
+    {
+        if (Time.time > _blockCooldownEndTimestamp)
+        {
+            // This assignment has to be done before "UpgradeManager.OnBlock()" so that the variable can be overwritten by this function if necessary
+            _blockCooldownEndTimestamp = Time.time + defaultBlockDelay * UpgradeManager.GetBlockDelayMultiplier();
+
+            UpgradeManager.OnBlock(this);
         }
     }
 
@@ -105,15 +131,16 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
 
     public void ExecuteDemonicPact_OnFire()
     {
-        _playerHealth.InflictDamage(demonicPactHealthLoss, false, this);
-        _nextShot = 0f;
+        _playerHealth.InflictDamage(demonicPactHealthLoss, false);
+        _fireCooldownEndTimestamp = 0f;
     }
 
 
     // Upgrade: Healing Field 
     public void ExecuteHealingField_OnBlock()
     {
-        throw new NotImplementedException();
+        GameObject healingField = Instantiate(healingFieldPrefab, transform.position, Quaternion.identity);
+        Destroy(healingField, 1.5f);
     }
 
 

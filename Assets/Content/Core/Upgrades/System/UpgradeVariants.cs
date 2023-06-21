@@ -10,7 +10,7 @@ public class UpgradeHitman : Upgrade
     public override string Description => "Break the sound barrier with bullets that leave enemies in awe and questioning their life choices.";
 
     public override float BulletRange => 2.5f;
-    public override float AttackDelay => -0.5f;
+    public override float FireDelay => -0.5f;
 }
 
 public class UpgradeBuckshot : Upgrade
@@ -60,7 +60,7 @@ public class UpgradeCarefulPlanning : Upgrade
     public override string Description => "Embrace the spirit of meticulous plotting, trading rapid-fire chaos for jaw-dropping destruction.";
 
     public override float BulletDamage => 1.5f;
-    public override float AttackDelay => 2f;
+    public override float FireDelay => 2f;
 }
 
 public class UpgradeTank : Upgrade
@@ -69,7 +69,7 @@ public class UpgradeTank : Upgrade
     public override string Description => "Roar into battle as the ferocious Tankasaurus, impervious to damage and ready to stomp through enemy lines.";
 
     public override float Health => 1f;
-    public override float AttackDelay => 0.5f;
+    public override float FireDelay => -1f;
 }
 
 public class UpgradeExplosiveBullet : Upgrade
@@ -77,7 +77,7 @@ public class UpgradeExplosiveBullet : Upgrade
     public override string Name => "Explosive Bullet";
     public override string Description => "Arm yourself with these explosive delights, turning your bullets into cheeky troublemakers that go 'boom' upon impact.";
 
-    public override float AttackDelay => 1f;
+    public override float FireDelay => 1f;
 
     public override bool OnBulletImpact(IUpgradeableBullet upgradeableBullet, Collision2D collision)
     {
@@ -104,7 +104,7 @@ public class UpgradeHoming : Upgrade
     public override string Description => "Give your bullets a crash course in stalking 101, turning them into slightly creepy projectiles that relentlessly pursue visible targets.";
 
     public override float BulletDamage => -0.25f;
-    public override float AttackDelay => 0.5f;
+    public override float FireDelay => 0.5f;
 
     public override void BulletUpdate(IUpgradeableBullet upgradeableBullet)
     {
