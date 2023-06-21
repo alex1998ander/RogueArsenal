@@ -2,4 +2,5 @@
 
 public interface ICharacterController
 {
+    public void StunCharacter();
 }
