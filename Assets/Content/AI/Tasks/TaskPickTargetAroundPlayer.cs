@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -6,13 +5,24 @@ using Pathfinding;
 using BehaviorTree;
 using Random = UnityEngine.Random;
 
+/// <summary>
+/// Task which lets the enemy pick a position around the player as a pathfinding target
+/// </summary>
 public class TaskPickTargetAroundPlayer : Node
 {
+    // Transform of the player
     private Transform _playerTransform;
 
-    public TaskPickTargetAroundPlayer(Transform playerTransform) : base()
+    private float _minDistanceFromPlayer = 4f;
+
+    private float _maxDistanceFromPlayer = 6f;
+
+    public TaskPickTargetAroundPlayer(Transform playerTransform, float minDistanceFromPlayer,
+        float maxDistanceFromPlayer)
     {
         _playerTransform = playerTransform;
+        _minDistanceFromPlayer = minDistanceFromPlayer;
+        _maxDistanceFromPlayer = maxDistanceFromPlayer;
     }
 
     public override NodeState Evaluate()
@@ -23,9 +33,9 @@ public class TaskPickTargetAroundPlayer : Node
         outerBounds.center = _playerTransform.position;
         innerBounds.center = _playerTransform.position;
         outerBounds.size =
-            new Vector3(FollowingEnemyBT.MaxDistanceFromPlayer, FollowingEnemyBT.MaxDistanceFromPlayer, 1);
+            new Vector3(_maxDistanceFromPlayer, _maxDistanceFromPlayer, 1);
         innerBounds.size =
-            new Vector3(FollowingEnemyBT.MinDistanceFromPlayer, FollowingEnemyBT.MinDistanceFromPlayer, 1);
+            new Vector3(_minDistanceFromPlayer, _minDistanceFromPlayer, 1);
 
         // Save all nodes near the Player in two separate lists
         // TODO: "pool the list" according to 'GetNodesInRegion' summary

@@ -1,13 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using BehaviorTree;
 
+/// <summary>
+/// Task for the enemy to look at its movement direction
+/// </summary>
 public class TaskLookAtMovementDirection : Node
 {
+    // Enemy Rigidbody
     private Rigidbody2D _rb;
 
-    public TaskLookAtMovementDirection(Rigidbody2D rb) : base()
+    public TaskLookAtMovementDirection(Rigidbody2D rb)
     {
         _rb = rb;
     }

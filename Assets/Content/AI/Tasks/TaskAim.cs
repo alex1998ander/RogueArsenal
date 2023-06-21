@@ -1,12 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using BehaviorTree;
 
+/// <summary>
+/// Lets the enemy wait for a given amount of time in preparation before shooting
+/// </summary>
 public class TaskAim : Node
 {
+    // Time to aim
     private static float _aimTime = 0.5f;
-    private static float _aimCounter = 0f;
+
+    // Time counter
+    private static float _aimCounter;
 
     public override NodeState Evaluate()
     {
@@ -22,7 +26,7 @@ public class TaskAim : Node
 
         SetDataInRoot("isAiming", true);
         state = NodeState.FAILURE;
-        
+
         return state;
     }
 }

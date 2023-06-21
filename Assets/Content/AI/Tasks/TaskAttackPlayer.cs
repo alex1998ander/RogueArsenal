@@ -1,13 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using BehaviorTree;
 
+/// <summary>
+/// Task to attack the player with the enemy's weapon
+/// </summary>
 public class TaskAttackPlayer : Node
 {
+    // The weapon of the enemy
     private EnemyWeapon _weapon;
 
-    public TaskAttackPlayer(EnemyWeapon weapon) : base()
+    public TaskAttackPlayer(EnemyWeapon weapon)
     {
         _weapon = weapon;
     }

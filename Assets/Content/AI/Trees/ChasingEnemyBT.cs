@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 using BehaviorTree;
+using UnityEngine.Serialization;
 
 public class ChasingEnemyBT : BTree
 {
@@ -9,16 +10,13 @@ public class ChasingEnemyBT : BTree
     [SerializeField] private LayerMask wallLayer;
 
     // Walking speed.
-    public const float Speed = 200f;
+    [SerializeField] private float walkingSpeed = 200f;
 
     // Size of the bounding box around the player where the enemy IS NOT allowed to move.
-    public const float MinDistanceFromPlayer = 4f;
+    [SerializeField] private float minDistanceFromPlayer = 1f;
 
     // Size of the bounding box around the player where the enemy IS allowed to move.
-    public const float MaxDistanceFromPlayer = 6f;
-
-    // Distance how close the enemy needs to be to a waypoint until he moves on to the next one.
-    public const float NextWaypointDistance = 1f;
+    [SerializeField] private float maxDistanceFromPlayer = 2f;
 
     protected override Node SetupTree()
     {
@@ -31,9 +29,9 @@ public class ChasingEnemyBT : BTree
         {
             // Else, aim at the player and shoot
             new TaskClearTarget(),
-            new TaskPickTargetAroundPlayer(playerTransform),
+            new TaskPickTargetAroundPlayer(playerTransform, minDistanceFromPlayer, maxDistanceFromPlayer),
             new TaskLookAtPlayer(rb, playerTransform),
-            new TaskMoveToTarget(rb, seeker),
+            new TaskMoveToTarget(rb, walkingSpeed, seeker),
             new TaskAim(),
             new TaskAttackPlayer(weapon),
         });

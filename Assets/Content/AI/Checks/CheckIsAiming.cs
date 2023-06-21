@@ -1,14 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using BehaviorTree;
 
+/// <summary>
+/// Checks if the enemy is currently aiming at the player
+/// </summary>
 public class CheckIsAiming : Node
 {
-    public CheckIsAiming() : base()
-    {
-    }
-
     public override NodeState Evaluate()
     {
         if ((bool) GetData("isAiming"))
