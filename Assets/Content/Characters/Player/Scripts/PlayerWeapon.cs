@@ -20,6 +20,7 @@ public class PlayerWeapon : MonoBehaviour
         {
             GameObject bullet = Instantiate(playerBulletPrefab, firePoint.position, firePoint.rotation * Quaternion.Euler(0,  0,  (i - (bulletCount - 1) / 2.0f) * DefaultBulletSpreadAngle));
             bullet.GetComponent<PlayerBullet>().Init(defaultDamage * UpgradeManager.GetBulletDamageMultiplier(), transform.parent.gameObject);
+            bullet.transform.localScale *= UpgradeManager.GetBulletSizeMultiplier();
         }
     }
 }
