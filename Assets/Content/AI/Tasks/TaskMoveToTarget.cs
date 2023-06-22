@@ -108,7 +108,6 @@ public class TaskMoveToTarget : Node
         {
             _path = p;
             _currentWaypoint = 0;
-            Debug.Log("Path updated on: " + this);
         }
     }
 }
