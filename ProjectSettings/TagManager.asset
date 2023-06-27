@@ -4,8 +4,6 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - PlayerBullet
-  - EnemyBullet
   - Enemy
   layers:
   - Default
@@ -20,7 +18,7 @@ TagManager:
   - Enemies
   - PlayerBullets
   - EnemyBullets
-  - 
+  - WallCheck
   - 
   - 
   - 
