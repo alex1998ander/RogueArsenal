@@ -20,7 +20,6 @@ public class TaskAim : Node
             SetDataInRoot("isAiming", false);
             _aimCounter = 0f;
             state = NodeState.SUCCESS;
-            Debug.Log("state: " + state);
             return state;
         }
 

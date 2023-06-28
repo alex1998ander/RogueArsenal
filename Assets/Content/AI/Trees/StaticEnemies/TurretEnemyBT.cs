@@ -1,13 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
-using Pathfinding;
 using BehaviorTree;
 
-public class StaticEnemyBT : BTree
+public class TurretEnemyBT : EnemyBT
 {
-    // Layer mask of the walls of the level.
-    [SerializeField] private LayerMask wallLayer;
-
     protected override Node SetupTree()
     {
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
@@ -16,6 +12,7 @@ public class StaticEnemyBT : BTree
 
         Node root = new Sequence(new List<Node>()
         {
+            new Inverter(new CheckIsStunned(stunTime)),
             new CheckPlayerVisible(rb, playerTransform, wallLayer),
             new TaskLookAtPlayer(rb, playerTransform),
             new TaskAim(),
@@ -24,6 +21,7 @@ public class StaticEnemyBT : BTree
 
         root.SetData("targetReached", false);
         root.SetData("isAiming", false);
+        root.SetData("stunned", false);
 
         return root;
     }

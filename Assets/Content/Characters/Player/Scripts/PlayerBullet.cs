@@ -11,8 +11,8 @@ public class PlayerBullet : MonoBehaviour, IUpgradeableBullet
     [SerializeField] private float defaultBulletSpeed = 10f;
     private float _assignedDamage;
     private GameObject _sourceCharacter;
-    private bool _currentlyColliding;
     private Rigidbody2D _rb;
+    private LineRenderer _lineRenderer;
 
     // Upgrade: Bounce
     [Header("Upgrade: Bounce")] [SerializeField] private PhysicsMaterial2D bulletBouncePhysicsMaterial;
@@ -20,14 +20,21 @@ public class PlayerBullet : MonoBehaviour, IUpgradeableBullet
     private int _bouncesLeft;
 
     // Upgrade: Homing
-    [Header("Upgrade: Homing")] [SerializeField] private float homingRadius = 5f;
-    [SerializeField] [Range(1, 360)] private float homingAngleHalf = 30f;
+    [Header("Upgrade: Homing")] [SerializeField] private float homingRadius = 8f;
+    [SerializeField] [Range(1, 360)] private float homingAngleHalf = 50f;
     [SerializeField] private float homingRotationSpeed = 250f;
     [SerializeField] private LayerMask homingTargetLayer;
+    [SerializeField] [Range(0f, 1f)] private float visualViewBoundFocusSpeed = 0.3f;
+    [SerializeField] private float visualViewBoundLength = 4f;
+    private Vector2 _visualLastAngleLeft, _visualAngleRight;
 
     // Upgrade: Explosive Bullet
     [Header("Upgrade: Explosive Bullet")] [SerializeField] private float explosiveBulletRadius = 1f;
     [SerializeField] private LayerMask explosiveBulletTargetLayer;
+
+    // Upgrade: Drill
+    [Header("Upgrade: Drill")] [SerializeField] private int drillPlayerBulletLayerId;
+    [SerializeField] private int drillWallLayerId;
 
 #if UNITY_EDITOR
     private bool _canSeeTargetCharacterGizmos;
@@ -38,6 +45,7 @@ public class PlayerBullet : MonoBehaviour, IUpgradeableBullet
     {
         _bouncesLeft = maxBounces;
         _rb = GetComponent<Rigidbody2D>();
+        _lineRenderer = GetComponent<LineRenderer>();
         UpgradeManager.Init(this);
     }
 
@@ -45,7 +53,6 @@ public class PlayerBullet : MonoBehaviour, IUpgradeableBullet
     {
         _rb.velocity = transform.up * defaultBulletSpeed;
         Destroy(gameObject, defaultLifetime * UpgradeManager.GetBulletRangeMultiplier());
-        Debug.Log(UpgradeManager.GetBulletRangeMultiplier());
     }
 
     private void FixedUpdate()
@@ -55,19 +62,12 @@ public class PlayerBullet : MonoBehaviour, IUpgradeableBullet
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (!_currentlyColliding && !UpgradeManager.OnBulletImpact(this, other))
+        if (!UpgradeManager.OnBulletImpact(this, other))
         {
             Destroy(gameObject);
         }
-        
-        other.gameObject.GetComponent<ICharacterHealth>().InflictDamage(_assignedDamage, true);
 
-        _currentlyColliding = true;
-    }
-
-    private void OnCollisionExit2D(Collision2D other)
-    {
-        _currentlyColliding = false;
+        other.gameObject.GetComponent<ICharacterHealth>()?.InflictDamage(_assignedDamage, true);
     }
 
     /// <summary>
@@ -87,10 +87,10 @@ public class PlayerBullet : MonoBehaviour, IUpgradeableBullet
     {
         GetComponent<Rigidbody2D>().sharedMaterial = bulletBouncePhysicsMaterial;
     }
-    
+
     public bool ExecuteBounce_OnBulletImpact(Collision2D collision)
     {
-        if (_bouncesLeft > 0 && !collision.gameObject.CompareTag("Enemy"))
+        if (_bouncesLeft > 0 && !collision.gameObject.CompareTag("Enemy") && !collision.gameObject.CompareTag("Player"))
         {
             _bouncesLeft--;
             return true;
@@ -98,7 +98,7 @@ public class PlayerBullet : MonoBehaviour, IUpgradeableBullet
 
         return false;
     }
-    
+
 
     // Upgrade: Homing
     public void ExecuteHoming_BulletUpdate()
@@ -127,6 +127,8 @@ public class PlayerBullet : MonoBehaviour, IUpgradeableBullet
             _canSeeTargetCharacterGizmos = false;
 #endif ////////////////////////////////////////////////////////////////////////////////////////////
         }
+
+        VisualizeHoming(_canSeeTargetCharacterGizmos, directionToTargetNormalized);
     }
 
     /// <summary>
@@ -165,6 +167,42 @@ public class PlayerBullet : MonoBehaviour, IUpgradeableBullet
         return Vector2.Angle(transform.up, directionToTarget) < homingAngleHalf /*&& !Physics2D.Raycast(position, directionToTarget, closestDistance)*/;
     }
 
+    /// <summary>
+    /// Homing upgrade visualization 
+    /// </summary>
+    /// <param name="canSeeTargetCharacter">Bool, whether this bullet can "see" a target character</param>
+    /// <param name="directionToTarget">Vector pointing to the target character</param>
+    private void VisualizeHoming(bool canSeeTargetCharacter, Vector3 directionToTarget)
+    {
+        float currentRotation = -transform.eulerAngles.z;
+        Vector3 currentPosition = transform.position;
+
+        Vector2 angleLeft;
+        Vector2 angleRight;
+
+        if (canSeeTargetCharacter)
+        {
+            angleLeft = Quaternion.Euler(0f, 0f, -5f) * directionToTarget;
+            angleRight = Quaternion.Euler(0f, 0f, 5f) * directionToTarget;
+            _lineRenderer.startColor = Color.red;
+            _lineRenderer.endColor = Color.red;
+        }
+        else
+        {
+            angleLeft = Util.DirectionFromAngle(currentRotation - homingAngleHalf);
+            angleRight = Util.DirectionFromAngle(currentRotation + homingAngleHalf);
+            _lineRenderer.startColor = Color.grey;
+            _lineRenderer.endColor = Color.grey;
+        }
+
+        angleLeft = Vector2.Lerp(_visualLastAngleLeft, angleLeft, visualViewBoundFocusSpeed).normalized;
+        angleRight = Vector2.Lerp(_visualAngleRight, angleRight, visualViewBoundFocusSpeed).normalized;
+
+        _visualLastAngleLeft = angleLeft;
+        _visualAngleRight = angleRight;
+
+        _lineRenderer.SetPositions(new[] { currentPosition + (Vector3)angleLeft * visualViewBoundLength, currentPosition, currentPosition + (Vector3)angleRight * visualViewBoundLength });
+    }
 
     // Upgrade: Explosive Bullet
     public bool ExecuteExplosiveBullet_OnBulletImpact(Collision2D collision)
@@ -175,7 +213,7 @@ public class PlayerBullet : MonoBehaviour, IUpgradeableBullet
         {
             targetCollider.GetComponent<ICharacterHealth>().InflictDamage(0);
         }
-        
+
         return false;
     }
 
@@ -183,26 +221,28 @@ public class PlayerBullet : MonoBehaviour, IUpgradeableBullet
     // Upgrade: Mental Meltdown
     public bool ExecuteMentalMeltdown_OnBulletImpact(Collision2D collision)
     {
-        collision.gameObject.GetComponent<ICharacterController>().StunCharacter();
+        collision.gameObject.GetComponent<ICharacterController>()?.StunCharacter();
         return false;
     }
 
 
     // Upgrade: Drill
-    public bool ExecuteDrill_OnBulletImpact(Collision2D collision)
+    public void InitDrill()
     {
         throw new NotImplementedException();
+        // Enables that the projectile can shoot through a wall (is disabled by the bullet's child OnTriggerEnter2D method)
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Walls"), LayerMask.NameToLayer("PlayerBullets"), true);
     }
 
-    
+
 #if UNITY_EDITOR //////////////////////////////////////////////////////////////////////////////////
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.white;
         Handles.DrawWireDisc(transform.position, Vector3.forward, homingRadius);
 
-        Vector3 angle01 = DirectionFromAngle(-transform.eulerAngles.z, -homingAngleHalf);
-        Vector3 angle02 = DirectionFromAngle(-transform.eulerAngles.z, homingAngleHalf);
+        Vector3 angle01 = Util.DirectionFromAngle(-transform.eulerAngles.z - homingAngleHalf);
+        Vector3 angle02 = Util.DirectionFromAngle(-transform.eulerAngles.z + homingAngleHalf);
 
         Gizmos.color = Color.yellow;
         Gizmos.DrawLine(transform.position, transform.position + angle01 * homingRadius);
@@ -213,12 +253,6 @@ public class PlayerBullet : MonoBehaviour, IUpgradeableBullet
             Gizmos.color = Color.red;
             Gizmos.DrawLine(transform.position, _targetPositionGizmos);
         }
-    }
-
-    private Vector2 DirectionFromAngle(float eulerY, float angleInDegrees)
-    {
-        angleInDegrees += eulerY;
-        return new Vector2(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
     }
 #endif ////////////////////////////////////////////////////////////////////////////////////////////
 }

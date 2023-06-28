@@ -9,6 +9,11 @@ public interface IUpgradeableBullet
     /// </summary>
     public void InitBounce();
 
+    /// <summary>
+    /// Initializes the Drill upgrade 
+    /// </summary>
+    public void InitDrill();
+
     #endregion
 
 
@@ -28,29 +33,23 @@ public interface IUpgradeableBullet
     /// Executes the Bounce upgrade when the bullet impacts
     /// </summary>
     /// <param name="collision">Collision data</param>
-    /// <returns>Bool, whether the bullet should NOT be destroyed afterwards</returns>
+    /// <returns>Bool, whether the bullet should survive afterwards</returns>
     public bool ExecuteBounce_OnBulletImpact(Collision2D collision);
 
     /// <summary>
     /// Executes the Explosive Bullet upgrade when the bullet impacts
     /// </summary>
     /// <param name="collision">Collision data</param>
-    /// <returns>Bool, whether the bullet should NOT be destroyed afterwards</returns>
+    /// <returns>Bool, whether the bullet should survive afterwards</returns>
     public bool ExecuteExplosiveBullet_OnBulletImpact(Collision2D collision);
 
     /// <summary>
     /// Executes the Mental Meltdown upgrade when the bullet impacts
     /// </summary>
     /// <param name="collision">Collision data</param>
-    /// <returns>Bool, whether the bullet should NOT be destroyed afterwards</returns>
+    /// <returns>Bool, whether the bullet should survive afterwards</returns>
     public bool ExecuteMentalMeltdown_OnBulletImpact(Collision2D collision);
-
-    /// <summary>
-    /// Executes the Drill upgrade when the bullet impacts
-    /// </summary>
-    /// <param name="collision">Collision data</param>
-    /// <returns>Bool, whether the bullet should NOT be destroyed afterwards</returns>
-    public bool ExecuteDrill_OnBulletImpact(Collision2D collision);
+    
 
     #endregion
 }
