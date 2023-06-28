@@ -13,7 +13,6 @@ public class EnemyController : MonoBehaviour, ICharacterController
 
     public void StunCharacter()
     {
-        Debug.Log("enemy stun called");
         _bTree.Stun();
     }
 }
