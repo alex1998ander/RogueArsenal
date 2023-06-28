@@ -35,5 +35,13 @@ namespace BehaviorTree
         /// </summary>
         /// <returns>The root node of the new behaviour tree.</returns>
         protected abstract Node SetupTree();
+
+        /// <summary>
+        /// Makes the enemy stunned
+        /// </summary>
+        public void Stun()
+        {
+            _root.SetData("stunned", true);
+        }
     }
 }
