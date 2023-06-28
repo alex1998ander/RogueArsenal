@@ -1,7 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class SpawnController : MonoBehaviour
 {
@@ -9,10 +10,12 @@ public class SpawnController : MonoBehaviour
     [SerializeField] public GameObject enemy;
 
     private const int SpawnCount = 3;
+    private static int _mEnemyCount = 0;
 
     // Start is called before the first frame update
     void Start()
     {
+        EventManager.OnEnemyDeath.Subscribe(EnemyDied);
         RandomSpawns();
     }
 
@@ -43,8 +46,26 @@ public class SpawnController : MonoBehaviour
             {
                 Instantiate(enemy, transform.GetChild(i).GetChild(spawnPoint).transform.position,
                     transform.GetChild(i).GetChild(spawnPoint).transform.rotation);
+                _mEnemyCount++;
                 //transform.GetChild(i).GetChild(spawnPoint).gameObject.SetActive(true);
             }
         }
+    }
+
+    private void EnemyDied(GameObject enemy)
+    {
+        _mEnemyCount--;
+
+    }
+
+    public static bool StillEnemiesLeft()
+    {
+        Debug.Log(_mEnemyCount > 0);
+        return _mEnemyCount > 0;
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.OnEnemyDeath.Unsubscribe(EnemyDied);
     }
 }

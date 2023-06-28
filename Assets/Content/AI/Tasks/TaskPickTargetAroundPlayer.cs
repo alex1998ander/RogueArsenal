@@ -48,6 +48,13 @@ public class TaskPickTargetAroundPlayer : Node
         // Remove all nodes that aren't walkable
         allowedNodes.RemoveAll(node => !node.Walkable);
 
+        // When no target could be found, do nothing
+        if (allowedNodes.Count == 0)
+        {
+            state = NodeState.FAILURE;
+            return state;
+        }
+
         // Pick a random node from the allowed nodes
         GraphNode randomNode = allowedNodes[Random.Range(0, allowedNodes.Count)];
 

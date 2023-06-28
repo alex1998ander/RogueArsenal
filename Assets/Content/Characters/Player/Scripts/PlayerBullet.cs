@@ -221,7 +221,7 @@ public class PlayerBullet : MonoBehaviour, IUpgradeableBullet
     // Upgrade: Mental Meltdown
     public bool ExecuteMentalMeltdown_OnBulletImpact(Collision2D collision)
     {
-        collision.gameObject.GetComponent<ICharacterController>().StunCharacter();
+        collision.gameObject.GetComponent<ICharacterController>()?.StunCharacter();
         return false;
     }
 
