@@ -1,6 +1,8 @@
 using BehaviorTree;
-using UnityEngine;
 
+/// <summary>
+/// Checks if a pathfinding target has been defined
+/// </summary>
 public class CheckTargetIsDefined : Node
 {
     public override NodeState Evaluate()

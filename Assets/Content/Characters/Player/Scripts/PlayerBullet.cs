@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerBullet : MonoBehaviour, IUpgradeableBullet
 {
@@ -19,10 +20,14 @@ public class PlayerBullet : MonoBehaviour, IUpgradeableBullet
     private int _bouncesLeft;
 
     // Upgrade: Homing
-    [Header("Upgrade: Homing")] [SerializeField] private float radius = 5f;
-    [SerializeField] [Range(1, 360)] private float angleHalf = 22.5f;
-    [SerializeField] private float rotationSpeed = 200f;
-    [SerializeField] private LayerMask targetLayer;
+    [Header("Upgrade: Homing")] [SerializeField] private float homingRadius = 5f;
+    [SerializeField] [Range(1, 360)] private float homingAngleHalf = 30f;
+    [SerializeField] private float homingRotationSpeed = 250f;
+    [SerializeField] private LayerMask homingTargetLayer;
+
+    // Upgrade: Explosive Bullet
+    [Header("Upgrade: Explosive Bullet")] [SerializeField] private float explosiveBulletRadius = 1f;
+    [SerializeField] private LayerMask explosiveBulletTargetLayer;
 
 #if UNITY_EDITOR
     private bool _canSeeTargetCharacterGizmos;
@@ -34,12 +39,13 @@ public class PlayerBullet : MonoBehaviour, IUpgradeableBullet
         _bouncesLeft = maxBounces;
         _rb = GetComponent<Rigidbody2D>();
         UpgradeManager.Init(this);
-        Destroy(gameObject, defaultLifetime * UpgradeManager.GetBulletRangeMultiplier());
     }
 
     private void Start()
     {
         _rb.velocity = transform.up * defaultBulletSpeed;
+        Destroy(gameObject, defaultLifetime * UpgradeManager.GetBulletRangeMultiplier());
+        Debug.Log(UpgradeManager.GetBulletRangeMultiplier());
     }
 
     private void FixedUpdate()
@@ -53,17 +59,8 @@ public class PlayerBullet : MonoBehaviour, IUpgradeableBullet
         {
             Destroy(gameObject);
         }
-
-        // Enemy hit
-        if (other.gameObject.CompareTag("Enemy"))
-        {
-            other.gameObject.GetComponent<EnemyHealth>().InflictDamage(_assignedDamage);
-        }
-        // Player hits themself
-        else if (other.gameObject.CompareTag("Player"))
-        {
-            other.gameObject.GetComponent<PlayerHealth>().InflictDamage(_assignedDamage, true, _sourceCharacter.GetComponent<PlayerController>());
-        }
+        
+        other.gameObject.GetComponent<ICharacterHealth>().InflictDamage(_assignedDamage, true);
 
         _currentlyColliding = true;
     }
@@ -113,7 +110,7 @@ public class PlayerBullet : MonoBehaviour, IUpgradeableBullet
         {
             Vector2 forwardDirection = transform.up;
             float rotationAmount = Vector3.Cross(directionToTargetNormalized, forwardDirection).z;
-            _rb.angularVelocity = -rotationAmount * rotationSpeed;
+            _rb.angularVelocity = -rotationAmount * homingRotationSpeed;
 
             _rb.velocity = forwardDirection * defaultBulletSpeed;
 
@@ -140,7 +137,7 @@ public class PlayerBullet : MonoBehaviour, IUpgradeableBullet
     /// <returns>Bool, whether a target is in the field of view of this bullet</returns>
     private bool CheckCharacterInFieldOfView(ref Vector2 closestTarget, ref Vector2 directionToTarget)
     {
-        Collider2D[] rangeCheck = Physics2D.OverlapCircleAll(transform.position, radius, targetLayer);
+        Collider2D[] rangeCheck = Physics2D.OverlapCircleAll(transform.position, homingRadius, homingTargetLayer);
 
         if (rangeCheck.Length <= 0)
         {
@@ -165,21 +162,29 @@ public class PlayerBullet : MonoBehaviour, IUpgradeableBullet
         closestTarget = closestTargetPos;
         directionToTarget = (closestTargetPos - position).normalized;
 
-        return Vector2.Angle(transform.up, directionToTarget) < angleHalf /*&& !Physics2D.Raycast(position, directionToTarget, closestDistance)*/;
+        return Vector2.Angle(transform.up, directionToTarget) < homingAngleHalf /*&& !Physics2D.Raycast(position, directionToTarget, closestDistance)*/;
     }
 
 
     // Upgrade: Explosive Bullet
     public bool ExecuteExplosiveBullet_OnBulletImpact(Collision2D collision)
     {
-        throw new NotImplementedException();
+        Collider2D[] rangeCheck = Physics2D.OverlapCircleAll(transform.position, explosiveBulletRadius, explosiveBulletTargetLayer);
+
+        foreach (Collider2D targetCollider in rangeCheck)
+        {
+            targetCollider.GetComponent<ICharacterHealth>().InflictDamage(0);
+        }
+        
+        return false;
     }
 
 
     // Upgrade: Mental Meltdown
     public bool ExecuteMentalMeltdown_OnBulletImpact(Collision2D collision)
     {
-        throw new NotImplementedException();
+        collision.gameObject.GetComponent<ICharacterController>().StunCharacter();
+        return false;
     }
 
 
@@ -194,14 +199,14 @@ public class PlayerBullet : MonoBehaviour, IUpgradeableBullet
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.white;
-        UnityEditor.Handles.DrawWireDisc(transform.position, Vector3.forward, radius);
+        Handles.DrawWireDisc(transform.position, Vector3.forward, homingRadius);
 
-        Vector3 angle01 = DirectionFromAngle(-transform.eulerAngles.z, -angleHalf);
-        Vector3 angle02 = DirectionFromAngle(-transform.eulerAngles.z, angleHalf);
+        Vector3 angle01 = DirectionFromAngle(-transform.eulerAngles.z, -homingAngleHalf);
+        Vector3 angle02 = DirectionFromAngle(-transform.eulerAngles.z, homingAngleHalf);
 
         Gizmos.color = Color.yellow;
-        Gizmos.DrawLine(transform.position, transform.position + angle01 * radius);
-        Gizmos.DrawLine(transform.position, transform.position + angle02 * radius);
+        Gizmos.DrawLine(transform.position, transform.position + angle01 * homingRadius);
+        Gizmos.DrawLine(transform.position, transform.position + angle02 * homingRadius);
 
         if (_canSeeTargetCharacterGizmos)
         {

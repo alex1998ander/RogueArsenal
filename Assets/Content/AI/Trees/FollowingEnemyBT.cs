@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 using BehaviorTree;
+using UnityEngine.Serialization;
 
 public class FollowingEnemyBT : BTree
 {
@@ -9,16 +10,13 @@ public class FollowingEnemyBT : BTree
     [SerializeField] private LayerMask wallLayer;
 
     // Walking speed.
-    public const float Speed = 200f;
+    [SerializeField] private float walkingSpeed = 200f;
 
     // Size of the bounding box around the player where the enemy IS NOT allowed to move.
-    public const float MinDistanceFromPlayer = 4f;
+    [SerializeField] private float minDistanceFromPlayer = 4f;
 
     // Size of the bounding box around the player where the enemy IS allowed to move.
-    public const float MaxDistanceFromPlayer = 6f;
-
-    // Distance how close the enemy needs to be to a waypoint until he moves on to the next one.
-    public const float NextWaypointDistance = 1f;
+    [SerializeField] private float maxDistanceFromPlayer = 6f;
 
     protected override Node SetupTree()
     {
@@ -33,7 +31,7 @@ public class FollowingEnemyBT : BTree
             new Sequence(new List<Node>()
             {
                 // Is enemy at target?
-                new CheckIsAtTarget(rb),
+                new CheckIsAtTarget(),
                 // if so: Either check if the player is NOT visible from its location
                 // If it's not, clear the target
                 new Selector(new List<Node>()
@@ -60,9 +58,9 @@ public class FollowingEnemyBT : BTree
                 new Selector(new List<Node>()
                 {
                     new CheckTargetIsDefined(),
-                    new TaskPickTargetAroundPlayer(playerTransform),
+                    new TaskPickTargetAroundPlayer(playerTransform, minDistanceFromPlayer, maxDistanceFromPlayer),
                 }),
-                new TaskMoveToTarget(rb, seeker),
+                new TaskMoveToTarget(rb, walkingSpeed, seeker),
                 new TaskLookAtMovementDirection(rb), // Look at movement direction
             }),
         });

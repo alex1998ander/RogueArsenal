@@ -10,10 +10,6 @@ namespace BehaviorTree
     /// </summary>
     public class Inverter : Node
     {
-        public Inverter() : base()
-        {
-        }
-
         public Inverter(Node child) : base(child)
         {
         }

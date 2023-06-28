@@ -6,7 +6,7 @@ using UnityEngine;
 
 public static class UpgradeManager
 {
-    private static readonly Upgrade[] Upgrades = { new EmptyUpgradeSlot(), new EmptyUpgradeSlot(), new EmptyUpgradeSlot(), new EmptyUpgradeSlot(), new EmptyUpgradeSlot() };
+    private static readonly Upgrade[] Upgrades = { new UpgradeHealingField(), new UpgradeBigBullet(), new UpgradeHoming(), new EmptyUpgradeSlot(), new EmptyUpgradeSlot() };
     private static int _nextReplacementIndex;
 
     private static Upgrade[] _currentUpgradeSelection = { new EmptyUpgradeSlot(), new EmptyUpgradeSlot(), new EmptyUpgradeSlot(), new EmptyUpgradeSlot(), new EmptyUpgradeSlot() };
@@ -51,10 +51,10 @@ public static class UpgradeManager
 
         // Replace upgrade
         Upgrades[_nextReplacementIndex] = newUpgrade;
-        
+
         // Remove new upgrade from upgrade pool
         UpgradePool.Remove(newUpgrade);
-        
+
         // Add old update back to the upgrade pool
         if (oldUpgrade is not EmptyUpgradeSlot)
         {
@@ -77,17 +77,27 @@ public static class UpgradeManager
     }
 
     /// <summary>
+    /// Calculates the multiplier from the passed values. It is ensured that no negative multipliers occur.
+    /// </summary>
+    /// <param name="upgrade1">1. Upgrade</param>
+    /// <param name="upgrade2">2. Upgrade</param>
+    /// <param name="upgrade3">3. Upgrade</param>
+    /// <param name="upgrade4">4. Upgrade</param>
+    /// <param name="upgrade5">5. Upgrade</param>
+    /// <returns>Calculated Multiplier</returns>
+    private static float CalculateMultiplier(float upgrade1, float upgrade2, float upgrade3, float upgrade4, float upgrade5)
+    {
+        return Mathf.Max(0, 1 + upgrade1 + upgrade2 + upgrade3 + upgrade4 + upgrade5);
+    }
+
+
+    /// <summary>
     /// Calculates the bullet range multiplier of all upgrades.
     /// </summary>
     /// <returns>Common bullet range multiplier</returns>
     public static float GetBulletRangeMultiplier()
     {
-        return 1 +
-               Upgrades[0].BulletRange +
-               Upgrades[1].BulletRange +
-               Upgrades[2].BulletRange +
-               Upgrades[3].BulletRange +
-               Upgrades[4].BulletRange;
+        return CalculateMultiplier(Upgrades[0].BulletRange, Upgrades[1].BulletRange, Upgrades[2].BulletRange, Upgrades[3].BulletRange, Upgrades[4].BulletRange);
     }
 
     /// <summary>
@@ -96,11 +106,7 @@ public static class UpgradeManager
     /// <returns>Common bullet count adjustment</returns>
     public static int GetBulletCountAdjustment()
     {
-        return Upgrades[0].BulletCount +
-               Upgrades[1].BulletCount +
-               Upgrades[2].BulletCount +
-               Upgrades[3].BulletCount +
-               Upgrades[4].BulletCount;
+        return Upgrades[0].BulletCount + Upgrades[1].BulletCount + Upgrades[2].BulletCount + Upgrades[3].BulletCount + Upgrades[4].BulletCount;
     }
 
     /// <summary>
@@ -109,12 +115,7 @@ public static class UpgradeManager
     /// <returns>Common bullet damage multiplier</returns>
     public static float GetBulletDamageMultiplier()
     {
-        return 1 +
-               Upgrades[0].BulletDamage +
-               Upgrades[1].BulletDamage +
-               Upgrades[2].BulletDamage +
-               Upgrades[3].BulletDamage +
-               Upgrades[4].BulletDamage;
+        return CalculateMultiplier(Upgrades[0].BulletDamage, Upgrades[1].BulletDamage, Upgrades[2].BulletDamage, Upgrades[3].BulletDamage, Upgrades[4].BulletDamage);
     }
 
     /// <summary>
@@ -123,26 +124,25 @@ public static class UpgradeManager
     /// <returns>Common bullet size multiplier</returns>
     public static float GetBulletSizeMultiplier()
     {
-        return 1 +
-               Upgrades[0].BulletSize +
-               Upgrades[1].BulletSize +
-               Upgrades[2].BulletSize +
-               Upgrades[3].BulletSize +
-               Upgrades[4].BulletSize;
+        return CalculateMultiplier(Upgrades[0].BulletSize, Upgrades[1].BulletSize, Upgrades[2].BulletSize, Upgrades[3].BulletSize, Upgrades[4].BulletSize);
     }
 
     /// <summary>
-    /// Calculates the attack delay multiplier of all upgrades.
+    /// Calculates the fire delay multiplier of all upgrades.
     /// </summary>
-    /// <returns>Common attack delayw multiplier</returns>
-    public static float GetAttackDelayMultiplier()
+    /// <returns>Common fire delay multiplier</returns>
+    public static float GetFireDelayMultiplier()
     {
-        return 1 +
-               Upgrades[0].AttackDelay +
-               Upgrades[1].AttackDelay +
-               Upgrades[2].AttackDelay +
-               Upgrades[3].AttackDelay +
-               Upgrades[4].AttackDelay;
+        return CalculateMultiplier(Upgrades[0].FireDelay, Upgrades[1].FireDelay, Upgrades[2].FireDelay, Upgrades[3].FireDelay, Upgrades[4].FireDelay);
+    }
+
+    /// <summary>
+    /// Calculates the block delay multiplier of all upgrades.
+    /// </summary>
+    /// <returns>Common block delay multiplier</returns>
+    public static float GetBlockDelayMultiplier()
+    {
+        return CalculateMultiplier(Upgrades[0].BlockDelay, Upgrades[1].BlockDelay, Upgrades[2].BlockDelay, Upgrades[3].BlockDelay, Upgrades[4].BlockDelay);
     }
 
     /// <summary>
@@ -151,12 +151,7 @@ public static class UpgradeManager
     /// <returns>Common health multiplier</returns>
     public static float GetHealthMultiplier()
     {
-        return 1 +
-               Upgrades[0].Health +
-               Upgrades[1].Health +
-               Upgrades[2].Health +
-               Upgrades[3].Health +
-               Upgrades[4].Health;
+        return CalculateMultiplier(Upgrades[0].Health, Upgrades[1].Health, Upgrades[2].Health, Upgrades[3].Health, Upgrades[4].Health);
     }
 
     /// <summary>
@@ -165,12 +160,7 @@ public static class UpgradeManager
     /// <returns>Common movement speed multiplier</returns>
     public static float GetMovementSpeedMultiplier()
     {
-        return 1 +
-               Upgrades[0].MovementSpeed +
-               Upgrades[1].MovementSpeed +
-               Upgrades[2].MovementSpeed +
-               Upgrades[3].MovementSpeed +
-               Upgrades[4].MovementSpeed;
+        return CalculateMultiplier(Upgrades[0].MovementSpeed, Upgrades[1].MovementSpeed, Upgrades[2].MovementSpeed, Upgrades[3].MovementSpeed, Upgrades[4].MovementSpeed);
     }
 
     /// <summary>
