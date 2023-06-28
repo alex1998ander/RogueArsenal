@@ -10,7 +10,7 @@ public class SpawnController : MonoBehaviour
     [SerializeField] public GameObject enemy;
 
     private const int SpawnCount = 3;
-    public static int _mEnemyCount = 0;
+    private static int _mEnemyCount = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -55,10 +55,12 @@ public class SpawnController : MonoBehaviour
     private void EnemyDied(GameObject enemy)
     {
         _mEnemyCount--;
+
     }
 
     public static bool StillEnemiesLeft()
     {
+        Debug.Log(_mEnemyCount > 0);
         return _mEnemyCount > 0;
     }
 
