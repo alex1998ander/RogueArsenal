@@ -6,11 +6,9 @@ using UnityEngine;
 
 public static class UpgradeManager
 {
-<<<<<<< HEAD
-    private static readonly Upgrade[] Upgrades = { new UpgradeHealingField(), new UpgradeBigBullet(), new UpgradeHoming(), new UpgradeMentalMeltdown(), new EmptyUpgradeSlot() };
-=======
-    private static readonly Upgrade[] Upgrades = { new UpgradeHoming(), new EmptyUpgradeSlot(), new EmptyUpgradeSlot(), new EmptyUpgradeSlot(), new EmptyUpgradeSlot() };
->>>>>>> upgrades
+
+    private static readonly Upgrade[] Upgrades = { new UpgradeHealingField(), new UpgradeBigBullet(), new UpgradeHoming(), new UpgradeMentalMeltdown(), new UpgradeBounce() };
+
     private static int _nextReplacementIndex;
 
     private static Upgrade[] _currentUpgradeSelection = { new EmptyUpgradeSlot(), new EmptyUpgradeSlot(), new EmptyUpgradeSlot(), new EmptyUpgradeSlot(), new EmptyUpgradeSlot() };
