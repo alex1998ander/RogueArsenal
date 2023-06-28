@@ -229,6 +229,7 @@ public class PlayerBullet : MonoBehaviour, IUpgradeableBullet
     // Upgrade: Drill
     public void InitDrill()
     {
+        throw new NotImplementedException();
         // Enables that the projectile can shoot through a wall (is disabled by the bullet's child OnTriggerEnter2D method)
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Walls"), LayerMask.NameToLayer("PlayerBullets"), true);
     }
