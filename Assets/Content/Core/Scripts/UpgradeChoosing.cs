@@ -10,17 +10,12 @@ public class UpgradeChoosing : MonoBehaviour
     //Array of the text fields
     [SerializeField] private TextMeshProUGUI[] upgradeDescription;
     //Array of the possible upgrades
-    Upgrade[] _listOfUpgrades = new Upgrade[3];
+    Upgrade[] _listOfUpgrades = new Upgrade[5];
 
     // Start is called before the first frame update
     void Start()
     {
-        UpgradeBurst burst = new UpgradeBurst();
-        UpgradeBounce bounce = new UpgradeBounce();
-        UpgradeBuckshot buckshot = new UpgradeBuckshot();
-        _listOfUpgrades[0] = buckshot;
-        _listOfUpgrades[1] = burst;
-        _listOfUpgrades[2] = bounce;
+        _listOfUpgrades = UpgradeManager.GenerateNewRandomUpgradeSelection();
         
         //Adds the description to the cards
         for (int counter = 0; counter < upgradeDescription.Length; counter++)
@@ -38,6 +33,7 @@ public class UpgradeChoosing : MonoBehaviour
     {
         string clickedButtonName = EventSystem.current.currentSelectedGameObject.name;
         int i = (int) Char.GetNumericValue(clickedButtonName[5]) - 1;
-        //UpgradeManager.BindUpgrade(_listOfUpgrades[i]);
+        Debug.Log(i);
+        UpgradeManager.BindUpgrade(i);
     }
 }

@@ -26,7 +26,7 @@ public class SceneChange : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Hello");
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !SpawnController.StillEnemiesLeft())
         {
             SceneManager.LoadScene(0); 
         }
@@ -39,7 +39,7 @@ public class SceneChange : MonoBehaviour
     /// </summary>
     public void ChangeToLevel()
     {
-        //if (_chosenUpgradeCount == 2)
+        //if (!SpawnController.StillEnemiesLeft())
         //{
             int nextScene = Random.Range(1, _maxSceneCount);
             Debug.Log("Found Scene: " + nextScene);
