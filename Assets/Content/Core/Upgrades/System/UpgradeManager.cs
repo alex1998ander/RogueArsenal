@@ -6,7 +6,11 @@ using UnityEngine;
 
 public static class UpgradeManager
 {
+<<<<<<< HEAD
     private static readonly Upgrade[] Upgrades = { new UpgradeHealingField(), new UpgradeBigBullet(), new UpgradeHoming(), new UpgradeMentalMeltdown(), new EmptyUpgradeSlot() };
+=======
+    private static readonly Upgrade[] Upgrades = { new UpgradeHoming(), new EmptyUpgradeSlot(), new EmptyUpgradeSlot(), new EmptyUpgradeSlot(), new EmptyUpgradeSlot() };
+>>>>>>> upgrades
     private static int _nextReplacementIndex;
 
     private static Upgrade[] _currentUpgradeSelection = { new EmptyUpgradeSlot(), new EmptyUpgradeSlot(), new EmptyUpgradeSlot(), new EmptyUpgradeSlot(), new EmptyUpgradeSlot() };
@@ -19,14 +23,14 @@ public static class UpgradeManager
         new UpgradeBounce(),
         new UpgradeCarefulPlanning(),
         new UpgradeTank(),
-        new UpgradeExplosiveBullet(),
+        //new UpgradeExplosiveBullet(),
         new UpgradeHealingField(),
         new UpgradeHoming(),
         new UpgradePhoenix(),
         new UpgradeBigBullet(),
         new UpgradeMentalMeltdown(),
         new UpgradeDemonicPact(),
-        new UpgradeDrill(),
+        //new UpgradeDrill(),
         new UpgradeGlassCannon()
     };
 
@@ -246,7 +250,7 @@ public static class UpgradeManager
     /// </summary>
     /// <param name="upgradeableBullet">Bullet reference</param>
     /// <param name="collision">Collision information</param>
-    /// <returns>Bool, whether the bullet should NOT be destroyed afterwards</returns>
+    /// <returns>Bool, whether the bullet should survive afterwards</returns>
     public static bool OnBulletImpact(IUpgradeableBullet upgradeableBullet, Collision2D collision)
     {
         // binary unconditional logical OR ('|' not '||') needed to evaluate every operand (no short-circuiting)

@@ -10,7 +10,7 @@ public class UpgradeHitman : Upgrade
     public override string Description => "Break the sound barrier with bullets that leave enemies in awe and questioning their life choices.";
 
     public override float BulletRange => 2.5f;
-    public override float FireDelay => -0.5f;
+    public override float FireDelay => 1.0f;
 }
 
 public class UpgradeBuckshot : Upgrade
@@ -69,7 +69,7 @@ public class UpgradeTank : Upgrade
     public override string Description => "Roar into battle as the ferocious Tankasaurus, impervious to damage and ready to stomp through enemy lines.";
 
     public override float Health => 1f;
-    public override float FireDelay => -1f;
+    public override float FireDelay => 1f;
 }
 
 public class UpgradeExplosiveBullet : Upgrade
@@ -160,9 +160,9 @@ public class UpgradeDrill : Upgrade
     public override string Name => "Drill";
     public override string Description => "Break the laws of physics with bullets that defy solid matter, turning your enemies' hiding spots into mere illusions of safety.";
 
-    public override bool OnBulletImpact(IUpgradeableBullet upgradeableBullet, Collision2D collision)
+    public override void Init(IUpgradeableBullet upgradeableBullet)
     {
-        return upgradeableBullet.ExecuteDrill_OnBulletImpact(collision);
+        upgradeableBullet.InitDrill();
     }
 }
 
@@ -173,4 +173,11 @@ public class UpgradeGlassCannon : Upgrade
 
     public override float BulletDamage => 2f;
     public override float Health => -0.95f;
+}
+
+public class UpgradePoison : Upgrade
+{
+    public override string Name => "Poison";
+    public override string Description => "Experience the sadistic pleasure of watching your enemies writhe in a long-lasting death throes that slowly fade their health.";
+
 }
