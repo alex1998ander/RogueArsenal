@@ -52,7 +52,7 @@ public class SpawnController : MonoBehaviour
         }
     }
 
-    private void EnemyDied(EnemyController enemy)
+    private void EnemyDied(GameObject enemy)
     {
         _mEnemyCount--;
     }
