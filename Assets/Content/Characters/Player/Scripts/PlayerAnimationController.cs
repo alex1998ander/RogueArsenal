@@ -14,8 +14,8 @@ public class PlayerAnimationController : MonoBehaviour
     // Sprite of the players weapon
     [SerializeField] private SpriteRenderer weaponSprite;
 
+    // Boolean variable "Running" of the player animator
     private static readonly int Running = Animator.StringToHash("Running");
-    private static readonly int Dead = Animator.StringToHash("Dead");
 
     private void Start()
     {
@@ -63,6 +63,9 @@ public class PlayerAnimationController : MonoBehaviour
         weaponSprite.enabled = false;
     }
 
+    /// <summary>
+    /// Plays the fire animation of the weapon once.
+    /// </summary>
     private void FireWeaponAnimation()
     {
         weaponAnimator.Play("Weapon_Fire");
