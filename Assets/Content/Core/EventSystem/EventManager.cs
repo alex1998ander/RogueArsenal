@@ -6,6 +6,16 @@ using UnityEngine;
 
 public static class EventManager {
     #region Player Events
+    
+    /// <summary>
+    /// The player moves in a direction.
+    /// </summary>
+    public static readonly Event<Vector2> OnPlayerMove = new();
+
+    /// <summary>
+    /// The player is aiming in a direction.
+    /// </summary>
+    public static readonly Event<float> OnPlayerAim = new();
 
     /// <summary>
     /// The player fires his weapon (Fire button was pressed). This event is triggered regardless of the number of bullets or shots.
