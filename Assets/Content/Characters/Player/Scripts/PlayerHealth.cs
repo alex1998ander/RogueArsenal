@@ -41,6 +41,7 @@ public class PlayerHealth : MonoBehaviour, ICharacterHealth
                     EventManager.OnPlayerDeath.Trigger();
                     GetComponent<SpriteRenderer>().color = Color.red;
                     //Destroy(gameObject);
+                    PlayerDied();
                 }
             }
             else
@@ -48,6 +49,12 @@ public class PlayerHealth : MonoBehaviour, ICharacterHealth
                 _currentHealth = 1;
             }
         }
+    }
+
+    void PlayerDied()
+    {
+        LevelManager.instance.GameOver();
+        gameObject.SetActive(false);
     }
 
     /// <summary>
