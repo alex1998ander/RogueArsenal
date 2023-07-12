@@ -1,17 +1,15 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public static class UpgradeManager
 {
-
-    private static readonly Upgrade[] Upgrades = { new UpgradeHealingField(), new UpgradeBigBullet(), new UpgradeHoming(), new UpgradeMentalMeltdown(), new UpgradeBounce() };
+    private static readonly Upgrade[] Upgrades = { new UpgradeHealingField() };
 
     private static int _nextReplacementIndex;
 
-    private static Upgrade[] _currentUpgradeSelection = { new EmptyUpgradeSlot(), new EmptyUpgradeSlot(), new EmptyUpgradeSlot(), new EmptyUpgradeSlot(), new EmptyUpgradeSlot() };
+    private static Upgrade[] _currentUpgradeSelection = { };
 
     private static readonly List<Upgrade> UpgradePool = new()
     {
@@ -58,10 +56,10 @@ public static class UpgradeManager
         UpgradePool.Remove(newUpgrade);
 
         // Add old update back to the upgrade pool
-        if (oldUpgrade is not EmptyUpgradeSlot)
-        {
-            UpgradePool.Add(oldUpgrade);
-        }
+        // if (oldUpgrade is not EmptyUpgradeSlot)
+        // {
+        //     UpgradePool.Add(oldUpgrade);
+        // }
 
         _nextReplacementIndex = (_nextReplacementIndex + 1) % 5;
     }
@@ -81,17 +79,19 @@ public static class UpgradeManager
     /// <summary>
     /// Calculates the multiplier from the passed values. It is ensured that no negative multipliers occur.
     /// </summary>
-    /// <param name="upgrade1">1. Upgrade</param>
-    /// <param name="upgrade2">2. Upgrade</param>
-    /// <param name="upgrade3">3. Upgrade</param>
-    /// <param name="upgrade4">4. Upgrade</param>
-    /// <param name="upgrade5">5. Upgrade</param>
+    /// <param name="attributeSelector">Upgrade attribute</param>
     /// <returns>Calculated Multiplier</returns>
-    private static float CalculateMultiplier(float upgrade1, float upgrade2, float upgrade3, float upgrade4, float upgrade5)
+    private static float GetAttributeMultiplier(Func<Upgrade, float> attributeSelector)
     {
-        return Mathf.Max(0, 1 + upgrade1 + upgrade2 + upgrade3 + upgrade4 + upgrade5);
-    }
+        float multiplier = 1f;
 
+        foreach (Upgrade upgrade in Upgrades)
+        {
+            multiplier += attributeSelector(upgrade);
+        }
+
+        return Mathf.Max(0, multiplier);
+    }
 
     /// <summary>
     /// Calculates the bullet range multiplier of all upgrades.
@@ -99,7 +99,16 @@ public static class UpgradeManager
     /// <returns>Common bullet range multiplier</returns>
     public static float GetBulletRangeMultiplier()
     {
-        return CalculateMultiplier(Upgrades[0].BulletRange, Upgrades[1].BulletRange, Upgrades[2].BulletRange, Upgrades[3].BulletRange, Upgrades[4].BulletRange);
+        return GetAttributeMultiplier(upgrade => upgrade.BulletRange);
+    }
+
+    /// <summary>
+    /// Calculates the bullet speed multiplier of all upgrades.
+    /// </summary>
+    /// <returns>Common bullet speed multiplier</returns>
+    public static float GetBulletSpeedMultiplier()
+    {
+        return GetAttributeMultiplier(upgrade => upgrade.BulletSpeed);
     }
 
     /// <summary>
@@ -108,7 +117,14 @@ public static class UpgradeManager
     /// <returns>Common bullet count adjustment</returns>
     public static int GetBulletCountAdjustment()
     {
-        return Upgrades[0].BulletCount + Upgrades[1].BulletCount + Upgrades[2].BulletCount + Upgrades[3].BulletCount + Upgrades[4].BulletCount;
+        int bulletCountAdjustment = 0;
+
+        foreach (Upgrade upgrade in Upgrades)
+        {
+            bulletCountAdjustment += upgrade.BulletCount;
+        }
+
+        return bulletCountAdjustment;
     }
 
     /// <summary>
@@ -117,7 +133,7 @@ public static class UpgradeManager
     /// <returns>Common bullet damage multiplier</returns>
     public static float GetBulletDamageMultiplier()
     {
-        return CalculateMultiplier(Upgrades[0].BulletDamage, Upgrades[1].BulletDamage, Upgrades[2].BulletDamage, Upgrades[3].BulletDamage, Upgrades[4].BulletDamage);
+        return GetAttributeMultiplier(upgrade => upgrade.BulletDamage);
     }
 
     /// <summary>
@@ -126,7 +142,7 @@ public static class UpgradeManager
     /// <returns>Common bullet size multiplier</returns>
     public static float GetBulletSizeMultiplier()
     {
-        return CalculateMultiplier(Upgrades[0].BulletSize, Upgrades[1].BulletSize, Upgrades[2].BulletSize, Upgrades[3].BulletSize, Upgrades[4].BulletSize);
+        return GetAttributeMultiplier(upgrade => upgrade.BulletSize);
     }
 
     /// <summary>
@@ -135,7 +151,7 @@ public static class UpgradeManager
     /// <returns>Common fire delay multiplier</returns>
     public static float GetFireDelayMultiplier()
     {
-        return CalculateMultiplier(Upgrades[0].FireDelay, Upgrades[1].FireDelay, Upgrades[2].FireDelay, Upgrades[3].FireDelay, Upgrades[4].FireDelay);
+        return GetAttributeMultiplier(upgrade => upgrade.FireDelay);
     }
 
     /// <summary>
@@ -144,7 +160,7 @@ public static class UpgradeManager
     /// <returns>Common block delay multiplier</returns>
     public static float GetBlockDelayMultiplier()
     {
-        return CalculateMultiplier(Upgrades[0].BlockDelay, Upgrades[1].BlockDelay, Upgrades[2].BlockDelay, Upgrades[3].BlockDelay, Upgrades[4].BlockDelay);
+        return GetAttributeMultiplier(upgrade => upgrade.BlockDelay);
     }
 
     /// <summary>
@@ -153,7 +169,7 @@ public static class UpgradeManager
     /// <returns>Common health multiplier</returns>
     public static float GetHealthMultiplier()
     {
-        return CalculateMultiplier(Upgrades[0].Health, Upgrades[1].Health, Upgrades[2].Health, Upgrades[3].Health, Upgrades[4].Health);
+        return GetAttributeMultiplier(upgrade => upgrade.Health);
     }
 
     /// <summary>
@@ -162,7 +178,7 @@ public static class UpgradeManager
     /// <returns>Common movement speed multiplier</returns>
     public static float GetMovementSpeedMultiplier()
     {
-        return CalculateMultiplier(Upgrades[0].MovementSpeed, Upgrades[1].MovementSpeed, Upgrades[2].MovementSpeed, Upgrades[3].MovementSpeed, Upgrades[4].MovementSpeed);
+        return GetAttributeMultiplier(upgrade => upgrade.MovementSpeed);
     }
 
     /// <summary>
@@ -171,11 +187,10 @@ public static class UpgradeManager
     /// <param name="upgradeablePlayer">Player reference</param>
     public static void Init(IUpgradeablePlayer upgradeablePlayer)
     {
-        Upgrades[0].Init(upgradeablePlayer);
-        Upgrades[1].Init(upgradeablePlayer);
-        Upgrades[2].Init(upgradeablePlayer);
-        Upgrades[3].Init(upgradeablePlayer);
-        Upgrades[4].Init(upgradeablePlayer);
+        foreach (Upgrade upgrade in Upgrades)
+        {
+            upgrade.Init(upgradeablePlayer);
+        }
     }
 
     /// <summary>
@@ -184,11 +199,10 @@ public static class UpgradeManager
     /// <param name="upgradeableBullet">Bullet reference</param>
     public static void Init(IUpgradeableBullet upgradeableBullet)
     {
-        Upgrades[0].Init(upgradeableBullet);
-        Upgrades[1].Init(upgradeableBullet);
-        Upgrades[2].Init(upgradeableBullet);
-        Upgrades[3].Init(upgradeableBullet);
-        Upgrades[4].Init(upgradeableBullet);
+        foreach (Upgrade upgrade in Upgrades)
+        {
+            upgrade.Init(upgradeableBullet);
+        }
     }
 
     /// <summary>
@@ -197,11 +211,10 @@ public static class UpgradeManager
     /// <param name="upgradeablePlayer">Player reference</param>
     public static void OnFire(IUpgradeablePlayer upgradeablePlayer)
     {
-        Upgrades[0].OnFire(upgradeablePlayer);
-        Upgrades[1].OnFire(upgradeablePlayer);
-        Upgrades[2].OnFire(upgradeablePlayer);
-        Upgrades[3].OnFire(upgradeablePlayer);
-        Upgrades[4].OnFire(upgradeablePlayer);
+        foreach (Upgrade upgrade in Upgrades)
+        {
+            upgrade.OnFire(upgradeablePlayer);
+        }
     }
 
     /// <summary>
@@ -210,11 +223,10 @@ public static class UpgradeManager
     /// <param name="upgradeablePlayer">Player reference</param>
     public static void OnBlock(IUpgradeablePlayer upgradeablePlayer)
     {
-        Upgrades[0].OnBlock(upgradeablePlayer);
-        Upgrades[1].OnBlock(upgradeablePlayer);
-        Upgrades[2].OnBlock(upgradeablePlayer);
-        Upgrades[3].OnBlock(upgradeablePlayer);
-        Upgrades[4].OnBlock(upgradeablePlayer);
+        foreach (Upgrade upgrade in Upgrades)
+        {
+            upgrade.OnBlock(upgradeablePlayer);
+        }
     }
 
     /// <summary>
@@ -223,11 +235,10 @@ public static class UpgradeManager
     /// <param name="upgradeableBullet">Bullet reference</param>
     public static void BulletUpdate(IUpgradeableBullet upgradeableBullet)
     {
-        Upgrades[0].BulletUpdate(upgradeableBullet);
-        Upgrades[1].BulletUpdate(upgradeableBullet);
-        Upgrades[2].BulletUpdate(upgradeableBullet);
-        Upgrades[3].BulletUpdate(upgradeableBullet);
-        Upgrades[4].BulletUpdate(upgradeableBullet);
+        foreach (Upgrade upgrade in Upgrades)
+        {
+            upgrade.BulletUpdate(upgradeableBullet);
+        }
     }
 
     /// <summary>
@@ -236,11 +247,10 @@ public static class UpgradeManager
     /// <param name="upgradeablePlayer">Player reference</param>
     public static void PlayerUpdate(IUpgradeablePlayer upgradeablePlayer)
     {
-        Upgrades[0].PlayerUpdate(upgradeablePlayer);
-        Upgrades[1].PlayerUpdate(upgradeablePlayer);
-        Upgrades[2].PlayerUpdate(upgradeablePlayer);
-        Upgrades[3].PlayerUpdate(upgradeablePlayer);
-        Upgrades[4].PlayerUpdate(upgradeablePlayer);
+        foreach (Upgrade upgrade in Upgrades)
+        {
+            upgrade.PlayerUpdate(upgradeablePlayer);
+        }
     }
 
     /// <summary>
@@ -252,11 +262,14 @@ public static class UpgradeManager
     public static bool OnBulletImpact(IUpgradeableBullet upgradeableBullet, Collision2D collision)
     {
         // binary unconditional logical OR ('|' not '||') needed to evaluate every operand (no short-circuiting)
-        return Upgrades[0].OnBulletImpact(upgradeableBullet, collision) |
-               Upgrades[1].OnBulletImpact(upgradeableBullet, collision) |
-               Upgrades[2].OnBulletImpact(upgradeableBullet, collision) |
-               Upgrades[3].OnBulletImpact(upgradeableBullet, collision) |
-               Upgrades[4].OnBulletImpact(upgradeableBullet, collision);
+        bool bulletSurvives = false;
+
+        foreach (Upgrade upgrade in Upgrades)
+        {
+            bulletSurvives |= upgrade.OnBulletImpact(upgradeableBullet, collision);
+        }
+
+        return bulletSurvives;
     }
 
     /// <summary>
@@ -265,10 +278,9 @@ public static class UpgradeManager
     /// <param name="upgradeablePlayer">Player reference</param>
     public static void OnPlayerDeath(IUpgradeablePlayer upgradeablePlayer)
     {
-        Upgrades[0].OnPlayerDeath(upgradeablePlayer);
-        Upgrades[1].OnPlayerDeath(upgradeablePlayer);
-        Upgrades[2].OnPlayerDeath(upgradeablePlayer);
-        Upgrades[3].OnPlayerDeath(upgradeablePlayer);
-        Upgrades[4].OnPlayerDeath(upgradeablePlayer);
+        foreach (Upgrade upgrade in Upgrades)
+        {
+            upgrade.OnPlayerDeath(upgradeablePlayer);
+        }
     }
 }
