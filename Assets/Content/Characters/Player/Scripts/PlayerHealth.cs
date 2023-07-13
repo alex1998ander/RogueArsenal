@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour, ICharacterHealth
 {
@@ -53,7 +55,7 @@ public class PlayerHealth : MonoBehaviour, ICharacterHealth
 
     void PlayerDied()
     {
-        LevelManager.instance.GameOver();
+        LevelManager.Instance.GameOver();
         gameObject.SetActive(false);
     }
 
@@ -65,5 +67,14 @@ public class PlayerHealth : MonoBehaviour, ICharacterHealth
     {
         _currentHealth = Mathf.Min(_currentHealth + healingAmount, maxHealth);
         
+    }
+
+    /// <summary>
+    /// Return the current and max life of the player in a Vector2
+    /// </summary>
+    /// <returns>Current and max life of the player</returns>
+    public Vector2 GetHealth()
+    {
+        return new Vector2(_currentHealth, maxHealth * UpgradeManager.GetHealthMultiplier());
     }
 }

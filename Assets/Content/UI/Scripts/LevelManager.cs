@@ -5,21 +5,19 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    public static LevelManager instance;
+    public static LevelManager Instance;
 
     private void Awake()
     {
-        if (LevelManager.instance == null) instance = this;
+        if (LevelManager.Instance == null) Instance = this;
         else Destroy(gameObject);
     }
 
     public void GameOver()
     {
-        UIManager _ui = GetComponent<UIManager>();
-        if (_ui != null)
-        {
-            _ui.ToggleDeathPanel();
-            Time.timeScale = 0;
-        }
+        UIManager ui = GetComponent<UIManager>();
+        if (ui == null) return;
+        ui.ToggleDeathPanel();
+        Time.timeScale = 0;
     }
 }
