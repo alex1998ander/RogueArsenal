@@ -6,6 +6,7 @@ public class Upgrade
     public virtual string Description { get; private set; } = "";
 
     public virtual float BulletRange { get; private set; } = 0f;
+    public virtual float BulletSpeed { get; private set; } = 0f;
     public virtual int BulletCount { get; private set; } = 0;
     public virtual float BulletDamage { get; private set; } = 0f;
     public virtual float BulletSize { get; private set; } = 0f;
