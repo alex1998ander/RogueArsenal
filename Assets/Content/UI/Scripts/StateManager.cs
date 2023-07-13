@@ -14,5 +14,6 @@ public class StateManager : MonoBehaviour
     public void ChangeSceneByName()
     {
         SceneManager.LoadScene(0);
+        Time.timeScale = 1;
     }
 }
