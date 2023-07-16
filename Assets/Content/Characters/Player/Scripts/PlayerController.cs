@@ -111,7 +111,7 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
                 _aimDirection = (Vector2) Camera.main.ScreenToWorldPoint(_aimDirection) - _rigidbody.position;
             }
 
-            _angle = Mathf.Atan2(_aimDirection.y, _aimDirection.x) * Mathf.Rad2Deg;
+            _angle = Mathf.Atan2(_aimDirection.y, _aimDirection.x) * Mathf.Rad2Deg - 90f;
             //_rigidbody.rotation = _angle;
             playerWeapon.transform.rotation = Quaternion.Euler(0, 0, _angle);
             EventManager.OnPlayerAim.Trigger(_angle);
