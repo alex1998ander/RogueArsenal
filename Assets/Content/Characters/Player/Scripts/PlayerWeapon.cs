@@ -22,5 +22,7 @@ public class PlayerWeapon : MonoBehaviour
             bullet.GetComponent<PlayerBullet>().Init(defaultDamage * UpgradeManager.GetBulletDamageMultiplier(), transform.parent.gameObject);
             bullet.transform.localScale *= UpgradeManager.GetBulletSizeMultiplier();
         }
+        
+        EventManager.OnPlayerFire.Trigger();
     }
 }
