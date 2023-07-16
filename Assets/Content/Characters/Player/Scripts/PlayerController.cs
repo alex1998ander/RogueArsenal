@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
     [SerializeField] private float defaultBlockDelay = 5.0f;
     [SerializeField] private PlayerWeapon playerWeapon;
 
+    [SerializeField] private Transform playerSpriteTransform;
+
     private Vector2 _mousePosition;
     private Vector2 _movementInput;
     private bool _isMouse;
@@ -74,7 +76,6 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
     private void OnMove(InputValue value)
     {
         _movementInput = value.Get<Vector2>();
-        EventManager.OnPlayerMove.Trigger(_movementInput);
     }
 
     private void OnFire()
@@ -86,7 +87,6 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
 
             playerWeapon.Fire();
             UpgradeManager.OnFire(this);
-            EventManager.OnPlayerFire.Trigger();
         }
     }
 
@@ -114,7 +114,8 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
             _angle = Mathf.Atan2(_aimDirection.y, _aimDirection.x) * Mathf.Rad2Deg - 90f;
             //_rigidbody.rotation = _angle;
             playerWeapon.transform.rotation = Quaternion.Euler(0, 0, _angle);
-            EventManager.OnPlayerAim.Trigger(_angle);
+
+            playerSpriteTransform.rotation = Quaternion.AngleAxis(_angle, Vector3.forward);
         }
     }
 
