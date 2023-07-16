@@ -1,28 +1,27 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class MusicController : MonoBehaviour
 {
-    // Audio sources for the intro, the main loop and the upgrade selection loop
-    [SerializeField] private AudioSource intro, mainLoop, upgradeSelectionLoop;
+    // Audio sources for the intro and  the main loop
+    [SerializeField] private AudioSource intro, mainLoop;
 
-    // the BPM (Beats per minute) and time signature of the music
-    // All used song loops should have the same BPM and time signature
-    [SerializeField] private int musicBpm, timeSignature;
+    // Audio sources for the variants of the upgrade selection loop
+    [SerializeField] private AudioSource[] upgradeSelectionLoops;
 
-    // Length of a bar of music in seconds
-    private double _barLengthInSeconds;
-
-    // The point in time where the next bar of the music will start playing
-    private double _nextBarStartTime;
-
-    // Should the music loop start to fade into another the next bar? 
-    private bool _startFadeOnNextBar;
+    // Time in seconds it takes to fully fade from the main loop to the upgrade selection loop and vice versa
+    [SerializeField] private float loopCrossFadeTimeInSeconds = 1f;
 
     // Is the main loop currently playing?
-    private bool _mainLoopPlaying;
+    private static bool _mainLoopPlaying = true;
+
+    // Index of the upgrade selection loop currently being used
+    private static int _currentUpgradeSelectionLoopIdx = 0;
+
+    // Fade Coroutines to stop
+    private static readonly Coroutine[] _fadeCoroutines = { };
 
     private void Start()
     {
@@ -31,48 +30,16 @@ public class MusicController : MonoBehaviour
         EventManager.OnLevelEnter.Subscribe(InitializeMusicFadeOnSceneChange);
         EventManager.OnLevelExit.Subscribe(InitializeMusicFadeOnSceneChange);
 
-        _mainLoopPlaying = true;
-        _startFadeOnNextBar = false;
-        upgradeSelectionLoop.volume = 0f;
-
-        // 60 seconds divided by bpm equals the length of a single beat in seconds
-        // multiply with time signature to get length of a full bar
-        _barLengthInSeconds = (60d / musicBpm) * timeSignature;
-
         // Play the intro, schedule the main und upgrade loops to start playing at the point in time where
         // the intro stops playing to make sure they are synchronized
-        // intro.PlayScheduled(AudioSettings.dspTime);
+        // This assumes that the player will never finish a level before the intro has finished playing
         intro.PlayScheduled(AudioSettings.dspTime);
-        intro.SetScheduledEndTime(AudioSettings.dspTime + intro.clip.length);
-        _nextBarStartTime = AudioSettings.dspTime + intro.clip.length;
-        mainLoop.PlayScheduled(_nextBarStartTime);
-        upgradeSelectionLoop.PlayScheduled(_nextBarStartTime);
-    }
-
-    private void Update()
-    {
-        if (AudioSettings.dspTime >= _nextBarStartTime)
+        double mainAndUpgradeLoopStartTime = AudioSettings.dspTime + intro.clip.length;
+        mainLoop.PlayScheduled(mainAndUpgradeLoopStartTime);
+        foreach (AudioSource upgradeSelectionLoop in upgradeSelectionLoops)
         {
-            Debug.Log("<color=red>Bar Play</color>");
-
-            _nextBarStartTime = AudioSettings.dspTime + _barLengthInSeconds;
-
-            // if (_startFadeOnNextBar)
-            // {
-            //     if (_mainLoopPlaying)
-            //     {
-            //         StartCoroutine(StartVolumeFade(mainLoop, (float) _barLengthInSeconds, 0f));
-            //         StartCoroutine(StartVolumeFade(upgradeSelectionLoop, (float) _barLengthInSeconds, 1f));
-            //     }
-            //     else
-            //     {
-            //         StartCoroutine(StartVolumeFade(upgradeSelectionLoop, (float) _barLengthInSeconds, 0f));
-            //         StartCoroutine(StartVolumeFade(mainLoop, (float) _barLengthInSeconds, 1f));
-            //     }
-            //
-            //     _mainLoopPlaying = !_mainLoopPlaying;
-            //     _startFadeOnNextBar = false;
-            // }
+            upgradeSelectionLoop.volume = 0f;
+            upgradeSelectionLoop.PlayScheduled(mainAndUpgradeLoopStartTime);
         }
     }
 
@@ -82,8 +49,6 @@ public class MusicController : MonoBehaviour
     /// <param name="audioSource">The audio to fade</param>
     /// <param name="duration">The duration of the fade</param>
     /// <param name="targetVolume">The target volume the audio volume fades to</param>
-    /// <param name="playAudioSourceBeforeFade">Starts playing the audio source before the fade starts</param>
-    /// <param name="stopAudioSourceAfterFade">Stops playing the audio source after the fade has finished</param>
     public static IEnumerator StartVolumeFade(AudioSource audioSource, float duration, float targetVolume)
     {
         float currentTime = 0f;
@@ -96,7 +61,6 @@ public class MusicController : MonoBehaviour
         }
     }
 
-
     /// <summary>
     /// Initializes the fade of the music when the scene is changed.
     /// Happens when level was exited and upgrade selection screen is entered or
@@ -104,20 +68,31 @@ public class MusicController : MonoBehaviour
     /// </summary>
     private void InitializeMusicFadeOnSceneChange()
     {
-        Debug.Log("init music fade");
+        foreach (Coroutine coroutine in _fadeCoroutines)
+        {
+            StopCoroutine(coroutine);
+        }
 
+        Array.Clear(_fadeCoroutines, 0, _fadeCoroutines.Length);
+
+        // TODO: When player chooses upgrade too fast, the different coroutines clash and destroy the fading effect
         if (_mainLoopPlaying)
         {
-            StartCoroutine(StartVolumeFade(mainLoop, (float) _barLengthInSeconds, 0f));
-            StartCoroutine(StartVolumeFade(upgradeSelectionLoop, (float) _barLengthInSeconds, 1f));
+            _fadeCoroutines.Append(StartCoroutine(StartVolumeFade(mainLoop, loopCrossFadeTimeInSeconds, 0f)));
+            _fadeCoroutines.Append(
+                StartCoroutine(StartVolumeFade(upgradeSelectionLoops[_currentUpgradeSelectionLoopIdx],
+                    loopCrossFadeTimeInSeconds, 1f)));
         }
         else
         {
-            StartCoroutine(StartVolumeFade(upgradeSelectionLoop, (float) _barLengthInSeconds, 0f));
-            StartCoroutine(StartVolumeFade(mainLoop, (float) _barLengthInSeconds, 1f));
+            _fadeCoroutines.Append(
+                StartCoroutine(StartVolumeFade(upgradeSelectionLoops[_currentUpgradeSelectionLoopIdx],
+                    loopCrossFadeTimeInSeconds, 0f)));
+            _fadeCoroutines.Append(StartCoroutine(StartVolumeFade(mainLoop, loopCrossFadeTimeInSeconds, 1f)));
+
+            _currentUpgradeSelectionLoopIdx = (_currentUpgradeSelectionLoopIdx + 1) % upgradeSelectionLoops.Length;
         }
 
         _mainLoopPlaying = !_mainLoopPlaying;
-        _startFadeOnNextBar = false;
     }
 }
