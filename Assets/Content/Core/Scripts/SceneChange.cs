@@ -63,7 +63,7 @@ public class SceneChange : MonoBehaviour
             lastScene = nextScene;
             Debug.Log("Load Scene: " + nextScene);
             SceneManager.LoadScene(nextScene);
-        //}
+            //}
         //else _chosenUpgradeCount++;
 
     }

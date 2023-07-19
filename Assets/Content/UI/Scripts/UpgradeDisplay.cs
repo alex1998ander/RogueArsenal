@@ -7,6 +7,8 @@ using Unity.VisualScripting;
 public class UpgradeDisplay : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI UpgradeDisplayText;
+
+    private int i = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,15 +20,19 @@ public class UpgradeDisplay : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            for (int i = 0; i < 5; i++)
+            while (UpgradeManager.GetUpgradeAtIndex(i) != null)
             {
                 UpgradeDisplayText.text += UpgradeManager.GetUpgradeAtIndex(i).Name + "    ";
+                i++;
             }
+                
+            
         }
 
         if (Input.GetKeyUp(KeyCode.Tab))
         {
             UpgradeDisplayText.text = "";
+            i = 0;
         }
     }
 

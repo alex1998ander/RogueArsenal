@@ -37,7 +37,7 @@ public static class UpgradeManager
     /// <returns>Upgrade at index</returns>
     public static Upgrade GetUpgradeAtIndex(int index)
     {
-        return Upgrades[index];
+        return index >= Upgrades.Length ? null : Upgrades[index];
     }
 
     /// <summary>
@@ -60,7 +60,7 @@ public static class UpgradeManager
         // {
         //     UpgradePool.Add(oldUpgrade);
         // }
-
+       
         _nextReplacementIndex = (_nextReplacementIndex + 1) % 5;
     }
 
