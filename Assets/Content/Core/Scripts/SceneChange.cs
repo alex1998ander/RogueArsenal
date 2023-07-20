@@ -28,8 +28,7 @@ public class SceneChange : MonoBehaviour
         Debug.Log("Hello");
         if (other.CompareTag("Player") && !SpawnController.StillEnemiesLeft())
         {
-            SceneManager.LoadScene(0);
-            EventManager.OnLevelExit.Trigger();
+            SceneManager.LoadScene(0); 
         }
     }
 
@@ -65,7 +64,6 @@ public class SceneChange : MonoBehaviour
             lastScene = nextScene;
             Debug.Log("Load Scene: " + nextScene);
             SceneManager.LoadScene(nextScene);
-            EventManager.OnLevelEnter.Trigger();
         //}
         //else _chosenUpgradeCount++;
 
