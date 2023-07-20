@@ -4,7 +4,8 @@ using UnityEngine;
 // Event naming convention: On + [contributor] + [action / event]
 // Examples for contributors: Player, Enemy, Weapon
 
-public static class EventManager {
+public static class EventManager
+{
     #region Player Events
 
     /// <summary>
@@ -38,6 +39,16 @@ public static class EventManager {
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     #region Game Events
+
+    /// <summary>
+    /// The player exits a level and enters the upgrade selection screen.
+    /// </summary>
+    public static readonly Event OnLevelExit = new();
+
+    /// <summary>
+    /// The player exits the upgrade selection screen and enters a level.
+    /// </summary>
+    public static readonly Event OnLevelEnter = new();
 
     #endregion
 }
