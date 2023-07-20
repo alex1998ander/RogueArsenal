@@ -8,11 +8,6 @@ public static class EventManager {
     #region Player Events
 
     /// <summary>
-    /// The player fires his weapon (Fire button was pressed). This event is triggered regardless of the number of bullets or shots.
-    /// </summary>
-    public static readonly Event OnPlayerFire = new();
-
-    /// <summary>
     /// The player takes damage. The amount of damage is passed as a parameter.
     /// </summary>
     public static readonly Event<float> OnPlayerDamage = new();
