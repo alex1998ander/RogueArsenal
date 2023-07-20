@@ -39,7 +39,6 @@ public class PlayerHealth : MonoBehaviour, ICharacterHealth
                 if (_currentHealth <= 0)
                 {
                     EventManager.OnPlayerDeath.Trigger();
-                    GetComponent<SpriteRenderer>().color = Color.red;
                     //Destroy(gameObject);
                 }
             }
