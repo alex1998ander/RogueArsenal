@@ -1,16 +1,14 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class PlayerBullet : MonoBehaviour, IUpgradeableBullet
 {
-    [SerializeField] private float defaultLifetime = 0.5f;
-    [SerializeField] private float defaultBulletSpeed = 10f;
-    private float _assignedDamage;
+    [SerializeField] private float defaultDistance = 10f;
+    [SerializeField] private float defaultBulletSpeed = 20f;
+    private float _damage;
     private GameObject _sourceCharacter;
+
     private Rigidbody2D _rb;
     private LineRenderer _lineRenderer;
 
@@ -51,8 +49,10 @@ public class PlayerBullet : MonoBehaviour, IUpgradeableBullet
 
     private void Start()
     {
-        _rb.velocity = transform.up * defaultBulletSpeed;
-        Destroy(gameObject, defaultLifetime * UpgradeManager.GetBulletRangeMultiplier());
+        float bulletSpeed = defaultBulletSpeed * UpgradeManager.GetBulletSpeedMultiplier();
+        
+        _rb.velocity = bulletSpeed * transform.up;
+        Destroy(gameObject, defaultDistance * UpgradeManager.GetBulletRangeMultiplier() / bulletSpeed);
     }
 
     private void FixedUpdate()
@@ -67,7 +67,7 @@ public class PlayerBullet : MonoBehaviour, IUpgradeableBullet
             Destroy(gameObject);
         }
 
-        other.gameObject.GetComponent<ICharacterHealth>()?.InflictDamage(_assignedDamage, true);
+        other.gameObject.GetComponent<ICharacterHealth>()?.InflictDamage(_damage, true);
     }
 
     /// <summary>
@@ -77,7 +77,7 @@ public class PlayerBullet : MonoBehaviour, IUpgradeableBullet
     /// <param name="sourceCharacter">Reference of the character who shot this bullet.</param>
     public void Init(float assignedDamage, GameObject sourceCharacter)
     {
-        _assignedDamage = assignedDamage;
+        _damage = assignedDamage;
         _sourceCharacter = sourceCharacter;
     }
 

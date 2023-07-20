@@ -86,8 +86,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77bdacc636d1e5c4184626d0b1a83887, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLifetime: 1
-  defaultBulletSpeed: 10
+  defaultDistance: 10
+  defaultBulletSpeed: 20
   bulletBouncePhysicsMaterial: {fileID: 6200000, guid: 396c01159a3dcae4296c00260e30da57, type: 2}
   maxBounces: 2
   homingRadius: 8
