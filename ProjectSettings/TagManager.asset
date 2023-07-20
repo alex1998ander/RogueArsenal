@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -12,12 +13,12 @@ TagManager:
   - Water
   - UI
   - Player
-  - Bullets
+  - 
   - Walls
-  - 
-  - 
-  - 
-  - 
+  - Enemies
+  - PlayerBullets
+  - EnemyBullets
+  - WallCheck
   - 
   - 
   - 
@@ -49,6 +50,9 @@ TagManager:
     locked: 0
   - name: Walls
     uniqueID: 4290607887
+    locked: 0
+  - name: HealingField
+    uniqueID: 2143196721
     locked: 0
   - name: Enemies
     uniqueID: 1617481309
