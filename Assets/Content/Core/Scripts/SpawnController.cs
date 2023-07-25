@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 public class SpawnController : MonoBehaviour
 {
     [SerializeField] public GameObject allSpawns = null;
-    [SerializeField] public GameObject enemy;
+    [SerializeField] public GameObject [] enemy;
 
     private const int SpawnCount = 3;
     private static int _mEnemyCount = 0;
@@ -17,6 +17,7 @@ public class SpawnController : MonoBehaviour
     {
         EventManager.OnEnemyDeath.Subscribe(EnemyDied);
         RandomSpawns();
+        _mEnemyCount = 0;
     }
 
     /// <summary>
@@ -44,7 +45,7 @@ public class SpawnController : MonoBehaviour
             //Debug.Log(string.Join(", ", spawnPointsRoom));
             foreach (int spawnPoint in spawnPointsRoom)
             {
-                Instantiate(enemy, transform.GetChild(i).GetChild(spawnPoint).transform.position,
+                Instantiate(enemy[Random.Range(0,4)], transform.GetChild(i).GetChild(spawnPoint).transform.position,
                     transform.GetChild(i).GetChild(spawnPoint).transform.rotation);
                 _mEnemyCount++;
                 //transform.GetChild(i).GetChild(spawnPoint).gameObject.SetActive(true);
