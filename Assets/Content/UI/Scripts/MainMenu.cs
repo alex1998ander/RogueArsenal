@@ -29,6 +29,7 @@ public class MainMenu : MonoBehaviour
         Application.targetFrameRate = 144;
         QualitySettings.vSyncCount = 1;
 
+        UpgradeManager.ClearUpgrades();
         EventSystem.current.SetSelectedGameObject(pauseFirstButton);
     }
     
