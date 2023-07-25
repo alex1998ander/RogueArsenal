@@ -136,7 +136,7 @@ MonoBehaviour:
   playerSpriteTransform: {fileID: 8508274975885802773}
   burstDelayInSec: 0.1
   demonicPactHealthLoss: 10
-  healingFieldPrefab: {fileID: 0}
+  healingFieldPrefab: {fileID: 5263074500707566537, guid: fe83cdc0ba7afca48861f6ca5d1f95bd, type: 3}
 --- !u!114 &6483694604525781009
 MonoBehaviour:
   m_ObjectHideFlags: 0
