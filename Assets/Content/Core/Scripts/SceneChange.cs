@@ -8,7 +8,6 @@ using Random = UnityEngine.Random;
 public class SceneChange : MonoBehaviour
 {
     //Counter for amount of upgrades needed for scene change
-    private int _chosenUpgradeCount = 0;
     private int _maxSceneCount = 0;
 
     private static int lastScene = -1;
@@ -28,7 +27,7 @@ public class SceneChange : MonoBehaviour
         Debug.Log("Hello");
         if (other.CompareTag("Player") && !SpawnController.StillEnemiesLeft())
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
             EventManager.OnLevelExit.Trigger();
         }
     }
@@ -42,7 +41,7 @@ public class SceneChange : MonoBehaviour
     {
         //if (!SpawnController.StillEnemiesLeft())
         //{
-            int nextScene = Random.Range(1, _maxSceneCount);
+            int nextScene = Random.Range(2, _maxSceneCount);
             Debug.Log("Found Scene: " + nextScene);
             if (nextScene == lastScene)
             {
