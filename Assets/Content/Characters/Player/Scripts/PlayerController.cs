@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
 
     // Upgrade: Burst
     [Header("Upgrade: Burst")] [SerializeField]
-    private float burstDelayInSec = 0.2f;
+    private float burstDelayInSec = 0.1f;
 
     // Upgrade: Demonic Pact 
     [Header("Upgrade: Demonic Pact")] [SerializeField]

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public static class UpgradeManager
 {
-    private static readonly List<Upgrade> Upgrades = new() { new UpgradeBounce() };
+    private static readonly List<Upgrade> Upgrades = new() {  };
 
     private static int _nextReplacementIndex;
 
