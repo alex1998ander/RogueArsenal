@@ -5,7 +5,7 @@ using UnityEngine;
 
 public static class UpgradeManager
 {
-    private static readonly Upgrade[] Upgrades = { new UpgradeHealingField() };
+    private static readonly List<Upgrade> Upgrades = new() {  };
 
     private static int _nextReplacementIndex;
 
@@ -37,7 +37,12 @@ public static class UpgradeManager
     /// <returns>Upgrade at index</returns>
     public static Upgrade GetUpgradeAtIndex(int index)
     {
-        return Upgrades[index];
+        if (index < Upgrades.Count)
+        {
+            return Upgrades[index];
+        }
+
+        return null;
     }
 
     /// <summary>
@@ -46,22 +51,13 @@ public static class UpgradeManager
     /// <param name="selectionIdx">Index of the new upgrade in the upgrade selection</param>
     public static void BindUpgrade(int selectionIdx)
     {
-        Upgrade oldUpgrade = Upgrades[_nextReplacementIndex];
         Upgrade newUpgrade = _currentUpgradeSelection[selectionIdx];
 
         // Replace upgrade
-        Upgrades[_nextReplacementIndex] = newUpgrade;
+        Upgrades.Add(newUpgrade);
 
         // Remove new upgrade from upgrade pool
         UpgradePool.Remove(newUpgrade);
-
-        // Add old update back to the upgrade pool
-        // if (oldUpgrade is not EmptyUpgradeSlot)
-        // {
-        //     UpgradePool.Add(oldUpgrade);
-        // }
-
-        _nextReplacementIndex = (_nextReplacementIndex + 1) % 5;
     }
 
     /// <summary>
@@ -74,6 +70,14 @@ public static class UpgradeManager
         _currentUpgradeSelection = UpgradePool.OrderBy(x => rnd.Next()).Take(5).ToArray();
 
         return _currentUpgradeSelection;
+    }
+
+    /// <summary>
+    /// Clears all applied upgrades
+    /// </summary>
+    public static void ClearUpgrades()
+    {
+        Upgrades.Clear();
     }
 
     /// <summary>

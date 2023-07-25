@@ -93,6 +93,10 @@ public class PlayerBullet : MonoBehaviour, IUpgradeableBullet
         if (_bouncesLeft > 0 && !collision.gameObject.CompareTag("Enemy") && !collision.gameObject.CompareTag("Player"))
         {
             _bouncesLeft--;
+            
+            float angle = Mathf.Atan2(_rb.velocity.y, _rb.velocity.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0f, 0f, angle - 90f);
+            
             return true;
         }
 
@@ -125,10 +129,9 @@ public class PlayerBullet : MonoBehaviour, IUpgradeableBullet
 
 #if UNITY_EDITOR //////////////////////////////////////////////////////////////////////////////////
             _canSeeTargetCharacterGizmos = false;
+            VisualizeHoming(_canSeeTargetCharacterGizmos, directionToTargetNormalized);
 #endif ////////////////////////////////////////////////////////////////////////////////////////////
         }
-
-        VisualizeHoming(_canSeeTargetCharacterGizmos, directionToTargetNormalized);
     }
 
     /// <summary>

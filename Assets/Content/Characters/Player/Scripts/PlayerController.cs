@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
 
     // Upgrade: Burst
     [Header("Upgrade: Burst")] [SerializeField]
-    private float burstDelayInSec = 0.2f;
+    private float burstDelayInSec = 0.1f;
 
     // Upgrade: Demonic Pact 
     [Header("Upgrade: Demonic Pact")] [SerializeField]
@@ -160,7 +160,6 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
     {
         if (!_phoenixed)
         {
-            Debug.Log("The player has died, but he rises from the ashes with the power of a phoenix");
             _playerHealth.ResetHealth();
             _phoenixed = true;
         }

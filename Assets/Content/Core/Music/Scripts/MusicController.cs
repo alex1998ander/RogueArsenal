@@ -15,7 +15,7 @@ public class MusicController : MonoBehaviour
     [SerializeField] private float loopCrossFadeTimeInSeconds = 1f;
 
     // Is the main loop currently playing?
-    private static bool _mainLoopPlaying = true;
+    private static bool _mainLoopPlaying = false;
 
     // Index of the upgrade selection loop currently being used
     private static int _currentUpgradeSelectionLoopIdx = 0;
@@ -29,18 +29,25 @@ public class MusicController : MonoBehaviour
 
         EventManager.OnLevelEnter.Subscribe(InitializeMusicFadeOnSceneChange);
         EventManager.OnLevelExit.Subscribe(InitializeMusicFadeOnSceneChange);
+        EventManager.OnStartGame.Subscribe(StartMusic);
+    }
 
+    private void StartMusic()
+    {
         // Play the intro, schedule the main und upgrade loops to start playing at the point in time where
         // the intro stops playing to make sure they are synchronized
         // This assumes that the player will never finish a level before the intro has finished playing
         intro.PlayScheduled(AudioSettings.dspTime);
         double mainAndUpgradeLoopStartTime = AudioSettings.dspTime + intro.clip.length;
         mainLoop.PlayScheduled(mainAndUpgradeLoopStartTime);
+        mainLoop.volume = 0f;
         foreach (AudioSource upgradeSelectionLoop in upgradeSelectionLoops)
         {
             upgradeSelectionLoop.volume = 0f;
             upgradeSelectionLoop.PlayScheduled(mainAndUpgradeLoopStartTime);
         }
+
+        upgradeSelectionLoops[_currentUpgradeSelectionLoopIdx].volume = 1f;
     }
 
     /// <summary>
@@ -94,5 +101,12 @@ public class MusicController : MonoBehaviour
         }
 
         _mainLoopPlaying = !_mainLoopPlaying;
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.OnLevelEnter.Unsubscribe(InitializeMusicFadeOnSceneChange);
+        EventManager.OnLevelExit.Unsubscribe(InitializeMusicFadeOnSceneChange);
+        EventManager.OnStartGame.Unsubscribe(StartMusic);
     }
 }
