@@ -4,13 +4,9 @@ using UnityEngine;
 // Event naming convention: On + [contributor] + [action / event]
 // Examples for contributors: Player, Enemy, Weapon
 
-public static class EventManager {
+public static class EventManager
+{
     #region Player Events
-
-    /// <summary>
-    /// The player fires his weapon (Fire button was pressed). This event is triggered regardless of the number of bullets or shots.
-    /// </summary>
-    public static readonly Event OnPlayerFire = new();
 
     /// <summary>
     /// The player takes damage. The amount of damage is passed as a parameter.
@@ -43,6 +39,16 @@ public static class EventManager {
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     #region Game Events
+
+    /// <summary>
+    /// The player exits a level and enters the upgrade selection screen.
+    /// </summary>
+    public static readonly Event OnLevelExit = new();
+
+    /// <summary>
+    /// The player exits the upgrade selection screen and enters a level.
+    /// </summary>
+    public static readonly Event OnLevelEnter = new();
 
     #endregion
 }

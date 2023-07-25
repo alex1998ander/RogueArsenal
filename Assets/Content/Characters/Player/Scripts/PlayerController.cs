@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -15,6 +16,8 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
     [SerializeField] private float defaultBlockDelay = 5.0f;
     [SerializeField] private PlayerWeapon playerWeapon;
 
+    [SerializeField] private Transform playerSpriteTransform;
+
     private Vector2 _mousePosition;
     private Vector2 _movementInput;
     private bool _isMouse;
@@ -25,13 +28,16 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
     private float _blockCooldownEndTimestamp;
 
     // Upgrade: Burst
-    [Header("Upgrade: Burst")] [SerializeField] private float burstDelayInSec = 0.2f;
+    [Header("Upgrade: Burst")] [SerializeField]
+    private float burstDelayInSec = 0.2f;
 
     // Upgrade: Demonic Pact 
-    [Header("Upgrade: Demonic Pact")] [SerializeField] private float demonicPactHealthLoss = 10f;
+    [Header("Upgrade: Demonic Pact")] [SerializeField]
+    private float demonicPactHealthLoss = 10f;
 
     // Upgrade: Healing Field 
-    [Header("Upgrade: Healing Field")] [SerializeField] private GameObject healingFieldPrefab;
+    [Header("Upgrade: Healing Field")] [SerializeField]
+    private GameObject healingFieldPrefab;
 
     // Upgrade: Phoenix
     private bool _phoenixed;
@@ -49,10 +55,12 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
 
     void FixedUpdate()
     {
-        _rigidbody.MovePosition(_rigidbody.position + _movementInput * (moveSpeed * UpgradeManager.GetMovementSpeedMultiplier() * Time.fixedDeltaTime));
+        _rigidbody.MovePosition(_rigidbody.position +
+                                _movementInput * (moveSpeed * UpgradeManager.GetMovementSpeedMultiplier() *
+                                                  Time.fixedDeltaTime));
         UpgradeManager.PlayerUpdate(this);
     }
-    
+
     public ICharacterHealth GetHealthManager()
     {
         return _playerHealth;
@@ -100,11 +108,14 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
         {
             if (_playerInput.currentControlScheme.Equals("Keyboard&Mouse"))
             {
-                _aimDirection = (Vector2)Camera.main.ScreenToWorldPoint(_aimDirection) - _rigidbody.position;
+                _aimDirection = (Vector2) Camera.main.ScreenToWorldPoint(_aimDirection) - _rigidbody.position;
             }
 
-            _angle = Mathf.Atan2(_aimDirection.y, _aimDirection.x) * Mathf.Rad2Deg - 90;
-            _rigidbody.rotation = _angle;
+            _angle = Mathf.Atan2(_aimDirection.y, _aimDirection.x) * Mathf.Rad2Deg - 90f;
+            //_rigidbody.rotation = _angle;
+            playerWeapon.transform.rotation = Quaternion.Euler(0, 0, _angle);
+
+            playerSpriteTransform.rotation = Quaternion.AngleAxis(_angle, Vector3.forward);
         }
     }
 
