@@ -129,10 +129,9 @@ public class PlayerBullet : MonoBehaviour, IUpgradeableBullet
 
 #if UNITY_EDITOR //////////////////////////////////////////////////////////////////////////////////
             _canSeeTargetCharacterGizmos = false;
+            VisualizeHoming(_canSeeTargetCharacterGizmos, directionToTargetNormalized);
 #endif ////////////////////////////////////////////////////////////////////////////////////////////
         }
-
-        VisualizeHoming(_canSeeTargetCharacterGizmos, directionToTargetNormalized);
     }
 
     /// <summary>
