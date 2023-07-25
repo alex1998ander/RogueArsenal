@@ -50,5 +50,10 @@ public static class EventManager
     /// </summary>
     public static readonly Event OnLevelEnter = new();
 
+    /// <summary>
+    /// The player starts the game from the main menu.
+    /// </summary>
+    public static readonly Event OnStartGame = new();
+
     #endregion
 }

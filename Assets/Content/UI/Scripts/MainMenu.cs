@@ -50,6 +50,7 @@ public class MainMenu : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene(1);
+        EventManager.OnStartGame.Trigger();
     }
     
     public void OpenOptions()
