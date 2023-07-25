@@ -160,7 +160,6 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
     {
         if (!_phoenixed)
         {
-            Debug.Log("The player has died, but he rises from the ashes with the power of a phoenix");
             _playerHealth.ResetHealth();
             _phoenixed = true;
         }

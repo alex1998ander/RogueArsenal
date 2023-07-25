@@ -73,6 +73,14 @@ public static class UpgradeManager
     }
 
     /// <summary>
+    /// Clears all applied upgrades
+    /// </summary>
+    public static void ClearUpgrades()
+    {
+        Upgrades.Clear();
+    }
+
+    /// <summary>
     /// Calculates the multiplier from the passed values. It is ensured that no negative multipliers occur.
     /// </summary>
     /// <param name="attributeSelector">Upgrade attribute</param>
