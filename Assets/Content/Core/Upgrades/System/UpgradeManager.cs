@@ -5,7 +5,7 @@ using UnityEngine;
 
 public static class UpgradeManager
 {
-    private static readonly List<Upgrade> Upgrades = new() { new UpgradeBounce() };
+    private static readonly List<Upgrade> Upgrades = new() {  };
 
     private static int _nextReplacementIndex;
 
@@ -70,6 +70,14 @@ public static class UpgradeManager
         _currentUpgradeSelection = UpgradePool.OrderBy(x => rnd.Next()).Take(5).ToArray();
 
         return _currentUpgradeSelection;
+    }
+
+    /// <summary>
+    /// Clears all applied upgrades
+    /// </summary>
+    public static void ClearUpgrades()
+    {
+        Upgrades.Clear();
     }
 
     /// <summary>

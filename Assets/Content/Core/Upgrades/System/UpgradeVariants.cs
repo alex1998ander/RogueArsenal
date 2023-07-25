@@ -26,6 +26,7 @@ public class UpgradeBurst : Upgrade
     public override string Description => "Trade the single-shot snooze for a burst of pew-pew-pew and turn your enemies into a walking target.";
 
     public override float BulletDamage => -0.6f;
+    public override float FireDelay => 1f;
 
     public override void OnFire(IUpgradeablePlayer upgradeablePlayer)
     {
