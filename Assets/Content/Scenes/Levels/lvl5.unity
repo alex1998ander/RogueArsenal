@@ -75349,7 +75349,6 @@ MonoBehaviour:
   allSpawns: {fileID: 1841945499}
   enemy:
   - {fileID: 1358329203599744738, guid: ba46bce3e439cdd489820f759add8589, type: 3}
-  - {fileID: 1358329203599744738, guid: ee2848919b9a7cc409e2b2873ac0ad43, type: 3}
   - {fileID: 1358329203599744738, guid: a964d3a8237d87f46bb6cec9253a5130, type: 3}
 --- !u!4 &1841945501
 Transform:

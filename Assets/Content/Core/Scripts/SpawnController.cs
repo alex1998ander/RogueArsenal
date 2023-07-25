@@ -45,7 +45,7 @@ public class SpawnController : MonoBehaviour
             //Debug.Log(string.Join(", ", spawnPointsRoom));
             foreach (int spawnPoint in spawnPointsRoom)
             {
-                Instantiate(enemy[Random.Range(0,3)], transform.GetChild(i).GetChild(spawnPoint).transform.position,
+                Instantiate(enemy[Random.Range(0,2)], transform.GetChild(i).GetChild(spawnPoint).transform.position,
                     transform.GetChild(i).GetChild(spawnPoint).transform.rotation);
                 _mEnemyCount++;
                 //transform.GetChild(i).GetChild(spawnPoint).gameObject.SetActive(true);
