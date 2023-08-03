@@ -177,7 +177,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43849eb66a4f36544a9cf4a8c83b51e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyVisualTransform: {fileID: 0}
   wallLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -332,5 +331,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyBulletPrefab: {fileID: 1845687642861211236, guid: e8f28205521d5364db79c8abc134746a, type: 3}
   firePoint: {fileID: 7730465753498084907}
-  fireForce: 20
-  defaultDamage: 35
+  defaultDistance: 10
+  defaultDamage: 10
