@@ -134,9 +134,9 @@ MonoBehaviour:
   defaultBlockDelay: 5
   playerWeapon: {fileID: 3840289594856838949}
   playerSpriteTransform: {fileID: 8508274975885802773}
-  burstDelayInSec: 0.2
+  burstDelayInSec: 0.1
   demonicPactHealthLoss: 10
-  healingFieldPrefab: {fileID: 0}
+  healingFieldPrefab: {fileID: 5263074500707566537, guid: fe83cdc0ba7afca48861f6ca5d1f95bd, type: 3}
 --- !u!114 &6483694604525781009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c44eaa95b47377a48a9b8a5a0cd6f585, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 200
 --- !u!50 &3840289595821779530
 Rigidbody2D:
   serializedVersion: 4
