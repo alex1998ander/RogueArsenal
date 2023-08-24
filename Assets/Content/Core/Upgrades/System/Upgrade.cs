@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Upgrade
+public abstract class Upgrade
 {
     public  virtual string Name { get; } = "";
     public virtual string Description { get; private set; } = "";
@@ -81,4 +81,13 @@ public class Upgrade
     public virtual void OnPlayerDeath(IUpgradeablePlayer upgradeablePlayer)
     {
     }
+}
+
+
+public class WeaponUpgrade : Upgrade
+{
+}
+
+public class AbilityUpgrade : Upgrade
+{
 }
