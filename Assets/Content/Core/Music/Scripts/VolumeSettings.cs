@@ -12,7 +12,9 @@ public class VolumeSettings : MonoBehaviour
 
     private void Start()
     {
-        SetMasterVolume();
+        float volume;
+        myMixer.GetFloat("master", out volume);
+        masterSlider.value = Mathf.Pow(10, (volume / 60.0f));
     }
 
     public void SetMasterVolume()
