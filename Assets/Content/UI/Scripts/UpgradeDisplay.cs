@@ -20,9 +20,9 @@ public class UpgradeDisplay : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            while (UpgradeManager.GetUpgradeAtIndex(i) != null)
+            while (UpgradeManager.GetWeaponUpgradeAtIndex(i) != null)
             {
-                UpgradeDisplayText.text += UpgradeManager.GetUpgradeAtIndex(i).Name + "    ";
+                UpgradeDisplayText.text += UpgradeManager.GetWeaponUpgradeAtIndex(i).Name + "    ";
                 i++;
             }
                 

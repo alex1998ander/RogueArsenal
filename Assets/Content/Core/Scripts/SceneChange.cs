@@ -13,6 +13,7 @@ public class SceneChange : MonoBehaviour
     private static int lastScene = -1;
     private static int preLastScene = -2;
 
+    public static int stageCount = 1;
     private void Start()
     {
         _maxSceneCount = SceneManager.sceneCountInBuildSettings - 1;
@@ -24,7 +25,6 @@ public class SceneChange : MonoBehaviour
     /// <param name="other">Object that hit the trigger box</param>
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Hello");
         if (other.CompareTag("Player") && !SpawnController.StillEnemiesLeft())
         {
             SceneManager.LoadScene(1);
@@ -65,8 +65,9 @@ public class SceneChange : MonoBehaviour
             Debug.Log("Load Scene: " + nextScene);
             SceneManager.LoadScene(nextScene);
             EventManager.OnLevelEnter.Trigger();
-        //}
-        //else _chosenUpgradeCount++;
+            stageCount++;
+            //}
+            //else _chosenUpgradeCount++;
 
     }
 }

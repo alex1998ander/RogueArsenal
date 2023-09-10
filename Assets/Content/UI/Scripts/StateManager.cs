@@ -15,5 +15,6 @@ public class StateManager : MonoBehaviour
     {
         SceneManager.LoadScene(0);
         Time.timeScale = 1;
+        SceneChange.stageCount = 1;
     }
 }
