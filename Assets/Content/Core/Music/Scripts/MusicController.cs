@@ -13,9 +13,12 @@ public class MusicController : MonoBehaviour
 
     // Time in seconds it takes to fully fade from the main loop to the upgrade selection loop and vice versa
     [SerializeField] private float loopCrossFadeTimeInSeconds = 1f;
+    
+    // Audio volume
+    [SerializeField] [Range(0, 1)] private float maxVolume = 1f;
 
     // Is the main loop currently playing?
-    private static bool _mainLoopPlaying = false;
+    private static bool _mainLoopPlaying = true;
 
     // Index of the upgrade selection loop currently being used
     private static int _currentUpgradeSelectionLoopIdx = 0;
@@ -26,6 +29,7 @@ public class MusicController : MonoBehaviour
     private void Start()
     {
         DontDestroyOnLoad(gameObject);
+        StartMusic();
 
         EventManager.OnLevelEnter.Subscribe(InitializeMusicFadeOnSceneChange);
         EventManager.OnLevelExit.Subscribe(InitializeMusicFadeOnSceneChange);
@@ -47,7 +51,8 @@ public class MusicController : MonoBehaviour
             upgradeSelectionLoop.PlayScheduled(mainAndUpgradeLoopStartTime);
         }
 
-        upgradeSelectionLoops[_currentUpgradeSelectionLoopIdx].volume = 1f;
+        //upgradeSelectionLoops[_currentUpgradeSelectionLoopIdx].volume = maxVolume;
+        mainLoop.volume = maxVolume;
     }
 
     /// <summary>
@@ -88,14 +93,14 @@ public class MusicController : MonoBehaviour
             _fadeCoroutines.Append(StartCoroutine(StartVolumeFade(mainLoop, loopCrossFadeTimeInSeconds, 0f)));
             _fadeCoroutines.Append(
                 StartCoroutine(StartVolumeFade(upgradeSelectionLoops[_currentUpgradeSelectionLoopIdx],
-                    loopCrossFadeTimeInSeconds, 1f)));
+                    loopCrossFadeTimeInSeconds, maxVolume)));
         }
         else
         {
             _fadeCoroutines.Append(
                 StartCoroutine(StartVolumeFade(upgradeSelectionLoops[_currentUpgradeSelectionLoopIdx],
                     loopCrossFadeTimeInSeconds, 0f)));
-            _fadeCoroutines.Append(StartCoroutine(StartVolumeFade(mainLoop, loopCrossFadeTimeInSeconds, 1f)));
+            _fadeCoroutines.Append(StartCoroutine(StartVolumeFade(mainLoop, loopCrossFadeTimeInSeconds, maxVolume)));
 
             _currentUpgradeSelectionLoopIdx = (_currentUpgradeSelectionLoopIdx + 1) % upgradeSelectionLoops.Length;
         }
