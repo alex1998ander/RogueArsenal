@@ -4,7 +4,7 @@ using UnityEngine;
 public class StatUpgrade
 {
     public int Value { get; private set; } = 0;
-    public int Stage { get; private set; } = -1;
+    public int Stage { get; private set; } = 0;
 
     private float _upperBound, _lowerBound, _range;
 
@@ -29,6 +29,6 @@ public class StatUpgrade
     public void Upgrade()
     {
         Stage++;
-        Value += Mathf.RoundToInt(_upperBound + Mathf.Pow(Stage / _range, Exponent) * (_lowerBound - _upperBound));
+        Value += Mathf.RoundToInt(_upperBound + Mathf.Pow((Stage - 1) / _range, Exponent) * (_lowerBound - _upperBound));
     }
 }

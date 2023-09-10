@@ -13,7 +13,7 @@ public abstract class Upgrade
     public virtual float FireDelay { get; private set; } = 0f;
     public virtual float BlockDelay { get; private set; } = 0f;
     public virtual float Health { get; private set; } = 0f;
-    public virtual float MovementSpeed { get; private set; } = 0f;
+    public virtual float PlayerMovementSpeed { get; private set; } = 0f;
 
     /// <summary>
     /// Optional functionality for initialization
