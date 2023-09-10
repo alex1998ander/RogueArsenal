@@ -17,7 +17,7 @@ public class UpgradeChoosing : MonoBehaviour
     Upgrade[] _listOfWeaponUpgrades = new Upgrade[3];
     List <Upgrade> _listOfAbilityUpgrades = new List<Upgrade>();
     private String[] _listOfStatUpgradeNames = new string[4] {"Health", "Bullet Knockback", "Player Speed", "Projectile Damage"};
-    private StatUpgrade[] _listOfStatUpgrades = new StatUpgrade[4] {UpgradeManager.MaxHealthIncrease, UpgradeManager.BulletKnockbackIncrease, UpgradeManager.PlayerSpeedIncrease, UpgradeManager.ProjectileDamageIncrease };
+    private StatUpgrade[] _listOfStatUpgrades = new StatUpgrade[4] {UpgradeManager.MaxHealthIncrease, UpgradeManager.BulletKnockbackIncrease, UpgradeManager.PlayerMovementSpeedIncrease, UpgradeManager.BulletDamageIncrease };
 
     // Start is called before the first frame update
     void Start()
