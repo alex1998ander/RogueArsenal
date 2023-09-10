@@ -16,5 +16,6 @@ public class StateManager : MonoBehaviour
         SceneManager.LoadScene(0);
         EventManager.OnStartGame.Trigger();
         Time.timeScale = 1;
+        SceneChange.stageCount = 1;
     }
 }

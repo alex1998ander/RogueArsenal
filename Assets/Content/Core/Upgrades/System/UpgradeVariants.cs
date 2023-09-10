@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class UpgradeHitman : Upgrade
+public class UpgradeHitman : WeaponUpgrade
 {
     public override string Name => "Hitman";
     public override string Description => "Break the sound barrier with bullets that leave enemies in awe and questioning their life choices.";
@@ -10,7 +10,7 @@ public class UpgradeHitman : Upgrade
     public override float FireDelay => 1.0f;
 }
 
-public class UpgradeBuckshot : Upgrade
+public class UpgradeBuckshot : WeaponUpgrade
 {
     public override string Name => "Buckshot";
     public override string Description => "Unleash a shotgun-inspired impact that scatters enemies like confetti.";
@@ -20,7 +20,7 @@ public class UpgradeBuckshot : Upgrade
     public override float BulletDamage => -0.6f;
 }
 
-public class UpgradeBurst : Upgrade
+public class UpgradeBurst : WeaponUpgrade
 {
     public override string Name => "Burst";
     public override string Description => "Trade the single-shot snooze for a burst of pew-pew-pew and turn your enemies into a walking target.";
@@ -34,7 +34,7 @@ public class UpgradeBurst : Upgrade
     }
 }
 
-public class UpgradeBounce : Upgrade
+public class UpgradeBounce : WeaponUpgrade
 {
     public override string Name => "Bounce";
     public override string Description => "Inject your bullets with enthusiasm, turning your attacks into a lively pinball game.";
@@ -52,7 +52,7 @@ public class UpgradeBounce : Upgrade
     }
 }
 
-public class UpgradeCarefulPlanning : Upgrade
+public class UpgradeCarefulPlanning : WeaponUpgrade
 {
     public override string Name => "Careful Planning";
     public override string Description => "Embrace the spirit of meticulous plotting, trading rapid-fire chaos for jaw-dropping destruction.";
@@ -61,7 +61,7 @@ public class UpgradeCarefulPlanning : Upgrade
     public override float FireDelay => 2f;
 }
 
-public class UpgradeTank : Upgrade
+public class UpgradeTank : WeaponUpgrade
 {
     public override string Name => "Tank";
     public override string Description => "Roar into battle as the ferocious Tankasaurus, impervious to damage and ready to stomp through enemy lines.";
@@ -70,7 +70,7 @@ public class UpgradeTank : Upgrade
     public override float FireDelay => 1f;
 }
 
-public class UpgradeExplosiveBullet : Upgrade
+public class UpgradeExplosiveBullet : WeaponUpgrade
 {
     public override string Name => "Explosive Bullet";
     public override string Description => "Arm yourself with these explosive delights, turning your bullets into cheeky troublemakers that go 'boom' upon impact.";
@@ -83,7 +83,7 @@ public class UpgradeExplosiveBullet : Upgrade
     }
 }
 
-public class UpgradeHealingField : Upgrade
+public class UpgradeHealingField : AbilityUpgrade
 {
     public override string Name => "Healing Field";
     public override string Description => "Transform the battlefield into a spa-like oasis of mending with a field of rejuvenation that magically patches up your injuries.";
@@ -96,7 +96,7 @@ public class UpgradeHealingField : Upgrade
     }
 }
 
-public class UpgradeHoming : Upgrade
+public class UpgradeHoming : WeaponUpgrade
 {
     public override string Name => "Homing";
     public override string Description => "Give your bullets a crash course in stalking 101, turning them into slightly creepy projectiles that relentlessly pursue visible targets.";
@@ -110,7 +110,7 @@ public class UpgradeHoming : Upgrade
     }
 }
 
-public class UpgradePhoenix : Upgrade
+public class UpgradePhoenix : AbilityUpgrade
 {
     public override string Name => "Phoenix";
     public override string Description => "Rise from the ashes with the power of a phoenix and turn your defeat into a glorious opportunity that ignite your comeback.";
@@ -123,7 +123,7 @@ public class UpgradePhoenix : Upgrade
     }
 }
 
-public class UpgradeBigBullet : Upgrade
+public class UpgradeBigBullet : WeaponUpgrade
 {
     public override string Name => "Big Bullet";
     public override string Description => "Because size matters, watch as your bullets look big and intimidating. Who needs modesty when you can have an ego as big as a cannonball?";
@@ -131,7 +131,7 @@ public class UpgradeBigBullet : Upgrade
     public override float BulletSize => 1f;
 }
 
-public class UpgradeMentalMeltdown : Upgrade
+public class UpgradeMentalMeltdown : WeaponUpgrade
 {
     public override string Name => "Mental Meltdown";
     public override string Description => "Your bullets possess the power to crash your enemies' brains, leaving them searching for a Ctrl+Alt+Delete button to reboot their shattered thoughts.";
@@ -142,7 +142,7 @@ public class UpgradeMentalMeltdown : Upgrade
     }
 }
 
-public class UpgradeDemonicPact : Upgrade
+public class UpgradeDemonicPact : WeaponUpgrade
 {
     public override string Name => "Demonic Pact";
     public override string Description => "Embrace the dark arts of bullet wizardry and trade a bit of your life essence for instant trigger happiness.";
@@ -153,7 +153,7 @@ public class UpgradeDemonicPact : Upgrade
     }
 }
 
-public class UpgradeDrill : Upgrade
+public class UpgradeDrill : WeaponUpgrade
 {
     public override string Name => "Drill";
     public override string Description => "Break the laws of physics with bullets that defy solid matter, turning your enemies' hiding spots into mere illusions of safety.";
@@ -164,7 +164,7 @@ public class UpgradeDrill : Upgrade
     }
 }
 
-public class UpgradeGlassCannon : Upgrade
+public class UpgradeGlassCannon : WeaponUpgrade
 {
     public override string Name => "Glass Cannon";
     public override string Description => "Deal devastating damage to your enemies, but be warned: A mere sneeze could knock you out.";
@@ -173,9 +173,8 @@ public class UpgradeGlassCannon : Upgrade
     public override float Health => -0.95f;
 }
 
-public class UpgradePoison : Upgrade
+public class UpgradePoison : WeaponUpgrade
 {
     public override string Name => "Poison";
     public override string Description => "Experience the sadistic pleasure of watching your enemies writhe in a long-lasting death throes that slowly fade their health.";
-
 }
