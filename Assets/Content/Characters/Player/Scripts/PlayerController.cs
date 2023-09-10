@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
     void FixedUpdate()
     {
         _rigidbody.MovePosition(_rigidbody.position +
-                                _movementInput * (moveSpeed * UpgradeManager.GetMovementSpeedMultiplier() *
+                                _movementInput * ((moveSpeed + UpgradeManager.PlayerSpeedIncrease.Value) * UpgradeManager.GetMovementSpeedMultiplier() *
                                                   Time.fixedDeltaTime));
         UpgradeManager.PlayerUpdate(this);
     }

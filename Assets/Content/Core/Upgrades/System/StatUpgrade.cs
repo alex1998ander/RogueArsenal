@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class StatUpgrade
 {
-    public int ValueIncrease { get; private set; } = 0;
-    public int Stage { get; private set; } = 0;
+    public int Value { get; private set; } = 0;
+    public int Stage { get; private set; } = -1;
 
     private float _upperBound, _lowerBound, _range;
 
@@ -15,7 +15,7 @@ public class StatUpgrade
     /// </summary>
     /// <param name="upperBound">Upper value increase bound</param>
     /// <param name="lowerBound">Lower value increase bound</param>
-    /// <param name="range">Number of steps until lowerBound is increased</param>
+    /// <param name="range">Number of steps until lowerBound is the increasing value</param>
     public StatUpgrade(float upperBound, float lowerBound, float range)
     {
         _upperBound = upperBound;
@@ -29,6 +29,6 @@ public class StatUpgrade
     public void Upgrade()
     {
         Stage++;
-        ValueIncrease += Mathf.RoundToInt(_upperBound + Mathf.Pow(Stage / _range, Exponent) * (_lowerBound - _upperBound));
+        Value += Mathf.RoundToInt(_upperBound + Mathf.Pow(Stage / _range, Exponent) * (_lowerBound - _upperBound));
     }
 }

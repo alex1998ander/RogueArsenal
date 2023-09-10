@@ -11,7 +11,7 @@ public class PlayerHealth : MonoBehaviour, ICharacterHealth
     /// </summary>
     public void ResetHealth()
     {
-        _currentHealth = maxHealth * UpgradeManager.GetHealthMultiplier();
+        _currentHealth = (maxHealth + UpgradeManager.MaxHealthIncrease.Value) * UpgradeManager.GetHealthMultiplier();
     }
 
     /// <summary>
