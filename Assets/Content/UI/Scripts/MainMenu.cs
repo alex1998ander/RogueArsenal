@@ -51,7 +51,7 @@ public class MainMenu : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene(1);
-        EventManager.OnStartGame.Trigger();
+        EventManager.OnLevelExit.Trigger();
     }
     
     public void OpenOptions()

@@ -18,7 +18,7 @@ public class MusicController : MonoBehaviour
     [SerializeField] [Range(0, 1)] private float maxVolume = 1f;
 
     // Is the main loop currently playing?
-    private static bool _mainLoopPlaying = false;
+    private static bool _mainLoopPlaying = true;
 
     // Index of the upgrade selection loop currently being used
     private static int _currentUpgradeSelectionLoopIdx = 0;
@@ -29,6 +29,7 @@ public class MusicController : MonoBehaviour
     private void Start()
     {
         DontDestroyOnLoad(gameObject);
+        StartMusic();
 
         EventManager.OnLevelEnter.Subscribe(InitializeMusicFadeOnSceneChange);
         EventManager.OnLevelExit.Subscribe(InitializeMusicFadeOnSceneChange);
@@ -50,7 +51,8 @@ public class MusicController : MonoBehaviour
             upgradeSelectionLoop.PlayScheduled(mainAndUpgradeLoopStartTime);
         }
 
-        upgradeSelectionLoops[_currentUpgradeSelectionLoopIdx].volume = maxVolume;
+        //upgradeSelectionLoops[_currentUpgradeSelectionLoopIdx].volume = maxVolume;
+        mainLoop.volume = maxVolume;
     }
 
     /// <summary>
