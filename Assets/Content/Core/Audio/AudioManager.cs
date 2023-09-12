@@ -4,9 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
+[RequireComponent(typeof(AudioClipLibrary))]
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager instance;
+    private static AudioManager instance;
+
+    public static AudioClipLibrary library;
 
     [SerializeField] private AudioMixer audioMixerMaster;
 
@@ -18,14 +21,13 @@ public class AudioManager : MonoBehaviour
     private AudioSource _audioSourceMusicUnused;
 
     private bool _currentlyFading = false;
-
-    public Sound sound;
-    public Music music;
+    
 
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
         instance = this;
+        library = GetComponent<AudioClipLibrary>();
         _audioSourceMusicCurrent = audioSourceMusicFst;
         _audioSourceMusicUnused = audioSourceMusicSnd;
     }
@@ -89,6 +91,31 @@ public class AudioManager : MonoBehaviour
     }
 
     /// <summary>
+    /// Fades between two music tracks. Only works if no other fade is currently active.
+    /// </summary>
+    /// <param name="targetMusic">Music that fades in</param>
+    /// <param name="duration">Fade duration</param>
+    /// <returns>Bool whether the fade was started successfully</returns>
+    public static bool FadeMusic(Music targetMusic, float duration)
+    {
+        if (instance._currentlyFading)
+        {
+            return false;
+        }
+
+        instance.StartCoroutine(StartVolumeFade(instance._audioSourceMusicCurrent, duration, false));
+        instance.StartCoroutine(StartVolumeFade(instance._audioSourceMusicUnused, duration, true));
+        instance._currentlyFading = true;
+
+        // Swap current used audio source reference
+        (instance._audioSourceMusicCurrent, instance._audioSourceMusicUnused) = (instance._audioSourceMusicUnused, instance._audioSourceMusicCurrent);
+
+        PlayMusicOnCurrentAudioSource(targetMusic);
+
+        return true;
+    }
+
+    /// <summary>
     /// Fade coroutine.
     /// </summary>
     /// <param name="audioSource">Audio source to be faded to</param>
@@ -121,31 +148,6 @@ public class AudioManager : MonoBehaviour
         }
 
         instance._currentlyFading = false;
-    }
-
-    /// <summary>
-    /// Fades between two music tracks. Only works if no other fade is currently active.
-    /// </summary>
-    /// <param name="targetMusic">Music that fades in</param>
-    /// <param name="duration">Fade duration</param>
-    /// <returns>Bool whether the fade was started successfully</returns>
-    public static bool FadeMusic(Music targetMusic, float duration)
-    {
-        if (instance._currentlyFading)
-        {
-            return false;
-        }
-
-        instance.StartCoroutine(StartVolumeFade(instance._audioSourceMusicCurrent, duration, false));
-        instance.StartCoroutine(StartVolumeFade(instance._audioSourceMusicUnused, duration, true));
-        instance._currentlyFading = true;
-
-        // Swap current used audio source reference
-        (instance._audioSourceMusicCurrent, instance._audioSourceMusicUnused) = (instance._audioSourceMusicUnused, instance._audioSourceMusicCurrent);
-
-        PlayMusicOnCurrentAudioSource(targetMusic);
-
-        return true;
     }
 
     /// <summary>
