@@ -41,7 +41,7 @@ namespace BehaviorTree
         /// </summary>
         public void Stun()
         {
-            _root.SetData("stunned", true);
+            _root.SetData(SharedData.IsStunned, true);
         }
 
         public void ShotsFired()

@@ -33,7 +33,7 @@ public class TaskPickTargetAroundPlayer : Node
                                              + (Vector3) (_minDistanceFromPlayer * randomDirection
                                                           + Random.Range(0f, 1f) * _maxDistanceFromPlayer *
                                                           randomDirection);
-        SetDataInRoot("target", randomPositionAroundPlayer);
+        SetDataInRoot(SharedData.Target, randomPositionAroundPlayer);
         return NodeState.SUCCESS;
     }
 }

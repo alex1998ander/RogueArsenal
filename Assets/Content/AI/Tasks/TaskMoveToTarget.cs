@@ -30,7 +30,7 @@ public class TaskMoveToTarget : Node
 
     public override NodeState Evaluate()
     {
-        Vector3 newTarget = (Vector3) GetData("target");
+        Vector3 newTarget = GetData<Vector3>(SharedData.Target);
         _agent.SetDestination(newTarget);
 
         state = NodeState.RUNNING;

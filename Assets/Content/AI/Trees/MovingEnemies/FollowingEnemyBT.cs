@@ -51,10 +51,6 @@ public class FollowingEnemyBT : MovingEnemyBT
             }),
         });
 
-        root.SetData("targetReached", false);
-        root.SetData("isAiming", false);
-        root.SetData("stunned", false);
-
         return root;
     }
 }

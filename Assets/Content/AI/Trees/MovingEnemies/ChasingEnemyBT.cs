@@ -25,10 +25,6 @@ public class ChasingEnemyBT : MovingEnemyBT
             new TaskAttackPlayer(weapon),
         });
 
-        root.SetData("targetReached", false);
-        root.SetData("isAiming", false);
-        root.SetData("stunned", false);
-
         return root;
     }
 }

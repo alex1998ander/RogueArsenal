@@ -2,6 +2,14 @@ using System.Collections.Generic;
 
 namespace BehaviorTree
 {
+    public static class SharedData
+    {
+        public static string Target = "target";
+        public static string TargetReached = "targetReached";
+        public static string IsAiming = "isAiming";
+        public static string IsStunned = "isStunned";
+    }
+
     /// <summary>
     /// Execution state of a node.
     /// </summary>
@@ -26,7 +34,7 @@ namespace BehaviorTree
         // Parent node of this node
         public Node parent;
 
-        // Childred nodes of this node
+        // Child nodes of this node
         protected List<Node> children = new List<Node>();
 
         // Realizes shared data so all objects in the behavior tree can access the same objects
@@ -35,11 +43,13 @@ namespace BehaviorTree
         public Node()
         {
             parent = null;
+            SetupData();
         }
 
         public Node(Node child)
         {
             _Attach(child);
+            SetupData();
         }
 
         public Node(List<Node> children)
@@ -48,6 +58,8 @@ namespace BehaviorTree
             {
                 _Attach(child);
             }
+
+            SetupData();
         }
 
         /// <summary>
@@ -98,27 +110,27 @@ namespace BehaviorTree
         /// </summary>
         /// <param name="key">Key to search for.</param>
         /// <returns>Data if key-value-pair was found, null if not.</returns>
-        public object GetData(string key)
+        public T GetData<T>(string key)
         {
             object value = null;
             if (_dataContext.TryGetValue(key, out value))
             {
-                return value;
+                return (T) value;
             }
 
             Node node = parent;
             while (node != null)
             {
-                value = node.GetData(key);
+                value = node.GetData<T>(key);
                 if (value != null)
                 {
-                    return value;
+                    return (T) value;
                 }
 
                 node = node.parent;
             }
 
-            return null;
+            return default;
         }
 
         /// <summary>
@@ -147,6 +159,13 @@ namespace BehaviorTree
             }
 
             return false;
+        }
+
+        private void SetupData()
+        {
+            SetDataInRoot(SharedData.TargetReached, false);
+            SetDataInRoot(SharedData.IsAiming, false);
+            SetDataInRoot(SharedData.IsStunned, false);
         }
     }
 }
