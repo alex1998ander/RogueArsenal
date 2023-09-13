@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
-using Pathfinding;
 using BehaviorTree;
+using UnityEngine.AI;
 
 public class ChasingEnemyBT : MovingEnemyBT
 {
@@ -10,7 +10,9 @@ public class ChasingEnemyBT : MovingEnemyBT
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         Transform playerTransform = GameObject.Find("Player").GetComponent<Transform>();
         EnemyWeapon weapon = GetComponentInChildren<EnemyWeapon>();
-        Seeker seeker = GetComponent<Seeker>();
+        NavMeshAgent agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
 
         Node root = new Sequence(new List<Node>()
         {
@@ -18,7 +20,7 @@ public class ChasingEnemyBT : MovingEnemyBT
             new TaskClearTarget(),
             new TaskPickTargetAroundPlayer(playerTransform, minDistanceFromPlayer, maxDistanceFromPlayer),
             new TaskLookAtPlayer(rb, playerTransform),
-            new TaskMoveToTarget(rb, walkingSpeed, seeker),
+            new TaskMoveToTarget(rb, agent),
             new TaskAim(),
             new TaskAttackPlayer(weapon),
         });
