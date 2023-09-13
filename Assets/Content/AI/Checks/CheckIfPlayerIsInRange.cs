@@ -1,7 +1,7 @@
 using UnityEngine;
 using BehaviorTree;
 
-public class CheckIsInRange : Node
+public class CheckIfPlayerIsInRange : Node
 {
     // Rigidbody of the enemy
     private Rigidbody2D _rb;
@@ -12,7 +12,7 @@ public class CheckIsInRange : Node
     // Allowed distance to the player before reacting
     private float _distance;
     
-    public CheckIsInRange(Rigidbody2D rb, Transform playerTransform, float distance)
+    public CheckIfPlayerIsInRange(Rigidbody2D rb, Transform playerTransform, float distance)
     {
         _rb = rb;
         _playerTransform = playerTransform;
