@@ -11,8 +11,8 @@ public static class UpgradeManager
 
     // stat upgrades
     public static readonly StatUpgrade MaxHealthIncrease = new StatUpgrade(10, 1, 3);
-    public static readonly StatUpgrade ProjectileDamageIncrease = new StatUpgrade(10, 1, 3);
-    public static readonly StatUpgrade PlayerSpeedIncrease = new StatUpgrade(10, 1, 3);
+    public static readonly StatUpgrade BulletDamageIncrease = new StatUpgrade(10, 1, 3);
+    public static readonly StatUpgrade PlayerMovementSpeedIncrease = new StatUpgrade(10, 1, 3);
     public static readonly StatUpgrade BulletKnockbackIncrease = new StatUpgrade(10, 1, 3);
 
     //private static int _nextReplacementIndex;
@@ -226,9 +226,9 @@ public static class UpgradeManager
     /// Calculates the movement speed multiplier of all upgrades.
     /// </summary>
     /// <returns>Common movement speed multiplier</returns>
-    public static float GetMovementSpeedMultiplier()
+    public static float GetPlayerMovementSpeedMultiplier()
     {
-        return GetAttributeMultiplier(upgrade => upgrade.MovementSpeed);
+        return GetAttributeMultiplier(upgrade => upgrade.PlayerMovementSpeed);
     }
 
     /// <summary>
