@@ -5,7 +5,7 @@ public class CheckHeardShots : Node
 {
     public override NodeState Evaluate()
     {
-        if ((bool) GetData("stunned"))
+        if (GetData<bool>(SharedData.IsStunned))
         {
             state = NodeState.SUCCESS;
         }
