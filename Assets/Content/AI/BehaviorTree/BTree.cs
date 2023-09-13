@@ -43,5 +43,10 @@ namespace BehaviorTree
         {
             _root.SetData("stunned", true);
         }
+
+        public void ShotsFired()
+        {
+            _root.SetData("fired", true);
+        }
     }
 }
