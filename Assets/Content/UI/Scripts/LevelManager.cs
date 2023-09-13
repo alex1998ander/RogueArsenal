@@ -5,12 +5,11 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    public static LevelManager Instance;
+    public static LevelManager instance;
 
     private void Awake()
     {
-        if (LevelManager.Instance == null) Instance = this;
-        else Destroy(gameObject);
+        instance = this;
     }
 
     private void Update()
@@ -21,17 +20,17 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public void GameOver()
+    public static void GameOver()
     {
-        UIManager ui = GetComponent<UIManager>();
+        UIManager ui = instance.GetComponent<UIManager>();
         if (ui == null) return;
         ui.ToggleDeathPanel();
         Time.timeScale = 0;
     }
     
-    public void Pause()
+    public static void Pause()
     {
-        UIManager ui = GetComponent<UIManager>();
+        UIManager ui = instance.GetComponent<UIManager>();
         if (ui == null) return;
         ui.TogglePausePanel();
         //Time.timeScale = 0;

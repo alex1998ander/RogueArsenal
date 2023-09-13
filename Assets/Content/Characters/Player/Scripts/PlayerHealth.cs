@@ -37,9 +37,10 @@ public class PlayerHealth : MonoBehaviour, ICharacterHealth
                 // if player dies anyway
                 if (_currentHealth <= 0)
                 {
+                    gameObject.SetActive(false);
+                    
                     EventManager.OnPlayerDeath.Trigger();
-                    //Destroy(gameObject);
-                    PlayerDied();
+                    LevelManager.GameOver();
                 }
             }
             else
@@ -47,12 +48,6 @@ public class PlayerHealth : MonoBehaviour, ICharacterHealth
                 _currentHealth = 1;
             }
         }
-    }
-
-    void PlayerDied()
-    {
-        LevelManager.Instance.GameOver();
-        gameObject.SetActive(false);
     }
 
     /// <summary>
