@@ -1,7 +1,17 @@
+using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace BehaviorTree
 {
+    public static class SharedData
+    {
+        public static string Target = "target";
+        public static string TargetReached = "targetReached";
+        public static string IsAiming = "isAiming";
+        public static string IsStunned = "isStunned";
+    }
+
     /// <summary>
     /// Execution state of a node.
     /// </summary>
@@ -98,27 +108,27 @@ namespace BehaviorTree
         /// </summary>
         /// <param name="key">Key to search for.</param>
         /// <returns>Data if key-value-pair was found, null if not.</returns>
-        public object GetData(string key)
+        public T GetData<T>(string key)
         {
             object value = null;
             if (_dataContext.TryGetValue(key, out value))
             {
-                return value;
+                return (T) value;
             }
 
             Node node = parent;
             while (node != null)
             {
-                value = node.GetData(key);
+                value = node.GetData<T>(key);
                 if (value != null)
                 {
-                    return value;
+                    return (T) value;
                 }
 
                 node = node.parent;
             }
 
-            return null;
+            return default;
         }
 
         /// <summary>

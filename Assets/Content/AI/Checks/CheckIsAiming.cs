@@ -7,7 +7,7 @@ public class CheckIsAiming : Node
 {
     public override NodeState Evaluate()
     {
-        if ((bool) GetData("isAiming"))
+        if (GetData<bool>(SharedData.IsAiming))
         {
             state = NodeState.SUCCESS;
         }
