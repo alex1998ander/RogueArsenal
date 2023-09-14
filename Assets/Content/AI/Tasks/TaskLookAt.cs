@@ -2,29 +2,29 @@ using UnityEngine;
 using BehaviorTree;
 
 /// <summary>
-/// Task for the enemy to look at the player.
+/// Task for the enemy to look at a specific location.
 /// </summary>
-public class TaskLookAtPlayer : Node
+public class TaskLookAt : Node
 {
     // Rigidbody of the enemy
     private Rigidbody2D _rb;
 
     // Transform of the player
-    private Transform _playerTransform;
+    private Transform _lookAtTransform;
 
-    public TaskLookAtPlayer(Rigidbody2D rb, Transform playerTransform)
+    public TaskLookAt(Rigidbody2D rb, Transform lookAtTransform)
     {
         _rb = rb;
-        _playerTransform = playerTransform;
+        _lookAtTransform = lookAtTransform;
     }
 
     public override NodeState Evaluate()
     {
-        Vector2 toPlayerDirection = ((Vector2) _playerTransform.position - _rb.position).normalized;
-        if (toPlayerDirection != Vector2.zero)
+        Vector2 lookAtDirection = ((Vector2) _lookAtTransform.position - _rb.position).normalized;
+        if (lookAtDirection != Vector2.zero)
         {
             // Calculate angle
-            float angle = Mathf.Atan2(toPlayerDirection.y, toPlayerDirection.x) * Mathf.Rad2Deg;
+            float angle = Mathf.Atan2(lookAtDirection.y, lookAtDirection.x) * Mathf.Rad2Deg;
             // -90f to account for "forwards" of the enemy being the up vector and not the right vector
             angle -= 90f;
             _rb.rotation = angle;

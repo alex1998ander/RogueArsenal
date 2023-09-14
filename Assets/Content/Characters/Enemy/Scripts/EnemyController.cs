@@ -1,3 +1,4 @@
+using System;
 using BehaviorTree;
 using UnityEngine;
 
@@ -5,6 +6,11 @@ public class EnemyController : MonoBehaviour, ICharacterController
 {
     // Behavior tree of this enemy
     private BTree _bTree;
+
+    private void Awake()
+    {
+        EventManager.OnPlayerShotFired.Subscribe(HearPlayerShotFired);
+    }
 
     private void Start()
     {
@@ -16,8 +22,13 @@ public class EnemyController : MonoBehaviour, ICharacterController
         _bTree.Stun();
     }
 
-    public void ShotsFired()
+    public void HearPlayerShotFired()
     {
-        _bTree.ShotsFired();
+        _bTree.HearShotFired();
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.OnPlayerShotFired.Unsubscribe(HearPlayerShotFired);
     }
 }

@@ -18,6 +18,11 @@ public static class EventManager
     /// </summary>
     public static readonly Event OnPlayerDeath = new();
 
+    /// <summary>
+    /// The player just fired a shot.
+    /// </summary>
+    public static readonly Event OnPlayerShotFired = new();
+
     #endregion
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

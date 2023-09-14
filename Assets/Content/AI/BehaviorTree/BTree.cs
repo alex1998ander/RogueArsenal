@@ -44,9 +44,9 @@ namespace BehaviorTree
             _root.SetData(SharedData.IsStunned, true);
         }
 
-        public void ShotsFired()
+        public void HearShotFired()
         {
-            _root.SetData("fired", true);
+            _root.SetData(SharedData.IsAwareOfPlayer, true);
         }
     }
 }

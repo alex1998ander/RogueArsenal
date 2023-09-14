@@ -4,10 +4,12 @@ namespace BehaviorTree
 {
     public static class SharedData
     {
+        public static string PlayerLocation = "playerLocation";
         public static string Target = "target";
         public static string TargetReached = "targetReached";
         public static string IsAiming = "isAiming";
         public static string IsStunned = "isStunned";
+        public static string IsAwareOfPlayer = "isAwareOfPlayer";
     }
 
     /// <summary>
@@ -131,6 +133,25 @@ namespace BehaviorTree
             }
 
             return default;
+        }
+
+        /// <summary>
+        /// Searches for a key inside the tree.
+        /// </summary>
+        /// <param name="key">Key to search for.</param>
+        /// <returns>true if data context contains key, else false.</returns>
+        public bool HasData(string key)
+        {
+            Node node = this;
+            while (node != null)
+            {
+                if (_dataContext.ContainsKey(key))
+                    return true;
+
+                node = node.parent;
+            }
+
+            return false;
         }
 
         /// <summary>

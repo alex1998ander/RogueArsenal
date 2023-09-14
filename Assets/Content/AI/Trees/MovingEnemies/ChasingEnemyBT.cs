@@ -14,15 +14,68 @@ public class ChasingEnemyBT : MovingEnemyBT
         agent.updateRotation = false;
         agent.updateUpAxis = false;
 
-        Node root = new Sequence(new List<Node>()
+        Node root = new Selector(new List<Node>()
         {
-            new Inverter(new CheckIsStunned(stunTime)),
-            new TaskClearTarget(),
-            new TaskPickTargetAroundPlayer(playerTransform, minDistanceFromPlayer, maxDistanceFromPlayer),
-            new TaskLookAtPlayer(rb, playerTransform),
-            new TaskMoveToTarget(rb, agent),
-            new TaskAim(),
-            new TaskAttackPlayer(weapon),
+            // Enemy is stunned
+            new Sequence(new List<Node>()
+            {
+                new CheckIsStunned(stunTime)
+                // TODO: Behavior while stunned
+            }),
+            // Enemy is aware of player
+            new Sequence(new List<Node>()
+            {
+                new CheckIsAwareOfPlayer(),
+                new Selector(new List<Node>()
+                {
+                    // Enemy can see player
+                    new Sequence(new List<Node>()
+                    {
+                        new CheckPlayerVisible(rb, playerTransform, wallLayer),
+                        new TaskSavePlayerLocation(playerTransform),
+                        new TaskLookAt(rb, playerTransform),
+                        new Selector(new List<Node>()
+                        {
+                            new CheckHasData(SharedData.Target),
+                            new TaskPickTargetAroundPlayer(playerTransform, minDistanceFromPlayer,
+                                maxDistanceFromPlayer)
+                        }),
+                        new Selector(new List<Node>()
+                        {
+                            new CheckIsAtTarget(),
+                            new TaskMoveToTarget(rb, agent)
+                        }),
+                        new TaskWait(1f),
+                        new TaskAttackPlayer(weapon)
+                    }),
+                    // Enemy can't see player
+                    new Selector(new List<Node>()
+                    {
+                        // Enemy has last known player location
+                        new Sequence(new List<Node>()
+                        {
+                            new CheckHasData(SharedData.PlayerLocation),
+                            new Selector(new List<Node>()
+                            {
+                                new CheckHasData(SharedData.Target),
+                                new TaskPickTargetAroundPlayer(playerTransform, minDistanceFromPlayer,
+                                    maxDistanceFromPlayer),
+                            }),
+                            new TaskMoveToTarget(rb, agent),
+                            new CheckIsAtTarget(),
+                            new TaskRemoveData(SharedData.PlayerLocation)
+                        }),
+                        // Enemy doesn't have last known player location
+                        new Sequence(new List<Node>()
+                        {
+                            new Selector(new List<Node>()
+                            {
+                                new CheckHasData(SharedData.Target),
+                            })
+                        })
+                    })
+                })
+            })
         });
 
         return root;

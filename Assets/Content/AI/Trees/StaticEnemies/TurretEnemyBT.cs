@@ -14,7 +14,7 @@ public class TurretEnemyBT : EnemyBT
         {
             new Inverter(new CheckIsStunned(stunTime)),
             new CheckPlayerVisible(rb, playerTransform, wallLayer),
-            new TaskLookAtPlayer(rb, playerTransform),
+            new TaskLookAt(rb, playerTransform),
             new TaskAim(),
             new TaskAttackPlayer(weapon),
         });
