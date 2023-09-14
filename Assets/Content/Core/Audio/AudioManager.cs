@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.TerrainTools;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -16,6 +17,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource audioSourceMusicFst;
     [SerializeField] private AudioSource audioSourceMusicSnd;
     [SerializeField] private AudioSource audioSourceSound;
+
+    [SerializeField] private float bpm = 105f;
 
     private AudioSource _audioSourceMusicCurrent;
     private AudioSource _audioSourceMusicUnused;
@@ -103,18 +106,32 @@ public class AudioManager : MonoBehaviour
             return false;
         }
 
-        instance.StartCoroutine(StartVolumeFade(instance._audioSourceMusicCurrent, duration, false));
-        instance.StartCoroutine(StartVolumeFade(instance._audioSourceMusicUnused, duration, true));
+        instance.StartCoroutine(StartFade(targetMusic, duration));
+
+        return true;
+    }
+    
+    private static IEnumerator StartFade(Music targetMusic, float duration)
+    {
+
+        float beatLenght = 60f / instance.bpm * 4f;
+        int lastBeat = Mathf.FloorToInt(instance._audioSourceMusicCurrent.timeSamples / (instance._audioSourceMusicCurrent.clip.frequency * beatLenght));
+        
+        while (Mathf.FloorToInt(instance._audioSourceMusicCurrent.timeSamples / (instance._audioSourceMusicCurrent.clip.frequency * beatLenght)) == lastBeat)
+        {
+            yield return null;
+        }
+
+        instance.StartCoroutine(StartAudioSourceVolumeFade(instance._audioSourceMusicCurrent, duration, false));
+        instance.StartCoroutine(StartAudioSourceVolumeFade(instance._audioSourceMusicUnused, duration, true));
         instance._currentlyFading = true;
 
         // Swap current used audio source reference
         (instance._audioSourceMusicCurrent, instance._audioSourceMusicUnused) = (instance._audioSourceMusicUnused, instance._audioSourceMusicCurrent);
 
         PlayMusicOnCurrentAudioSource(targetMusic);
-
-        return true;
     }
-
+    
     /// <summary>
     /// Fade coroutine.
     /// </summary>
@@ -122,7 +139,7 @@ public class AudioManager : MonoBehaviour
     /// <param name="duration">Fade duration</param>
     /// <param name="fadeIn">bool whether to be faded in or faded out</param>
     /// <returns></returns>
-    private static IEnumerator StartVolumeFade(AudioSource audioSource, float duration, bool fadeIn)
+    private static IEnumerator StartAudioSourceVolumeFade(AudioSource audioSource, float duration, bool fadeIn)
     {
         float startVolume = fadeIn ? 0 : 1;
         float targetVolume = fadeIn ? 1 : 0;
@@ -132,7 +149,7 @@ public class AudioManager : MonoBehaviour
 
         while (currentTime < duration)
         {
-            currentTime += Time.fixedDeltaTime;
+            currentTime += Time.deltaTime;
             float newVolume = startVolume + volumeChangePerSecond * currentTime;
             audioSource.volume = newVolume;
             yield return null;
