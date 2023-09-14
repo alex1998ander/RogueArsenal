@@ -12,6 +12,11 @@ public class TaskLookAt : Node
     // Transform of the player
     private Transform _lookAtTransform;
 
+    public TaskLookAt(Rigidbody2D rb)
+    {
+        _rb = rb;
+    }
+
     public TaskLookAt(Rigidbody2D rb, Transform lookAtTransform)
     {
         _rb = rb;
@@ -20,7 +25,11 @@ public class TaskLookAt : Node
 
     public override NodeState Evaluate()
     {
-        Vector2 lookAtDirection = ((Vector2) _lookAtTransform.position - _rb.position).normalized;
+        Vector2 lookAtDirection;
+        if (_lookAtTransform)
+            lookAtDirection = ((Vector2) _lookAtTransform.position - _rb.position).normalized;
+        else
+            lookAtDirection = _rb.velocity;
         if (lookAtDirection != Vector2.zero)
         {
             // Calculate angle

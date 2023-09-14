@@ -62,6 +62,7 @@ public class ChasingEnemyBT : MovingEnemyBT
                                     maxDistanceFromPlayer),
                             }),
                             new TaskMoveToTarget(rb, agent),
+                            new TaskLookAt(rb),
                             new CheckIsAtTarget(),
                             new TaskRemoveData(SharedData.PlayerLocation)
                         }),
