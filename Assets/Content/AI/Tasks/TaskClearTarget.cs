@@ -7,8 +7,8 @@ public class TaskClearTarget : Node
 {
     public override NodeState Evaluate()
     {
-        ClearData("target");
-        SetDataInRoot("targetReached", false);
+        ClearData(SharedData.Target);
+        SetDataInRoot(SharedData.TargetReached, false);
         state = NodeState.SUCCESS;
         return state;
     }

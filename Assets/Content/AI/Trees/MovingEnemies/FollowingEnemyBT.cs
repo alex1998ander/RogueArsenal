@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using Pathfinding;
 using BehaviorTree;
 
 public class FollowingEnemyBT : MovingEnemyBT
@@ -10,7 +9,6 @@ public class FollowingEnemyBT : MovingEnemyBT
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         Transform playerTransform = GameObject.Find("Player").GetComponent<Transform>();
         EnemyWeapon weapon = GetComponentInChildren<EnemyWeapon>();
-        Seeker seeker = GetComponent<Seeker>();
 
         Node root = new Selector(new List<Node>()
         {
@@ -48,14 +46,10 @@ public class FollowingEnemyBT : MovingEnemyBT
                     new CheckTargetIsDefined(),
                     new TaskPickTargetAroundPlayer(playerTransform, minDistanceFromPlayer, maxDistanceFromPlayer),
                 }),
-                new TaskMoveToTarget(rb, walkingSpeed, seeker),
+                new TaskMoveToTarget(rb, null),
                 new TaskLookAtMovementDirection(rb), // Look at movement direction
             }),
         });
-
-        root.SetData("targetReached", false);
-        root.SetData("isAiming", false);
-        root.SetData("stunned", false);
 
         return root;
     }

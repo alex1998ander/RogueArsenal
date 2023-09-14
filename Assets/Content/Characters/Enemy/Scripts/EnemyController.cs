@@ -15,4 +15,9 @@ public class EnemyController : MonoBehaviour, ICharacterController
     {
         _bTree.Stun();
     }
+
+    public void ShotsFired()
+    {
+        _bTree.ShotsFired();
+    }
 }

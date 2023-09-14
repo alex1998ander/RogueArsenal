@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour, ICharacterHealth
 {
-    [SerializeField] private float maxHealth = 100f;
     private float _currentHealth;
 
     /// <summary>
@@ -11,8 +10,9 @@ public class PlayerHealth : MonoBehaviour, ICharacterHealth
     /// </summary>
     public void ResetHealth()
     {
-        _currentHealth = maxHealth * UpgradeManager.GetHealthMultiplier();
+        _currentHealth = PlayerController.GetMaxHealth();
     }
+    
 
     /// <summary>
     /// Decreases the player's health by the specified value and checks if the player dies. If so, affecting upgrades are performed and further actions are initiated.
@@ -56,7 +56,7 @@ public class PlayerHealth : MonoBehaviour, ICharacterHealth
     /// <param name="healingAmount">Amount of healing</param>
     public void Heal(float healingAmount)
     {
-        _currentHealth = Mathf.Min(_currentHealth + healingAmount, maxHealth);
+        _currentHealth = Mathf.Min(_currentHealth + healingAmount, PlayerController.GetMaxHealth());
         
     }
 
@@ -66,6 +66,6 @@ public class PlayerHealth : MonoBehaviour, ICharacterHealth
     /// <returns>Current and max life of the player</returns>
     public Vector2 GetHealth()
     {
-        return new Vector2(_currentHealth, maxHealth * UpgradeManager.GetHealthMultiplier());
+        return new Vector2(_currentHealth, PlayerController.GetMaxHealth());
     }
 }

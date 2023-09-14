@@ -11,7 +11,9 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
     private Rigidbody2D _rigidbody;
     private PlayerHealth _playerHealth;
 
-    [SerializeField] private float moveSpeed = 5f;
+    private static float _maxHealth = 200f;
+    private static float _defaultDamage = 35f;
+    private static float _moveSpeed = 5f;
     [SerializeField] private float defaultFireDelay = 0.4f;
     [SerializeField] private float defaultBlockDelay = 5.0f;
     [SerializeField] private PlayerWeapon playerWeapon;
@@ -28,16 +30,13 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
     private float _blockCooldownEndTimestamp;
 
     // Upgrade: Burst
-    [Header("Upgrade: Burst")] [SerializeField]
-    private float burstDelayInSec = 0.1f;
+    [Header("Upgrade: Burst")] [SerializeField] private float burstDelayInSec = 0.1f;
 
     // Upgrade: Demonic Pact 
-    [Header("Upgrade: Demonic Pact")] [SerializeField]
-    private float demonicPactHealthLoss = 10f;
+    [Header("Upgrade: Demonic Pact")] [SerializeField] private float demonicPactHealthLoss = 10f;
 
     // Upgrade: Healing Field 
-    [Header("Upgrade: Healing Field")] [SerializeField]
-    private GameObject healingFieldPrefab;
+    [Header("Upgrade: Healing Field")] [SerializeField] private GameObject healingFieldPrefab;
 
     // Upgrade: Phoenix
     private bool _phoenixed;
@@ -55,15 +54,28 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
 
     void FixedUpdate()
     {
-        _rigidbody.MovePosition(_rigidbody.position +
-                                _movementInput * (moveSpeed * UpgradeManager.GetMovementSpeedMultiplier() *
-                                                  Time.fixedDeltaTime));
+        _rigidbody.MovePosition(_rigidbody.position + _movementInput * (GetPlayerMovementSpeed() * Time.fixedDeltaTime));
         UpgradeManager.PlayerUpdate(this);
     }
 
     public ICharacterHealth GetHealthManager()
     {
         return _playerHealth;
+    }
+
+    public static float GetMaxHealth()
+    {
+        return (_maxHealth + UpgradeManager.MaxHealthIncrease.Value) * UpgradeManager.GetHealthMultiplier();
+    }
+
+    public static float GetBulletDamage()
+    {
+        return (_defaultDamage + UpgradeManager.BulletDamageIncrease.Value) * UpgradeManager.GetBulletDamageMultiplier();
+    }
+
+    public static float GetPlayerMovementSpeed()
+    {
+        return (_moveSpeed + UpgradeManager.PlayerMovementSpeedIncrease.Value) * UpgradeManager.GetPlayerMovementSpeedMultiplier();
     }
 
     public void StunCharacter()
@@ -108,7 +120,7 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
         {
             if (_playerInput.currentControlScheme.Equals("Keyboard&Mouse"))
             {
-                _aimDirection = (Vector2) Camera.main.ScreenToWorldPoint(_aimDirection) - _rigidbody.position;
+                _aimDirection = (Vector2)Camera.main.ScreenToWorldPoint(_aimDirection) - _rigidbody.position;
             }
 
             _angle = Mathf.Atan2(_aimDirection.y, _aimDirection.x) * Mathf.Rad2Deg - 90f;

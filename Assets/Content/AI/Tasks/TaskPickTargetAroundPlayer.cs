@@ -3,6 +3,7 @@ using System.Linq;
 using UnityEngine;
 using Pathfinding;
 using BehaviorTree;
+using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
 /// <summary>
@@ -27,43 +28,12 @@ public class TaskPickTargetAroundPlayer : Node
 
     public override NodeState Evaluate()
     {
-        // Create big and small bounding boxes at player position using playerBounds
-        Bounds outerBounds = new Bounds();
-        Bounds innerBounds = new Bounds();
-        outerBounds.center = _playerTransform.position;
-        innerBounds.center = _playerTransform.position;
-        outerBounds.size =
-            new Vector3(_maxDistanceFromPlayer, _maxDistanceFromPlayer, 1);
-        innerBounds.size =
-            new Vector3(_minDistanceFromPlayer, _minDistanceFromPlayer, 1);
-
-        // Save all nodes near the Player in two separate lists
-        // TODO: "pool the list" according to 'GetNodesInRegion' summary
-        List<GraphNode> outerNodesNearPlayer = AstarPath.active.data.gridGraph.GetNodesInRegion(outerBounds);
-        List<GraphNode> innerNodesNearPlayer = AstarPath.active.data.gridGraph.GetNodesInRegion(innerBounds);
-
-        // Remove the inner nodes from the outer nodes list so the enemy doesn't move closer than allowed to the player
-        List<GraphNode> allowedNodes = outerNodesNearPlayer.Except(innerNodesNearPlayer).ToList();
-
-        // Remove all nodes that aren't walkable
-        allowedNodes.RemoveAll(node => !node.Walkable);
-
-        // When no target could be found, do nothing
-        if (allowedNodes.Count == 0)
-        {
-            state = NodeState.FAILURE;
-            return state;
-        }
-
-        // Pick a random node from the allowed nodes
-        GraphNode randomNode = allowedNodes[Random.Range(0, allowedNodes.Count)];
-
-        // Save position of the random node in the shared context
-        SetDataInRoot("target", (Vector3) randomNode.position);
-
-        // TODO: If no random node found, state = failure, do something else
-
-        state = NodeState.SUCCESS;
-        return state;
+        Vector2 randomDirection = Random.insideUnitCircle;
+        Vector3 randomPositionAroundPlayer = _playerTransform.position
+                                             + (Vector3) (_minDistanceFromPlayer * randomDirection
+                                                          + Random.Range(0f, 1f) * _maxDistanceFromPlayer *
+                                                          randomDirection);
+        SetDataInRoot(SharedData.Target, randomPositionAroundPlayer);
+        return NodeState.SUCCESS;
     }
 }
