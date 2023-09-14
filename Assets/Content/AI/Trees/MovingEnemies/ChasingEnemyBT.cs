@@ -13,7 +13,14 @@ public class ChasingEnemyBT : MovingEnemyBT
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
+        GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
+        Transform[] spawnPointTransforms = new Transform[spawnPoints.Length];
 
+        for (int i = 0; i < spawnPoints.Length; i++)
+        {
+            spawnPointTransforms[i] = spawnPoints[i].transform;
+        }
+        
         Node root = new Selector(new List<Node>()
         {
             // Enemy is stunned
@@ -37,7 +44,7 @@ public class ChasingEnemyBT : MovingEnemyBT
                         new Selector(new List<Node>()
                         {
                             new CheckHasData(SharedData.Target),
-                            new TaskPickTargetAroundPlayer(playerTransform, minDistanceFromPlayer,
+                            new TaskPickTargetAroundTransforms(playerTransform, minDistanceFromPlayer,
                                 maxDistanceFromPlayer)
                         }),
                         new Selector(new List<Node>()
@@ -58,7 +65,7 @@ public class ChasingEnemyBT : MovingEnemyBT
                             new Selector(new List<Node>()
                             {
                                 new CheckHasData(SharedData.Target),
-                                new TaskPickTargetAroundPlayer(playerTransform, minDistanceFromPlayer,
+                                new TaskPickTargetAroundTransforms(playerTransform, minDistanceFromPlayer,
                                     maxDistanceFromPlayer),
                             }),
                             new TaskMoveToTarget(rb, agent),
@@ -72,10 +79,21 @@ public class ChasingEnemyBT : MovingEnemyBT
                             new Selector(new List<Node>()
                             {
                                 new CheckHasData(SharedData.Target),
-                            })
+                                new TaskPickTargetAroundTransforms(spawnPointTransforms, minDistanceFromPlayer, maxDistanceFromPlayer)
+                            }),
+                            new TaskMoveToTarget(rb, agent),
+                            new CheckIsAtTarget(),
+                            new TaskRemoveData(SharedData.Target)
                         })
                     })
                 })
+            }),
+            //Enemy sees Player for the first time
+            new Sequence(new List<Node>()
+            {
+                new CheckIfPlayerIsInRange(rb, playerTransform, 1f),
+                new CheckPlayerVisible(rb, playerTransform, wallLayer),
+                new TaskSetData(SharedData.IsAwareOfPlayer, true)
             })
         });
 
