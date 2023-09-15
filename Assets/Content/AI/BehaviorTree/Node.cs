@@ -187,6 +187,7 @@ namespace BehaviorTree
             SetDataInRoot(SharedData.TargetReached, false);
             SetDataInRoot(SharedData.IsAiming, false);
             SetDataInRoot(SharedData.IsStunned, false);
+            SetDataInRoot(SharedData.IsAwareOfPlayer, false);
         }
     }
 }

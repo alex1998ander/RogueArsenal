@@ -16,11 +16,13 @@ public class ChasingEnemyBT : MovingEnemyBT
         GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
         Transform[] spawnPointTransforms = new Transform[spawnPoints.Length];
 
+        Debug.Log("spawn points: " + spawnPoints.Length);
+
         for (int i = 0; i < spawnPoints.Length; i++)
         {
             spawnPointTransforms[i] = spawnPoints[i].transform;
         }
-        
+
         Node root = new Selector(new List<Node>()
         {
             // Enemy is stunned
@@ -41,16 +43,12 @@ public class ChasingEnemyBT : MovingEnemyBT
                         new CheckPlayerVisible(rb, playerTransform, wallLayer),
                         new TaskSavePlayerLocation(playerTransform),
                         new TaskLookAt(rb, playerTransform),
-                        new Selector(new List<Node>()
-                        {
-                            new CheckHasData(SharedData.Target),
-                            new TaskPickTargetAroundTransforms(playerTransform, minDistanceFromPlayer,
-                                maxDistanceFromPlayer)
-                        }),
+                        new TaskPickTargetAroundTransforms(playerTransform, minDistanceFromPlayer,
+                            maxDistanceFromPlayer),
                         new Selector(new List<Node>()
                         {
                             new CheckIsAtTarget(),
-                            new TaskMoveToTarget(rb, agent)
+                            new TaskMoveToTarget(rb, agent, 1f)
                         }),
                         new TaskWait(1f),
                         new TaskAttackPlayer(weapon)
@@ -68,10 +66,10 @@ public class ChasingEnemyBT : MovingEnemyBT
                                 new TaskPickTargetAroundTransforms(playerTransform, minDistanceFromPlayer,
                                     maxDistanceFromPlayer),
                             }),
-                            new TaskMoveToTarget(rb, agent),
+                            new TaskMoveToTarget(rb, agent, 1f),
                             new TaskLookAt(rb),
                             new CheckIsAtTarget(),
-                            new TaskRemoveData(SharedData.PlayerLocation)
+                            new TaskClearData(SharedData.PlayerLocation)
                         }),
                         // Enemy doesn't have last known player location
                         new Sequence(new List<Node>()
@@ -79,16 +77,16 @@ public class ChasingEnemyBT : MovingEnemyBT
                             new Selector(new List<Node>()
                             {
                                 new CheckHasData(SharedData.Target),
-                                new TaskPickTargetAroundTransforms(spawnPointTransforms, minDistanceFromPlayer, maxDistanceFromPlayer)
+                                new TaskPickTargetAroundTransforms(spawnPointTransforms, 0f, 0f)
                             }),
-                            new TaskMoveToTarget(rb, agent),
+                            new TaskMoveToTarget(rb, agent, 1f),
                             new CheckIsAtTarget(),
-                            new TaskRemoveData(SharedData.Target)
+                            new TaskClearData(SharedData.Target)
                         })
                     })
                 })
             }),
-            //Enemy sees Player for the first time
+            // Enemy sees Player for the first time
             new Sequence(new List<Node>()
             {
                 new CheckIfPlayerIsInRange(rb, playerTransform, 1f),

@@ -3,11 +3,11 @@ using BehaviorTree;
 /// <summary>
 /// Removes a data field in the shared context.
 /// </summary>
-public class TaskRemoveData : Node
+public class TaskClearData : Node
 {
     private string _dataName;
 
-    public TaskRemoveData(string dataName)
+    public TaskClearData(string dataName)
     {
         _dataName = dataName;
     }

@@ -19,13 +19,14 @@ public class TaskMoveToTarget : Node
     // Nav Mesh Agent
     private NavMeshAgent _agent;
 
-    // 
-    private float _targetReachedDistance = 1f;
+    // Distance to the pathfinding target to count as having reached it
+    private float _targetReachedDistance;
 
-    public TaskMoveToTarget(Rigidbody2D rb, NavMeshAgent agent)
+    public TaskMoveToTarget(Rigidbody2D rb, NavMeshAgent agent, float targetReachedDistance)
     {
         _rb = rb;
         _agent = agent;
+        _targetReachedDistance = targetReachedDistance;
     }
 
     public override NodeState Evaluate()
@@ -37,6 +38,7 @@ public class TaskMoveToTarget : Node
         if ((_rb.position - (Vector2) newTarget).magnitude < _targetReachedDistance)
         {
             state = NodeState.SUCCESS;
+            SetDataInRoot(SharedData.TargetReached, true);
         }
 
         return state;

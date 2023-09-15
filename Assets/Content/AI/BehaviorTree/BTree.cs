@@ -47,6 +47,7 @@ namespace BehaviorTree
         public void HearShotFired()
         {
             _root.SetData(SharedData.IsAwareOfPlayer, true);
+            Debug.Log("aware: " + _root.GetData<bool>(SharedData.IsAwareOfPlayer));
         }
     }
 }

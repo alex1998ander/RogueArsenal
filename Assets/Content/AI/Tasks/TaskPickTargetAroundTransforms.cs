@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 public class TaskPickTargetAroundTransforms : Node
 {
     // Transform of the player
-    private Transform [] _targetTransforms;
+    private Transform[] _targetTransforms;
 
     private float _minDistanceFromTarget = 4f;
 
@@ -17,10 +17,11 @@ public class TaskPickTargetAroundTransforms : Node
     public TaskPickTargetAroundTransforms(Transform targetTransform, float minDistanceFromTarget,
         float maxDistanceFromTarget)
     {
-        _targetTransforms = new Transform[] { targetTransform };
+        _targetTransforms = new Transform[] {targetTransform};
         _minDistanceFromTarget = minDistanceFromTarget;
         _maxDistanceFromTarget = maxDistanceFromTarget;
     }
+
     public TaskPickTargetAroundTransforms(Transform[] targetTransforms, float minDistanceFromTarget,
         float maxDistanceFromTarget)
     {
@@ -37,7 +38,11 @@ public class TaskPickTargetAroundTransforms : Node
                                              + (Vector3) (_minDistanceFromTarget * randomDirection
                                                           + Random.Range(0f, 1f) * _maxDistanceFromTarget *
                                                           randomDirection);
+
+        SetDataInRoot(SharedData.TargetReached, false);
         SetDataInRoot(SharedData.Target, randomPositionAroundPlayer);
+
+        state = NodeState.SUCCESS;
         return NodeState.SUCCESS;
     }
 }
