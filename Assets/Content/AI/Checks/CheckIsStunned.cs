@@ -16,9 +16,8 @@ public class CheckIsStunned : Node
 
     public override NodeState Evaluate()
     {
-        
         // Is enemy stunned and stun hasn't run out yet?
-        if (GetData<bool>(SharedData.IsStunned) && _stunCounter < _stunTime)
+        if (GetData<bool>(sharedData.IsStunned) && _stunCounter < _stunTime)
         {
             Debug.Log("Enemy stunned");
             _stunCounter += Time.fixedDeltaTime;
@@ -26,7 +25,7 @@ public class CheckIsStunned : Node
         }
         else
         {
-            SetDataInRoot(SharedData.IsStunned, false);
+            SetData(sharedData.IsStunned, false);
             _stunCounter = 0f;
             state = NodeState.FAILURE;
         }

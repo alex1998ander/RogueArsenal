@@ -39,8 +39,8 @@ public class TaskPickTargetAroundTransforms : Node
                                                           + Random.Range(0f, 1f) * _maxDistanceFromTarget *
                                                           randomDirection);
 
-        SetDataInRoot(SharedData.TargetReached, false);
-        SetDataInRoot(SharedData.Target, randomPositionAroundPlayer);
+        SetData(sharedData.TargetReached, false);
+        SetData(sharedData.Target, randomPositionAroundPlayer);
 
         state = NodeState.SUCCESS;
         return NodeState.SUCCESS;

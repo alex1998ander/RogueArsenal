@@ -31,14 +31,14 @@ public class TaskMoveToTarget : Node
 
     public override NodeState Evaluate()
     {
-        Vector3 newTarget = GetData<Vector3>(SharedData.Target);
+        Vector3 newTarget = GetData<Vector3>(sharedData.Target);
         _agent.SetDestination(newTarget);
 
         state = NodeState.RUNNING;
         if ((_rb.position - (Vector2) newTarget).magnitude < _targetReachedDistance)
         {
             state = NodeState.SUCCESS;
-            SetDataInRoot(SharedData.TargetReached, true);
+            SetData(sharedData.TargetReached, true);
         }
 
         return state;

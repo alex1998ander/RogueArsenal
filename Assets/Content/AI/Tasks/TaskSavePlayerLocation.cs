@@ -15,7 +15,7 @@ public class TaskSavePlayerLocation : Node
 
     public override NodeState Evaluate()
     {
-        SetDataInRoot(SharedData.PlayerLocation, _playerTransform.position);
+        SetData(sharedData.PlayerLocation, _playerTransform.position);
         return NodeState.SUCCESS;
     }
 }

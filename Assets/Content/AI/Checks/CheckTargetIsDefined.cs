@@ -8,7 +8,7 @@ public class CheckTargetIsDefined : Node
 {
     public override NodeState Evaluate()
     {
-        object t = GetData<object>(SharedData.Target);
+        object t = GetData(sharedData.Target);
         if (t != null)
         {
             state = NodeState.SUCCESS;

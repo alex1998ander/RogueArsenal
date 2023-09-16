@@ -8,7 +8,7 @@ public class CheckIsAwareOfPlayer : Node
 {
     public override NodeState Evaluate()
     {
-        state = GetData<bool>(SharedData.IsAwareOfPlayer) ? NodeState.SUCCESS : NodeState.FAILURE;
+        state = GetData<bool>(sharedData.IsAwareOfPlayer) ? NodeState.SUCCESS : NodeState.FAILURE;
 
         Debug.Log("state: " + state);
 

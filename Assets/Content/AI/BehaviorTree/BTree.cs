@@ -41,13 +41,13 @@ namespace BehaviorTree
         /// </summary>
         public void Stun()
         {
-            _root.SetData(SharedData.IsStunned, true);
+            _root.SetData(_root.sharedData.IsStunned, true);
         }
 
         public void HearShotFired()
         {
-            _root.SetData(SharedData.IsAwareOfPlayer, true);
-            Debug.Log("aware: " + _root.GetData<bool>(SharedData.IsAwareOfPlayer));
+            _root.SetData(_root.sharedData.IsAwareOfPlayer, true);
+            Debug.Log("aware: " + _root.GetData(_root.sharedData.IsAwareOfPlayer));
         }
     }
 }

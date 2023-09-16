@@ -7,7 +7,7 @@ public class CheckIsAtTarget : Node
 {
     public override NodeState Evaluate()
     {
-        if (GetData<bool>(SharedData.TargetReached))
+        if (GetData(sharedData.TargetReached))
         {
             state = NodeState.SUCCESS;
         }

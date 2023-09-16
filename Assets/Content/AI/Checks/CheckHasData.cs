@@ -3,18 +3,18 @@ using BehaviorTree;
 /// <summary>
 /// Checks if specific data has been defined inside the behavior tree.
 /// </summary>
-public class CheckHasData : Node
+public class CheckHasData<T> : Node
 {
-    private string _dataName;
+    private SharedDataKey<T> _key;
 
-    public CheckHasData(string dataName)
+    public CheckHasData(SharedDataKey<T> key)
     {
-        _dataName = dataName;
+        _key = key;
     }
 
     public override NodeState Evaluate()
     {
-        if (HasData(_dataName))
+        if (HasData(_key))
             state = NodeState.SUCCESS;
         else
             state = NodeState.FAILURE;

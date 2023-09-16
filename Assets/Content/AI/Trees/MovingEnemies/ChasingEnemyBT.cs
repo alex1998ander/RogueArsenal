@@ -16,13 +16,13 @@ public class ChasingEnemyBT : MovingEnemyBT
         GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
         Transform[] spawnPointTransforms = new Transform[spawnPoints.Length];
 
-        Debug.Log("spawn points: " + spawnPoints.Length);
-
         for (int i = 0; i < spawnPoints.Length; i++)
         {
             spawnPointTransforms[i] = spawnPoints[i].transform;
         }
 
+        SharedData sharedData = new SharedData();
+        
         Node root = new Selector(new List<Node>()
         {
             // Enemy is stunned
@@ -59,29 +59,29 @@ public class ChasingEnemyBT : MovingEnemyBT
                         // Enemy has last known player location
                         new Sequence(new List<Node>()
                         {
-                            new CheckHasData(SharedData.PlayerLocation),
+                            new CheckHasData<Vector3>(sharedData.PlayerLocation),
                             new Selector(new List<Node>()
                             {
-                                new CheckHasData(SharedData.Target),
+                                new CheckHasData<Vector3>(sharedData.Target),
                                 new TaskPickTargetAroundTransforms(playerTransform, minDistanceFromPlayer,
                                     maxDistanceFromPlayer),
                             }),
                             new TaskMoveToTarget(rb, agent, 1f),
                             new TaskLookAt(rb),
                             new CheckIsAtTarget(),
-                            new TaskClearData(SharedData.PlayerLocation)
+                            new TaskClearData<Vector3>(sharedData.PlayerLocation)
                         }),
                         // Enemy doesn't have last known player location
                         new Sequence(new List<Node>()
                         {
                             new Selector(new List<Node>()
                             {
-                                new CheckHasData(SharedData.Target),
+                                new CheckHasData<Vector3>(sharedData.Target),
                                 new TaskPickTargetAroundTransforms(spawnPointTransforms, 0f, 0f)
                             }),
                             new TaskMoveToTarget(rb, agent, 1f),
                             new CheckIsAtTarget(),
-                            new TaskClearData(SharedData.Target)
+                            new TaskClearData<Vector3>(sharedData.Target)
                         })
                     })
                 })
@@ -91,9 +91,11 @@ public class ChasingEnemyBT : MovingEnemyBT
             {
                 new CheckIfPlayerIsInRange(rb, playerTransform, 1f),
                 new CheckPlayerVisible(rb, playerTransform, wallLayer),
-                new TaskSetData(SharedData.IsAwareOfPlayer, true)
+                new TaskSetData<bool>(sharedData.IsAwareOfPlayer, true)
             })
         });
+
+        root.SetupSharedData(sharedData);
 
         return root;
     }

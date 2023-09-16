@@ -1,20 +1,20 @@
 using BehaviorTree;
 using UnityEngine;
 
-public class TaskSetData : Node
+public class TaskSetData<T> : Node
 {
-    private string _dataName;
-    private object _data;
+    private SharedDataKey<T> _key;
+    private object _value;
 
-    public TaskSetData(string dataName, object data)
+    public TaskSetData(SharedDataKey<T> key, object value)
     {
-        _dataName = dataName;
-        _data = data;
+        _key = key;
+        _value = value;
     }
 
     public override NodeState Evaluate()
     {
-        SetDataInRoot(_dataName, _data);
+        SetData(_key, _value);
         state = NodeState.SUCCESS;
         return state;
     }

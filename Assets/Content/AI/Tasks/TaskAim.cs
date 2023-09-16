@@ -17,13 +17,13 @@ public class TaskAim : Node
         _aimCounter += Time.fixedDeltaTime;
         if (_aimCounter >= _aimTime)
         {
-            SetDataInRoot(SharedData.IsAiming, false);
+            SetData(sharedData.IsAiming, false);
             _aimCounter = 0f;
             state = NodeState.SUCCESS;
             return state;
         }
 
-        SetDataInRoot(SharedData.IsAiming, true);
+        SetData(sharedData.IsAiming, true);
         state = NodeState.FAILURE;
 
         return state;

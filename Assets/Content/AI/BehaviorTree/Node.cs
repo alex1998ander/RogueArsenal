@@ -2,16 +2,6 @@ using System.Collections.Generic;
 
 namespace BehaviorTree
 {
-    public static class SharedData
-    {
-        public static string PlayerLocation = "playerLocation";
-        public static string Target = "target";
-        public static string TargetReached = "targetReached";
-        public static string IsAiming = "isAiming";
-        public static string IsStunned = "isStunned";
-        public static string IsAwareOfPlayer = "isAwareOfPlayer";
-    }
-
     /// <summary>
     /// Execution state of a node.
     /// </summary>
@@ -33,25 +23,19 @@ namespace BehaviorTree
         // The state of this node
         protected NodeState state;
 
-        // Parent node of this node
-        public Node parent;
+        // Realizes shared data so all objects in the behavior tree can access the same objects
+        public SharedData sharedData;
 
         // Child nodes of this node
         protected List<Node> children = new List<Node>();
 
-        // Realizes shared data so all objects in the behavior tree can access the same objects
-        private Dictionary<string, object> _dataContext = new Dictionary<string, object>();
-
         public Node()
         {
-            parent = null;
-            SetupData();
         }
 
         public Node(Node child)
         {
             _Attach(child);
-            SetupData();
         }
 
         public Node(List<Node> children)
@@ -60,8 +44,6 @@ namespace BehaviorTree
             {
                 _Attach(child);
             }
-
-            SetupData();
         }
 
         /// <summary>
@@ -70,8 +52,27 @@ namespace BehaviorTree
         /// <param name="node">Node to add as child</param>
         private void _Attach(Node node)
         {
-            node.parent = this;
             children.Add(node);
+        }
+
+        /// <summary>
+        /// Sets the shared data reference of this node and all child nodes.
+        /// Sets specific data fields to proper values for the start of the game.
+        /// </summary>
+        /// <param name="sharedData">The shared data reference</param>
+        public void SetupSharedData(SharedData sharedData)
+        {
+            foreach (Node node in children)
+            {
+                node.SetupSharedData(sharedData);
+            }
+
+            this.sharedData = sharedData;
+
+            // SetData(sharedData.TargetReached, false);
+            // SetData(sharedData.IsAiming, false);
+            // SetData(sharedData.IsStunned, false);
+            // SetData(sharedData.IsAwareOfPlayer, false);
         }
 
         /// <summary>
@@ -81,113 +82,24 @@ namespace BehaviorTree
         /// <returns>FAILURE as default</returns>
         public virtual NodeState Evaluate() => NodeState.FAILURE;
 
-        /// <summary>
-        /// Sets a key-value-pair in the root node of the tree.
-        /// </summary>
-        /// <param name="key">Key of new value.</param>
-        /// <param name="value">New value.</param>
-        public void SetDataInRoot(string key, object value)
+        public void SetData<T>(SharedDataKey<T> key, object value)
         {
-            Node node = this;
-            while (node.parent != null)
-            {
-                node = node.parent;
-            }
-
-            node.SetData(key, value);
+            sharedData.SetData(key, (T) value);
         }
 
-        /// <summary>
-        /// Sets a key-value-pair of the shared data.
-        /// </summary>
-        /// <param name="key">Key of new value.</param>
-        /// <param name="value">New value.</param>
-        public void SetData(string key, object value)
+        public T GetData<T>(SharedDataKey<T> key)
         {
-            _dataContext[key] = value;
+            return sharedData.GetData(key);
         }
 
-        /// <summary>
-        /// Searches if key has been defined in the behaviour tree.
-        /// </summary>
-        /// <param name="key">Key to search for.</param>
-        /// <returns>Data if key-value-pair was found, null if not.</returns>
-        public T GetData<T>(string key)
+        public bool HasData<T>(SharedDataKey<T> key)
         {
-            object value = null;
-            if (_dataContext.TryGetValue(key, out value))
-            {
-                return (T) value;
-            }
-
-            Node node = parent;
-            while (node != null)
-            {
-                value = node.GetData<T>(key);
-                if (value != null)
-                {
-                    return (T) value;
-                }
-
-                node = node.parent;
-            }
-
-            return default;
+            return sharedData.HasData(key);
         }
 
-        /// <summary>
-        /// Searches for a key inside the tree.
-        /// </summary>
-        /// <param name="key">Key to search for.</param>
-        /// <returns>true if data context contains key, else false.</returns>
-        public bool HasData(string key)
+        public bool ClearData<T>(SharedDataKey<T> key)
         {
-            Node node = this;
-            while (node != null)
-            {
-                if (_dataContext.ContainsKey(key))
-                    return true;
-
-                node = node.parent;
-            }
-
-            return false;
-        }
-
-        /// <summary>
-        /// Removes the key-value-pair from the first node where the key has been found.
-        /// </summary>
-        /// <param name="key">Key to search for.</param>
-        /// <returns>true if data successfully deleted, false if not.</returns>
-        public bool ClearData(string key)
-        {
-            if (_dataContext.ContainsKey(key))
-            {
-                _dataContext.Remove(key);
-                return true;
-            }
-
-            Node node = parent;
-            while (node != null)
-            {
-                bool cleared = node.ClearData(key);
-                if (cleared)
-                {
-                    return true;
-                }
-
-                node = node.parent;
-            }
-
-            return false;
-        }
-
-        private void SetupData()
-        {
-            SetDataInRoot(SharedData.TargetReached, false);
-            SetDataInRoot(SharedData.IsAiming, false);
-            SetDataInRoot(SharedData.IsStunned, false);
-            SetDataInRoot(SharedData.IsAwareOfPlayer, false);
+            return sharedData.ClearData(key);
         }
     }
 }
