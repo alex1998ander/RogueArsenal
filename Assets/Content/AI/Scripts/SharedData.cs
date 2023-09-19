@@ -11,23 +11,23 @@ namespace BehaviorTree
     {
         public int Key { get; }
 
-        private static int _keyCounter = 0;
-
-        public SharedDataType()
+        public SharedDataType(int key)
         {
-            Key = _keyCounter++;
+            Key = key;
         }
     }
 
     public class SharedData
     {
+        private static int _keyCounter;
+
         // Shared data types of all possibly relevant data used in the behavior trees
-        public SharedDataType<Vector3> LastKnownPlayerLocation = new();
-        public SharedDataType<Vector3> Target = new();
-        public SharedDataType<bool> TargetReached = new();
-        public SharedDataType<bool> IsAiming = new();
-        public SharedDataType<bool> IsStunned = new();
-        public SharedDataType<bool> IsAwareOfPlayer = new();
+        public SharedDataType<Vector3> LastKnownPlayerLocation = new(_keyCounter++);
+        public SharedDataType<Vector3> Target = new(_keyCounter++);
+        public SharedDataType<bool> TargetReached = new(_keyCounter++);
+        public SharedDataType<bool> IsAiming = new(_keyCounter++);
+        public SharedDataType<bool> IsStunned = new(_keyCounter++);
+        public SharedDataType<bool> IsAwareOfPlayer = new(_keyCounter++);
 
         // Data container
         private Dictionary<int, object> _data = new();
@@ -52,6 +52,8 @@ namespace BehaviorTree
             object value = null;
             if (_data.TryGetValue(type.Key, out value))
             {
+                if (type.Key == 0)
+                    Debug.Log("++++++++++++++++++++++ player location: " + (Vector3) value);
                 return (T) value;
             }
 

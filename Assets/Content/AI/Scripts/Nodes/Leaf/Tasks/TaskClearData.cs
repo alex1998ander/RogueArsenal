@@ -14,8 +14,7 @@ namespace BehaviorTree
 
         public override NodeState Evaluate()
         {
-            ClearData(_type);
-            state = NodeState.SUCCESS;
+            state = ClearData(_type) ? NodeState.SUCCESS : NodeState.FAILURE;
             return state;
         }
     }

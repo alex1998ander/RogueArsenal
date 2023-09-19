@@ -42,6 +42,8 @@ namespace BehaviorTree
 
             SetData(sharedData.Target, randomPositionAroundPlayer);
 
+            // Debug.Log("Target: " + _targetTransforms[random].position);
+
             state = NodeState.SUCCESS;
             return NodeState.SUCCESS;
         }

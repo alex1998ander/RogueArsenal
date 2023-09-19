@@ -50,65 +50,37 @@ namespace BehaviorTree
                         // Case: Enemy can see player
                         new Sequence(new List<Node>
                         {
-                            new Logger("1"),
                             new CheckPlayerVisible(rb, playerTransform, wallLayer),
-                            new Logger("2"),
-                            new TaskSetData<Vector3>(sharedData.LastKnownPlayerLocation, playerTransform.position),
-                            new Logger("3"),
+                            new TaskSetLastKnownPlayerLocation(playerTransform),
                             new TaskLookAt(rb, playerTransform),
-                            new Logger("4"),
                             new TaskPickTargetAroundTransforms(playerTransform, minDistanceFromPlayer,
                                 maxDistanceFromPlayer),
-                            new Logger("5"),
-                            // new Selector(new List<Node>
-                            // {
-                            // new CheckIsAtTarget(),
                             new TaskMoveToTarget(rb, agent, 1f),
-                            // }),
-                            new Logger("6"),
                             new TaskWait(1f),
-                            new Logger("7"),
                             new TaskAttackPlayer(weapon, 1f),
-                            new Logger("8"),
                         }),
                         // Case: Enemy moves towards last known player location
                         new Sequence(new List<Node>
                         {
-                            new Logger("A"),
                             new CheckHasData<Vector3>(sharedData.LastKnownPlayerLocation),
-                            new Logger("B"),
-                            new TaskSetData<Vector3>(sharedData.Target,
-                                sharedData.GetData(sharedData.LastKnownPlayerLocation)),
-                            new Logger("C"),
+                            new TaskSetTargetToLastKnownPlayerLocation(),
                             new TaskMoveToTarget(rb, agent, 1f),
-                            new Logger("D"),
                             new CheckIsAtTarget(),
-                            new Logger("E"),
                             new TaskClearData<Vector3>(sharedData.LastKnownPlayerLocation),
-                            new Logger("F"),
                         }),
                         // Case: Enemy reached last known player location, now moves to a random spawn location
                         new Sequence(new List<Node>
                         {
-                            new Logger("1.1"),
                             new Inverter(new CheckHasData<Vector3>(sharedData.LastKnownPlayerLocation)),
-                            new Logger("1.2"),
                             new Selector(new List<Node>
                             {
-                                new Logger("1.3"),
                                 new CheckHasData<Vector3>(sharedData.Target),
-                                new Logger("1.4"),
                                 new TaskPickTargetAroundTransforms(spawnPointTransforms, minDistanceFromPlayer,
                                     maxDistanceFromPlayer),
-                                new Logger("1.5"),
                             }),
-                            new Logger("1.6"),
                             new TaskMoveToTarget(rb, agent, 1f),
-                            new Logger("1.7"),
                             new CheckIsAtTarget(),
-                            new Logger("1.8"),
                             new TaskClearData<Vector3>(sharedData.Target),
-                            new Logger("1.9"),
                         }),
                     })
                 }),
