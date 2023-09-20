@@ -455,7 +455,7 @@ Transform:
   - {fileID: 2147057655}
   - {fileID: 5352025}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &9308783
 MonoBehaviour:
@@ -29753,7 +29753,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 746787168}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: StateManager, Assembly-CSharp
         m_MethodName: ChangeSceneByName
         m_Mode: 1
@@ -29815,7 +29815,7 @@ GameObject:
   - component: {fileID: 373917928}
   - component: {fileID: 373917927}
   m_Layer: 0
-  m_Name: Trigger
+  m_Name: SceneChangeTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33913,7 +33913,7 @@ GameObject:
   - component: {fileID: 476702733}
   - component: {fileID: 476702732}
   m_Layer: 8
-  m_Name: Trigger (1)
+  m_Name: SceneChangeInvisWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33958,7 +33958,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &483896344
 MonoBehaviour:
@@ -43206,7 +43206,6 @@ GameObject:
   - component: {fileID: 746787171}
   - component: {fileID: 746787170}
   - component: {fileID: 746787169}
-  - component: {fileID: 746787168}
   m_Layer: 0
   m_Name: Level Manager
   m_TagString: Untagged
@@ -43214,18 +43213,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &746787168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 746787167}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b807daf24f164a47b65b28f9d4c5b22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &746787169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43260,7 +43247,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 746787167}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 454.8578, y: 386.89926, z: -5.4149103}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -43595,7 +43582,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 746787168}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: StateManager, Assembly-CSharp
         m_MethodName: ReloadCurrentScene
         m_Mode: 1
@@ -68376,7 +68363,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 746787168}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: StateManager, Assembly-CSharp
         m_MethodName: ChangeSceneByName
         m_Mode: 1
@@ -78310,7 +78297,7 @@ Transform:
   - {fileID: 304363666}
   - {fileID: 1269483198}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!213 &1595575746
 Sprite:

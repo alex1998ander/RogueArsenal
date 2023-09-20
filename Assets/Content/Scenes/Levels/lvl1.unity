@@ -426,7 +426,7 @@ Transform:
   - {fileID: 1851196886}
   - {fileID: 1609174869}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &109343651
 GameObject:
@@ -978,7 +978,7 @@ GameObject:
   - component: {fileID: 183227544}
   - component: {fileID: 183227547}
   m_Layer: 0
-  m_Name: Trigger
+  m_Name: SceneChangeTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4768,7 +4768,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 925300026}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: Pause
         m_Mode: 1
@@ -6354,7 +6354,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 925300028}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: StateManager, Assembly-CSharp
         m_MethodName: ChangeSceneByName
         m_Mode: 1
@@ -8566,9 +8566,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 925300027}
-  - component: {fileID: 925300026}
   - component: {fileID: 925300025}
-  - component: {fileID: 925300028}
   m_Layer: 0
   m_Name: Level Manager
   m_TagString: Untagged
@@ -8590,18 +8588,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathPanel: {fileID: 1600354369}
   pausePanel: {fileID: 1249349691}
---- !u!114 &925300026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 925300024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1e85ab0372522d4eb65a5b2015885aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &925300027
 Transform:
   m_ObjectHideFlags: 0
@@ -8617,18 +8603,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &925300028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 925300024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b807daf24f164a47b65b28f9d4c5b22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &965316148
 GameObject:
   m_ObjectHideFlags: 0
@@ -8800,7 +8774,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 19.2
+  m_fontSize: 17.05
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -10715,7 +10689,7 @@ GameObject:
   - component: {fileID: 1153812080}
   - component: {fileID: 1153812079}
   m_Layer: 8
-  m_Name: Trigger (1)
+  m_Name: SceneChangeTriggerInvisWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10760,7 +10734,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1182335434
 GameObject:
@@ -18348,7 +18322,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 925300028}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: StateManager, Assembly-CSharp
         m_MethodName: ReloadCurrentScene
         m_Mode: 1
@@ -18566,7 +18540,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 925300028}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: StateManager, Assembly-CSharp
         m_MethodName: ChangeSceneByName
         m_Mode: 1

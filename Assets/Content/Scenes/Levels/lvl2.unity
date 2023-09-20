@@ -1418,7 +1418,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 964649857}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: Pause
         m_Mode: 1
@@ -5388,9 +5388,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 964649858}
-  - component: {fileID: 964649857}
   - component: {fileID: 964649856}
-  - component: {fileID: 964649855}
   m_Layer: 0
   m_Name: Level Manager
   m_TagString: Untagged
@@ -5398,18 +5396,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &964649855
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 964649854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b807daf24f164a47b65b28f9d4c5b22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &964649856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5424,18 +5410,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathPanel: {fileID: 1434367235}
   pausePanel: {fileID: 1483060583}
---- !u!114 &964649857
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 964649854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1e85ab0372522d4eb65a5b2015885aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &964649858
 Transform:
   m_ObjectHideFlags: 0
@@ -5680,7 +5654,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 964649855}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: StateManager, Assembly-CSharp
         m_MethodName: ChangeSceneByName
         m_Mode: 1
@@ -16558,7 +16532,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 964649855}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: StateManager, Assembly-CSharp
         m_MethodName: ReloadCurrentScene
         m_Mode: 1
@@ -17142,7 +17116,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 964649855}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: StateManager, Assembly-CSharp
         m_MethodName: ChangeSceneByName
         m_Mode: 1

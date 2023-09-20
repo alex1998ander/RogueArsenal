@@ -699,6 +699,7 @@ MonoBehaviour:
   - {fileID: 244162126}
   - {fileID: 2064005482}
   - {fileID: 679397357}
+  upgradeLevelCounter: 3
 --- !u!114 &227432236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1002,9 +1003,8 @@ GameObject:
   m_Component:
   - component: {fileID: 534843586}
   - component: {fileID: 534843587}
-  - component: {fileID: 534843588}
   m_Layer: 5
-  m_Name: GameObject
+  m_Name: UpgradeSelection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1049,18 +1049,7 @@ MonoBehaviour:
   - {fileID: 1942876714}
   - {fileID: 759342530}
   - {fileID: 1524318143}
---- !u!114 &534843588
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 534843585}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 001401bd12d0fef40b141b95bb3f798a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  upgradeLevelCounter: 3
 --- !u!1 &679397356
 GameObject:
   m_ObjectHideFlags: 0
@@ -1782,7 +1771,7 @@ GameObject:
   - component: {fileID: 1211055783}
   - component: {fileID: 1211055782}
   m_Layer: 5
-  m_Name: Crad_2
+  m_Name: Card_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1853,26 +1842,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 534843588}
-        m_TargetAssemblyTypeName: SceneChange, Assembly-CSharp
-        m_MethodName: ChangeToLevel
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 534843587}
-        m_TargetAssemblyTypeName: UpgradeChoosing, Assembly-CSharp
-        m_MethodName: AddUpgrade
-        m_Mode: 1
+        m_TargetAssemblyTypeName: UpgradeSelection, Assembly-CSharp
+        m_MethodName: OnCardButtonPressed
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1988,6 +1965,7 @@ MonoBehaviour:
   - {fileID: 1988314244}
   - {fileID: 2120920070}
   - {fileID: 1520339068}
+  upgradeLevelCounter: 3
 --- !u!1 &1321589728
 GameObject:
   m_ObjectHideFlags: 0
@@ -2841,22 +2819,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 534843588}
-        m_TargetAssemblyTypeName: SceneChange, Assembly-CSharp
-        m_MethodName: ChangeToLevel
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 534843587}
-        m_TargetAssemblyTypeName: UpgradeChoosing, Assembly-CSharp
-        m_MethodName: AddUpgrade
-        m_Mode: 1
+        m_TargetAssemblyTypeName: UpgradeSelection, Assembly-CSharp
+        m_MethodName: OnCardButtonPressed
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3479,7 +3445,7 @@ GameObject:
   - component: {fileID: 1960786098}
   - component: {fileID: 1960786097}
   m_Layer: 5
-  m_Name: Crad_3
+  m_Name: Card_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3550,26 +3516,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 534843588}
-        m_TargetAssemblyTypeName: SceneChange, Assembly-CSharp
-        m_MethodName: ChangeToLevel
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 534843587}
-        m_TargetAssemblyTypeName: UpgradeChoosing, Assembly-CSharp
-        m_MethodName: AddUpgrade
-        m_Mode: 1
+        m_TargetAssemblyTypeName: UpgradeSelection, Assembly-CSharp
+        m_MethodName: OnCardButtonPressed
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

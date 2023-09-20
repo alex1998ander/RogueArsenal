@@ -10,10 +10,10 @@ public static class UpgradeManager
     private static readonly List<AbilityUpgrade> AbilityUpgrades = new();
 
     // stat upgrades
-    public static readonly StatUpgrade MaxHealthIncrease = new StatUpgrade(10, 1, 3);
-    public static readonly StatUpgrade BulletDamageIncrease = new StatUpgrade(10, 1, 3);
-    public static readonly StatUpgrade PlayerMovementSpeedIncrease = new StatUpgrade(10, 1, 3);
-    public static readonly StatUpgrade BulletKnockbackIncrease = new StatUpgrade(10, 1, 3);
+    public static readonly StatUpgrade MaxHealthIncrease = new StatUpgrade("Max Health", 10, 1, 3);
+    public static readonly StatUpgrade BulletDamageIncrease = new StatUpgrade("Bullet Damage", 10, 1, 3);
+    public static readonly StatUpgrade PlayerMovementSpeedIncrease = new StatUpgrade("Movement Speed", 10, 1, 3);
+    public static readonly StatUpgrade BulletKnockbackIncrease = new StatUpgrade("Bullet Knockback", 10, 1, 3);
 
     //private static int _nextReplacementIndex;
 
@@ -138,7 +138,8 @@ public static class UpgradeManager
         //     multiplier += attributeSelector(upgrade);
         // }
 
-        float multiplier = 1f + WeaponUpgrades.Sum(upgrade => attributeSelector(upgrade)) + AbilityUpgrades.Sum(upgrade => attributeSelector(upgrade));
+        float multiplier = 1f + WeaponUpgrades.Sum(upgrade => attributeSelector(upgrade)) +
+                           AbilityUpgrades.Sum(upgrade => attributeSelector(upgrade));
 
         return Mathf.Max(0, multiplier);
     }
@@ -348,7 +349,7 @@ public static class UpgradeManager
         {
             bulletSurvives |= upgrade.OnBulletImpact(upgradeableBullet, collision);
         }
-        
+
         foreach (AbilityUpgrade upgrade in AbilityUpgrades)
         {
             bulletSurvives |= upgrade.OnBulletImpact(upgradeableBullet, collision);
