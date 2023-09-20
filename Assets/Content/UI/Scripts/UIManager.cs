@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,15 +8,26 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject deathPanel;
     [SerializeField] private GameObject pausePanel;
 
-    public void ToggleDeathPanel()
+    private void Awake()
     {
-        deathPanel.SetActive(!deathPanel.activeSelf);
-        // UIManager ui = instance.GetComponent<UIManager>();
-        // if (ui == null) return;
-        // ui.ToggleDeathPanel();
-        // Time.timeScale = 0;
+        EventManager.OnPlayerDeath.Subscribe(ShowDeathPanel);
     }
-    
+
+    private void OnDestroy()
+    {
+        EventManager.OnPlayerDeath.Unsubscribe(ShowDeathPanel);
+    }
+
+    public void ShowDeathPanel()
+    {
+        deathPanel.SetActive(true);
+    }
+
+    public void HideDeathPanel()
+    {
+        deathPanel.SetActive(false);
+    }
+
     public void TogglePausePanel()
     {
         pausePanel.SetActive(!pausePanel.activeSelf);
@@ -27,5 +39,24 @@ public class UIManager : MonoBehaviour
         //     Time.timeScale = 1f;
         // else
         //     Time.timeScale = 0f;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public static void RestartLevel()
+    {
+        LevelManager.ReloadCurrentLevel();
+        EventManager.OnLevelEnter.Trigger();
+    }
+
+    public static void LoadMainMenu()
+    {
+        LevelManager.LoadMainMenu();
+    }
+
+    private void OnPause()
+    {
+        TogglePausePanel();
     }
 }

@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class PauseScreenMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    /// <summary>
+    /// 
+    /// </summary>
+    public void RestartLevel()
     {
-        
+        LevelManager.ReloadCurrentLevel();
+        EventManager.OnLevelEnter.Trigger();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void LoadMainMenu()
     {
-        
+        LevelManager.LoadMainMenu();
     }
 }
