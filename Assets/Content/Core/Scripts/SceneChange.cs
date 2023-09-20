@@ -66,6 +66,7 @@ public class SceneChange : MonoBehaviour
             SceneManager.LoadScene(nextScene);
             EventManager.OnLevelEnter.Trigger();
             stageCount++;
+            Debug.Log("Stage Count: " + stageCount);
             //}
             //else _chosenUpgradeCount++;
 
