@@ -1136,6 +1136,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: PausePanel
       objectReference: {fileID: 0}
+    - target: {fileID: 4232632026441957446, guid: 5a987592914c70049bad3135c7f72796, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 964649855}
+    - target: {fileID: 4232632026441957446, guid: 5a987592914c70049bad3135c7f72796, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeSceneByName
+      objectReference: {fileID: 0}
+    - target: {fileID: 4232632027754755062, guid: 5a987592914c70049bad3135c7f72796, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 964649857}
+    - target: {fileID: 4232632027754755062, guid: 5a987592914c70049bad3135c7f72796, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Pause
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a987592914c70049bad3135c7f72796, type: 3}
 --- !u!224 &419845756 stripped
