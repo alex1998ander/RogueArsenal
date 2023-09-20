@@ -8,7 +8,7 @@ namespace BehaviorTree
         public override NodeState Evaluate()
         {
             ClearData(sharedData.Target);
-            SetData(sharedData.TargetReached, false);
+            SetData(sharedData.IsAtTarget, false);
             state = NodeState.SUCCESS;
             return state;
         }

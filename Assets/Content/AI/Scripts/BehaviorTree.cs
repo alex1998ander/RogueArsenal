@@ -45,11 +45,12 @@ namespace BehaviorTree
         }
 
         /// <summary>
-        /// Is called when the enemy hears the player shooting. Sets the appropriate data value in shared data.
+        /// Is called when the enemy hears the player shooting. Sets the appropriate data values in shared data.
         /// </summary>
         public void HearShotFired()
         {
             _root.SetData(_root.sharedData.IsAwareOfPlayer, true);
+            _root.SetData(_root.sharedData.HasHeardPlayerShot, true);
         }
     }
 }

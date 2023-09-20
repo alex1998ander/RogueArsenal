@@ -19,18 +19,30 @@ namespace BehaviorTree
 
     public class SharedData
     {
-        private static int _keyCounter;
+        private int _keyCounter = 0;
 
         // Shared data types of all possibly relevant data used in the behavior trees
-        public SharedDataType<Vector3> LastKnownPlayerLocation = new(_keyCounter++);
-        public SharedDataType<Vector3> Target = new(_keyCounter++);
-        public SharedDataType<bool> TargetReached = new(_keyCounter++);
-        public SharedDataType<bool> IsAiming = new(_keyCounter++);
-        public SharedDataType<bool> IsStunned = new(_keyCounter++);
-        public SharedDataType<bool> IsAwareOfPlayer = new(_keyCounter++);
+        public SharedDataType<Vector3> LastKnownPlayerLocation;
+        public SharedDataType<Vector3> Target;
+        public SharedDataType<bool> IsAtTarget;
+        public SharedDataType<bool> IsAiming;
+        public SharedDataType<bool> IsStunned;
+        public SharedDataType<bool> IsAwareOfPlayer;
+        public SharedDataType<bool> HasHeardPlayerShot;
 
         // Data container
         private Dictionary<int, object> _data = new();
+
+        public SharedData()
+        {
+            LastKnownPlayerLocation = new(_keyCounter++);
+            Target = new(_keyCounter++);
+            IsAtTarget = new(_keyCounter++);
+            IsAiming = new(_keyCounter++);
+            IsStunned = new(_keyCounter++);
+            IsAwareOfPlayer = new(_keyCounter++);
+            HasHeardPlayerShot = new(_keyCounter++);
+        }
 
         /// <summary>
         /// Sets a key-value-pair of the shared data.

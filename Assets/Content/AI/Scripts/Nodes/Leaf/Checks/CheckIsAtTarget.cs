@@ -7,7 +7,7 @@ namespace BehaviorTree
     {
         public override NodeState Evaluate()
         {
-            if (GetData(sharedData.TargetReached))
+            if (GetData(sharedData.IsAtTarget))
             {
                 state = NodeState.SUCCESS;
             }

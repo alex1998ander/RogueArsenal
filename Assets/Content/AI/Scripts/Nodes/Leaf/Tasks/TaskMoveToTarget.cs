@@ -34,13 +34,13 @@ namespace BehaviorTree
         {
             Vector3 newTarget = GetData(sharedData.Target);
             _agent.SetDestination(newTarget);
-            SetData(sharedData.TargetReached, false);
+            SetData(sharedData.IsAtTarget, false);
 
             state = NodeState.RUNNING;
             if ((_rb.position - (Vector2) newTarget).magnitude < _targetReachedDistance)
             {
                 state = NodeState.SUCCESS;
-                SetData(sharedData.TargetReached, true);
+                SetData(sharedData.IsAtTarget, true);
             }
 
             return state;

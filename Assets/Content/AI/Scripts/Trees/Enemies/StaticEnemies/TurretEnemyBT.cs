@@ -11,6 +11,8 @@ namespace BehaviorTree
             Transform playerTransform = GameObject.Find("Player").GetComponent<Transform>();
             EnemyWeapon weapon = GetComponentInChildren<EnemyWeapon>();
 
+            SharedData sharedData = new SharedData();
+
             Node root = new Sequence(new List<Node>()
             {
                 new Inverter(new CheckIsStunned(stunTime)),
@@ -19,6 +21,8 @@ namespace BehaviorTree
                 new TaskAim(),
                 new TaskAttackPlayer(weapon, 1f),
             });
+
+            root.SetupSharedData(sharedData);
 
             return root;
         }
