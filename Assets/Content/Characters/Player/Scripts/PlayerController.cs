@@ -30,13 +30,16 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
     private float _blockCooldownEndTimestamp;
 
     // Upgrade: Burst
-    [Header("Upgrade: Burst")] [SerializeField] private float burstDelayInSec = 0.1f;
+    [Header("Upgrade: Burst")] [SerializeField]
+    private float burstDelayInSec = 0.1f;
 
     // Upgrade: Demonic Pact 
-    [Header("Upgrade: Demonic Pact")] [SerializeField] private float demonicPactHealthLoss = 10f;
+    [Header("Upgrade: Demonic Pact")] [SerializeField]
+    private float demonicPactHealthLoss = 10f;
 
     // Upgrade: Healing Field 
-    [Header("Upgrade: Healing Field")] [SerializeField] private GameObject healingFieldPrefab;
+    [Header("Upgrade: Healing Field")] [SerializeField]
+    private GameObject healingFieldPrefab;
 
     // Upgrade: Phoenix
     private bool _phoenixed;
@@ -54,7 +57,8 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
 
     void FixedUpdate()
     {
-        _rigidbody.MovePosition(_rigidbody.position + _movementInput * (GetPlayerMovementSpeed() * Time.fixedDeltaTime));
+        _rigidbody.MovePosition(_rigidbody.position +
+                                _movementInput * (GetPlayerMovementSpeed() * Time.fixedDeltaTime));
         UpgradeManager.PlayerUpdate(this);
     }
 
@@ -70,12 +74,14 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
 
     public static float GetBulletDamage()
     {
-        return (_defaultDamage + UpgradeManager.BulletDamageIncrease.Value) * UpgradeManager.GetBulletDamageMultiplier();
+        return (_defaultDamage + UpgradeManager.BulletDamageIncrease.Value) *
+               UpgradeManager.GetBulletDamageMultiplier();
     }
 
     public static float GetPlayerMovementSpeed()
     {
-        return (_moveSpeed + UpgradeManager.PlayerMovementSpeedIncrease.Value) * UpgradeManager.GetPlayerMovementSpeedMultiplier();
+        return (_moveSpeed + UpgradeManager.PlayerMovementSpeedIncrease.Value) *
+               UpgradeManager.GetPlayerMovementSpeedMultiplier();
     }
 
     public void StunCharacter()
@@ -87,12 +93,15 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
 
     private void OnMove(InputValue value)
     {
-        _movementInput = value.Get<Vector2>();
+        if (!GameManager.GamePaused)
+            _movementInput = value.Get<Vector2>();
+        else
+            _movementInput = Vector2.zero;
     }
 
     private void OnFire()
     {
-        if (Time.time > _fireCooldownEndTimestamp)
+        if (!GameManager.GamePaused && Time.time > _fireCooldownEndTimestamp)
         {
             // This assignment has to be done before "UpgradeManager.OnFire()" so that the variable can be overwritten by this function if necessary
             _fireCooldownEndTimestamp = Time.time + defaultFireDelay * UpgradeManager.GetFireDelayMultiplier();
@@ -104,7 +113,7 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
 
     private void OnBlock()
     {
-        if (Time.time > _blockCooldownEndTimestamp)
+        if (!GameManager.GamePaused && Time.time > _blockCooldownEndTimestamp)
         {
             // This assignment has to be done before "UpgradeManager.OnBlock()" so that the variable can be overwritten by this function if necessary
             _blockCooldownEndTimestamp = Time.time + defaultBlockDelay * UpgradeManager.GetBlockDelayMultiplier();
@@ -115,19 +124,22 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
 
     private void OnAim(InputValue value)
     {
-        _aimDirection = value.Get<Vector2>();
-        if (Vector2.Distance(Vector2.zero, _aimDirection) > 0.5)
+        if (!GameManager.GamePaused)
         {
-            if (_playerInput.currentControlScheme.Equals("Keyboard&Mouse"))
+            _aimDirection = value.Get<Vector2>();
+            if (Vector2.Distance(Vector2.zero, _aimDirection) > 0.5)
             {
-                _aimDirection = (Vector2)Camera.main.ScreenToWorldPoint(_aimDirection) - _rigidbody.position;
+                if (_playerInput.currentControlScheme.Equals("Keyboard&Mouse"))
+                {
+                    _aimDirection = (Vector2) Camera.main.ScreenToWorldPoint(_aimDirection) - _rigidbody.position;
+                }
+
+                _angle = Mathf.Atan2(_aimDirection.y, _aimDirection.x) * Mathf.Rad2Deg - 90f;
+                //_rigidbody.rotation = _angle;
+                playerWeapon.transform.rotation = Quaternion.Euler(0, 0, _angle);
+
+                playerSpriteTransform.rotation = Quaternion.AngleAxis(_angle, Vector3.forward);
             }
-
-            _angle = Mathf.Atan2(_aimDirection.y, _aimDirection.x) * Mathf.Rad2Deg - 90f;
-            //_rigidbody.rotation = _angle;
-            playerWeapon.transform.rotation = Quaternion.Euler(0, 0, _angle);
-
-            playerSpriteTransform.rotation = Quaternion.AngleAxis(_angle, Vector3.forward);
         }
     }
 
