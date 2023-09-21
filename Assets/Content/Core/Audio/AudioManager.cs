@@ -8,7 +8,7 @@ using UnityEngine.Audio;
 [RequireComponent(typeof(AudioClipLibrary))]
 public class AudioManager : MonoBehaviour
 {
-    private static AudioManager instance;
+    private static AudioManager _instance;
 
     public static AudioClipLibrary library;
 
@@ -18,18 +18,19 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource audioSourceMusicSnd;
     [SerializeField] private AudioSource audioSourceSound;
 
-    [SerializeField] private float bpm = 105f;
+    private readonly float _bpm = 105f;
 
     private AudioSource _audioSourceMusicCurrent;
     private AudioSource _audioSourceMusicUnused;
 
+    private bool _currentlyPlaying = false;
     private bool _currentlyFading = false;
-    
+
 
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
-        instance = this;
+        _instance = this;
         library = GetComponent<AudioClipLibrary>();
         _audioSourceMusicCurrent = audioSourceMusicFst;
         _audioSourceMusicUnused = audioSourceMusicSnd;
@@ -41,7 +42,8 @@ public class AudioManager : MonoBehaviour
     /// <param name="sound">Sound instance containing the audio clip</param>
     public static void Play(Sound sound)
     {
-        instance.audioSourceSound.PlayOneShot(sound.audioClip);
+        _instance.audioSourceSound.PlayOneShot(sound.audioClip);
+        _instance._currentlyPlaying = true;
     }
 
     /// <summary>
@@ -51,17 +53,18 @@ public class AudioManager : MonoBehaviour
     public static void Play(Music music)
     {
         // Stops current tracks
-        instance.audioSourceMusicFst.Stop();
-        instance.audioSourceMusicSnd.Stop();
+        _instance.audioSourceMusicFst.Stop();
+        _instance.audioSourceMusicSnd.Stop();
 
         // Resets the volume if it has just been faded
-        instance.audioSourceMusicFst.volume = 1;
-        instance.audioSourceMusicSnd.volume = 1;
+        _instance.audioSourceMusicFst.volume = 1;
+        _instance.audioSourceMusicSnd.volume = 1;
 
-        instance._audioSourceMusicCurrent = instance.audioSourceMusicFst;
-        instance._audioSourceMusicUnused = instance.audioSourceMusicSnd;
+        _instance._audioSourceMusicCurrent = _instance.audioSourceMusicFst;
+        _instance._audioSourceMusicUnused = _instance.audioSourceMusicSnd;
 
         PlayMusicOnCurrentAudioSource(music);
+        _instance._currentlyPlaying = true;
     }
 
     /// <summary>
@@ -70,7 +73,7 @@ public class AudioManager : MonoBehaviour
     /// <param name="music">Music instance containing the audio clip</param>
     private static void PlayMusicOnCurrentAudioSource(Music music)
     {
-        AudioSource audioSource = instance._audioSourceMusicCurrent;
+        AudioSource audioSource = _instance._audioSourceMusicCurrent;
 
         audioSource.clip = music.audioClip;
         audioSource.loop = true;
@@ -83,13 +86,15 @@ public class AudioManager : MonoBehaviour
     /// <param name="enabled">Bool whether the effect is added or removed.</param>
     public static void MuffleMusic(bool enabled)
     {
+        if (!_instance._currentlyPlaying) return;
+
         if (enabled)
         {
-            instance._audioSourceMusicCurrent.outputAudioMixerGroup.audioMixer.SetFloat("lowPassCutOff", 200f);
+            _instance._audioSourceMusicCurrent.outputAudioMixerGroup.audioMixer.SetFloat("lowPassCutOff", 200f);
         }
         else
         {
-            instance._audioSourceMusicCurrent.outputAudioMixerGroup.audioMixer.SetFloat("lowPassCutOff", 22000f);
+            _instance._audioSourceMusicCurrent.outputAudioMixerGroup.audioMixer.SetFloat("lowPassCutOff", 22000f);
         }
     }
 
@@ -101,37 +106,33 @@ public class AudioManager : MonoBehaviour
     /// <returns>Bool whether the fade was started successfully</returns>
     public static bool FadeMusic(Music targetMusic, float duration)
     {
-        if (instance._currentlyFading)
-        {
-            return false;
-        }
+        if (_instance._currentlyFading || !_instance._currentlyPlaying) return false;
 
-        instance.StartCoroutine(StartFade(targetMusic, duration));
+        _instance._currentlyFading = true;
+        _instance.StartCoroutine(StartFade(targetMusic, duration));
 
         return true;
     }
-    
+
     private static IEnumerator StartFade(Music targetMusic, float duration)
     {
+        float beatLenght = 60f / _instance._bpm * 4f;
+        int lastBeat = Mathf.FloorToInt(_instance._audioSourceMusicCurrent.timeSamples / (_instance._audioSourceMusicCurrent.clip.frequency * beatLenght));
 
-        float beatLenght = 60f / instance.bpm * 4f;
-        int lastBeat = Mathf.FloorToInt(instance._audioSourceMusicCurrent.timeSamples / (instance._audioSourceMusicCurrent.clip.frequency * beatLenght));
-        
-        while (Mathf.FloorToInt(instance._audioSourceMusicCurrent.timeSamples / (instance._audioSourceMusicCurrent.clip.frequency * beatLenght)) == lastBeat)
+        while (Mathf.FloorToInt(_instance._audioSourceMusicCurrent.timeSamples / (_instance._audioSourceMusicCurrent.clip.frequency * beatLenght)) == lastBeat)
         {
             yield return null;
         }
 
-        instance.StartCoroutine(StartAudioSourceVolumeFade(instance._audioSourceMusicCurrent, duration, false));
-        instance.StartCoroutine(StartAudioSourceVolumeFade(instance._audioSourceMusicUnused, duration, true));
-        instance._currentlyFading = true;
+        _instance.StartCoroutine(StartAudioSourceVolumeFade(_instance._audioSourceMusicCurrent, duration, false));
+        _instance.StartCoroutine(StartAudioSourceVolumeFade(_instance._audioSourceMusicUnused, duration, true));
 
         // Swap current used audio source reference
-        (instance._audioSourceMusicCurrent, instance._audioSourceMusicUnused) = (instance._audioSourceMusicUnused, instance._audioSourceMusicCurrent);
+        (_instance._audioSourceMusicCurrent, _instance._audioSourceMusicUnused) = (_instance._audioSourceMusicUnused, _instance._audioSourceMusicCurrent);
 
         PlayMusicOnCurrentAudioSource(targetMusic);
     }
-    
+
     /// <summary>
     /// Fade coroutine.
     /// </summary>
@@ -164,7 +165,7 @@ public class AudioManager : MonoBehaviour
             audioSource.Stop();
         }
 
-        instance._currentlyFading = false;
+        _instance._currentlyFading = false;
     }
 
     /// <summary>
@@ -173,7 +174,7 @@ public class AudioManager : MonoBehaviour
     /// <param name="volume">Master volume value</param>
     public static void SetMasterVolume(float volume)
     {
-        instance.audioMixerMaster.SetFloat("master", Mathf.Log10(volume) * 60);
+        _instance.audioMixerMaster.SetFloat("master", Mathf.Log10(volume) * 60);
     }
 
     /// <summary>
@@ -182,7 +183,7 @@ public class AudioManager : MonoBehaviour
     /// <returns>Master volume value</returns>
     public static float GetMasterVolume()
     {
-        instance.audioMixerMaster.GetFloat("master", out float volume);
+        _instance.audioMixerMaster.GetFloat("master", out float volume);
         return Mathf.Pow(10, (volume / 60.0f));
     }
 }
