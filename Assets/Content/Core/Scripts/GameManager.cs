@@ -11,5 +11,6 @@ public static class GameManager
     {
         Time.timeScale = GamePaused ? 1f : 0f;
         GamePaused = !GamePaused;
+        EventManager.OnPauseGame.Trigger(GamePaused);
     }
 }

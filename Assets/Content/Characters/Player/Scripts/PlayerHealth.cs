@@ -40,8 +40,6 @@ public class PlayerHealth : MonoBehaviour, ICharacterHealth
                     gameObject.SetActive(false);
 
                     EventManager.OnPlayerDeath.Trigger();
-                    // LevelManager.GameOver();
-                    // TODO: show game over screen
                 }
             }
             else

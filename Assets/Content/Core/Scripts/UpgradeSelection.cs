@@ -69,5 +69,6 @@ public class UpgradeSelection : MonoBehaviour
         }
 
         LevelManager.LoadRandomLevel();
+        EventManager.OnLevelEnter.Trigger();
     }
 }
