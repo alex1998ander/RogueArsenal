@@ -149,7 +149,7 @@ public class AudioManager : MonoBehaviour
 
         while (currentTime < duration)
         {
-            currentTime += Time.deltaTime;
+            currentTime += Time.unscaledDeltaTime;
             float newVolume = startVolume + volumeChangePerSecond * currentTime;
             audioSource.volume = newVolume;
             yield return null;
