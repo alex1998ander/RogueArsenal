@@ -22,6 +22,7 @@ namespace BehaviorTree
             NavMeshAgent agent = GetComponent<NavMeshAgent>();
             agent.updateRotation = false;
             agent.updateUpAxis = false;
+            
             GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
             Transform[] spawnPointTransforms = new Transform[spawnPoints.Length];
 
