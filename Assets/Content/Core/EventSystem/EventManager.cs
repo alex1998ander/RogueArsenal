@@ -43,7 +43,7 @@ public static class EventManager
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    #region Game Events
+    #region Level Events
 
     /// <summary>
     /// The player exits a level and enters the upgrade selection screen.
@@ -55,10 +55,13 @@ public static class EventManager
     /// </summary>
     public static readonly Event OnLevelEnter = new();
 
-    /// <summary>
-    /// The player starts the game from the main menu.
-    /// </summary>
-    public static readonly Event OnStartGame = new();
+    #endregion
+    
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    #region Game Events
+
+    public static readonly Event<bool> OnPauseGame = new();
 
     #endregion
 }

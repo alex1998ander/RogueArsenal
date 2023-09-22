@@ -12,7 +12,7 @@ public class PlayerHealth : MonoBehaviour, ICharacterHealth
     {
         _currentHealth = PlayerController.GetMaxHealth();
     }
-    
+
 
     /// <summary>
     /// Decreases the player's health by the specified value and checks if the player dies. If so, affecting upgrades are performed and further actions are initiated.
@@ -38,9 +38,8 @@ public class PlayerHealth : MonoBehaviour, ICharacterHealth
                 if (_currentHealth <= 0)
                 {
                     gameObject.SetActive(false);
-                    
+
                     EventManager.OnPlayerDeath.Trigger();
-                    LevelManager.GameOver();
                 }
             }
             else
@@ -57,7 +56,6 @@ public class PlayerHealth : MonoBehaviour, ICharacterHealth
     public void Heal(float healingAmount)
     {
         _currentHealth = Mathf.Min(_currentHealth + healingAmount, PlayerController.GetMaxHealth());
-        
     }
 
     /// <summary>
