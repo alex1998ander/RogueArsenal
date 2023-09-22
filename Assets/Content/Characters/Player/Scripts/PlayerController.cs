@@ -108,6 +108,7 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
 
             playerWeapon.Fire();
             UpgradeManager.OnFire(this);
+            EventManager.OnPlayerShotFired.Trigger();
         }
     }
 
