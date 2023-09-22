@@ -33,7 +33,6 @@ namespace BehaviorTree
 
         public override NodeState Evaluate()
         {
-            Debug.Log("length: " + _targetTransforms.Length);
             int random = Random.Range(0, _targetTransforms.Length);
             Vector2 randomDirection = Random.insideUnitCircle;
             Vector3 randomPositionAroundPlayer = _targetTransforms[random].position

@@ -22,7 +22,7 @@ namespace BehaviorTree
             NavMeshAgent agent = GetComponent<NavMeshAgent>();
             agent.updateRotation = false;
             agent.updateUpAxis = false;
-            
+
             GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
             Transform[] spawnPointTransforms = new Transform[spawnPoints.Length];
 
@@ -39,7 +39,7 @@ namespace BehaviorTree
                 new Sequence(new List<Node>
                 {
                     new CheckIsStunned(stunTime),
-                    new TaskSetData<bool>(sharedData.IsAwareOfPlayer, true),
+                    new SetData<bool>(sharedData.IsAwareOfPlayer, true),
                     // TODO: Behavior while stunned
                 }),
                 // Case: Enemy is aware of player
@@ -48,7 +48,7 @@ namespace BehaviorTree
                     new CheckIsAwareOfPlayer(),
                     new Selector(new List<Node>
                     {
-                        // Case: Enemy can see player
+                        // Case: Enemy can see player and attacks him
                         new Sequence(new List<Node>
                         {
                             new CheckPlayerVisible(rb, playerTransform, wallLayer),
@@ -60,28 +60,38 @@ namespace BehaviorTree
                             new TaskWait(1f),
                             new TaskAttackPlayer(weapon, 1f),
                         }),
+                        // Case: Enemy just heard the player shoot
+                        new Sequence(new List<Node>
+                        {
+                            new HasData<bool>(sharedData.HasHeardPlayerShot),
+                            new TaskSetLastKnownPlayerLocation(playerTransform),
+                            new TaskSetTargetToLastKnownPlayerLocation(),
+                            new ClearData<bool>(sharedData.HasHeardPlayerShot)
+                        }),
                         // Case: Enemy moves towards last known player location
                         new Sequence(new List<Node>
                         {
-                            new CheckHasData<Vector3>(sharedData.LastKnownPlayerLocation),
+                            new HasData<Vector3>(sharedData.LastKnownPlayerLocation),
                             new TaskSetTargetToLastKnownPlayerLocation(),
                             new TaskMoveToTarget(rb, agent, 1f),
+                            new TaskLookAt(rb, agent),
                             new CheckIsAtTarget(),
-                            new TaskClearData<Vector3>(sharedData.LastKnownPlayerLocation),
+                            new ClearData<Vector3>(sharedData.LastKnownPlayerLocation),
                         }),
                         // Case: Enemy reached last known player location, now moves to a random spawn location
                         new Sequence(new List<Node>
                         {
-                            new Inverter(new CheckHasData<Vector3>(sharedData.LastKnownPlayerLocation)),
+                            new Inverter(new HasData<Vector3>(sharedData.LastKnownPlayerLocation)),
                             new Selector(new List<Node>
                             {
-                                new CheckHasData<Vector3>(sharedData.Target),
+                                new HasData<Vector3>(sharedData.Target),
                                 new TaskPickTargetAroundTransforms(spawnPointTransforms, minDistanceFromPlayer,
                                     maxDistanceFromPlayer),
                             }),
                             new TaskMoveToTarget(rb, agent, 1f),
+                            new TaskLookAt(rb, agent),
                             new CheckIsAtTarget(),
-                            new TaskClearData<Vector3>(sharedData.Target),
+                            new ClearData<Vector3>(sharedData.Target),
                         }),
                     })
                 }),
@@ -90,7 +100,7 @@ namespace BehaviorTree
                 {
                     new CheckIfPlayerIsInRange(rb, playerTransform, viewDistance),
                     new CheckPlayerVisible(rb, playerTransform, wallLayer),
-                    new TaskSetData<bool>(sharedData.IsAwareOfPlayer, true),
+                    new SetData<bool>(sharedData.IsAwareOfPlayer, true),
                 })
             });
 

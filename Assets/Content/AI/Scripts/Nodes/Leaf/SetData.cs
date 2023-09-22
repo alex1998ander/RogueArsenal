@@ -1,11 +1,11 @@
 namespace BehaviorTree
 {
-    public class TaskSetData<T> : Node
+    public class SetData<T> : Node
     {
         private SharedDataType<T> _type;
         private object _value;
 
-        public TaskSetData(SharedDataType<T> type, object value)
+        public SetData(SharedDataType<T> type, object value)
         {
             _type = type;
             _value = value;

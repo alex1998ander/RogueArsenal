@@ -1,15 +1,13 @@
-using UnityEngine;
-
 namespace BehaviorTree
 {
     /// <summary>
     /// Checks if specific data has been defined inside the behavior tree.
     /// </summary>
-    public class CheckHasData<T> : Node
+    public class HasData<T> : Node
     {
         private SharedDataType<T> _type;
 
-        public CheckHasData(SharedDataType<T> type)
+        public HasData(SharedDataType<T> type)
         {
             _type = type;
         }

@@ -25,7 +25,6 @@ namespace BehaviorTree
         public SharedDataType<Vector3> LastKnownPlayerLocation;
         public SharedDataType<Vector3> Target;
         public SharedDataType<bool> IsAtTarget;
-        public SharedDataType<bool> IsAiming;
         public SharedDataType<bool> IsStunned;
         public SharedDataType<bool> IsAwareOfPlayer;
         public SharedDataType<bool> HasHeardPlayerShot;
@@ -38,7 +37,6 @@ namespace BehaviorTree
             LastKnownPlayerLocation = new(_keyCounter++);
             Target = new(_keyCounter++);
             IsAtTarget = new(_keyCounter++);
-            IsAiming = new(_keyCounter++);
             IsStunned = new(_keyCounter++);
             IsAwareOfPlayer = new(_keyCounter++);
             HasHeardPlayerShot = new(_keyCounter++);
@@ -64,8 +62,6 @@ namespace BehaviorTree
             object value = null;
             if (_data.TryGetValue(type.Key, out value))
             {
-                if (type.Key == 0)
-                    Debug.Log("++++++++++++++++++++++ player location: " + (Vector3) value);
                 return (T) value;
             }
 

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace BehaviorTree
 {
@@ -7,15 +8,18 @@ namespace BehaviorTree
     /// </summary>
     public class TaskLookAt : Node
     {
+        private NavMeshAgent _agent;
+
         // Rigidbody of the enemy
         private Rigidbody2D _rb;
 
         // Transform of the player
         private Transform _lookAtTransform;
 
-        public TaskLookAt(Rigidbody2D rb)
+        public TaskLookAt(Rigidbody2D rb, NavMeshAgent agent)
         {
             _rb = rb;
+            _agent = agent;
         }
 
         public TaskLookAt(Rigidbody2D rb, Transform lookAtTransform)
@@ -26,11 +30,16 @@ namespace BehaviorTree
 
         public override NodeState Evaluate()
         {
-            Vector2 lookAtDirection;
+            Vector2 lookAtDirection = Vector2.zero;
             if (_lookAtTransform)
+            {
                 lookAtDirection = ((Vector2) _lookAtTransform.position - _rb.position).normalized;
-            else
-                lookAtDirection = _rb.velocity;
+            }
+            else if (_agent)
+            {
+                lookAtDirection = _agent.velocity;
+            }
+
             if (lookAtDirection != Vector2.zero)
             {
                 // Calculate angle
