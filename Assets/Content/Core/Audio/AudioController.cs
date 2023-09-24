@@ -27,7 +27,15 @@ public class AudioController : MonoBehaviour
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
-        _instance = this;
+        if (_instance == null)
+        {
+            _instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
         library = GetComponent<AudioClipLibrary>();
         _audioSourceMusicCurrent = audioSourceMusicFst;
         _audioSourceMusicUnused = audioSourceMusicSnd;
@@ -52,10 +60,12 @@ public class AudioController : MonoBehaviour
         // Stops current tracks
         _instance.audioSourceMusicFst.Stop();
         _instance.audioSourceMusicSnd.Stop();
-
-        // Resets the volume if it has just been faded
+        
+        // Resets current fading
+        _instance.StopAllCoroutines();
         _instance.audioSourceMusicFst.volume = 1;
         _instance.audioSourceMusicSnd.volume = 1;
+        _instance._currentlyFading = false;
 
         _instance._audioSourceMusicCurrent = _instance.audioSourceMusicFst;
         _instance._audioSourceMusicUnused = _instance.audioSourceMusicSnd;
@@ -96,19 +106,28 @@ public class AudioController : MonoBehaviour
     }
 
     /// <summary>
-    /// Fades between two music tracks. Only works if no other fade is currently active.
+    /// Fades between two music tracks. Only works if no other fade is currently active. If no other track is currently playing, the music will plays normally.
     /// </summary>
     /// <param name="targetMusic">Music that fades in</param>
     /// <param name="duration">Fade duration</param>
     /// <returns>Bool whether the fade was started successfully</returns>
     public static bool FadeMusic(Music targetMusic, float duration)
     {
-        if (_instance._currentlyFading || !_instance._currentlyPlaying) return false;
+        
+        if (_instance._currentlyFading) return false;
 
-        _instance._currentlyFading = true;
-        _instance.StartCoroutine(StartFade(targetMusic, duration));
+        if (_instance._currentlyPlaying)
+        {
+            _instance._currentlyFading = true;
+            _instance.StartCoroutine(StartFade(targetMusic, duration));
+        }
+        else
+        {
+            Play(targetMusic);
+        }
 
         return true;
+        
     }
 
     private static IEnumerator StartFade(Music targetMusic, float duration)

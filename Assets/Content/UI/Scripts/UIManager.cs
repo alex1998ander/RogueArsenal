@@ -29,18 +29,22 @@ public class UIManager : MonoBehaviour
         GameManager.TogglePause();
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
-    public static void RestartLevel()
+    public static void RestartLevelFromDeathScreen()
     {
         LevelManager.ReloadCurrentLevel();
-        EventManager.OnLevelEnter.Trigger();
     }
 
-    public static void LoadMainMenu()
+    public static void LoadMainMenuFromDeathScreen()
     {
         LevelManager.LoadMainMenu();
+        //EventManager.OnMainMenuEnter.Trigger();
+    }
+    
+    public static void LoadMainMenuFromPauseMenu()
+    {
+        LevelManager.LoadMainMenu();
+        GameManager.TogglePause();
+        //EventManager.OnMainMenuEnter.Trigger();
     }
 
     private void OnPause()

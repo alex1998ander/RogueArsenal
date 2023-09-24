@@ -11,8 +11,8 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
     private Rigidbody2D _rigidbody;
     private PlayerHealth _playerHealth;
 
-    private static float _maxHealth = 200f;
-    private static float _defaultDamage = 35f;
+    private static float _maxHealth = 100f;
+    private static float _defaultDamage = 25f;
     private static float _moveSpeed = 5f;
     [SerializeField] private float defaultFireDelay = 0.4f;
     [SerializeField] private float defaultBlockDelay = 5.0f;
@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
 
     public static float GetMaxHealth()
     {
-        return (_maxHealth + UpgradeManager.MaxHealthIncrease.Value) * UpgradeManager.GetHealthMultiplier();
+        return Mathf.RoundToInt((_maxHealth + UpgradeManager.MaxHealthIncrease.Value) * UpgradeManager.GetHealthMultiplier());
     }
 
     public static float GetBulletDamage()

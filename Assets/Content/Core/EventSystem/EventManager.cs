@@ -62,6 +62,8 @@ public static class EventManager
     #region Game Events
 
     public static readonly Event<bool> OnPauseGame = new();
+    
+    public static readonly Event OnMainMenuEnter = new();
 
     #endregion
 }

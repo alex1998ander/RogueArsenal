@@ -8,11 +8,9 @@ public class SpawnController : MonoBehaviour
     [SerializeField] public GameObject[] enemy;
 
     private const int SpawnCount = 3;
-    private static int _mEnemyCount = 0;
 
     void Start()
     {
-        EventManager.OnEnemyDeath.Subscribe(EnemyDied);
         RandomSpawns();
     }
 
@@ -21,12 +19,8 @@ public class SpawnController : MonoBehaviour
     /// </summary>
     void RandomSpawns()
     {
-        Transform[] rooms = allSpawns.GetComponentsInChildren<Transform>();
         for (int i = 0; i < transform.childCount; i++)
         {
-            //Debug.Log("Room_" + (i + 1));
-            //Debug.Log("Number of Children: " + transform.GetChild(i).childCount);
-
             if (transform.GetChild(i).childCount <= 0) continue;
 
             HashSet<int> spawnPointsRoom = new HashSet<int>();
@@ -36,32 +30,16 @@ public class SpawnController : MonoBehaviour
                 spawnPointsRoom.Add(rndmSpwn);
             }
 
-            //Debug.Log("Room_" + (i+1) + " -> Number of spawnPointsRoom: " + spawnPointsRoom.Count);
-
-            //Debug.Log(string.Join(", ", spawnPointsRoom));
             foreach (int spawnPoint in spawnPointsRoom)
             {
                 Instantiate(enemy[Random.Range(0, 2)], transform.GetChild(i).GetChild(spawnPoint).transform.position,
                     transform.GetChild(i).GetChild(spawnPoint).transform.rotation);
-                _mEnemyCount++;
-                //transform.GetChild(i).GetChild(spawnPoint).gameObject.SetActive(true);
             }
         }
     }
 
-    private void EnemyDied(GameObject enemy)
-    {
-        _mEnemyCount--;
-    }
-
     public static bool StillEnemiesLeft()
     {
-        Debug.Log(_mEnemyCount > 0);
-        return _mEnemyCount > 0;
-    }
-
-    private void OnDestroy()
-    {
-        EventManager.OnEnemyDeath.Unsubscribe(EnemyDied);
+        return GameObject.FindGameObjectsWithTag("Enemy").Length > 0;
     }
 }

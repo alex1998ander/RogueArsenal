@@ -35,11 +35,14 @@ public static class LevelManager
         lastSceneIdx = nextSceneIdx;
         SceneManager.LoadScene(nextSceneIdx);
         levelCounter++;
+        
+        EventManager.OnLevelEnter.Trigger();
     }
 
     public static void ReloadCurrentLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        EventManager.OnLevelEnter.Trigger();
     }
 
     public static void LoadMainMenu()

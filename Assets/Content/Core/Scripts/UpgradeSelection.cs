@@ -15,8 +15,8 @@ public class UpgradeSelection : MonoBehaviour
 
     private StatUpgrade[] _listOfStatUpgrades = new StatUpgrade[4]
     {
-        UpgradeManager.MaxHealthIncrease, UpgradeManager.BulletKnockbackIncrease,
-        UpgradeManager.PlayerMovementSpeedIncrease, UpgradeManager.BulletDamageIncrease
+        UpgradeManager.MaxHealthIncrease, UpgradeManager.BulletDamageIncrease,
+        UpgradeManager.PlayerMovementSpeedIncrease, UpgradeManager.BulletKnockbackIncrease
     };
 
     void Start()
@@ -69,6 +69,5 @@ public class UpgradeSelection : MonoBehaviour
         }
 
         LevelManager.LoadRandomLevel();
-        EventManager.OnLevelEnter.Trigger();
     }
 }

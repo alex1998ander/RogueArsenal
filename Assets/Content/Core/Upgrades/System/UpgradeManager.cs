@@ -10,9 +10,9 @@ public static class UpgradeManager
     private static readonly List<AbilityUpgrade> AbilityUpgrades = new();
 
     // stat upgrades
-    public static readonly StatUpgrade MaxHealthIncrease = new StatUpgrade("Max Health", 10, 1, 3);
-    public static readonly StatUpgrade BulletDamageIncrease = new StatUpgrade("Bullet Damage", 10, 1, 3);
-    public static readonly StatUpgrade PlayerMovementSpeedIncrease = new StatUpgrade("Movement Speed", 10, 1, 3);
+    public static readonly StatUpgrade MaxHealthIncrease = new StatUpgrade("Max Health", 20f, 5f, 3);
+    public static readonly StatUpgrade BulletDamageIncrease = new StatUpgrade("Bullet Damage", 10, 5, 3);
+    public static readonly StatUpgrade PlayerMovementSpeedIncrease = new StatUpgrade("Movement Speed", 1f, 0.5f, 1);
     public static readonly StatUpgrade BulletKnockbackIncrease = new StatUpgrade("Bullet Knockback", 10, 1, 3);
 
     //private static int _nextReplacementIndex;
@@ -117,6 +117,11 @@ public static class UpgradeManager
     {
         WeaponUpgrades.Clear();
         AbilityUpgrades.Clear();
+
+        MaxHealthIncrease.Reset();
+        BulletDamageIncrease.Reset();
+        PlayerMovementSpeedIncrease.Reset();
+        BulletKnockbackIncrease.Reset();
     }
 
     /// <summary>
