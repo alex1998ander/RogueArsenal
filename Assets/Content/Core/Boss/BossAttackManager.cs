@@ -20,6 +20,6 @@ public class BossAttackManager : MonoBehaviour
 
     private void Start()
     {
-        GetComponent<BossAttackStomp>().ExecuteAbility();
+        GetComponent<BossAttackLaserFocus>().ExecuteAbility();
     }
 }
