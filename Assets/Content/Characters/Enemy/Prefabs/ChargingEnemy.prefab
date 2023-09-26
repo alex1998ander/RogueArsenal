@@ -69,9 +69,14 @@ MonoBehaviour:
   stunTime: 2
   viewDistance: 6
   movementSpeed: 5
-  minDistanceFromPlayer: 4
-  maxDistanceFromPlayer: 5
-  chargingSpeed: 15
+  movementAcceleration: 30
+  minDistanceFromPlayer: 2
+  maxDistanceFromPlayer: 3
+  chargingSpeed: 25
+  chargingAcceleration: 1000
+  postChargingAcceleration: 1
+  preChargeTime: 1
+  postChargeTime: 1
 --- !u!114 &3466831585982663489
 MonoBehaviour:
   m_ObjectHideFlags: 0

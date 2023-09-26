@@ -6,8 +6,11 @@ namespace BehaviorTree
 {
     public class ChargingEnemyBT : MovingEnemyBT
     {
-        // Speed when the enemy is charging towards the player
         [SerializeField] private float chargingSpeed = 20f;
+        [SerializeField] private float chargingAcceleration = 100f;
+        [SerializeField] private float postChargingAcceleration = 1f;
+        [SerializeField] private float preChargeTime = 1f;
+        [SerializeField] private float postChargeTime = 1f;
 
         protected override Node SetupTree()
         {
@@ -20,7 +23,7 @@ namespace BehaviorTree
             agent.updateRotation = false;
             agent.updateUpAxis = false;
             agent.speed = movementSpeed;
-            agent.acceleration = 30f;
+            agent.acceleration = movementAcceleration;
 
             // Get all spawn points in level
             GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
@@ -35,7 +38,6 @@ namespace BehaviorTree
 
             Node root = new Selector(new List<Node>
             {
-                new Failer(new Logger("--------")),
                 // Case: Enemy is stunned
                 new Sequence(new List<Node>
                 {
@@ -66,32 +68,29 @@ namespace BehaviorTree
                         new Sequence(new List<Node>
                         {
                             new ExpectData<ChargeState>(sharedData.ChargeState, ChargeState.PreCharge),
-                            new Logger("A"),
                             new TaskLookAt(rb, playerTransform),
-                            new TaskWait(5f, true),
+                            new TaskWait(preChargeTime, true),
                             new TaskPickTargetAroundTransforms(playerTransform, 0f, 0f),
                             new TaskSetMovementSpeed(agent, chargingSpeed),
-                            new TaskSetMovementAcceleration(agent, 1000f),
+                            new TaskSetMovementAcceleration(agent, chargingAcceleration),
                             new SetData<ChargeState>(sharedData.ChargeState, ChargeState.MidCharge),
                         }),
                         // Case: Enemy is currently charging
                         new Sequence(new List<Node>
                         {
                             new ExpectData<ChargeState>(sharedData.ChargeState, ChargeState.MidCharge),
-                            new Logger("B"),
                             new TaskLookAt(rb, agent),
                             new TaskMoveToTarget(rb, agent, 1f),
-                            new Logger("B2"),
                             new SetData<ChargeState>(sharedData.ChargeState, ChargeState.PostCharge),
                         }),
                         // Case: Enemy finished charging
                         new Sequence(new List<Node>
                         {
                             new ExpectData<ChargeState>(sharedData.ChargeState, ChargeState.PostCharge),
-                            new Logger("C"),
                             new TaskSetMovementSpeed(agent, movementSpeed),
-                            new TaskSetMovementAcceleration(agent, 5f),
-                            new TaskWait(1f, true),
+                            new TaskSetMovementAcceleration(agent, postChargingAcceleration),
+                            new TaskWait(postChargeTime, true),
+                            new TaskSetMovementAcceleration(agent, movementAcceleration),
                             new SetData<ChargeState>(sharedData.ChargeState, ChargeState.None)
                         }),
                         // Case: Enemy just heard the player shoot

@@ -20,7 +20,6 @@ namespace BehaviorTree
         {
             state = _critical ? NodeState.FAILURE : NodeState.RUNNING;
 
-            Debug.Log("Time left: " + (_waitTime - _timeCounter));
             _timeCounter += Time.fixedDeltaTime;
             if (_timeCounter >= _waitTime)
             {
