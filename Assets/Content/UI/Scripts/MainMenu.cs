@@ -47,7 +47,6 @@ public class MainMenu : MonoBehaviour
     public void StartGame()
     {
         LevelManager.LoadRandomLevel();
-        EventManager.OnLevelEnter.Trigger();
     }
 
     public void OpenOptions()

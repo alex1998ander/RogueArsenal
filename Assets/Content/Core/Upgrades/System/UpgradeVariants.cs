@@ -18,6 +18,7 @@ public class UpgradeBuckshot : WeaponUpgrade
     public override float BulletRange => -0.5f;
     public override int BulletCount => 4;
     public override float BulletDamage => -0.6f;
+    public override float FireDelay => 2.0f;
 }
 
 public class UpgradeBurst : WeaponUpgrade
