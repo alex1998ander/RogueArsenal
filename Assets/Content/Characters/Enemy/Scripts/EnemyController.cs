@@ -1,5 +1,3 @@
-using System;
-using BehaviorTree;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour, ICharacterController

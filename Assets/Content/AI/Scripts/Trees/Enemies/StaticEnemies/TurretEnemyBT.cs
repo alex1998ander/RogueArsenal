@@ -18,7 +18,7 @@ namespace BehaviorTree
                 new Inverter(new CheckIsStunned(stunTime)),
                 new CheckPlayerVisible(rb, playerTransform, wallLayer),
                 new TaskLookAt(rb, playerTransform),
-                new TaskWait(1f),
+                new TaskWait(1f, false),
                 new TaskAttackPlayer(weapon, 1f),
             });
 

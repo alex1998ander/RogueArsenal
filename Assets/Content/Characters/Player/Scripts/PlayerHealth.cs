@@ -3,6 +3,10 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour, ICharacterHealth
 {
+    [SerializeField] private float defaultContactDamageInvulnerabilityDelay = 1.0f;
+
+    private float _contactDamageInvulnerabilityEndTimestamp;
+
     private float _currentHealth;
 
     /// <summary>
@@ -46,6 +50,16 @@ public class PlayerHealth : MonoBehaviour, ICharacterHealth
             {
                 _currentHealth = 1;
             }
+        }
+    }
+
+    public void InflictContactDamage(float damageAmount)
+    {
+        if (Time.time > _contactDamageInvulnerabilityEndTimestamp)
+        {
+            _contactDamageInvulnerabilityEndTimestamp = Time.time + defaultContactDamageInvulnerabilityDelay;
+
+            InflictDamage(damageAmount, true);
         }
     }
 
