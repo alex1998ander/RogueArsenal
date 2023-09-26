@@ -20,7 +20,7 @@ TagManager:
   - PlayerBullets
   - EnemyBullets
   - WallCheck
-  - 
+  - DamageZone
   - 
   - 
   - 
