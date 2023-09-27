@@ -6,11 +6,12 @@ namespace BehaviorTree
 {
     public class ChargingEnemyBT : MovingEnemyBT
     {
+        [SerializeField] private Collider2D damageZoneCollider;
         [SerializeField] private float chargingSpeed = 20f;
         [SerializeField] private float chargingAcceleration = 100f;
-        [SerializeField] private float postChargingAcceleration = 1f;
         [SerializeField] private float preChargeTime = 1f;
         [SerializeField] private float postChargeTime = 1f;
+        [SerializeField] private float chargePastPlayerDistance = 2f;
 
         protected override Node SetupTree()
         {
@@ -32,6 +33,8 @@ namespace BehaviorTree
             {
                 spawnPointTransforms[i] = spawnPoints[i].transform;
             }
+
+            damageZoneCollider.enabled = false;
 
             SharedData sharedData = new SharedData();
             sharedData.SetData(sharedData.ChargeState, ChargeState.None);
@@ -70,7 +73,7 @@ namespace BehaviorTree
                             new ExpectData<ChargeState>(sharedData.ChargeState, ChargeState.PreCharge),
                             new TaskLookAt(rb, playerTransform),
                             new TaskWait(preChargeTime, true),
-                            new TaskPickTargetAroundTransforms(playerTransform, 0f, 0f),
+                            new TaskPickTargetBehindTransform(agent, playerTransform, chargePastPlayerDistance),
                             new TaskSetMovementSpeed(agent, chargingSpeed),
                             new TaskSetMovementAcceleration(agent, chargingAcceleration),
                             new SetData<ChargeState>(sharedData.ChargeState, ChargeState.MidCharge),
@@ -79,6 +82,7 @@ namespace BehaviorTree
                         new Sequence(new List<Node>
                         {
                             new ExpectData<ChargeState>(sharedData.ChargeState, ChargeState.MidCharge),
+                            new TaskActivateDamageZone(true, damageZoneCollider),
                             new TaskLookAt(rb, agent),
                             new TaskMoveToTarget(rb, agent, 1f),
                             new SetData<ChargeState>(sharedData.ChargeState, ChargeState.PostCharge),
@@ -88,9 +92,9 @@ namespace BehaviorTree
                         {
                             new ExpectData<ChargeState>(sharedData.ChargeState, ChargeState.PostCharge),
                             new TaskSetMovementSpeed(agent, movementSpeed),
-                            new TaskSetMovementAcceleration(agent, postChargingAcceleration),
-                            new TaskWait(postChargeTime, true),
                             new TaskSetMovementAcceleration(agent, movementAcceleration),
+                            new TaskWait(postChargeTime, true),
+                            new TaskActivateDamageZone(false, damageZoneCollider),
                             new SetData<ChargeState>(sharedData.ChargeState, ChargeState.None)
                         }),
                         // Case: Enemy just heard the player shoot

@@ -72,6 +72,7 @@ MonoBehaviour:
   movementAcceleration: 30
   minDistanceFromPlayer: 2
   maxDistanceFromPlayer: 3
+  damageZoneCollider: {fileID: 1046817058599268660}
   chargingSpeed: 25
   chargingAcceleration: 1000
   postChargingAcceleration: 1
