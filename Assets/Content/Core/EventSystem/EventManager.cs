@@ -38,6 +38,11 @@ public static class EventManager
     /// The player dies.
     /// </summary>
     public static readonly Event<GameObject> OnEnemyDeath = new();
+    
+    /// <summary>
+    /// The enemy just fired a shot.
+    /// </summary>
+    public static readonly Event OnEnemyShotFired = new();
 
     #endregion
 

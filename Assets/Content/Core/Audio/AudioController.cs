@@ -47,6 +47,7 @@ public class AudioController : MonoBehaviour
     /// <param name="sound">Sound instance containing the audio clip</param>
     public static void Play(Sound sound)
     {
+        _instance.audioSourceSound.pitch = Random.Range(0.9f, 1.1f);
         _instance.audioSourceSound.PlayOneShot(sound.audioClip);
         _instance._currentlyPlaying = true;
     }
