@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using System;
 using System.Collections.Generic;
+using Cinemachine;
 
 public class UpgradeSelection : MonoBehaviour
 {
@@ -68,6 +69,6 @@ public class UpgradeSelection : MonoBehaviour
             Debug.Log("Upgraded Stat");
         }
 
-        LevelManager.LoadRandomLevel();
+        LevelManager.LoadNextLevel();
     }
 }
