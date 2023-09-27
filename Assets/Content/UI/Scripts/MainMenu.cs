@@ -46,7 +46,7 @@ public class MainMenu : MonoBehaviour
     /// </summary>
     public void StartGame()
     {
-        LevelManager.LoadRandomLevel();
+        LevelManager.LoadNextLevel();
     }
 
     public void OpenOptions()
