@@ -10044,6 +10044,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 7595773359254882278, guid: 58da58bccb053904b8b5a408e035efce, type: 3}
+      propertyPath: m_TagString
+      value: ExitPoints
+      objectReference: {fileID: 0}
     - target: {fileID: 7595773359254882283, guid: 58da58bccb053904b8b5a408e035efce, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.54
