@@ -7,4 +7,5 @@ using UnityEngine;
 public class Sound
 {
     [SerializeField] public AudioClip audioClip;
+    [SerializeField] public float volumeScale = 1f;
 }
