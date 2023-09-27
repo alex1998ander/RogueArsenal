@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
     private PlayerHealth _playerHealth;
 
     private static float _maxHealth = 100f;
-    private static float _defaultDamage = 25f;
+    private static float _defaultDamage = 30f;
     private static float _moveSpeed = 5f;
     [SerializeField] private float defaultFireDelay = 0.4f;
     [SerializeField] private float defaultBlockDelay = 5.0f;
@@ -130,9 +130,13 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
             _aimDirection = value.Get<Vector2>();
             if (Vector2.Distance(Vector2.zero, _aimDirection) > 0.5)
             {
-                _aimDirection = (Vector2) Camera.main.ScreenToWorldPoint(_aimDirection) - _rigidbody.position;
+                if (_playerInput.currentControlScheme.Equals("Keyboard&Mouse"))
+                {
+                    _aimDirection = (Vector2) Camera.main.ScreenToWorldPoint(_aimDirection) - _rigidbody.position;
+                }
 
                 _angle = Mathf.Atan2(_aimDirection.y, _aimDirection.x) * Mathf.Rad2Deg - 90f;
+                //_rigidbody.rotation = _angle;
                 playerWeapon.transform.rotation = Quaternion.Euler(0, 0, _angle);
 
                 playerSpriteTransform.rotation = Quaternion.AngleAxis(_angle, Vector3.forward);

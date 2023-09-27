@@ -38,8 +38,8 @@ public class UpgradeSelection : MonoBehaviour
             for (int counter = 0; counter < upgradeDescription.Length; counter++)
             {
                 upgradeDescription[counter].text =
-                    "<size=24>" + listOfWeaponUpgrades[counter].Name + "</size>" + "<br>" +
-                    "<br>" + listOfWeaponUpgrades[counter].Description;
+                    "<size=24>" + listOfWeaponUpgrades[counter].Name + "</size>"  + "<br>" +
+                    "<br>" + "<size=12>" + listOfWeaponUpgrades[counter].HelpfulDescription + "</size>";
             }
         }
         else

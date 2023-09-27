@@ -7,7 +7,7 @@ public class PlayerHealth : MonoBehaviour, ICharacterHealth
 
     private float _contactDamageInvulnerabilityEndTimestamp;
 
-    private float _currentHealth;
+    private float _currentHealth; //TODO: int basiert  machen
 
     /// <summary>
     /// Resets the player's health. The currently active upgrades are taken into account.

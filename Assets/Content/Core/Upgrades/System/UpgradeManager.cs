@@ -34,13 +34,14 @@ public static class UpgradeManager
         new UpgradeMentalMeltdown(),
         new UpgradeDemonicPact(),
         //new UpgradeDrill(),
-        new UpgradeGlassCannon()
+        new UpgradeGlassCannon(),
+        new UpgradeHealingField(), //TODO: Ability-Upgrade
+        new UpgradePhoenix() //TODO: Ability-Upgrade
     };
 
     private static readonly List<AbilityUpgrade> AbilityUpgradePool = new()
     {
-        new UpgradeHealingField(),
-        new UpgradePhoenix()
+        //TODO: Ability-Upgrade
     };
 
     public static WeaponUpgrade[] GenerateNewRandomWeaponUpgradeSelection(int count)
@@ -122,10 +123,11 @@ public static class UpgradeManager
         BulletDamageIncrease.Reset();
         PlayerMovementSpeedIncrease.Reset();
         BulletKnockbackIncrease.Reset();
+        WeaponUpgrades.Add(new UpgradeBuckshot());
     }
 
     /// <summary>
-    /// Calculates the multiplier from the passed values. It is ensured that no negative multipliers occur.
+    /// Calculates the multiplier from the passed values.
     /// </summary>
     /// <param name="attributeSelector">Upgrade attribute</param>
     /// <returns>Calculated Multiplier</returns>
@@ -143,10 +145,8 @@ public static class UpgradeManager
         //     multiplier += attributeSelector(upgrade);
         // }
 
-        float multiplier = 1f + WeaponUpgrades.Sum(upgrade => attributeSelector(upgrade)) +
-                           AbilityUpgrades.Sum(upgrade => attributeSelector(upgrade));
-
-        return Mathf.Max(0, multiplier);
+        return WeaponUpgrades.Select(upgrade => attributeSelector(upgrade) + 1f).DefaultIfEmpty(1f).Aggregate((acc, attribute) => acc * attribute) *
+               AbilityUpgrades.Select(upgrade => attributeSelector(upgrade) + 1f).DefaultIfEmpty(1f).Aggregate((acc, attribute) => acc * attribute);
     }
 
     /// <summary>
