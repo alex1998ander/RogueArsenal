@@ -67,5 +67,6 @@ public static class LevelManager
     public static void LoadMainMenu()
     {
         SceneManager.LoadScene(0);
+        levelCounter = 0;
     }
 }

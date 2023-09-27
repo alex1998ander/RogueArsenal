@@ -92,6 +92,8 @@ GameObject:
   - component: {fileID: 3840289595821779530}
   - component: {fileID: 2017697545835317652}
   - component: {fileID: 3840289595821779533}
+  - component: {fileID: 7208182073762306504}
+  - component: {fileID: 8522892924384008029}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -147,6 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c44eaa95b47377a48a9b8a5a0cd6f585, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultContactDamageInvulnerabilityDelay: 1
 --- !u!50 &3840289595821779530
 Rigidbody2D:
   serializedVersion: 4
@@ -224,6 +227,32 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &7208182073762306504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3840289595821779532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: add00e0658ebc0e44b5d05a12aea6838, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetIndicator: {fileID: 1167886848755679952, guid: 10e039d8a3b59ba428f33c44c5be23da, type: 3}
+--- !u!114 &8522892924384008029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3840289595821779532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 621dc63b5995fbb4483cdb9c6dad8fc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetIndicator: {fileID: 1167886848755679952, guid: 3c3bf5bcc565bd24b83f2fd180d72c78, type: 3}
 --- !u!1 &4396811628639409239
 GameObject:
   m_ObjectHideFlags: 0
