@@ -19,7 +19,10 @@ public static class LevelManager
     /// </summary>
     public static void LoadUpgradeSelectionScene()
     {
-        SceneManager.LoadScene(1);
+        if (levelCounter > 18)
+            LoadMainMenu();
+        else
+            SceneManager.LoadScene(1);
     }
 
     private static void LoadRandomLevel()
@@ -35,7 +38,7 @@ public static class LevelManager
         lastSceneIdx = nextSceneIdx;
         SceneManager.LoadScene(nextSceneIdx);
         levelCounter++;
-        
+
         EventManager.OnLevelEnter.Trigger();
     }
 
@@ -53,9 +56,9 @@ public static class LevelManager
 
     private static void LoadBossLevel()
     {
+        levelCounter++;
         SceneManager.LoadScene(SceneManager.sceneCountInBuildSettings - 1);
         EventManager.OnLevelEnter.Trigger();
-        
     }
 
     public static void ReloadCurrentLevel()

@@ -19,7 +19,6 @@ namespace BehaviorTree
         public override NodeState Evaluate()
         {
             Vector3 direction = _agent.transform.up;
-            Debug.Log("direction" + direction);
             Vector3 positionBehindTransform = _targetTransform.position + direction * _distanceFromTarget;
 
             SetData(sharedData.IsAtTarget, false);

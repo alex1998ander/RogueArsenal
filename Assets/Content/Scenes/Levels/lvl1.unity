@@ -16843,6 +16843,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7595773359139025270, guid: 58da58bccb053904b8b5a408e035efce, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7595773359254882278, guid: 58da58bccb053904b8b5a408e035efce, type: 3}
       propertyPath: m_TagString
       value: ExitPoints
@@ -16858,6 +16862,10 @@ PrefabInstance:
     - target: {fileID: 7595773359254882283, guid: 58da58bccb053904b8b5a408e035efce, type: 3}
       propertyPath: m_LocalPosition.y
       value: 22.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 7595773359351554928, guid: 58da58bccb053904b8b5a408e035efce, type: 3}
+      propertyPath: orthographic size
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7595773359351554931, guid: 58da58bccb053904b8b5a408e035efce, type: 3}
       propertyPath: m_LocalPosition.x
