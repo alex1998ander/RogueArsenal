@@ -69,7 +69,8 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
 
     public static float GetMaxHealth()
     {
-        return Mathf.RoundToInt((_maxHealth + UpgradeManager.MaxHealthIncrease.Value) * UpgradeManager.GetHealthMultiplier());
+        return Mathf.RoundToInt((_maxHealth + UpgradeManager.MaxHealthIncrease.Value) *
+                                UpgradeManager.GetHealthMultiplier());
     }
 
     public static float GetBulletDamage()
@@ -130,13 +131,9 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
             _aimDirection = value.Get<Vector2>();
             if (Vector2.Distance(Vector2.zero, _aimDirection) > 0.5)
             {
-                if (_playerInput.currentControlScheme.Equals("Keyboard&Mouse"))
-                {
-                    _aimDirection = (Vector2) Camera.main.ScreenToWorldPoint(_aimDirection) - _rigidbody.position;
-                }
+                _aimDirection = (Vector2) Camera.main.ScreenToWorldPoint(_aimDirection) - _rigidbody.position;
 
                 _angle = Mathf.Atan2(_aimDirection.y, _aimDirection.x) * Mathf.Rad2Deg - 90f;
-                //_rigidbody.rotation = _angle;
                 playerWeapon.transform.rotation = Quaternion.Euler(0, 0, _angle);
 
                 playerSpriteTransform.rotation = Quaternion.AngleAxis(_angle, Vector3.forward);
