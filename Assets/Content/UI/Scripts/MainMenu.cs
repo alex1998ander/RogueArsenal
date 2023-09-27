@@ -49,6 +49,12 @@ public class MainMenu : MonoBehaviour
         LevelManager.LoadNextLevel();
     }
 
+    public void StartGameAtTheEnd()
+    {
+        LevelManager.levelCounter = 17;
+        LevelManager.LoadNextLevel();
+    }
+
     public void OpenOptions()
     {
         optionsScreen.SetActive(true);
