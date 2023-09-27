@@ -123,7 +123,6 @@ public static class UpgradeManager
         BulletDamageIncrease.Reset();
         PlayerMovementSpeedIncrease.Reset();
         BulletKnockbackIncrease.Reset();
-        WeaponUpgrades.Add(new UpgradeBuckshot());
     }
 
     /// <summary>
@@ -145,8 +144,10 @@ public static class UpgradeManager
         //     multiplier += attributeSelector(upgrade);
         // }
 
-        return WeaponUpgrades.Select(upgrade => attributeSelector(upgrade) + 1f).DefaultIfEmpty(1f).Aggregate((acc, attribute) => acc * attribute) *
-               AbilityUpgrades.Select(upgrade => attributeSelector(upgrade) + 1f).DefaultIfEmpty(1f).Aggregate((acc, attribute) => acc * attribute);
+        return WeaponUpgrades.Select(upgrade => attributeSelector(upgrade) + 1f).DefaultIfEmpty(1f)
+                   .Aggregate((acc, attribute) => acc * attribute) *
+               AbilityUpgrades.Select(upgrade => attributeSelector(upgrade) + 1f).DefaultIfEmpty(1f)
+                   .Aggregate((acc, attribute) => acc * attribute);
     }
 
     /// <summary>
