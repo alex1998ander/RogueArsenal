@@ -99,6 +99,7 @@ MonoBehaviour:
     m_Bits: 256
   stunTime: 1
   viewDistance: 6
+  hearDistance: 10
   movementSpeed: 5
   movementAcceleration: 30
   minDistanceFromPlayer: 1
