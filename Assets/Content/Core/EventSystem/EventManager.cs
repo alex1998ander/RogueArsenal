@@ -18,6 +18,11 @@ public static class EventManager
     /// </summary>
     public static readonly Event OnPlayerDeath = new();
 
+    /// <summary>
+    /// The player just fired a shot.
+    /// </summary>
+    public static readonly Event OnPlayerShotFired = new();
+
     #endregion
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -33,12 +38,17 @@ public static class EventManager
     /// The player dies.
     /// </summary>
     public static readonly Event<GameObject> OnEnemyDeath = new();
+    
+    /// <summary>
+    /// The enemy just fired a shot.
+    /// </summary>
+    public static readonly Event OnEnemyShotFired = new();
 
     #endregion
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    #region Game Events
+    #region Level Events
 
     /// <summary>
     /// The player exits a level and enters the upgrade selection screen.
@@ -50,10 +60,15 @@ public static class EventManager
     /// </summary>
     public static readonly Event OnLevelEnter = new();
 
-    /// <summary>
-    /// The player starts the game from the main menu.
-    /// </summary>
-    public static readonly Event OnStartGame = new();
+    #endregion
+    
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    #region Game Events
+
+    public static readonly Event<bool> OnPauseGame = new();
+    
+    public static readonly Event OnMainMenuEnter = new();
 
     #endregion
 }

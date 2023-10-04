@@ -3,16 +3,20 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour, ICharacterHealth
 {
-    [SerializeField] private float maxHealth = 100f;
-    private float _currentHealth;
+    [SerializeField] private float defaultContactDamageInvulnerabilityDelay = 1.0f;
+
+    private float _contactDamageInvulnerabilityEndTimestamp;
+
+    private float _currentHealth; //TODO: int basiert  machen
 
     /// <summary>
     /// Resets the player's health. The currently active upgrades are taken into account.
     /// </summary>
     public void ResetHealth()
     {
-        _currentHealth = maxHealth * UpgradeManager.GetHealthMultiplier();
+        _currentHealth = PlayerController.GetMaxHealth();
     }
+
 
     /// <summary>
     /// Decreases the player's health by the specified value and checks if the player dies. If so, affecting upgrades are performed and further actions are initiated.
@@ -37,9 +41,9 @@ public class PlayerHealth : MonoBehaviour, ICharacterHealth
                 // if player dies anyway
                 if (_currentHealth <= 0)
                 {
+                    gameObject.SetActive(false);
+
                     EventManager.OnPlayerDeath.Trigger();
-                    //Destroy(gameObject);
-                    PlayerDied();
                 }
             }
             else
@@ -49,10 +53,14 @@ public class PlayerHealth : MonoBehaviour, ICharacterHealth
         }
     }
 
-    void PlayerDied()
+    public void InflictContactDamage(float damageAmount)
     {
-        LevelManager.Instance.GameOver();
-        gameObject.SetActive(false);
+        if (Time.time > _contactDamageInvulnerabilityEndTimestamp)
+        {
+            _contactDamageInvulnerabilityEndTimestamp = Time.time + defaultContactDamageInvulnerabilityDelay;
+
+            InflictDamage(damageAmount, true);
+        }
     }
 
     /// <summary>
@@ -61,8 +69,7 @@ public class PlayerHealth : MonoBehaviour, ICharacterHealth
     /// <param name="healingAmount">Amount of healing</param>
     public void Heal(float healingAmount)
     {
-        _currentHealth = Mathf.Min(_currentHealth + healingAmount, maxHealth);
-        
+        _currentHealth = Mathf.Min(_currentHealth + healingAmount, PlayerController.GetMaxHealth());
     }
 
     /// <summary>
@@ -71,6 +78,6 @@ public class PlayerHealth : MonoBehaviour, ICharacterHealth
     /// <returns>Current and max life of the player</returns>
     public Vector2 GetHealth()
     {
-        return new Vector2(_currentHealth, maxHealth * UpgradeManager.GetHealthMultiplier());
+        return new Vector2(_currentHealth, PlayerController.GetMaxHealth());
     }
 }

@@ -16,7 +16,7 @@ public class Event
 
     public void Unsubscribe(Action func)
     {
-        Action += func;
+        Action -= func;
     }
 }
 

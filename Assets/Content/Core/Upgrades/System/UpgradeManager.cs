@@ -5,13 +5,22 @@ using UnityEngine;
 
 public static class UpgradeManager
 {
-    private static readonly List<Upgrade> Upgrades = new() {  };
+    // upgrades
+    private static readonly List<WeaponUpgrade> WeaponUpgrades = new();
+    private static readonly List<AbilityUpgrade> AbilityUpgrades = new();
 
-    private static int _nextReplacementIndex;
+    // stat upgrades
+    public static readonly StatUpgrade MaxHealthIncrease = new StatUpgrade("Max Health", 20f, 5f, 3);
+    public static readonly StatUpgrade BulletDamageIncrease = new StatUpgrade("Bullet Damage", 10, 5, 3);
+    public static readonly StatUpgrade PlayerMovementSpeedIncrease = new StatUpgrade("Movement Speed", 1f, 0.5f, 1);
+    public static readonly StatUpgrade BulletKnockbackIncrease = new StatUpgrade("Bullet Knockback", 10, 1, 3);
 
-    private static Upgrade[] _currentUpgradeSelection = { };
+    //private static int _nextReplacementIndex;
 
-    private static readonly List<Upgrade> UpgradePool = new()
+    private static WeaponUpgrade[] _currentWeaponUpgradeSelection;
+    private static AbilityUpgrade[] _currentAbilityUpgradeSelection;
+
+    private static readonly List<WeaponUpgrade> WeaponUpgradePool = new()
     {
         new UpgradeHitman(),
         new UpgradeBuckshot(),
@@ -20,56 +29,86 @@ public static class UpgradeManager
         new UpgradeCarefulPlanning(),
         new UpgradeTank(),
         //new UpgradeExplosiveBullet(),
-        new UpgradeHealingField(),
         new UpgradeHoming(),
-        new UpgradePhoenix(),
         new UpgradeBigBullet(),
         new UpgradeMentalMeltdown(),
         new UpgradeDemonicPact(),
         //new UpgradeDrill(),
-        new UpgradeGlassCannon()
+        new UpgradeGlassCannon(),
+        new UpgradeHealingField(), //TODO: Ability-Upgrade
+        new UpgradePhoenix() //TODO: Ability-Upgrade
     };
 
-    /// <summary>
-    /// Returns the bound upgrade at the passed index.
-    /// </summary>
-    /// <param name="index">Upgrade index</param>
-    /// <returns>Upgrade at index</returns>
-    public static Upgrade GetUpgradeAtIndex(int index)
+    private static readonly List<AbilityUpgrade> AbilityUpgradePool = new()
     {
-        if (index < Upgrades.Count)
-        {
-            return Upgrades[index];
-        }
+        //TODO: Ability-Upgrade
+    };
 
-        return null;
+    public static WeaponUpgrade[] GenerateNewRandomWeaponUpgradeSelection(int count)
+    {
+        System.Random rnd = new System.Random();
+        _currentWeaponUpgradeSelection = WeaponUpgradePool.OrderBy(x => rnd.Next()).Take(count).ToArray();
+
+        return _currentWeaponUpgradeSelection;
+    }
+
+    public static AbilityUpgrade[] GenerateNewRandomAbilityUpgradeSelection(int count)
+    {
+        System.Random rnd = new System.Random();
+        _currentAbilityUpgradeSelection = AbilityUpgradePool.OrderBy(x => rnd.Next()).Take(count).ToArray();
+
+        return _currentAbilityUpgradeSelection;
     }
 
     /// <summary>
     /// Binds an upgrade from the current upgrade selection to the upgrade inventory to the upgrade slot of the current oldest upgrade.
     /// </summary>
     /// <param name="selectionIdx">Index of the new upgrade in the upgrade selection</param>
-    public static void BindUpgrade(int selectionIdx)
+    public static void BindWeaponUpgrade(int selectionIdx)
     {
-        Upgrade newUpgrade = _currentUpgradeSelection[selectionIdx];
+        WeaponUpgrade newUpgrade = _currentWeaponUpgradeSelection[selectionIdx];
 
         // Replace upgrade
-        Upgrades.Add(newUpgrade);
+        WeaponUpgrades.Add(newUpgrade);
 
         // Remove new upgrade from upgrade pool
-        UpgradePool.Remove(newUpgrade);
+        WeaponUpgradePool.Remove(newUpgrade);
+    }
+
+    public static void BindAbilityUpgrade(int selectionIdx)
+    {
+        AbilityUpgrade newUpgrade = _currentAbilityUpgradeSelection[selectionIdx];
+
+        // Replace upgrade
+        AbilityUpgrades.Add(newUpgrade);
+
+        // Remove new upgrade from upgrade pool
+        AbilityUpgradePool.Remove(newUpgrade);
     }
 
     /// <summary>
-    /// Generates a new random upgrade selection from all currently unused upgrades.
+    /// Returns the bound upgrade at the passed index.
     /// </summary>
-    /// <returns>New random upgrade selection</returns>
-    public static Upgrade[] GenerateNewRandomUpgradeSelection()
+    /// <param name="index">Upgrade index</param>
+    /// <returns>Upgrade at index</returns>
+    public static Upgrade GetWeaponUpgradeAtIndex(int index)
     {
-        System.Random rnd = new System.Random();
-        _currentUpgradeSelection = UpgradePool.OrderBy(x => rnd.Next()).Take(5).ToArray();
+        if (index < WeaponUpgrades.Count)
+        {
+            return WeaponUpgrades[index];
+        }
 
-        return _currentUpgradeSelection;
+        return null;
+    }
+
+    public static Upgrade GetAbilityUpgradeAtIndex(int index)
+    {
+        if (index < AbilityUpgrades.Count)
+        {
+            return AbilityUpgrades[index];
+        }
+
+        return null;
     }
 
     /// <summary>
@@ -77,24 +116,38 @@ public static class UpgradeManager
     /// </summary>
     public static void ClearUpgrades()
     {
-        Upgrades.Clear();
+        WeaponUpgrades.Clear();
+        AbilityUpgrades.Clear();
+
+        MaxHealthIncrease.Reset();
+        BulletDamageIncrease.Reset();
+        PlayerMovementSpeedIncrease.Reset();
+        BulletKnockbackIncrease.Reset();
     }
 
     /// <summary>
-    /// Calculates the multiplier from the passed values. It is ensured that no negative multipliers occur.
+    /// Calculates the multiplier from the passed values.
     /// </summary>
     /// <param name="attributeSelector">Upgrade attribute</param>
     /// <returns>Calculated Multiplier</returns>
     private static float GetAttributeMultiplier(Func<Upgrade, float> attributeSelector)
     {
-        float multiplier = 1f;
+        // float multiplier = 1f;
+        //
+        // foreach (WeaponUpgrade upgrade in WeaponUpgrades)
+        // {
+        //     multiplier += attributeSelector(upgrade);
+        // }
+        //
+        // foreach (AbilityUpgrade upgrade in AbilityUpgrades)
+        // {
+        //     multiplier += attributeSelector(upgrade);
+        // }
 
-        foreach (Upgrade upgrade in Upgrades)
-        {
-            multiplier += attributeSelector(upgrade);
-        }
-
-        return Mathf.Max(0, multiplier);
+        return WeaponUpgrades.Select(upgrade => attributeSelector(upgrade) + 1f).DefaultIfEmpty(1f)
+                   .Aggregate((acc, attribute) => acc * attribute) *
+               AbilityUpgrades.Select(upgrade => attributeSelector(upgrade) + 1f).DefaultIfEmpty(1f)
+                   .Aggregate((acc, attribute) => acc * attribute);
     }
 
     /// <summary>
@@ -123,7 +176,7 @@ public static class UpgradeManager
     {
         int bulletCountAdjustment = 0;
 
-        foreach (Upgrade upgrade in Upgrades)
+        foreach (WeaponUpgrade upgrade in WeaponUpgrades)
         {
             bulletCountAdjustment += upgrade.BulletCount;
         }
@@ -180,9 +233,9 @@ public static class UpgradeManager
     /// Calculates the movement speed multiplier of all upgrades.
     /// </summary>
     /// <returns>Common movement speed multiplier</returns>
-    public static float GetMovementSpeedMultiplier()
+    public static float GetPlayerMovementSpeedMultiplier()
     {
-        return GetAttributeMultiplier(upgrade => upgrade.MovementSpeed);
+        return GetAttributeMultiplier(upgrade => upgrade.PlayerMovementSpeed);
     }
 
     /// <summary>
@@ -191,7 +244,12 @@ public static class UpgradeManager
     /// <param name="upgradeablePlayer">Player reference</param>
     public static void Init(IUpgradeablePlayer upgradeablePlayer)
     {
-        foreach (Upgrade upgrade in Upgrades)
+        foreach (WeaponUpgrade upgrade in WeaponUpgrades)
+        {
+            upgrade.Init(upgradeablePlayer);
+        }
+
+        foreach (AbilityUpgrade upgrade in AbilityUpgrades)
         {
             upgrade.Init(upgradeablePlayer);
         }
@@ -203,7 +261,12 @@ public static class UpgradeManager
     /// <param name="upgradeableBullet">Bullet reference</param>
     public static void Init(IUpgradeableBullet upgradeableBullet)
     {
-        foreach (Upgrade upgrade in Upgrades)
+        foreach (WeaponUpgrade upgrade in WeaponUpgrades)
+        {
+            upgrade.Init(upgradeableBullet);
+        }
+
+        foreach (AbilityUpgrade upgrade in AbilityUpgrades)
         {
             upgrade.Init(upgradeableBullet);
         }
@@ -215,7 +278,12 @@ public static class UpgradeManager
     /// <param name="upgradeablePlayer">Player reference</param>
     public static void OnFire(IUpgradeablePlayer upgradeablePlayer)
     {
-        foreach (Upgrade upgrade in Upgrades)
+        foreach (WeaponUpgrade upgrade in WeaponUpgrades)
+        {
+            upgrade.OnFire(upgradeablePlayer);
+        }
+
+        foreach (AbilityUpgrade upgrade in AbilityUpgrades)
         {
             upgrade.OnFire(upgradeablePlayer);
         }
@@ -227,7 +295,12 @@ public static class UpgradeManager
     /// <param name="upgradeablePlayer">Player reference</param>
     public static void OnBlock(IUpgradeablePlayer upgradeablePlayer)
     {
-        foreach (Upgrade upgrade in Upgrades)
+        foreach (WeaponUpgrade upgrade in WeaponUpgrades)
+        {
+            upgrade.OnBlock(upgradeablePlayer);
+        }
+
+        foreach (AbilityUpgrade upgrade in AbilityUpgrades)
         {
             upgrade.OnBlock(upgradeablePlayer);
         }
@@ -239,7 +312,12 @@ public static class UpgradeManager
     /// <param name="upgradeableBullet">Bullet reference</param>
     public static void BulletUpdate(IUpgradeableBullet upgradeableBullet)
     {
-        foreach (Upgrade upgrade in Upgrades)
+        foreach (WeaponUpgrade upgrade in WeaponUpgrades)
+        {
+            upgrade.BulletUpdate(upgradeableBullet);
+        }
+
+        foreach (AbilityUpgrade upgrade in AbilityUpgrades)
         {
             upgrade.BulletUpdate(upgradeableBullet);
         }
@@ -251,7 +329,12 @@ public static class UpgradeManager
     /// <param name="upgradeablePlayer">Player reference</param>
     public static void PlayerUpdate(IUpgradeablePlayer upgradeablePlayer)
     {
-        foreach (Upgrade upgrade in Upgrades)
+        foreach (WeaponUpgrade upgrade in WeaponUpgrades)
+        {
+            upgrade.PlayerUpdate(upgradeablePlayer);
+        }
+
+        foreach (AbilityUpgrade upgrade in AbilityUpgrades)
         {
             upgrade.PlayerUpdate(upgradeablePlayer);
         }
@@ -268,7 +351,12 @@ public static class UpgradeManager
         // binary unconditional logical OR ('|' not '||') needed to evaluate every operand (no short-circuiting)
         bool bulletSurvives = false;
 
-        foreach (Upgrade upgrade in Upgrades)
+        foreach (WeaponUpgrade upgrade in WeaponUpgrades)
+        {
+            bulletSurvives |= upgrade.OnBulletImpact(upgradeableBullet, collision);
+        }
+
+        foreach (AbilityUpgrade upgrade in AbilityUpgrades)
         {
             bulletSurvives |= upgrade.OnBulletImpact(upgradeableBullet, collision);
         }
@@ -282,7 +370,12 @@ public static class UpgradeManager
     /// <param name="upgradeablePlayer">Player reference</param>
     public static void OnPlayerDeath(IUpgradeablePlayer upgradeablePlayer)
     {
-        foreach (Upgrade upgrade in Upgrades)
+        foreach (WeaponUpgrade upgrade in WeaponUpgrades)
+        {
+            upgrade.OnPlayerDeath(upgradeablePlayer);
+        }
+
+        foreach (AbilityUpgrade upgrade in AbilityUpgrades)
         {
             upgrade.OnPlayerDeath(upgradeablePlayer);
         }

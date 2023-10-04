@@ -1,11 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
 /// <summary>
-/// Klasse für eine Auflösung von Horizontal- und Vertikal-Wert
+/// Klasse fuer eine Auflï¿½sung von Horizontal- und Vertikal-Wert
 /// </summary>
 [System.Serializable]
 public class ResItem
@@ -20,21 +19,23 @@ public class OptionsScreen : MonoBehaviour
 {
     #region Variables
 
-    // Schalter für Vollbild und VSync
-    public Toggle fullscreenTog, vsyncTog;
+    // Schalter fï¿½r Vollbild und VSync
+    [SerializeField] private Toggle fullscreenTog, vsyncTog;
 
-    // Liste für die Auflösungen
-    public List<ResItem> resolutions = new List<ResItem>();
+    // Liste fï¿½r die Auflï¿½sungen
+    [SerializeField] private List<ResItem> resolutions = new List<ResItem>();
 
-    // Ausgewählte Auflösung der Liste
+    // Text der ausgewï¿½hlten Auflï¿½sung
+    [SerializeField] private TMP_Text resolutionLabel;
+
+    // Volume Slider in options screen
+    [SerializeField] private Slider volumeSlider;
+
+    // Ausgewï¿½hlte Auflï¿½sung der Liste
     private int selectedResolution = 0;
-
-    // Text der ausgewählten Auflösung
-    public TMP_Text resolutionLabel;
 
     #endregion
 
-    // Start is called before the first frame update
     void Start()
     {
         fullscreenTog.isOn = Screen.fullScreen;
@@ -49,7 +50,7 @@ public class OptionsScreen : MonoBehaviour
         }
 
         bool foundRes = false;
-        // schaut, ob die aktuelle Auflösung in der Liste ist
+        // schaut, ob die aktuelle Auflï¿½sung in der Liste ist
         for (int i = 0; i < resolutions.Count; i++)
         {
             if (Screen.width == resolutions[i].horizontal && Screen.height == resolutions[i].vertical)
@@ -62,7 +63,7 @@ public class OptionsScreen : MonoBehaviour
             }
         }
 
-        // Wenn aktuelle Auflösung nicht in der Liste, erstelle neue Auflösung in der Liste
+        // Wenn aktuelle Auflï¿½sung nicht in der Liste, erstelle neue Auflï¿½sung in der Liste
         if (!foundRes)
         {
             ResItem newRes = new ResItem();
@@ -83,16 +84,18 @@ public class OptionsScreen : MonoBehaviour
 
                     UpdateResLabel();
                 }
+
                 i++;
             }
         }
-
+        
+        SetMasterVolume();
     }
 
     #region Button Functions
 
     /// <summary>
-    /// Setzt die Auflösung auf die nächst kleinere in der Liste
+    /// Setzt die Auflï¿½sung auf die nï¿½chst kleinere in der Liste
     /// </summary>
     public void ResLeft()
     {
@@ -106,7 +109,7 @@ public class OptionsScreen : MonoBehaviour
     }
 
     /// <summary>
-    /// Setzt dir Auflösung auf die nächst größere in der Liste
+    /// Setzt dir Auflï¿½sung auf die nï¿½chst grï¿½ï¿½ere in der Liste
     /// </summary>
     public void ResRight()
     {
@@ -120,15 +123,16 @@ public class OptionsScreen : MonoBehaviour
     }
 
     /// <summary>
-    /// Aktualisiert die Anzeige auf die aktuell Ausgewählte
+    /// Aktualisiert die Anzeige auf die aktuell Ausgewï¿½hlte
     /// </summary>
     public void UpdateResLabel()
     {
-        resolutionLabel.text = resolutions[selectedResolution].horizontal.ToString() + " x " + resolutions[selectedResolution].vertical.ToString();
+        resolutionLabel.text = resolutions[selectedResolution].horizontal.ToString() + " x " +
+                               resolutions[selectedResolution].vertical.ToString();
     }
 
     /// <summary>
-    /// Wendet die Einstellungen, welche der Nutzer aktuell ausgewählt hat, an.
+    /// Wendet die Einstellungen, welche der Nutzer aktuell ausgewï¿½hlt hat, an.
     /// </summary>
     public void ApplyGraphics()
     {
@@ -141,7 +145,17 @@ public class OptionsScreen : MonoBehaviour
             QualitySettings.vSyncCount = 0;
         }
 
-        Screen.SetResolution(resolutions[selectedResolution].horizontal, resolutions[selectedResolution].vertical, fullscreenTog.isOn);
+        Screen.SetResolution(resolutions[selectedResolution].horizontal, resolutions[selectedResolution].vertical,
+            fullscreenTog.isOn);
+    }
+
+    #endregion
+
+    #region Slider Functions
+
+    public void SetMasterVolume()
+    {
+        AudioController.SetMasterVolume(volumeSlider.value);
     }
 
     #endregion

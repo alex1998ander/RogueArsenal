@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
-    [SerializeField] private float defaultLifetime = 0.5f;
     [SerializeField] private float defaultBulletSpeed = 10f;
     
     private Rigidbody2D _rb;
 
     private float _assignedDamage;
+    private float _assignedDistance;
     private GameObject _sourceCharacter;
 
     private bool _currentlyColliding = false;
@@ -19,12 +19,12 @@ public class EnemyBullet : MonoBehaviour
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
-        Destroy(gameObject, defaultLifetime);
     }
     
     private void Start()
     {
         _rb.velocity = transform.up * defaultBulletSpeed;
+        Destroy(gameObject, _assignedDistance * UpgradeManager.GetBulletRangeMultiplier() / defaultBulletSpeed);
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -53,9 +53,10 @@ public class EnemyBullet : MonoBehaviour
     /// </summary>
     /// <param name="assignedDamage">Amount of damage caused by this bullet.</param>
     /// <param name="sourceCharacter">Reference of the character who shot this bullet.</param>
-    public void Init(float assignedDamage, GameObject sourceCharacter)
+    public void Init(float assignedDamage, float assignedDistance, GameObject sourceCharacter)
     {
         _assignedDamage = assignedDamage;
+        _assignedDistance = assignedDistance;
         _sourceCharacter = sourceCharacter;
     }
 }

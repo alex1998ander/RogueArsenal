@@ -1,9 +1,10 @@
 using UnityEngine;
 
-public class Upgrade
+public abstract class Upgrade
 {
     public  virtual string Name { get; } = "";
     public virtual string Description { get; private set; } = "";
+    public virtual string HelpfulDescription { get; private set; } = "";
 
     public virtual float BulletRange { get; private set; } = 0f;
     public virtual float BulletSpeed { get; private set; } = 0f;
@@ -13,7 +14,7 @@ public class Upgrade
     public virtual float FireDelay { get; private set; } = 0f;
     public virtual float BlockDelay { get; private set; } = 0f;
     public virtual float Health { get; private set; } = 0f;
-    public virtual float MovementSpeed { get; private set; } = 0f;
+    public virtual float PlayerMovementSpeed { get; private set; } = 0f;
 
     /// <summary>
     /// Optional functionality for initialization
@@ -81,4 +82,13 @@ public class Upgrade
     public virtual void OnPlayerDeath(IUpgradeablePlayer upgradeablePlayer)
     {
     }
+}
+
+
+public class WeaponUpgrade : Upgrade
+{
+}
+
+public class AbilityUpgrade : Upgrade
+{
 }
