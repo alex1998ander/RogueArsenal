@@ -34,7 +34,7 @@ public class SpawnController : MonoBehaviour
             {
                 Instantiate(enemy[Random.Range(0, enemy.Length)],
                     transform.GetChild(i).GetChild(spawnPoint).transform.position,
-                    transform.GetChild(i).GetChild(spawnPoint).transform.rotation);
+                    Quaternion.identity);
             }
         }
     }
