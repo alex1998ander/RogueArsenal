@@ -212,12 +212,12 @@ public static class UpgradeManager
     }
 
     /// <summary>
-    /// Calculates the block delay multiplier of all upgrades.
+    /// Calculates the ability delay multiplier of all upgrades.
     /// </summary>
-    /// <returns>Common block delay multiplier</returns>
-    public static float GetBlockDelayMultiplier()
+    /// <returns>Common ability delay multiplier</returns>
+    public static float GetAbilityDelayMultiplier()
     {
-        return GetAttributeMultiplier(upgrade => upgrade.BlockDelay);
+        return GetAttributeMultiplier(upgrade => upgrade.AbilityDelay);
     }
 
     /// <summary>
@@ -290,19 +290,19 @@ public static class UpgradeManager
     }
 
     /// <summary>
-    /// Executes the functionalities of all assigned upgrades when the player blocks
+    /// Executes the functionalities of all assigned upgrades when the player uses their ability
     /// </summary>
     /// <param name="upgradeablePlayer">Player reference</param>
-    public static void OnBlock(IUpgradeablePlayer upgradeablePlayer)
+    public static void OnAbility(IUpgradeablePlayer upgradeablePlayer)
     {
         foreach (WeaponUpgrade upgrade in WeaponUpgrades)
         {
-            upgrade.OnBlock(upgradeablePlayer);
+            upgrade.OnAbility(upgradeablePlayer);
         }
 
         foreach (AbilityUpgrade upgrade in AbilityUpgrades)
         {
-            upgrade.OnBlock(upgradeablePlayer);
+            upgrade.OnAbility(upgradeablePlayer);
         }
     }
 

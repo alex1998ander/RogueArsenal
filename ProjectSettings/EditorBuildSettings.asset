@@ -32,10 +32,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Content/Scenes/Levels/lvl6.unity
     guid: 52fb7b9342e3d294ab2642dd97e57007
-  - enabled: 1
+  - enabled: 0
     path: Assets/Content/Scenes/Levels/lvlLarge1.unity
     guid: a19a790ca1c75484eb5a1b8d5e342718
-  - enabled: 1
+  - enabled: 0
     path: Assets/Content/Scenes/Levels/lvlLarge2.unity
     guid: bd3b51d956210b94eaefe3fe0756fff9
   - enabled: 1

@@ -99,9 +99,9 @@ public class UpgradeHealingField : WeaponUpgrade
 
     public override float Health => 0.3f;
 
-    public override void OnBlock(IUpgradeablePlayer upgradeablePlayer)
+    public override void OnAbility(IUpgradeablePlayer upgradeablePlayer)
     {
-        upgradeablePlayer.ExecuteHealingField_OnBlock();
+        upgradeablePlayer.ExecuteHealingField_OnAbility();
     }
 }
 
