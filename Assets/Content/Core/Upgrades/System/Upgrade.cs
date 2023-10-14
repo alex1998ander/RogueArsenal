@@ -2,7 +2,7 @@ using UnityEngine;
 
 public abstract class Upgrade
 {
-    public  virtual string Name { get; } = "";
+    public virtual string Name { get; } = "";
     public virtual string Description { get; private set; } = "";
     public virtual string HelpfulDescription { get; private set; } = "";
 
@@ -12,7 +12,9 @@ public abstract class Upgrade
     public virtual float BulletDamage { get; private set; } = 0f;
     public virtual float BulletSize { get; private set; } = 0f;
     public virtual float FireDelay { get; private set; } = 0f;
-    public virtual float BlockDelay { get; private set; } = 0f;
+    public virtual float MagazineSize { get; private set; } = 0f;
+    public virtual float ReloadTime { get; private set; } = 0f;
+    public virtual float AbilityDelay { get; private set; } = 0f;
     public virtual float Health { get; private set; } = 0f;
     public virtual float PlayerMovementSpeed { get; private set; } = 0f;
 
@@ -41,10 +43,10 @@ public abstract class Upgrade
     }
 
     /// <summary>
-    /// Optional functionality that is performed when the player blocks
+    /// Optional functionality that is performed when the player uses their ability
     /// </summary>
     /// <param name="upgradeablePlayer">Player reference</param>
-    public virtual void OnBlock(IUpgradeablePlayer upgradeablePlayer)
+    public virtual void OnAbility(IUpgradeablePlayer upgradeablePlayer)
     {
     }
 

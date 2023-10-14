@@ -16,7 +16,7 @@
                 },
                 {
                     "name": "Fire",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "b1043146-c86b-4b04-a17e-a0b3cc72f007",
                     "expectedControlType": "Button",
                     "processors": "",
@@ -24,7 +24,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Block",
+                    "name": "Ability",
                     "type": "Button",
                     "id": "f7c966bd-b2dc-4beb-932e-7403c5d282da",
                     "expectedControlType": "Button",
@@ -40,6 +40,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Reload",
+                    "type": "Button",
+                    "id": "61903c7c-e0cf-46d5-b00c-8867cca11cf5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -259,7 +268,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Block",
+                    "action": "Ability",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -270,7 +279,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Block",
+                    "action": "Ability",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9730845d-b700-45dd-9934-3234d99b361a",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Reload",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -15,12 +15,10 @@ public static class UpgradeManager
     public static readonly StatUpgrade PlayerMovementSpeedIncrease = new StatUpgrade("Movement Speed", 1f, 0.5f, 1);
     public static readonly StatUpgrade BulletKnockbackIncrease = new StatUpgrade("Bullet Knockback", 10, 1, 3);
 
-    //private static int _nextReplacementIndex;
-
     private static WeaponUpgrade[] _currentWeaponUpgradeSelection;
     private static AbilityUpgrade[] _currentAbilityUpgradeSelection;
 
-    private static readonly List<WeaponUpgrade> WeaponUpgradePool = new()
+    private static readonly List<WeaponUpgrade> DefaultWeaponUpgradePool = new()
     {
         new UpgradeHitman(),
         new UpgradeBuckshot(),
@@ -38,6 +36,16 @@ public static class UpgradeManager
         new UpgradeHealingField(), //TODO: Ability-Upgrade
         new UpgradePhoenix() //TODO: Ability-Upgrade
     };
+
+    private static readonly List<WeaponUpgrade> WeaponUpgradePool = new()
+    {
+    };
+
+    private static readonly List<AbilityUpgrade> DefaultAbilityUpgradePool = new()
+    {
+        //TODO: Ability-Upgrade
+    };
+
 
     private static readonly List<AbilityUpgrade> AbilityUpgradePool = new()
     {
@@ -114,10 +122,14 @@ public static class UpgradeManager
     /// <summary>
     /// Clears all applied upgrades
     /// </summary>
-    public static void ClearUpgrades()
+    public static void PrepareUpgrades()
     {
         WeaponUpgrades.Clear();
+        WeaponUpgradePool.Clear();
+        WeaponUpgradePool.AddRange(DefaultWeaponUpgradePool);
         AbilityUpgrades.Clear();
+        AbilityUpgradePool.Clear();
+        AbilityUpgradePool.AddRange(DefaultAbilityUpgradePool);
 
         MaxHealthIncrease.Reset();
         BulletDamageIncrease.Reset();
@@ -212,12 +224,31 @@ public static class UpgradeManager
     }
 
     /// <summary>
-    /// Calculates the block delay multiplier of all upgrades.
+    /// Calculates the magazine size multiplier of all upgrades.
     /// </summary>
-    /// <returns>Common block delay multiplier</returns>
-    public static float GetBlockDelayMultiplier()
+    /// <returns>Common magazine size multiplier</returns>
+    public static float GetMagazineSizeMultiplier()
     {
-        return GetAttributeMultiplier(upgrade => upgrade.BlockDelay);
+        return GetAttributeMultiplier(upgrade => upgrade.MagazineSize);
+    }
+
+    /// <summary>
+    /// Calculates the reload time multiplier of all upgrades.
+    /// </summary>
+    /// <returns>Common reload time multiplier</returns>
+    public static float GetReloadTimeMultiplier()
+    {
+        return GetAttributeMultiplier(upgrade => upgrade.ReloadTime);
+    }
+
+
+    /// <summary>
+    /// Calculates the ability delay multiplier of all upgrades.
+    /// </summary>
+    /// <returns>Common ability delay multiplier</returns>
+    public static float GetAbilityDelayMultiplier()
+    {
+        return GetAttributeMultiplier(upgrade => upgrade.AbilityDelay);
     }
 
     /// <summary>
@@ -290,19 +321,19 @@ public static class UpgradeManager
     }
 
     /// <summary>
-    /// Executes the functionalities of all assigned upgrades when the player blocks
+    /// Executes the functionalities of all assigned upgrades when the player uses their ability
     /// </summary>
     /// <param name="upgradeablePlayer">Player reference</param>
-    public static void OnBlock(IUpgradeablePlayer upgradeablePlayer)
+    public static void OnAbility(IUpgradeablePlayer upgradeablePlayer)
     {
         foreach (WeaponUpgrade upgrade in WeaponUpgrades)
         {
-            upgrade.OnBlock(upgradeablePlayer);
+            upgrade.OnAbility(upgradeablePlayer);
         }
 
         foreach (AbilityUpgrade upgrade in AbilityUpgrades)
         {
-            upgrade.OnBlock(upgradeablePlayer);
+            upgrade.OnAbility(upgradeablePlayer);
         }
     }
 
