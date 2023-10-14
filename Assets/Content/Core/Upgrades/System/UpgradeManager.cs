@@ -15,12 +15,10 @@ public static class UpgradeManager
     public static readonly StatUpgrade PlayerMovementSpeedIncrease = new StatUpgrade("Movement Speed", 1f, 0.5f, 1);
     public static readonly StatUpgrade BulletKnockbackIncrease = new StatUpgrade("Bullet Knockback", 10, 1, 3);
 
-    //private static int _nextReplacementIndex;
-
     private static WeaponUpgrade[] _currentWeaponUpgradeSelection;
     private static AbilityUpgrade[] _currentAbilityUpgradeSelection;
 
-    private static readonly List<WeaponUpgrade> WeaponUpgradePool = new()
+    private static readonly List<WeaponUpgrade> DefaultWeaponUpgradePool = new()
     {
         new UpgradeHitman(),
         new UpgradeBuckshot(),
@@ -38,6 +36,16 @@ public static class UpgradeManager
         new UpgradeHealingField(), //TODO: Ability-Upgrade
         new UpgradePhoenix() //TODO: Ability-Upgrade
     };
+
+    private static readonly List<WeaponUpgrade> WeaponUpgradePool = new()
+    {
+    };
+
+    private static readonly List<AbilityUpgrade> DefaultAbilityUpgradePool = new()
+    {
+        //TODO: Ability-Upgrade
+    };
+
 
     private static readonly List<AbilityUpgrade> AbilityUpgradePool = new()
     {
@@ -114,10 +122,14 @@ public static class UpgradeManager
     /// <summary>
     /// Clears all applied upgrades
     /// </summary>
-    public static void ClearUpgrades()
+    public static void PrepareUpgrades()
     {
         WeaponUpgrades.Clear();
+        WeaponUpgradePool.Clear();
+        WeaponUpgradePool.AddRange(DefaultWeaponUpgradePool);
         AbilityUpgrades.Clear();
+        AbilityUpgradePool.Clear();
+        AbilityUpgradePool.AddRange(DefaultAbilityUpgradePool);
 
         MaxHealthIncrease.Reset();
         BulletDamageIncrease.Reset();
