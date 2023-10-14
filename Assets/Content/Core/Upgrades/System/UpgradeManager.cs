@@ -18,7 +18,7 @@ public static class UpgradeManager
     private static WeaponUpgrade[] _currentWeaponUpgradeSelection;
     private static AbilityUpgrade[] _currentAbilityUpgradeSelection;
 
-    private static readonly List<WeaponUpgrade> DefaultWeaponUpgradePool = new()
+    public static readonly List<WeaponUpgrade> DefaultWeaponUpgradePool = new()
     {
         new UpgradeHitman(),
         new UpgradeBuckshot(),
@@ -40,7 +40,7 @@ public static class UpgradeManager
     private static readonly List<WeaponUpgrade> WeaponUpgradePool = new()
         { };
 
-    private static readonly List<AbilityUpgrade> DefaultAbilityUpgradePool = new()
+    public static readonly List<AbilityUpgrade> DefaultAbilityUpgradePool = new()
     {
         //TODO: Ability-Upgrade
     };
