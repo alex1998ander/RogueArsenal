@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour, ICharacterHealth
@@ -28,7 +25,12 @@ public class EnemyHealth : MonoBehaviour, ICharacterHealth
         if (_currentHealth <= 0)
         {
             EventManager.OnEnemyDeath.Trigger(gameObject);
-            Destroy(gameObject);
+            Destroy(gameObject.transform.root.gameObject);
         }
+    }
+
+    public Vector2 GetHealth()
+    {
+        return new Vector2(_currentHealth, maxHealth);
     }
 }

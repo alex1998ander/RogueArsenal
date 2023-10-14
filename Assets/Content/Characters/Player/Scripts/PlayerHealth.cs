@@ -3,7 +3,11 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour, ICharacterHealth
 {
-    private float _currentHealth;
+    [SerializeField] private float defaultContactDamageInvulnerabilityDelay = 1.0f;
+
+    private float _contactDamageInvulnerabilityEndTimestamp;
+
+    private float _currentHealth; //TODO: int basiert  machen
 
     /// <summary>
     /// Resets the player's health. The currently active upgrades are taken into account.
@@ -12,7 +16,7 @@ public class PlayerHealth : MonoBehaviour, ICharacterHealth
     {
         _currentHealth = PlayerController.GetMaxHealth();
     }
-    
+
 
     /// <summary>
     /// Decreases the player's health by the specified value and checks if the player dies. If so, affecting upgrades are performed and further actions are initiated.
@@ -37,9 +41,9 @@ public class PlayerHealth : MonoBehaviour, ICharacterHealth
                 // if player dies anyway
                 if (_currentHealth <= 0)
                 {
+                    gameObject.SetActive(false);
+
                     EventManager.OnPlayerDeath.Trigger();
-                    //Destroy(gameObject);
-                    PlayerDied();
                 }
             }
             else
@@ -49,10 +53,14 @@ public class PlayerHealth : MonoBehaviour, ICharacterHealth
         }
     }
 
-    void PlayerDied()
+    public void InflictContactDamage(float damageAmount)
     {
-        LevelManager.Instance.GameOver();
-        gameObject.SetActive(false);
+        if (Time.time > _contactDamageInvulnerabilityEndTimestamp)
+        {
+            _contactDamageInvulnerabilityEndTimestamp = Time.time + defaultContactDamageInvulnerabilityDelay;
+
+            InflictDamage(damageAmount, true);
+        }
     }
 
     /// <summary>
@@ -62,7 +70,6 @@ public class PlayerHealth : MonoBehaviour, ICharacterHealth
     public void Heal(float healingAmount)
     {
         _currentHealth = Mathf.Min(_currentHealth + healingAmount, PlayerController.GetMaxHealth());
-        
     }
 
     /// <summary>
