@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterController
 {
@@ -69,9 +68,11 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
             // This assignment has to be done before "UpgradeManager.OnFire()" so that the variable can be overwritten by this function if necessary
             _fireCooldownEndTimestamp = Time.time + defaultFireDelay * UpgradeManager.GetFireDelayMultiplier();
 
-            playerWeapon.Fire();
-            UpgradeManager.OnFire(this);
-            EventManager.OnPlayerShotFired.Trigger();
+            if (playerWeapon.TryFire())
+            {
+                UpgradeManager.OnFire(this);
+                EventManager.OnPlayerShotFired.Trigger();
+            }
         }
     }
 
@@ -146,6 +147,11 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
         }
     }
 
+    private void OnReload()
+    {
+        playerWeapon.Reload();
+    }
+
     #endregion
 
     #region Upgrade implementation
@@ -159,9 +165,9 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
     private IEnumerator BurstCoroutine()
     {
         yield return new WaitForSeconds(burstDelayInSec);
-        playerWeapon.Fire();
+        playerWeapon.TryFire();
         yield return new WaitForSeconds(burstDelayInSec);
-        playerWeapon.Fire();
+        playerWeapon.TryFire();
     }
 
 

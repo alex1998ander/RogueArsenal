@@ -212,6 +212,25 @@ public static class UpgradeManager
     }
 
     /// <summary>
+    /// Calculates the magazine size multiplier of all upgrades.
+    /// </summary>
+    /// <returns>Common magazine size multiplier</returns>
+    public static float GetMagazineSizeMultiplier()
+    {
+        return GetAttributeMultiplier(upgrade => upgrade.MagazineSize);
+    }
+
+    /// <summary>
+    /// Calculates the reload time multiplier of all upgrades.
+    /// </summary>
+    /// <returns>Common reload time multiplier</returns>
+    public static float GetReloadTimeMultiplier()
+    {
+        return GetAttributeMultiplier(upgrade => upgrade.ReloadTime);
+    }
+
+
+    /// <summary>
     /// Calculates the ability delay multiplier of all upgrades.
     /// </summary>
     /// <returns>Common ability delay multiplier</returns>
