@@ -130,8 +130,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a185fc88879e1824999cabb99e933eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dashSpeed: 15
+  dashTime: 0.2
+  dashDelay: 0.6
   defaultFireDelay: 0.2
-  defaultBlockDelay: 5
+  defaultAbilityDelay: 5
   playerWeapon: {fileID: 3840289594856838949}
   playerSpriteTransform: {fileID: 8508274975885802773}
   burstDelayInSec: 0.1

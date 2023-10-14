@@ -6,8 +6,8 @@ public class PlayerHealth : MonoBehaviour, ICharacterHealth
     [SerializeField] private float defaultContactDamageInvulnerabilityDelay = 1.0f;
 
     private float _contactDamageInvulnerabilityEndTimestamp;
-
     private float _currentHealth; //TODO: int basiert  machen
+    private bool _invulnerable;
 
     /// <summary>
     /// Resets the player's health. The currently active upgrades are taken into account.
@@ -25,6 +25,9 @@ public class PlayerHealth : MonoBehaviour, ICharacterHealth
     /// <param name="fatal">Indicates whether the player can die from this damage. If the damage is greater than the current HP and the damage is not fatal, the player keeps 1 HP.</param>
     public void InflictDamage(float damageAmount, bool fatal)
     {
+        if (_invulnerable)
+            return;
+        
         _currentHealth -= damageAmount;
 
         EventManager.OnPlayerDamage.Trigger(damageAmount);
@@ -55,7 +58,7 @@ public class PlayerHealth : MonoBehaviour, ICharacterHealth
 
     public void InflictContactDamage(float damageAmount)
     {
-        if (Time.time > _contactDamageInvulnerabilityEndTimestamp)
+        if (!_invulnerable && Time.time > _contactDamageInvulnerabilityEndTimestamp)
         {
             _contactDamageInvulnerabilityEndTimestamp = Time.time + defaultContactDamageInvulnerabilityDelay;
 
@@ -79,5 +82,10 @@ public class PlayerHealth : MonoBehaviour, ICharacterHealth
     public Vector2 GetHealth()
     {
         return new Vector2(_currentHealth, PlayerController.GetMaxHealth());
+    }
+
+    public void SetInvulnerable(bool invulnerable)
+    {
+        _invulnerable = invulnerable;
     }
 }

@@ -12,6 +12,9 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
     private static float _maxHealth = 100f;
     private static float _defaultDamage = 30f;
     private static float _moveSpeed = 5f;
+    [SerializeField] private float dashSpeed = 15f;
+    [SerializeField] private float dashTime = 0.2f;
+    [SerializeField] private float dashDelay = 0.4f;
     [SerializeField] private float defaultFireDelay = 0.4f;
     [SerializeField] private float defaultAbilityDelay = 5.0f;
     [SerializeField] private PlayerWeapon playerWeapon;
@@ -19,12 +22,16 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
     [SerializeField] private Transform playerSpriteTransform;
 
     private Vector2 _movementInput;
+    private Vector2 _dashMovementDirection;
     private Vector3 _aimDirection;
     private float _angle;
     private bool _isFiring;
+    private bool _isDashing;
 
     private float _fireCooldownEndTimestamp;
     private float _abilityCooldownEndTimestamp;
+    private float _dashEndTimestamp;
+    private float _dashDelayEndTimestamp;
 
     // Upgrade: Burst
     [Header("Upgrade: Burst")] [SerializeField]
@@ -54,16 +61,39 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
 
     void FixedUpdate()
     {
-        _rigidbody.MovePosition(_rigidbody.position +
-                                _movementInput * (GetPlayerMovementSpeed() * Time.fixedDeltaTime));
         UpgradeManager.PlayerUpdate(this);
-
+        MovePlayer();
         FireWeapon();
+    }
+
+    private void MovePlayer()
+    {
+        float moveSpeed;
+        Vector2 movementDirection;
+        if (_isDashing)
+        {
+            moveSpeed = dashSpeed;
+            movementDirection = _dashMovementDirection;
+
+            if (Time.time > _dashEndTimestamp)
+            {
+                _isDashing = false;
+                _playerHealth.SetInvulnerable(false);
+                _dashDelayEndTimestamp = Time.time + dashDelay;
+            }
+        }
+        else
+        {
+            moveSpeed = GetPlayerMovementSpeed();
+            movementDirection = _movementInput;
+        }
+
+        _rigidbody.MovePosition(_rigidbody.position + movementDirection * (moveSpeed * Time.fixedDeltaTime));
     }
 
     private void FireWeapon()
     {
-        if (_isFiring && !GameManager.GamePaused && Time.time > _fireCooldownEndTimestamp)
+        if (!_isDashing && _isFiring && !GameManager.GamePaused && Time.time > _fireCooldownEndTimestamp)
         {
             // This assignment has to be done before "UpgradeManager.OnFire()" so that the variable can be overwritten by this function if necessary
             _fireCooldownEndTimestamp = Time.time + defaultFireDelay * UpgradeManager.GetFireDelayMultiplier();
@@ -150,6 +180,17 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
     private void OnReload()
     {
         playerWeapon.Reload();
+    }
+
+    private void OnDash()
+    {
+        if (!_isDashing && Time.time > _dashDelayEndTimestamp)
+        {
+            _isDashing = true;
+            _dashEndTimestamp = Time.time + dashTime;
+            _playerHealth.SetInvulnerable(true);
+            _dashMovementDirection = _movementInput;
+        }
     }
 
     #endregion
