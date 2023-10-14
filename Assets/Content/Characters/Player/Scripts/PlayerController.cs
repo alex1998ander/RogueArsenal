@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
     private static float _moveSpeed = 5f;
     [SerializeField] private float dashSpeed = 15f;
     [SerializeField] private float dashTime = 0.2f;
+    [SerializeField] private float dashDelay = 0.4f;
     [SerializeField] private float defaultFireDelay = 0.4f;
     [SerializeField] private float defaultAbilityDelay = 5.0f;
     [SerializeField] private PlayerWeapon playerWeapon;
@@ -30,6 +31,7 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
     private float _fireCooldownEndTimestamp;
     private float _abilityCooldownEndTimestamp;
     private float _dashEndTimestamp;
+    private float _dashDelayEndTimestamp;
 
     // Upgrade: Burst
     [Header("Upgrade: Burst")] [SerializeField]
@@ -77,6 +79,7 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
             {
                 _isDashing = false;
                 _playerHealth.SetInvulnerable(false);
+                _dashDelayEndTimestamp = Time.time + dashDelay;
             }
         }
         else
@@ -90,7 +93,7 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
 
     private void FireWeapon()
     {
-        if (_isFiring && !GameManager.GamePaused && Time.time > _fireCooldownEndTimestamp)
+        if (!_isDashing && _isFiring && !GameManager.GamePaused && Time.time > _fireCooldownEndTimestamp)
         {
             // This assignment has to be done before "UpgradeManager.OnFire()" so that the variable can be overwritten by this function if necessary
             _fireCooldownEndTimestamp = Time.time + defaultFireDelay * UpgradeManager.GetFireDelayMultiplier();
@@ -181,7 +184,7 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
 
     private void OnDash()
     {
-        if (!_isDashing)
+        if (!_isDashing && Time.time > _dashDelayEndTimestamp)
         {
             _isDashing = true;
             _dashEndTimestamp = Time.time + dashTime;
