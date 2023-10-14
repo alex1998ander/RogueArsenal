@@ -38,8 +38,7 @@ public static class UpgradeManager
     };
 
     private static readonly List<WeaponUpgrade> WeaponUpgradePool = new()
-    {
-    };
+        { };
 
     private static readonly List<AbilityUpgrade> DefaultAbilityUpgradePool = new()
     {
@@ -268,6 +267,32 @@ public static class UpgradeManager
     {
         return GetAttributeMultiplier(upgrade => upgrade.PlayerMovementSpeed);
     }
+
+    /// <summary>
+    /// Checks if an upgrade prevents dashing.
+    /// </summary>
+    /// <returns>Bool, whether dashing is prevented</returns>
+    public static bool IsDashPrevented()
+    {
+        foreach (WeaponUpgrade upgrade in WeaponUpgrades)
+        {
+            if (upgrade.PreventDash)
+            {
+                return true;
+            }
+        }
+
+        foreach (AbilityUpgrade upgrade in AbilityUpgrades)
+        {
+            if (upgrade.PreventDash)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
 
     /// <summary>
     /// Executes the player initialization functions of all assigned upgrades
