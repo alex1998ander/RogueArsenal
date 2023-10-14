@@ -17,54 +17,43 @@ public abstract class Upgrade
     public virtual float AbilityDelay { get; private set; } = 0f;
     public virtual float Health { get; private set; } = 0f;
     public virtual float PlayerMovementSpeed { get; private set; } = 0f;
+    public virtual bool PreventDash { get; private set; } = false;
 
     /// <summary>
     /// Optional functionality for initialization
     /// </summary>
     /// <param name="upgradeablePlayer">Player reference</param>
-    public virtual void Init(IUpgradeablePlayer upgradeablePlayer)
-    {
-    }
+    public virtual void Init(IUpgradeablePlayer upgradeablePlayer) { }
 
     /// <summary>
     /// Optional functionality for initialization
     /// </summary>
     /// <param name="upgradeableBullet">Bullet reference</param>
-    public virtual void Init(IUpgradeableBullet upgradeableBullet)
-    {
-    }
+    public virtual void Init(IUpgradeableBullet upgradeableBullet) { }
 
     /// <summary>
     /// Optional functionality that is performed when the player fires
     /// </summary>
     /// <param name="upgradeablePlayer">Player reference</param>
-    public virtual void OnFire(IUpgradeablePlayer upgradeablePlayer)
-    {
-    }
+    public virtual void OnFire(IUpgradeablePlayer upgradeablePlayer) { }
 
     /// <summary>
     /// Optional functionality that is performed when the player uses their ability
     /// </summary>
     /// <param name="upgradeablePlayer">Player reference</param>
-    public virtual void OnAbility(IUpgradeablePlayer upgradeablePlayer)
-    {
-    }
+    public virtual void OnAbility(IUpgradeablePlayer upgradeablePlayer) { }
 
     /// <summary>
     /// Optional functionality that is executed every frame while the bullet is flying
     /// </summary>
     /// <param name="upgradeableBullet">Bullet reference</param>
-    public virtual void BulletUpdate(IUpgradeableBullet upgradeableBullet)
-    {
-    }
+    public virtual void BulletUpdate(IUpgradeableBullet upgradeableBullet) { }
 
     /// <summary>
     /// Optional functionality that is executed for the player every frame 
     /// </summary>
     /// <param name="upgradeablePlayer">Player reference</param>
-    public virtual void PlayerUpdate(IUpgradeablePlayer upgradeablePlayer)
-    {
-    }
+    public virtual void PlayerUpdate(IUpgradeablePlayer upgradeablePlayer) { }
 
     /// <summary>
     /// Optional functionality that is executed when the bullet hits something
@@ -81,16 +70,10 @@ public abstract class Upgrade
     /// Optional functionality that is executed when the player dies
     /// </summary>
     /// <param name="upgradeablePlayer">Player reference</param>
-    public virtual void OnPlayerDeath(IUpgradeablePlayer upgradeablePlayer)
-    {
-    }
+    public virtual void OnPlayerDeath(IUpgradeablePlayer upgradeablePlayer) { }
 }
 
 
-public class WeaponUpgrade : Upgrade
-{
-}
+public class WeaponUpgrade : Upgrade { }
 
-public class AbilityUpgrade : Upgrade
-{
-}
+public class AbilityUpgrade : Upgrade { }
