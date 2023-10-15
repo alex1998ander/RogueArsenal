@@ -18,7 +18,7 @@ public static class UpgradeManager
     private static WeaponUpgrade[] _currentWeaponUpgradeSelection;
     private static AbilityUpgrade[] _currentAbilityUpgradeSelection;
 
-    private static readonly List<WeaponUpgrade> DefaultWeaponUpgradePool = new()
+    public static readonly List<WeaponUpgrade> DefaultWeaponUpgradePool = new()
     {
         new UpgradeHitman(),
         new UpgradeBuckshot(),
@@ -40,7 +40,7 @@ public static class UpgradeManager
     private static readonly List<WeaponUpgrade> WeaponUpgradePool = new()
         { };
 
-    private static readonly List<AbilityUpgrade> DefaultAbilityUpgradePool = new()
+    public static readonly List<AbilityUpgrade> DefaultAbilityUpgradePool = new()
     {
         //TODO: Ability-Upgrade
     };
@@ -65,6 +65,19 @@ public static class UpgradeManager
         _currentAbilityUpgradeSelection = AbilityUpgradePool.OrderBy(x => rnd.Next()).Take(count).ToArray();
 
         return _currentAbilityUpgradeSelection;
+    }
+
+    /// <summary>
+    /// Binds an upgrade from the default weapon upgrade pool to the upgrade inventory to the upgrade slot of the current oldest upgrade.
+    /// ONLY USE IN SANDBOX!
+    /// </summary>
+    /// <param name="weaponIndex">Index of the new upgrade in the default weapon upgrade pool</param>
+    public static void BindWeaponUpgrade_Sandbox(int weaponIndex)
+    {
+        WeaponUpgrade newUpgrade = DefaultWeaponUpgradePool[weaponIndex];
+
+        // Replace upgrade
+        WeaponUpgrades.Add(newUpgrade);
     }
 
     /// <summary>
