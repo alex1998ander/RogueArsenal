@@ -17,18 +17,10 @@ public class SandboxTargetUpgradeSelectorEditor : Editor
         // Create the dropdown menu
         string[] options = weaponUpgrades.Select(upgrade => upgrade.Name).ToArray();
 
-        // Assign the selected WeaponUpgrade instance to your script
-        SandboxTargetUpgradeSelector yourScript = (SandboxTargetUpgradeSelector) target;
-
         // Use serializedObject to store the selectedIndex
         serializedObject.Update();
         SerializedProperty selectedIndexProperty = serializedObject.FindProperty("selectedIndex");
         selectedIndexProperty.intValue = EditorGUILayout.Popup("Weapon Upgrade", selectedIndexProperty.intValue, options);
         serializedObject.ApplyModifiedProperties();
-
-        Upgrade selectedUpgrade = weaponUpgrades[selectedIndexProperty.intValue];
-
-        // Assign the selected WeaponUpgrade instance to your script
-        yourScript.weaponUpgrade = selectedUpgrade;
     }
 }

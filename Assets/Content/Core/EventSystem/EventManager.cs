@@ -23,6 +23,11 @@ public static class EventManager
     /// </summary>
     public static readonly Event OnPlayerShotFired = new();
 
+    /// <summary>
+    /// The player collected currency.
+    /// </summary>
+    public static readonly Event OnPlayerCollectCurrency = new();
+
     #endregion
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
