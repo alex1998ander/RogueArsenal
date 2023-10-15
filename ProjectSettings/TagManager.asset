@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - SpawnPoint
   - ExitPoints
+  - PlayerBullet
   layers:
   - Default
   - TransparentFX

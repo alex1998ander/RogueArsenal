@@ -68,6 +68,19 @@ public static class UpgradeManager
     }
 
     /// <summary>
+    /// Binds an upgrade from the default weapon upgrade pool to the upgrade inventory to the upgrade slot of the current oldest upgrade.
+    /// ONLY USE IN SANDBOX!
+    /// </summary>
+    /// <param name="weaponIndex">Index of the new upgrade in the default weapon upgrade pool</param>
+    public static void BindWeaponUpgrade_Sandbox(int weaponIndex)
+    {
+        WeaponUpgrade newUpgrade = DefaultWeaponUpgradePool[weaponIndex];
+
+        // Replace upgrade
+        WeaponUpgrades.Add(newUpgrade);
+    }
+
+    /// <summary>
     /// Binds an upgrade from the current upgrade selection to the upgrade inventory to the upgrade slot of the current oldest upgrade.
     /// </summary>
     /// <param name="selectionIdx">Index of the new upgrade in the upgrade selection</param>
