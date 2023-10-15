@@ -12,11 +12,11 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
     private static float _maxHealth = 100f;
     private static float _defaultDamage = 30f;
     private static float _moveSpeed = 5f;
-    [SerializeField] private float dashSpeed = 15f;
-    [SerializeField] private float dashTime = 0.2f;
-    [SerializeField] private float dashDelay = 0.4f;
-    [SerializeField] private float defaultFireDelay = 0.4f;
-    [SerializeField] private float defaultAbilityDelay = 5.0f;
+    private float dashSpeed = 15f;
+    private float dashTime = 0.2f;
+    private float dashDelay = 0.1f;
+    private float defaultFireDelay = 0.2f;
+    private float defaultAbilityDelay = 5.0f;
     [SerializeField] private PlayerWeapon playerWeapon;
 
     [SerializeField] private Transform playerSpriteTransform;

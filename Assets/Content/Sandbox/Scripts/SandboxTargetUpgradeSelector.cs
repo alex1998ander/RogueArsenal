@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SandboxTargetUpgradeSelector : MonoBehaviour
 {
-    public WeaponUpgrade weaponUpgrade;
+    public Upgrade weaponUpgrade;
     [HideInInspector] [SerializeField] public int selectedIndex;
 
     [SerializeField] private TMP_Text upgradeText;
@@ -13,7 +13,7 @@ public class SandboxTargetUpgradeSelector : MonoBehaviour
 
     private void Start()
     {
-        upgradeText.text = UpgradeManager.DefaultWeaponUpgradePool[selectedIndex].Name;
+        upgradeText.text = UpgradeManager.DefaultUpgradePool[selectedIndex].Name;
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -21,8 +21,8 @@ public class SandboxTargetUpgradeSelector : MonoBehaviour
         if (!_upgradeSelected && other.gameObject.CompareTag("PlayerBullet"))
         {
             _upgradeSelected = true;
-            Debug.Log("Upgrade added: " + UpgradeManager.DefaultWeaponUpgradePool[selectedIndex].Name);
-            UpgradeManager.BindWeaponUpgrade_Sandbox(selectedIndex);
+            Debug.Log("Upgrade added: " + UpgradeManager.DefaultUpgradePool[selectedIndex].Name);
+            UpgradeManager.BindUpgrade_Sandbox(selectedIndex);
             Collider2D collider2D = GetComponent<Collider2D>();
             collider2D.enabled = false;
             Destroy(gameObject);

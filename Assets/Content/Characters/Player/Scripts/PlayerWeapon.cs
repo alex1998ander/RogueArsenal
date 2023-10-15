@@ -6,7 +6,7 @@ public class PlayerWeapon : MonoBehaviour
     [SerializeField] private Transform firePoint;
 
     private const int DefaultBulletCount = 1;
-    private const float DefaultBulletSpreadAngle = 2f;
+    private const float DefaultBulletSprayAngle = 5f;
     private const int DefaultMagazineSize = 10;
     private const float DefaultReloadTime = 1f;
 
@@ -19,11 +19,12 @@ public class PlayerWeapon : MonoBehaviour
         if (_currentAmmo <= 0 || (_reloading && !CheckReloaded()))
             return false;
 
+        float angle = DefaultBulletSprayAngle * 0.5f * UpgradeManager.GetWeaponSprayMultiplier();
         int bulletCount = DefaultBulletCount + UpgradeManager.GetBulletCountAdjustment();
         for (int i = 0; i < bulletCount; i++)
         {
             GameObject bullet = Instantiate(playerBulletPrefab, firePoint.position,
-                firePoint.rotation * Quaternion.Euler(0, 0, (i - (bulletCount - 1) / 2.0f) * DefaultBulletSpreadAngle));
+                firePoint.rotation * Quaternion.Euler(0, 0, UnityEngine.Random.Range(-angle, angle)));
             bullet.GetComponent<PlayerBullet>().Init(PlayerController.GetBulletDamage(), transform.parent.gameObject);
             bullet.transform.localScale *= UpgradeManager.GetBulletSizeMultiplier();
         }
