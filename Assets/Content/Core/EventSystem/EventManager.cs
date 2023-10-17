@@ -35,12 +35,12 @@ public static class EventManager
     #region Enemy Events
 
     /// <summary>
-    /// A Enemy takes damage. The amount of damage is passed as a parameter.
+    /// An Enemy takes damage. The amount of damage is passed as a parameter.
     /// </summary>
     public static readonly Event<float> OnEnemyDamage = new();
 
     /// <summary>
-    /// The player dies.
+    /// An enemy dies.
     /// </summary>
     public static readonly Event<GameObject> OnEnemyDeath = new();
     

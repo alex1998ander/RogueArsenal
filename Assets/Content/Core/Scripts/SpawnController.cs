@@ -1,45 +1,65 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class SpawnController : MonoBehaviour
 {
-    [SerializeField] public GameObject allSpawns = null;
-    [SerializeField] public GameObject[] enemy;
+    [SerializeField] private GameObject allSpawns = null;
+    [SerializeField] private GameObject[] enemyPrefabs;
 
-    private const int SpawnCount = 3;
+    private const float EnemySpawnFillrateIncreasePerDifficultyLevelInPercent = 0.03f;
+    private const float BaseEnemySpawnFillrateInPercent = 0.5f;
+
+    // private const int SpawnCount = 3;
 
     void Start()
     {
-        RandomSpawns();
+        SpawnEnemies();
     }
 
     /// <summary>
     /// Sets enemies at random positions in the different rooms
     /// </summary>
-    void RandomSpawns()
+    void SpawnEnemies()
     {
+        // Calculate how many percent of the available spawn points are used to spawn enemies depending on the current difficulty level (Cap at 100 percent)
+        float spawnFillrate = Mathf.Min(1f, BaseEnemySpawnFillrateInPercent + EnemySpawnFillrateIncreasePerDifficultyLevelInPercent * ProgressionManager.DifficultyLevel);
+
+        // First count the number of spawn points
+        int totalSpawnpoints = 0;
         for (int i = 0; i < transform.childCount; i++)
         {
-            if (transform.GetChild(i).childCount <= 0) continue;
-
-            HashSet<int> spawnPointsRoom = new HashSet<int>();
-            for (int j = 0; j < SpawnCount; j++)
+            Transform roomTransform = transform.GetChild(i);
+            for (int j = 0; j < roomTransform.childCount; j++)
             {
-                int rndmSpwn = Random.Range(0, transform.GetChild(i).childCount - 1);
-                spawnPointsRoom.Add(rndmSpwn);
+                totalSpawnpoints++;
+            }
+        }
+
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            Transform roomTransform = transform.GetChild(i);
+
+            // Calculate how many enemies should be spawned (Can't exceed the number of spawn points)
+            int spawnCount = Mathf.RoundToInt(roomTransform.childCount * spawnFillrate);
+
+            // Get all spawn points
+            List<Transform> allSpawnpointTransforms = new List<Transform>();
+            foreach (Transform spawnpointTransform in roomTransform)
+            {
+                allSpawnpointTransforms.Add(spawnpointTransform);
             }
 
-            foreach (int spawnPoint in spawnPointsRoom)
+            List<Transform> randomSpawnpointTransforms = allSpawnpointTransforms.OrderBy(x => Random.Range(0, int.MaxValue)).Take(spawnCount).ToList();
+
+            foreach (Transform spawnPointTransform in randomSpawnpointTransforms)
             {
-                Instantiate(enemy[Random.Range(0, enemy.Length)],
-                    transform.GetChild(i).GetChild(spawnPoint).transform.position,
-                    Quaternion.identity);
+                Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], spawnPointTransform.position, Quaternion.identity);
             }
         }
     }
 
-    public static bool StillEnemiesLeft()
+    public static bool CheckEnemiesAlive()
     {
         return GameObject.FindGameObjectsWithTag("Enemy").Length > 0;
     }

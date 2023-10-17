@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -7,10 +6,16 @@ public class CurrencyController : MonoBehaviour
     private const float DropForce = 15f;
     private const float InitialMoveForce = 80f;
     private const float MoveForceGain = 4f;
-    private float _moveForce = InitialMoveForce;
+    private const float StableLifetimeInSeconds = 1.5f;
+    private const float CriticalLifetimeInSeconds = 1f;
+
     private Rigidbody2D _rb;
     private Transform _playerTransform;
-    private bool _playerFound;
+
+    private float _moveForce = InitialMoveForce;
+    private float _lifetimeEndTimestamp;
+    private bool _collected;
+    private bool _critical;
 
     void Awake()
     {
@@ -23,16 +28,33 @@ public class CurrencyController : MonoBehaviour
         _rb.velocity = randomDir;
 
         _playerTransform = GameObject.FindWithTag("Player").transform;
+
+        _lifetimeEndTimestamp = Time.time + StableLifetimeInSeconds;
     }
 
     private void FixedUpdate()
     {
-        if (_playerFound)
+        if (_collected)
         {
             Vector2 playerPosition = _playerTransform.position;
             Vector2 toPlayerDirection = (playerPosition - _rb.position).normalized;
             _rb.AddForce(toPlayerDirection * _moveForce, ForceMode2D.Force);
             _moveForce += MoveForceGain;
+        }
+        else if (Time.time > _lifetimeEndTimestamp)
+        {
+            if (_critical)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                _critical = true;
+                _lifetimeEndTimestamp = Time.time + CriticalLifetimeInSeconds;
+
+                // TODO: Temporary sprite recoloring, replace with "About to despawn" animation
+                GetComponentInChildren<SpriteRenderer>().color = Color.red;
+            }
         }
     }
 
@@ -40,8 +62,7 @@ public class CurrencyController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Trigger Enter");
-            _playerFound = true;
+            _collected = true;
         }
     }
 
@@ -49,7 +70,7 @@ public class CurrencyController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Collider Enter");
+            ProgressionManager.CollectCurrency();
             EventManager.OnPlayerCollectCurrency.Trigger();
             Destroy(gameObject);
         }
