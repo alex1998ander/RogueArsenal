@@ -16,7 +16,7 @@ TagManager:
   - Water
   - UI
   - Player
-  - 
+  - Currency
   - Walls
   - Enemies
   - PlayerBullets
@@ -59,6 +59,9 @@ TagManager:
     locked: 0
   - name: HealingField
     uniqueID: 2143196721
+    locked: 0
+  - name: Currency
+    uniqueID: 2457320059
     locked: 0
   - name: Enemies
     uniqueID: 1617481309

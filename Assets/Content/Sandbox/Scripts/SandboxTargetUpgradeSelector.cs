@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SandboxTargetUpgradeSelector : MonoBehaviour
 {
-    public Upgrade weaponUpgrade;
     [HideInInspector] [SerializeField] public int selectedIndex;
 
     [SerializeField] private TMP_Text upgradeText;

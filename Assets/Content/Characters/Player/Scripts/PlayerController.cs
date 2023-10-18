@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
     private float dashDelay = 0.1f;
     private float defaultFireDelay = 0.2f;
     private float defaultAbilityDelay = 5.0f;
+    
     [SerializeField] private PlayerWeapon playerWeapon;
 
     [SerializeField] private Transform playerSpriteTransform;
