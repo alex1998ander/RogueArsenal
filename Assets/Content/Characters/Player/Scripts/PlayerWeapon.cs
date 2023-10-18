@@ -14,9 +14,9 @@ public class PlayerWeapon : MonoBehaviour
     private bool _reloading;
     private float _weaponReloadedTimeStamp;
 
-    public bool TryFire()
+    public bool TryFire(bool spendAmmo)
     {
-        if (_currentAmmo <= 0 || (_reloading && !CheckReloaded()))
+        if (spendAmmo && _currentAmmo <= 0 || (_reloading && !CheckReloaded()))
             return false;
 
         float angle = DefaultBulletSprayAngle * 0.5f * UpgradeManager.GetWeaponSprayMultiplier();
@@ -24,12 +24,13 @@ public class PlayerWeapon : MonoBehaviour
         for (int i = 0; i < bulletCount; i++)
         {
             GameObject bullet = Instantiate(playerBulletPrefab, firePoint.position,
-                firePoint.rotation * Quaternion.Euler(0, 0, UnityEngine.Random.Range(-angle, angle)));
+                firePoint.rotation * Quaternion.Euler(0, 0, Random.Range(-angle, angle)));
             bullet.GetComponent<PlayerBullet>().Init(PlayerController.GetBulletDamage(), transform.parent.gameObject);
             bullet.transform.localScale *= UpgradeManager.GetBulletSizeMultiplier();
         }
 
-        _currentAmmo--;
+        if (spendAmmo)
+            _currentAmmo--;
 
         return true;
     }

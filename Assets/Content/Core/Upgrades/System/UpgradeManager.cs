@@ -41,7 +41,6 @@ public static class UpgradeManager
 
     private static readonly List<Upgrade> UpgradePool = new();
 
-
     public static Upgrade[] GenerateNewRandomUpgradeSelection(int count)
     {
         System.Random rnd = new System.Random();
@@ -259,6 +258,7 @@ public static class UpgradeManager
                 return true;
             }
         }
+
         return false;
     }
 
