@@ -4,8 +4,8 @@ using Random = UnityEngine.Random;
 public class CurrencyController : MonoBehaviour
 {
     private const float DropForce = 15f;
-    private const float InitialMoveForce = 80f;
-    private const float MoveForceGain = 4f;
+    private const float InitialMoveForce = 0.8f;
+    private const float MoveForceGain = 0.04f;
     private const float StableLifetimeInSeconds = 1.5f;
     private const float CriticalLifetimeInSeconds = 1f;
 

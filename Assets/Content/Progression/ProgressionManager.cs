@@ -7,7 +7,7 @@ public static class ProgressionManager
     public static bool UpgradeReady { private set; get; }
 
     private static int _upgradePrice = 100;
-    private const float UpgradePrinceIncreaseInPercent = 0.2f;
+    private const float NextUpgradePrinceInPercent = 1.05f;
 
     public static void CollectCurrency()
     {
@@ -20,7 +20,14 @@ public static class ProgressionManager
 
     public static void SetupNextUpgrade()
     {
-        _upgradePrice += Mathf.RoundToInt(_upgradePrice * UpgradePrinceIncreaseInPercent);
+        CollectedCurrency -= _upgradePrice;
+        _upgradePrice = Mathf.RoundToInt(_upgradePrice * NextUpgradePrinceInPercent);
+        Debug.Log("Next Upgrade Price: " + _upgradePrice);
         UpgradeReady = false;
+    }
+
+    public static void IncreaseDifficultyLevel()
+    {
+        DifficultyLevel++;
     }
 }

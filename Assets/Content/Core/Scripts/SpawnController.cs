@@ -7,7 +7,7 @@ public class SpawnController : MonoBehaviour
     [SerializeField] private GameObject allSpawns = null;
     [SerializeField] private GameObject[] enemyPrefabs;
 
-    private const float EnemySpawnFillrateIncreasePerDifficultyLevelInPercent = 0.03f;
+    private const float EnemySpawnFillrateIncreasePerDifficultyLevelInPercent = 0.035f;
     private const float BaseEnemySpawnFillrateInPercent = 0.5f;
 
     // private const int SpawnCount = 3;

@@ -1,9 +1,6 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using System;
 using System.Collections.Generic;
-using Cinemachine;
 
 public class UpgradeSelection : MonoBehaviour
 {
@@ -30,7 +27,7 @@ public class UpgradeSelection : MonoBehaviour
     /// </summary>
     private void SetupUpgradeInfo()
     {
-        if (LevelManager.levelCounter % upgradeLevelCounter == 0)
+        if (ProgressionManager.UpgradeReady)
         {
             Upgrade[] listOfWeaponUpgrades = UpgradeManager.GenerateNewRandomUpgradeSelection(3);
 
@@ -38,7 +35,7 @@ public class UpgradeSelection : MonoBehaviour
             for (int counter = 0; counter < upgradeDescription.Length; counter++)
             {
                 upgradeDescription[counter].text =
-                    "<size=24>" + listOfWeaponUpgrades[counter].Name + "</size>"  + "<br>" +
+                    "<size=24>" + listOfWeaponUpgrades[counter].Name + "</size>" + "<br>" +
                     "<br>" + "<size=12>" + listOfWeaponUpgrades[counter].HelpfulDescription + "</size>";
             }
         }
@@ -46,7 +43,7 @@ public class UpgradeSelection : MonoBehaviour
         {
             for (int counter = 0; counter < upgradeDescription.Length; counter++)
             {
-                upgradeDescription[counter].text = "<size=24>" + _listOfStatUpgrades[counter].Name + "</size>" + "<br>";
+                upgradeDescription[counter].text = "<size=24>SHOULD NOT SEE THIS</size>" + "<br>";
             }
         }
     }
@@ -58,15 +55,15 @@ public class UpgradeSelection : MonoBehaviour
     /// </summary>
     public void OnCardButtonPressed(int cardIdx)
     {
-        if (LevelManager.levelCounter % upgradeLevelCounter == 0)
+        if (ProgressionManager.UpgradeReady)
         {
             UpgradeManager.BindUpgrade(cardIdx);
+            ProgressionManager.SetupNextUpgrade();
             Debug.Log("Weapon Upgrade");
         }
         else
         {
-            _listOfStatUpgrades[cardIdx].Upgrade();
-            Debug.Log("Upgraded Stat");
+            Debug.Log("SHOULD NOT SEE THIS");
         }
 
         LevelManager.LoadNextLevel();
