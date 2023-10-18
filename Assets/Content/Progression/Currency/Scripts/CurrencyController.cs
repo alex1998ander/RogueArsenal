@@ -3,10 +3,18 @@ using Random = UnityEngine.Random;
 
 public class CurrencyController : MonoBehaviour
 {
+    private enum CurrencyState
+    {
+        Inactive,
+        Stable,
+        Critical
+    }
+
     private const float DropForce = 15f;
     private const float InitialMoveForce = 0.8f;
     private const float MoveForceGain = 0.04f;
-    private const float StableLifetimeInSeconds = 1.5f;
+    private const float InactiveLifetimeInSeconds = 0.2f;
+    private const float StableLifetimeInSeconds = 1.2f;
     private const float CriticalLifetimeInSeconds = 1f;
 
     private Rigidbody2D _rb;
@@ -15,7 +23,7 @@ public class CurrencyController : MonoBehaviour
     private float _moveForce = InitialMoveForce;
     private float _lifetimeEndTimestamp;
     private bool _collected;
-    private bool _critical;
+    private CurrencyState _state = CurrencyState.Inactive;
 
     void Awake()
     {
@@ -29,7 +37,7 @@ public class CurrencyController : MonoBehaviour
 
         _playerTransform = GameObject.FindWithTag("Player").transform;
 
-        _lifetimeEndTimestamp = Time.time + StableLifetimeInSeconds;
+        _lifetimeEndTimestamp = Time.time + InactiveLifetimeInSeconds;
     }
 
     private void FixedUpdate()
@@ -43,32 +51,43 @@ public class CurrencyController : MonoBehaviour
         }
         else if (Time.time > _lifetimeEndTimestamp)
         {
-            if (_critical)
+            switch (_state)
             {
-                Destroy(gameObject);
-            }
-            else
-            {
-                _critical = true;
-                _lifetimeEndTimestamp = Time.time + CriticalLifetimeInSeconds;
+                case CurrencyState.Inactive:
+                {
+                    _lifetimeEndTimestamp = Time.time + StableLifetimeInSeconds;
+                    _state = CurrencyState.Stable;
+                    break;
+                }
+                case CurrencyState.Stable:
+                {
+                    _lifetimeEndTimestamp = Time.time + CriticalLifetimeInSeconds;
+                    _state = CurrencyState.Critical;
 
-                // TODO: Temporary sprite recoloring, replace with "About to despawn" animation
-                GetComponentInChildren<SpriteRenderer>().color = Color.red;
+                    // TODO: Temporary sprite recoloring, replace with "About to despawn" animation
+                    GetComponentInChildren<SpriteRenderer>().color = Color.red;
+                    break;
+                }
+                case CurrencyState.Critical:
+                {
+                    Destroy(gameObject);
+                    break;
+                }
             }
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (_state != CurrencyState.Inactive && other.CompareTag("Player"))
         {
             _collected = true;
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnCollisionStay2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (_state != CurrencyState.Inactive && other.gameObject.CompareTag("Player"))
         {
             ProgressionManager.CollectCurrency();
             EventManager.OnPlayerCollectCurrency.Trigger();
