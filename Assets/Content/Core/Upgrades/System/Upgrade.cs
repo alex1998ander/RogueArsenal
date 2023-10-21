@@ -6,18 +6,19 @@ public abstract class Upgrade
     public virtual string Description { get; private set; } = "";
     public virtual string HelpfulDescription { get; private set; } = "";
 
-    public virtual float BulletRange { get; private set; } = 0f;
-    public virtual float BulletSpeed { get; private set; } = 0f;
+    public virtual float AbilityDelay { get; private set; } = 0f;
     public virtual int BulletCount { get; private set; } = 0;
     public virtual float BulletDamage { get; private set; } = 0f;
+    public virtual float BulletRange { get; private set; } = 0f;
     public virtual float BulletSize { get; private set; } = 0f;
+    public virtual float BulletSpeed { get; private set; } = 0f;
     public virtual float FireDelay { get; private set; } = 0f;
-    public virtual float MagazineSize { get; private set; } = 0f;
-    public virtual float ReloadTime { get; private set; } = 0f;
-    public virtual float AbilityDelay { get; private set; } = 0f;
     public virtual float Health { get; private set; } = 0f;
+    public virtual float MagazineSize { get; private set; } = 0f;
     public virtual float PlayerMovementSpeed { get; private set; } = 0f;
     public virtual bool PreventDash { get; private set; } = false;
+    public virtual float ReloadTime { get; private set; } = 0f;
+    public virtual float WeaponSpray { get; private set; } = 0f;
 
     /// <summary>
     /// Optional functionality for initialization
@@ -72,8 +73,3 @@ public abstract class Upgrade
     /// <param name="upgradeablePlayer">Player reference</param>
     public virtual void OnPlayerDeath(IUpgradeablePlayer upgradeablePlayer) { }
 }
-
-
-public class WeaponUpgrade : Upgrade { }
-
-public class AbilityUpgrade : Upgrade { }

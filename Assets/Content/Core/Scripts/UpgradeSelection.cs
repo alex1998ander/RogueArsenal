@@ -32,7 +32,7 @@ public class UpgradeSelection : MonoBehaviour
     {
         if (LevelManager.levelCounter % upgradeLevelCounter == 0)
         {
-            WeaponUpgrade[] listOfWeaponUpgrades = UpgradeManager.GenerateNewRandomWeaponUpgradeSelection(3);
+            Upgrade[] listOfWeaponUpgrades = UpgradeManager.GenerateNewRandomUpgradeSelection(3);
 
             // Adds the description to the cards
             for (int counter = 0; counter < upgradeDescription.Length; counter++)
@@ -60,7 +60,7 @@ public class UpgradeSelection : MonoBehaviour
     {
         if (LevelManager.levelCounter % upgradeLevelCounter == 0)
         {
-            UpgradeManager.BindWeaponUpgrade(cardIdx);
+            UpgradeManager.BindUpgrade(cardIdx);
             Debug.Log("Weapon Upgrade");
         }
         else
