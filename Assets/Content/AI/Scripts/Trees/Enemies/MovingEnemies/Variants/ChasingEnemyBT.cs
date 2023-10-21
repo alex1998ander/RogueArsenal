@@ -57,7 +57,7 @@ namespace BehaviorTree
                             new TaskPickTargetAroundTransforms(playerTransform, minDistanceFromPlayer,
                                 maxDistanceFromPlayer),
                             new TaskMoveToTarget(rb, agent, 1f),
-                            new TaskWait(1f),
+                            new TaskWait(1f, false),
                             new TaskAttackPlayer(weapon, 1f),
                         }),
                         // Case: Enemy just heard the player shoot
@@ -95,13 +95,22 @@ namespace BehaviorTree
                         }),
                     })
                 }),
-                // Enemy sees Player for the first time
+                // Case: Enemy sees Player for the first time
                 new Sequence(new List<Node>
                 {
                     new CheckIfPlayerIsInRange(rb, playerTransform, viewDistance),
                     new CheckPlayerVisible(rb, playerTransform, wallLayer),
                     new SetData<bool>(sharedData.IsAwareOfPlayer, true),
-                })
+                }),
+                // Case: Enemy hears player
+                new Sequence(new List<Node>
+                {
+                    new ExpectData<bool>(sharedData.HasHeardPlayerShot, true),
+                    new CheckIfPlayerIsInRange(rb, playerTransform, hearDistance),
+                    new SetData<bool>(sharedData.IsAwareOfPlayer, true),
+                }),
+                // At end, overwrite HasHeardPlayerShot so enemy doesn't "hear" the player in the future
+                new SetData<bool>(sharedData.HasHeardPlayerShot, false)
             });
 
             root.SetupSharedData(sharedData);

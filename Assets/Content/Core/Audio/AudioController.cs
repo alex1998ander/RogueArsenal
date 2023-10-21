@@ -47,7 +47,8 @@ public class AudioController : MonoBehaviour
     /// <param name="sound">Sound instance containing the audio clip</param>
     public static void Play(Sound sound)
     {
-        _instance.audioSourceSound.PlayOneShot(sound.audioClip);
+        _instance.audioSourceSound.pitch = Random.Range(0.8f, 1.2f);
+        _instance.audioSourceSound.PlayOneShot(sound.audioClip, sound.volumeScale);
         _instance._currentlyPlaying = true;
     }
 
@@ -60,7 +61,7 @@ public class AudioController : MonoBehaviour
         // Stops current tracks
         _instance.audioSourceMusicFst.Stop();
         _instance.audioSourceMusicSnd.Stop();
-        
+
         // Resets current fading
         _instance.StopAllCoroutines();
         _instance.audioSourceMusicFst.volume = 1;
@@ -113,7 +114,6 @@ public class AudioController : MonoBehaviour
     /// <returns>Bool whether the fade was started successfully</returns>
     public static bool FadeMusic(Music targetMusic, float duration)
     {
-        
         if (_instance._currentlyFading) return false;
 
         if (_instance._currentlyPlaying)
@@ -127,7 +127,6 @@ public class AudioController : MonoBehaviour
         }
 
         return true;
-        
     }
 
     private static IEnumerator StartFade(Music targetMusic, float duration)

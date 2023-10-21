@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerBullet : MonoBehaviour, IUpgradeableBullet
 {
-    [SerializeField] private float defaultDistance = 10f;
-    [SerializeField] private float defaultBulletSpeed = 20f;
+    private float defaultDistance = 10f;
+    private float defaultBulletSpeed = 15f;
     private float _damage;
     private GameObject _sourceCharacter;
 

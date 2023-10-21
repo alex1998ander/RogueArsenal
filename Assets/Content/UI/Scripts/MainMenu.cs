@@ -25,7 +25,7 @@ public class MainMenu : MonoBehaviour
         Application.targetFrameRate = 144;
         QualitySettings.vSyncCount = 1;
 
-        UpgradeManager.ClearUpgrades();
+        UpgradeManager.PrepareUpgrades();
         EventSystem.current.SetSelectedGameObject(pauseFirstButton);
     }
 
@@ -46,7 +46,13 @@ public class MainMenu : MonoBehaviour
     /// </summary>
     public void StartGame()
     {
-        LevelManager.LoadRandomLevel();
+        LevelManager.LoadNextLevel();
+    }
+
+    public void StartGameAtTheEnd()
+    {
+        LevelManager.levelCounter = 17;
+        LevelManager.LoadNextLevel();
     }
 
     public void OpenOptions()

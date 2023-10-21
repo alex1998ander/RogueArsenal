@@ -15,12 +15,12 @@ public interface IUpgradeablePlayer
     #endregion
 
 
-    #region OnBlock
+    #region OnAbility
 
     /// <summary>
-    /// Executes the Healing Field upgrade when the player blocks
+    /// Executes the Healing Field upgrade when the player uses their ability
     /// </summary>
-    public void ExecuteHealingField_OnBlock();
+    public void ExecuteHealingField_OnAbility();
 
     #endregion
 

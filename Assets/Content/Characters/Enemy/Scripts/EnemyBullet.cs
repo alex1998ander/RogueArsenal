@@ -24,7 +24,7 @@ public class EnemyBullet : MonoBehaviour
     private void Start()
     {
         _rb.velocity = transform.up * defaultBulletSpeed;
-        Destroy(gameObject, _assignedDistance * UpgradeManager.GetBulletRangeMultiplier() / defaultBulletSpeed);
+        Destroy(gameObject, _assignedDistance / defaultBulletSpeed);
     }
 
     private void OnCollisionEnter2D(Collision2D other)

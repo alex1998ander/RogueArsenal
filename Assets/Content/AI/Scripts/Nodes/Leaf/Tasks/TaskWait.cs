@@ -4,20 +4,21 @@ namespace BehaviorTree
 {
     public class TaskWait : Node
     {
-        // Time to wait
-        private static float _waitTime;
+        private float _waitTime;
 
-        // Time counter
-        private static float _timeCounter;
+        private bool _critical;
 
-        public TaskWait(float waitTime)
+        private float _timeCounter;
+
+        public TaskWait(float waitTime, bool critical)
         {
             _waitTime = waitTime;
+            _critical = critical;
         }
 
         public override NodeState Evaluate()
         {
-            state = NodeState.RUNNING;
+            state = _critical ? NodeState.FAILURE : NodeState.RUNNING;
 
             _timeCounter += Time.fixedDeltaTime;
             if (_timeCounter >= _waitTime)

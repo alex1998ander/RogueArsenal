@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using System;
 using System.Collections.Generic;
+using Cinemachine;
 
 public class UpgradeSelection : MonoBehaviour
 {
@@ -31,14 +32,14 @@ public class UpgradeSelection : MonoBehaviour
     {
         if (LevelManager.levelCounter % upgradeLevelCounter == 0)
         {
-            WeaponUpgrade[] listOfWeaponUpgrades = UpgradeManager.GenerateNewRandomWeaponUpgradeSelection(3);
+            Upgrade[] listOfWeaponUpgrades = UpgradeManager.GenerateNewRandomUpgradeSelection(3);
 
             // Adds the description to the cards
             for (int counter = 0; counter < upgradeDescription.Length; counter++)
             {
                 upgradeDescription[counter].text =
-                    "<size=24>" + listOfWeaponUpgrades[counter].Name + "</size>" + "<br>" +
-                    "<br>" + listOfWeaponUpgrades[counter].Description;
+                    "<size=24>" + listOfWeaponUpgrades[counter].Name + "</size>"  + "<br>" +
+                    "<br>" + "<size=12>" + listOfWeaponUpgrades[counter].HelpfulDescription + "</size>";
             }
         }
         else
@@ -59,7 +60,7 @@ public class UpgradeSelection : MonoBehaviour
     {
         if (LevelManager.levelCounter % upgradeLevelCounter == 0)
         {
-            UpgradeManager.BindWeaponUpgrade(cardIdx);
+            UpgradeManager.BindUpgrade(cardIdx);
             Debug.Log("Weapon Upgrade");
         }
         else
@@ -68,6 +69,6 @@ public class UpgradeSelection : MonoBehaviour
             Debug.Log("Upgraded Stat");
         }
 
-        LevelManager.LoadRandomLevel();
+        LevelManager.LoadNextLevel();
     }
 }

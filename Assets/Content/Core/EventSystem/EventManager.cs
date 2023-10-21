@@ -23,6 +23,11 @@ public static class EventManager
     /// </summary>
     public static readonly Event OnPlayerShotFired = new();
 
+    /// <summary>
+    /// The player collected currency.
+    /// </summary>
+    public static readonly Event OnPlayerCollectCurrency = new();
+
     #endregion
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -38,6 +43,11 @@ public static class EventManager
     /// The player dies.
     /// </summary>
     public static readonly Event<GameObject> OnEnemyDeath = new();
+    
+    /// <summary>
+    /// The enemy just fired a shot.
+    /// </summary>
+    public static readonly Event OnEnemyShotFired = new();
 
     #endregion
 

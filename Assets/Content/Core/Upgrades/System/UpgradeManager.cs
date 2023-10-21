@@ -5,9 +5,10 @@ using UnityEngine;
 
 public static class UpgradeManager
 {
+    private const float WeaponSprayMax = 9f;
+
     // upgrades
-    private static readonly List<WeaponUpgrade> WeaponUpgrades = new();
-    private static readonly List<AbilityUpgrade> AbilityUpgrades = new();
+    private static readonly List<Upgrade> Upgrades = new();
 
     // stat upgrades
     public static readonly StatUpgrade MaxHealthIncrease = new StatUpgrade("Max Health", 20f, 5f, 3);
@@ -15,74 +16,66 @@ public static class UpgradeManager
     public static readonly StatUpgrade PlayerMovementSpeedIncrease = new StatUpgrade("Movement Speed", 1f, 0.5f, 1);
     public static readonly StatUpgrade BulletKnockbackIncrease = new StatUpgrade("Bullet Knockback", 10, 1, 3);
 
-    //private static int _nextReplacementIndex;
+    private static Upgrade[] _currentUpgradeSelection;
 
-    private static WeaponUpgrade[] _currentWeaponUpgradeSelection;
-    private static AbilityUpgrade[] _currentAbilityUpgradeSelection;
-
-    private static readonly List<WeaponUpgrade> WeaponUpgradePool = new()
+    public static readonly List<Upgrade> DefaultUpgradePool = new()
     {
-        new UpgradeHitman(),
+        new UpgradeBigBullet(),
+        new UpgradeBounce(),
         new UpgradeBuckshot(),
         new UpgradeBurst(),
-        new UpgradeBounce(),
         new UpgradeCarefulPlanning(),
-        new UpgradeTank(),
-        //new UpgradeExplosiveBullet(),
-        new UpgradeHoming(),
-        new UpgradeBigBullet(),
-        new UpgradeMentalMeltdown(),
         new UpgradeDemonicPact(),
         //new UpgradeDrill(),
-        new UpgradeGlassCannon()
-    };
-
-    private static readonly List<AbilityUpgrade> AbilityUpgradePool = new()
-    {
+        //new UpgradeExplosiveBullet(),
+        new UpgradeGlassCannon(),
         new UpgradeHealingField(),
-        new UpgradePhoenix()
+        new UpgradeHitman(),
+        new UpgradeHoming(),
+        new UpgradeMentalMeltdown(),
+        new UpgradeMinigun(),
+        new UpgradePhoenix(),
+        // new UpgradePoison(),
+        new UpgradeTank(),
     };
 
-    public static WeaponUpgrade[] GenerateNewRandomWeaponUpgradeSelection(int count)
+    private static readonly List<Upgrade> UpgradePool = new();
+
+
+    public static Upgrade[] GenerateNewRandomUpgradeSelection(int count)
     {
         System.Random rnd = new System.Random();
-        _currentWeaponUpgradeSelection = WeaponUpgradePool.OrderBy(x => rnd.Next()).Take(count).ToArray();
+        _currentUpgradeSelection = UpgradePool.OrderBy(x => rnd.Next()).Take(count).ToArray();
 
-        return _currentWeaponUpgradeSelection;
-    }
-
-    public static AbilityUpgrade[] GenerateNewRandomAbilityUpgradeSelection(int count)
-    {
-        System.Random rnd = new System.Random();
-        _currentAbilityUpgradeSelection = AbilityUpgradePool.OrderBy(x => rnd.Next()).Take(count).ToArray();
-
-        return _currentAbilityUpgradeSelection;
+        return _currentUpgradeSelection;
     }
 
     /// <summary>
-    /// Binds an upgrade from the current upgrade selection to the upgrade inventory to the upgrade slot of the current oldest upgrade.
+    /// Binds an upgrade from the default weapon upgrade pool.
+    /// ONLY USE IN SANDBOX!
     /// </summary>
-    /// <param name="selectionIdx">Index of the new upgrade in the upgrade selection</param>
-    public static void BindWeaponUpgrade(int selectionIdx)
+    /// <param name="weaponIndex">Index of the new upgrade in the default weapon upgrade pool</param>
+    public static void BindUpgrade_Sandbox(int weaponIndex)
     {
-        WeaponUpgrade newUpgrade = _currentWeaponUpgradeSelection[selectionIdx];
+        Upgrade newUpgrade = DefaultUpgradePool[weaponIndex];
 
         // Replace upgrade
-        WeaponUpgrades.Add(newUpgrade);
-
-        // Remove new upgrade from upgrade pool
-        WeaponUpgradePool.Remove(newUpgrade);
+        Upgrades.Add(newUpgrade);
     }
 
-    public static void BindAbilityUpgrade(int selectionIdx)
+    /// <summary>
+    /// Binds an upgrade from the current upgrade selection.
+    /// </summary>
+    /// <param name="selectionIdx">Index of the new upgrade in the upgrade selection</param>
+    public static void BindUpgrade(int selectionIdx)
     {
-        AbilityUpgrade newUpgrade = _currentAbilityUpgradeSelection[selectionIdx];
+        Upgrade newUpgrade = _currentUpgradeSelection[selectionIdx];
 
         // Replace upgrade
-        AbilityUpgrades.Add(newUpgrade);
+        Upgrades.Add(newUpgrade);
 
         // Remove new upgrade from upgrade pool
-        AbilityUpgradePool.Remove(newUpgrade);
+        UpgradePool.Remove(newUpgrade);
     }
 
     /// <summary>
@@ -92,19 +85,9 @@ public static class UpgradeManager
     /// <returns>Upgrade at index</returns>
     public static Upgrade GetWeaponUpgradeAtIndex(int index)
     {
-        if (index < WeaponUpgrades.Count)
+        if (index < Upgrades.Count)
         {
-            return WeaponUpgrades[index];
-        }
-
-        return null;
-    }
-
-    public static Upgrade GetAbilityUpgradeAtIndex(int index)
-    {
-        if (index < AbilityUpgrades.Count)
-        {
-            return AbilityUpgrades[index];
+            return Upgrades[index];
         }
 
         return null;
@@ -113,10 +96,11 @@ public static class UpgradeManager
     /// <summary>
     /// Clears all applied upgrades
     /// </summary>
-    public static void ClearUpgrades()
+    public static void PrepareUpgrades()
     {
-        WeaponUpgrades.Clear();
-        AbilityUpgrades.Clear();
+        Upgrades.Clear();
+        UpgradePool.Clear();
+        UpgradePool.AddRange(DefaultUpgradePool);
 
         MaxHealthIncrease.Reset();
         BulletDamageIncrease.Reset();
@@ -125,7 +109,7 @@ public static class UpgradeManager
     }
 
     /// <summary>
-    /// Calculates the multiplier from the passed values. It is ensured that no negative multipliers occur.
+    /// Calculates the multiplier from the passed values.
     /// </summary>
     /// <param name="attributeSelector">Upgrade attribute</param>
     /// <returns>Calculated Multiplier</returns>
@@ -143,28 +127,17 @@ public static class UpgradeManager
         //     multiplier += attributeSelector(upgrade);
         // }
 
-        float multiplier = 1f + WeaponUpgrades.Sum(upgrade => attributeSelector(upgrade)) +
-                           AbilityUpgrades.Sum(upgrade => attributeSelector(upgrade));
-
-        return Mathf.Max(0, multiplier);
+        return Upgrades.Select(upgrade => attributeSelector(upgrade) + 1f).DefaultIfEmpty(1f)
+            .Aggregate((acc, attribute) => acc * attribute);
     }
 
     /// <summary>
-    /// Calculates the bullet range multiplier of all upgrades.
+    /// Calculates the ability delay multiplier of all upgrades.
     /// </summary>
-    /// <returns>Common bullet range multiplier</returns>
-    public static float GetBulletRangeMultiplier()
+    /// <returns>Common ability delay multiplier</returns>
+    public static float GetAbilityDelayMultiplier()
     {
-        return GetAttributeMultiplier(upgrade => upgrade.BulletRange);
-    }
-
-    /// <summary>
-    /// Calculates the bullet speed multiplier of all upgrades.
-    /// </summary>
-    /// <returns>Common bullet speed multiplier</returns>
-    public static float GetBulletSpeedMultiplier()
-    {
-        return GetAttributeMultiplier(upgrade => upgrade.BulletSpeed);
+        return GetAttributeMultiplier(upgrade => upgrade.AbilityDelay);
     }
 
     /// <summary>
@@ -175,7 +148,7 @@ public static class UpgradeManager
     {
         int bulletCountAdjustment = 0;
 
-        foreach (WeaponUpgrade upgrade in WeaponUpgrades)
+        foreach (Upgrade upgrade in Upgrades)
         {
             bulletCountAdjustment += upgrade.BulletCount;
         }
@@ -193,12 +166,30 @@ public static class UpgradeManager
     }
 
     /// <summary>
+    /// Calculates the bullet range multiplier of all upgrades.
+    /// </summary>
+    /// <returns>Common bullet range multiplier</returns>
+    public static float GetBulletRangeMultiplier()
+    {
+        return GetAttributeMultiplier(upgrade => upgrade.BulletRange);
+    }
+
+    /// <summary>
     /// Calculates the bullet size multiplier of all upgrades.
     /// </summary>
     /// <returns>Common bullet size multiplier</returns>
     public static float GetBulletSizeMultiplier()
     {
         return GetAttributeMultiplier(upgrade => upgrade.BulletSize);
+    }
+
+    /// <summary>
+    /// Calculates the bullet speed multiplier of all upgrades.
+    /// </summary>
+    /// <returns>Common bullet speed multiplier</returns>
+    public static float GetBulletSpeedMultiplier()
+    {
+        return GetAttributeMultiplier(upgrade => upgrade.BulletSpeed);
     }
 
     /// <summary>
@@ -211,21 +202,21 @@ public static class UpgradeManager
     }
 
     /// <summary>
-    /// Calculates the block delay multiplier of all upgrades.
-    /// </summary>
-    /// <returns>Common block delay multiplier</returns>
-    public static float GetBlockDelayMultiplier()
-    {
-        return GetAttributeMultiplier(upgrade => upgrade.BlockDelay);
-    }
-
-    /// <summary>
     /// Calculates the health multiplier of all upgrades.
     /// </summary>
     /// <returns>Common health multiplier</returns>
     public static float GetHealthMultiplier()
     {
         return GetAttributeMultiplier(upgrade => upgrade.Health);
+    }
+
+    /// <summary>
+    /// Calculates the magazine size multiplier of all upgrades.
+    /// </summary>
+    /// <returns>Common magazine size multiplier</returns>
+    public static float GetMagazineSizeMultiplier()
+    {
+        return GetAttributeMultiplier(upgrade => upgrade.MagazineSize);
     }
 
     /// <summary>
@@ -238,17 +229,47 @@ public static class UpgradeManager
     }
 
     /// <summary>
+    /// Calculates the reload time multiplier of all upgrades.
+    /// </summary>
+    /// <returns>Common reload time multiplier</returns>
+    public static float GetReloadTimeMultiplier()
+    {
+        return GetAttributeMultiplier(upgrade => upgrade.ReloadTime);
+    }
+
+    /// <summary>
+    /// Calculates the reload time multiplier of all upgrades.
+    /// </summary>
+    /// <returns>Common reload time multiplier</returns>
+    public static float GetWeaponSprayMultiplier()
+    {
+        return Mathf.Min(GetAttributeMultiplier(upgrade => upgrade.WeaponSpray), WeaponSprayMax);
+    }
+
+    /// <summary>
+    /// Checks if an upgrade prevents dashing.
+    /// </summary>
+    /// <returns>Bool, whether dashing is prevented</returns>
+    public static bool IsDashPrevented()
+    {
+        foreach (Upgrade upgrade in Upgrades)
+        {
+            if (upgrade.PreventDash)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    /// <summary>
     /// Executes the player initialization functions of all assigned upgrades
     /// </summary>
     /// <param name="upgradeablePlayer">Player reference</param>
     public static void Init(IUpgradeablePlayer upgradeablePlayer)
     {
-        foreach (WeaponUpgrade upgrade in WeaponUpgrades)
-        {
-            upgrade.Init(upgradeablePlayer);
-        }
-
-        foreach (AbilityUpgrade upgrade in AbilityUpgrades)
+        foreach (Upgrade upgrade in Upgrades)
         {
             upgrade.Init(upgradeablePlayer);
         }
@@ -260,12 +281,7 @@ public static class UpgradeManager
     /// <param name="upgradeableBullet">Bullet reference</param>
     public static void Init(IUpgradeableBullet upgradeableBullet)
     {
-        foreach (WeaponUpgrade upgrade in WeaponUpgrades)
-        {
-            upgrade.Init(upgradeableBullet);
-        }
-
-        foreach (AbilityUpgrade upgrade in AbilityUpgrades)
+        foreach (Upgrade upgrade in Upgrades)
         {
             upgrade.Init(upgradeableBullet);
         }
@@ -277,31 +293,21 @@ public static class UpgradeManager
     /// <param name="upgradeablePlayer">Player reference</param>
     public static void OnFire(IUpgradeablePlayer upgradeablePlayer)
     {
-        foreach (WeaponUpgrade upgrade in WeaponUpgrades)
-        {
-            upgrade.OnFire(upgradeablePlayer);
-        }
-
-        foreach (AbilityUpgrade upgrade in AbilityUpgrades)
+        foreach (Upgrade upgrade in Upgrades)
         {
             upgrade.OnFire(upgradeablePlayer);
         }
     }
 
     /// <summary>
-    /// Executes the functionalities of all assigned upgrades when the player blocks
+    /// Executes the functionalities of all assigned upgrades when the player uses their ability
     /// </summary>
     /// <param name="upgradeablePlayer">Player reference</param>
-    public static void OnBlock(IUpgradeablePlayer upgradeablePlayer)
+    public static void OnAbility(IUpgradeablePlayer upgradeablePlayer)
     {
-        foreach (WeaponUpgrade upgrade in WeaponUpgrades)
+        foreach (Upgrade upgrade in Upgrades)
         {
-            upgrade.OnBlock(upgradeablePlayer);
-        }
-
-        foreach (AbilityUpgrade upgrade in AbilityUpgrades)
-        {
-            upgrade.OnBlock(upgradeablePlayer);
+            upgrade.OnAbility(upgradeablePlayer);
         }
     }
 
@@ -311,12 +317,7 @@ public static class UpgradeManager
     /// <param name="upgradeableBullet">Bullet reference</param>
     public static void BulletUpdate(IUpgradeableBullet upgradeableBullet)
     {
-        foreach (WeaponUpgrade upgrade in WeaponUpgrades)
-        {
-            upgrade.BulletUpdate(upgradeableBullet);
-        }
-
-        foreach (AbilityUpgrade upgrade in AbilityUpgrades)
+        foreach (Upgrade upgrade in Upgrades)
         {
             upgrade.BulletUpdate(upgradeableBullet);
         }
@@ -328,12 +329,7 @@ public static class UpgradeManager
     /// <param name="upgradeablePlayer">Player reference</param>
     public static void PlayerUpdate(IUpgradeablePlayer upgradeablePlayer)
     {
-        foreach (WeaponUpgrade upgrade in WeaponUpgrades)
-        {
-            upgrade.PlayerUpdate(upgradeablePlayer);
-        }
-
-        foreach (AbilityUpgrade upgrade in AbilityUpgrades)
+        foreach (Upgrade upgrade in Upgrades)
         {
             upgrade.PlayerUpdate(upgradeablePlayer);
         }
@@ -350,12 +346,7 @@ public static class UpgradeManager
         // binary unconditional logical OR ('|' not '||') needed to evaluate every operand (no short-circuiting)
         bool bulletSurvives = false;
 
-        foreach (WeaponUpgrade upgrade in WeaponUpgrades)
-        {
-            bulletSurvives |= upgrade.OnBulletImpact(upgradeableBullet, collision);
-        }
-
-        foreach (AbilityUpgrade upgrade in AbilityUpgrades)
+        foreach (Upgrade upgrade in Upgrades)
         {
             bulletSurvives |= upgrade.OnBulletImpact(upgradeableBullet, collision);
         }
@@ -369,12 +360,7 @@ public static class UpgradeManager
     /// <param name="upgradeablePlayer">Player reference</param>
     public static void OnPlayerDeath(IUpgradeablePlayer upgradeablePlayer)
     {
-        foreach (WeaponUpgrade upgrade in WeaponUpgrades)
-        {
-            upgrade.OnPlayerDeath(upgradeablePlayer);
-        }
-
-        foreach (AbilityUpgrade upgrade in AbilityUpgrades)
+        foreach (Upgrade upgrade in Upgrades)
         {
             upgrade.OnPlayerDeath(upgradeablePlayer);
         }

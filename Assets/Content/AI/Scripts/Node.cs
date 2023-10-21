@@ -68,11 +68,6 @@ namespace BehaviorTree
             }
 
             this.sharedData = sharedData;
-
-            // SetData(sharedData.TargetReached, false);
-            // SetData(sharedData.IsAiming, false);
-            // SetData(sharedData.IsStunned, false);
-            // SetData(sharedData.IsAwareOfPlayer, false);
         }
 
         /// <summary>

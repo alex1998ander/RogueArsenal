@@ -1,6 +1,5 @@
-using System;
-using BehaviorTree;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour, ICharacterController
 {
@@ -10,6 +9,11 @@ public class EnemyController : MonoBehaviour, ICharacterController
     private void Awake()
     {
         EventManager.OnPlayerShotFired.Subscribe(HearPlayerShotFired);
+        
+        // Set up nav agent
+        NavMeshAgent agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
     }
 
     private void Start()

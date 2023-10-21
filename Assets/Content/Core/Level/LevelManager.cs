@@ -19,23 +19,45 @@ public static class LevelManager
     /// </summary>
     public static void LoadUpgradeSelectionScene()
     {
-        SceneManager.LoadScene(1);
+        if (levelCounter > 18)
+            LoadMainMenu();
+        else
+            SceneManager.LoadScene(1);
     }
 
-    public static void LoadRandomLevel()
+    private static void LoadRandomLevel()
     {
-        int nextSceneIdx = Random.Range(2, SceneManager.sceneCountInBuildSettings);
+        int nextSceneIdx = Random.Range(2, SceneManager.sceneCountInBuildSettings - 1);
 
         while (nextSceneIdx == lastSceneIdx || nextSceneIdx == secondLastSceneIdx)
         {
-            nextSceneIdx = Random.Range(2, SceneManager.sceneCountInBuildSettings);
+            nextSceneIdx = Random.Range(2, SceneManager.sceneCountInBuildSettings - 1);
         }
 
         secondLastSceneIdx = lastSceneIdx;
         lastSceneIdx = nextSceneIdx;
         SceneManager.LoadScene(nextSceneIdx);
         levelCounter++;
-        
+
+        EventManager.OnLevelEnter.Trigger();
+    }
+
+    public static void LoadNextLevel()
+    {
+        if (levelCounter == 18)
+        {
+            LoadBossLevel();
+        }
+        else
+        {
+            LoadRandomLevel();
+        }
+    }
+
+    private static void LoadBossLevel()
+    {
+        levelCounter++;
+        SceneManager.LoadScene(SceneManager.sceneCountInBuildSettings - 1);
         EventManager.OnLevelEnter.Trigger();
     }
 
@@ -48,5 +70,6 @@ public static class LevelManager
     public static void LoadMainMenu()
     {
         SceneManager.LoadScene(0);
+        levelCounter = 0;
     }
 }

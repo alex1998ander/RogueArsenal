@@ -32,6 +32,7 @@ namespace BehaviorTree
                 _cooldownTimeCounter = 0f;
                 state = NodeState.SUCCESS;
                 _weapon.Fire();
+                EventManager.OnEnemyShotFired.Trigger();
             }
 
             return state;
