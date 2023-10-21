@@ -3,11 +3,11 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterController
+public class PlayerController : MonoBehaviour, ICharacterController
 {
     private PlayerInput _playerInput;
     private Rigidbody2D _rigidbody;
-    private PlayerHealth _playerHealth;
+    public PlayerHealth playerHealth { get; private set; }
 
     private static float _maxHealth = 100f;
     private static float _defaultDamage = 30f;
@@ -31,7 +31,8 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
     private float _angle;
     private bool _isFiring;
     private bool _isDashing;
-    private bool _canDash = true;
+    public bool CanDash { get; set; } = true;
+    public bool Phoenixed { get; set; }
 
     private float _fireCooldownEndTimestamp;
     private float _abilityCooldownEndTimestamp;
@@ -39,27 +40,24 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
     private float _dashDelayEndTimestamp;
 
     // Upgrade: Burst
-    [Header("Upgrade: Burst")] [SerializeField]
-    private float burstDelayInSec = 0.1f;
+    [Header("Upgrade: Burst")] [SerializeField] private float burstDelayInSec = 0.1f;
 
     // Upgrade: Demonic Pact 
-    [Header("Upgrade: Demonic Pact")] [SerializeField]
-    private float demonicPactHealthLoss = 10f;
+    [Header("Upgrade: Demonic Pact")] [SerializeField] private float demonicPactHealthLoss = 10f;
 
     // Upgrade: Healing Field 
-    [Header("Upgrade: Healing Field")] [SerializeField]
-    private GameObject healingFieldPrefab;
+    [Header("Upgrade: Healing Field")] [SerializeField] private GameObject healingFieldPrefab;
 
     // Upgrade: Phoenix
-    private bool _phoenixed;
+
 
     private void Awake()
     {
         _playerInput = GetComponent<PlayerInput>();
         _rigidbody = GetComponent<Rigidbody2D>();
-        _playerHealth = GetComponent<PlayerHealth>();
+        playerHealth = GetComponent<PlayerHealth>();
 
-        _playerHealth.ResetHealth();
+        playerHealth.ResetHealth();
 
         UpgradeManager.Init(this);
     }
@@ -83,7 +81,7 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
             if (Time.time > _dashEndTimestamp)
             {
                 _isDashing = false;
-                _playerHealth.SetInvulnerable(false);
+                playerHealth.SetInvulnerable(false);
                 _dashDelayEndTimestamp = Time.time + dashDelay;
             }
         }
@@ -105,7 +103,7 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
 
             if (playerWeapon.TryFire(true))
             {
-                UpgradeManager.OnFire(this);
+                UpgradeManager.OnFire(this, playerWeapon);
                 EventManager.OnPlayerShotFired.Trigger();
             }
         }
@@ -113,7 +111,7 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
 
     public ICharacterHealth GetHealthManager()
     {
-        return _playerHealth;
+        return playerHealth;
     }
 
     public static float GetMaxHealth()
@@ -172,7 +170,7 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
             _aimDirection = value.Get<Vector2>();
             if (Vector2.Distance(Vector2.zero, _aimDirection) > 0.5)
             {
-                _aimDirection = (Vector2) Camera.main.ScreenToWorldPoint(_aimDirection) - _rigidbody.position;
+                _aimDirection = (Vector2)Camera.main.ScreenToWorldPoint(_aimDirection) - _rigidbody.position;
 
                 _angle = Mathf.Atan2(_aimDirection.y, _aimDirection.x) * Mathf.Rad2Deg - 90f;
                 playerWeapon.transform.rotation = Quaternion.Euler(0, 0, _angle);
@@ -189,11 +187,11 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
 
     private void OnDash()
     {
-        if (_canDash && !_isDashing && Time.time > _dashDelayEndTimestamp)
+        if (CanDash && !_isDashing && Time.time > _dashDelayEndTimestamp)
         {
             _isDashing = true;
             _dashEndTimestamp = Time.time + dashTime;
-            _playerHealth.SetInvulnerable(true);
+            playerHealth.SetInvulnerable(true);
             _dashMovementDirection = _movementInput;
         }
     }
@@ -201,7 +199,7 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
     #endregion
 
     #region Upgrade implementation
-    
+
     /// <summary>
     /// Default coroutine for a start and end action that are delayed by a certain time
     /// </summary>
@@ -215,13 +213,7 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
         yield return new WaitForSeconds(delayInSec);
         actionOff?.Invoke();
     }
-
-    // Upgrade: Tank
-    public void InitTank()
-    {
-        _canDash = false;
-    }
-
+    
     // Upgrade: Burst
     public void ExecuteBurst_OnFire()
     {
@@ -241,39 +233,22 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
     // Upgrade: Demonic Pact 
     public void ExecuteDemonicPact_OnFire()
     {
-        _playerHealth.InflictDamage(demonicPactHealthLoss, false);
+        playerHealth.InflictDamage(demonicPactHealthLoss, false);
         _fireCooldownEndTimestamp = 0f;
-    }
-
-
-    // Upgrade: Healing Field 
-    public void ExecuteHealingField_OnAbility()
-    {
-        GameObject healingField = Instantiate(healingFieldPrefab, transform.position, Quaternion.identity);
-        StartCoroutine(OnOffCoroutine(null, () => Destroy(healingField), 1.5f));
     }
 
     // Upgrade: Stimpack
     public void ExecuteStimpack_OnAbility()
     {
-        StartCoroutine(OnOffCoroutine(() => {}, () => {}, stimpackDuration));
+        StartCoroutine(OnOffCoroutine(() => { }, () => { }, stimpackDuration));
     }
 
     // Upgrade: Stimpack
     public void ExecuteTimefreeze_OnAbility()
     {
-        StartCoroutine(OnOffCoroutine(() => {}, () => {}, stimpackDuration));
+        StartCoroutine(OnOffCoroutine(() => { }, () => { }, stimpackDuration));
     }
     
-    // Upgrade: Phoenix
-    public void ExecutePhoenix_OnPlayerDeath()
-    {
-        if (!_phoenixed)
-        {
-            _playerHealth.ResetHealth();
-            _phoenixed = true;
-        }
-    }
 
     #endregion
 }

@@ -1,4 +1,7 @@
-﻿public class UpgradeBurst : Upgrade
+﻿using System.Collections;
+using UnityEngine;
+
+public class UpgradeBurst : Upgrade
 {
     public override string Name => "Burst";
     public override string Description => "Trade the single-shot snooze for a burst of pew-pew-pew and turn your enemies into a walking target.";
@@ -8,8 +11,18 @@
     public override float MagazineSize => -0.3f;
     public override float FireDelay => 0.8f;
 
-    public override void OnFire(IUpgradeablePlayer upgradeablePlayer)
+    public override void OnFire(PlayerController playerController, PlayerWeapon playerWeapon)
     {
-        upgradeablePlayer.ExecuteBurst_OnFire();
+        playerController.StartCoroutine(BurstCoroutine(playerWeapon));
+    }
+
+    private IEnumerator BurstCoroutine(PlayerWeapon playerWeapon)
+    {
+        float quarterDelay = Configuration.Player_FireCoolDown * UpgradeManager.GetFireDelayMultiplier() * 0.25f;
+        for (int i = 0; i < 2; i++)
+        {
+            yield return new WaitForSeconds(quarterDelay);
+            playerWeapon.TryFire(false);
+        }
     }
 }

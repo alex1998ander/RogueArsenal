@@ -6,8 +6,12 @@
 
     public override float Health => -0.35f;
 
-    public override void OnPlayerDeath(IUpgradeablePlayer upgradeablePlayer)
+    public override void OnPlayerDeath(PlayerController playerController)
     {
-        upgradeablePlayer.ExecutePhoenix_OnPlayerDeath();
+        if (!playerController.Phoenixed)
+        {
+            playerController.playerHealth.ResetHealth();
+            playerController.Phoenixed = true;
+        }
     }
 }

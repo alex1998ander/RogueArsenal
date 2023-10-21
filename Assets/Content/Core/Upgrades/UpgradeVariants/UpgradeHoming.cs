@@ -7,8 +7,8 @@
     public override float BulletDamage => -0.25f;
     public override float FireDelay => 0.5f;
 
-    public override void BulletUpdate(IUpgradeableBullet upgradeableBullet)
+    public override void BulletUpdate(PlayerBullet playerBullet)
     {
-        upgradeableBullet.ExecuteHoming_BulletUpdate();
+        playerBullet.ExecuteHoming_BulletUpdate();
     }
 }

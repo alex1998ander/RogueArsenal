@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class UpgradeExplosiveBullet : Upgrade
 {
@@ -8,8 +9,19 @@ public class UpgradeExplosiveBullet : Upgrade
 
     public override float FireDelay => 1f;
 
-    public override bool OnBulletImpact(IUpgradeableBullet upgradeableBullet, Collision2D collision)
+
+    private LayerMask targetLayer = LayerMask.GetMask("Player", "Enemies");
+
+    public override bool OnBulletImpact(PlayerBullet playerBullet, Collision2D collision)
     {
-        return upgradeableBullet.ExecuteExplosiveBullet_OnBulletImpact(collision);
+        Collider2D[] rangeCheck = Array.Empty<Collider2D>();
+        Physics2D.OverlapCircleNonAlloc(playerBullet.transform.position, Configuration.ExplosiveBullet_Radius, rangeCheck, targetLayer);
+
+        foreach (Collider2D targetCollider in rangeCheck)
+        {
+            targetCollider.GetComponent<ICharacterHealth>().InflictDamage(0);
+        }
+
+        return false;
     }
 }

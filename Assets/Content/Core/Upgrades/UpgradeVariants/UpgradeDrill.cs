@@ -4,8 +4,8 @@
     public override string Description => "Break the laws of physics with bullets that defy solid matter, turning your enemies' hiding spots into mere illusions of safety.";
     public override string HelpfulDescription => "";
 
-    public override void Init(IUpgradeableBullet upgradeableBullet)
+    public override void Init(PlayerBullet playerBullet)
     {
-        upgradeableBullet.InitDrill();
+        
     }
 }

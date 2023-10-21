@@ -7,8 +7,8 @@
     public override float Health => 1f;
     public override float FireDelay => 1f;
 
-    public override void Init(IUpgradeablePlayer upgradeablePlayer)
+    public override void Init(PlayerController playerController)
     {
-        upgradeablePlayer.InitTank();
+        playerController.CanDash = false;
     }
 }

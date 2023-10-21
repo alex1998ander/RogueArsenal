@@ -2,7 +2,7 @@ using System;
 using UnityEditor;
 using UnityEngine;
 
-public class PlayerBullet : MonoBehaviour, IUpgradeableBullet
+public class PlayerBullet : MonoBehaviour
 {
     private float defaultDistance = 10f;
     private float defaultBulletSpeed = 15f;
@@ -15,7 +15,7 @@ public class PlayerBullet : MonoBehaviour, IUpgradeableBullet
     // Upgrade: Bounce
     [Header("Upgrade: Bounce")] [SerializeField] private PhysicsMaterial2D bulletBouncePhysicsMaterial;
     [SerializeField] private int maxBounces = 2;
-    private int _bouncesLeft;
+    public int BouncesLeft { get; set; }
 
     // Upgrade: Homing
     [Header("Upgrade: Homing")] [SerializeField] private float homingRadius = 8f;
@@ -41,7 +41,7 @@ public class PlayerBullet : MonoBehaviour, IUpgradeableBullet
 
     private void Awake()
     {
-        _bouncesLeft = maxBounces;
+        BouncesLeft = maxBounces;
         _rb = GetComponent<Rigidbody2D>();
         _lineRenderer = GetComponent<LineRenderer>();
         UpgradeManager.Init(this);
@@ -83,24 +83,15 @@ public class PlayerBullet : MonoBehaviour, IUpgradeableBullet
 
 
     // Upgrade: Bounce
-    public void InitBounce()
+    public void SetBouncyPhysicsMaterial()
     {
         GetComponent<Rigidbody2D>().sharedMaterial = bulletBouncePhysicsMaterial;
     }
 
-    public bool ExecuteBounce_OnBulletImpact(Collision2D collision)
+    public void AdjustFacingMovementDirection()
     {
-        if (_bouncesLeft > 0 && !collision.gameObject.CompareTag("Enemy") && !collision.gameObject.CompareTag("Player"))
-        {
-            _bouncesLeft--;
-            
             float angle = Mathf.Atan2(_rb.velocity.y, _rb.velocity.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0f, 0f, angle - 90f);
-            
-            return true;
-        }
-
-        return false;
     }
 
 
@@ -205,37 +196,6 @@ public class PlayerBullet : MonoBehaviour, IUpgradeableBullet
         _visualAngleRight = angleRight;
 
         _lineRenderer.SetPositions(new[] { currentPosition + (Vector3)angleLeft * visualViewBoundLength, currentPosition, currentPosition + (Vector3)angleRight * visualViewBoundLength });
-    }
-
-    // Upgrade: Explosive Bullet
-    public bool ExecuteExplosiveBullet_OnBulletImpact(Collision2D collision)
-    {
-        Collider2D[] rangeCheck = Array.Empty<Collider2D>();
-        Physics2D.OverlapCircleNonAlloc(transform.position, explosiveBulletRadius, rangeCheck, explosiveBulletTargetLayer);
-
-        foreach (Collider2D targetCollider in rangeCheck)
-        {
-            targetCollider.GetComponent<ICharacterHealth>().InflictDamage(0);
-        }
-
-        return false;
-    }
-
-
-    // Upgrade: Mental Meltdown
-    public bool ExecuteMentalMeltdown_OnBulletImpact(Collision2D collision)
-    {
-        collision.gameObject.GetComponent<ICharacterController>()?.StunCharacter();
-        return false;
-    }
-
-
-    // Upgrade: Drill
-    public void InitDrill()
-    {
-        throw new NotImplementedException();
-        // Enables that the projectile can shoot through a wall (is disabled by the bullet's child OnTriggerEnter2D method)
-        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Walls"), LayerMask.NameToLayer("PlayerBullets"), true);
     }
 
 

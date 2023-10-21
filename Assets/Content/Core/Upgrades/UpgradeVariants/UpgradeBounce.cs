@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class UpgradeBounce : Upgrade    
+public class UpgradeBounce : Upgrade
 {
     public override string Name => "Bounce";
     public override string Description => "Inject your bullets with enthusiasm, turning your attacks into a lively pinball game.";
@@ -8,13 +8,21 @@ public class UpgradeBounce : Upgrade
 
     public override float BulletDamage => 0.25f;
 
-    public override void Init(IUpgradeableBullet upgradeableBullet)
+    public override void Init(PlayerBullet playerBullet)
     {
-        upgradeableBullet.InitBounce();
+        playerBullet.SetBouncyPhysicsMaterial();
     }
 
-    public override bool OnBulletImpact(IUpgradeableBullet upgradeableBullet, Collision2D collision)
+    public override bool OnBulletImpact(PlayerBullet playerBullet, Collision2D collision)
     {
-        return upgradeableBullet.ExecuteBounce_OnBulletImpact(collision);
+        if (playerBullet.BouncesLeft <= 0 || collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Player"))
+        {
+            return false;
+        }
+
+        playerBullet.BouncesLeft--;
+        playerBullet.AdjustFacingMovementDirection();
+
+        return true;
     }
 }

@@ -266,89 +266,90 @@ public static class UpgradeManager
     /// <summary>
     /// Executes the player initialization functions of all assigned upgrades
     /// </summary>
-    /// <param name="upgradeablePlayer">Player reference</param>
-    public static void Init(IUpgradeablePlayer upgradeablePlayer)
+    /// <param name="playerController">Player reference</param>
+    public static void Init(PlayerController playerController)
     {
         foreach (Upgrade upgrade in Upgrades)
         {
-            upgrade.Init(upgradeablePlayer);
+            upgrade.Init(playerController);
         }
     }
 
     /// <summary>
     /// Executes the bullet initialization functions of all assigned upgrades
     /// </summary>
-    /// <param name="upgradeableBullet">Bullet reference</param>
-    public static void Init(IUpgradeableBullet upgradeableBullet)
+    /// <param name="playerBullet">Bullet reference</param>
+    public static void Init(PlayerBullet playerBullet)
     {
         foreach (Upgrade upgrade in Upgrades)
         {
-            upgrade.Init(upgradeableBullet);
+            upgrade.Init(playerBullet);
         }
     }
 
     /// <summary>
     /// Executes the functionalities of all assigned upgrades when the player fires
     /// </summary>
-    /// <param name="upgradeablePlayer">Player reference</param>
-    public static void OnFire(IUpgradeablePlayer upgradeablePlayer)
+    /// <param name="playerController">Player reference</param>
+    /// <param name="playerWeapon">Player reference</param>
+    public static void OnFire(PlayerController playerController, PlayerWeapon playerWeapon)
     {
         foreach (Upgrade upgrade in Upgrades)
         {
-            upgrade.OnFire(upgradeablePlayer);
+            upgrade.OnFire(playerController, playerWeapon);
         }
     }
 
     /// <summary>
     /// Executes the functionalities of all assigned upgrades when the player uses their ability
     /// </summary>
-    /// <param name="upgradeablePlayer">Player reference</param>
-    public static void OnAbility(IUpgradeablePlayer upgradeablePlayer)
+    /// <param name="playerController">Player reference</param>
+    public static void OnAbility(PlayerController playerController)
     {
         foreach (Upgrade upgrade in Upgrades)
         {
-            upgrade.OnAbility(upgradeablePlayer);
+            upgrade.OnAbility(playerController);
         }
     }
 
     /// <summary>
     /// Executes the functionalities of all assigned upgrades every frame while the bullet is flying
     /// </summary>
-    /// <param name="upgradeableBullet">Bullet reference</param>
-    public static void BulletUpdate(IUpgradeableBullet upgradeableBullet)
+    /// <param name="playerBullet">Bullet reference</param>
+    public static void BulletUpdate(PlayerBullet playerBullet)
     {
         foreach (Upgrade upgrade in Upgrades)
         {
-            upgrade.BulletUpdate(upgradeableBullet);
+            upgrade.BulletUpdate(playerBullet);
         }
     }
 
     /// <summary>
     /// Executes the functionalities of all assigned upgrades for the player every frame 
     /// </summary>
-    /// <param name="upgradeablePlayer">Player reference</param>
-    public static void PlayerUpdate(IUpgradeablePlayer upgradeablePlayer)
+    /// <param name="playerController">Player reference</param>
+    public static void PlayerUpdate(PlayerController playerController)
     {
         foreach (Upgrade upgrade in Upgrades)
         {
-            upgrade.PlayerUpdate(upgradeablePlayer);
+            upgrade.PlayerUpdate(playerController);
         }
     }
 
     /// <summary>
     /// Executes the functionalities of all assigned upgrades when the bullet hits something
     /// </summary>
-    /// <param name="upgradeableBullet">Bullet reference</param>
+    /// <param name="playerBullet">Bullet reference</param>
     /// <param name="collision">Collision information</param>
     /// <returns>Bool, whether the bullet should survive afterwards</returns>
-    public static bool OnBulletImpact(IUpgradeableBullet upgradeableBullet, Collision2D collision)
+    public static bool OnBulletImpact(PlayerBullet playerBullet, Collision2D collision)
     {
         // binary unconditional logical OR ('|' not '||') needed to evaluate every operand (no short-circuiting)
         bool bulletSurvives = false;
 
         foreach (Upgrade upgrade in Upgrades)
         {
-            bulletSurvives |= upgrade.OnBulletImpact(upgradeableBullet, collision);
+            bulletSurvives |= upgrade.OnBulletImpact(playerBullet, collision);
         }
 
         return bulletSurvives;
@@ -357,12 +358,12 @@ public static class UpgradeManager
     /// <summary>
     /// Executes the functionalities of all assigned upgrades when the player dies
     /// </summary>
-    /// <param name="upgradeablePlayer">Player reference</param>
-    public static void OnPlayerDeath(IUpgradeablePlayer upgradeablePlayer)
+    /// <param name="playerController">Player reference</param>
+    public static void OnPlayerDeath(PlayerController playerController)
     {
         foreach (Upgrade upgrade in Upgrades)
         {
-            upgrade.OnPlayerDeath(upgradeablePlayer);
+            upgrade.OnPlayerDeath(playerController);
         }
     }
 }
