@@ -210,7 +210,8 @@ public class PlayerBullet : MonoBehaviour, IUpgradeableBullet
     // Upgrade: Explosive Bullet
     public bool ExecuteExplosiveBullet_OnBulletImpact(Collision2D collision)
     {
-        Collider2D[] rangeCheck = Physics2D.OverlapCircleAll(transform.position, explosiveBulletRadius, explosiveBulletTargetLayer);
+        Collider2D[] rangeCheck = Array.Empty<Collider2D>();
+        Physics2D.OverlapCircleNonAlloc(transform.position, explosiveBulletRadius, rangeCheck, explosiveBulletTargetLayer);
 
         foreach (Collider2D targetCollider in rangeCheck)
         {

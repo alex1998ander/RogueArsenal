@@ -17,6 +17,9 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
     private float dashDelay = 0.1f;
     private float defaultFireDelay = 0.2f;
     private float defaultAbilityDelay = 5.0f;
+    private float stimpackDuration = 5f;
+    private float stimpackDamageMultiplier = 2f;
+    private float currentStimpackDamageMultiplier = 1f;
 
     [SerializeField] private PlayerWeapon playerWeapon;
 
@@ -28,6 +31,7 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
     private float _angle;
     private bool _isFiring;
     private bool _isDashing;
+    private bool _canDash = true;
 
     private float _fireCooldownEndTimestamp;
     private float _abilityCooldownEndTimestamp;
@@ -185,7 +189,7 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
 
     private void OnDash()
     {
-        if (!_isDashing && Time.time > _dashDelayEndTimestamp)
+        if (_canDash && !_isDashing && Time.time > _dashDelayEndTimestamp)
         {
             _isDashing = true;
             _dashEndTimestamp = Time.time + dashTime;
@@ -197,6 +201,26 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
     #endregion
 
     #region Upgrade implementation
+    
+    /// <summary>
+    /// Default coroutine for a start and end action that are delayed by a certain time
+    /// </summary>
+    /// <param name="actionOn">start action</param>
+    /// <param name="actionOff">end action</param>
+    /// <param name="delayInSec">delay in seconds</param>
+    /// <returns></returns>
+    private IEnumerator OnOffCoroutine(Action actionOn, Action actionOff, float delayInSec)
+    {
+        actionOn?.Invoke();
+        yield return new WaitForSeconds(delayInSec);
+        actionOff?.Invoke();
+    }
+
+    // Upgrade: Tank
+    public void InitTank()
+    {
+        _canDash = false;
+    }
 
     // Upgrade: Burst
     public void ExecuteBurst_OnFire()
@@ -226,10 +250,21 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
     public void ExecuteHealingField_OnAbility()
     {
         GameObject healingField = Instantiate(healingFieldPrefab, transform.position, Quaternion.identity);
-        Destroy(healingField, 1.5f);
+        StartCoroutine(OnOffCoroutine(null, () => Destroy(healingField), 1.5f));
     }
 
+    // Upgrade: Stimpack
+    public void ExecuteStimpack_OnAbility()
+    {
+        StartCoroutine(OnOffCoroutine(() => {}, () => {}, stimpackDuration));
+    }
 
+    // Upgrade: Stimpack
+    public void ExecuteTimefreeze_OnAbility()
+    {
+        StartCoroutine(OnOffCoroutine(() => {}, () => {}, stimpackDuration));
+    }
+    
     // Upgrade: Phoenix
     public void ExecutePhoenix_OnPlayerDeath()
     {
