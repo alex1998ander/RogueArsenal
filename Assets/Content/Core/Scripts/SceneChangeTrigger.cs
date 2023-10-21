@@ -8,9 +8,9 @@ public class SceneChangeTrigger : MonoBehaviour
     /// <param name="other">Object that hit the trigger box</param>
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && !SpawnController.StillEnemiesLeft())
+        if (other.CompareTag("Player") && !SpawnController.CheckEnemiesAlive())
         {
-            LevelManager.LoadUpgradeSelectionScene();
+            LevelManager.LoadNextLevel();
             EventManager.OnLevelExit.Trigger();
         }
     }

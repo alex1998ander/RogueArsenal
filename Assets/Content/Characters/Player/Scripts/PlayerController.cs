@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
     private float dashDelay = 0.1f;
     private float defaultFireDelay = 0.2f;
     private float defaultAbilityDelay = 5.0f;
-    
+
     [SerializeField] private PlayerWeapon playerWeapon;
 
     [SerializeField] private Transform playerSpriteTransform;
@@ -99,7 +99,7 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
             // This assignment has to be done before "UpgradeManager.OnFire()" so that the variable can be overwritten by this function if necessary
             _fireCooldownEndTimestamp = Time.time + defaultFireDelay * UpgradeManager.GetFireDelayMultiplier();
 
-            if (playerWeapon.TryFire())
+            if (playerWeapon.TryFire(true))
             {
                 UpgradeManager.OnFire(this);
                 EventManager.OnPlayerShotFired.Trigger();
@@ -206,15 +206,15 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
 
     private IEnumerator BurstCoroutine()
     {
-        yield return new WaitForSeconds(burstDelayInSec);
-        playerWeapon.TryFire();
-        yield return new WaitForSeconds(burstDelayInSec);
-        playerWeapon.TryFire();
+        float quarterDelay = defaultFireDelay * UpgradeManager.GetFireDelayMultiplier() * 0.25f;
+        for (int i = 0; i < 2; i++)
+        {
+            yield return new WaitForSeconds(quarterDelay);
+            playerWeapon.TryFire(false);
+        }
     }
 
-
     // Upgrade: Demonic Pact 
-
     public void ExecuteDemonicPact_OnFire()
     {
         _playerHealth.InflictDamage(demonicPactHealthLoss, false);
