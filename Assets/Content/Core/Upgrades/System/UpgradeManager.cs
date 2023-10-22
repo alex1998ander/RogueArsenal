@@ -34,6 +34,7 @@ public static class UpgradeManager
         new UpgradeHoming(),
         new UpgradeMentalMeltdown(),
         new UpgradeMinigun(),
+        new UpgradePiercing(),
         new UpgradePhoenix(),
         // new UpgradePoison(),
         new UpgradeTank(),

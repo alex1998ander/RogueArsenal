@@ -23,6 +23,8 @@
     public const float Homing_HalfAngle = 50f;
     public const float Homing_Radius = 8f;
     public const float Homing_RotationSpeed = 250f;
+
+    public const int Piercing_PiercesCount = 1;
     
     public const float Stimpack_Duration = 5f;
     public const float Stimpack_DamageMultiplier = 2f;
