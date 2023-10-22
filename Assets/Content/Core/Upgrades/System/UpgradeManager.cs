@@ -316,6 +316,19 @@ public static class UpgradeManager
     }
 
     /// <summary>
+    /// Executes the functionalities of all assigned upgrades when the players magazine has been emptied
+    /// </summary>
+    /// <param name="playerController">Player reference</param>
+    /// <param name="playerWeapon">Player reference</param>
+    public static void OnMagazineEmptied(PlayerController playerController, PlayerWeapon playerWeapon)
+    {
+        foreach (Upgrade upgrade in Upgrades)
+        {
+            upgrade.OnMagazineEmptied(playerController, playerWeapon);
+        }
+    }
+
+    /// <summary>
     /// Executes the functionalities of all assigned upgrades when the player uses their ability
     /// </summary>
     /// <param name="playerController">Player reference</param>

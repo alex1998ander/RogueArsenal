@@ -10,10 +10,14 @@ public class UpgradeStickyFingers : Upgrade
     public override void OnFire(PlayerController playerController, PlayerWeapon playerWeapon)
     {
         playerController.StickyFingers = true;
+        playerController.CanDash = false;
+        playerController.CanReload = false;
     }
 
-    public override void OnReload(PlayerController playerController, PlayerWeapon playerWeapon)
+    public override void OnMagazineEmptied(PlayerController playerController, PlayerWeapon playerWeapon)
     {
         playerController.StickyFingers = false;
+        playerController.CanDash = true;
+        playerController.CanReload = true;
     }
 }

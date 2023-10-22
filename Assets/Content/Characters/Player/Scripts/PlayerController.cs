@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
     [SerializeField] private Transform playerSpriteTransform;
 
     public bool CanDash { get; set; } = true;
+    public bool CanReload { get; set; } = true;
 
     // Upgrade: Phoenix
     public bool Phoenixed { get; set; }
@@ -96,12 +97,16 @@ public class PlayerController : MonoBehaviour, ICharacterController
                 UpgradeManager.OnFire(this, playerWeapon);
                 EventManager.OnPlayerShotFired.Trigger();
             }
+            else
+            {
+                UpgradeManager.OnMagazineEmptied(this, playerWeapon);
+            }
         }
     }
 
     public void ReloadWeapon()
     {
-        if (_reloading)
+        if (_reloading || !CanReload)
             return;
 
         _reloading = true;
