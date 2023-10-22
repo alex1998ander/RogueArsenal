@@ -13,9 +13,9 @@ public class UpgradeBounce : Upgrade
         playerBullet.SetBouncyPhysicsMaterial();
     }
 
-    public override bool OnBulletImpact(PlayerBullet playerBullet, Collision2D collision)
+    public override bool OnBulletImpact(PlayerBullet playerBullet, Collider2D other)
     {
-        if (playerBullet.BouncesLeft <= 0 || collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Player"))
+        if (playerBullet.BouncesLeft <= 0 || other.CompareTag("Enemy") || other.CompareTag("Player"))
         {
             return false;
         }

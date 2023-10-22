@@ -1,5 +1,6 @@
 using System;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SandboxTargetUpgradeSelector : MonoBehaviour
@@ -15,9 +16,9 @@ public class SandboxTargetUpgradeSelector : MonoBehaviour
         upgradeText.text = UpgradeManager.DefaultUpgradePool[selectedIndex].Name;
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!_upgradeSelected && other.gameObject.CompareTag("PlayerBullet"))
+        if (!_upgradeSelected && other.CompareTag("PlayerBullet"))
         {
             _upgradeSelected = true;
             Debug.Log("Upgrade added: " + UpgradeManager.DefaultUpgradePool[selectedIndex].Name);

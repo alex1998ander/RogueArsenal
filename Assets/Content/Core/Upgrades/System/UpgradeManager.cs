@@ -34,6 +34,7 @@ public static class UpgradeManager
         new UpgradeHoming(),
         new UpgradeMentalMeltdown(),
         new UpgradeMinigun(),
+        new UpgradePiercing(),
         new UpgradePhoenix(),
         // new UpgradePoison(),
         new UpgradeTank(),
@@ -340,16 +341,16 @@ public static class UpgradeManager
     /// Executes the functionalities of all assigned upgrades when the bullet hits something
     /// </summary>
     /// <param name="playerBullet">Bullet reference</param>
-    /// <param name="collision">Collision information</param>
+    /// <param name="other">Collider information</param>
     /// <returns>Bool, whether the bullet should survive afterwards</returns>
-    public static bool OnBulletImpact(PlayerBullet playerBullet, Collision2D collision)
+    public static bool OnBulletImpact(PlayerBullet playerBullet, Collider2D other)
     {
         // binary unconditional logical OR ('|' not '||') needed to evaluate every operand (no short-circuiting)
         bool bulletSurvives = false;
 
         foreach (Upgrade upgrade in Upgrades)
         {
-            bulletSurvives |= upgrade.OnBulletImpact(playerBullet, collision);
+            bulletSurvives |= upgrade.OnBulletImpact(playerBullet, other);
         }
 
         return bulletSurvives;

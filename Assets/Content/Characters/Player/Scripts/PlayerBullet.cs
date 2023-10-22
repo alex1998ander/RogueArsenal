@@ -13,6 +13,9 @@ public class PlayerBullet : MonoBehaviour
     // Upgrade: Bounce
     [Header("Upgrade: Bounce")] [SerializeField] private PhysicsMaterial2D bulletBouncePhysicsMaterial;
     public int BouncesLeft { get; set; } = Configuration.Bounce_BounceCount;
+    
+    // Upgrade: Piercing
+    public int PiercesLeft { get; set; } = Configuration.Piercing_PiercesCount;
 
 #if UNITY_EDITOR
     private bool _canSeeTargetCharacterGizmos;
@@ -39,7 +42,7 @@ public class PlayerBullet : MonoBehaviour
         UpgradeManager.BulletUpdate(this);
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (!UpgradeManager.OnBulletImpact(this, other))
         {
