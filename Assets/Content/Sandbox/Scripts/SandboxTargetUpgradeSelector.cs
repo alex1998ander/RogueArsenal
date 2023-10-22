@@ -26,6 +26,9 @@ public class SandboxTargetUpgradeSelector : MonoBehaviour
             Collider2D collider2D = GetComponent<Collider2D>();
             collider2D.enabled = false;
             Destroy(gameObject);
+            
+            PlayerController playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+            playerController.InitUpgrades();
         }
     }
 }

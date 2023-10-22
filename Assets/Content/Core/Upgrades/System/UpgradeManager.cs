@@ -36,6 +36,7 @@ public static class UpgradeManager
         new UpgradeMinigun(),
         new UpgradePiercing(),
         new UpgradePhoenix(),
+        new UpgradeStickyFingers(),
         // new UpgradePoison(),
         new UpgradeTank(),
     };
@@ -298,6 +299,19 @@ public static class UpgradeManager
         foreach (Upgrade upgrade in Upgrades)
         {
             upgrade.OnFire(playerController, playerWeapon);
+        }
+    }
+
+    /// <summary>
+    /// Executes the functionalities of all assigned upgrades when the player reloads
+    /// </summary>
+    /// <param name="playerController">Player reference</param>
+    /// <param name="playerWeapon">Player reference</param>
+    public static void OnReload(PlayerController playerController, PlayerWeapon playerWeapon)
+    {
+        foreach (Upgrade upgrade in Upgrades)
+        {
+            upgrade.OnReload(playerController, playerWeapon);
         }
     }
 

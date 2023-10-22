@@ -40,6 +40,13 @@ public abstract class Upgrade
     public virtual void OnFire(PlayerController playerController, PlayerWeapon playerWeapon) { }
 
     /// <summary>
+    ///  Optional functionality that is performed when the player reloads
+    /// </summary>
+    /// <param name="playerController">Player reference</param>
+    /// <param name="playerWeapon">Player weapon reference</param>
+    public virtual void OnReload(PlayerController playerController, PlayerWeapon playerWeapon) { }
+
+    /// <summary>
     /// Optional functionality that is performed when the player uses their ability
     /// </summary>
     /// <param name="playerController">Player reference</param>

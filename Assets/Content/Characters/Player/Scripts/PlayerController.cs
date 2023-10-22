@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,10 +7,17 @@ public class PlayerController : MonoBehaviour, ICharacterController
     private PlayerInput _playerInput;
     private Rigidbody2D _rigidbody;
     public PlayerHealth playerHealth { get; private set; }
-    
-    [SerializeField] private PlayerWeapon playerWeapon;
 
+    [SerializeField] private PlayerWeapon playerWeapon;
     [SerializeField] private Transform playerSpriteTransform;
+
+    public bool CanDash { get; set; } = true;
+
+    // Upgrade: Phoenix
+    public bool Phoenixed { get; set; }
+
+    // Upgrade: Sticky Fingers
+    public bool StickyFingers { get; set; }
 
     private Vector2 _movementInput;
     private Vector2 _dashMovementDirection;
@@ -19,14 +25,13 @@ public class PlayerController : MonoBehaviour, ICharacterController
     private float _angle;
     private bool _isFiring;
     private bool _isDashing;
-    public bool CanDash { get; set; } = true;
-    public bool Phoenixed { get; set; }
+    private bool _reloading;
 
     private float _fireCooldownEndTimestamp;
     private float _abilityCooldownEndTimestamp;
     private float _dashEndTimestamp;
     private float _dashDelayEndTimestamp;
-
+    private float _weaponReloadedTimeStamp;
 
     private void Awake()
     {
@@ -45,6 +50,8 @@ public class PlayerController : MonoBehaviour, ICharacterController
         MovePlayer();
         FireWeapon();
     }
+
+    #region Player Actions
 
     private void MovePlayer()
     {
@@ -73,7 +80,13 @@ public class PlayerController : MonoBehaviour, ICharacterController
 
     private void FireWeapon()
     {
-        if (!_isDashing && _isFiring && !GameManager.GamePaused && Time.time > _fireCooldownEndTimestamp)
+        if (_isDashing || GameManager.GamePaused || Time.time <= _fireCooldownEndTimestamp)
+            return;
+
+        if (_reloading && !CheckReloaded())
+            return;
+
+        if (_isFiring || StickyFingers)
         {
             // This assignment has to be done before "UpgradeManager.OnFire()" so that the variable can be overwritten by this function if necessary
             _fireCooldownEndTimestamp = Time.time + Configuration.Player_FireCoolDown * UpgradeManager.GetFireDelayMultiplier();
@@ -86,10 +99,31 @@ public class PlayerController : MonoBehaviour, ICharacterController
         }
     }
 
-    public ICharacterHealth GetHealthManager()
+    public void ReloadWeapon()
     {
-        return playerHealth;
+        if (_reloading)
+            return;
+
+        _reloading = true;
+        _weaponReloadedTimeStamp = Time.time + Configuration.Weapon_ReloadTime * UpgradeManager.GetReloadTimeMultiplier();
+        playerWeapon.Reload();
+        UpgradeManager.OnReload(this, playerWeapon);
     }
+
+    private bool CheckReloaded()
+    {
+        if (Time.time > _weaponReloadedTimeStamp)
+        {
+            _reloading = false;
+            return true;
+        }
+
+        return false;
+    }
+
+    #endregion
+
+    #region Getters
 
     public static float GetMaxHealth()
     {
@@ -99,7 +133,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
 
     public static float GetBulletDamage()
     {
-        return (Configuration.Player_WeaponDamage + UpgradeManager.BulletDamageIncrease.Value) *
+        return (Configuration.Weapon_Damage + UpgradeManager.BulletDamageIncrease.Value) *
                UpgradeManager.GetBulletDamageMultiplier();
     }
 
@@ -109,10 +143,16 @@ public class PlayerController : MonoBehaviour, ICharacterController
                UpgradeManager.GetPlayerMovementSpeedMultiplier();
     }
 
+    #endregion
+
+    #region Upgrade Implementation
+
     public void StunCharacter()
     {
         throw new NotImplementedException();
     }
+
+    #endregion
 
     #region PlayerInput
 
@@ -147,7 +187,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
             _aimDirection = value.Get<Vector2>();
             if (Vector2.Distance(Vector2.zero, _aimDirection) > 0.5)
             {
-                _aimDirection = (Vector2)Camera.main.ScreenToWorldPoint(_aimDirection) - _rigidbody.position;
+                _aimDirection = (Vector2) Camera.main.ScreenToWorldPoint(_aimDirection) - _rigidbody.position;
 
                 _angle = Mathf.Atan2(_aimDirection.y, _aimDirection.x) * Mathf.Rad2Deg - 90f;
                 playerWeapon.transform.rotation = Quaternion.Euler(0, 0, _angle);
@@ -159,7 +199,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
 
     private void OnReload()
     {
-        playerWeapon.Reload();
+        ReloadWeapon();
     }
 
     private void OnDash()
@@ -175,36 +215,12 @@ public class PlayerController : MonoBehaviour, ICharacterController
 
     #endregion
 
-    #region Upgrade implementation
+    #region Sandbox
 
-    /// <summary>
-    /// Default coroutine for a start and end action that are delayed by a certain time
-    /// </summary>
-    /// <param name="actionOn">start action</param>
-    /// <param name="actionOff">end action</param>
-    /// <param name="delayInSec">delay in seconds</param>
-    /// <returns></returns>
-    private IEnumerator OnOffCoroutine(Action actionOn, Action actionOff, float delayInSec)
+    public void InitUpgrades()
     {
-        actionOn?.Invoke();
-        yield return new WaitForSeconds(delayInSec);
-        actionOff?.Invoke();
-    }
-    
-    // Upgrade: Burst
-    public void ExecuteBurst_OnFire()
-    {
-        StartCoroutine(BurstCoroutine());
+        UpgradeManager.Init(this);
     }
 
-    private IEnumerator BurstCoroutine()
-    {
-        float quarterDelay = Configuration.Player_FireCoolDown * UpgradeManager.GetFireDelayMultiplier() * 0.25f;
-        for (int i = 0; i < 2; i++)
-        {
-            yield return new WaitForSeconds(quarterDelay);
-            playerWeapon.TryFire(false);
-        }
-    }
     #endregion
 }

@@ -1,26 +1,26 @@
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class PlayerWeapon : MonoBehaviour
 {
     [SerializeField] private GameObject playerBulletPrefab;
     [SerializeField] private Transform firePoint;
 
-    private const int DefaultBulletCount = 1;
-    private const float DefaultBulletSprayAngle = 5f;
-    private const int DefaultMagazineSize = 10;
-    private const float DefaultReloadTime = 1f;
+    private int _currentAmmo;
 
-    private int _currentAmmo = DefaultMagazineSize;
-    private bool _reloading;
-    private float _weaponReloadedTimeStamp;
+    private void Start()
+    {
+        Reload();
+    }
 
     public bool TryFire(bool spendAmmo)
     {
-        if (spendAmmo && _currentAmmo <= 0 || (_reloading && !CheckReloaded()))
+        if (spendAmmo && _currentAmmo <= 0)
             return false;
 
-        float angle = DefaultBulletSprayAngle * 0.5f * UpgradeManager.GetWeaponSprayMultiplier();
-        int bulletCount = DefaultBulletCount + UpgradeManager.GetBulletCountAdjustment();
+        float angle = Configuration.Weapon_SprayAngle * 0.5f * UpgradeManager.GetWeaponSprayMultiplier();
+        int bulletCount = Configuration.Weapon_BulletCount + UpgradeManager.GetBulletCountAdjustment();
         for (int i = 0; i < bulletCount; i++)
         {
             GameObject bullet = Instantiate(playerBulletPrefab, firePoint.position,
@@ -37,22 +37,6 @@ public class PlayerWeapon : MonoBehaviour
 
     public void Reload()
     {
-        if (_reloading)
-            return;
-
-        _reloading = true;
-        _weaponReloadedTimeStamp = Time.time + DefaultReloadTime * UpgradeManager.GetReloadTimeMultiplier();
-        _currentAmmo = (int) (DefaultMagazineSize * UpgradeManager.GetMagazineSizeMultiplier());
-    }
-
-    private bool CheckReloaded()
-    {
-        if (Time.time > _weaponReloadedTimeStamp)
-        {
-            _reloading = false;
-            return true;
-        }
-
-        return false;
+        _currentAmmo = Mathf.RoundToInt(Configuration.Weapon_MagazineSize * UpgradeManager.GetMagazineSizeMultiplier());
     }
 }
