@@ -27,7 +27,6 @@ public class PlayerController : MonoBehaviour, ICharacterController
     private float _angle;
     private bool _isFiring;
     private bool _isDashing;
-    private bool _isReloading;
 
     private float _fireCooldownEndTimestamp;
     private float _abilityCooldownEndTimestamp;
@@ -82,10 +81,10 @@ public class PlayerController : MonoBehaviour, ICharacterController
 
     private void FireWeapon()
     {
-        if (_isDashing || GameManager.GamePaused || Time.time <= _fireCooldownEndTimestamp)
+        if (Time.time <= _fireCooldownEndTimestamp || _isDashing || GameManager.GamePaused)
             return;
 
-        if (_isReloading && !CheckReloaded())
+        if (!CheckWeaponReloaded())
             return;
 
         if (_isFiring || StickyFingers)
@@ -107,20 +106,18 @@ public class PlayerController : MonoBehaviour, ICharacterController
 
     public void ReloadWeapon()
     {
-        if (_isReloading || !CanReload)
+        if (!CanReload)
             return;
 
-        _isReloading = true;
         _weaponReloadedTimeStamp = Time.time + Configuration.Weapon_ReloadTime * UpgradeManager.GetReloadTimeMultiplier();
         playerWeapon.Reload();
         UpgradeManager.OnReload(this, playerWeapon);
     }
 
-    private bool CheckReloaded()
+    private bool CheckWeaponReloaded()
     {
         if (Time.time > _weaponReloadedTimeStamp)
         {
-            _isReloading = false;
             return true;
         }
 
