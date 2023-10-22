@@ -1,5 +1,7 @@
 ﻿public class Configuration
 {
+    // Naming convention: <module/upgrade name>UNDERSCORE<value type>
+    
     public const float Player_MaxHealth = 100f;
     public const float Player_WeaponDamage = 30f;
     public const float Player_MovementSpeed = 5f;

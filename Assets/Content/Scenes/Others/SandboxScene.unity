@@ -35094,7 +35094,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6651c2e6a4b482f8efc82175531070d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healingFieldPrefab: {fileID: 1725764053}
+  healingFieldPrefab: {fileID: 5263074500707566537, guid: fe83cdc0ba7afca48861f6ca5d1f95bd, type: 3}
 --- !u!4 &1437600421
 Transform:
   m_ObjectHideFlags: 0
@@ -35283,11 +35283,6 @@ Transform:
   m_Father: {fileID: 1006409800}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1725764053 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5278349779328024417, guid: b27120ebe8c069d41868eebc3e349f53, type: 3}
-  m_PrefabInstance: {fileID: 1311671177}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1912652634
 PrefabInstance:
   m_ObjectHideFlags: 0
