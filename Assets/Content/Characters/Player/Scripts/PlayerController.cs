@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
     [SerializeField] private PlayerWeapon playerWeapon;
     [SerializeField] private Transform playerSpriteTransform;
 
+    // General Properties
     public bool CanDash { get; set; } = true;
     public bool CanReload { get; set; } = true;
 
@@ -26,7 +27,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
     private float _angle;
     private bool _isFiring;
     private bool _isDashing;
-    private bool _reloading;
+    private bool _isReloading;
 
     private float _fireCooldownEndTimestamp;
     private float _abilityCooldownEndTimestamp;
@@ -84,7 +85,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
         if (_isDashing || GameManager.GamePaused || Time.time <= _fireCooldownEndTimestamp)
             return;
 
-        if (_reloading && !CheckReloaded())
+        if (_isReloading && !CheckReloaded())
             return;
 
         if (_isFiring || StickyFingers)
@@ -106,10 +107,10 @@ public class PlayerController : MonoBehaviour, ICharacterController
 
     public void ReloadWeapon()
     {
-        if (_reloading || !CanReload)
+        if (_isReloading || !CanReload)
             return;
 
-        _reloading = true;
+        _isReloading = true;
         _weaponReloadedTimeStamp = Time.time + Configuration.Weapon_ReloadTime * UpgradeManager.GetReloadTimeMultiplier();
         playerWeapon.Reload();
         UpgradeManager.OnReload(this, playerWeapon);
@@ -119,7 +120,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
     {
         if (Time.time > _weaponReloadedTimeStamp)
         {
-            _reloading = false;
+            _isReloading = false;
             return true;
         }
 
