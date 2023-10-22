@@ -61,9 +61,9 @@ public abstract class Upgrade
     /// Optional functionality that is executed when the bullet hits something
     /// </summary>
     /// <param name="playerBullet">Bullet reference</param>
-    /// <param name="collision">Collision information</param>
+    /// <param name="other">Collider information</param>
     /// <returns>Bool, whether the bullet should survive afterwards</returns>
-    public virtual bool OnBulletImpact(PlayerBullet playerBullet, Collision2D collision)
+    public virtual bool OnBulletImpact(PlayerBullet playerBullet, Collider2D other)
     {
         return false;
     }

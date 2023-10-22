@@ -12,7 +12,7 @@ public class UpgradeExplosiveBullet : Upgrade
 
     private LayerMask targetLayer = LayerMask.GetMask("Player", "Enemies");
 
-    public override bool OnBulletImpact(PlayerBullet playerBullet, Collision2D collision)
+    public override bool OnBulletImpact(PlayerBullet playerBullet, Collider2D other)
     {
         Collider2D[] rangeCheck = Array.Empty<Collider2D>();
         Physics2D.OverlapCircleNonAlloc(playerBullet.transform.position, Configuration.ExplosiveBullet_Radius, rangeCheck, targetLayer);

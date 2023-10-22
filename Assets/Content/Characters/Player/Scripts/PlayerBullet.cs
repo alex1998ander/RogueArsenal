@@ -39,7 +39,7 @@ public class PlayerBullet : MonoBehaviour
         UpgradeManager.BulletUpdate(this);
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (!UpgradeManager.OnBulletImpact(this, other))
         {
