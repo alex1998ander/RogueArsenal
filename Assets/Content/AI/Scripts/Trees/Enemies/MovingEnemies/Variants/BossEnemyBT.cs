@@ -20,6 +20,7 @@ namespace BehaviorTree
         [SerializeField] private GameObject clone;
         [SerializeField] private GameObject shieldGenerator;
         [SerializeField] private GameObject shield;
+        [SerializeField] private GameObject bullet;
         protected override Node SetupTree()
         {
             LineRenderer lineRenderer = GetComponent<LineRenderer>();
@@ -32,7 +33,7 @@ namespace BehaviorTree
             agent.updateRotation = false;
             agent.updateUpAxis = false;
 
-            Node[] tasks = new Node[] {new BossAttackDash(transform, rb, playerTransform),new BossAttackLaserFocus(lineRenderer,playerTransform,transform), new BossAttackStomp(transform,playerTransform,spriteRenderer), new BossAttackSpawnObject(transform, mine), new BossAttackSpawnObject(transform, turret), new BossAttackSpawnObject(transform, clone, new Vector3(3,3,3))};
+            Node[] tasks = new Node[] {new BossAttackDash(transform, rb, playerTransform), new BossAttackStomp(transform,playerTransform,spriteRenderer),new BossAttackLaserFocus(lineRenderer,playerTransform,transform), new BossAttackSpawnObject(transform, mine), new BossAttackSpawnObject(transform, turret), new BossAttackSpawnObject(transform, clone, new Vector3(3,3,3)), new BossAttack360Shot(transform, bullet), new BossAttackSpawnObject(transform,shieldGenerator, shield)};
 
             const float attackSpeed = 15f;
 
@@ -73,7 +74,7 @@ namespace BehaviorTree
                             new TaskSetLastKnownPlayerLocation(playerTransform),
                             new TaskLookAt(rb, playerTransform),
                             new TaskSetMovementSpeed(agent,  0),
-                            tasks[1],
+                            tasks[tasks.Length - 2], //Random.Range(2,tasks.Length - 1)
                             new TaskSetMovementSpeed(agent, 3.5f),
                             new SetData<AbilityState>(sharedData.AbilityState, AbilityState.Cooldown)
                             

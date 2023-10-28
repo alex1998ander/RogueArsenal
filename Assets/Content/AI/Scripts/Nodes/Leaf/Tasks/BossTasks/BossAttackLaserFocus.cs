@@ -50,7 +50,6 @@ namespace BehaviorTree
             _timeCounter += Time.fixedDeltaTime;
             if (_timeCounter >= ((_waitTime / 3) -  0.2) && _directionNotSet)
             {
-                Debug.Log("SetDirection");
                 _directionNotSet = false;
                 direction = new Vector2(_focusTarget.position.x, _focusTarget.position.y) - new Vector2(_body.position.x, _body.position.y);
             }
