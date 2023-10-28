@@ -12,7 +12,7 @@ public abstract class Upgrade
     public virtual float BulletRange { get; protected set; } = 0f;
     public virtual float BulletSize { get; protected set; } = 0f;
     public virtual float BulletSpeed { get; protected set; } = 0f;
-    public virtual float FireDelay { get; protected set; } = 0f;
+    public virtual float FireCooldown { get; protected set; } = 0f;
     public virtual float Health { get; protected set; } = 0f;
     public virtual float MagazineSize { get; protected set; } = 0f;
     public virtual float PlayerMovementSpeed { get; protected set; } = 0f;

@@ -7,7 +7,7 @@ public class UpgradeHoming : Upgrade
     public override string HelpfulDescription => "Bullets home towards visible targets\n\nBullet Damage -25%\nFire Delay +50%";
 
     public override float BulletDamage => -0.25f;
-    public override float FireDelay => 0.5f;
+    public override float FireCooldown => 0.5f;
 
 
     private LayerMask targetLayer = LayerMask.GetMask("Player", "Enemies");

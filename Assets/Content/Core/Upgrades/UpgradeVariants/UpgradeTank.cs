@@ -5,7 +5,7 @@
     public override string HelpfulDescription => "Health +100%\nFire Delay +100%";
 
     public override float Health => 1f;
-    public override float FireDelay => 1f;
+    public override float FireCooldown => 1f;
 
     public override void Init(PlayerController playerController)
     {

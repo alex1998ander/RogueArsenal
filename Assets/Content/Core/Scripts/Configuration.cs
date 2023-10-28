@@ -16,6 +16,9 @@ public class Configuration
     public const int Weapon_BulletCount = 1;
     public const int Weapon_MagazineSize = 10;
 
+    public const float WeaponSprayMax = 9f;
+    public const float WeaponFireCooldownMax = 10f;
+
     public const float Bullet_ShotDistance = 10f;
     public const float Bullet_MovementSpeed = 15f;
 

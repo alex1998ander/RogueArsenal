@@ -6,5 +6,5 @@
 
     public override float BulletRange => 2.5f;
     public override float BulletSpeed => 2.5f;
-    public override float FireDelay => 1.0f;
+    public override float FireCooldown => 1.0f;
 }

@@ -5,8 +5,6 @@ using UnityEngine;
 
 public static class UpgradeManager
 {
-    private const float WeaponSprayMax = 9f;
-
     // upgrades
     private static readonly List<Upgrade> Upgrades = new();
 
@@ -200,9 +198,9 @@ public static class UpgradeManager
     /// Calculates the fire delay multiplier of all upgrades.
     /// </summary>
     /// <returns>Common fire delay multiplier</returns>
-    public static float GetFireDelayMultiplier()
+    public static float GetFireCooldownMultiplier()
     {
-        return GetAttributeMultiplier(upgrade => upgrade.FireDelay);
+        return Mathf.Min(GetAttributeMultiplier(upgrade => upgrade.FireCooldown), Configuration.WeaponFireCooldownMax);
     }
 
     /// <summary>
@@ -247,7 +245,7 @@ public static class UpgradeManager
     /// <returns>Common reload time multiplier</returns>
     public static float GetWeaponSprayMultiplier()
     {
-        return Mathf.Min(GetAttributeMultiplier(upgrade => upgrade.WeaponSpray), WeaponSprayMax);
+        return Mathf.Min(GetAttributeMultiplier(upgrade => upgrade.WeaponSpray), Configuration.WeaponSprayMax);
     }
 
     /// <summary>

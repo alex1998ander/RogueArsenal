@@ -4,7 +4,7 @@ public class UpgradeStickyFingers : Upgrade
     public override string Description => "";
     public override string HelpfulDescription => "";
 
-    public override float FireDelay => -0.5f;
+    public override float FireCooldown => -0.5f;
     public override float WeaponSpray => 2f;
 
     public override void OnFire(PlayerController playerController, PlayerWeapon playerWeapon)

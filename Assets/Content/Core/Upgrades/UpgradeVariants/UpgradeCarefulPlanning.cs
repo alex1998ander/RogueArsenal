@@ -5,5 +5,5 @@
     public override string HelpfulDescription => "Bullet Damage +150%\nFire Delay +200%";
 
     public override float BulletDamage => 1.5f;
-    public override float FireDelay => 2f;
+    public override float FireCooldown => 2f;
 }

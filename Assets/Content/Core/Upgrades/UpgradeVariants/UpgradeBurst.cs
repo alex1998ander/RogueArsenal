@@ -9,7 +9,7 @@ public class UpgradeBurst : Upgrade
 
     public override float BulletDamage => -0.3f;
     public override float MagazineSize => -0.3f;
-    public override float FireDelay => 0.8f;
+    public override float FireCooldown => 0.8f;
 
     public override void OnFire(PlayerController playerController, PlayerWeapon playerWeapon)
     {
@@ -18,7 +18,7 @@ public class UpgradeBurst : Upgrade
 
     private IEnumerator BurstCoroutine(PlayerWeapon playerWeapon)
     {
-        float quarterDelay = Configuration.Player_FireCoolDown * UpgradeManager.GetFireDelayMultiplier() * 0.25f;
+        float quarterDelay = Configuration.Player_FireCoolDown * UpgradeManager.GetFireCooldownMultiplier() * 0.25f;
         for (int i = 0; i < 2; i++)
         {
             yield return new WaitForSeconds(quarterDelay);
