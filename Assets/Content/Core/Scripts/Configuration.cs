@@ -25,8 +25,15 @@
     public const float Homing_RotationSpeed = 250f;
 
     public const int Piercing_PiercesCount = 1;
+
+    public const float SplitShot_DamageMultiplierAfterwards = 0.7f;
+    public const float SplitShot_Delay = 0.2f;
+    public const float SplitShot_HalfAngle = 30f;
     
-    public const float Stimpack_Duration = 5f;
     public const float Stimpack_DamageMultiplier = 2f;
+    public const float Stimpack_Duration = 5f;
+
+    public const float Timefreeze_Duration = 3f;
+    public const float Timefreeze_TimeScale = 0.5f;
 
 }

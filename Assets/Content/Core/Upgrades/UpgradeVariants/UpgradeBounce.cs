@@ -10,7 +10,7 @@ public class UpgradeBounce : Upgrade
 
     public override void Init(PlayerBullet playerBullet)
     {
-        playerBullet.SetBouncyPhysicsMaterial();
+        playerBullet.Rigidbody.sharedMaterial = UpgradeSpawnablePrefabHolder.instance.bulletBouncePhysicsMaterial;
     }
 
     public override bool OnBulletImpact(PlayerBullet playerBullet, Collider2D other)
@@ -20,9 +20,10 @@ public class UpgradeBounce : Upgrade
             return false;
         }
 
-        playerBullet.BouncesLeft--;
         playerBullet.AdjustFacingMovementDirection();
 
+        playerBullet.BouncesLeft--;
+        
         return true;
     }
 }

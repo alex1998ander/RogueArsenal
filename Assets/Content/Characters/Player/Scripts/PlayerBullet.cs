@@ -1,19 +1,19 @@
-using System;
 using UnityEditor;
 using UnityEngine;
 
 public class PlayerBullet : MonoBehaviour
 {
-    private float _damage;
-    private GameObject _sourceCharacter;
+    public float Damage { get; set; }
+    public float Lifetime { get; private set; }
 
-    private Rigidbody2D _rb;
+    public Rigidbody2D Rigidbody { get; private set; }
     private LineRenderer _lineRenderer;
+
 
     // Upgrade: Bounce
     [Header("Upgrade: Bounce")] [SerializeField] private PhysicsMaterial2D bulletBouncePhysicsMaterial;
     public int BouncesLeft { get; set; } = Configuration.Bounce_BounceCount;
-    
+
     // Upgrade: Piercing
     public int PiercesLeft { get; set; } = Configuration.Piercing_PiercesCount;
 
@@ -24,19 +24,11 @@ public class PlayerBullet : MonoBehaviour
 
     private void Awake()
     {
-        _rb = GetComponent<Rigidbody2D>();
+        Rigidbody = GetComponent<Rigidbody2D>();
         _lineRenderer = GetComponent<LineRenderer>();
         UpgradeManager.Init(this);
     }
-
-    private void Start()
-    {
-        float bulletSpeed = Configuration.Bullet_MovementSpeed * UpgradeManager.GetBulletSpeedMultiplier();
-        
-        _rb.velocity = bulletSpeed * transform.up;
-        Destroy(gameObject, Configuration.Bullet_ShotDistance * UpgradeManager.GetBulletRangeMultiplier() / bulletSpeed);
-    }
-
+    
     private void FixedUpdate()
     {
         UpgradeManager.BulletUpdate(this);
@@ -49,38 +41,34 @@ public class PlayerBullet : MonoBehaviour
             Destroy(gameObject);
         }
 
-        other.gameObject.GetComponent<ICharacterHealth>()?.InflictDamage(_damage, true);
+        other.gameObject.GetComponent<ICharacterHealth>()?.InflictDamage(Damage, true);
     }
 
     /// <summary>
-    /// Initializes this bullet.
+    /// Initializes this bullet and set its velocity
     /// </summary>
-    /// <param name="assignedDamage">Amount of damage caused by this bullet.</param>
-    /// <param name="sourceCharacter">Reference of the character who shot this bullet.</param>
-    public void Init(float assignedDamage, GameObject sourceCharacter)
+    /// <param name="assignedDamage">Amount of damage caused by this bullet</param>
+    /// <param name="assignedLifetime">Lifetime in seconds</param>
+    public void Init(float assignedDamage, float assignedLifetime = 0)
     {
-        _damage = assignedDamage;
-        _sourceCharacter = sourceCharacter;
-    }
+        float bulletSpeed = Configuration.Bullet_MovementSpeed * UpgradeManager.GetBulletSpeedMultiplier();
 
-
-    // Upgrade: Bounce
-    public void SetBouncyPhysicsMaterial()
-    {
-        GetComponent<Rigidbody2D>().sharedMaterial = bulletBouncePhysicsMaterial;
-    }
+        if (assignedLifetime == 0)
+        {
+            assignedLifetime = Configuration.Bullet_ShotDistance * UpgradeManager.GetBulletRangeMultiplier() / bulletSpeed;
+        }
+        
+        Damage = assignedDamage;
+        Lifetime = assignedLifetime;
+        Rigidbody.velocity = bulletSpeed * transform.up;
+        
+        Destroy(gameObject, Lifetime);
+    }    
 
     public void AdjustFacingMovementDirection()
     {
-            float angle = Mathf.Atan2(_rb.velocity.y, _rb.velocity.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0f, 0f, angle - 90f);
-    }
-
-
-    // Upgrade: Homing
-    public void SetRigidbodyAngularVelocity(float angularVelocity)
-    {
-        _rb.angularVelocity = angularVelocity;
+        float angle = Mathf.Atan2(Rigidbody.velocity.y, Rigidbody.velocity.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f, angle - 90f);
     }
 
 

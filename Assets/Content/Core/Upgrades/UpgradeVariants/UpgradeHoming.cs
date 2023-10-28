@@ -22,11 +22,11 @@ public class UpgradeHoming : Upgrade
             Vector2 forwardDirection = playerBullet.transform.up;
             float rotationAmount = Vector3.Cross(directionToTargetNormalized, forwardDirection).z;
 
-            playerBullet.SetRigidbodyAngularVelocity(-rotationAmount * Configuration.Homing_RotationSpeed);
+            playerBullet.Rigidbody.angularVelocity = -rotationAmount * Configuration.Homing_RotationSpeed;
         }
         else
         {
-            playerBullet.SetRigidbodyAngularVelocity(0f);
+            playerBullet.Rigidbody.angularVelocity = 0f;
         }
     }
 
