@@ -14,16 +14,16 @@ public class UpgradeSplitShot : Upgrade
     private IEnumerator DelayedSplit(PlayerBullet playerBullet)
     {
         yield return new WaitForSeconds(Configuration.SplitShot_Delay);
-        
+
         Transform bulletTransform = playerBullet.transform;
         GameObject splitBullet = Object.Instantiate(playerBullet.gameObject, bulletTransform.position, Quaternion.Euler(0f, 0f, Configuration.SplitShot_HalfAngle) * bulletTransform.rotation);
 
         splitBullet.GetComponent<PlayerBullet>().Init(PlayerController.GetBulletDamage() * Configuration.SplitShot_DamageMultiplierAfterwards);
-        playerBullet.Damage *= Configuration.Stimpack_DamageMultiplier;
-        
+        playerBullet.Damage *= Configuration.SplitShot_DamageMultiplierAfterwards;
+
         playerBullet.Rigidbody.velocity = Quaternion.Euler(0f, 0f, -Configuration.SplitShot_HalfAngle) * playerBullet.Rigidbody.velocity;
         playerBullet.AdjustFacingMovementDirection();
-        
+
         Object.Destroy(splitBullet, playerBullet.Lifetime - Configuration.SplitShot_Delay);
     }
 }
