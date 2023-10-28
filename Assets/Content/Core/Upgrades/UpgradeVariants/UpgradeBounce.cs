@@ -8,6 +8,9 @@ public class UpgradeBounce : Upgrade
 
     public override float BulletDamage => 0.25f;
 
+    public override float BulletSpeed => -0.5f;
+    public override float BulletRange => 2f;
+
     public override void Init(PlayerBullet playerBullet)
     {
         playerBullet.Rigidbody.sharedMaterial = UpgradeSpawnablePrefabHolder.instance.bulletBouncePhysicsMaterial;
@@ -23,7 +26,7 @@ public class UpgradeBounce : Upgrade
         playerBullet.AdjustFacingMovementDirection();
 
         playerBullet.BouncesLeft--;
-        
+
         return true;
     }
 }
