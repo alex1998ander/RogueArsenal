@@ -9,20 +9,33 @@ public class UpgradeHoming : Upgrade
     public override float BulletDamage => -0.25f;
     public override float FireCooldown => 0.5f;
 
-
     private LayerMask targetLayer = LayerMask.GetMask("Player", "Enemies");
+
+    private float _bulletSpeed;
+    private float _bulletRotationSpeed;
+
+    public override void Init(PlayerBullet playerBullet)
+    {
+        _bulletSpeed = Configuration.Bullet_MovementSpeed * UpgradeManager.GetBulletSpeedMultiplier();
+        _bulletRotationSpeed = Configuration.Homing_RotationSpeed * UpgradeManager.GetBulletSpeedMultiplier();
+    }
 
     public override void BulletUpdate(PlayerBullet playerBullet)
     {
+        if (playerBullet.BouncesLeft == Configuration.Bounce_BounceCount)
+            return;
+
         Vector2 targetPos = Vector2.zero;
         Vector2 directionToTargetNormalized = Vector2.zero;
 
         if (CheckCharacterInFieldOfView(playerBullet.transform, ref targetPos, ref directionToTargetNormalized))
         {
+            Debug.Log("does stuff");
             Vector2 forwardDirection = playerBullet.transform.up;
             float rotationAmount = Vector3.Cross(directionToTargetNormalized, forwardDirection).z;
 
-            playerBullet.Rigidbody.angularVelocity = -rotationAmount * Configuration.Homing_RotationSpeed;
+            playerBullet.Rigidbody.angularVelocity = -rotationAmount * _bulletRotationSpeed;
+            playerBullet.Rigidbody.velocity = forwardDirection * _bulletSpeed;
         }
         else
         {
@@ -66,15 +79,15 @@ public class UpgradeHoming : Upgrade
 
         return Vector2.Angle(transform.up, directionToTarget) < Configuration.Homing_HalfAngle;
     }
-    
+
     /*
     [SerializeField] [Range(0f, 1f)] private float visualViewBoundFocusSpeed = 0.3f;
     [SerializeField] private float visualViewBoundLength = 4f;
     private Vector2 _visualLastAngleLeft, _visualAngleRight;
-     
-     
+
+
     /// <summary>
-    /// Homing upgrade visualization 
+    /// Homing upgrade visualization
     /// </summary>
     /// <param name="canSeeTargetCharacter">Bool, whether this bullet can "see" a target character</param>
     /// <param name="directionToTarget">Vector pointing to the target character</param>

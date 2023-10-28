@@ -14,17 +14,17 @@ public class UpgradeBounce : Upgrade
     public override void Init(PlayerBullet playerBullet)
     {
         playerBullet.Rigidbody.sharedMaterial = UpgradeSpawnablePrefabHolder.instance.bulletBouncePhysicsMaterial;
+        playerBullet.BouncesLeft = Configuration.Bounce_BounceCount;
     }
 
-    public override bool OnBulletImpact(PlayerBullet playerBullet, Collider2D other)
+    public override bool OnBulletCollision(PlayerBullet playerBullet, Collision2D collision)
     {
-        if (playerBullet.BouncesLeft <= 0 || other.CompareTag("Enemy") || other.CompareTag("Player"))
+        if (playerBullet.BouncesLeft <= 0)
         {
             return false;
         }
 
         playerBullet.AdjustFacingMovementDirection();
-
         playerBullet.BouncesLeft--;
 
         return true;

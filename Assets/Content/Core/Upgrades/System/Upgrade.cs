@@ -79,12 +79,23 @@ public abstract class Upgrade
     public virtual void PlayerUpdate(PlayerController playerController) { }
 
     /// <summary>
-    /// Optional functionality that is executed when the bullet hits something
+    /// Optional functionality that is executed when the bullet trigger zone overlaps something
     /// </summary>
     /// <param name="playerBullet">Bullet reference</param>
     /// <param name="other">Collider information</param>
     /// <returns>Bool, whether the bullet should survive afterwards</returns>
-    public virtual bool OnBulletImpact(PlayerBullet playerBullet, Collider2D other)
+    public virtual bool OnBulletTrigger(PlayerBullet playerBullet, Collider2D other)
+    {
+        return false;
+    }
+
+    /// <summary>
+    /// Optional functionality that is executed when the bullet collides with something
+    /// </summary>
+    /// <param name="playerBullet">Bullet reference</param>
+    /// <param name="collision">Collision information</param>
+    /// <returns>Bool, whether the bullet should survive afterwards</returns>
+    public virtual bool OnBulletCollision(PlayerBullet playerBullet, Collision2D collision)
     {
         return false;
     }

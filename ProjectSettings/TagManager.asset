@@ -19,7 +19,7 @@ TagManager:
   - Currency
   - Walls
   - Enemies
-  - PlayerBullets
+  - PlayerBullets_Trigger
   - EnemyBullets
   - PlayerBullets_Collider
   - DamageZone

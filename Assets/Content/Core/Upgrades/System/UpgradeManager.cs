@@ -24,7 +24,6 @@ public static class UpgradeManager
         new UpgradeBurst(),
         new UpgradeCarefulPlanning(),
         new UpgradeDemonicPact(),
-        //new UpgradeDrill(),
         //new UpgradeExplosiveBullet(),
         new UpgradeGlassCannon(),
         new UpgradeHealingField(),
@@ -379,19 +378,38 @@ public static class UpgradeManager
     }
 
     /// <summary>
-    /// Executes the functionalities of all assigned upgrades when the bullet hits something
+    /// Executes the functionalities of all assigned upgrades when the bullet trigger zone overlaps something
     /// </summary>
     /// <param name="playerBullet">Bullet reference</param>
     /// <param name="other">Collider information</param>
     /// <returns>Bool, whether the bullet should survive afterwards</returns>
-    public static bool OnBulletImpact(PlayerBullet playerBullet, Collider2D other)
+    public static bool OnBulletTrigger(PlayerBullet playerBullet, Collider2D other)
     {
         // binary unconditional logical OR ('|' not '||') needed to evaluate every operand (no short-circuiting)
         bool bulletSurvives = false;
 
         foreach (Upgrade upgrade in Upgrades)
         {
-            bulletSurvives |= upgrade.OnBulletImpact(playerBullet, other);
+            bulletSurvives |= upgrade.OnBulletTrigger(playerBullet, other);
+        }
+
+        return bulletSurvives;
+    }
+
+    /// <summary>
+    /// Executes the functionalities of all assigned upgrades when the bullet collides with something
+    /// </summary>
+    /// <param name="playerBullet">Bullet reference</param>
+    /// <param name="collision">Collision information</param>
+    /// <returns>Bool, whether the bullet should survive afterwards</returns>
+    public static bool OnBulletCollision(PlayerBullet playerBullet, Collision2D collision)
+    {
+        // binary unconditional logical OR ('|' not '||') needed to evaluate every operand (no short-circuiting)
+        bool bulletSurvives = false;
+
+        foreach (Upgrade upgrade in Upgrades)
+        {
+            bulletSurvives |= upgrade.OnBulletCollision(playerBullet, collision);
         }
 
         return bulletSurvives;

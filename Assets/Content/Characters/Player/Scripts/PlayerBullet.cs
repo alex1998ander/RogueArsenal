@@ -1,3 +1,4 @@
+using System;
 using UnityEditor;
 using UnityEngine;
 
@@ -11,11 +12,13 @@ public class PlayerBullet : MonoBehaviour
 
 
     // Upgrade: Bounce
-    [Header("Upgrade: Bounce")] [SerializeField] private PhysicsMaterial2D bulletBouncePhysicsMaterial;
-    public int BouncesLeft { get; set; } = Configuration.Bounce_BounceCount;
+    [Header("Upgrade: Bounce")] [SerializeField]
+    private PhysicsMaterial2D bulletBouncePhysicsMaterial;
+
+    public int BouncesLeft { get; set; }
 
     // Upgrade: Piercing
-    public int PiercesLeft { get; set; } = Configuration.Piercing_PiercesCount;
+    public int PiercesLeft { get; set; }
 
 #if UNITY_EDITOR
     private bool _canSeeTargetCharacterGizmos;
@@ -28,7 +31,7 @@ public class PlayerBullet : MonoBehaviour
         _lineRenderer = GetComponent<LineRenderer>();
         UpgradeManager.Init(this);
     }
-    
+
     private void FixedUpdate()
     {
         UpgradeManager.BulletUpdate(this);
@@ -36,12 +39,20 @@ public class PlayerBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!UpgradeManager.OnBulletImpact(this, other))
+        if (!UpgradeManager.OnBulletTrigger(this, other))
         {
             Destroy(gameObject);
         }
 
         other.gameObject.GetComponent<ICharacterHealth>()?.InflictDamage(Damage, true);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (!UpgradeManager.OnBulletCollision(this, collision))
+        {
+            Destroy(gameObject);
+        }
     }
 
     /// <summary>
@@ -57,13 +68,13 @@ public class PlayerBullet : MonoBehaviour
         {
             assignedLifetime = Configuration.Bullet_ShotDistance * UpgradeManager.GetBulletRangeMultiplier() / bulletSpeed;
         }
-        
+
         Damage = assignedDamage;
         Lifetime = assignedLifetime;
         Rigidbody.velocity = bulletSpeed * transform.up;
-        
+
         Destroy(gameObject, Lifetime);
-    }    
+    }
 
     public void AdjustFacingMovementDirection()
     {

@@ -30,7 +30,7 @@ public class Configuration
 
     public const float Homing_HalfAngle = 50f;
     public const float Homing_Radius = 8f;
-    public const float Homing_RotationSpeed = 250f;
+    public const float Homing_RotationSpeed = 400f;
 
     public const int Piercing_PiercesCount = 1;
 
