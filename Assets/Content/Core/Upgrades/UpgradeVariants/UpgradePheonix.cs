@@ -10,7 +10,7 @@
     {
         if (!playerController.Phoenixed)
         {
-            playerController.playerHealth.ResetHealth();
+            playerController.PlayerHealth.ResetHealth();
             playerController.Phoenixed = true;
         }
     }

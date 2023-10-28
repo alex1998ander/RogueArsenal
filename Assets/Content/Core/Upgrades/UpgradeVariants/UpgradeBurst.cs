@@ -11,18 +11,18 @@ public class UpgradeBurst : Upgrade
     public override float MagazineSize => -0.3f;
     public override float FireCooldown => 0.8f;
 
-    public override void OnFire(PlayerController playerController, PlayerWeapon playerWeapon)
+    public override void OnFire(PlayerController playerController, PlayerWeapon playerWeapon, Vector2 fireDirection)
     {
-        playerController.StartCoroutine(BurstCoroutine(playerWeapon));
+        playerController.StartCoroutine(BurstCoroutine(playerWeapon, fireDirection));
     }
 
-    private IEnumerator BurstCoroutine(PlayerWeapon playerWeapon)
+    private IEnumerator BurstCoroutine(PlayerWeapon playerWeapon, Vector2 fireDirection)
     {
-        float quarterDelay = Configuration.Player_FireCoolDown * UpgradeManager.GetFireCooldownMultiplier() * 0.25f;
-        for (int i = 0; i < 2; i++)
+        float delayFraction = Configuration.Player_FireCoolDown * UpgradeManager.GetFireCooldownMultiplier() * Configuration.Burst_FireDelayFraction;
+        for (int i = 0; i < Configuration.Burst_AdditionalBulletCount; i++)
         {
-            yield return new WaitForSeconds(quarterDelay);
-            playerWeapon.TryFire(false);
+            yield return new WaitForSeconds(delayFraction);
+            playerWeapon.TryFire(fireDirection, false);
         }
     }
 }

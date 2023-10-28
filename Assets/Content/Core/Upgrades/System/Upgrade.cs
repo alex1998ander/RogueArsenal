@@ -37,7 +37,8 @@ public abstract class Upgrade
     /// </summary>
     /// <param name="playerController">Player reference</param>
     /// <param name="playerWeapon">Player weapon reference</param>
-    public virtual void OnFire(PlayerController playerController, PlayerWeapon playerWeapon) { }
+    /// <param name="fireDirection">Direction where the player fired</param>
+    public virtual void OnFire(PlayerController playerController, PlayerWeapon playerWeapon, Vector2 fireDirection) { }
 
     /// <summary>
     /// Optional functionality that is performed when the player reloads
@@ -64,7 +65,8 @@ public abstract class Upgrade
     /// Optional functionality that is performed when the player uses their ability
     /// </summary>
     /// <param name="playerController">Player reference</param>
-    public virtual void OnAbility(PlayerController playerController) { }
+    /// <param name="playerWeapon">Player weapon reference</param>
+    public virtual void OnAbility(PlayerController playerController, PlayerWeapon playerWeapon) { }
 
     /// <summary>
     /// Optional functionality that is executed every frame while the bullet is flying

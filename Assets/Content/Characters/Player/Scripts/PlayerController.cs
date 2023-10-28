@@ -4,12 +4,11 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour, ICharacterController
 {
-    private PlayerInput _playerInput;
-    private Rigidbody2D _rigidbody;
-    public PlayerHealth playerHealth { get; private set; }
-
     [SerializeField] private PlayerWeapon playerWeapon;
     [SerializeField] private Transform playerSpriteTransform;
+
+    public PlayerHealth PlayerHealth { get; private set; }
+
 
     // General Properties
     public bool CanDash { get; set; } = true;
@@ -21,9 +20,11 @@ public class PlayerController : MonoBehaviour, ICharacterController
     // Upgrade: Sticky Fingers
     public bool StickyFingers { get; set; }
 
+    private Rigidbody2D _rigidbody;
+
     private Vector2 _movementInput;
     private Vector2 _dashMovementDirection;
-    private Vector3 _aimDirection;
+    private Vector2 _aimDirection;
     private float _angle;
     private bool _isFiring;
     private bool _isDashing;
@@ -36,11 +37,10 @@ public class PlayerController : MonoBehaviour, ICharacterController
 
     private void Awake()
     {
-        _playerInput = GetComponent<PlayerInput>();
         _rigidbody = GetComponent<Rigidbody2D>();
-        playerHealth = GetComponent<PlayerHealth>();
+        PlayerHealth = GetComponent<PlayerHealth>();
 
-        playerHealth.ResetHealth();
+        PlayerHealth.ResetHealth();
 
         UpgradeManager.Init(this);
     }
@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
         FireWeapon();
     }
 
-    #region Player Actions
+    #region PlayerActions
 
     private void MovePlayer()
     {
@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
             if (Time.time > _dashEndTimestamp)
             {
                 _isDashing = false;
-                playerHealth.SetInvulnerable(false);
+                PlayerHealth.SetInvulnerable(false);
                 _dashDelayEndTimestamp = Time.time + Configuration.Player_DashCoolDown;
             }
         }
@@ -92,9 +92,9 @@ public class PlayerController : MonoBehaviour, ICharacterController
             // This assignment has to be done before "UpgradeManager.OnFire()" so that the variable can be overwritten by this function if necessary
             _fireCooldownEndTimestamp = Time.time + Configuration.Player_FireCoolDown * UpgradeManager.GetFireCooldownMultiplier();
 
-            if (playerWeapon.TryFire(true))
+            if (playerWeapon.TryFire(_aimDirection, true))
             {
-                UpgradeManager.OnFire(this, playerWeapon);
+                UpgradeManager.OnFire(this, playerWeapon, _aimDirection);
                 EventManager.OnPlayerShotFired.Trigger();
             }
             else
@@ -104,7 +104,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
         }
     }
 
-    public void ReloadWeapon()
+    private void ReloadWeapon()
     {
         if (!CanReload)
             return;
@@ -148,7 +148,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
 
     #endregion
 
-    #region Upgrade Implementation
+    #region UpgradeImplementation
 
     public void StunCharacter()
     {
@@ -179,7 +179,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
             // This assignment has to be done before "UpgradeManager.OnAbility()" so that the variable can be overwritten by this function if necessary
             _abilityCooldownEndTimestamp = Time.time + Configuration.Player_AbilityCoolDown * UpgradeManager.GetAbilityDelayMultiplier();
 
-            UpgradeManager.OnAbility(this);
+            UpgradeManager.OnAbility(this, playerWeapon);
         }
     }
 
@@ -191,6 +191,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
             if (Vector2.Distance(Vector2.zero, _aimDirection) > 0.5)
             {
                 _aimDirection = (Vector2) Camera.main.ScreenToWorldPoint(_aimDirection) - _rigidbody.position;
+                _aimDirection.Normalize();
 
                 _angle = Mathf.Atan2(_aimDirection.y, _aimDirection.x) * Mathf.Rad2Deg - 90f;
                 playerWeapon.transform.rotation = Quaternion.Euler(0, 0, _angle);
@@ -211,7 +212,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
         {
             _isDashing = true;
             _dashEndTimestamp = Time.time + Configuration.Player_DashTime;
-            playerHealth.SetInvulnerable(true);
+            PlayerHealth.SetInvulnerable(true);
             _dashMovementDirection = _movementInput;
         }
     }

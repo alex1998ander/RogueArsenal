@@ -5,7 +5,6 @@ using Random = UnityEngine.Random;
 public class PlayerWeapon : MonoBehaviour
 {
     [SerializeField] private GameObject playerBulletPrefab;
-    [SerializeField] private Transform firePoint;
 
     private int _currentAmmo;
 
@@ -14,17 +13,23 @@ public class PlayerWeapon : MonoBehaviour
         Reload();
     }
 
-    public bool TryFire(bool spendAmmo)
+    public bool TryFire(Vector2 fireDirection, bool spendAmmo)
     {
         if (spendAmmo && _currentAmmo <= 0)
             return false;
 
-        float angle = Configuration.Weapon_SprayAngle * 0.5f * UpgradeManager.GetWeaponSprayMultiplier();
+        // Calculate the angle of rotation based on shootDirection
+        float angle = Mathf.Atan2(fireDirection.y, fireDirection.x) * Mathf.Rad2Deg - 90f;
+
+        // Calculate the random angle range for weapon spraying
+        float randomAngleRange = Configuration.Weapon_SprayAngle * 0.5f * UpgradeManager.GetWeaponSprayMultiplier();
+
         int bulletCount = Configuration.Weapon_BulletCount + UpgradeManager.GetBulletCountAdjustment();
+
+        Vector3 firePoint = transform.position + (Vector3) fireDirection * Configuration.Weapon_BulletSpawnDistance;
         for (int i = 0; i < bulletCount; i++)
         {
-            GameObject bullet = Instantiate(playerBulletPrefab, firePoint.position,
-                firePoint.rotation * Quaternion.Euler(0, 0, Random.Range(-angle, angle)));
+            GameObject bullet = Instantiate(playerBulletPrefab, firePoint, Quaternion.Euler(0, 0, angle + Random.Range(-randomAngleRange, randomAngleRange)));
             bullet.transform.localScale *= UpgradeManager.GetBulletSizeMultiplier();
 
             PlayerBullet playerBullet = bullet.GetComponent<PlayerBullet>();

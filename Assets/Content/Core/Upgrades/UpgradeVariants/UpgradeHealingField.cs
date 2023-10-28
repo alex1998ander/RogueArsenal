@@ -8,7 +8,7 @@ public class UpgradeHealingField : Upgrade
 
     public override float Health => 0.3f;
 
-    public override void OnAbility(PlayerController playerController)
+    public override void OnAbility(PlayerController playerController, PlayerWeapon playerWeapon)
     {
         GameObject healingField = Object.Instantiate(UpgradeSpawnablePrefabHolder.instance.healingFieldPrefab, playerController.transform.position, Quaternion.identity);
         Object.Destroy(healingField, Configuration.HealingField_Duration);
