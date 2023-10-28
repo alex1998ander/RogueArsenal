@@ -9,7 +9,15 @@ public static class GameManager
 
     public static void TogglePause()
     {
-        Time.timeScale = GamePaused ? 1f : 0f;
+        if (GamePaused)
+        {
+            TimeController.ResumeGame();
+        }
+        else
+        {
+            TimeController.PauseGame();
+        }
+
         GamePaused = !GamePaused;
         EventManager.OnPauseGame.Trigger(GamePaused);
     }

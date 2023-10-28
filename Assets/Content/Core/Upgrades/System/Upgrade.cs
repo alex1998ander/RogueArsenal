@@ -54,6 +54,13 @@ public abstract class Upgrade
     public virtual void OnMagazineEmptied(PlayerController playerController, PlayerWeapon playerWeapon) { }
 
     /// <summary>
+    /// Optional functionality that is performed when the bullet is fired.
+    /// This is only executed when the bullet is instantiated by the weapon.
+    /// </summary>
+    /// <param name="playerBullet">Player reference</param>
+    public virtual void OnFire(PlayerBullet playerBullet) { }
+
+    /// <summary>
     /// Optional functionality that is performed when the player uses their ability
     /// </summary>
     /// <param name="playerController">Player reference</param>

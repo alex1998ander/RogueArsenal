@@ -38,7 +38,10 @@ public static class UpgradeManager
         new UpgradePhoenix(),
         new UpgradeStickyFingers(),
         // new UpgradePoison(),
+        new UpgradeSplitShot(),
+        new UpgradeStimpack(),
         new UpgradeTank(),
+        new UpgradeTimefreeze(),
     };
 
     private static readonly List<Upgrade> UpgradePool = new();
@@ -325,6 +328,19 @@ public static class UpgradeManager
         foreach (Upgrade upgrade in Upgrades)
         {
             upgrade.OnMagazineEmptied(playerController, playerWeapon);
+        }
+    }
+
+    /// <summary>
+    /// Executes the functionalities of all assigned upgrades when the bullet is fired.
+    /// This should only be executed when the bullet is instantiated by the weapon.
+    /// </summary>
+    /// <param name="playerBullet">Player reference</param>
+    public static void OnFire(PlayerBullet playerBullet)
+    {
+        foreach (Upgrade upgrade in Upgrades)
+        {
+            upgrade.OnFire(playerBullet);
         }
     }
 

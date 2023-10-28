@@ -25,8 +25,11 @@ public class PlayerWeapon : MonoBehaviour
         {
             GameObject bullet = Instantiate(playerBulletPrefab, firePoint.position,
                 firePoint.rotation * Quaternion.Euler(0, 0, Random.Range(-angle, angle)));
-            bullet.GetComponent<PlayerBullet>().Init(PlayerController.GetBulletDamage(), transform.parent.gameObject);
             bullet.transform.localScale *= UpgradeManager.GetBulletSizeMultiplier();
+
+            PlayerBullet playerBullet = bullet.GetComponent<PlayerBullet>();
+            playerBullet.Init(PlayerController.GetBulletDamage());
+            UpgradeManager.OnFire(playerBullet);
         }
 
         if (spendAmmo)
