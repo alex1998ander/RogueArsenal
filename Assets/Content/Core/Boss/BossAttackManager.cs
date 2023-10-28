@@ -13,13 +13,13 @@ public class BossAttackManager : MonoBehaviour
     public IBossAttack[] SelectRandomBossAttacks(int count)
     {
         System.Random rnd = new System.Random();
-        _activeBossAttacks = BossAttackPool.OrderBy(x => rnd.Next()).Take(count).ToArray();
+        //_activeBossAttacks = BossAttackPool.OrderBy(x => rnd.Next()).Take(count).ToArray();
 
         return _activeBossAttacks;
     }
 
     private void Start()
     {
-        GetComponent<BossAttackLaserFocus>().ExecuteAbility();
+        //GetComponent<BossAttackLaserFocus>().ExecuteAbility();
     }
 }
