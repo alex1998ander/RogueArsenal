@@ -28,8 +28,9 @@ public class UpgradeSmartPistol : Upgrade
             bool canDash = playerController.CanDash;
 
             // Shoot in direction of the enemy
-            playerWeapon.TryFire(playertoEnemy.normalized, false);
-            UpgradeManager.OnFire(playerController, playerWeapon, playertoEnemy.normalized);
+            playertoEnemy.Normalize();
+            playerWeapon.TryFire(false, false, playertoEnemy);
+            UpgradeManager.OnFire(playerController, playerWeapon, playertoEnemy);
             EventManager.OnPlayerShotFired.Trigger();
 
             // Turn sticky fingers and dashing on/off again

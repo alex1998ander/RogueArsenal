@@ -37,8 +37,7 @@ public abstract class Upgrade
     /// </summary>
     /// <param name="playerController">Player reference</param>
     /// <param name="playerWeapon">Player weapon reference</param>
-    /// <param name="fireDirection">Direction where the player fired</param>
-    public virtual void OnFire(PlayerController playerController, PlayerWeapon playerWeapon, Vector2 fireDirection) { }
+    public virtual void OnFire(PlayerController playerController, PlayerWeapon playerWeapon, Vector2 fireDirectionOverwrite = default) { }
 
     /// <summary>
     /// Optional functionality that is performed when the player reloads

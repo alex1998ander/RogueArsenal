@@ -92,9 +92,9 @@ public class PlayerController : MonoBehaviour, ICharacterController
             // This assignment has to be done before "UpgradeManager.OnFire()" so that the variable can be overwritten by this function if necessary
             _fireCooldownEndTimestamp = Time.time + Configuration.Player_FireCoolDown * UpgradeManager.GetFireCooldownMultiplier();
 
-            if (playerWeapon.TryFire(_aimDirection, true))
+            if (playerWeapon.TryFire(true))
             {
-                UpgradeManager.OnFire(this, playerWeapon, _aimDirection);
+                UpgradeManager.OnFire(this, playerWeapon);
                 EventManager.OnPlayerShotFired.Trigger();
             }
             else

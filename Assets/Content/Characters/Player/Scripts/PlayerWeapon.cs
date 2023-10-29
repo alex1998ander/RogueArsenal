@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -13,11 +12,29 @@ public class PlayerWeapon : MonoBehaviour
         Reload();
     }
 
-    public bool TryFire(Vector2 fireDirection, bool spendAmmo)
+    /// <summary>
+    /// Tries to fire the player weapon
+    /// </summary>
+    /// <param name="spendAmmo">Spend ammo on shot</param>
+    /// <param name="useTransformUp">Use the up direction of the weapon as fire direction</param>
+    /// <param name="fireDirectionOverwrite">Overwritten fire direction</param>
+    /// <returns>true if weapon could be fired, false if not</returns>
+    public bool TryFire(bool spendAmmo, bool useTransformUp = true, Vector2 fireDirectionOverwrite = default)
     {
         if (spendAmmo && _currentAmmo <= 0)
             return false;
 
+        Vector2 fireDirection = useTransformUp ? transform.up : fireDirectionOverwrite;
+        Fire(fireDirection);
+
+        if (spendAmmo)
+            _currentAmmo--;
+
+        return true;
+    }
+
+    private void Fire(Vector2 fireDirection)
+    {
         // Calculate the angle of rotation based on shootDirection
         float angle = Mathf.Atan2(fireDirection.y, fireDirection.x) * Mathf.Rad2Deg - 90f;
 
@@ -36,11 +53,6 @@ public class PlayerWeapon : MonoBehaviour
             playerBullet.Init(PlayerController.GetBulletDamage());
             UpgradeManager.OnFire(playerBullet);
         }
-
-        if (spendAmmo)
-            _currentAmmo--;
-
-        return true;
     }
 
     public void Reload()

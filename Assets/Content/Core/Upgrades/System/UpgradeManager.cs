@@ -294,12 +294,11 @@ public static class UpgradeManager
     /// </summary>
     /// <param name="playerController">Player reference</param>
     /// <param name="playerWeapon">Player reference</param>
-    /// <param name="fireDirection">Direction where the player fired</param>
-    public static void OnFire(PlayerController playerController, PlayerWeapon playerWeapon, Vector2 fireDirection)
+    public static void OnFire(PlayerController playerController, PlayerWeapon playerWeapon, Vector2 fireDirectionOverwrite = default)
     {
         foreach (Upgrade upgrade in Upgrades)
         {
-            upgrade.OnFire(playerController, playerWeapon, fireDirection);
+            upgrade.OnFire(playerController, playerWeapon, fireDirectionOverwrite);
         }
     }
 
