@@ -9,6 +9,7 @@ public class Configuration
     public const float Player_DashCoolDown = 0.1f;
     public const float Player_FireCoolDown = 0.2f;
     public const float Player_AbilityCoolDown = 5.0f;
+    public const float Player_SelfDamageMultiplier = 0.4f;
 
     public const float Weapon_Damage = 30f;
     public const float Weapon_SprayAngle = 5f;
@@ -22,6 +23,9 @@ public class Configuration
 
     public const float Bullet_ShotDistance = 10f;
     public const float Bullet_MovementSpeed = 15f;
+    public const float Bullet_SpawnTime = 0.5f;
+
+    public const int BigBullet_PiercesCount = 3;
 
     public const int Bounce_BounceCount = 2;
 

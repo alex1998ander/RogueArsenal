@@ -10,7 +10,6 @@ public class PlayerBullet : MonoBehaviour
     public Rigidbody2D Rigidbody { get; private set; }
     private LineRenderer _lineRenderer;
 
-
     // Upgrade: Bounce
     [Header("Upgrade: Bounce")] [SerializeField]
     private PhysicsMaterial2D bulletBouncePhysicsMaterial;
@@ -25,8 +24,11 @@ public class PlayerBullet : MonoBehaviour
     private Vector2 _targetPositionGizmos;
 #endif
 
+    private float _spawnEndTimestamp;
+
     private void Awake()
     {
+        _spawnEndTimestamp = Time.time + Configuration.Bullet_SpawnTime;
         Rigidbody = GetComponent<Rigidbody2D>();
         _lineRenderer = GetComponent<LineRenderer>();
         UpgradeManager.Init(this);
@@ -44,7 +46,18 @@ public class PlayerBullet : MonoBehaviour
             Destroy(gameObject);
         }
 
-        other.gameObject.GetComponent<ICharacterHealth>()?.InflictDamage(Damage, true);
+        ICharacterHealth characterHealth = other.gameObject.GetComponent<ICharacterHealth>();
+        if (characterHealth is PlayerHealth)
+        {
+            if (Time.time > _spawnEndTimestamp)
+            {
+                characterHealth?.InflictDamage(Damage * Configuration.Player_SelfDamageMultiplier, true);
+            }
+        }
+        else
+        {
+            characterHealth?.InflictDamage(Damage, true);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

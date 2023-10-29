@@ -30,6 +30,8 @@ public class PlayerWeapon : MonoBehaviour
         if (spendAmmo)
             _currentAmmo--;
 
+        Debug.Log("<color=yellow> Ammo: " + _currentAmmo + "</color>");
+
         return true;
     }
 

@@ -50,6 +50,12 @@ public class PlayerController : MonoBehaviour, ICharacterController
         UpgradeManager.PlayerUpdate(this);
         MovePlayer();
         FireWeapon();
+
+        // TODO: Delete all this stupidity later
+        if (Time.time <= _weaponReloadedTimeStamp)
+            Debug.Log("<color=red>Reloading: " + (_weaponReloadedTimeStamp - Time.time) + "</color>");
+        else if (Time.time > _weaponReloadedTimeStamp && Time.time < _weaponReloadedTimeStamp + Time.fixedDeltaTime * 2)
+            Debug.Log("<color=blue>Reloaded!</color>");
     }
 
     #region PlayerActions
@@ -84,7 +90,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
         if (Time.time <= _fireCooldownEndTimestamp || _isDashing || GameManager.GamePaused)
             return;
 
-        if (!CheckWeaponReloaded())
+        if (Time.time <= _weaponReloadedTimeStamp)
             return;
 
         if (_isFiring || StickyFingers)
@@ -106,22 +112,12 @@ public class PlayerController : MonoBehaviour, ICharacterController
 
     private void ReloadWeapon()
     {
-        if (!CanReload)
+        if (!CanReload || Time.time <= _weaponReloadedTimeStamp)
             return;
 
         _weaponReloadedTimeStamp = Time.time + Configuration.Weapon_ReloadTime * UpgradeManager.GetReloadTimeMultiplier();
         playerWeapon.Reload();
         UpgradeManager.OnReload(this, playerWeapon);
-    }
-
-    private bool CheckWeaponReloaded()
-    {
-        if (Time.time > _weaponReloadedTimeStamp)
-        {
-            return true;
-        }
-
-        return false;
     }
 
     #endregion
