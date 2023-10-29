@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerBullet : MonoBehaviour
 {
     public float Damage { get; set; }
+    public float TotalLifetime { get; private set; }
     public float Lifetime { get; private set; }
 
     public Rigidbody2D Rigidbody { get; private set; }
@@ -18,6 +19,10 @@ public class PlayerBullet : MonoBehaviour
 
     // Upgrade: Piercing
     public int PiercesLeft { get; set; }
+
+    // Upgrade: SinusoidalShots
+    public float RotationSwitchTimestamp { get; set; }
+    public int RotationMultiplier { get; set; } = 1;
 
 #if UNITY_EDITOR
     private bool _canSeeTargetCharacterGizmos;
@@ -36,6 +41,7 @@ public class PlayerBullet : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Lifetime += Time.fixedDeltaTime;
         UpgradeManager.BulletUpdate(this);
     }
 
@@ -83,10 +89,10 @@ public class PlayerBullet : MonoBehaviour
         }
 
         Damage = assignedDamage;
-        Lifetime = assignedLifetime;
+        TotalLifetime = assignedLifetime;
         Rigidbody.velocity = bulletSpeed * transform.up;
 
-        Destroy(gameObject, Lifetime);
+        Destroy(gameObject, TotalLifetime);
     }
 
     public void AdjustFacingMovementDirection()

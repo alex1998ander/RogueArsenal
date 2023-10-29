@@ -24,6 +24,6 @@ public class UpgradeSplitShot : Upgrade
         playerBullet.Rigidbody.velocity = Quaternion.Euler(0f, 0f, -Configuration.SplitShot_HalfAngle) * playerBullet.Rigidbody.velocity;
         playerBullet.AdjustFacingMovementDirection();
 
-        Object.Destroy(splitBullet, playerBullet.Lifetime - Configuration.SplitShot_Delay);
+        Object.Destroy(splitBullet, playerBullet.TotalLifetime - Configuration.SplitShot_Delay);
     }
 }

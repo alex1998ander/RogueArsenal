@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class Configuration
 {
     // Naming convention: <module/upgrade name>UNDERSCORE<value type>
@@ -12,7 +14,7 @@ public class Configuration
     public const float Player_SelfDamageMultiplier = 0.4f;
 
     public const float Weapon_Damage = 30f;
-    public const float Weapon_SprayAngle = 5f;
+    public const float Weapon_SprayAngle = 0f; // 5f;
     public const float Weapon_ReloadTime = 1f;
     public const float Weapon_BulletSpawnDistance = 0.8f;
     public const int Weapon_BulletCount = 1;
@@ -41,6 +43,9 @@ public class Configuration
     public const float Homing_RotationSpeed = 400f;
 
     public const int Piercing_PiercesCount = 1;
+
+    public const float SinusoidalShots_Frequency = 2 * Mathf.PI;
+    public const float SinusoidalShots_Amplitude = 10f;
 
     public const float SmartPistol_Range = 5f;
 
