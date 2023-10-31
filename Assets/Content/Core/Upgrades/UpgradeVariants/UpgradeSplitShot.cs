@@ -19,6 +19,13 @@ public class UpgradeSplitShot : Upgrade
         PlayerBullet leftBullet = CopyBullet(playerBullet, Configuration.SplitShot_HalfAngle);
         PlayerBullet rightBullet = CopyBullet(playerBullet, -Configuration.SplitShot_HalfAngle);
 
+        // For Sinusoidal Shots: rotate the split bullets coming from the left bullet to the right and vice versa
+        if (playerBullet.RotationMultiplier != 0)
+        {
+            RotateBulletVelocity(leftBullet, playerBullet.RotationMultiplier * Configuration.SinusoidalShots_SplitShotHalfAngleAdjustment);
+            RotateBulletVelocity(rightBullet, playerBullet.RotationMultiplier * Configuration.SinusoidalShots_SplitShotHalfAngleAdjustment);
+        }
+
         // For Sinusoidal Shots: Split bullets need opposing rotation multipliers
         leftBullet.RotationMultiplier = 1;
         rightBullet.RotationMultiplier = -1;
@@ -44,12 +51,18 @@ public class UpgradeSplitShot : Upgrade
         copiedBullet.Rigidbody.position = originalBullet.Rigidbody.position;
 
         // Rotate the velocity of the copied bullet
-        copiedBullet.Rigidbody.velocity = Quaternion.Euler(0f, 0f, velocityRotationAngle) * originalBullet.Rigidbody.velocity;
-        copiedBullet.AdjustFacingMovementDirection();
+        copiedBullet.Rigidbody.velocity = originalBullet.Rigidbody.velocity;
+        RotateBulletVelocity(copiedBullet, velocityRotationAngle);
 
         // Destroy copied bullet with total lifetime adjustment
         Object.Destroy(copiedBulletObject, originalBullet.TotalLifetime - Configuration.SplitShot_Delay);
 
         return copiedBullet;
+    }
+
+    private void RotateBulletVelocity(PlayerBullet bullet, float velocityRotationAngle)
+    {
+        bullet.Rigidbody.velocity = Quaternion.Euler(0f, 0f, velocityRotationAngle) * bullet.Rigidbody.velocity;
+        bullet.AdjustFacingMovementDirection();
     }
 }
