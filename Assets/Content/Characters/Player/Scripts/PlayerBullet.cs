@@ -21,8 +21,7 @@ public class PlayerBullet : MonoBehaviour
     public int PiercesLeft { get; set; }
 
     // Upgrade: SinusoidalShots
-    public float RotationSwitchTimestamp { get; set; }
-    public int RotationMultiplier { get; set; } = 1;
+    public int RotationMultiplier { get; set; }
 
 #if UNITY_EDITOR
     private bool _canSeeTargetCharacterGizmos;

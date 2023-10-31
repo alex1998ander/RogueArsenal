@@ -189,8 +189,6 @@ public class PlayerController : MonoBehaviour, ICharacterController
                 _aimDirection = (Vector2) Camera.main.ScreenToWorldPoint(_aimDirection) - _rigidbody.position;
                 _aimDirection.Normalize();
 
-                Debug.Log("aiming at: " + _aimDirection);
-
                 _angle = Mathf.Atan2(_aimDirection.y, _aimDirection.x) * Mathf.Rad2Deg - 90f;
                 playerWeapon.transform.rotation = Quaternion.Euler(0, 0, _angle);
 

@@ -6,18 +6,17 @@ public class UpgradeSinusoidalShots : Upgrade
     public override string Description => "Straight lines are so passé! Unleash the power of trigonometry on your foes and watch them tremble in confusion.";
     public override string HelpfulDescription => "";
 
+    public override int BulletCount => 1;
+    public override float BulletDamage => -0.4f;
     public override float BulletSpeed => -0.5f;
     public override float BulletRange => 0.5f;
 
+    private int _rotationMultiplier = 1;
+
     public override void OnFire(PlayerBullet playerBullet)
     {
-        playerBullet.RotationMultiplier = -1;
-
-        Transform bulletTransform = playerBullet.transform;
-        GameObject splitBulletGameObject = Object.Instantiate(playerBullet.gameObject, bulletTransform.position, bulletTransform.rotation);
-        PlayerBullet splitBullet = splitBulletGameObject.GetComponent<PlayerBullet>();
-        splitBullet.GetComponent<PlayerBullet>().Init(PlayerController.GetBulletDamage() * 1f); //TODO: sinus shot damage multiplier
-        splitBullet.GetComponent<PlayerBullet>().RotationMultiplier = 1;
+        playerBullet.RotationMultiplier = _rotationMultiplier;
+        _rotationMultiplier *= -1;
     }
 
     public override void BulletUpdate(PlayerBullet playerBullet)
