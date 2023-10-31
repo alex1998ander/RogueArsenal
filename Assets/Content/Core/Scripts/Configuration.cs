@@ -33,7 +33,7 @@ public class Configuration
     public const int Bounce_BounceCount = 2;
 
     public const int Burst_AdditionalBulletCount = 2;
-    public const float Burst_FireDelayFraction = 0.25f;
+    public const float Burst_FireDelayFraction = 0.15f;
 
     public const float ExplosiveBullet_Radius = 1f;
 
