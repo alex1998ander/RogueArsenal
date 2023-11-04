@@ -35,6 +35,9 @@ public class Configuration
     public const int Burst_AdditionalBulletCount = 2;
     public const float Burst_FireDelayFraction = 0.15f;
 
+    public const float DemonicPact_HealthLossPerSecond = 5f;
+    public const float DemonicPact_BaseHealAmount = 0.2f;
+
     public const float ExplosiveBullet_Radius = 1f;
 
     public const float HealingField_Duration = 1.5f;
