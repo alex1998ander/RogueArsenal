@@ -20,7 +20,7 @@ public class HealthBarView : MonoBehaviour
     [SerializeField] private float healthBarMaxValue;
     [SerializeField] private float healthBarValue;
 
-    private void Start()
+    private void UpdateBarMaxValue()
     {
         if (healthBarMaxValue > Configuration.Player_MaxHealth + ExtensionBarEnableOffsetValue)
         {
@@ -46,7 +46,7 @@ public class HealthBarView : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void UpdateBar()
     {
         var relativeValueExtensionBar = Mathf.Clamp(healthBarValue / Configuration.Player_MaxHealth - 1f, RelativeMinClampValue, RelativeMaxClampValue);
         var absoluteReductionValueExtensionBar = (extensionBarFill.rect.width - HealthBarAnglePositionOffset) * (1f - relativeValueExtensionBar) + extensionBarMaxValueFill.localPosition.x;
@@ -55,5 +55,17 @@ public class HealthBarView : MonoBehaviour
         var relativeValueMainBar = Mathf.Clamp(healthBarValue / Configuration.Player_MaxHealth, RelativeMinClampValue, RelativeMaxClampValue);
         var absoluteReductionValueMainBar = (mainBarFill.rect.width - HealthBarAnglePositionOffset) * (1f - relativeValueMainBar) + mainBarMaxValueFill.localPosition.x;
         mainBarFill.localPosition = new Vector3(-absoluteReductionValueMainBar, 0f, 0f);
+    }
+    
+    public void SetMaxValue(float value)
+    {
+        healthBarMaxValue = value;
+        UpdateBarMaxValue();
+    }
+
+    public void SetValue(float value)
+    {
+        healthBarValue = value;
+        UpdateBar();
     }
 }

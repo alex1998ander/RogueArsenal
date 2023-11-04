@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class CurrencyBarView : MonoBehaviour
 {
@@ -12,13 +9,24 @@ public class CurrencyBarView : MonoBehaviour
 
     [SerializeField] private RectTransform currencyBarFill;
 
-    [SerializeField] private float currencyBarMaxValue;
-    [SerializeField] private float currencyBarValue;
+    private float currencyBarMaxValue;
+    private float currencyBarValue;
     
-    private void Update()
+    private void UpdateBar()
     {
         var relativeValueCurrencyBar = Mathf.Clamp(currencyBarValue / currencyBarMaxValue, RelativeMinClampValue, RelativeMaxClampValue);
         var absoluteReductionValueMainBar = (currencyBarFill.rect.width - HealthBarAnglePositionOffset) * (1f - relativeValueCurrencyBar);
         currencyBarFill.localPosition = new Vector3(-absoluteReductionValueMainBar, 0f, 0f);
+    }
+    
+    public void SetMaxValue(float value)
+    {
+        currencyBarMaxValue = value;
+    }
+
+    public void SetValue(float value)
+    {
+        currencyBarValue = value;
+        UpdateBar();
     }
 }

@@ -52,8 +52,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityBarFill: {fileID: 8216186131759458091}
-  currencyBarMaxValue: 0
-  currencyBarValue: 0
+  abilityBarMaxValue: 100
+  abilityBarValue: 100
 --- !u!1 &5634404768295211792
 GameObject:
   m_ObjectHideFlags: 0
