@@ -12,6 +12,8 @@ namespace BehaviorTree
 
         protected override Node SetupTree()
         {
+            base.SetupTree();
+            
             NavMeshAgent agent = GetComponent<NavMeshAgent>();
             agent.updateRotation = false;
             agent.updateUpAxis = false;

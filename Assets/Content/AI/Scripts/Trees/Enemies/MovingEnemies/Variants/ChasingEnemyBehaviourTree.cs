@@ -16,6 +16,8 @@ namespace BehaviorTree
     {
         protected override Node SetupTree()
         {
+            base.SetupTree();
+
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
             Transform playerTransform = GameObject.Find("Player").GetComponent<Transform>();
             EnemyWeapon weapon = GetComponentInChildren<EnemyWeapon>();

@@ -26,6 +26,8 @@ namespace BehaviorTree
 
         protected override Node SetupTree()
         {
+            base.SetupTree();
+
             LineRenderer lineRenderer = GetComponent<LineRenderer>();
             SpriteRenderer spriteRenderer = GetComponentInChildren<SpriteRenderer>();
             Transform transform = this.transform;

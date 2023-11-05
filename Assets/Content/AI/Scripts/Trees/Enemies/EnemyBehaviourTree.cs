@@ -6,7 +6,7 @@ namespace BehaviorTree
     public class EnemyBehaviourTree : BehaviorTree, ICharacterController
     {
         // Layer mask of the walls of the level.
-        protected LayerMask wallLayer = LayerMask.NameToLayer("Walls");
+        [SerializeField] protected LayerMask wallLayer;
 
         private float _stunImmunityEndTimestamp;
         private float _thrownImmunityEndTimestamp;
