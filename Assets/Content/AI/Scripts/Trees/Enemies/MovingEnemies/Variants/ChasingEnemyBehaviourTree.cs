@@ -4,40 +4,34 @@ using UnityEngine.AI;
 
 namespace BehaviorTree
 {
-    public class ChargingEnemyBT : MovingEnemyBT
+    /// <summary>
+    /// Behavior tree for a standard chasing enemy.
+    /// Starts not aware of the player and stays still.
+    /// When he sees/hears the enemy, becomes aware of the player.
+    /// Follows and attacks the player when he sees them.
+    /// When the player is not visible, goes to the last known player position.
+    /// Otherwise patrols the area.
+    /// </summary>
+    public class ChasingEnemyBehaviourTree : MovingEnemyBehaviourTree
     {
-        [SerializeField] private Collider2D damageZoneCollider;
-        [SerializeField] private float chargingSpeed = 20f;
-        [SerializeField] private float chargingAcceleration = 100f;
-        [SerializeField] private float preChargeTime = 1f;
-        [SerializeField] private float postChargeTime = 1f;
-        [SerializeField] private float chargePastPlayerDistance = 2f;
-
         protected override Node SetupTree()
         {
-            // Get relevant components
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
             Transform playerTransform = GameObject.Find("Player").GetComponent<Transform>();
-
-            // Set up nav agent
+            EnemyWeapon weapon = GetComponentInChildren<EnemyWeapon>();
             NavMeshAgent agent = GetComponent<NavMeshAgent>();
             agent.updateRotation = false;
             agent.updateUpAxis = false;
-            agent.speed = movementSpeed;
-            agent.acceleration = movementAcceleration;
 
-            // Get all spawn points in level
             GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
             Transform[] spawnPointTransforms = new Transform[spawnPoints.Length];
+
             for (int i = 0; i < spawnPoints.Length; i++)
             {
                 spawnPointTransforms[i] = spawnPoints[i].transform;
             }
 
-            damageZoneCollider.enabled = false;
-
             SharedData sharedData = new SharedData();
-            sharedData.SetData(sharedData.ChargeState, ChargeState.None);
 
             Node root = new Selector(new List<Node>
             {
@@ -54,53 +48,21 @@ namespace BehaviorTree
                     new CheckIsAwareOfPlayer(),
                     new Selector(new List<Node>
                     {
-                        // Case: Enemy is not charging and runs towards player
+                        // Case: Enemy can see player and attacks him
                         new Sequence(new List<Node>
                         {
-                            new ExpectData<ChargeState>(sharedData.ChargeState, ChargeState.None),
                             new CheckPlayerVisible(rb, playerTransform, wallLayer),
                             new TaskSetLastKnownPlayerLocation(playerTransform),
                             new TaskLookAt(rb, playerTransform),
                             new TaskPickTargetAroundTransforms(playerTransform, minDistanceFromPlayer,
                                 maxDistanceFromPlayer),
                             new TaskMoveToTarget(rb, agent, 1f),
-                            new CheckIsAtTarget(),
-                            new SetData<ChargeState>(sharedData.ChargeState, ChargeState.PreCharge),
-                        }),
-                        // Case: Enemy came close enough, now prepares charging
-                        new Sequence(new List<Node>
-                        {
-                            new ExpectData<ChargeState>(sharedData.ChargeState, ChargeState.PreCharge),
-                            new TaskLookAt(rb, playerTransform),
-                            new TaskWait(preChargeTime, true),
-                            new TaskPickTargetBehindTransform(agent, playerTransform, chargePastPlayerDistance),
-                            new TaskSetMovementSpeed(agent, chargingSpeed),
-                            new TaskSetMovementAcceleration(agent, chargingAcceleration),
-                            new SetData<ChargeState>(sharedData.ChargeState, ChargeState.MidCharge),
-                        }),
-                        // Case: Enemy is currently charging
-                        new Sequence(new List<Node>
-                        {
-                            new ExpectData<ChargeState>(sharedData.ChargeState, ChargeState.MidCharge),
-                            new TaskActivateDamageZone(true, damageZoneCollider),
-                            new TaskLookAt(rb, agent),
-                            new TaskMoveToTarget(rb, agent, 1f),
-                            new SetData<ChargeState>(sharedData.ChargeState, ChargeState.PostCharge),
-                        }),
-                        // Case: Enemy finished charging
-                        new Sequence(new List<Node>
-                        {
-                            new ExpectData<ChargeState>(sharedData.ChargeState, ChargeState.PostCharge),
-                            new TaskSetMovementSpeed(agent, movementSpeed),
-                            new TaskSetMovementAcceleration(agent, movementAcceleration),
-                            new TaskWait(postChargeTime, true),
-                            new TaskActivateDamageZone(false, damageZoneCollider),
-                            new SetData<ChargeState>(sharedData.ChargeState, ChargeState.None)
+                            new TaskWait(1f, false),
+                            new TaskAttackPlayer(weapon, 1f),
                         }),
                         // Case: Enemy just heard the player shoot
                         new Sequence(new List<Node>
                         {
-                            new ExpectData<ChargeState>(sharedData.ChargeState, ChargeState.None),
                             new HasData<bool>(sharedData.HasHeardPlayerShot),
                             new TaskSetLastKnownPlayerLocation(playerTransform),
                             new TaskSetTargetToLastKnownPlayerLocation(),
@@ -109,7 +71,6 @@ namespace BehaviorTree
                         // Case: Enemy moves towards last known player location
                         new Sequence(new List<Node>
                         {
-                            new ExpectData<ChargeState>(sharedData.ChargeState, ChargeState.None),
                             new HasData<Vector3>(sharedData.LastKnownPlayerLocation),
                             new TaskSetTargetToLastKnownPlayerLocation(),
                             new TaskMoveToTarget(rb, agent, 1f),
@@ -120,7 +81,6 @@ namespace BehaviorTree
                         // Case: Enemy reached last known player location, now moves to a random spawn location
                         new Sequence(new List<Node>
                         {
-                            new ExpectData<ChargeState>(sharedData.ChargeState, ChargeState.None),
                             new Inverter(new HasData<Vector3>(sharedData.LastKnownPlayerLocation)),
                             new Selector(new List<Node>
                             {

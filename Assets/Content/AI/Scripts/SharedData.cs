@@ -26,8 +26,11 @@ namespace BehaviorTree
         public SharedDataType<Vector3> Target;
         public SharedDataType<bool> IsAtTarget;
         public SharedDataType<bool> IsStunned;
+        public SharedDataType<bool> IsThrown;
         public SharedDataType<bool> IsAwareOfPlayer;
         public SharedDataType<bool> HasHeardPlayerShot;
+        public SharedDataType<float> StunnedEndTimestamp;
+        public SharedDataType<float> ThrownEndTimestamp;
         public SharedDataType<ChargeState> ChargeState;
 
         // Data container
@@ -39,8 +42,8 @@ namespace BehaviorTree
             Target = new(_keyCounter++);
             IsAtTarget = new(_keyCounter++);
             IsStunned = new(_keyCounter++);
+            IsThrown = new(_keyCounter++);
             IsAwareOfPlayer = new(_keyCounter++);
-            // IsCharging = new(_keyCounter++);
             HasHeardPlayerShot = new(_keyCounter++);
             ChargeState = new(_keyCounter++);
         }

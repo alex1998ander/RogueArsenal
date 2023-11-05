@@ -1,8 +1,9 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace BehaviorTree
 {
-    public class MovingEnemyBT : EnemyBT
+    public class MovingEnemyBehaviourTree : EnemyBehaviourTree
     {
         [SerializeField] protected float movementSpeed = 20f;
         [SerializeField] protected float movementAcceleration = 30f;
@@ -11,6 +12,10 @@ namespace BehaviorTree
 
         protected override Node SetupTree()
         {
+            NavMeshAgent agent = GetComponent<NavMeshAgent>();
+            agent.updateRotation = false;
+            agent.updateUpAxis = false;
+
             Node root = new Node();
             return root;
         }

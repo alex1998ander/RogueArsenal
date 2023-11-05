@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace BehaviorTree
 {
-    public class TurretEnemyBT : EnemyBT
+    public class TurretEnemyBehaviourTree : EnemyBehaviourTree
     {
         protected override Node SetupTree()
         {
@@ -25,6 +25,15 @@ namespace BehaviorTree
             root.SetupSharedData(sharedData);
 
             return root;
+        }
+
+        /// <summary>
+        /// Override: Static enemies can't be thrown
+        /// </summary>
+        /// <returns>Always false</returns>
+        public override bool TryThrow()
+        {
+            return false;
         }
     }
 }
