@@ -16,13 +16,13 @@ public class UpgradeDemonicPact : Upgrade
     public override void PlayerUpdate(PlayerController playerController)
     {
         if (SpawnController.CheckEnemiesAlive())
-            _playerController.PlayerHealth.InflictDamage(Configuration.DemonicPact_HealthLossPerSecond * Time.fixedDeltaTime, true, true);
+            _playerController.playerHealth.InflictDamage(Configuration.DemonicPact_HealthLossPerSecond * Time.fixedDeltaTime, true, true);
     }
 
     public override bool OnBulletTrigger(PlayerBullet playerBullet, Collider2D other)
     {
         if (!other.CompareTag("Player"))
-            _playerController.PlayerHealth.Heal(Configuration.DemonicPact_BaseHealAmount * playerBullet.Damage);
+            _playerController.playerHealth.Heal(Configuration.DemonicPact_BaseHealAmount * playerBullet.Damage);
         return base.OnBulletTrigger(playerBullet, other);
     }
 }

@@ -7,21 +7,9 @@ public class PlayerController : MonoBehaviour, ICharacterController
     [SerializeField] private PlayerWeapon playerWeapon;
     [SerializeField] private Transform playerSpriteTransform;
 
-    public PlayerHealth PlayerHealth { get; private set; }
-
-
-    // General Properties
-    public bool CanDash { get; set; } = true;
-    public bool CanReload { get; set; } = true;
-
-    // Upgrade: Phoenix
-    public bool Phoenixed { get; set; }
-
-    // Upgrade: Sticky Fingers
-    public bool StickyFingers { get; set; }
-
+    public PlayerHealth playerHealth;
+    
     private Rigidbody2D _rigidbody;
-
     private Vector2 _movementInput;
     private Vector2 _dashMovementDirection;
     private Vector2 _aimDirection;
@@ -37,10 +25,14 @@ public class PlayerController : MonoBehaviour, ICharacterController
 
     private void Awake()
     {
+        playerHealth = GetComponent<PlayerHealth>();
         _rigidbody = GetComponent<Rigidbody2D>();
-        PlayerHealth = GetComponent<PlayerHealth>();
 
-        PlayerHealth.ResetHealth();
+        PlayerData.maxHealth = Mathf.RoundToInt(Configuration.Player_MaxHealth * UpgradeManager.GetHealthMultiplier());
+        PlayerData.health = PlayerData.maxHealth;
+        
+        PlayerData.fireCooldown = Configuration.Player_FireCoolDown * UpgradeManager.GetFireCooldownMultiplier();
+        PlayerData.abilityCooldown = Configuration.Player_AbilityCoolDown * UpgradeManager.GetAbilityDelayMultiplier();
 
         UpgradeManager.Init(this);
     }
@@ -72,7 +64,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
             if (Time.time > _dashEndTimestamp)
             {
                 _isDashing = false;
-                PlayerHealth.SetInvulnerable(false);
+                PlayerData.invulnerable = false;
                 _dashDelayEndTimestamp = Time.time + Configuration.Player_DashCoolDown;
             }
         }
@@ -93,10 +85,10 @@ public class PlayerController : MonoBehaviour, ICharacterController
         if (Time.time <= _weaponReloadedTimeStamp)
             return;
 
-        if (_isFiring || StickyFingers)
+        if (_isFiring || PlayerData.stickyFingers)
         {
             // This assignment has to be done before "UpgradeManager.OnFire()" so that the variable can be overwritten by this function if necessary
-            _fireCooldownEndTimestamp = Time.time + Configuration.Player_FireCoolDown * UpgradeManager.GetFireCooldownMultiplier();
+            _fireCooldownEndTimestamp = Time.time + PlayerData.fireCooldown;
 
             if (playerWeapon.TryFire(true))
             {
@@ -112,34 +104,33 @@ public class PlayerController : MonoBehaviour, ICharacterController
 
     private void ReloadWeapon()
     {
-        if (!CanReload || Time.time <= _weaponReloadedTimeStamp)
+        if (!PlayerData.canReload || Time.time <= _weaponReloadedTimeStamp)
             return;
 
-        _weaponReloadedTimeStamp = Time.time + Configuration.Weapon_ReloadTime * UpgradeManager.GetReloadTimeMultiplier();
+        _weaponReloadedTimeStamp = Time.time + PlayerData.reloadTime;
         playerWeapon.Reload();
         UpgradeManager.OnReload(this, playerWeapon);
+        EventManager.OnWeaponReload.Trigger();
     }
 
     #endregion
 
     #region Getters
 
+    [Obsolete]
     public static float GetMaxHealth()
     {
-        return Mathf.RoundToInt((Configuration.Player_MaxHealth + UpgradeManager.MaxHealthIncrease.Value) *
-                                UpgradeManager.GetHealthMultiplier());
+        return PlayerData.maxHealth;
     }
 
     public static float GetBulletDamage()
     {
-        return (Configuration.Weapon_Damage + UpgradeManager.BulletDamageIncrease.Value) *
-               UpgradeManager.GetBulletDamageMultiplier();
+        return Configuration.Weapon_Damage * UpgradeManager.GetBulletDamageMultiplier();
     }
 
     public static float GetPlayerMovementSpeed()
     {
-        return (Configuration.Player_MovementSpeed + UpgradeManager.PlayerMovementSpeedIncrease.Value) *
-               UpgradeManager.GetPlayerMovementSpeedMultiplier();
+        return Configuration.Player_MovementSpeed * UpgradeManager.GetPlayerMovementSpeedMultiplier();
     }
 
     #endregion
@@ -178,9 +169,10 @@ public class PlayerController : MonoBehaviour, ICharacterController
         if (!GameManager.GamePaused && Time.time > _abilityCooldownEndTimestamp)
         {
             // This assignment has to be done before "UpgradeManager.OnAbility()" so that the variable can be overwritten by this function if necessary
-            _abilityCooldownEndTimestamp = Time.time + Configuration.Player_AbilityCoolDown * UpgradeManager.GetAbilityDelayMultiplier();
+            _abilityCooldownEndTimestamp = Time.time + PlayerData.abilityCooldown;
 
             UpgradeManager.OnAbility(this, playerWeapon);
+            EventManager.OnPlayerAbilityUsed.Trigger();
         }
     }
 
@@ -209,11 +201,11 @@ public class PlayerController : MonoBehaviour, ICharacterController
 
     private void OnDash()
     {
-        if (CanDash && !_isDashing && Time.time > _dashDelayEndTimestamp)
+        if (PlayerData.canDash && !_isDashing && Time.time > _dashDelayEndTimestamp)
         {
             _isDashing = true;
             _dashEndTimestamp = Time.time + Configuration.Player_DashTime;
-            PlayerHealth.SetInvulnerable(true);
+            PlayerData.invulnerable = true;
             _dashMovementDirection = _movementInput;
         }
     }
