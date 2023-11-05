@@ -16,14 +16,14 @@ namespace BehaviorTree
     public class BossEnemyBehaviourTree : MovingEnemyBehaviourTree
     {
         [SerializeField] private Collider2D damageCollider;
-        [SerializeField] private GameObject mine; 
+        [SerializeField] private GameObject mine;
         [SerializeField] private GameObject turret;
         [SerializeField] private GameObject clone;
         [SerializeField] private GameObject shieldGenerator;
         [SerializeField] private GameObject shield;
         [SerializeField] private GameObject bullet;
         [SerializeField] private SpriteRenderer shadow;
-        
+
         protected override Node SetupTree()
         {
             LineRenderer lineRenderer = GetComponent<LineRenderer>();
@@ -33,16 +33,19 @@ namespace BehaviorTree
             Transform playerTransform = GameObject.Find("Player").GetComponent<Transform>();
             EnemyWeapon weapon = GetComponentInChildren<EnemyWeapon>();
             NavMeshAgent agent = GetComponent<NavMeshAgent>();
-            
+
             agent.updateRotation = false;
             agent.updateUpAxis = false;
 
-            Node[] tasksPool = new Node[] {new BossAttackDash(transform, rb, playerTransform, this.damageCollider),
-                new BossAttackStomp(transform,playerTransform,spriteRenderer,shadow, damageCollider), 
-                new BossAttackLaserFocus(lineRenderer,playerTransform,transform), new BossAttackSpawnObject(transform, mine), 
-                new BossAttackSpawnObject(transform, turret), new BossAttackSpawnObject(transform, clone, new Vector3(3,3,3)), 
-                new BossAttack360Shot(transform, bullet), new BossAttackSpawnObject(transform,shieldGenerator, shield)};
-            
+            Node[] tasksPool = new Node[]
+            {
+                new BossAttackDash(transform, rb, playerTransform, this.damageCollider),
+                new BossAttackStomp(transform, playerTransform, spriteRenderer, shadow, damageCollider),
+                new BossAttackLaserFocus(lineRenderer, playerTransform, transform), new BossAttackSpawnObject(transform, mine),
+                new BossAttackSpawnObject(transform, turret), new BossAttackSpawnObject(transform, clone, new Vector3(3, 3, 3)),
+                new BossAttack360Shot(transform, bullet), new BossAttackSpawnObject(transform, shieldGenerator, shield)
+            };
+
             const float attackSpeed = 15f;
             damageCollider.enabled = false;
             shadow.enabled = false;
@@ -51,8 +54,8 @@ namespace BehaviorTree
             sharedData.SetData(sharedData.AbilityState, AbilityState.None);
             sharedData.SetData(sharedData.RandomAbility, -1);
 
-            
-            int[] taskCounter = new int[] { -1, -1, -1 };
+
+            int[] taskCounter = new int[] {-1, -1, -1};
             while (taskCounter[0] == taskCounter[1] && taskCounter[1] == taskCounter[2] && taskCounter[0] == taskCounter[2])
             {
                 for (int i = 0; i < taskCounter.Length; i++)
@@ -60,9 +63,10 @@ namespace BehaviorTree
                     taskCounter[i] = Random.Range(0, tasksPool.Length - 1);
                 }
             }
+
             Node[] tasks = new Node[] {tasksPool[taskCounter[0]], tasksPool[taskCounter[1]], tasksPool[taskCounter[2]]};
             Debug.Log(taskCounter);
-            
+
             Node root = new Selector(new List<Node>
             {
                 // Case: Enemy is stunned
@@ -81,7 +85,7 @@ namespace BehaviorTree
                         // Case: Enemy can see player and attacks him
                         new Sequence(new List<Node>
                         {
-                            new Inverter (new ExpectData<AbilityState>(sharedData.AbilityState, AbilityState.Ability)),
+                            new Inverter(new ExpectData<AbilityState>(sharedData.AbilityState, AbilityState.Ability)),
                             new TaskSetLastKnownPlayerLocation(playerTransform),
                             new TaskLookAt(rb, playerTransform),
                             new TaskPickTargetAroundTransforms(playerTransform, minDistanceFromPlayer,
@@ -97,17 +101,16 @@ namespace BehaviorTree
                             new ExpectData<AbilityState>(sharedData.AbilityState, AbilityState.Ability),
                             new TaskSetLastKnownPlayerLocation(playerTransform),
                             new TaskLookAt(rb, playerTransform),
-                            new TaskSetMovementSpeed(agent,  0),
+                            new TaskSetMovementSpeed(agent, 0),
                             //new RandomAttackMove(tasks),
                             tasksPool[0],
                             new TaskSetMovementSpeed(agent, 3.5f),
                             new SetData<AbilityState>(sharedData.AbilityState, AbilityState.Cooldown)
-                            
                         }),
                         // Case: Enemy just heard the player shoot
                         new Sequence(new List<Node>
                         {
-                            new Inverter (new ExpectData<AbilityState>(sharedData.AbilityState, AbilityState.Ability)),
+                            new Inverter(new ExpectData<AbilityState>(sharedData.AbilityState, AbilityState.Ability)),
                             new HasData<bool>(sharedData.HasHeardPlayerShot),
                             new TaskSetLastKnownPlayerLocation(playerTransform),
                             new TaskSetTargetToLastKnownPlayerLocation(),
@@ -116,7 +119,7 @@ namespace BehaviorTree
                         // Case: Enemy moves towards last known player location
                         new Sequence(new List<Node>
                         {
-                            new Inverter (new ExpectData<AbilityState>(sharedData.AbilityState, AbilityState.Ability)),
+                            new Inverter(new ExpectData<AbilityState>(sharedData.AbilityState, AbilityState.Ability)),
                             new HasData<Vector3>(sharedData.LastKnownPlayerLocation),
                             new TaskSetTargetToLastKnownPlayerLocation(),
                             new TaskMoveToTarget(rb, agent, 1f),
@@ -129,7 +132,7 @@ namespace BehaviorTree
                 // Case: Enemy sees Player for the first time
                 new Sequence(new List<Node>
                 {
-                    new CheckIfPlayerIsInRange(rb, playerTransform, viewDistance),
+                    new CheckIfPlayerIsInRange(rb, playerTransform, Configuration.Enemy_ViewDistance),
                     new CheckPlayerVisible(rb, playerTransform, wallLayer),
                     new SetData<bool>(sharedData.IsAwareOfPlayer, true),
                 }),
@@ -137,7 +140,7 @@ namespace BehaviorTree
                 new Sequence(new List<Node>
                 {
                     new ExpectData<bool>(sharedData.HasHeardPlayerShot, true),
-                    new CheckIfPlayerIsInRange(rb, playerTransform, hearDistance),
+                    new CheckIfPlayerIsInRange(rb, playerTransform, Configuration.Enemy_HearDistance),
                     new SetData<bool>(sharedData.IsAwareOfPlayer, true),
                 }),
                 // At end, overwrite HasHeardPlayerShot so enemy doesn't "hear" the player in the future

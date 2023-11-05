@@ -98,7 +98,7 @@ namespace BehaviorTree
                 // Case: Enemy sees Player for the first time
                 new Sequence(new List<Node>
                 {
-                    new CheckIfPlayerIsInRange(rb, playerTransform, viewDistance),
+                    new CheckIfPlayerIsInRange(rb, playerTransform, Configuration.Enemy_ViewDistance),
                     new CheckPlayerVisible(rb, playerTransform, wallLayer),
                     new SetData<bool>(sharedData.IsAwareOfPlayer, true),
                 }),
@@ -106,7 +106,7 @@ namespace BehaviorTree
                 new Sequence(new List<Node>
                 {
                     new ExpectData<bool>(sharedData.HasHeardPlayerShot, true),
-                    new CheckIfPlayerIsInRange(rb, playerTransform, hearDistance),
+                    new CheckIfPlayerIsInRange(rb, playerTransform, Configuration.Enemy_HearDistance),
                     new SetData<bool>(sharedData.IsAwareOfPlayer, true),
                 }),
                 // At end, overwrite HasHeardPlayerShot so enemy doesn't "hear" the player in the future

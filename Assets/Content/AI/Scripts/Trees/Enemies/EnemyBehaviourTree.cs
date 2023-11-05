@@ -6,26 +6,7 @@ namespace BehaviorTree
     public class EnemyBehaviourTree : BehaviorTree, ICharacterController
     {
         // Layer mask of the walls of the level.
-        [SerializeField] protected LayerMask wallLayer;
-
-        // TODO: Add stun/thrown to Configuration library
-        // Amount of time the enemy is stunned
-        protected float stunTime = 1f;
-
-        // Amount of time the enemy is immune to getting stunned after getting out of a stun
-        protected float stunImmunityTime = 1f;
-
-        // Amount of time the enemy is thrown
-        protected float thrownTime = 1f;
-
-        // Amount of time the enemy is immune to getting thrown after being thrown
-        protected float thrownImmunityTime = 1f;
-
-        // Distance how far the enemy can see
-        [SerializeField] protected float viewDistance = 6f;
-
-        // Distance how far the enemy can hear the player shots
-        [SerializeField] protected float hearDistance = 20f;
+        protected LayerMask wallLayer = LayerMask.NameToLayer("Walls");
 
         private float _stunImmunityEndTimestamp;
         private float _thrownImmunityEndTimestamp;
@@ -44,7 +25,7 @@ namespace BehaviorTree
         /// <returns>True when the enemy could be stunned, false if not.</returns>
         public virtual bool StunCharacter()
         {
-            return SetCharacterState(root.sharedData.IsStunned, stunTime, stunImmunityTime, ref _stunImmunityEndTimestamp);
+            return SetCharacterState(root.sharedData.IsStunned, Configuration.Enemy_StunTime, Configuration.Enemy_StunImmunityTime, ref _stunImmunityEndTimestamp);
         }
 
         /// <summary>
@@ -53,7 +34,7 @@ namespace BehaviorTree
         /// <returns>True when the enemy could be thrown, false if not.</returns>
         public virtual bool ThrowCharacter()
         {
-            return SetCharacterState(root.sharedData.IsThrown, thrownTime, thrownImmunityTime, ref _thrownImmunityEndTimestamp);
+            return SetCharacterState(root.sharedData.IsThrown, Configuration.Enemy_ThrownTime, Configuration.Enemy_ThrownImmunityTime, ref _thrownImmunityEndTimestamp);
         }
 
         /// <summary>

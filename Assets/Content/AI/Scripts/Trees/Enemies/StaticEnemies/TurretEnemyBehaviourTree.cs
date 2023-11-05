@@ -28,7 +28,7 @@ namespace BehaviorTree
         }
 
         /// <summary>
-        /// Override: Static enemies can't be thrown
+        /// Override: Turret enemies can't be thrown
         /// </summary>
         /// <returns>Always false</returns>
         public override bool ThrowCharacter()
