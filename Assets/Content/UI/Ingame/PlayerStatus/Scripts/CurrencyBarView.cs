@@ -29,4 +29,11 @@ public class CurrencyBarView : MonoBehaviour
         currencyBarValue = value;
         UpdateBar();
     }
+    
+    public void SetViewToDefault()
+    {
+        currencyBarValue = currencyBarMaxValue;
+        UpdateBar();
+    }
+    
 }

@@ -8,10 +8,13 @@
 
     public override void OnPlayerDeath(PlayerController playerController)
     {
-        if (!playerController.Phoenixed)
+        if (!PlayerData.phoenixed)
         {
-            playerController.playerHealth.ResetHealth();
-            playerController.Phoenixed = true;
+            PlayerData.health = PlayerData.maxHealth;
+            EventManager.OnPlayerHealthUpdate.Trigger();
+            
+            PlayerData.phoenixed = true;
+            EventManager.OnPlayerPhoenixed.Trigger();
         }
     }
 }

@@ -7,7 +7,11 @@ public class PlayerWeapon : MonoBehaviour
     [SerializeField] private GameObject playerBulletPrefab;
     [SerializeField] private Transform firePoint;
 
-    private int _currentAmmo;
+    private void Awake()
+    {
+        PlayerData.maxAmmo = Mathf.RoundToInt(Configuration.Weapon_MagazineSize * UpgradeManager.GetMagazineSizeMultiplier());
+        PlayerData.reloadTime = Configuration.Weapon_ReloadTime * UpgradeManager.GetReloadTimeMultiplier();
+    }
 
     private void Start()
     {
@@ -16,7 +20,7 @@ public class PlayerWeapon : MonoBehaviour
 
     public bool TryFire(bool spendAmmo)
     {
-        if (spendAmmo && _currentAmmo <= 0)
+        if (spendAmmo && PlayerData.ammo <= 0)
             return false;
 
         float angle = Configuration.Weapon_SprayAngle * 0.5f * UpgradeManager.GetWeaponSprayMultiplier();
@@ -33,13 +37,13 @@ public class PlayerWeapon : MonoBehaviour
         }
 
         if (spendAmmo)
-            _currentAmmo--;
+            PlayerData.ammo--;
 
         return true;
     }
 
     public void Reload()
     {
-        _currentAmmo = Mathf.RoundToInt(Configuration.Weapon_MagazineSize * UpgradeManager.GetMagazineSizeMultiplier());
+        PlayerData.ammo = PlayerData.maxAmmo;
     }
 }

@@ -23,15 +23,17 @@ public class AbilityBarView : MonoBehaviour
     {
         abilityBarMaxValue = seconds;
     }
-
-    public void StartReloadBar()
-    {
-        StartCoroutine(ReloadBar());
-    }
-
-    public void EmptyBar()
+    
+    public void EmptyAndReloadBar()
     {
         abilityBarValue = 0f;
         abilityBarFill.fillAmount = 0f;
+        StartCoroutine(ReloadBar());
+    }
+    
+    public void SetViewToDefault()
+    {
+        abilityBarValue = abilityBarMaxValue;
+        abilityBarFill.fillAmount = 1f;
     }
 }

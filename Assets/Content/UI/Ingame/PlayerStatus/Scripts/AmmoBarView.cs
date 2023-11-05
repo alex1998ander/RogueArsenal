@@ -68,8 +68,16 @@ public class AmmoBarView : MonoBehaviour
 
     public void StartReloadBar()
     {
+        ammoBarValue = 0f;
         reloading = true;
         UpdateBarText();
         StartCoroutine(ReloadBar());
+    }
+
+    public void SetViewToDefault()
+    {
+        ammoBarValue = ammoBarMaxValue;
+        UpdateBarValue();
+        UpdateBarText();
     }
 }

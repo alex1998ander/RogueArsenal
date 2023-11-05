@@ -68,4 +68,10 @@ public class HealthBarView : MonoBehaviour
         healthBarValue = value;
         UpdateBar();
     }
+    
+    public void SetViewToDefault()
+    {
+        healthBarValue = healthBarMaxValue;
+        UpdateBar();
+    }
 }
