@@ -19,11 +19,11 @@ TagManager:
   - Currency
   - Walls
   - Enemies
-  - PlayerBullets
+  - PlayerBullets_Trigger
   - EnemyBullets
-  - WallCheck
+  - PlayerBullets_Collider
   - DamageZone
-  - 
+  - SandboxTarget
   - 
   - 
   - 

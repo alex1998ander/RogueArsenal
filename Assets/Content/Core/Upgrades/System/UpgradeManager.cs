@@ -5,8 +5,6 @@ using UnityEngine;
 
 public static class UpgradeManager
 {
-    private const float WeaponSprayMax = 9f;
-
     // upgrades
     private static readonly List<Upgrade> Upgrades = new();
 
@@ -26,7 +24,6 @@ public static class UpgradeManager
         new UpgradeBurst(),
         new UpgradeCarefulPlanning(),
         new UpgradeDemonicPact(),
-        //new UpgradeDrill(),
         //new UpgradeExplosiveBullet(),
         new UpgradeGlassCannon(),
         new UpgradeHealingField(),
@@ -34,13 +31,18 @@ public static class UpgradeManager
         new UpgradeHoming(),
         new UpgradeMentalMeltdown(),
         new UpgradeMinigun(),
+        new UpgradePiercing(),
         new UpgradePhoenix(),
-        // new UpgradePoison(),
+        new UpgradeSinusoidalShots(),
+        new UpgradeSmartPistol(),
+        new UpgradeStickyFingers(),
+        new UpgradeSplitShot(),
+        new UpgradeStimpack(),
         new UpgradeTank(),
+        new UpgradeTimefreeze(),
     };
 
     private static readonly List<Upgrade> UpgradePool = new();
-
 
     public static Upgrade[] GenerateNewRandomUpgradeSelection(int count)
     {
@@ -196,9 +198,9 @@ public static class UpgradeManager
     /// Calculates the fire delay multiplier of all upgrades.
     /// </summary>
     /// <returns>Common fire delay multiplier</returns>
-    public static float GetFireDelayMultiplier()
+    public static float GetFireCooldownMultiplier()
     {
-        return GetAttributeMultiplier(upgrade => upgrade.FireDelay);
+        return Mathf.Min(GetAttributeMultiplier(upgrade => upgrade.FireCooldown), Configuration.WeaponFireCooldownMax);
     }
 
     /// <summary>
@@ -243,7 +245,7 @@ public static class UpgradeManager
     /// <returns>Common reload time multiplier</returns>
     public static float GetWeaponSprayMultiplier()
     {
-        return Mathf.Min(GetAttributeMultiplier(upgrade => upgrade.WeaponSpray), WeaponSprayMax);
+        return Mathf.Min(GetAttributeMultiplier(upgrade => upgrade.WeaponSpray), Configuration.WeaponSprayMax);
     }
 
     /// <summary>
@@ -259,6 +261,7 @@ public static class UpgradeManager
                 return true;
             }
         }
+
         return false;
     }
 
@@ -266,89 +269,149 @@ public static class UpgradeManager
     /// <summary>
     /// Executes the player initialization functions of all assigned upgrades
     /// </summary>
-    /// <param name="upgradeablePlayer">Player reference</param>
-    public static void Init(IUpgradeablePlayer upgradeablePlayer)
+    /// <param name="playerController">Player reference</param>
+    public static void Init(PlayerController playerController)
     {
         foreach (Upgrade upgrade in Upgrades)
         {
-            upgrade.Init(upgradeablePlayer);
+            upgrade.Init(playerController);
         }
     }
 
     /// <summary>
     /// Executes the bullet initialization functions of all assigned upgrades
     /// </summary>
-    /// <param name="upgradeableBullet">Bullet reference</param>
-    public static void Init(IUpgradeableBullet upgradeableBullet)
+    /// <param name="playerBullet">Bullet reference</param>
+    public static void Init(PlayerBullet playerBullet)
     {
         foreach (Upgrade upgrade in Upgrades)
         {
-            upgrade.Init(upgradeableBullet);
+            upgrade.Init(playerBullet);
         }
     }
 
     /// <summary>
     /// Executes the functionalities of all assigned upgrades when the player fires
     /// </summary>
-    /// <param name="upgradeablePlayer">Player reference</param>
-    public static void OnFire(IUpgradeablePlayer upgradeablePlayer)
+    /// <param name="playerController">Player reference</param>
+    /// <param name="playerWeapon">Player reference</param>
+    public static void OnFire(PlayerController playerController, PlayerWeapon playerWeapon, Vector2 fireDirectionOverwrite = default)
     {
         foreach (Upgrade upgrade in Upgrades)
         {
-            upgrade.OnFire(upgradeablePlayer);
+            upgrade.OnFire(playerController, playerWeapon, fireDirectionOverwrite);
+        }
+    }
+
+    /// <summary>
+    /// Executes the functionalities of all assigned upgrades when the player reloads
+    /// </summary>
+    /// <param name="playerController">Player reference</param>
+    /// <param name="playerWeapon">Player reference</param>
+    public static void OnReload(PlayerController playerController, PlayerWeapon playerWeapon)
+    {
+        foreach (Upgrade upgrade in Upgrades)
+        {
+            upgrade.OnReload(playerController, playerWeapon);
+        }
+    }
+
+    /// <summary>
+    /// Executes the functionalities of all assigned upgrades when the players magazine has been emptied
+    /// </summary>
+    /// <param name="playerController">Player reference</param>
+    /// <param name="playerWeapon">Player weapon reference</param>
+    public static void OnMagazineEmptied(PlayerController playerController, PlayerWeapon playerWeapon)
+    {
+        foreach (Upgrade upgrade in Upgrades)
+        {
+            upgrade.OnMagazineEmptied(playerController, playerWeapon);
+        }
+    }
+
+    /// <summary>
+    /// Executes the functionalities of all assigned upgrades when the bullet is fired.
+    /// This should only be executed when the bullet is instantiated by the weapon.
+    /// </summary>
+    /// <param name="playerBullet">Player reference</param>
+    public static void OnFire(PlayerBullet playerBullet)
+    {
+        foreach (Upgrade upgrade in Upgrades)
+        {
+            upgrade.OnFire(playerBullet);
         }
     }
 
     /// <summary>
     /// Executes the functionalities of all assigned upgrades when the player uses their ability
     /// </summary>
-    /// <param name="upgradeablePlayer">Player reference</param>
-    public static void OnAbility(IUpgradeablePlayer upgradeablePlayer)
+    /// <param name="playerController">Player reference</param>
+    /// <param name="playerWeapon">Player weapon reference</param>
+    public static void OnAbility(PlayerController playerController, PlayerWeapon playerWeapon)
     {
         foreach (Upgrade upgrade in Upgrades)
         {
-            upgrade.OnAbility(upgradeablePlayer);
+            upgrade.OnAbility(playerController, playerWeapon);
         }
     }
 
     /// <summary>
     /// Executes the functionalities of all assigned upgrades every frame while the bullet is flying
     /// </summary>
-    /// <param name="upgradeableBullet">Bullet reference</param>
-    public static void BulletUpdate(IUpgradeableBullet upgradeableBullet)
+    /// <param name="playerBullet">Bullet reference</param>
+    public static void BulletUpdate(PlayerBullet playerBullet)
     {
         foreach (Upgrade upgrade in Upgrades)
         {
-            upgrade.BulletUpdate(upgradeableBullet);
+            upgrade.BulletUpdate(playerBullet);
         }
     }
 
     /// <summary>
     /// Executes the functionalities of all assigned upgrades for the player every frame 
     /// </summary>
-    /// <param name="upgradeablePlayer">Player reference</param>
-    public static void PlayerUpdate(IUpgradeablePlayer upgradeablePlayer)
+    /// <param name="playerController">Player reference</param>
+    public static void PlayerUpdate(PlayerController playerController)
     {
         foreach (Upgrade upgrade in Upgrades)
         {
-            upgrade.PlayerUpdate(upgradeablePlayer);
+            upgrade.PlayerUpdate(playerController);
         }
     }
 
     /// <summary>
-    /// Executes the functionalities of all assigned upgrades when the bullet hits something
+    /// Executes the functionalities of all assigned upgrades when the bullet trigger zone overlaps something
     /// </summary>
-    /// <param name="upgradeableBullet">Bullet reference</param>
-    /// <param name="collision">Collision information</param>
+    /// <param name="playerBullet">Bullet reference</param>
+    /// <param name="other">Collider information</param>
     /// <returns>Bool, whether the bullet should survive afterwards</returns>
-    public static bool OnBulletImpact(IUpgradeableBullet upgradeableBullet, Collision2D collision)
+    public static bool OnBulletTrigger(PlayerBullet playerBullet, Collider2D other)
     {
         // binary unconditional logical OR ('|' not '||') needed to evaluate every operand (no short-circuiting)
         bool bulletSurvives = false;
 
         foreach (Upgrade upgrade in Upgrades)
         {
-            bulletSurvives |= upgrade.OnBulletImpact(upgradeableBullet, collision);
+            bulletSurvives |= upgrade.OnBulletTrigger(playerBullet, other);
+        }
+
+        return bulletSurvives;
+    }
+
+    /// <summary>
+    /// Executes the functionalities of all assigned upgrades when the bullet collides with something
+    /// </summary>
+    /// <param name="playerBullet">Bullet reference</param>
+    /// <param name="collision">Collision information</param>
+    /// <returns>Bool, whether the bullet should survive afterwards</returns>
+    public static bool OnBulletCollision(PlayerBullet playerBullet, Collision2D collision)
+    {
+        // binary unconditional logical OR ('|' not '||') needed to evaluate every operand (no short-circuiting)
+        bool bulletSurvives = false;
+
+        foreach (Upgrade upgrade in Upgrades)
+        {
+            bulletSurvives |= upgrade.OnBulletCollision(playerBullet, collision);
         }
 
         return bulletSurvives;
@@ -357,12 +420,12 @@ public static class UpgradeManager
     /// <summary>
     /// Executes the functionalities of all assigned upgrades when the player dies
     /// </summary>
-    /// <param name="upgradeablePlayer">Player reference</param>
-    public static void OnPlayerDeath(IUpgradeablePlayer upgradeablePlayer)
+    /// <param name="playerController">Player reference</param>
+    public static void OnPlayerDeath(PlayerController playerController)
     {
         foreach (Upgrade upgrade in Upgrades)
         {
-            upgrade.OnPlayerDeath(upgradeablePlayer);
+            upgrade.OnPlayerDeath(playerController);
         }
     }
 }

@@ -21,7 +21,7 @@ public class ExitIndicatorController : MonoBehaviour
 
     void Update()
     {
-        if (SpawnController.StillEnemiesLeft())
+        if (SpawnController.CheckEnemiesAlive())
         {
             SetIndicatorsActive(false);
         }

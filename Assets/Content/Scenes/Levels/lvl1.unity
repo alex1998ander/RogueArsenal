@@ -16939,6 +16939,10 @@ PrefabInstance:
       propertyPath: m_NavMeshData
       value: 
       objectReference: {fileID: 23800000, guid: 8b02ba3a49ff2614fa07834709665366, type: 2}
+    - target: {fileID: 7595773359972638409, guid: 58da58bccb053904b8b5a408e035efce, type: 3}
+      propertyPath: m_OverrideByGrid
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8615990124446944402, guid: 58da58bccb053904b8b5a408e035efce, type: 3}
       propertyPath: m_Size.x
       value: 38

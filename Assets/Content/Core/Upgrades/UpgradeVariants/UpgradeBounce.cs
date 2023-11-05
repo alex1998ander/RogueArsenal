@@ -1,0 +1,32 @@
+﻿using UnityEngine;
+
+public class UpgradeBounce : Upgrade
+{
+    public override string Name => "Bounce";
+    public override string Description => "Inject your bullets with enthusiasm, turning your attacks into a lively pinball game.";
+    public override string HelpfulDescription => "Bullets bounce off of walls\n\nBullet Damage +25%";
+
+    public override float BulletDamage => 0.25f;
+
+    public override float BulletSpeed => -0.5f;
+    public override float BulletRange => 2f;
+
+    public override void Init(PlayerBullet playerBullet)
+    {
+        playerBullet.Rigidbody.sharedMaterial = UpgradeSpawnablePrefabHolder.instance.bulletBouncePhysicsMaterial;
+        playerBullet.BouncesLeft = Configuration.Bounce_BounceCount;
+    }
+
+    public override bool OnBulletCollision(PlayerBullet playerBullet, Collision2D collision)
+    {
+        if (playerBullet.BouncesLeft <= 0)
+        {
+            return false;
+        }
+
+        playerBullet.AdjustFacingMovementDirection();
+        playerBullet.BouncesLeft--;
+
+        return true;
+    }
+}

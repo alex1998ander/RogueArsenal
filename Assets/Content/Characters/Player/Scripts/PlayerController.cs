@@ -1,30 +1,30 @@
 using System;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterController
+public class PlayerController : MonoBehaviour, ICharacterController
 {
-    private PlayerInput _playerInput;
-    private Rigidbody2D _rigidbody;
-    private PlayerHealth _playerHealth;
-
-    private static float _maxHealth = 100f;
-    private static float _defaultDamage = 30f;
-    private static float _moveSpeed = 5f;
-    private float dashSpeed = 15f;
-    private float dashTime = 0.2f;
-    private float dashDelay = 0.1f;
-    private float defaultFireDelay = 0.2f;
-    private float defaultAbilityDelay = 5.0f;
-    
     [SerializeField] private PlayerWeapon playerWeapon;
-
     [SerializeField] private Transform playerSpriteTransform;
+
+    public PlayerHealth PlayerHealth { get; private set; }
+
+
+    // General Properties
+    public bool CanDash { get; set; } = true;
+    public bool CanReload { get; set; } = true;
+
+    // Upgrade: Phoenix
+    public bool Phoenixed { get; set; }
+
+    // Upgrade: Sticky Fingers
+    public bool StickyFingers { get; set; }
+
+    private Rigidbody2D _rigidbody;
 
     private Vector2 _movementInput;
     private Vector2 _dashMovementDirection;
-    private Vector3 _aimDirection;
+    private Vector2 _aimDirection;
     private float _angle;
     private bool _isFiring;
     private bool _isDashing;
@@ -33,29 +33,14 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
     private float _abilityCooldownEndTimestamp;
     private float _dashEndTimestamp;
     private float _dashDelayEndTimestamp;
-
-    // Upgrade: Burst
-    [Header("Upgrade: Burst")] [SerializeField]
-    private float burstDelayInSec = 0.1f;
-
-    // Upgrade: Demonic Pact 
-    [Header("Upgrade: Demonic Pact")] [SerializeField]
-    private float demonicPactHealthLoss = 10f;
-
-    // Upgrade: Healing Field 
-    [Header("Upgrade: Healing Field")] [SerializeField]
-    private GameObject healingFieldPrefab;
-
-    // Upgrade: Phoenix
-    private bool _phoenixed;
+    private float _weaponReloadedTimeStamp;
 
     private void Awake()
     {
-        _playerInput = GetComponent<PlayerInput>();
         _rigidbody = GetComponent<Rigidbody2D>();
-        _playerHealth = GetComponent<PlayerHealth>();
+        PlayerHealth = GetComponent<PlayerHealth>();
 
-        _playerHealth.ResetHealth();
+        PlayerHealth.ResetHealth();
 
         UpgradeManager.Init(this);
     }
@@ -65,7 +50,15 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
         UpgradeManager.PlayerUpdate(this);
         MovePlayer();
         FireWeapon();
+
+        // TODO: Delete all this stupidity later
+        if (Time.time <= _weaponReloadedTimeStamp)
+            Debug.Log("<color=red>Reloading: " + (_weaponReloadedTimeStamp - Time.time) + "</color>");
+        else if (Time.time > _weaponReloadedTimeStamp && Time.time < _weaponReloadedTimeStamp + Time.fixedDeltaTime * 2)
+            Debug.Log("<color=blue>Reloaded!</color>");
     }
+
+    #region PlayerActions
 
     private void MovePlayer()
     {
@@ -73,14 +66,14 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
         Vector2 movementDirection;
         if (_isDashing)
         {
-            moveSpeed = dashSpeed;
+            moveSpeed = Configuration.Player_DashSpeed;
             movementDirection = _dashMovementDirection;
 
             if (Time.time > _dashEndTimestamp)
             {
                 _isDashing = false;
-                _playerHealth.SetInvulnerable(false);
-                _dashDelayEndTimestamp = Time.time + dashDelay;
+                PlayerHealth.SetInvulnerable(false);
+                _dashDelayEndTimestamp = Time.time + Configuration.Player_DashCoolDown;
             }
         }
         else
@@ -94,46 +87,71 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
 
     private void FireWeapon()
     {
-        if (!_isDashing && _isFiring && !GameManager.GamePaused && Time.time > _fireCooldownEndTimestamp)
+        if (Time.time <= _fireCooldownEndTimestamp || _isDashing || GameManager.GamePaused)
+            return;
+
+        if (Time.time <= _weaponReloadedTimeStamp)
+            return;
+
+        if (_isFiring || StickyFingers)
         {
             // This assignment has to be done before "UpgradeManager.OnFire()" so that the variable can be overwritten by this function if necessary
-            _fireCooldownEndTimestamp = Time.time + defaultFireDelay * UpgradeManager.GetFireDelayMultiplier();
+            _fireCooldownEndTimestamp = Time.time + Configuration.Player_FireCoolDown * UpgradeManager.GetFireCooldownMultiplier();
 
-            if (playerWeapon.TryFire())
+            if (playerWeapon.TryFire(true))
             {
-                UpgradeManager.OnFire(this);
+                UpgradeManager.OnFire(this, playerWeapon);
                 EventManager.OnPlayerShotFired.Trigger();
+            }
+            else
+            {
+                UpgradeManager.OnMagazineEmptied(this, playerWeapon);
             }
         }
     }
 
-    public ICharacterHealth GetHealthManager()
+    private void ReloadWeapon()
     {
-        return _playerHealth;
+        if (!CanReload || Time.time <= _weaponReloadedTimeStamp)
+            return;
+
+        _weaponReloadedTimeStamp = Time.time + Configuration.Weapon_ReloadTime * UpgradeManager.GetReloadTimeMultiplier();
+        playerWeapon.Reload();
+        UpgradeManager.OnReload(this, playerWeapon);
     }
+
+    #endregion
+
+    #region Getters
 
     public static float GetMaxHealth()
     {
-        return Mathf.RoundToInt((_maxHealth + UpgradeManager.MaxHealthIncrease.Value) *
+        return Mathf.RoundToInt((Configuration.Player_MaxHealth + UpgradeManager.MaxHealthIncrease.Value) *
                                 UpgradeManager.GetHealthMultiplier());
     }
 
     public static float GetBulletDamage()
     {
-        return (_defaultDamage + UpgradeManager.BulletDamageIncrease.Value) *
+        return (Configuration.Weapon_Damage + UpgradeManager.BulletDamageIncrease.Value) *
                UpgradeManager.GetBulletDamageMultiplier();
     }
 
     public static float GetPlayerMovementSpeed()
     {
-        return (_moveSpeed + UpgradeManager.PlayerMovementSpeedIncrease.Value) *
+        return (Configuration.Player_MovementSpeed + UpgradeManager.PlayerMovementSpeedIncrease.Value) *
                UpgradeManager.GetPlayerMovementSpeedMultiplier();
     }
+
+    #endregion
+
+    #region UpgradeImplementation
 
     public void StunCharacter()
     {
         throw new NotImplementedException();
     }
+
+    #endregion
 
     #region PlayerInput
 
@@ -155,9 +173,9 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
         if (!GameManager.GamePaused && Time.time > _abilityCooldownEndTimestamp)
         {
             // This assignment has to be done before "UpgradeManager.OnAbility()" so that the variable can be overwritten by this function if necessary
-            _abilityCooldownEndTimestamp = Time.time + defaultAbilityDelay * UpgradeManager.GetAbilityDelayMultiplier();
+            _abilityCooldownEndTimestamp = Time.time + Configuration.Player_AbilityCoolDown * UpgradeManager.GetAbilityDelayMultiplier();
 
-            UpgradeManager.OnAbility(this);
+            UpgradeManager.OnAbility(this, playerWeapon);
         }
     }
 
@@ -169,6 +187,7 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
             if (Vector2.Distance(Vector2.zero, _aimDirection) > 0.5)
             {
                 _aimDirection = (Vector2) Camera.main.ScreenToWorldPoint(_aimDirection) - _rigidbody.position;
+                _aimDirection.Normalize();
 
                 _angle = Mathf.Atan2(_aimDirection.y, _aimDirection.x) * Mathf.Rad2Deg - 90f;
                 playerWeapon.transform.rotation = Quaternion.Euler(0, 0, _angle);
@@ -180,64 +199,27 @@ public class PlayerController : MonoBehaviour, IUpgradeablePlayer, ICharacterCon
 
     private void OnReload()
     {
-        playerWeapon.Reload();
+        ReloadWeapon();
     }
 
     private void OnDash()
     {
-        if (!_isDashing && Time.time > _dashDelayEndTimestamp)
+        if (CanDash && !_isDashing && Time.time > _dashDelayEndTimestamp)
         {
             _isDashing = true;
-            _dashEndTimestamp = Time.time + dashTime;
-            _playerHealth.SetInvulnerable(true);
+            _dashEndTimestamp = Time.time + Configuration.Player_DashTime;
+            PlayerHealth.SetInvulnerable(true);
             _dashMovementDirection = _movementInput;
         }
     }
 
     #endregion
 
-    #region Upgrade implementation
+    #region Sandbox
 
-    // Upgrade: Burst
-    public void ExecuteBurst_OnFire()
+    public void InitUpgrades()
     {
-        StartCoroutine(BurstCoroutine());
-    }
-
-    private IEnumerator BurstCoroutine()
-    {
-        yield return new WaitForSeconds(burstDelayInSec);
-        playerWeapon.TryFire();
-        yield return new WaitForSeconds(burstDelayInSec);
-        playerWeapon.TryFire();
-    }
-
-
-    // Upgrade: Demonic Pact 
-
-    public void ExecuteDemonicPact_OnFire()
-    {
-        _playerHealth.InflictDamage(demonicPactHealthLoss, false);
-        _fireCooldownEndTimestamp = 0f;
-    }
-
-
-    // Upgrade: Healing Field 
-    public void ExecuteHealingField_OnAbility()
-    {
-        GameObject healingField = Instantiate(healingFieldPrefab, transform.position, Quaternion.identity);
-        Destroy(healingField, 1.5f);
-    }
-
-
-    // Upgrade: Phoenix
-    public void ExecutePhoenix_OnPlayerDeath()
-    {
-        if (!_phoenixed)
-        {
-            _playerHealth.ResetHealth();
-            _phoenixed = true;
-        }
+        UpgradeManager.Init(this);
     }
 
     #endregion
