@@ -44,6 +44,13 @@ namespace BehaviorTree
                     new SetData<bool>(sharedData.IsAwareOfPlayer, true),
                     // TODO: Behavior while stunned
                 }),
+                // Case: Enemy is thrown
+                new Sequence(new List<Node>
+                {
+                    new CheckHasState(sharedData.IsThrown),
+                    new SetData<bool>(sharedData.IsAwareOfPlayer, true),
+                    new TaskClearPath(agent),
+                }),
                 // Case: Enemy is aware of player
                 new Sequence(new List<Node>
                 {

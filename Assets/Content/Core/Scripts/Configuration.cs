@@ -67,6 +67,11 @@ public class Configuration
     // Upgrade: Piercing
     public const int Piercing_PiercesCount = 1;
 
+    // Upgrade: Shockwave
+    public const float Shockwave_Range = 5f;
+    public const float Shockwave_MinStrength = 2000f;
+    public const float Shockwave_MaxStrength = 4000f;
+
     // Upgrade: Sinusoidal Shots
     public const float SinusoidalShots_Frequency = 2f * Mathf.PI * 2f; // Two times Pi to normalize the frequency to 1 full wavelength a second
     public const float SinusoidalShots_Amplitude = 15f;
