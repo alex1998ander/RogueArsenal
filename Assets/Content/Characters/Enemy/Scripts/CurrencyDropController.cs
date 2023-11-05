@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class CurrencyDropController : MonoBehaviour
 {
@@ -6,7 +7,7 @@ public class CurrencyDropController : MonoBehaviour
 
     private const int DropAmount = 5;
 
-    private void OnDestroy()
+    private void OnDisable()
     {
         for (int i = 0; i < DropAmount; i++)
         {

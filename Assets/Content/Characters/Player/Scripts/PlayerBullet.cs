@@ -5,11 +5,11 @@ using UnityEngine;
 public class PlayerBullet : MonoBehaviour
 {
     public float Damage { get; set; }
+    public float TotalLifetime { get; private set; }
     public float Lifetime { get; private set; }
 
     public Rigidbody2D Rigidbody { get; private set; }
     private LineRenderer _lineRenderer;
-
 
     // Upgrade: Bounce
     [Header("Upgrade: Bounce")] [SerializeField]
@@ -20,13 +20,19 @@ public class PlayerBullet : MonoBehaviour
     // Upgrade: Piercing
     public int PiercesLeft { get; set; }
 
+    // Upgrade: SinusoidalShots
+    public int RotationMultiplier { get; set; }
+
 #if UNITY_EDITOR
     private bool _canSeeTargetCharacterGizmos;
     private Vector2 _targetPositionGizmos;
 #endif
 
+    private float _spawnEndTimestamp;
+
     private void Awake()
     {
+        _spawnEndTimestamp = Time.time + Configuration.Bullet_SpawnTime;
         Rigidbody = GetComponent<Rigidbody2D>();
         _lineRenderer = GetComponent<LineRenderer>();
         UpgradeManager.Init(this);
@@ -34,6 +40,7 @@ public class PlayerBullet : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Lifetime += Time.fixedDeltaTime;
         UpgradeManager.BulletUpdate(this);
     }
 
@@ -44,7 +51,18 @@ public class PlayerBullet : MonoBehaviour
             Destroy(gameObject);
         }
 
-        other.gameObject.GetComponent<ICharacterHealth>()?.InflictDamage(Damage, true);
+        ICharacterHealth characterHealth = other.gameObject.GetComponent<ICharacterHealth>();
+        if (characterHealth is PlayerHealth)
+        {
+            if (Time.time > _spawnEndTimestamp)
+            {
+                characterHealth?.InflictDamage(Damage * Configuration.Player_SelfDamageMultiplier, true);
+            }
+        }
+        else
+        {
+            characterHealth?.InflictDamage(Damage, true);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -70,10 +88,10 @@ public class PlayerBullet : MonoBehaviour
         }
 
         Damage = assignedDamage;
-        Lifetime = assignedLifetime;
+        TotalLifetime = assignedLifetime;
         Rigidbody.velocity = bulletSpeed * transform.up;
 
-        Destroy(gameObject, Lifetime);
+        Destroy(gameObject, TotalLifetime);
     }
 
     public void AdjustFacingMovementDirection()

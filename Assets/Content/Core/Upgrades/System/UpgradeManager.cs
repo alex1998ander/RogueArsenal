@@ -27,8 +27,10 @@ public static class UpgradeManager
         new UpgradeMinigun(),
         new UpgradePiercing(),
         new UpgradePhoenix(),
+        new UpgradeShockwave(),
+        new UpgradeSinusoidalShots(),
+        new UpgradeSmartPistol(),
         new UpgradeStickyFingers(),
-        // new UpgradePoison(),
         new UpgradeSplitShot(),
         new UpgradeStimpack(),
         new UpgradeTank(),
@@ -283,11 +285,11 @@ public static class UpgradeManager
     /// </summary>
     /// <param name="playerController">Player reference</param>
     /// <param name="playerWeapon">Player reference</param>
-    public static void OnFire(PlayerController playerController, PlayerWeapon playerWeapon)
+    public static void OnFire(PlayerController playerController, PlayerWeapon playerWeapon, Vector2 fireDirectionOverwrite = default)
     {
         foreach (Upgrade upgrade in Upgrades)
         {
-            upgrade.OnFire(playerController, playerWeapon);
+            upgrade.OnFire(playerController, playerWeapon, fireDirectionOverwrite);
         }
     }
 
@@ -308,7 +310,7 @@ public static class UpgradeManager
     /// Executes the functionalities of all assigned upgrades when the players magazine has been emptied
     /// </summary>
     /// <param name="playerController">Player reference</param>
-    /// <param name="playerWeapon">Player reference</param>
+    /// <param name="playerWeapon">Player weapon reference</param>
     public static void OnMagazineEmptied(PlayerController playerController, PlayerWeapon playerWeapon)
     {
         foreach (Upgrade upgrade in Upgrades)
@@ -334,11 +336,12 @@ public static class UpgradeManager
     /// Executes the functionalities of all assigned upgrades when the player uses their ability
     /// </summary>
     /// <param name="playerController">Player reference</param>
-    public static void OnAbility(PlayerController playerController)
+    /// <param name="playerWeapon">Player weapon reference</param>
+    public static void OnAbility(PlayerController playerController, PlayerWeapon playerWeapon)
     {
         foreach (Upgrade upgrade in Upgrades)
         {
-            upgrade.OnAbility(playerController);
+            upgrade.OnAbility(playerController, playerWeapon);
         }
     }
 

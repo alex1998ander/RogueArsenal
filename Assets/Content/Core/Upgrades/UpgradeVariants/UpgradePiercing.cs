@@ -8,7 +8,7 @@ public class UpgradePiercing : Upgrade
 
     public override void Init(PlayerBullet playerBullet)
     {
-        playerBullet.PiercesLeft = Configuration.Piercing_PiercesCount;
+        playerBullet.PiercesLeft += Configuration.Piercing_PiercesCount;
     }
 
     public override bool OnBulletTrigger(PlayerBullet playerBullet, Collider2D other)

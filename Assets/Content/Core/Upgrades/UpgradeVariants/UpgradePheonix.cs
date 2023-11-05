@@ -1,4 +1,4 @@
-﻿public class UpgradePhoenix : Upgrade
+public class UpgradePhoenix : Upgrade
 {
     public override string Name => "Phoenix";
     public override string Description => "Rise from the ashes with the power of a phoenix and turn your defeat into a glorious opportunity that ignite your comeback.";

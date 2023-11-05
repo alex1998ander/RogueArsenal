@@ -30,7 +30,6 @@ public class UpgradeHoming : Upgrade
 
         if (CheckCharacterInFieldOfView(playerBullet.transform, ref targetPos, ref directionToTargetNormalized))
         {
-            Debug.Log("does stuff");
             Vector2 forwardDirection = playerBullet.transform.up;
             float rotationAmount = Vector3.Cross(directionToTargetNormalized, forwardDirection).z;
 

@@ -13,9 +13,10 @@ public class PlayerHealth : MonoBehaviour, ICharacterHealth
     /// </summary>
     /// <param name="damageAmount">Amount of damage</param>
     /// <param name="fatal">Indicates whether the player can die from this damage. If the damage is greater than the current HP and the damage is not fatal, the player keeps 1 HP.</param>
-    public void InflictDamage(float damageAmount, bool fatal)
+    /// <param name="ignoreInvulnerability">Whether player invulnerability should be ignored</param>
+    public void InflictDamage(float damageAmount, bool fatal, bool ignoreInvulnerability = false)
     {
-        if (_invulnerable)
+        if (_invulnerable && !ignoreInvulnerability)
             return;
         
         PlayerData.health -= damageAmount;

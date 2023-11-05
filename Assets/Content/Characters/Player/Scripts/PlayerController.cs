@@ -4,15 +4,12 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour, ICharacterController
 {
-    private PlayerInput _playerInput;
-    private Rigidbody2D _rigidbody;
-
     [SerializeField] private PlayerWeapon playerWeapon;
     [SerializeField] private Transform playerSpriteTransform;
 
     private Vector2 _movementInput;
     private Vector2 _dashMovementDirection;
-    private Vector3 _aimDirection;
+    private Vector2 _aimDirection;
     private float _angle;
     private bool _isFiring;
     private bool _isDashing;
@@ -25,7 +22,6 @@ public class PlayerController : MonoBehaviour, ICharacterController
 
     private void Awake()
     {
-        _playerInput = GetComponent<PlayerInput>();
         _rigidbody = GetComponent<Rigidbody2D>();
 
         PlayerData.maxHealth = Mathf.RoundToInt(Configuration.Player_MaxHealth * UpgradeManager.GetHealthMultiplier());
@@ -42,9 +38,15 @@ public class PlayerController : MonoBehaviour, ICharacterController
         UpgradeManager.PlayerUpdate(this);
         MovePlayer();
         FireWeapon();
+
+        // TODO: Delete all this stupidity later
+        if (Time.time <= _weaponReloadedTimeStamp)
+            Debug.Log("<color=red>Reloading: " + (_weaponReloadedTimeStamp - Time.time) + "</color>");
+        else if (Time.time > _weaponReloadedTimeStamp && Time.time < _weaponReloadedTimeStamp + Time.fixedDeltaTime * 2)
+            Debug.Log("<color=blue>Reloaded!</color>");
     }
 
-    #region Player Actions
+    #region PlayerActions
 
     private void MovePlayer()
     {
@@ -76,7 +78,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
         if (Time.time <= _fireCooldownEndTimestamp || _isDashing || GameManager.GamePaused)
             return;
 
-        if (!CheckWeaponReloaded())
+        if (Time.time <= _weaponReloadedTimeStamp)
             return;
 
         if (_isFiring || PlayerData.stickyFingers)
@@ -97,8 +99,9 @@ public class PlayerController : MonoBehaviour, ICharacterController
         }
     }
 
-    public void ReloadWeapon()
+    private void ReloadWeapon()
     {
+        if (!CanReload || Time.time <= _weaponReloadedTimeStamp)
         if (!PlayerData.canReload)
             return;
 
@@ -106,16 +109,6 @@ public class PlayerController : MonoBehaviour, ICharacterController
         playerWeapon.Reload();
         UpgradeManager.OnReload(this, playerWeapon);
         EventManager.OnWeaponReload.Trigger();
-    }
-
-    private bool CheckWeaponReloaded()
-    {
-        if (Time.time > _weaponReloadedTimeStamp)
-        {
-            return true;
-        }
-
-        return false;
     }
 
     #endregion
@@ -140,9 +133,14 @@ public class PlayerController : MonoBehaviour, ICharacterController
 
     #endregion
 
-    #region Upgrade Implementation
+    #region UpgradeImplementation
 
-    public void StunCharacter()
+    public bool StunCharacter()
+    {
+        throw new NotImplementedException();
+    }
+
+    public bool ThrowCharacter()
     {
         throw new NotImplementedException();
     }
@@ -171,7 +169,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
             // This assignment has to be done before "UpgradeManager.OnAbility()" so that the variable can be overwritten by this function if necessary
             _abilityCooldownEndTimestamp = Time.time + PlayerData.abilityCooldown;
 
-            UpgradeManager.OnAbility(this);
+            UpgradeManager.OnAbility(this, playerWeapon);
             EventManager.OnPlayerAbilityUsed.Trigger();
         }
     }
@@ -183,7 +181,8 @@ public class PlayerController : MonoBehaviour, ICharacterController
             _aimDirection = value.Get<Vector2>();
             if (Vector2.Distance(Vector2.zero, _aimDirection) > 0.5)
             {
-                _aimDirection = (Vector2)Camera.main.ScreenToWorldPoint(_aimDirection) - _rigidbody.position;
+                _aimDirection = (Vector2) Camera.main.ScreenToWorldPoint(_aimDirection) - _rigidbody.position;
+                _aimDirection.Normalize();
 
                 _angle = Mathf.Atan2(_aimDirection.y, _aimDirection.x) * Mathf.Rad2Deg - 90f;
                 playerWeapon.transform.rotation = Quaternion.Euler(0, 0, _angle);
