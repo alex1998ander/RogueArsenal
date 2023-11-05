@@ -38,7 +38,7 @@ namespace BehaviorTree
                 // Case: Enemy is stunned
                 new Sequence(new List<Node>
                 {
-                    new CheckIsStunned(stunTime),
+                    new CheckHasState(sharedData.IsStunned),
                     new SetData<bool>(sharedData.IsAwareOfPlayer, true),
                     // TODO: Behavior while stunned
                 }),

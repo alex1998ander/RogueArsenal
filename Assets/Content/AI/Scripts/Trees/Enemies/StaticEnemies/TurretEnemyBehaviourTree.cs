@@ -15,7 +15,7 @@ namespace BehaviorTree
 
             Node root = new Sequence(new List<Node>()
             {
-                new Inverter(new CheckIsStunned(stunTime)),
+                new Inverter(new CheckHasState(sharedData.IsStunned)),
                 new CheckPlayerVisible(rb, playerTransform, wallLayer),
                 new TaskLookAt(rb, playerTransform),
                 new TaskWait(1f, false),
@@ -31,7 +31,7 @@ namespace BehaviorTree
         /// Override: Static enemies can't be thrown
         /// </summary>
         /// <returns>Always false</returns>
-        public override bool TryThrow()
+        public override bool ThrowCharacter()
         {
             return false;
         }

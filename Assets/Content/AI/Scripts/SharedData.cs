@@ -29,8 +29,6 @@ namespace BehaviorTree
         public SharedDataType<bool> IsThrown;
         public SharedDataType<bool> IsAwareOfPlayer;
         public SharedDataType<bool> HasHeardPlayerShot;
-        public SharedDataType<float> StunnedEndTimestamp;
-        public SharedDataType<float> ThrownEndTimestamp;
         public SharedDataType<ChargeState> ChargeState;
 
         // Data container

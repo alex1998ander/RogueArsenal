@@ -21,7 +21,7 @@ public class UpgradeShockwave : Upgrade
                 break;
             }
 
-            if (results[i].gameObject.GetComponent<EnemyBehaviourTree>().TryThrow())
+            if (results[i].gameObject.GetComponent<EnemyBehaviourTree>().ThrowCharacter())
                 results[i].attachedRigidbody.AddForce(playertoEnemy * 1800f);
         }
     }

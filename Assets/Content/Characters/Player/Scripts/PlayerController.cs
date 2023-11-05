@@ -146,7 +146,12 @@ public class PlayerController : MonoBehaviour, ICharacterController
 
     #region UpgradeImplementation
 
-    public void StunCharacter()
+    public bool StunCharacter()
+    {
+        throw new NotImplementedException();
+    }
+
+    public bool ThrowCharacter()
     {
         throw new NotImplementedException();
     }

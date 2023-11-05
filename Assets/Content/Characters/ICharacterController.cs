@@ -2,5 +2,6 @@
 
 public interface ICharacterController
 {
-    public void StunCharacter();
+    public bool StunCharacter();
+    public bool ThrowCharacter();
 }
