@@ -30,6 +30,8 @@ namespace BehaviorTree
         public SharedDataType<bool> IsAwareOfPlayer;
         public SharedDataType<bool> HasHeardPlayerShot;
         public SharedDataType<ChargeState> ChargeState;
+        public SharedDataType<AbilityState> AbilityState;
+        public SharedDataType<int> RandomAbility;
 
         // Data container
         private Dictionary<int, object> _data = new();
@@ -44,6 +46,8 @@ namespace BehaviorTree
             IsAwareOfPlayer = new(_keyCounter++);
             HasHeardPlayerShot = new(_keyCounter++);
             ChargeState = new(_keyCounter++);
+            AbilityState = new (_keyCounter++);
+            RandomAbility = new(_keyCounter++);
         }
 
         /// <summary>
