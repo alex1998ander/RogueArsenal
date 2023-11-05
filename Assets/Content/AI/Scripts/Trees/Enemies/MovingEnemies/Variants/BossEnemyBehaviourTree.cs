@@ -13,7 +13,7 @@ namespace BehaviorTree
     /// Otherwise patrols the area.
     /// </summary>
     [RequireComponent(typeof(LineRenderer))]
-    public class BossEnemyBT : MovingEnemyBT
+    public class BossEnemyBehaviourTree : MovingEnemyBehaviourTree
     {
         [SerializeField] private Collider2D damageCollider;
         [SerializeField] private GameObject mine; 

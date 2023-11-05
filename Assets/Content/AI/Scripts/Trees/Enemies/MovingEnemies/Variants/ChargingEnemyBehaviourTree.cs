@@ -4,7 +4,7 @@ using UnityEngine.AI;
 
 namespace BehaviorTree
 {
-    public class ChargingEnemyBT : MovingEnemyBT
+    public class ChargingEnemyBehaviourTree : MovingEnemyBehaviourTree
     {
         [SerializeField] private Collider2D damageZoneCollider;
         [SerializeField] private float chargingSpeed = 20f;
@@ -44,7 +44,7 @@ namespace BehaviorTree
                 // Case: Enemy is stunned
                 new Sequence(new List<Node>
                 {
-                    new CheckIsStunned(stunTime),
+                    new CheckHasState(sharedData.IsStunned),
                     new SetData<bool>(sharedData.IsAwareOfPlayer, true),
                     // TODO: Behavior while stunned
                 }),

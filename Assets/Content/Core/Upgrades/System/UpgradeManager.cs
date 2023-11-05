@@ -33,6 +33,7 @@ public static class UpgradeManager
         new UpgradeMinigun(),
         new UpgradePiercing(),
         new UpgradePhoenix(),
+        new UpgradeShockwave(),
         new UpgradeSinusoidalShots(),
         new UpgradeSmartPistol(),
         new UpgradeStickyFingers(),

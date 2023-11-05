@@ -12,7 +12,7 @@ namespace BehaviorTree
     /// When the player is not visible, goes to the last known player position.
     /// Otherwise patrols the area.
     /// </summary>
-    public class ChasingEnemyBT : MovingEnemyBT
+    public class ChasingEnemyBehaviourTree : MovingEnemyBehaviourTree
     {
         protected override Node SetupTree()
         {
@@ -38,7 +38,7 @@ namespace BehaviorTree
                 // Case: Enemy is stunned
                 new Sequence(new List<Node>
                 {
-                    new CheckIsStunned(stunTime),
+                    new CheckHasState(sharedData.IsStunned),
                     new SetData<bool>(sharedData.IsAwareOfPlayer, true),
                     // TODO: Behavior while stunned
                 }),

@@ -14,6 +14,10 @@ public class SandboxTargetUpgradeSelector : MonoBehaviour
     private void Start()
     {
         upgradeText.text = UpgradeManager.DefaultUpgradePool[selectedIndex].Name;
+        if (selectedIndex % 2 == 0)
+        {
+            upgradeText.transform.position += Vector3.down * 1.2f;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
