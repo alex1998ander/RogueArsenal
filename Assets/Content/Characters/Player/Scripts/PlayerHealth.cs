@@ -6,8 +6,7 @@ public class PlayerHealth : MonoBehaviour, ICharacterHealth
     [SerializeField] private float defaultContactDamageInvulnerabilityDelay = 1.0f;
 
     private float _contactDamageInvulnerabilityEndTimestamp;
-    private bool _invulnerable;
-    
+
     /// <summary>
     /// Decreases the player's health by the specified value and checks if the player dies. If so, affecting upgrades are performed and further actions are initiated.
     /// </summary>
@@ -16,9 +15,9 @@ public class PlayerHealth : MonoBehaviour, ICharacterHealth
     /// <param name="ignoreInvulnerability">Whether player invulnerability should be ignored</param>
     public void InflictDamage(float damageAmount, bool fatal, bool ignoreInvulnerability = false)
     {
-        if (_invulnerable && !ignoreInvulnerability)
+        if (PlayerData.invulnerable && !ignoreInvulnerability)
             return;
-        
+
         PlayerData.health -= damageAmount;
 
         EventManager.OnPlayerHealthUpdate.Trigger();
@@ -49,7 +48,7 @@ public class PlayerHealth : MonoBehaviour, ICharacterHealth
 
     public void InflictContactDamage(float damageAmount)
     {
-        if (!_invulnerable && Time.time > _contactDamageInvulnerabilityEndTimestamp)
+        if (!PlayerData.invulnerable && Time.time > _contactDamageInvulnerabilityEndTimestamp)
         {
             _contactDamageInvulnerabilityEndTimestamp = Time.time + defaultContactDamageInvulnerabilityDelay;
 
