@@ -32,10 +32,11 @@ public class PlayerWeapon : MonoBehaviour
         Fire(fireDirection);
 
         if (spendAmmo)
-            _currentAmmo--;
-
-        Debug.Log("<color=yellow> Ammo: " + _currentAmmo + "</color>");
-
+        {
+            PlayerData.ammo--;
+            EventManager.OnPlayerAmmoUpdate.Trigger();
+        }
+        
         return true;
     }
 

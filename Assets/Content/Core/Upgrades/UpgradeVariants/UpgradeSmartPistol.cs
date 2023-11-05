@@ -21,11 +21,11 @@ public class UpgradeSmartPistol : Upgrade
             }
 
             // Temporarily turn off sticky fingers so the player doesn't start emptying his magazine on ability use
-            bool hasStickyFingers = playerController.StickyFingers;
-            playerController.StickyFingers = false;
+            bool hasStickyFingers = PlayerData.stickyFingers;
+            PlayerData.stickyFingers = false;
 
             // Check if the player can dash to reset it later (The first shot with sticky fingers will turn off dashing)
-            bool canDash = playerController.CanDash;
+            bool canDash = PlayerData.canDash;
 
             // Shoot in direction of the enemy
             playertoEnemy.Normalize();
@@ -34,8 +34,8 @@ public class UpgradeSmartPistol : Upgrade
             EventManager.OnPlayerShotFired.Trigger();
 
             // Turn sticky fingers and dashing on/off again
-            playerController.StickyFingers = hasStickyFingers;
-            playerController.CanDash = canDash;
+            PlayerData.stickyFingers = hasStickyFingers;
+            PlayerData.canDash = canDash;
         }
     }
 }

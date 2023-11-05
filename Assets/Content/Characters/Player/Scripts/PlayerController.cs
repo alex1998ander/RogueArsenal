@@ -7,6 +7,9 @@ public class PlayerController : MonoBehaviour, ICharacterController
     [SerializeField] private PlayerWeapon playerWeapon;
     [SerializeField] private Transform playerSpriteTransform;
 
+    public PlayerHealth playerHealth;
+    
+    private Rigidbody2D _rigidbody;
     private Vector2 _movementInput;
     private Vector2 _dashMovementDirection;
     private Vector2 _aimDirection;
@@ -22,6 +25,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
 
     private void Awake()
     {
+        playerHealth = GetComponent<PlayerHealth>();
         _rigidbody = GetComponent<Rigidbody2D>();
 
         PlayerData.maxHealth = Mathf.RoundToInt(Configuration.Player_MaxHealth * UpgradeManager.GetHealthMultiplier());
@@ -90,7 +94,6 @@ public class PlayerController : MonoBehaviour, ICharacterController
             {
                 UpgradeManager.OnFire(this, playerWeapon);
                 EventManager.OnPlayerShotFired.Trigger();
-                EventManager.OnPlayerAmmoUpdate.Trigger();
             }
             else
             {
@@ -101,8 +104,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
 
     private void ReloadWeapon()
     {
-        if (!CanReload || Time.time <= _weaponReloadedTimeStamp)
-        if (!PlayerData.canReload)
+        if (!PlayerData.canReload || Time.time <= _weaponReloadedTimeStamp)
             return;
 
         _weaponReloadedTimeStamp = Time.time + PlayerData.reloadTime;
