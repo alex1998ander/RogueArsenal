@@ -7,13 +7,7 @@ public static class UpgradeManager
 {
     // upgrades
     private static readonly List<Upgrade> Upgrades = new();
-
-    // stat upgrades
-    public static readonly StatUpgrade MaxHealthIncrease = new StatUpgrade("Max Health", 20f, 5f, 3);
-    public static readonly StatUpgrade BulletDamageIncrease = new StatUpgrade("Bullet Damage", 10, 5, 3);
-    public static readonly StatUpgrade PlayerMovementSpeedIncrease = new StatUpgrade("Movement Speed", 1f, 0.5f, 1);
-    public static readonly StatUpgrade BulletKnockbackIncrease = new StatUpgrade("Bullet Knockback", 10, 1, 3);
-
+    
     private static Upgrade[] _currentUpgradeSelection;
 
     public static readonly List<Upgrade> DefaultUpgradePool = new()
@@ -102,11 +96,6 @@ public static class UpgradeManager
         Upgrades.Clear();
         UpgradePool.Clear();
         UpgradePool.AddRange(DefaultUpgradePool);
-
-        MaxHealthIncrease.Reset();
-        BulletDamageIncrease.Reset();
-        PlayerMovementSpeedIncrease.Reset();
-        BulletKnockbackIncrease.Reset();
     }
 
     /// <summary>
