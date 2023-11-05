@@ -5,7 +5,7 @@ namespace BehaviorTree
 {
     public class BossAttackDash : Node
     {
-        private float _waitTime = 1f;
+        private float _waitTime = 2f;
 
         private float _timeCounter;
         
@@ -14,25 +14,40 @@ namespace BehaviorTree
         private Transform _body;
         
         private Rigidbody2D _rigidbody2D;
+        
+        private Collider2D _damageZoneCollider;
+        
+        Vector2 _dashDir;
 
-        public BossAttackDash(Transform body, Rigidbody2D rigidbody2D, Transform dashTarget)
+        public BossAttackDash(Transform body, Rigidbody2D rigidbody2D, Transform dashTarget, Collider2D damageZoneCollider)
         {
             this._body = body;
             this._rigidbody2D = rigidbody2D;
             this._dashTarget = dashTarget;
+            this._damageZoneCollider = damageZoneCollider;
+            _dashDir = Vector2.zero;
         }
         
         public override NodeState Evaluate()
         {
             state = NodeState.FAILURE;
-            
-            Vector2 dashDir = (_dashTarget.position - _body.position);
 
             _timeCounter += Time.fixedDeltaTime;
+            if (_timeCounter >= _waitTime/4 && _dashDir == Vector2.zero)
+            {
+                _dashDir = (_dashTarget.position - _body.position);
+                Debug.DrawLine(_body.position, _dashTarget.position, Color.red , 2);
+            }
+            if (_timeCounter >= _waitTime/2 && _damageZoneCollider.enabled == false)
+            {
+                _rigidbody2D.AddForce(_dashDir * 1000f);
+                _damageZoneCollider.enabled = true;
+            }
             if (_timeCounter >= _waitTime)
             {
+                _damageZoneCollider.enabled = false;
+                _dashDir = Vector2.zero;
                 _timeCounter = 0f;
-                _rigidbody2D.AddForce(dashDir * 1500f);
                 state = NodeState.SUCCESS;
             }
 

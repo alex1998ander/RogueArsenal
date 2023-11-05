@@ -15,12 +15,15 @@ namespace BehaviorTree
     [RequireComponent(typeof(LineRenderer))]
     public class BossEnemyBT : MovingEnemyBT
     {
+        [SerializeField] private Collider2D damageCollider;
         [SerializeField] private GameObject mine; 
         [SerializeField] private GameObject turret;
         [SerializeField] private GameObject clone;
         [SerializeField] private GameObject shieldGenerator;
         [SerializeField] private GameObject shield;
         [SerializeField] private GameObject bullet;
+        [SerializeField] private SpriteRenderer shadow;
+        
         protected override Node SetupTree()
         {
             LineRenderer lineRenderer = GetComponent<LineRenderer>();
@@ -30,16 +33,36 @@ namespace BehaviorTree
             Transform playerTransform = GameObject.Find("Player").GetComponent<Transform>();
             EnemyWeapon weapon = GetComponentInChildren<EnemyWeapon>();
             NavMeshAgent agent = GetComponent<NavMeshAgent>();
+            
             agent.updateRotation = false;
             agent.updateUpAxis = false;
 
-            Node[] tasks = new Node[] {new BossAttackDash(transform, rb, playerTransform), new BossAttackStomp(transform,playerTransform,spriteRenderer),new BossAttackLaserFocus(lineRenderer,playerTransform,transform), new BossAttackSpawnObject(transform, mine), new BossAttackSpawnObject(transform, turret), new BossAttackSpawnObject(transform, clone, new Vector3(3,3,3)), new BossAttack360Shot(transform, bullet), new BossAttackSpawnObject(transform,shieldGenerator, shield)};
-
+            Node[] tasksPool = new Node[] {new BossAttackDash(transform, rb, playerTransform, this.damageCollider),
+                new BossAttackStomp(transform,playerTransform,spriteRenderer,shadow, damageCollider), 
+                new BossAttackLaserFocus(lineRenderer,playerTransform,transform), new BossAttackSpawnObject(transform, mine), 
+                new BossAttackSpawnObject(transform, turret), new BossAttackSpawnObject(transform, clone, new Vector3(3,3,3)), 
+                new BossAttack360Shot(transform, bullet), new BossAttackSpawnObject(transform,shieldGenerator, shield)};
+            
             const float attackSpeed = 15f;
+            damageCollider.enabled = false;
+            shadow.enabled = false;
 
             SharedData sharedData = new SharedData();
             sharedData.SetData(sharedData.AbilityState, AbilityState.None);
+            sharedData.SetData(sharedData.RandomAbility, -1);
 
+            
+            int[] taskCounter = new int[] { -1, -1, -1 };
+            while (taskCounter[0] == taskCounter[1] && taskCounter[1] == taskCounter[2] && taskCounter[0] == taskCounter[2])
+            {
+                for (int i = 0; i < taskCounter.Length; i++)
+                {
+                    taskCounter[i] = Random.Range(0, tasksPool.Length - 1);
+                }
+            }
+            Node[] tasks = new Node[] {tasksPool[taskCounter[0]], tasksPool[taskCounter[1]], tasksPool[taskCounter[2]]};
+            Debug.Log(taskCounter);
+            
             Node root = new Selector(new List<Node>
             {
                 // Case: Enemy is stunned
@@ -65,6 +88,7 @@ namespace BehaviorTree
                                 maxDistanceFromPlayer),
                             new TaskMoveToTarget(rb, agent, 1f),
                             new TaskAttackPlayer(weapon, attackSpeed),
+                            new ChooseRandomAttackMove(tasks.Length),
                             new TaskWait(2f, true),
                             new SetData<AbilityState>(sharedData.AbilityState, AbilityState.Ability)
                         }),
@@ -74,7 +98,8 @@ namespace BehaviorTree
                             new TaskSetLastKnownPlayerLocation(playerTransform),
                             new TaskLookAt(rb, playerTransform),
                             new TaskSetMovementSpeed(agent,  0),
-                            tasks[tasks.Length - 2], //Random.Range(2,tasks.Length - 1)
+                            //new RandomAttackMove(tasks),
+                            tasksPool[0],
                             new TaskSetMovementSpeed(agent, 3.5f),
                             new SetData<AbilityState>(sharedData.AbilityState, AbilityState.Cooldown)
                             

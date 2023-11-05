@@ -19,7 +19,7 @@ namespace BehaviorTree
 
         private bool _gotHitOnce = false;
         
-        bool _directionNotSet = true;
+        Vector2 _direction = Vector2.zero;
 
         public BossAttackLaserFocus(LineRenderer lineRenderer, Transform focusTarget, Transform body)
         {
@@ -38,7 +38,6 @@ namespace BehaviorTree
             Vector3 laserStart = _body.position;
             Vector3 focusPos = _focusTarget.position;
             Vector3 laserEnd = focusPos + (focusPos - laserStart) * 3f;
-            Vector2 direction = Vector2.zero;
             
             _lineRenderer.enabled = true;
             _lineRenderer.SetPositions(new[] { laserStart, laserEnd });
@@ -48,10 +47,9 @@ namespace BehaviorTree
             
 
             _timeCounter += Time.fixedDeltaTime;
-            if (_timeCounter >= ((_waitTime / 3) -  0.2) && _directionNotSet)
+            if (_timeCounter >= ((_waitTime / 3) -  0.2) && _direction == Vector2.zero)
             {
-                _directionNotSet = false;
-                direction = new Vector2(_focusTarget.position.x, _focusTarget.position.y) - new Vector2(_body.position.x, _body.position.y);
+                _direction = new Vector2(_focusTarget.position.x, _focusTarget.position.y) - new Vector2(_body.position.x, _body.position.y);
             }
             
             if (_timeCounter >= (_waitTime/3))
@@ -60,8 +58,10 @@ namespace BehaviorTree
                 _lineRenderer.endWidth = 1f;
                 LayerMask mask = LayerMask.GetMask("Player");
                 int layerMaskToInt = mask.value;
+                Debug.Log(layerMaskToInt);
+                Debug.Log(LayerMask.GetMask("Player"));
                 RaycastHit2D[] hits = new RaycastHit2D[1];
-                int gotHits = Physics2D.BoxCastNonAlloc(new Vector2(_body.position.x, _body.position.y), new Vector2(2, 10), 0, direction, hits, 20, layerMaskToInt);
+                int gotHits = Physics2D.BoxCastNonAlloc(new Vector2(_body.position.x, _body.position.y), new Vector2(2, 10), 0, _direction, hits, 20, layerMaskToInt);
                 if (gotHits == 1  && !_gotHitOnce)
                 {
                     hits[0].transform.GetComponent<PlayerHealth>().InflictDamage(5, true);
@@ -74,7 +74,7 @@ namespace BehaviorTree
                 _lineRenderer.enabled = false;
                 _timeCounter = 0;
                 _gotHitOnce = false;
-                _directionNotSet = true;
+                _direction = Vector2.zero;
                 state = NodeState.SUCCESS;
             }
 

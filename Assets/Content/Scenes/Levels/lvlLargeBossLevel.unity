@@ -77582,6 +77582,10 @@ PrefabInstance:
       propertyPath: clone
       value: 
       objectReference: {fileID: 7996287835872587493, guid: 0fe8e2a83e34a6e4382c7db355d004ab, type: 3}
+    - target: {fileID: 3978751857758223008, guid: 162a1cbe4f0531c45a0804ec7e09df84, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 1845687642861211236, guid: e8f28205521d5364db79c8abc134746a, type: 3}
     - target: {fileID: 3978751857758223009, guid: 162a1cbe4f0531c45a0804ec7e09df84, type: 3}
       propertyPath: m_SortingLayer
       value: 1
