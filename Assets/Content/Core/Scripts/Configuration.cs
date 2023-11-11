@@ -74,7 +74,7 @@ public class Configuration
 
     // Upgrade: Sinusoidal Shots
     public const float SinusoidalShots_Frequency = 2f * Mathf.PI * 2f; // Two times Pi to normalize the frequency to 1 full wavelength a second
-    public const float SinusoidalShots_Amplitude = 15f;
+    public const float SinusoidalShots_Amplitude = 0.15f;
     public const float SinusoidalShots_SplitShotHalfAngleAdjustment = -40f;
 
     // Upgrade: Smart Pistol
