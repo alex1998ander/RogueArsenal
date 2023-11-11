@@ -11,7 +11,7 @@ public class UpgradePhoenix : Upgrade
         if (!PlayerData.phoenixed)
         {
             PlayerData.health = PlayerData.maxHealth;
-            EventManager.OnPlayerHealthUpdate.Trigger();
+            EventManager.OnPlayerHealthUpdate.Trigger(PlayerData.health);
             
             PlayerData.phoenixed = true;
             EventManager.OnPlayerPhoenixed.Trigger();

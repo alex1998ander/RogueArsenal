@@ -46,7 +46,7 @@ public class IngameUIManager : MonoBehaviour
         ammoBarView.SetValue(PlayerData.ammo);
     }
 
-    private void HealthUpdate()
+    private void HealthUpdate(float healthChange)
     {
         healthBarView.SetValue(PlayerData.health);
     }

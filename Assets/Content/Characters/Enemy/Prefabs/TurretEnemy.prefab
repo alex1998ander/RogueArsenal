@@ -81,7 +81,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 7fa09140bb2efea4183b2fba69eb99c6, type: 3}
     - target: {fileID: 6866423785977518980, guid: ba46bce3e439cdd489820f759add8589, type: 3}
       propertyPath: m_SortingLayer
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6866423785977518980, guid: ba46bce3e439cdd489820f759add8589, type: 3}
       propertyPath: m_WasSpriteAssigned
@@ -117,8 +117,6 @@ MonoBehaviour:
   wallLayer:
     serializedVersion: 2
     m_Bits: 256
-  stunTime: 1
-  viewDistance: 6
 --- !u!1 &3057083525896683534 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6007049234129733462, guid: ba46bce3e439cdd489820f759add8589, type: 3}
@@ -163,7 +161,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1617481309
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: fb3c4afa86da9604d83e90730d795285, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
