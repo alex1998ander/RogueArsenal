@@ -24,7 +24,7 @@ public class EnemyHealth : MonoBehaviour, ICharacterHealth
         // if enemy dies
         if (_currentHealth <= 0)
         {
-            EventManager.OnEnemyDeath.Trigger(gameObject);
+            EventManager.OnEnemyDeath.Trigger(transform.position);
             Destroy(gameObject.transform.root.gameObject);
         }
     }

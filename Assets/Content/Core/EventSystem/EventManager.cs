@@ -9,7 +9,7 @@ public static class EventManager
     #region Player Events
 
     public static readonly Event OnPlayerAmmoUpdate = new();
-    public static readonly Event OnPlayerHealthUpdate = new();
+    public static readonly Event<float> OnPlayerHealthUpdate = new();
 
     public static readonly Event OnPlayerAbilityUsed = new();
     public static readonly Event OnPlayerCollectCurrency = new();
@@ -18,15 +18,15 @@ public static class EventManager
     public static readonly Event OnPlayerShotFired = new();
 
     public static readonly Event OnWeaponReload = new();
-    
+
     #endregion
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     #region Enemy Events
-    
+
     public static readonly Event<float> OnEnemyDamage = new();
-    public static readonly Event<GameObject> OnEnemyDeath = new();
+    public static readonly Event<Vector3> OnEnemyDeath = new();
     public static readonly Event OnEnemyShotFired = new();
 
     #endregion
@@ -34,12 +34,12 @@ public static class EventManager
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     #region Level Events
-    
+
     public static readonly Event OnLevelExit = new();
     public static readonly Event OnLevelEnter = new();
 
     #endregion
-    
+
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     #region Game Events
