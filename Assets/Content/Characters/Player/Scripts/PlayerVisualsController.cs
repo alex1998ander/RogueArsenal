@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -7,10 +8,10 @@ public class PlayerVisualsController : MonoBehaviour
 
     private void Start()
     {
-        EventManager.OnPlayerHealthUpdate.Subscribe(OnPlayerHealthUpdate);
+        EventManager.OnPlayerHealthUpdate.Subscribe(DamageHealFlicker);
     }
 
-    private void OnPlayerHealthUpdate(float healthChange)
+    private void DamageHealFlicker(float healthChange)
     {
         if (healthChange < 0)
             SetSpriteColor(Color.red);
@@ -29,5 +30,10 @@ public class PlayerVisualsController : MonoBehaviour
         yield return new WaitForSeconds(delay);
         playerSprite.color = Color.white;
         yield break;
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.OnPlayerHealthUpdate.Unsubscribe(DamageHealFlicker);
     }
 }
