@@ -68,6 +68,7 @@ public class Configuration
     public const int Piercing_PiercesCount = 1;
 
     // Upgrade: Shockwave
+    public const float Shockwave_Duration = 1f;
     public const float Shockwave_Range = 5f;
     public const float Shockwave_MinStrength = 2000f;
     public const float Shockwave_MaxStrength = 4000f;
