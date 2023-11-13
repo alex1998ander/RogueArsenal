@@ -9,10 +9,12 @@
 
     public static float fireCooldown;
     public static float abilityCooldown;
-    
-    
+
+    public static bool canMove = true;
     public static bool canDash = true;
+    public static bool canFire = true;
     public static bool canReload = true;
+    public static bool canUseAbility = true;
     public static bool invulnerable;
     
     // Upgrade: Phoenix

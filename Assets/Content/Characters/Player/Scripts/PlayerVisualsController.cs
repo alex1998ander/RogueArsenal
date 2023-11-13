@@ -9,31 +9,45 @@ public class PlayerVisualsController : MonoBehaviour
     private void Start()
     {
         EventManager.OnPlayerHealthUpdate.Subscribe(DamageHealFlicker);
+        EventManager.OnPlayerPhoenixed.Subscribe(OnPhoenixed);
     }
 
     private void DamageHealFlicker(float healthChange)
     {
         if (healthChange < 0)
-            SetSpriteColor(Color.red);
+            StartCoroutine(SetSpriteColorForTime(Color.red, 0.1f));
         else
-            SetSpriteColor(Color.green);
+            StartCoroutine(SetSpriteColorForTime(Color.green, 0.1f));
     }
 
-    private void SetSpriteColor(Color color)
+    private IEnumerator SetSpriteColorForTime(Color color, float delay)
     {
         playerSprite.color = color;
-        StartCoroutine(ResetSpriteColor(0.1f));
-    }
-
-    private IEnumerator ResetSpriteColor(float delay)
-    {
         yield return new WaitForSeconds(delay);
         playerSprite.color = Color.white;
-        yield break;
+    }
+
+    private void OnPhoenixed()
+    {
+        StartCoroutine(PlayPhoenixedAnimation());
+    }
+
+    // TODO: Replace with actual animation later on
+    private IEnumerator PlayPhoenixedAnimation()
+    {
+        playerSprite.enabled = false;
+        yield return new WaitForSeconds(Configuration.Phoenix_WarmUpTime);
+
+        playerSprite.enabled = true;
+        playerSprite.color = Color.yellow;
+        yield return new WaitForSeconds(Configuration.Phoenix_InvincibilityTime);
+
+        playerSprite.color = Color.white;
     }
 
     private void OnDestroy()
     {
         EventManager.OnPlayerHealthUpdate.Unsubscribe(DamageHealFlicker);
+        EventManager.OnPlayerPhoenixed.Unsubscribe(OnPhoenixed);
     }
 }

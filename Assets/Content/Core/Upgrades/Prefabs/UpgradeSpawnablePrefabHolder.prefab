@@ -46,4 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healingFieldPrefab: {fileID: 5263074500707566537, guid: fe83cdc0ba7afca48861f6ca5d1f95bd, type: 3}
   shockwavePrefab: {fileID: 1320863864590499383, guid: 1f48634cec406704aa29199dd71f99ec, type: 3}
+  phoenixPrefab: {fileID: 4472850322237418088, guid: a13fac04aabaa874b8f28fcb1e3e8322, type: 3}
   bulletBouncePhysicsMaterial: {fileID: 6200000, guid: 396c01159a3dcae4296c00260e30da57, type: 2}

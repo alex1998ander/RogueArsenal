@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,8 +9,9 @@ public class PlayerController : MonoBehaviour, ICharacterController
     [SerializeField] private Transform playerSpriteTransform;
 
     public PlayerHealth playerHealth;
-    
+
     private Rigidbody2D _rigidbody;
+    private Collider2D _collider;
     private Vector2 _movementInput;
     private Vector2 _dashMovementDirection;
     private Vector2 _aimDirection;
@@ -27,14 +29,17 @@ public class PlayerController : MonoBehaviour, ICharacterController
     {
         playerHealth = GetComponent<PlayerHealth>();
         _rigidbody = GetComponent<Rigidbody2D>();
+        _collider = GetComponent<Collider2D>();
 
         PlayerData.maxHealth = Mathf.RoundToInt(Configuration.Player_MaxHealth * UpgradeManager.GetHealthMultiplier());
         PlayerData.health = PlayerData.maxHealth;
-        
+
         PlayerData.fireCooldown = Configuration.Player_FireCoolDown * UpgradeManager.GetFireCooldownMultiplier();
         PlayerData.abilityCooldown = Configuration.Player_AbilityCoolDown * UpgradeManager.GetAbilityDelayMultiplier();
 
         UpgradeManager.Init(this);
+
+        EventManager.OnPlayerPhoenixed.Subscribe(OnPhoenixed);
     }
 
     void FixedUpdate()
@@ -42,12 +47,11 @@ public class PlayerController : MonoBehaviour, ICharacterController
         UpgradeManager.PlayerUpdate(this);
         MovePlayer();
         FireWeapon();
+    }
 
-        // TODO: Delete all this stupidity later
-        if (Time.time <= _weaponReloadedTimeStamp)
-            Debug.Log("<color=red>Reloading: " + (_weaponReloadedTimeStamp - Time.time) + "</color>");
-        else if (Time.time > _weaponReloadedTimeStamp && Time.time < _weaponReloadedTimeStamp + Time.fixedDeltaTime * 2)
-            Debug.Log("<color=blue>Reloaded!</color>");
+    private void OnDestroy()
+    {
+        EventManager.OnPlayerPhoenixed.Unsubscribe(OnPhoenixed);
     }
 
     #region PlayerActions
@@ -147,13 +151,40 @@ public class PlayerController : MonoBehaviour, ICharacterController
         throw new NotImplementedException();
     }
 
+    private void OnPhoenixed()
+    {
+        PlayerData.canMove = false;
+        PlayerData.canDash = false;
+        PlayerData.canFire = false;
+        PlayerData.canReload = false;
+        PlayerData.canUseAbility = false;
+
+        PlayerData.invulnerable = true;
+
+        StartCoroutine(AfterPhoenixed());
+    }
+
+    private IEnumerator AfterPhoenixed()
+    {
+        yield return new WaitForSeconds(Configuration.Phoenix_WarmUpTime);
+
+        PlayerData.canMove = true;
+        PlayerData.canDash = true;
+        PlayerData.canFire = true;
+        PlayerData.canReload = true;
+        PlayerData.canUseAbility = true;
+
+        yield return new WaitForSeconds(Configuration.Phoenix_InvincibilityTime);
+        PlayerData.invulnerable = false;
+    }
+
     #endregion
 
     #region PlayerInput
 
     private void OnMove(InputValue value)
     {
-        if (!GameManager.GamePaused)
+        if (PlayerData.canMove && !GameManager.GamePaused)
             _movementInput = value.Get<Vector2>();
         else
             _movementInput = Vector2.zero;
@@ -161,12 +192,12 @@ public class PlayerController : MonoBehaviour, ICharacterController
 
     private void OnFire(InputValue value)
     {
-        _isFiring = value.isPressed;
+        _isFiring = PlayerData.canFire && value.isPressed;
     }
 
     private void OnAbility()
     {
-        if (!GameManager.GamePaused && Time.time > _abilityCooldownEndTimestamp)
+        if (PlayerData.canUseAbility && !GameManager.GamePaused && Time.time > _abilityCooldownEndTimestamp)
         {
             // This assignment has to be done before "UpgradeManager.OnAbility()" so that the variable can be overwritten by this function if necessary
             _abilityCooldownEndTimestamp = Time.time + PlayerData.abilityCooldown;
@@ -178,7 +209,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
 
     private void OnAim(InputValue value)
     {
-        if (!GameManager.GamePaused)
+        if (PlayerData.canMove && !GameManager.GamePaused)
         {
             _aimDirection = value.Get<Vector2>();
             if (Vector2.Distance(Vector2.zero, _aimDirection) > 0.5)
@@ -196,7 +227,8 @@ public class PlayerController : MonoBehaviour, ICharacterController
 
     private void OnReload()
     {
-        ReloadWeapon();
+        if (PlayerData.canReload)
+            ReloadWeapon();
     }
 
     private void OnDash()
@@ -217,13 +249,13 @@ public class PlayerController : MonoBehaviour, ICharacterController
     public void InitUpgrades()
     {
         UpgradeManager.Init(this);
-        
+
         PlayerData.maxHealth = Mathf.RoundToInt(Configuration.Player_MaxHealth * UpgradeManager.GetHealthMultiplier());
         PlayerData.health = PlayerData.maxHealth;
-        
+
         PlayerData.fireCooldown = Configuration.Player_FireCoolDown * UpgradeManager.GetFireCooldownMultiplier();
         PlayerData.abilityCooldown = Configuration.Player_AbilityCoolDown * UpgradeManager.GetAbilityDelayMultiplier();
-        
+
         PlayerData.maxAmmo = Mathf.RoundToInt(Configuration.Weapon_MagazineSize * UpgradeManager.GetMagazineSizeMultiplier());
         PlayerData.reloadTime = Configuration.Weapon_ReloadTime * UpgradeManager.GetReloadTimeMultiplier();
     }

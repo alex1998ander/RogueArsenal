@@ -65,8 +65,8 @@ public class Configuration
     public const float Homing_RotationSpeed = 400f;
 
     // Upgrade: Phoenix
-    public const float Phoenix_WarmUpTime = 5f;
-    public const float Phoenix_PreReviveTime = 1.0f;
+    public const float Phoenix_WarmUpTime = 4f;
+    public const float Phoenix_InvincibilityTime = 3f;
 
     // Upgrade: Piercing
     public const int Piercing_PiercesCount = 1;
