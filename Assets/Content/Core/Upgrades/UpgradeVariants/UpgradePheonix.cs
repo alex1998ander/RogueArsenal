@@ -14,8 +14,9 @@ public class UpgradePhoenix : Upgrade
     {
         if (!PlayerData.phoenixed)
         {
-            GameObject phoenixPrefab = Object.Instantiate(UpgradeSpawnablePrefabHolder.instance.phoenixPrefab, playerController.transform.position, Quaternion.identity);
-            Object.Destroy(phoenixPrefab, Configuration.Phoenix_WarmUpTime + Configuration.Phoenix_InvincibilityTime);
+            UpgradeSpawnablePrefabHolder.SpawnPrefab(UpgradeSpawnablePrefabHolder.instance.phoenixPrefab,
+                playerController.transform.position,
+                Configuration.Phoenix_WarmUpTime + Configuration.Phoenix_InvincibilityTime);
 
             PlayerData.health = PlayerData.maxHealth;
             EventManager.OnPlayerHealthUpdate.Trigger(PlayerData.health);
