@@ -23,11 +23,13 @@ namespace BehaviorTree
         [SerializeField] private GameObject shield;
         [SerializeField] private GameObject bullet;
         [SerializeField] private SpriteRenderer shadow;
+        [SerializeField] private GameObject shockWave;
 
         protected override Node SetupTree()
         {
             base.SetupTree();
 
+            Collider2D bossCollider2D = GetComponent<BoxCollider2D>();
             LineRenderer lineRenderer = GetComponent<LineRenderer>();
             SpriteRenderer spriteRenderer = GetComponentInChildren<SpriteRenderer>();
             Transform transform = this.transform;
@@ -42,22 +44,23 @@ namespace BehaviorTree
             Node[] tasksPool = new Node[]
             {
                 new BossAttackDash(transform, rb, playerTransform, this.damageCollider),
-                new BossAttackStomp(transform, playerTransform, spriteRenderer, shadow, damageCollider),
+                new BossAttackStomp(transform, playerTransform, spriteRenderer, shadow, damageCollider, bossCollider2D),
                 new BossAttackLaserFocus(lineRenderer, playerTransform, transform), new BossAttackSpawnObject(transform, mine),
                 new BossAttackSpawnObject(transform, turret), new BossAttackSpawnObject(transform, clone, new Vector3(3, 3, 3)),
-                new BossAttack360Shot(transform, bullet), new BossAttackSpawnObject(transform, shieldGenerator, shield)
+                new BossAttack360Shot(transform, bullet), new BossAttackShield(shieldGenerator, bossCollider2D), new BossAttackShockwave(shockWave)
             };
 
             const float attackSpeed = 15f;
             damageCollider.enabled = false;
             shadow.enabled = false;
+            shieldGenerator.SetActive(false);
 
             SharedData sharedData = new SharedData();
             sharedData.SetData(sharedData.AbilityState, AbilityState.None);
             sharedData.SetData(sharedData.RandomAbility, -1);
 
 
-            int[] taskCounter = new int[] {-1, -1, -1};
+            int[] taskCounter = { -1, -1, -1 };
             while (taskCounter[0] == taskCounter[1] && taskCounter[1] == taskCounter[2] && taskCounter[0] == taskCounter[2])
             {
                 for (int i = 0; i < taskCounter.Length; i++)
@@ -66,8 +69,7 @@ namespace BehaviorTree
                 }
             }
 
-            Node[] tasks = new Node[] {tasksPool[taskCounter[0]], tasksPool[taskCounter[1]], tasksPool[taskCounter[2]]};
-            Debug.Log(taskCounter);
+            Node[] tasks = { tasksPool[taskCounter[0]], tasksPool[taskCounter[1]], tasksPool[taskCounter[2]] };
 
             Node root = new Selector(new List<Node>
             {
@@ -93,6 +95,7 @@ namespace BehaviorTree
                             new TaskPickTargetAroundTransforms(playerTransform, minDistanceFromPlayer,
                                 maxDistanceFromPlayer),
                             new TaskMoveToTarget(rb, agent, 1f),
+                            //new CheckIsAtTarget(),
                             new TaskAttackPlayer(weapon, attackSpeed),
                             new ChooseRandomAttackMove(tasks.Length),
                             new TaskWait(2f, true),
@@ -105,7 +108,7 @@ namespace BehaviorTree
                             new TaskLookAt(rb, playerTransform),
                             new TaskSetMovementSpeed(agent, 0),
                             //new RandomAttackMove(tasks),
-                            tasksPool[0],
+                            tasksPool[tasksPool.Length - 1],
                             new TaskSetMovementSpeed(agent, 3.5f),
                             new SetData<AbilityState>(sharedData.AbilityState, AbilityState.Cooldown)
                         }),
@@ -119,7 +122,7 @@ namespace BehaviorTree
                             new ClearData<bool>(sharedData.HasHeardPlayerShot)
                         }),
                         // Case: Enemy moves towards last known player location
-                        new Sequence(new List<Node>
+                        /*new Sequence(new List<Node>
                         {
                             new Inverter(new ExpectData<AbilityState>(sharedData.AbilityState, AbilityState.Ability)),
                             new HasData<Vector3>(sharedData.LastKnownPlayerLocation),
@@ -128,7 +131,7 @@ namespace BehaviorTree
                             new TaskLookAt(rb, agent),
                             new CheckIsAtTarget(),
                             new ClearData<Vector3>(sharedData.LastKnownPlayerLocation),
-                        }),
+                        }),*/
                     })
                 }),
                 // Case: Enemy sees Player for the first time
