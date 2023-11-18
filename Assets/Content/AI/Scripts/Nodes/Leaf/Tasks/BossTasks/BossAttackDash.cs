@@ -33,14 +33,14 @@ namespace BehaviorTree
             state = NodeState.FAILURE;
 
             _timeCounter += Time.fixedDeltaTime;
-            if (_timeCounter >= _waitTime/4 && _dashDir == Vector2.zero)
+            if (_timeCounter >= _waitTime/3 && _dashDir == Vector2.zero)
             {
                 _dashDir = (_dashTarget.position - _body.position);
                 Debug.DrawLine(_body.position, _dashTarget.position, Color.red , 2);
             }
             if (_timeCounter >= _waitTime/2 && _damageZoneCollider.enabled == false)
             {
-                _rigidbody2D.AddForce(_dashDir * 1000f);
+                _rigidbody2D.AddForce(_dashDir * 1500f);
                 _damageZoneCollider.enabled = true;
             }
             if (_timeCounter >= _waitTime)

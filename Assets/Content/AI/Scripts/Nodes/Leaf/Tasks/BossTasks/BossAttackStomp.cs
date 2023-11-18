@@ -11,41 +11,59 @@ namespace BehaviorTree
         private Transform _body;
         private SpriteRenderer _shadow;
         private Collider2D _damageCollider;
-        
+        private Collider2D _bossCollider;
+
         private float _waitTime = 3f;
         private float _timeCounter;
 
-        public BossAttackStomp(Transform body, Transform stompTarget, SpriteRenderer bossVisual, SpriteRenderer shadow, Collider2D damageCollider)
+        private bool _landPosSet = false;
+        //Vector3 _landPos = Vector3.zero;
+
+        public BossAttackStomp(Transform body, Transform stompTarget, SpriteRenderer bossVisual, SpriteRenderer shadow, Collider2D damageCollider, Collider2D bossCollider)
         {
             this._body = body;
             this._stompTarget = stompTarget;
             this._bossVisual = bossVisual;
             this._shadow = shadow;
             this._damageCollider = damageCollider;
+            this._bossCollider = bossCollider;
         }
-        
+
         public override NodeState Evaluate()
         {
-            Vector3 landPos = _body.transform.position;
             state = NodeState.FAILURE;
-            
+
             _bossVisual.enabled = false;
-            
+            _bossCollider.enabled = false;
+
             _timeCounter += Time.fixedDeltaTime;
-            if (_timeCounter >= _waitTime/2)
+            if (_timeCounter >= _waitTime / 2 && !_landPosSet)
             {
-                landPos = _stompTarget.position;
+                //_landPos = _stompTarget.position;
+                _body.position = _stompTarget.position;
                 _shadow.enabled = true;
+                _landPosSet = true;
             }
-            if (_timeCounter >= _waitTime)
+
+            if (_timeCounter >= _waitTime - 0.1)
             {
-                _damageCollider.enabled = true;
-                _timeCounter = 0f;
                 _bossVisual.enabled = true;
                 _shadow.enabled = false;
-                _body.position = landPos;
-                state = NodeState.SUCCESS;
+                _damageCollider.enabled = true;
+                _bossCollider.enabled = true;
+            }
+
+            if (_timeCounter >= _waitTime)
+            {
+                _timeCounter = 0f;
+                _damageCollider.enabled = true;
+                _bossCollider.enabled = true;
+                _landPosSet = false;
+                
+                
                 _damageCollider.enabled = false;
+                //_body.position = _landPos;
+                state = NodeState.SUCCESS;
             }
 
             return state;
