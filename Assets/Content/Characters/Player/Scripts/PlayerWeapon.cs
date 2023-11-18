@@ -5,7 +5,11 @@ public class PlayerWeapon : MonoBehaviour
 {
     [SerializeField] private GameObject playerBulletPrefab;
 
-    private int _currentAmmo;
+    private void Awake()
+    {
+        PlayerData.maxAmmo = Mathf.RoundToInt(Configuration.Weapon_MagazineSize * UpgradeManager.GetMagazineSizeMultiplier());
+        PlayerData.reloadTime = Configuration.Weapon_ReloadTime * UpgradeManager.GetReloadTimeMultiplier();
+    }
 
     private void Start()
     {
@@ -21,17 +25,18 @@ public class PlayerWeapon : MonoBehaviour
     /// <returns>true if weapon could be fired, false if not</returns>
     public bool TryFire(bool spendAmmo, bool useTransformUp = true, Vector2 fireDirectionOverwrite = default)
     {
-        if (spendAmmo && _currentAmmo <= 0)
+        if (spendAmmo && PlayerData.ammo <= 0)
             return false;
 
         Vector2 fireDirection = useTransformUp ? transform.up : fireDirectionOverwrite;
         Fire(fireDirection);
 
         if (spendAmmo)
-            _currentAmmo--;
-
-        Debug.Log("<color=yellow> Ammo: " + _currentAmmo + "</color>");
-
+        {
+            PlayerData.ammo--;
+            EventManager.OnPlayerAmmoUpdate.Trigger();
+        }
+        
         return true;
     }
 
@@ -59,6 +64,6 @@ public class PlayerWeapon : MonoBehaviour
 
     public void Reload()
     {
-        _currentAmmo = Mathf.RoundToInt(Configuration.Weapon_MagazineSize * UpgradeManager.GetMagazineSizeMultiplier());
+        PlayerData.ammo = PlayerData.maxAmmo;
     }
 }

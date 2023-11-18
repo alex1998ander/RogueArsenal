@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace BehaviorTree
 {
     public class CheckHasState : Node

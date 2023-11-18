@@ -23,8 +23,10 @@ public class UpgradeSinusoidalShots : Upgrade
     {
         // To be honest I don't know what I'm doing here but it works so whatever
         float rotationAngle = playerBullet.RotationMultiplier * Mathf.Cos(playerBullet.Lifetime * Configuration.SinusoidalShots_Frequency) * Configuration.SinusoidalShots_Amplitude;
-        Vector3 rotatedVelocity = Quaternion.Euler(0f, 0f, rotationAngle) * playerBullet.Rigidbody.velocity;
-        playerBullet.Rigidbody.velocity = rotatedVelocity;
-        playerBullet.AdjustFacingMovementDirection();
+        // Vector3 rotatedVelocity = Quaternion.Euler(0f, 0f, rotationAngle) * playerBullet.Rigidbody.velocity;
+        // playerBullet.Rigidbody.velocity = rotatedVelocity;
+        // playerBullet.AdjustFacingMovementDirection();
+
+        playerBullet.Rigidbody.position += (Vector2) playerBullet.transform.right * rotationAngle;
     }
 }

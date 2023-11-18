@@ -8,25 +8,16 @@ public static class EventManager
 {
     #region Player Events
 
-    /// <summary>
-    /// The player takes damage. The amount of damage is passed as a parameter.
-    /// </summary>
-    public static readonly Event<float> OnPlayerDamage = new();
+    public static readonly Event OnPlayerAmmoUpdate = new();
+    public static readonly Event<float> OnPlayerHealthUpdate = new();
 
-    /// <summary>
-    /// The player dies.
-    /// </summary>
+    public static readonly Event OnPlayerAbilityUsed = new();
+    public static readonly Event OnPlayerCollectCurrency = new();
     public static readonly Event OnPlayerDeath = new();
-
-    /// <summary>
-    /// The player just fired a shot.
-    /// </summary>
+    public static readonly Event OnPlayerPhoenixed = new();
     public static readonly Event OnPlayerShotFired = new();
 
-    /// <summary>
-    /// The player collected currency.
-    /// </summary>
-    public static readonly Event OnPlayerCollectCurrency = new();
+    public static readonly Event OnWeaponReload = new();
 
     #endregion
 
@@ -34,19 +25,8 @@ public static class EventManager
 
     #region Enemy Events
 
-    /// <summary>
-    /// An Enemy takes damage. The amount of damage is passed as a parameter.
-    /// </summary>
     public static readonly Event<float> OnEnemyDamage = new();
-
-    /// <summary>
-    /// An enemy dies.
-    /// </summary>
-    public static readonly Event<GameObject> OnEnemyDeath = new();
-    
-    /// <summary>
-    /// The enemy just fired a shot.
-    /// </summary>
+    public static readonly Event<Vector3> OnEnemyDeath = new();
     public static readonly Event OnEnemyShotFired = new();
 
     #endregion
@@ -55,25 +35,18 @@ public static class EventManager
 
     #region Level Events
 
-    /// <summary>
-    /// The player exits a level and enters the upgrade selection screen.
-    /// </summary>
     public static readonly Event OnLevelExit = new();
-
-    /// <summary>
-    /// The player exits the upgrade selection screen and enters a level.
-    /// </summary>
     public static readonly Event OnLevelEnter = new();
 
     #endregion
-    
+
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     #region Game Events
 
     public static readonly Event<bool> OnPauseGame = new();
-    
     public static readonly Event OnMainMenuEnter = new();
+    public static readonly Event OnUpgradeChange = new();
 
     #endregion
 }

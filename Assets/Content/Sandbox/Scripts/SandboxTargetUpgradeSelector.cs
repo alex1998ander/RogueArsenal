@@ -33,6 +33,7 @@ public class SandboxTargetUpgradeSelector : MonoBehaviour
             
             PlayerController playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
             playerController.InitUpgrades();
+            EventManager.OnUpgradeChange.Trigger();
         }
     }
 }

@@ -32,8 +32,8 @@ public class EnemyLandMine : MonoBehaviour
         yield return new WaitForSeconds(2);
         if (_playerIsInRange)
         {
-            EventManager.OnPlayerDamage.Trigger(30f);
             _player.GetComponent<PlayerHealth>().InflictDamage(30, true);
+            EventManager.OnPlayerHealthUpdate.Trigger(30);
         }
         Destroy(gameObject);
     }

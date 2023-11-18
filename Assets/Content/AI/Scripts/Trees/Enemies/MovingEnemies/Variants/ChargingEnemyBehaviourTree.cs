@@ -15,6 +15,8 @@ namespace BehaviorTree
 
         protected override Node SetupTree()
         {
+            base.SetupTree();
+
             // Get relevant components
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
             Transform playerTransform = GameObject.Find("Player").GetComponent<Transform>();
@@ -47,6 +49,15 @@ namespace BehaviorTree
                     new CheckHasState(sharedData.IsStunned),
                     new SetData<bool>(sharedData.IsAwareOfPlayer, true),
                     // TODO: Behavior while stunned
+                }),
+                // Case: Enemy is thrown
+                new Sequence(new List<Node>
+                {
+                    new CheckHasState(sharedData.IsThrown),
+                    new SetData<bool>(sharedData.IsAwareOfPlayer, true),
+                    // new TaskSetMovementSpeed(agent, 0f),
+                    new SetData<ChargeState>(sharedData.ChargeState, ChargeState.None),
+                    new TaskClearPath(agent),
                 }),
                 // Case: Enemy is aware of player
                 new Sequence(new List<Node>
@@ -138,7 +149,7 @@ namespace BehaviorTree
                 // Case: Enemy sees Player for the first time
                 new Sequence(new List<Node>
                 {
-                    new CheckIfPlayerIsInRange(rb, playerTransform, viewDistance),
+                    new CheckIfPlayerIsInRange(rb, playerTransform, Configuration.Enemy_ViewDistance),
                     new CheckPlayerVisible(rb, playerTransform, wallLayer),
                     new SetData<bool>(sharedData.IsAwareOfPlayer, true),
                 }),
@@ -146,7 +157,7 @@ namespace BehaviorTree
                 new Sequence(new List<Node>
                 {
                     new ExpectData<bool>(sharedData.HasHeardPlayerShot, true),
-                    new CheckIfPlayerIsInRange(rb, playerTransform, hearDistance),
+                    new CheckIfPlayerIsInRange(rb, playerTransform, Configuration.Enemy_HearDistance),
                     new SetData<bool>(sharedData.IsAwareOfPlayer, true),
                 }),
                 // At end, overwrite HasHeardPlayerShot so enemy doesn't "hear" the player in the future

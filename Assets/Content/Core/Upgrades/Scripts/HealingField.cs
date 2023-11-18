@@ -24,6 +24,7 @@ public class HealingField : MonoBehaviour
             foreach (Collider2D character in rangeCheck)
             {
                 character.GetComponent<PlayerHealth>().Heal(healingPowerPer100MS);
+                EventManager.OnPlayerHealthUpdate.Trigger(healingPowerPer100MS);
             }
 
             yield return new WaitForSeconds(0.1f);

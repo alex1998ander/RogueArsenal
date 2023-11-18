@@ -10,13 +10,7 @@ public class UpgradeSelection : MonoBehaviour
     [SerializeField] private int upgradeLevelCounter = 3;
 
     List<Upgrade> _listOfAbilityUpgrades = new List<Upgrade>();
-
-    private StatUpgrade[] _listOfStatUpgrades = new StatUpgrade[4]
-    {
-        UpgradeManager.MaxHealthIncrease, UpgradeManager.BulletDamageIncrease,
-        UpgradeManager.PlayerMovementSpeedIncrease, UpgradeManager.BulletKnockbackIncrease
-    };
-
+    
     void Start()
     {
         SetupUpgradeInfo();

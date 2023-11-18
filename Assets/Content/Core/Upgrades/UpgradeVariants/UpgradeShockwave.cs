@@ -9,8 +9,10 @@ public class UpgradeShockwave : Upgrade
 
     public override void OnAbility(PlayerController playerController, PlayerWeapon playerWeapon)
     {
+        UpgradeSpawnablePrefabHolder.SpawnPrefab(UpgradeSpawnablePrefabHolder.instance.shockwavePrefab, playerController.transform.position, Configuration.Shockwave_Duration);
+
         // Get all colliders of enemies around the player
-        Collider2D[] results = Physics2D.OverlapCircleAll(playerController.transform.position, Configuration.SmartPistol_Range, LayerMask.GetMask("Enemies"));
+        Collider2D[] results = Physics2D.OverlapCircleAll(playerController.transform.position, Configuration.Shockwave_Range, LayerMask.GetMask("Enemies"));
 
         for (int i = 0; i < results.Length; i++)
         {
@@ -21,8 +23,10 @@ public class UpgradeShockwave : Upgrade
                 break;
             }
 
-            if (results[i].gameObject.GetComponent<EnemyBehaviourTree>().ThrowCharacter())
-                results[i].attachedRigidbody.AddForce(playertoEnemy * 1800f);
+            // Inverse of playerToEnemy.magnitude to lessen shockwave strength for far away enemies
+            float throwStrength = Mathf.Clamp((1f / playertoEnemy.magnitude) * Configuration.Shockwave_MaxStrength, Configuration.Shockwave_MinStrength, Configuration.Shockwave_MaxStrength);
+            if (results[i].gameObject.GetComponent<ICharacterController>().ThrowCharacter())
+                results[i].attachedRigidbody.AddForce(playertoEnemy.normalized * throwStrength);
         }
     }
 }

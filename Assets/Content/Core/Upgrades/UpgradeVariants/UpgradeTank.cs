@@ -9,6 +9,6 @@
 
     public override void Init(PlayerController playerController)
     {
-        playerController.CanDash = false;
+        PlayerData.canDash = false;
     }
 }

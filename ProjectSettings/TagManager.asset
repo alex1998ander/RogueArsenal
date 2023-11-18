@@ -69,8 +69,14 @@ TagManager:
   - name: Bullets
     uniqueID: 3485463937
     locked: 0
+  - name: Particles_BehindPlayer
+    uniqueID: 119437211
+    locked: 0
   - name: Player
     uniqueID: 3679157101
+    locked: 0
+  - name: Particles_BeforePlayer
+    uniqueID: 947682119
     locked: 0
   - name: UI
     uniqueID: 211826079
