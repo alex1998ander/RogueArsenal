@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healingFieldPrefab: {fileID: 5263074500707566537, guid: fe83cdc0ba7afca48861f6ca5d1f95bd, type: 3}
+  mentalMeltdownPrefab: {fileID: 2538890594126050242, guid: a03f95e946bd87d47872117ff115995a, type: 3}
   shockwavePrefab: {fileID: 1320863864590499383, guid: 1f48634cec406704aa29199dd71f99ec, type: 3}
   stimpackPrefab: {fileID: 7665294777574412546, guid: 5682181fde4cb1143972f190add759f7, type: 3}
   phoenixPrefab: {fileID: 4472850322237418088, guid: a13fac04aabaa874b8f28fcb1e3e8322, type: 3}
