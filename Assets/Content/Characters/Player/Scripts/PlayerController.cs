@@ -2,11 +2,13 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour, ICharacterController
 {
     [SerializeField] private PlayerWeapon playerWeapon;
-    [SerializeField] private Transform playerSpriteTransform;
+    [SerializeField] private Transform playerVisualsTransform;
+    [SerializeField] private Animator playerVisualsAnimator;
 
     public PlayerHealth playerHealth;
 
@@ -24,6 +26,8 @@ public class PlayerController : MonoBehaviour, ICharacterController
     private float _dashEndTimestamp;
     private float _dashDelayEndTimestamp;
     private float _weaponReloadedTimeStamp;
+
+    private static readonly int Moving = Animator.StringToHash("Moving");
 
     private void Awake()
     {
@@ -185,9 +189,15 @@ public class PlayerController : MonoBehaviour, ICharacterController
     private void OnMove(InputValue value)
     {
         if (PlayerData.canMove && !GameManager.GamePaused)
+        {
             _movementInput = value.Get<Vector2>();
+            playerVisualsAnimator.SetBool(Moving, _movementInput != Vector2.zero);
+        }
         else
+        {
             _movementInput = Vector2.zero;
+            playerVisualsAnimator.SetBool(Moving, false);
+        }
     }
 
     private void OnFire(InputValue value)
@@ -220,7 +230,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
                 _angle = Mathf.Atan2(_aimDirection.y, _aimDirection.x) * Mathf.Rad2Deg - 90f;
                 playerWeapon.transform.rotation = Quaternion.Euler(0, 0, _angle);
 
-                playerSpriteTransform.rotation = Quaternion.AngleAxis(_angle, Vector3.forward);
+                playerVisualsTransform.rotation = Quaternion.AngleAxis(_angle, Vector3.forward);
             }
         }
     }
