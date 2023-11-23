@@ -21,6 +21,8 @@ namespace BehaviorTree
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
             Transform playerTransform = GameObject.Find("Player").GetComponent<Transform>();
 
+            Animator animator = GetComponentInChildren<Animator>();
+            
             // Set up nav agent
             NavMeshAgent agent = GetComponent<NavMeshAgent>();
             agent.updateRotation = false;
@@ -48,6 +50,7 @@ namespace BehaviorTree
                 {
                     new CheckHasState(sharedData.IsStunned),
                     new SetData<bool>(sharedData.IsAwareOfPlayer, true),
+                    new SetAnimatorParameter<bool>(animator, "Walking", false),
                     // TODO: Behavior while stunned
                 }),
                 // Case: Enemy is thrown
@@ -55,8 +58,8 @@ namespace BehaviorTree
                 {
                     new CheckHasState(sharedData.IsThrown),
                     new SetData<bool>(sharedData.IsAwareOfPlayer, true),
-                    // new TaskSetMovementSpeed(agent, 0f),
                     new SetData<ChargeState>(sharedData.ChargeState, ChargeState.None),
+                    new SetAnimatorParameter<bool>(animator, "Walking", false),
                     new TaskClearPath(agent),
                 }),
                 // Case: Enemy is aware of player
@@ -75,6 +78,7 @@ namespace BehaviorTree
                             new TaskPickTargetAroundTransforms(playerTransform, minDistanceFromPlayer,
                                 maxDistanceFromPlayer),
                             new TaskMoveToTarget(rb, agent, 1f),
+                            new SetAnimatorParameter<bool>(animator, "Walking", true),
                             new CheckIsAtTarget(),
                             new SetData<ChargeState>(sharedData.ChargeState, ChargeState.PreCharge),
                         }),
@@ -83,6 +87,7 @@ namespace BehaviorTree
                         {
                             new ExpectData<ChargeState>(sharedData.ChargeState, ChargeState.PreCharge),
                             new TaskLookAt(rb, playerTransform),
+                            new SetAnimatorParameter<bool>(animator, "Walking", false),
                             new TaskWait(preChargeTime, true),
                             new TaskPickTargetBehindTransform(agent, playerTransform, chargePastPlayerDistance),
                             new TaskSetMovementSpeed(agent, chargingSpeed),
@@ -124,6 +129,7 @@ namespace BehaviorTree
                             new HasData<Vector3>(sharedData.LastKnownPlayerLocation),
                             new TaskSetTargetToLastKnownPlayerLocation(),
                             new TaskMoveToTarget(rb, agent, 1f),
+                            new SetAnimatorParameter<bool>(animator, "Walking", true),
                             new TaskLookAt(rb, agent),
                             new CheckIsAtTarget(),
                             new ClearData<Vector3>(sharedData.LastKnownPlayerLocation),
