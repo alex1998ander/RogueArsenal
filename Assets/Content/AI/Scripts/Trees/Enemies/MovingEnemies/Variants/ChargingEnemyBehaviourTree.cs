@@ -22,7 +22,7 @@ namespace BehaviorTree
             Transform playerTransform = GameObject.Find("Player").GetComponent<Transform>();
 
             Animator animator = GetComponentInChildren<Animator>();
-            
+
             // Set up nav agent
             NavMeshAgent agent = GetComponent<NavMeshAgent>();
             agent.updateRotation = false;
@@ -72,13 +72,13 @@ namespace BehaviorTree
                         new Sequence(new List<Node>
                         {
                             new ExpectData<ChargeState>(sharedData.ChargeState, ChargeState.None),
+                            new SetAnimatorParameter<bool>(animator, "Walking", true),
                             new CheckPlayerVisible(rb, playerTransform, wallLayer),
                             new TaskSetLastKnownPlayerLocation(playerTransform),
                             new TaskLookAt(rb, playerTransform),
                             new TaskPickTargetAroundTransforms(playerTransform, minDistanceFromPlayer,
                                 maxDistanceFromPlayer),
                             new TaskMoveToTarget(rb, agent, 1f),
-                            new SetAnimatorParameter<bool>(animator, "Walking", true),
                             new CheckIsAtTarget(),
                             new SetData<ChargeState>(sharedData.ChargeState, ChargeState.PreCharge),
                         }),
@@ -86,8 +86,9 @@ namespace BehaviorTree
                         new Sequence(new List<Node>
                         {
                             new ExpectData<ChargeState>(sharedData.ChargeState, ChargeState.PreCharge),
-                            new TaskLookAt(rb, playerTransform),
+                            new SetAnimatorParameter<bool>(animator, "Charging", true),
                             new SetAnimatorParameter<bool>(animator, "Walking", false),
+                            new TaskLookAt(rb, playerTransform),
                             new TaskWait(preChargeTime, true),
                             new TaskPickTargetBehindTransform(agent, playerTransform, chargePastPlayerDistance),
                             new TaskSetMovementSpeed(agent, chargingSpeed),
@@ -101,12 +102,15 @@ namespace BehaviorTree
                             new TaskActivateDamageZone(true, damageZoneCollider),
                             new TaskLookAt(rb, agent),
                             new TaskMoveToTarget(rb, agent, 1f),
+                            new CheckIsAtTarget(),
                             new SetData<ChargeState>(sharedData.ChargeState, ChargeState.PostCharge),
                         }),
                         // Case: Enemy finished charging
                         new Sequence(new List<Node>
                         {
                             new ExpectData<ChargeState>(sharedData.ChargeState, ChargeState.PostCharge),
+                            new SetAnimatorParameter<bool>(animator, "Charging", false),
+                            new SetAnimatorParameter<bool>(animator, "Walking", true),
                             new TaskSetMovementSpeed(agent, movementSpeed),
                             new TaskSetMovementAcceleration(agent, movementAcceleration),
                             new TaskWait(postChargeTime, true),
@@ -126,10 +130,10 @@ namespace BehaviorTree
                         new Sequence(new List<Node>
                         {
                             new ExpectData<ChargeState>(sharedData.ChargeState, ChargeState.None),
+                            new SetAnimatorParameter<bool>(animator, "Walking", true),
                             new HasData<Vector3>(sharedData.LastKnownPlayerLocation),
                             new TaskSetTargetToLastKnownPlayerLocation(),
                             new TaskMoveToTarget(rb, agent, 1f),
-                            new SetAnimatorParameter<bool>(animator, "Walking", true),
                             new TaskLookAt(rb, agent),
                             new CheckIsAtTarget(),
                             new ClearData<Vector3>(sharedData.LastKnownPlayerLocation),
