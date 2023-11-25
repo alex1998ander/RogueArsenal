@@ -46,15 +46,16 @@ public class PlayerBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.CompareTag("Player") && Time.time < _spawnEndTimestamp)
+            return;
+
         if (!UpgradeManager.OnBulletTrigger(this, other))
-        {
             Destroy(gameObject);
-        }
 
         ICharacterHealth characterHealth = other.gameObject.GetComponent<ICharacterHealth>();
         if (characterHealth is PlayerHealth)
         {
-            if (Time.time > _spawnEndTimestamp)
+            if (Time.time >= _spawnEndTimestamp)
             {
                 characterHealth?.InflictDamage(Damage * Configuration.Player_SelfDamageMultiplier, true);
             }

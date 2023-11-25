@@ -6,9 +6,9 @@ using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour, ICharacterController
 {
-    [SerializeField] private PlayerWeapon playerWeapon;
-    [SerializeField] private Transform playerVisualsTransform;
     [SerializeField] private Animator playerVisualsAnimator;
+    [SerializeField] private PlayerWeapon playerWeapon;
+    [SerializeField] private SpriteRenderer playerWeaponSprite;
 
     public PlayerHealth playerHealth;
 
@@ -227,10 +227,15 @@ public class PlayerController : MonoBehaviour, ICharacterController
                 _aimDirection = (Vector2) Camera.main.ScreenToWorldPoint(_aimDirection) - _rigidbody.position;
                 _aimDirection.Normalize();
 
-                _angle = Mathf.Atan2(_aimDirection.y, _aimDirection.x) * Mathf.Rad2Deg - 90f;
+                _angle = Mathf.Atan2(_aimDirection.y, _aimDirection.x) * Mathf.Rad2Deg;
                 playerWeapon.transform.rotation = Quaternion.Euler(0, 0, _angle);
 
-                playerVisualsTransform.rotation = Quaternion.AngleAxis(_angle, Vector3.forward);
+                // When the player is aiming left, flip weapon so it's not heads-down
+                playerWeaponSprite.flipY = _aimDirection.x < 0.0f;
+                // When the player is aiming up, adjust sorting order so weapon is behind player
+                playerWeaponSprite.sortingOrder = _aimDirection.y > 0.0f ? -1 : 1;
+
+                //playerWeaponTransform.rotation = Quaternion.AngleAxis(_angle, Vector3.forward);
             }
         }
     }
