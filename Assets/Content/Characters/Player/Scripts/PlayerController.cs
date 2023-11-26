@@ -27,7 +27,9 @@ public class PlayerController : MonoBehaviour, ICharacterController
     private float _dashDelayEndTimestamp;
     private float _weaponReloadedTimeStamp;
 
-    private static readonly int Walking = Animator.StringToHash("Walking");
+    private static readonly int Running = Animator.StringToHash("Running");
+    private static readonly int MovingUp = Animator.StringToHash("MovingUp");
+    private static readonly int MovingLeft = Animator.StringToHash("MovingLeft");
 
     private void Awake()
     {
@@ -191,12 +193,14 @@ public class PlayerController : MonoBehaviour, ICharacterController
         if (PlayerData.canMove && !GameManager.GamePaused)
         {
             _movementInput = value.Get<Vector2>();
-            playerVisualsAnimator.SetBool(Walking, _movementInput != Vector2.zero);
+            playerVisualsAnimator.SetBool(Running, _movementInput != Vector2.zero);
+            playerVisualsAnimator.SetBool(MovingUp, _movementInput.y > 0.0f);
+            playerVisualsAnimator.SetBool(MovingLeft, _movementInput.x < 0.0f);
         }
         else
         {
             _movementInput = Vector2.zero;
-            playerVisualsAnimator.SetBool(Walking, false);
+            playerVisualsAnimator.SetBool(Running, false);
         }
     }
 
