@@ -194,8 +194,11 @@ public class PlayerController : MonoBehaviour, ICharacterController
         {
             _movementInput = value.Get<Vector2>();
             playerVisualsAnimator.SetBool(Running, _movementInput != Vector2.zero);
-            playerVisualsAnimator.SetFloat(MovementDirectionY, _movementInput.y);
-            playerVisualsAnimator.SetFloat(MovementDirectionX, _movementInput.x);
+            if (_movementInput != Vector2.zero)
+            {
+                playerVisualsAnimator.SetFloat(MovementDirectionY, _movementInput.y);
+                playerVisualsAnimator.SetFloat(MovementDirectionX, _movementInput.x);
+            }
         }
         else
         {
