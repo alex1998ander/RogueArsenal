@@ -28,8 +28,8 @@ public class PlayerController : MonoBehaviour, ICharacterController
     private float _weaponReloadedTimeStamp;
 
     private static readonly int Running = Animator.StringToHash("Running");
-    private static readonly int MovingUp = Animator.StringToHash("MovingUp");
-    private static readonly int MovingLeft = Animator.StringToHash("MovingLeft");
+    private static readonly int MovementDirectionX = Animator.StringToHash("MovementDirectionX");
+    private static readonly int MovementDirectionY = Animator.StringToHash("MovementDirectionY");
 
     private void Awake()
     {
@@ -194,8 +194,8 @@ public class PlayerController : MonoBehaviour, ICharacterController
         {
             _movementInput = value.Get<Vector2>();
             playerVisualsAnimator.SetBool(Running, _movementInput != Vector2.zero);
-            playerVisualsAnimator.SetBool(MovingUp, _movementInput.y > 0.0f);
-            playerVisualsAnimator.SetBool(MovingLeft, _movementInput.x < 0.0f);
+            playerVisualsAnimator.SetFloat(MovementDirectionY, _movementInput.y);
+            playerVisualsAnimator.SetFloat(MovementDirectionX, _movementInput.x);
         }
         else
         {
