@@ -240,7 +240,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
                 // When the player is aiming left, flip weapon so it's not heads-down
                 playerWeaponSprite.flipY = _aimDirection.x < 0.0f;
                 // When the player is aiming up, adjust sorting order so weapon is behind player
-                playerWeaponSprite.sortingOrder = _aimDirection.y > 0.0f ? -1 : 1;
+                playerWeaponSprite.sortingOrder = _angle >= 45.0 && _angle <= 135.0f ? -1 : 1;
 
                 //playerWeaponTransform.rotation = Quaternion.AngleAxis(_angle, Vector3.forward);
             }

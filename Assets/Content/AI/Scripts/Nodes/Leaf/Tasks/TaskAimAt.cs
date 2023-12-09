@@ -17,11 +17,15 @@ namespace BehaviorTree
         // Transform of the player
         private Transform _aimAtTransform;
 
+        private SpriteRenderer _weaponSprite;
+
         public TaskAimAt(Rigidbody2D rb, EnemyWeapon weapon, Transform aimAtTransform)
         {
             _rb = rb;
             _weapon = weapon;
             _aimAtTransform = aimAtTransform;
+
+            _weaponSprite = weapon.GetComponentInChildren<SpriteRenderer>();
         }
 
         public override NodeState Evaluate()
@@ -32,9 +36,12 @@ namespace BehaviorTree
             {
                 // Calculate angle
                 float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
-                // -90f to account for "forwards" of the enemy being the up vector and not the right vector
-                angle -= 90f;
                 _weapon.transform.rotation = Quaternion.Euler(0, 0, angle);
+
+                // When the enemy is aiming left, flip weapon so it's not heads-down
+                _weaponSprite.flipY = aimDirection.x < 0.0f;
+                // When the enemy is aiming up, adjust sorting order so weapon is behind enemy
+                _weaponSprite.sortingOrder = angle >= 45.0 && angle <= 135.0f ? -1 : 1;
             }
 
             state = NodeState.SUCCESS;
