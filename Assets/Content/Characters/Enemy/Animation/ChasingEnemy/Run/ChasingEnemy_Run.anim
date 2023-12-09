@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ChargingEnemy_Walk
+  m_Name: ChasingEnemy_Run
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,13 +20,13 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 1738530610, guid: f99d26d7f5b839d4d8839f43a3855229, type: 3}
+      value: {fileID: 638117494, guid: c7d005844c974d5428d0e92913f9807b, type: 3}
     - time: 0.1
-      value: {fileID: 1556992658, guid: f99d26d7f5b839d4d8839f43a3855229, type: 3}
+      value: {fileID: 1405733020, guid: c7d005844c974d5428d0e92913f9807b, type: 3}
     - time: 0.2
-      value: {fileID: -2042347409, guid: f99d26d7f5b839d4d8839f43a3855229, type: 3}
+      value: {fileID: 235061703, guid: c7d005844c974d5428d0e92913f9807b, type: 3}
     - time: 0.3
-      value: {fileID: 1807281732, guid: f99d26d7f5b839d4d8839f43a3855229, type: 3}
+      value: {fileID: 1537301050, guid: c7d005844c974d5428d0e92913f9807b, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -46,10 +46,10 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 1738530610, guid: f99d26d7f5b839d4d8839f43a3855229, type: 3}
-    - {fileID: 1556992658, guid: f99d26d7f5b839d4d8839f43a3855229, type: 3}
-    - {fileID: -2042347409, guid: f99d26d7f5b839d4d8839f43a3855229, type: 3}
-    - {fileID: 1807281732, guid: f99d26d7f5b839d4d8839f43a3855229, type: 3}
+    - {fileID: 638117494, guid: c7d005844c974d5428d0e92913f9807b, type: 3}
+    - {fileID: 1405733020, guid: c7d005844c974d5428d0e92913f9807b, type: 3}
+    - {fileID: 235061703, guid: c7d005844c974d5428d0e92913f9807b, type: 3}
+    - {fileID: 1537301050, guid: c7d005844c974d5428d0e92913f9807b, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
