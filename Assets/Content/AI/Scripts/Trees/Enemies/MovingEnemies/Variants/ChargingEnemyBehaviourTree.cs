@@ -20,7 +20,7 @@ namespace BehaviorTree
             // Get relevant components
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
             Transform playerTransform = GameObject.Find("Player").GetComponent<Transform>();
-
+            EnemyWeapon enemyWeapon = GetComponentInChildren<EnemyWeapon>();
             Animator animator = GetComponentInChildren<Animator>();
 
             // Set up nav agent
@@ -75,7 +75,7 @@ namespace BehaviorTree
                             new SetAnimatorParameter<bool>(animator, "Walking", true),
                             new CheckPlayerVisible(rb, playerTransform, wallLayer),
                             new TaskSetLastKnownPlayerLocation(playerTransform),
-                            new TaskLookAt(rb, playerTransform),
+                            new TaskAimAt(rb, enemyWeapon, playerTransform),
                             new TaskPickTargetAroundTransforms(playerTransform, minDistanceFromPlayer,
                                 maxDistanceFromPlayer),
                             new TaskMoveToTarget(rb, agent, animator, 1f),
@@ -88,7 +88,7 @@ namespace BehaviorTree
                             new ExpectData<ChargeState>(sharedData.ChargeState, ChargeState.PreCharge),
                             new SetAnimatorParameter<bool>(animator, "Charging", true),
                             new SetAnimatorParameter<bool>(animator, "Walking", false),
-                            new TaskLookAt(rb, playerTransform),
+                            new TaskAimAt(rb, enemyWeapon, playerTransform),
                             new TaskWait(preChargeTime, true),
                             new TaskPickTargetAroundTransforms(playerTransform, 0, 0),
                             // new TaskPickTargetBehindTransform(agent, playerTransform, chargePastPlayerDistance),
@@ -101,7 +101,6 @@ namespace BehaviorTree
                         {
                             new ExpectData<ChargeState>(sharedData.ChargeState, ChargeState.MidCharge),
                             new TaskActivateDamageZone(true, damageZoneCollider),
-                            new TaskLookAt(rb, agent),
                             new TaskMoveToTarget(rb, agent, animator, 1f),
                             new CheckIsAtTarget(),
                             new SetData<ChargeState>(sharedData.ChargeState, ChargeState.PostCharge),
@@ -135,7 +134,6 @@ namespace BehaviorTree
                             new HasData<Vector3>(sharedData.LastKnownPlayerLocation),
                             new TaskSetTargetToLastKnownPlayerLocation(),
                             new TaskMoveToTarget(rb, agent, animator, 1f),
-                            new TaskLookAt(rb, agent),
                             new CheckIsAtTarget(),
                             new ClearData<Vector3>(sharedData.LastKnownPlayerLocation),
                         }),
@@ -151,7 +149,6 @@ namespace BehaviorTree
                                     maxDistanceFromPlayer),
                             }),
                             new TaskMoveToTarget(rb, agent, animator, 1f),
-                            new TaskLookAt(rb, agent),
                             new CheckIsAtTarget(),
                             new ClearData<Vector3>(sharedData.Target),
                         }),

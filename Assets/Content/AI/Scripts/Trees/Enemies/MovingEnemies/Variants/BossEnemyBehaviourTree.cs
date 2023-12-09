@@ -91,7 +91,7 @@ namespace BehaviorTree
                         {
                             new Inverter(new ExpectData<AbilityState>(sharedData.AbilityState, AbilityState.Ability)),
                             new TaskSetLastKnownPlayerLocation(playerTransform),
-                            new TaskLookAt(rb, playerTransform),
+                            new TaskAimAt(rb, weapon, playerTransform),
                             new TaskPickTargetAroundTransforms(playerTransform, minDistanceFromPlayer,
                                 maxDistanceFromPlayer),
                             new TaskMoveToTarget(rb, agent, null, 1f),
@@ -105,7 +105,7 @@ namespace BehaviorTree
                         {
                             new ExpectData<AbilityState>(sharedData.AbilityState, AbilityState.Ability),
                             new TaskSetLastKnownPlayerLocation(playerTransform),
-                            new TaskLookAt(rb, playerTransform),
+                            new TaskAimAt(rb, weapon, playerTransform),
                             new TaskSetMovementSpeed(agent, 0),
                             //new RandomAttackMove(tasks),
                             tasksPool[tasksPool.Length - 1],
