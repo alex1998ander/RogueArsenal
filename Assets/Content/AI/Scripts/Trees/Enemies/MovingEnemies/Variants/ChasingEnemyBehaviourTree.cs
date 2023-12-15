@@ -43,7 +43,6 @@ namespace BehaviorTree
                 {
                     new CheckHasState(sharedData.IsStunned),
                     new SetData<bool>(sharedData.IsAwareOfPlayer, true),
-                    new SetAnimatorParameter<bool>(animator, "Walking", false),
                     // TODO: Behavior while stunned
                 }),
                 // Case: Enemy is thrown
@@ -51,7 +50,6 @@ namespace BehaviorTree
                 {
                     new CheckHasState(sharedData.IsThrown),
                     new SetData<bool>(sharedData.IsAwareOfPlayer, true),
-                    new SetAnimatorParameter<bool>(animator, "Walking", false),
                     new TaskClearPath(agent),
                 }),
                 // Case: Enemy is aware of player
@@ -60,7 +58,6 @@ namespace BehaviorTree
                     new CheckIsAwareOfPlayer(),
                     new Selector(new List<Node>
                     {
-                        new Failer(new SetAnimatorParameter<bool>(animator, "Walking", true)),
                         // Case: Enemy can see player and attacks him
                         new Sequence(new List<Node>
                         {
