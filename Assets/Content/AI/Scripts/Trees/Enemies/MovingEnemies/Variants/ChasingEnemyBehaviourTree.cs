@@ -43,7 +43,6 @@ namespace BehaviorTree
                 {
                     new CheckHasState(sharedData.IsStunned),
                     new SetData<bool>(sharedData.IsAwareOfPlayer, true),
-                    new SetAnimatorParameter<bool>(animator, "Walking", false),
                     // TODO: Behavior while stunned
                 }),
                 // Case: Enemy is thrown
@@ -51,7 +50,6 @@ namespace BehaviorTree
                 {
                     new CheckHasState(sharedData.IsThrown),
                     new SetData<bool>(sharedData.IsAwareOfPlayer, true),
-                    new SetAnimatorParameter<bool>(animator, "Walking", false),
                     new TaskClearPath(agent),
                 }),
                 // Case: Enemy is aware of player
@@ -60,16 +58,15 @@ namespace BehaviorTree
                     new CheckIsAwareOfPlayer(),
                     new Selector(new List<Node>
                     {
-                        new Failer(new SetAnimatorParameter<bool>(animator, "Walking", true)),
                         // Case: Enemy can see player and attacks him
                         new Sequence(new List<Node>
                         {
                             new CheckPlayerVisible(rb, playerTransform, wallLayer),
                             new TaskSetLastKnownPlayerLocation(playerTransform),
-                            new TaskLookAt(rb, playerTransform),
+                            new TaskAimAt(rb, weapon, playerTransform),
                             new TaskPickTargetAroundTransforms(playerTransform, minDistanceFromPlayer,
                                 maxDistanceFromPlayer),
-                            new TaskMoveToTarget(rb, agent, 1f),
+                            new TaskMoveToTarget(rb, agent, animator, 1f),
                             new TaskWait(1f, false),
                             new TaskAttackPlayer(weapon, 1f),
                         }),
@@ -86,8 +83,7 @@ namespace BehaviorTree
                         {
                             new HasData<Vector3>(sharedData.LastKnownPlayerLocation),
                             new TaskSetTargetToLastKnownPlayerLocation(),
-                            new TaskMoveToTarget(rb, agent, 1f),
-                            new TaskLookAt(rb, agent),
+                            new TaskMoveToTarget(rb, agent, animator, 1f),
                             new CheckIsAtTarget(),
                             new ClearData<Vector3>(sharedData.LastKnownPlayerLocation),
                         }),
@@ -101,8 +97,7 @@ namespace BehaviorTree
                                 new TaskPickTargetAroundTransforms(spawnPointTransforms, minDistanceFromPlayer,
                                     maxDistanceFromPlayer),
                             }),
-                            new TaskMoveToTarget(rb, agent, 1f),
-                            new TaskLookAt(rb, agent),
+                            new TaskMoveToTarget(rb, agent, animator, 1f),
                             new CheckIsAtTarget(),
                             new ClearData<Vector3>(sharedData.Target),
                         }),

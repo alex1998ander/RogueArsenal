@@ -6,9 +6,9 @@ using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour, ICharacterController
 {
-    [SerializeField] private PlayerWeapon playerWeapon;
-    [SerializeField] private Transform playerVisualsTransform;
     [SerializeField] private Animator playerVisualsAnimator;
+    [SerializeField] private PlayerWeapon playerWeapon;
+    [SerializeField] private SpriteRenderer playerWeaponSprite;
 
     public PlayerHealth playerHealth;
 
@@ -27,7 +27,9 @@ public class PlayerController : MonoBehaviour, ICharacterController
     private float _dashDelayEndTimestamp;
     private float _weaponReloadedTimeStamp;
 
-    private static readonly int Walking = Animator.StringToHash("Walking");
+    private static readonly int Running = Animator.StringToHash("Running");
+    private static readonly int MovementDirectionX = Animator.StringToHash("MovementDirectionX");
+    private static readonly int MovementDirectionY = Animator.StringToHash("MovementDirectionY");
 
     private void Awake()
     {
@@ -191,12 +193,17 @@ public class PlayerController : MonoBehaviour, ICharacterController
         if (PlayerData.canMove && !GameManager.GamePaused)
         {
             _movementInput = value.Get<Vector2>();
-            playerVisualsAnimator.SetBool(Walking, _movementInput != Vector2.zero);
+            playerVisualsAnimator.SetBool(Running, _movementInput != Vector2.zero);
+            if (_movementInput != Vector2.zero)
+            {
+                playerVisualsAnimator.SetFloat(MovementDirectionY, _movementInput.y);
+                playerVisualsAnimator.SetFloat(MovementDirectionX, _movementInput.x);
+            }
         }
         else
         {
             _movementInput = Vector2.zero;
-            playerVisualsAnimator.SetBool(Walking, false);
+            playerVisualsAnimator.SetBool(Running, false);
         }
     }
 
@@ -227,10 +234,15 @@ public class PlayerController : MonoBehaviour, ICharacterController
                 _aimDirection = (Vector2) Camera.main.ScreenToWorldPoint(_aimDirection) - _rigidbody.position;
                 _aimDirection.Normalize();
 
-                _angle = Mathf.Atan2(_aimDirection.y, _aimDirection.x) * Mathf.Rad2Deg - 90f;
+                _angle = Mathf.Atan2(_aimDirection.y, _aimDirection.x) * Mathf.Rad2Deg;
                 playerWeapon.transform.rotation = Quaternion.Euler(0, 0, _angle);
 
-                playerVisualsTransform.rotation = Quaternion.AngleAxis(_angle, Vector3.forward);
+                // When the player is aiming left, flip weapon so it's not heads-down
+                playerWeaponSprite.flipY = _aimDirection.x < 0.0f;
+                // When the player is aiming up, adjust sorting order so weapon is behind player
+                playerWeaponSprite.sortingOrder = _angle >= 45.0 && _angle <= 135.0f ? -1 : 1;
+
+                //playerWeaponTransform.rotation = Quaternion.AngleAxis(_angle, Vector3.forward);
             }
         }
     }

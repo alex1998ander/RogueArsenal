@@ -18,7 +18,7 @@ public class Configuration
     public const float Weapon_Damage = 30f;
     public const float Weapon_SprayAngle = 5f;
     public const float Weapon_ReloadTime = 1f;
-    public const float Weapon_BulletSpawnDistance = 0.8f;
+    public const float Weapon_BulletSpawnDistance = 1.4f;
     public const int Weapon_BulletCount = 1;
     public const int Weapon_MagazineSize = 10;
 

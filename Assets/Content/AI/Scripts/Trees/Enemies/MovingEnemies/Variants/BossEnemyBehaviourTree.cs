@@ -60,7 +60,7 @@ namespace BehaviorTree
             sharedData.SetData(sharedData.RandomAbility, -1);
 
 
-            int[] taskCounter = { -1, -1, -1 };
+            int[] taskCounter = {-1, -1, -1};
             while (taskCounter[0] == taskCounter[1] && taskCounter[1] == taskCounter[2] && taskCounter[0] == taskCounter[2])
             {
                 for (int i = 0; i < taskCounter.Length; i++)
@@ -69,7 +69,7 @@ namespace BehaviorTree
                 }
             }
 
-            Node[] tasks = { tasksPool[taskCounter[0]], tasksPool[taskCounter[1]], tasksPool[taskCounter[2]] };
+            Node[] tasks = {tasksPool[taskCounter[0]], tasksPool[taskCounter[1]], tasksPool[taskCounter[2]]};
 
             Node root = new Selector(new List<Node>
             {
@@ -84,10 +84,10 @@ namespace BehaviorTree
                         {
                             new Inverter(new ExpectData<AbilityState>(sharedData.AbilityState, AbilityState.Ability)),
                             new TaskSetLastKnownPlayerLocation(playerTransform),
-                            new TaskLookAt(rb, playerTransform),
+                            new TaskAimAt(rb, weapon, playerTransform),
                             new TaskPickTargetAroundTransforms(playerTransform, minDistanceFromPlayer,
                                 maxDistanceFromPlayer),
-                            new TaskMoveToTarget(rb, agent, 1f),
+                            new TaskMoveToTarget(rb, agent, null, 1f),
                             //new CheckIsAtTarget(),
                             new TaskAttackPlayer(weapon, attackSpeed),
                             new ChooseRandomAttackMove(tasks.Length),
@@ -98,7 +98,7 @@ namespace BehaviorTree
                         {
                             new ExpectData<AbilityState>(sharedData.AbilityState, AbilityState.Ability),
                             new TaskSetLastKnownPlayerLocation(playerTransform),
-                            new TaskLookAt(rb, playerTransform),
+                            new TaskAimAt(rb, weapon, playerTransform),
                             new TaskSetMovementSpeed(agent, 0),
                             //new RandomAttackMove(tasks),
                             tasksPool[tasksPool.Length - 2],

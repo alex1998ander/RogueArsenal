@@ -1,52 +1,36 @@
 using UnityEngine;
-using UnityEngine.AI;
 
 namespace BehaviorTree
 {
-    /// <summary>
-    /// Task for the enemy to look at a specific location.
-    /// </summary>
     public class TaskLookAt : Node
     {
-        private NavMeshAgent _agent;
+        // Transform to look at
+        private readonly Transform _lookAtTransform;
 
-        // Rigidbody of the enemy
-        private Rigidbody2D _rb;
+        // Rigidbody of enemy
+        private readonly Rigidbody2D _rb;
 
-        // Transform of the player
-        private Transform _lookAtTransform;
+        // Animator of enemy
+        private readonly Animator _animator;
 
-        public TaskLookAt(Rigidbody2D rb, NavMeshAgent agent)
+        private static readonly int MovementDirectionX = Animator.StringToHash("MovementDirectionX");
+        private static readonly int MovementDirectionY = Animator.StringToHash("MovementDirectionY");
+
+        public TaskLookAt(Transform lookAtTransform, Rigidbody2D rb, Animator animator)
         {
-            _rb = rb;
-            _agent = agent;
-        }
-
-        public TaskLookAt(Rigidbody2D rb, Transform lookAtTransform)
-        {
-            _rb = rb;
             _lookAtTransform = lookAtTransform;
+            _rb = rb;
+            _animator = animator;
         }
 
         public override NodeState Evaluate()
         {
-            Vector2 lookAtDirection = Vector2.zero;
-            if (_lookAtTransform)
-            {
-                lookAtDirection = ((Vector2) _lookAtTransform.position - _rb.position).normalized;
-            }
-            else if (_agent)
-            {
-                lookAtDirection = _agent.velocity;
-            }
+            Vector2 lookAtDirection = ((Vector2) _lookAtTransform.position - _rb.position).normalized;
 
-            if (lookAtDirection != Vector2.zero)
+            if (_animator && lookAtDirection != Vector2.zero)
             {
-                // Calculate angle
-                float angle = Mathf.Atan2(lookAtDirection.y, lookAtDirection.x) * Mathf.Rad2Deg;
-                // -90f to account for "forwards" of the enemy being the up vector and not the right vector
-                angle -= 90f;
-                _rb.rotation = angle;
+                _animator.SetFloat(MovementDirectionX, lookAtDirection.x);
+                _animator.SetFloat(MovementDirectionY, lookAtDirection.y);
             }
 
             state = NodeState.SUCCESS;
