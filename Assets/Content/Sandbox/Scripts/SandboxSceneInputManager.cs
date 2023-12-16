@@ -21,7 +21,7 @@ public class SandboxSceneInputManager : MonoBehaviour
 
     private void ReloadSandboxScene()
     {
-        UpgradeManager.PrepareUpgrades();
+        UpgradeManager.ResetUpgrades();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
