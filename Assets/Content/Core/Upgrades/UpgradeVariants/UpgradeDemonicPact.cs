@@ -3,8 +3,10 @@
 public class UpgradeDemonicPact : Upgrade
 {
     public override string Name => "Demonic Pact";
-    public override string Description => "Embrace the dark arts of bullet wizardry and trade a bit of your life essence for instant trigger happiness.";
-    public override string HelpfulDescription => "Shooting costs 10HP\nRemoves shooting cooldown";
+    public override UpgradeIdentification UpgradeIdentification => UpgradeIdentification.DemonicPact;
+    public override UpgradeType UpgradeType => UpgradeType.Weapon;
+    public override string FlavorText => "Embrace the dark arts of bullet wizardry and trade a bit of your life essence for instant trigger happiness.";
+    public override string Description => "Shooting costs 10HP\nRemoves shooting cooldown";
 
     private PlayerController _playerController;
 

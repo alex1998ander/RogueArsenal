@@ -7,7 +7,7 @@ public class SandboxSceneReloaderController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.T))
         {
-            UpgradeManager.PrepareUpgrades();
+            UpgradeManager.ResetUpgrades();
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }

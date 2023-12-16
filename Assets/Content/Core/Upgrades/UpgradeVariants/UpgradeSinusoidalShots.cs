@@ -3,8 +3,10 @@ using UnityEngine;
 public class UpgradeSinusoidalShots : Upgrade
 {
     public override string Name => "Sinusoidal Shots";
-    public override string Description => "Straight lines are so passé! Unleash the power of trigonometry on your foes and watch them tremble in confusion.";
-    public override string HelpfulDescription => "";
+    public override UpgradeIdentification UpgradeIdentification => UpgradeIdentification.SinusoidalShots;
+    public override UpgradeType UpgradeType => UpgradeType.Weapon;
+    public override string FlavorText => "Straight lines are so passé! Unleash the power of trigonometry on your foes and watch them tremble in confusion.";
+    public override string Description => "";
 
     public override int BulletCount => 1;
     public override float BulletDamage => -0.4f;

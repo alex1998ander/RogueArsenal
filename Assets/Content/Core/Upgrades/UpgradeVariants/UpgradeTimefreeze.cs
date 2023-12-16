@@ -1,7 +1,9 @@
 ﻿public class UpgradeTimefreeze : Upgrade
 {
     public override string Name => "Timefreeze";
-    public override string HelpfulDescription => "";
+    public override UpgradeIdentification UpgradeIdentification => UpgradeIdentification.Timefreeze;
+    public override UpgradeType UpgradeType => UpgradeType.Ability;
+    public override string Description => "";
 
     public override void OnAbility(PlayerController playerController, PlayerWeapon playerWeapon)
     {

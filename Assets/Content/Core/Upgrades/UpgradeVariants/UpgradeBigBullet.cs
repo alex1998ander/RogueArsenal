@@ -3,8 +3,10 @@
 public class UpgradeBigBullet : Upgrade
 {
     public override string Name => "Big Bullet";
-    public override string Description => "Because size matters, watch as your bullets look big and intimidating. Who needs modesty when you can have an ego as big as a cannonball?";
-    public override string HelpfulDescription => "Bigger bullets\n\nBullet Size +100%";
+    public override UpgradeIdentification UpgradeIdentification => UpgradeIdentification.BigBullet;
+    public override UpgradeType UpgradeType => UpgradeType.Weapon;
+    public override string FlavorText => "Because size matters, watch as your bullets look big and intimidating. Who needs modesty when you can have an ego as big as a cannonball?";
+    public override string Description => "Bigger bullets\n\nBullet Size +100%";
 
     public override float BulletSize => 4f;
     public override float BulletDamage => 1f;

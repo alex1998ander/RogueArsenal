@@ -32,7 +32,7 @@ public class CurrencyBarView : MonoBehaviour
     
     public void SetViewToDefault()
     {
-        currencyBarValue = currencyBarMaxValue;
+        currencyBarValue = 0f;
         UpdateBar();
     }
     
