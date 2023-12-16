@@ -73,13 +73,6 @@ namespace BehaviorTree
 
             Node root = new Selector(new List<Node>
             {
-                // Case: Enemy is stunned
-                // new Sequence(new List<Node>
-                // {
-                //     new CheckIsStunned(stunTime),
-                //     new SetData<bool>(sharedData.IsAwareOfPlayer, true),
-                //     // TODO: Behavior while stunned
-                // }),
                 // Case: Enemy is aware of player
                 new Sequence(new List<Node>
                 {
@@ -108,7 +101,7 @@ namespace BehaviorTree
                             new TaskAimAt(rb, weapon, playerTransform),
                             new TaskSetMovementSpeed(agent, 0),
                             //new RandomAttackMove(tasks),
-                            tasksPool[tasksPool.Length - 1],
+                            tasksPool[tasksPool.Length - 2],
                             new TaskSetMovementSpeed(agent, 3.5f),
                             new SetData<AbilityState>(sharedData.AbilityState, AbilityState.Cooldown)
                         }),
@@ -120,18 +113,7 @@ namespace BehaviorTree
                             new TaskSetLastKnownPlayerLocation(playerTransform),
                             new TaskSetTargetToLastKnownPlayerLocation(),
                             new ClearData<bool>(sharedData.HasHeardPlayerShot)
-                        }),
-                        // Case: Enemy moves towards last known player location
-                        /*new Sequence(new List<Node>
-                        {
-                            new Inverter(new ExpectData<AbilityState>(sharedData.AbilityState, AbilityState.Ability)),
-                            new HasData<Vector3>(sharedData.LastKnownPlayerLocation),
-                            new TaskSetTargetToLastKnownPlayerLocation(),
-                            new TaskMoveToTarget(rb, agent, 1f),
-                            new TaskLookAt(rb, agent),
-                            new CheckIsAtTarget(),
-                            new ClearData<Vector3>(sharedData.LastKnownPlayerLocation),
-                        }),*/
+                        })
                     })
                 }),
                 // Case: Enemy sees Player for the first time
