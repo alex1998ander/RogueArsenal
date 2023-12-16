@@ -63,6 +63,10 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 6846983187112741943, guid: ba46bce3e439cdd489820f759add8589, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 08fd81e0735650f4c87e1c5aca12f406, type: 2}
     - target: {fileID: 6866423785977518980, guid: ba46bce3e439cdd489820f759add8589, type: 3}
       propertyPath: m_Size.x
       value: 0.6875
@@ -74,10 +78,18 @@ PrefabInstance:
     - target: {fileID: 6866423785977518980, guid: ba46bce3e439cdd489820f759add8589, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: ed9b1dae5876d134f976b7e54cd1af66, type: 3}
+      objectReference: {fileID: 638117494, guid: c7d005844c974d5428d0e92913f9807b, type: 3}
     - target: {fileID: 6866423785977518980, guid: ba46bce3e439cdd489820f759add8589, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7730465753498084907, guid: ba46bce3e439cdd489820f759add8589, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.081
+      objectReference: {fileID: 0}
+    - target: {fileID: 7730465753498084907, guid: ba46bce3e439cdd489820f759add8589, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.438
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba46bce3e439cdd489820f759add8589, type: 3}
@@ -101,9 +113,6 @@ MonoBehaviour:
   wallLayer:
     serializedVersion: 2
     m_Bits: 256
-  stunTime: 1
-  viewDistance: 6
-  hearDistance: 10
   movementSpeed: 5
   movementAcceleration: 30
   minDistanceFromPlayer: 1

@@ -135,18 +135,22 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6846983187112741943, guid: ba46bce3e439cdd489820f759add8589, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 6571cc6d257b452438662e527a3d9048, type: 2}
     - target: {fileID: 6866423785977518980, guid: ba46bce3e439cdd489820f759add8589, type: 3}
       propertyPath: m_Size.x
-      value: 0.6875
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6866423785977518980, guid: ba46bce3e439cdd489820f759add8589, type: 3}
       propertyPath: m_Size.y
-      value: 0.8125
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6866423785977518980, guid: ba46bce3e439cdd489820f759add8589, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: b66dc7ec2bd2e484ea03a76df07158a9, type: 3}
+      objectReference: {fileID: 1738530610, guid: f99d26d7f5b839d4d8839f43a3855229, type: 3}
     - target: {fileID: 6866423785977518980, guid: ba46bce3e439cdd489820f759add8589, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
@@ -173,16 +177,13 @@ MonoBehaviour:
   wallLayer:
     serializedVersion: 2
     m_Bits: 256
-  stunTime: 2
-  viewDistance: 6
-  hearDistance: 10
   movementSpeed: 5
   movementAcceleration: 30
   minDistanceFromPlayer: 2
   maxDistanceFromPlayer: 3
   damageZoneCollider: {fileID: 1986559776799917470}
-  chargingSpeed: 25
-  chargingAcceleration: 1000
+  chargingSpeed: 20
+  chargingAcceleration: 100
   preChargeTime: 1
   postChargeTime: 1
   chargePastPlayerDistance: 2

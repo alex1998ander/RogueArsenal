@@ -7,6 +7,7 @@ public class UpgradeSpawnablePrefabHolder : MonoBehaviour
     [Header("Upgrade Prefabs")] [SerializeField]
     public GameObject healingFieldPrefab;
 
+    [SerializeField] public GameObject mentalMeltdownPrefab;
     [SerializeField] public GameObject shockwavePrefab;
     [SerializeField] public GameObject stimpackPrefab;
     [SerializeField] public GameObject phoenixPrefab;
@@ -25,15 +26,15 @@ public class UpgradeSpawnablePrefabHolder : MonoBehaviour
     /// <param name="prefab"></param>
     /// <param name="position"></param>
     /// <param name="lifetime"></param>
-    /// <param name="playerController"></param>
-    public static void SpawnPrefab(GameObject prefab, Vector3 position, float lifetime, PlayerController playerController = null)
+    /// <param name="parentObject"></param>
+    public static void SpawnPrefab(GameObject prefab, Vector3 position, float lifetime, GameObject parentObject = null)
     {
         GameObject prefabInstance = Instantiate(prefab, position, Quaternion.identity);
         Destroy(prefabInstance, lifetime);
 
-        if (playerController)
+        if (parentObject)
         {
-            prefabInstance.transform.SetParent(playerController.gameObject.transform, true);
+            prefabInstance.transform.SetParent(parentObject.transform, true);
         }
     }
 }
