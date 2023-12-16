@@ -6,10 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Content/Scenes/Others/MainMenu.unity
+    path: Assets/Content/Trashcan/MainMenu.unity
     guid: 58f5daac22d53c642a53b16d73fa1edc
   - enabled: 1
-    path: Assets/Content/Scenes/Others/UpgradeSelection.unity
+    path: Assets/Content/Trashcan/UpgradeSelection.unity
     guid: c7f4911c9b107ba4890d589805a42852
   - enabled: 1
     path: Assets/Content/Scenes/Levels/Level1.unity
