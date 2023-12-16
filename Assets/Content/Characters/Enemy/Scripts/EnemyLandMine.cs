@@ -33,7 +33,7 @@ public class EnemyLandMine : MonoBehaviour
         if (_playerIsInRange)
         {
             _player.GetComponent<PlayerHealth>().InflictDamage(30, true);
-            EventManager.OnPlayerHealthUpdate.Trigger();
+            EventManager.OnPlayerHealthUpdate.Trigger(30);
         }
         Destroy(gameObject);
     }

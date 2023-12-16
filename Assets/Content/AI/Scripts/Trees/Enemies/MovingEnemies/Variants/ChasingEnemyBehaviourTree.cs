@@ -21,6 +21,7 @@ namespace BehaviorTree
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
             Transform playerTransform = GameObject.Find("Player").GetComponent<Transform>();
             EnemyWeapon weapon = GetComponentInChildren<EnemyWeapon>();
+            Animator animator = GetComponentInChildren<Animator>();
             NavMeshAgent agent = GetComponent<NavMeshAgent>();
             agent.updateRotation = false;
             agent.updateUpAxis = false;
@@ -62,10 +63,10 @@ namespace BehaviorTree
                         {
                             new CheckPlayerVisible(rb, playerTransform, wallLayer),
                             new TaskSetLastKnownPlayerLocation(playerTransform),
-                            new TaskLookAt(rb, playerTransform),
+                            new TaskAimAt(rb, weapon, playerTransform),
                             new TaskPickTargetAroundTransforms(playerTransform, minDistanceFromPlayer,
                                 maxDistanceFromPlayer),
-                            new TaskMoveToTarget(rb, agent, 1f),
+                            new TaskMoveToTarget(rb, agent, animator, 1f),
                             new TaskWait(1f, false),
                             new TaskAttackPlayer(weapon, 1f),
                         }),
@@ -82,8 +83,7 @@ namespace BehaviorTree
                         {
                             new HasData<Vector3>(sharedData.LastKnownPlayerLocation),
                             new TaskSetTargetToLastKnownPlayerLocation(),
-                            new TaskMoveToTarget(rb, agent, 1f),
-                            new TaskLookAt(rb, agent),
+                            new TaskMoveToTarget(rb, agent, animator, 1f),
                             new CheckIsAtTarget(),
                             new ClearData<Vector3>(sharedData.LastKnownPlayerLocation),
                         }),
@@ -97,8 +97,7 @@ namespace BehaviorTree
                                 new TaskPickTargetAroundTransforms(spawnPointTransforms, minDistanceFromPlayer,
                                     maxDistanceFromPlayer),
                             }),
-                            new TaskMoveToTarget(rb, agent, 1f),
-                            new TaskLookAt(rb, agent),
+                            new TaskMoveToTarget(rb, agent, animator, 1f),
                             new CheckIsAtTarget(),
                             new ClearData<Vector3>(sharedData.Target),
                         }),

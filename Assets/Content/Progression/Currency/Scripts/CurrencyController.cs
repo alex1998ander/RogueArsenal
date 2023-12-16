@@ -12,7 +12,7 @@ public class CurrencyController : MonoBehaviour
 
     private const float DropForce = 15f;
     private const float InitialMoveForce = 0.8f;
-    private const float MoveForceGain = 0.04f;
+    private const float MoveForceGain = 1.1f;
     private const float InactiveLifetimeInSeconds = 0.2f;
     private const float StableLifetimeInSeconds = 1.2f;
     private const float CriticalLifetimeInSeconds = 1f;
@@ -47,7 +47,7 @@ public class CurrencyController : MonoBehaviour
             Vector2 playerPosition = _playerTransform.position;
             Vector2 toPlayerDirection = (playerPosition - _rb.position).normalized;
             _rb.AddForce(toPlayerDirection * _moveForce, ForceMode2D.Force);
-            _moveForce += MoveForceGain;
+            _moveForce *= MoveForceGain;
         }
         else if (Time.time > _lifetimeEndTimestamp)
         {

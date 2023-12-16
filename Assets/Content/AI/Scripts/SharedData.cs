@@ -46,7 +46,7 @@ namespace BehaviorTree
             IsAwareOfPlayer = new(_keyCounter++);
             HasHeardPlayerShot = new(_keyCounter++);
             ChargeState = new(_keyCounter++);
-            AbilityState = new (_keyCounter++);
+            AbilityState = new(_keyCounter++);
             RandomAbility = new(_keyCounter++);
         }
 

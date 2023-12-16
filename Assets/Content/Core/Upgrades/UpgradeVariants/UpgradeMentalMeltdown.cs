@@ -10,7 +10,13 @@ public class UpgradeMentalMeltdown : Upgrade
 
     public override bool OnBulletTrigger(PlayerBullet playerBullet, Collider2D other)
     {
-        other.gameObject.GetComponent<ICharacterController>()?.StunCharacter();
+        ICharacterController characterController = other.gameObject.GetComponent<ICharacterController>();
+        if (characterController != null)
+        {
+            if (characterController.StunCharacter())
+                UpgradeSpawnablePrefabHolder.SpawnPrefab(UpgradeSpawnablePrefabHolder.instance.mentalMeltdownPrefab, other.gameObject.transform.position, Configuration.Enemy_StunTime, other.gameObject);
+        }
+
         return false;
     }
 }

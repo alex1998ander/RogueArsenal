@@ -3,34 +3,50 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-public class EnemyShieldGenerator : MonoBehaviour
+public class EnemyShieldGenerator : MonoBehaviour,ICharacterHealth
 {
-    private LineRenderer _lineRenderer;
-    public GameObject shield;
+    [SerializeField] private float maxHealth = 100f;
+    [SerializeField] private Collider2D bossCollider2D;
+    private float _currentHealth;
+
+    private void Awake()
+    {
+        _currentHealth = maxHealth;
+    }
+
+    /// <summary>
+    /// Decreases the enemy's health by the specified value, checks if the enemy dies and triggers corresponding events. 
+    /// </summary>
+    /// <param name="damageAmount">Amount of damage</param>
+    /// <param name="fatal">ignored</param>
+    public void InflictDamage(float damageAmount, bool fatal = false, bool ignoreInvulnerability = false)
+    {
+        _currentHealth -= damageAmount;
+
+        //EventManager.OnEnemyDamage.Trigger(damageAmount);
+
+        // if enemy dies
+        if (_currentHealth <= 0)
+        {
+            gameObject.SetActive(false);
+            bossCollider2D.enabled = true;
+        }
+    }
     
     // Start is called before the first frame update
     void Start()
     {
-        _lineRenderer = GetComponent<LineRenderer>();
-        _lineRenderer.startColor = Color.blue;
-        _lineRenderer.endColor = Color.blue;
-        _lineRenderer.enabled = true;
-        _lineRenderer.SetPositions(new[] { transform.position, new Vector3(1,1,1) });
-        _lineRenderer.startWidth = 0.05f;
-        _lineRenderer.endWidth = 0.05f;
-        //shield.SetActive(true);
-        shield = GameObject.Find("Shield");
+        //transform.position = new Vector3(0.8f, 0, 0);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        transform.RotateAround(transform.parent.transform.position, 
+            new Vector3(0, 0, 1), 50 * Time.deltaTime);
     }
 
-    private void OnDestroy()
-    {
-        shield.SetActive(false);
-    }
+    
 }

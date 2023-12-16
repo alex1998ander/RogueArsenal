@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -14,9 +15,16 @@ namespace BehaviorTree
         protected override Node SetupTree()
         {
             EventManager.OnPlayerShotFired.Subscribe(HearPlayerShotFired);
+            EventManager.OnPlayerPhoenixed.Subscribe(ForgetPlayer);
 
             Node root = new Node();
             return root;
+        }
+
+        private void OnDestroy()
+        {
+            EventManager.OnPlayerShotFired.Unsubscribe(HearPlayerShotFired);
+            EventManager.OnPlayerPhoenixed.Unsubscribe(ForgetPlayer);
         }
 
         /// <summary>
@@ -77,6 +85,11 @@ namespace BehaviorTree
         private void HearPlayerShotFired()
         {
             root.SetData(root.sharedData.HasHeardPlayerShot, true);
+        }
+
+        private void ForgetPlayer()
+        {
+            root.SetData(root.sharedData.IsAwareOfPlayer, false);
         }
     }
 }

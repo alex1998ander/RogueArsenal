@@ -19,7 +19,7 @@ namespace BehaviorTree
             {
                 new Inverter(new CheckHasState(sharedData.IsStunned)),
                 new CheckPlayerVisible(rb, playerTransform, wallLayer),
-                new TaskLookAt(rb, playerTransform),
+                new TaskAimAt(rb, weapon, playerTransform, false),
                 new TaskWait(1f, false),
                 new TaskAttackPlayer(weapon, 1f),
             });

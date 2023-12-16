@@ -18,7 +18,7 @@ public class Configuration
     public const float Weapon_Damage = 30f;
     public const float Weapon_SprayAngle = 5f;
     public const float Weapon_ReloadTime = 1f;
-    public const float Weapon_BulletSpawnDistance = 0.8f;
+    public const float Weapon_BulletSpawnDistance = 1.4f;
     public const int Weapon_BulletCount = 1;
     public const int Weapon_MagazineSize = 10;
 
@@ -64,17 +64,22 @@ public class Configuration
     public const float Homing_Radius = 8f;
     public const float Homing_RotationSpeed = 400f;
 
+    // Upgrade: Phoenix
+    public const float Phoenix_WarmUpTime = 4f;
+    public const float Phoenix_InvincibilityTime = 3f;
+
     // Upgrade: Piercing
     public const int Piercing_PiercesCount = 1;
 
     // Upgrade: Shockwave
+    public const float Shockwave_Duration = 1f;
     public const float Shockwave_Range = 5f;
     public const float Shockwave_MinStrength = 2000f;
     public const float Shockwave_MaxStrength = 4000f;
 
     // Upgrade: Sinusoidal Shots
     public const float SinusoidalShots_Frequency = 2f * Mathf.PI * 2f; // Two times Pi to normalize the frequency to 1 full wavelength a second
-    public const float SinusoidalShots_Amplitude = 15f;
+    public const float SinusoidalShots_Amplitude = 0.15f;
     public const float SinusoidalShots_SplitShotHalfAngleAdjustment = -40f;
 
     // Upgrade: Smart Pistol

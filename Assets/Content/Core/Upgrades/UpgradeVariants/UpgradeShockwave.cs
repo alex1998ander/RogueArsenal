@@ -11,6 +11,8 @@ public class UpgradeShockwave : Upgrade
 
     public override void OnAbility(PlayerController playerController, PlayerWeapon playerWeapon)
     {
+        UpgradeSpawnablePrefabHolder.SpawnPrefab(UpgradeSpawnablePrefabHolder.instance.shockwavePrefab, playerController.transform.position, Configuration.Shockwave_Duration);
+
         // Get all colliders of enemies around the player
         Collider2D[] results = Physics2D.OverlapCircleAll(playerController.transform.position, Configuration.Shockwave_Range, LayerMask.GetMask("Enemies"));
 
