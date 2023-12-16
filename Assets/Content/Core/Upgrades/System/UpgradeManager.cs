@@ -6,10 +6,11 @@ using UnityEngine;
 public static class UpgradeManager
 {
     // upgrades
-    private static readonly List<Upgrade> Upgrades = new();
+    public static List<Upgrade> CurrentUpgrades { get; private set; } = new(){};
     
     private static Upgrade[] _currentUpgradeSelection;
 
+    // Need to be synchronized to UpgradeIdentification enum
     public static readonly List<Upgrade> DefaultUpgradePool = new()
     {
         new UpgradeBigBullet(),
@@ -18,7 +19,7 @@ public static class UpgradeManager
         new UpgradeBurst(),
         new UpgradeCarefulPlanning(),
         new UpgradeDemonicPact(),
-        //new UpgradeExplosiveBullet(),
+        new UpgradeExplosiveBullet(),
         new UpgradeGlassCannon(),
         new UpgradeHealingField(),
         new UpgradeHitman(),
@@ -39,6 +40,18 @@ public static class UpgradeManager
 
     private static readonly List<Upgrade> UpgradePool = new();
 
+    public static bool IsPhoenixActive { get; private set; }
+
+    static UpgradeManager()
+    {
+        UpgradePool.AddRange(DefaultUpgradePool);
+    }
+
+    public static Upgrade GetUpgradeFromIdentifier(UpgradeIdentification upgradeIdentification)
+    {
+        return DefaultUpgradePool[(int)upgradeIdentification];
+    }
+    
     public static Upgrade[] GenerateNewRandomUpgradeSelection(int count)
     {
         System.Random rnd = new System.Random();
@@ -52,12 +65,82 @@ public static class UpgradeManager
     /// ONLY USE IN SANDBOX!
     /// </summary>
     /// <param name="weaponIndex">Index of the new upgrade in the default weapon upgrade pool</param>
+    [Obsolete("Use BindUpgrade_Sandbox(UpgradeIdentification upgradeIdentification)")]
     public static void BindUpgrade_Sandbox(int weaponIndex)
     {
         Upgrade newUpgrade = DefaultUpgradePool[weaponIndex];
 
-        // Replace upgrade
-        Upgrades.Add(newUpgrade);
+        CurrentUpgrades.Add(newUpgrade);
+        
+        if(newUpgrade is UpgradePhoenix)
+        {
+            IsPhoenixActive = true;
+        }
+    }
+
+    /// <summary>
+    /// Binds an upgrade.
+    /// ONLY USE IN SANDBOX!
+    /// </summary>
+    /// <param name="upgradeIdentification">Upgrade identifier</param>
+    public static void BindUpgrade_Sandbox(UpgradeIdentification upgradeIdentification)
+    {
+        Upgrade newUpgrade = GetUpgradeFromIdentifier(upgradeIdentification);
+
+        CurrentUpgrades.Add(newUpgrade);
+        
+        if(newUpgrade is UpgradePhoenix)
+        {
+            IsPhoenixActive = true;
+        }
+    }
+
+    /// <summary>
+    /// Binds an upgrade.
+    /// ONLY USE IN SANDBOX!
+    /// </summary>
+    /// <param name="upgradeIdentification">Upgrade identifier</param>
+    public static void UnbindUpgrade_Sandbox(UpgradeIdentification upgradeIdentification)
+    {
+        Upgrade upgrade = GetUpgradeFromIdentifier(upgradeIdentification);
+
+        CurrentUpgrades.Remove(upgrade);
+        
+        if(upgrade is UpgradePhoenix)
+        {
+            IsPhoenixActive = false;
+        }
+    }
+
+    /// <summary>
+    /// Binds all upgrade.
+    /// ONLY USE IN SANDBOX!
+    /// </summary>
+    /// <param name="upgradeIdentification">Upgrade identifier</param>
+    public static void BindAllUpgrades_Sandbox()
+    {
+        CurrentUpgrades.AddRange(DefaultUpgradePool);
+        IsPhoenixActive = true;
+    }
+
+    /// <summary>
+    /// Unbinds all upgrade.
+    /// ONLY USE IN SANDBOX!
+    /// </summary>
+    /// <param name="upgradeIdentification">Upgrade identifier</param>
+    public static void UnbindAllUpgrades_Sandbox()
+    {
+        CurrentUpgrades.Clear();
+        IsPhoenixActive = false;
+    }
+    
+    /// <summary>
+    /// Checks if the provided upgrade is binded.
+    /// </summary>
+    /// <param name="upgradeIdentification">Upgrade identifier</param>
+    public static bool IsUpgradeBinded(UpgradeIdentification upgradeIdentification)
+    {
+        return CurrentUpgrades.Any(upgrade => upgrade.UpgradeIdentification == upgradeIdentification);
     }
 
     /// <summary>
@@ -69,10 +152,15 @@ public static class UpgradeManager
         Upgrade newUpgrade = _currentUpgradeSelection[selectionIdx];
 
         // Replace upgrade
-        Upgrades.Add(newUpgrade);
+        CurrentUpgrades.Add(newUpgrade);
 
         // Remove new upgrade from upgrade pool
         UpgradePool.Remove(newUpgrade);
+        
+        if(newUpgrade is UpgradePhoenix)
+        {
+            IsPhoenixActive = true;
+        }
     }
 
     /// <summary>
@@ -82,9 +170,9 @@ public static class UpgradeManager
     /// <returns>Upgrade at index</returns>
     public static Upgrade GetWeaponUpgradeAtIndex(int index)
     {
-        if (index < Upgrades.Count)
+        if (index < CurrentUpgrades.Count)
         {
-            return Upgrades[index];
+            return CurrentUpgrades[index];
         }
 
         return null;
@@ -93,11 +181,12 @@ public static class UpgradeManager
     /// <summary>
     /// Clears all applied upgrades
     /// </summary>
-    public static void PrepareUpgrades()
+    public static void ResetUpgrades()
     {
-        Upgrades.Clear();
+        CurrentUpgrades.Clear();
         UpgradePool.Clear();
         UpgradePool.AddRange(DefaultUpgradePool);
+        IsPhoenixActive = false;
     }
 
     /// <summary>
@@ -119,7 +208,7 @@ public static class UpgradeManager
         //     multiplier += attributeSelector(upgrade);
         // }
 
-        return Upgrades.Select(upgrade => attributeSelector(upgrade) + 1f).DefaultIfEmpty(1f)
+        return CurrentUpgrades.Select(upgrade => attributeSelector(upgrade) + 1f).DefaultIfEmpty(1f)
             .Aggregate((acc, attribute) => acc * attribute);
     }
 
@@ -140,7 +229,7 @@ public static class UpgradeManager
     {
         int bulletCountAdjustment = 0;
 
-        foreach (Upgrade upgrade in Upgrades)
+        foreach (Upgrade upgrade in CurrentUpgrades)
         {
             bulletCountAdjustment += upgrade.BulletCount;
         }
@@ -239,30 +328,12 @@ public static class UpgradeManager
     }
 
     /// <summary>
-    /// Checks if an upgrade prevents dashing.
-    /// </summary>
-    /// <returns>Bool, whether dashing is prevented</returns>
-    public static bool IsDashPrevented()
-    {
-        foreach (Upgrade upgrade in Upgrades)
-        {
-            if (upgrade.PreventDash)
-            {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-
-    /// <summary>
     /// Executes the player initialization functions of all assigned upgrades
     /// </summary>
     /// <param name="playerController">Player reference</param>
     public static void Init(PlayerController playerController)
     {
-        foreach (Upgrade upgrade in Upgrades)
+        foreach (Upgrade upgrade in CurrentUpgrades)
         {
             upgrade.Init(playerController);
         }
@@ -274,7 +345,7 @@ public static class UpgradeManager
     /// <param name="playerBullet">Bullet reference</param>
     public static void Init(PlayerBullet playerBullet)
     {
-        foreach (Upgrade upgrade in Upgrades)
+        foreach (Upgrade upgrade in CurrentUpgrades)
         {
             upgrade.Init(playerBullet);
         }
@@ -287,7 +358,7 @@ public static class UpgradeManager
     /// <param name="playerWeapon">Player reference</param>
     public static void OnFire(PlayerController playerController, PlayerWeapon playerWeapon, Vector2 fireDirectionOverwrite = default)
     {
-        foreach (Upgrade upgrade in Upgrades)
+        foreach (Upgrade upgrade in CurrentUpgrades)
         {
             upgrade.OnFire(playerController, playerWeapon, fireDirectionOverwrite);
         }
@@ -300,7 +371,7 @@ public static class UpgradeManager
     /// <param name="playerWeapon">Player reference</param>
     public static void OnReload(PlayerController playerController, PlayerWeapon playerWeapon)
     {
-        foreach (Upgrade upgrade in Upgrades)
+        foreach (Upgrade upgrade in CurrentUpgrades)
         {
             upgrade.OnReload(playerController, playerWeapon);
         }
@@ -313,7 +384,7 @@ public static class UpgradeManager
     /// <param name="playerWeapon">Player weapon reference</param>
     public static void OnMagazineEmptied(PlayerController playerController, PlayerWeapon playerWeapon)
     {
-        foreach (Upgrade upgrade in Upgrades)
+        foreach (Upgrade upgrade in CurrentUpgrades)
         {
             upgrade.OnMagazineEmptied(playerController, playerWeapon);
         }
@@ -326,7 +397,7 @@ public static class UpgradeManager
     /// <param name="playerBullet">Player reference</param>
     public static void OnFire(PlayerBullet playerBullet)
     {
-        foreach (Upgrade upgrade in Upgrades)
+        foreach (Upgrade upgrade in CurrentUpgrades)
         {
             upgrade.OnFire(playerBullet);
         }
@@ -339,7 +410,7 @@ public static class UpgradeManager
     /// <param name="playerWeapon">Player weapon reference</param>
     public static void OnAbility(PlayerController playerController, PlayerWeapon playerWeapon)
     {
-        foreach (Upgrade upgrade in Upgrades)
+        foreach (Upgrade upgrade in CurrentUpgrades)
         {
             upgrade.OnAbility(playerController, playerWeapon);
         }
@@ -351,7 +422,7 @@ public static class UpgradeManager
     /// <param name="playerBullet">Bullet reference</param>
     public static void BulletUpdate(PlayerBullet playerBullet)
     {
-        foreach (Upgrade upgrade in Upgrades)
+        foreach (Upgrade upgrade in CurrentUpgrades)
         {
             upgrade.BulletUpdate(playerBullet);
         }
@@ -363,7 +434,7 @@ public static class UpgradeManager
     /// <param name="playerController">Player reference</param>
     public static void PlayerUpdate(PlayerController playerController)
     {
-        foreach (Upgrade upgrade in Upgrades)
+        foreach (Upgrade upgrade in CurrentUpgrades)
         {
             upgrade.PlayerUpdate(playerController);
         }
@@ -380,7 +451,7 @@ public static class UpgradeManager
         // binary unconditional logical OR ('|' not '||') needed to evaluate every operand (no short-circuiting)
         bool bulletSurvives = false;
 
-        foreach (Upgrade upgrade in Upgrades)
+        foreach (Upgrade upgrade in CurrentUpgrades)
         {
             bulletSurvives |= upgrade.OnBulletTrigger(playerBullet, other);
         }
@@ -399,7 +470,7 @@ public static class UpgradeManager
         // binary unconditional logical OR ('|' not '||') needed to evaluate every operand (no short-circuiting)
         bool bulletSurvives = false;
 
-        foreach (Upgrade upgrade in Upgrades)
+        foreach (Upgrade upgrade in CurrentUpgrades)
         {
             bulletSurvives |= upgrade.OnBulletCollision(playerBullet, collision);
         }
@@ -413,7 +484,7 @@ public static class UpgradeManager
     /// <param name="playerController">Player reference</param>
     public static void OnPlayerDeath(PlayerController playerController)
     {
-        foreach (Upgrade upgrade in Upgrades)
+        foreach (Upgrade upgrade in CurrentUpgrades)
         {
             upgrade.OnPlayerDeath(playerController);
         }

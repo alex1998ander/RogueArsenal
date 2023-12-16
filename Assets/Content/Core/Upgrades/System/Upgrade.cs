@@ -2,9 +2,11 @@ using UnityEngine;
 
 public abstract class Upgrade
 {
-    public virtual string Name { get; } = "";
-    public virtual string Description { get; protected set; } = "";
-    public virtual string HelpfulDescription { get; protected set; } = "";
+    public abstract string Name { get; }
+    public abstract UpgradeIdentification UpgradeIdentification { get; }
+    public abstract UpgradeType UpgradeType { get; }
+    public virtual string FlavorText { get; protected set; }
+    public virtual string Description { get; protected set; }
 
     public virtual float AbilityDelay { get; protected set; } = 0f;
     public virtual int BulletCount { get; protected set; } = 0;
@@ -16,7 +18,6 @@ public abstract class Upgrade
     public virtual float Health { get; protected set; } = 0f;
     public virtual float MagazineSize { get; protected set; } = 0f;
     public virtual float PlayerMovementSpeed { get; protected set; } = 0f;
-    public virtual bool PreventDash { get; protected set; } = false;
     public virtual float ReloadTime { get; protected set; } = 0f;
     public virtual float WeaponSpray { get; protected set; } = 0f;
 

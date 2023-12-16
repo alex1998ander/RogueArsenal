@@ -3,8 +3,10 @@ using UnityEngine;
 public class UpgradeStickyFingers : Upgrade
 {
     public override string Name => "Sticky Fingers";
+    public override UpgradeIdentification UpgradeIdentification => UpgradeIdentification.StickyFingers;
+    public override UpgradeType UpgradeType => UpgradeType.Weapon;
+    public override string FlavorText => "";
     public override string Description => "";
-    public override string HelpfulDescription => "";
 
     public override float FireCooldown => -0.5f;
     public override float WeaponSpray => 2f;

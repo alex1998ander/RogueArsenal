@@ -4,7 +4,9 @@ using UnityEngine;
 public class UpgradeSplitShot : Upgrade
 {
     public override string Name => "Split Shot";
-    public override string HelpfulDescription => "";
+    public override UpgradeIdentification UpgradeIdentification => UpgradeIdentification.SplitShot;
+    public override UpgradeType UpgradeType => UpgradeType.Weapon;
+    public override string Description => "";
 
 
     public override void OnFire(PlayerBullet playerBullet)

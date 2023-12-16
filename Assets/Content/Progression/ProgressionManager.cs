@@ -6,13 +6,13 @@ public static class ProgressionManager
     public static int CollectedCurrency { private set; get; }
     public static bool UpgradeReady { private set; get; }
 
-    private static int _upgradePrice = 100;
+    public static int CurrentUpgradePrice { get; private set; }= 100;
     private const float NextUpgradePrinceInPercent = 1.05f;
 
     public static void CollectCurrency()
     {
         CollectedCurrency++;
-        if (CollectedCurrency >= _upgradePrice)
+        if (CollectedCurrency >= CurrentUpgradePrice)
         {
             UpgradeReady = true;
         }
@@ -20,9 +20,9 @@ public static class ProgressionManager
 
     public static void SetupNextUpgrade()
     {
-        CollectedCurrency -= _upgradePrice;
-        _upgradePrice = Mathf.RoundToInt(_upgradePrice * NextUpgradePrinceInPercent);
-        Debug.Log("Next Upgrade Price: " + _upgradePrice);
+        CollectedCurrency -= CurrentUpgradePrice;
+        CurrentUpgradePrice = Mathf.RoundToInt(CurrentUpgradePrice * NextUpgradePrinceInPercent);
+        Debug.Log("Next Upgrade Price: " + CurrentUpgradePrice);
         UpgradeReady = false;
     }
 

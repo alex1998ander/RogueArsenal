@@ -1,7 +1,9 @@
 ﻿public class UpgradeStimpack : Upgrade
 {
     public override string Name => "Stimpack";
-    public override string HelpfulDescription => "";
+    public override UpgradeIdentification UpgradeIdentification => UpgradeIdentification.Stimpack;
+    public override UpgradeType UpgradeType => UpgradeType.Ability;
+    public override string Description => "";
 
     public override void OnAbility(PlayerController playerController, PlayerWeapon playerWeapon)
     {

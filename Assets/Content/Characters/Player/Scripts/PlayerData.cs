@@ -1,4 +1,4 @@
-﻿public static class PlayerData
+public static class PlayerData
 {
     public static float health;
     public static float maxHealth;

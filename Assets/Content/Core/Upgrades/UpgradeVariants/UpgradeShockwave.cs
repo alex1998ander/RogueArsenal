@@ -4,8 +4,10 @@ using UnityEngine;
 public class UpgradeShockwave : Upgrade
 {
     public override string Name => "Shockwave";
+    public override UpgradeIdentification UpgradeIdentification => UpgradeIdentification.Shockwave;
+    public override UpgradeType UpgradeType => UpgradeType.Weapon;
+    public override string FlavorText => "";
     public override string Description => "";
-    public override string HelpfulDescription => "";
 
     public override void OnAbility(PlayerController playerController, PlayerWeapon playerWeapon)
     {

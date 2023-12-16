@@ -3,8 +3,10 @@ using UnityEngine;
 public class UpgradePiercing : Upgrade
 {
     public override string Name => "Piercing";
+    public override UpgradeIdentification UpgradeIdentification => UpgradeIdentification.Piercing;
+    public override UpgradeType UpgradeType => UpgradeType.Weapon;
+    public override string FlavorText => "";
     public override string Description => "";
-    public override string HelpfulDescription => "";
 
     public override void Init(PlayerBullet playerBullet)
     {

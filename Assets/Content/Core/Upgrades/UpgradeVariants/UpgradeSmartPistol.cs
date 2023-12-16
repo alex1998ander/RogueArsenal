@@ -3,8 +3,10 @@ using UnityEngine;
 public class UpgradeSmartPistol : Upgrade
 {
     public override string Name => "Smart Pistol";
+    public override UpgradeIdentification UpgradeIdentification => UpgradeIdentification.SmartPistol;
+    public override UpgradeType UpgradeType => UpgradeType.Ability;
+    public override string FlavorText => "";
     public override string Description => "";
-    public override string HelpfulDescription => "";
 
     public override void OnAbility(PlayerController playerController, PlayerWeapon playerWeapon)
     {

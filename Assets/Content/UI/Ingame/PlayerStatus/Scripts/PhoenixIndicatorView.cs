@@ -24,13 +24,8 @@ public class PhoenixIndicatorView : MonoBehaviour
         image.sprite = indicatorDisabledSprite;
     }
 
-    public void ShowIndicator()
+    public void ShowIndicator(bool indicatorEnabled)
     {
-        enabled = true;
-    }
-
-    public void HideIndicator()
-    {
-        enabled = false;
+        gameObject.SetActive(indicatorEnabled);
     }
 }
