@@ -12,7 +12,7 @@ AnimatorStateTransition:
     m_ConditionEvent: MovementDirectionX
     m_EventTreshold: 0.1
   - m_ConditionMode: 1
-    m_ConditionEvent: WalkingBackwards
+    m_ConditionEvent: RunningBackwards
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 540020779517141956}
@@ -40,7 +40,7 @@ AnimatorStateTransition:
     m_ConditionEvent: MovementDirectionY
     m_EventTreshold: -0.1
   - m_ConditionMode: 1
-    m_ConditionEvent: WalkingBackwards
+    m_ConditionEvent: RunningBackwards
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 540020779517141956}
@@ -68,7 +68,7 @@ AnimatorStateTransition:
     m_ConditionEvent: MovementDirectionX
     m_EventTreshold: 0.1
   - m_ConditionMode: 2
-    m_ConditionEvent: WalkingBackwards
+    m_ConditionEvent: RunningBackwards
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7449552464803386380}
@@ -158,7 +158,7 @@ AnimatorStateTransition:
     m_ConditionEvent: MovementDirectionX
     m_EventTreshold: -0.1
   - m_ConditionMode: 2
-    m_ConditionEvent: WalkingBackwards
+    m_ConditionEvent: RunningBackwards
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7449552464803386380}
@@ -302,7 +302,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: WalkingBackwards
+    m_ConditionEvent: RunningBackwards
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7449552464803386380}
@@ -330,7 +330,7 @@ AnimatorStateTransition:
     m_ConditionEvent: MovementDirectionY
     m_EventTreshold: -0.1
   - m_ConditionMode: 2
-    m_ConditionEvent: WalkingBackwards
+    m_ConditionEvent: RunningBackwards
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7449552464803386380}
@@ -392,7 +392,7 @@ AnimatorStateTransition:
     m_ConditionEvent: MovementDirectionX
     m_EventTreshold: -0.1
   - m_ConditionMode: 1
-    m_ConditionEvent: WalkingBackwards
+    m_ConditionEvent: RunningBackwards
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 540020779517141956}
@@ -417,7 +417,7 @@ AnimatorController:
   m_Name: PlayerAnimator
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: WalkingBackwards
+  - m_Name: RunningBackwards
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -531,7 +531,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: WalkingBackwards
+    m_ConditionEvent: RunningBackwards
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 540020779517141956}
@@ -634,7 +634,7 @@ AnimatorStateTransition:
     m_ConditionEvent: MovementDirectionY
     m_EventTreshold: 0.1
   - m_ConditionMode: 2
-    m_ConditionEvent: WalkingBackwards
+    m_ConditionEvent: RunningBackwards
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7449552464803386380}
@@ -662,7 +662,7 @@ AnimatorStateTransition:
     m_ConditionEvent: MovementDirectionY
     m_EventTreshold: 0.1
   - m_ConditionMode: 1
-    m_ConditionEvent: WalkingBackwards
+    m_ConditionEvent: RunningBackwards
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 540020779517141956}

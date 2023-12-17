@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
     private static readonly int MovementDirectionY = Animator.StringToHash("MovementDirectionY");
     private static readonly int AimDirectionX = Animator.StringToHash("AimDirectionX");
     private static readonly int AimDirectionY = Animator.StringToHash("AimDirectionY");
-    private static readonly int WalkingBackwards = Animator.StringToHash("WalkingBackwards");
+    private static readonly int RunningBackwards = Animator.StringToHash("RunningBackwards");
 
     private void Awake()
     {
@@ -198,10 +198,8 @@ public class PlayerController : MonoBehaviour, ICharacterController
             playerVisualsAnimator.SetFloat(MovementDirectionX, _movementInput.x);
             playerVisualsAnimator.SetFloat(MovementDirectionY, _movementInput.y);
 
-            Debug.Log("angle: " + Vector2.Angle(_movementInput, _aimDirection));
-
             // when movement and aim direction are at a 90 degree angle or greater, count as walking backwards
-            playerVisualsAnimator.SetBool(WalkingBackwards, Vector2.Angle(_movementInput, _aimDirection) > 95.0f);
+            playerVisualsAnimator.SetBool(RunningBackwards, Vector2.Angle(_movementInput, _aimDirection) > 95.0f);
         }
         else
         {
@@ -248,7 +246,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
                 playerVisualsAnimator.SetFloat(AimDirectionY, _aimDirection.y);
 
                 // when movement and aim direction are at a 90 degree angle or greater, count as walking backwards
-                playerVisualsAnimator.SetBool(WalkingBackwards, Vector2.Angle(_movementInput, _aimDirection) > 95.0f);
+                playerVisualsAnimator.SetBool(RunningBackwards, Vector2.Angle(_movementInput, _aimDirection) > 95.0f);
             }
         }
     }
