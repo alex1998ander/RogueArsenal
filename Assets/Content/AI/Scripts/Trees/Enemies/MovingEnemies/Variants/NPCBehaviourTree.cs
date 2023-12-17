@@ -38,7 +38,6 @@ namespace BehaviorTree
                     new CheckIsAtTarget(),
                     new TaskDeleteGameObject(transform)
                 }),
-                new SetData<bool>(sharedData.HasHeardPlayerShot, false)
             });
             root.SetupSharedData(sharedData);
             return root;

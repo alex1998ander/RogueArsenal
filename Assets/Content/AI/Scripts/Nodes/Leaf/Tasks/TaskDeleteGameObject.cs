@@ -13,7 +13,7 @@ namespace BehaviorTree
         
         public override NodeState Evaluate()
         {
-            MonoBehaviour.Destroy(_transform.parent);
+            MonoBehaviour.Destroy(_transform.root.gameObject);
             state = NodeState.SUCCESS;
             return state;
         }
