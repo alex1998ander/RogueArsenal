@@ -265,6 +265,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
             _dashEndTimestamp = Time.time + Configuration.Player_DashTime;
             PlayerData.invulnerable = true;
             _dashMovementDirection = _movementInput;
+            EventManager.OnPlayerDash.Trigger();
         }
     }
 

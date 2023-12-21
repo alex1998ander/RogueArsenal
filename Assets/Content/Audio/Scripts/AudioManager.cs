@@ -12,6 +12,7 @@ public class AudioManager : MonoBehaviour
         EventManager.OnPauseGame.Subscribe(MuffleMusic);
         EventManager.OnPlayerShotFired.Subscribe(PlayLaserShotPlayer);
         EventManager.OnEnemyShotFired.Subscribe(PlayLaserShotEnemy);
+        EventManager.OnPlayerDash.Subscribe(PlayPlayerDash);
 
         PlayMainMenuLoop();
     }
@@ -36,9 +37,13 @@ public class AudioManager : MonoBehaviour
         AudioController.MuffleMusic(muffle);
     }
 
+    private void PlayPlayerDash()
+    {
+        AudioController.Play(AudioController.library.playerDash);
+    }
+
     private void PlayLaserShotPlayer()
     {
-        
         AudioController.Play(AudioController.library.laserShotPlayer);
     }
 

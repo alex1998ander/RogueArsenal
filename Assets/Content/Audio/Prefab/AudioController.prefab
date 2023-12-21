@@ -92,6 +92,9 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 9159e63f5985b894a8b945ffa1600f95, type: 3}
   upgradeLoop3:
     audioClip: {fileID: 8300000, guid: 7cebe906dee00594f9b153fd0e2baecc, type: 3}
+  playerDash:
+    audioClip: {fileID: 8300000, guid: 1c65eb8400003b54e81905ad22b58df4, type: 3}
+    volumeScale: 0.1
   laserShotPlayer:
     audioClip: {fileID: 8300000, guid: a533147658105d841a5455884ed95017, type: 3}
     volumeScale: 1
