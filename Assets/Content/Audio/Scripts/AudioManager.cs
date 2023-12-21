@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
@@ -13,6 +14,7 @@ public class AudioManager : MonoBehaviour
         EventManager.OnPlayerShotFired.Subscribe(PlayLaserShotPlayer);
         EventManager.OnEnemyShotFired.Subscribe(PlayLaserShotEnemy);
         EventManager.OnPlayerDash.Subscribe(PlayPlayerDash);
+        EventManager.OnPlayerPhoenixed.Subscribe(PlayPlayerPhoenixed);
 
         PlayMainMenuLoop();
     }
@@ -42,6 +44,11 @@ public class AudioManager : MonoBehaviour
         AudioController.Play(AudioController.library.playerDash);
     }
 
+    private void PlayPlayerPhoenixed()
+    {
+        StartCoroutine(PlaySoundDelayed(AudioController.library.playerPhoenix));
+    }
+
     private void PlayLaserShotPlayer()
     {
         AudioController.Play(AudioController.library.laserShotPlayer);
@@ -50,6 +57,16 @@ public class AudioManager : MonoBehaviour
     private void PlayLaserShotEnemy()
     {
         AudioController.Play(AudioController.library.laserShotEnemy);
+    }
+
+    /// <summary>
+    /// Plays a given sound after its delay.
+    /// </summary>
+    /// <param name="sound">The given sound to play</param>
+    private IEnumerator PlaySoundDelayed(Sound sound)
+    {
+        yield return new WaitForSeconds(sound.initialDelay);
+        AudioController.Play(sound);
     }
 
     private void OnDestroy()
