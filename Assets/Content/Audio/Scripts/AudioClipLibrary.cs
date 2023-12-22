@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class AudioClipLibrary : MonoBehaviour
 {
-    public Music mainTheme, mainThemeShort, intro, introShort, upgradeLoop1, upgradeLoop2, upgradeLoop3;
-    public Sound playerPhoenix, playerDash, laserShotPlayer, laserShotEnemy;
+    [Header("Music Clips")] public Music mainTheme;
+    public Music mainThemeShort, intro, introShort, upgradeLoop1, upgradeLoop2, upgradeLoop3;
+
+    [Header("Sound Clips")] public Sound playerPhoenix;
+    public Sound playerDash, laserShotPlayer, laserShotEnemy;
 }

@@ -95,18 +95,22 @@ MonoBehaviour:
   playerPhoenix:
     audioClip: {fileID: 8300000, guid: d01789b250d5f2243b3eee5357a41062, type: 3}
     volumeScale: 0.6
+    pitchVariationRange: 0
     initialDelay: 1.3
   playerDash:
     audioClip: {fileID: 8300000, guid: 1c65eb8400003b54e81905ad22b58df4, type: 3}
     volumeScale: 0.1
+    pitchVariationRange: 0.1
     initialDelay: 0
   laserShotPlayer:
     audioClip: {fileID: 8300000, guid: a533147658105d841a5455884ed95017, type: 3}
     volumeScale: 1
+    pitchVariationRange: 0.2
     initialDelay: 0
   laserShotEnemy:
     audioClip: {fileID: 8300000, guid: 86eda0e4e227669419600df6ccffaa15, type: 3}
     volumeScale: 0.4
+    pitchVariationRange: 0.2
     initialDelay: 0
 --- !u!82 &4614700045490770794
 AudioSource:
