@@ -112,6 +112,11 @@ MonoBehaviour:
     volumeScale: 0.4
     pitchVariationRange: 0.2
     initialDelay: 0
+  bulletDestroyed:
+    audioClip: {fileID: 8300000, guid: bddfd64d262c3d74183950ea1e3a6447, type: 3}
+    volumeScale: 0.6
+    pitchVariationRange: 0.1
+    initialDelay: 0
 --- !u!82 &4614700045490770794
 AudioSource:
   m_ObjectHideFlags: 0

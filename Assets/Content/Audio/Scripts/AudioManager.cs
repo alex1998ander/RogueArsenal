@@ -15,6 +15,8 @@ public class AudioManager : MonoBehaviour
         EventManager.OnEnemyShotFired.Subscribe(PlayLaserShotEnemy);
         EventManager.OnPlayerDash.Subscribe(PlayPlayerDash);
         EventManager.OnPlayerPhoenixed.Subscribe(PlayPlayerPhoenixed);
+        EventManager.OnPlayerBulletDestroyed.Subscribe(PlayBulletDestroyed);
+        EventManager.OnEnemyBulletDestroyed.Subscribe(PlayBulletDestroyed);
 
         PlayMainMenuLoop();
     }
@@ -57,6 +59,11 @@ public class AudioManager : MonoBehaviour
     private void PlayLaserShotEnemy()
     {
         AudioController.Play(AudioController.library.laserShotEnemy);
+    }
+
+    private void PlayBulletDestroyed()
+    {
+        AudioController.Play(AudioController.library.bulletDestroyed);
     }
 
     /// <summary>

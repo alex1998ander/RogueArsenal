@@ -16,6 +16,7 @@ public static class EventManager
     public static readonly Event OnPlayerDeath = new();
     public static readonly Event OnPlayerPhoenixed = new();
     public static readonly Event OnPlayerShotFired = new();
+    public static readonly Event OnPlayerBulletDestroyed = new();
     public static readonly Event OnPlayerDash = new();
 
     public static readonly Event OnWeaponReload = new();
@@ -29,6 +30,7 @@ public static class EventManager
     public static readonly Event<float> OnEnemyDamage = new();
     public static readonly Event<Vector3> OnEnemyDeath = new();
     public static readonly Event OnEnemyShotFired = new();
+    public static readonly Event OnEnemyBulletDestroyed = new();
 
     #endregion
 

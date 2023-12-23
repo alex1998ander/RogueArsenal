@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class AudioClipLibrary : MonoBehaviour
 {
@@ -6,5 +7,5 @@ public class AudioClipLibrary : MonoBehaviour
     public Music mainThemeShort, intro, introShort, upgradeLoop1, upgradeLoop2, upgradeLoop3;
 
     [Header("Sound Clips")] public Sound playerPhoenix;
-    public Sound playerDash, laserShotPlayer, laserShotEnemy;
+    public Sound playerDash, laserShotPlayer, laserShotEnemy, bulletDestroyed;
 }

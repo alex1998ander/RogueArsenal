@@ -50,7 +50,10 @@ public class PlayerBullet : MonoBehaviour
             return;
 
         if (!UpgradeManager.OnBulletTrigger(this, other))
+        {
+            EventManager.OnPlayerBulletDestroyed.Trigger();
             Destroy(gameObject);
+        }
 
         ICharacterHealth characterHealth = other.gameObject.GetComponent<ICharacterHealth>();
         if (characterHealth is PlayerHealth)
@@ -70,6 +73,7 @@ public class PlayerBullet : MonoBehaviour
     {
         if (!UpgradeManager.OnBulletCollision(this, collision))
         {
+            EventManager.OnPlayerBulletDestroyed.Trigger();
             Destroy(gameObject);
         }
     }

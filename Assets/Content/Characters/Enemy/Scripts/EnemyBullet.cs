@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemyBullet : MonoBehaviour
 {
     [SerializeField] private float defaultBulletSpeed = 10f;
-    
+
     private Rigidbody2D _rb;
 
     private float _assignedDamage;
@@ -20,7 +20,7 @@ public class EnemyBullet : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
     }
-    
+
     private void Start()
     {
         _rb.velocity = transform.up * defaultBulletSpeed;
@@ -32,6 +32,7 @@ public class EnemyBullet : MonoBehaviour
         if (!_currentlyColliding)
         {
             Destroy(gameObject);
+            EventManager.OnEnemyBulletDestroyed.Trigger();
         }
 
         // Player hit
