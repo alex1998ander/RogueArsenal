@@ -7,5 +7,5 @@ public class AudioClipLibrary : MonoBehaviour
     public Music mainThemeShort, intro, introShort, upgradeLoop1, upgradeLoop2, upgradeLoop3;
 
     [Header("Sound Clips")] public Sound playerPhoenix;
-    public Sound playerDash, laserShotPlayer, laserShotEnemy, bulletDestroyed;
+    public Sound playerHit, playerDash, laserShotPlayer, laserShotEnemy, bulletDestroyed;
 }

@@ -11,6 +11,7 @@ public class AudioManager : MonoBehaviour
         EventManager.OnLevelExit.Subscribe(PlayUpgradeLoop);
         EventManager.OnMainMenuEnter.Subscribe(PlayMainMenuLoop);
         EventManager.OnPauseGame.Subscribe(MuffleMusic);
+        EventManager.OnPlayerHit.Subscribe(PlayPlayerHit);
         EventManager.OnPlayerShotFired.Subscribe(PlayLaserShotPlayer);
         EventManager.OnEnemyShotFired.Subscribe(PlayLaserShotEnemy);
         EventManager.OnPlayerDash.Subscribe(PlayPlayerDash);
@@ -49,6 +50,11 @@ public class AudioManager : MonoBehaviour
     private void PlayPlayerPhoenixed()
     {
         StartCoroutine(PlaySoundDelayed(AudioController.library.playerPhoenix));
+    }
+
+    private void PlayPlayerHit()
+    {
+        AudioController.Play(AudioController.library.playerHit);
     }
 
     private void PlayLaserShotPlayer()

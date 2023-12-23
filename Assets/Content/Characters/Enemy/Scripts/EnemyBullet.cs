@@ -39,6 +39,7 @@ public class EnemyBullet : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             other.gameObject.GetComponent<PlayerHealth>().InflictDamage(_assignedDamage, true);
+            EventManager.OnPlayerHit.Trigger();
         }
 
         _currentlyColliding = true;

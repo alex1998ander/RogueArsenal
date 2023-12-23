@@ -97,6 +97,11 @@ MonoBehaviour:
     volumeScale: 0.6
     pitchVariationRange: 0
     initialDelay: 1.3
+  playerHit:
+    audioClip: {fileID: 8300000, guid: 89e0e513ddf424342afaae6b080fe9df, type: 3}
+    volumeScale: 0.1
+    pitchVariationRange: 0.1
+    initialDelay: 0
   playerDash:
     audioClip: {fileID: 8300000, guid: 1c65eb8400003b54e81905ad22b58df4, type: 3}
     volumeScale: 0.1

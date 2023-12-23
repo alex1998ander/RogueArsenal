@@ -13,6 +13,7 @@ public static class EventManager
 
     public static readonly Event OnPlayerAbilityUsed = new();
     public static readonly Event OnPlayerCollectCurrency = new();
+    public static readonly Event OnPlayerHit = new();
     public static readonly Event OnPlayerDeath = new();
     public static readonly Event OnPlayerPhoenixed = new();
     public static readonly Event OnPlayerShotFired = new();
