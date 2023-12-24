@@ -92,6 +92,11 @@ MonoBehaviour:
     volumeScale: 0.4
     pitchVariationRange: 0.2
     initialDelay: 0
+  enemyDeath:
+    audioClip: {fileID: 8300000, guid: 4a7e7301663be98448d6f19dc0128c37, type: 3}
+    volumeScale: 0.4
+    pitchVariationRange: 0.3
+    initialDelay: 0
   bulletDestroyed:
     audioClip: {fileID: 8300000, guid: bddfd64d262c3d74183950ea1e3a6447, type: 3}
     volumeScale: 0.6

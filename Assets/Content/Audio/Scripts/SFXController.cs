@@ -12,7 +12,7 @@ public class SFXController : MonoBehaviour
     public Sound playerHit, playerShot, playerDash;
 
     [Header("Enemy Sound Clips")] public Sound enemyHit;
-    public Sound enemyShot;
+    public Sound enemyShot, enemyDeath;
 
     [Header("Other Sound Clips")] public Sound bulletDestroyed;
 
@@ -32,6 +32,7 @@ public class SFXController : MonoBehaviour
         // Enemy sounds
         Action<float> playEnemyHit = (damage) => { _SchedulePlaySound(enemyHit); };
         Action playEnemyShot = () => { _SchedulePlaySound(enemyShot); };
+        Action<Vector3> playEnemyDeath = deathPosition => { _SchedulePlaySound(enemyDeath); };
 
         // Other sounds
         Action playBulletDestroyed = () => { _SchedulePlaySound(bulletDestroyed); };
@@ -45,6 +46,7 @@ public class SFXController : MonoBehaviour
             EventManager.OnPlayerDash.Subscribe(playPlayerDash);
             EventManager.OnEnemyDamage.Subscribe(playEnemyHit);
             EventManager.OnEnemyShotFired.Subscribe(playEnemyShot);
+            EventManager.OnEnemyDeath.Subscribe(playEnemyDeath);
             EventManager.OnPlayerBulletDestroyed.Subscribe(playBulletDestroyed);
             EventManager.OnEnemyBulletDestroyed.Subscribe(playBulletDestroyed);
         };
@@ -57,6 +59,7 @@ public class SFXController : MonoBehaviour
             EventManager.OnPlayerDash.Unsubscribe(playPlayerDash);
             EventManager.OnEnemyDamage.Unsubscribe(playEnemyHit);
             EventManager.OnEnemyShotFired.Unsubscribe(playEnemyShot);
+            EventManager.OnEnemyDeath.Unsubscribe(playEnemyDeath);
             EventManager.OnPlayerBulletDestroyed.Unsubscribe(playBulletDestroyed);
             EventManager.OnEnemyBulletDestroyed.Unsubscribe(playBulletDestroyed);
         };

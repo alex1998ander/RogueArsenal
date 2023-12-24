@@ -29,6 +29,7 @@ public class MusicController : MonoBehaviour
         _audioSourceMusicCurrent = audioSourceMusicFst;
         _audioSourceMusicUnused = audioSourceMusicSnd;
 
+        // TODO: Define start soundtrack?
         _currentMusic = gameplayMusicSelection[0];
 
         SceneManager.sceneLoaded += (scene, mode) =>
