@@ -24153,7 +24153,7 @@ PrefabInstance:
     - target: {fileID: 7595773359972638408, guid: 58da58bccb053904b8b5a408e035efce, type: 3}
       propertyPath: m_NavMeshData
       value: 
-      objectReference: {fileID: 23800000, guid: 0455a9b2665e65341b37e55990a8be1a, type: 2}
+      objectReference: {fileID: 23800000, guid: 2bf25d09f15aeed46ab9cfdb84eac9c8, type: 2}
     - target: {fileID: 7595773359972638409, guid: 58da58bccb053904b8b5a408e035efce, type: 3}
       propertyPath: m_OverrideByGrid
       value: 0
