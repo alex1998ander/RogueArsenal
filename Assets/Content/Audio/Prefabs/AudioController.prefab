@@ -102,6 +102,11 @@ MonoBehaviour:
     volumeScale: 0.6
     pitchVariationRange: 0.1
     initialDelay: 0
+  currencyCollectSound:
+    audioClip: {fileID: 8300000, guid: c10ab038608c13b4596ff46d3bbb8084, type: 3}
+    volumeScale: 0.4
+    pitchVariationRange: 0.1
+    initialDelay: 0
 --- !u!82 &6242518293217424204
 AudioSource:
   m_ObjectHideFlags: 0
