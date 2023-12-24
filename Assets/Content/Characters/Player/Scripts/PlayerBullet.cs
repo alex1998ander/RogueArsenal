@@ -51,7 +51,6 @@ public class PlayerBullet : MonoBehaviour
 
         if (!UpgradeManager.OnBulletTrigger(this, other))
         {
-            EventManager.OnPlayerBulletDestroyed.Trigger();
             Destroy(gameObject);
         }
 
