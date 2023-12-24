@@ -579,7 +579,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Uprades
+  m_text: Upgrades
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1201,7 +1201,7 @@ MonoBehaviour:
     upgradeIdentification: 22
   enableAllButton: {fileID: 1289325986}
   disableAllButton: {fileID: 1694686009}
-  manager: {fileID: 447305999}
+  detailPanelView: {fileID: 491430022}
 --- !u!1001 &987604913
 PrefabInstance:
   m_ObjectHideFlags: 0

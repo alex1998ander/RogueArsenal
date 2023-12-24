@@ -21,6 +21,7 @@ public class ToggleView : MonoBehaviour
     {
         _onToggleAction = onToggleAction;
         Enabled = initialBool;
+        SetToggleIconSprite();
     }
 
     public void OnHoverEnter()

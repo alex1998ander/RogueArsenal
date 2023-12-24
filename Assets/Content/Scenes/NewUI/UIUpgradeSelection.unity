@@ -462,7 +462,8 @@ MonoBehaviour:
   - {fileID: 33265603}
   - {fileID: 1895541644}
   - {fileID: 726411000}
-  upgradeInventoryView: {fileID: 976072739}
+  upgradeIconView: {fileID: 0}
+  upgradeInventoryHeaderText: {fileID: 510019598}
 --- !u!1 &510019596
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,18 +719,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 976072737}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae63289ae8512094483283433aad4079, type: 3}
+  m_Script: {fileID: 11500000, guid: 4572967a1af4d4d40910caa52b147baf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   contentParent: {fileID: 598054711}
-  upgradeIconPrefab: {fileID: 2475043188617071919, guid: fbeeba9c79c1043429f710b4931c4f67, type: 3}
-  headerText: {fileID: 510019598}
+  iconPrefab: {fileID: 2475043188617071919, guid: fbeeba9c79c1043429f710b4931c4f67, type: 3}
   upgradeIcons:
   - icon: {fileID: 21300000, guid: 9d5d5fd1640104945a282a5a1b550f75, type: 3}
     upgradeIdentification: 0
   - icon: {fileID: 21300000, guid: 9d5d5fd1640104945a282a5a1b550f75, type: 3}
     upgradeIdentification: 1
-  - icon: {fileID: 21300000, guid: 9d5d5fd1640104945a282a5a1b550f75, type: 3}
+  - icon: {fileID: 21300000, guid: 98a40569fbec183468139411af4806c5, type: 3}
     upgradeIdentification: 2
   - icon: {fileID: 21300000, guid: 9d5d5fd1640104945a282a5a1b550f75, type: 3}
     upgradeIdentification: 3

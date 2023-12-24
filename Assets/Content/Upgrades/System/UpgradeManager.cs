@@ -6,8 +6,15 @@ using UnityEngine;
 public static class UpgradeManager
 {
     // upgrades
-    public static List<Upgrade> CurrentUpgrades { get; private set; } = new(){};
-    
+    public static List<Upgrade> CurrentUpgrades { get; private set; } = new()
+    {
+        new UpgradeBurst(),
+        new UpgradeCarefulPlanning(),
+        new UpgradeDemonicPact(),
+        new UpgradeExplosiveBullet(),
+        new UpgradeGlassCannon()
+    };
+
     private static Upgrade[] _currentUpgradeSelection;
 
     // Need to be synchronized to UpgradeIdentification enum
@@ -51,7 +58,7 @@ public static class UpgradeManager
     {
         return DefaultUpgradePool[(int)upgradeIdentification];
     }
-    
+
     public static Upgrade[] GenerateNewRandomUpgradeSelection(int count)
     {
         System.Random rnd = new System.Random();
@@ -71,8 +78,8 @@ public static class UpgradeManager
         Upgrade newUpgrade = DefaultUpgradePool[weaponIndex];
 
         CurrentUpgrades.Add(newUpgrade);
-        
-        if(newUpgrade is UpgradePhoenix)
+
+        if (newUpgrade is UpgradePhoenix)
         {
             IsPhoenixActive = true;
         }
@@ -88,8 +95,8 @@ public static class UpgradeManager
         Upgrade newUpgrade = GetUpgradeFromIdentifier(upgradeIdentification);
 
         CurrentUpgrades.Add(newUpgrade);
-        
-        if(newUpgrade is UpgradePhoenix)
+
+        if (newUpgrade is UpgradePhoenix)
         {
             IsPhoenixActive = true;
         }
@@ -105,8 +112,8 @@ public static class UpgradeManager
         Upgrade upgrade = GetUpgradeFromIdentifier(upgradeIdentification);
 
         CurrentUpgrades.Remove(upgrade);
-        
-        if(upgrade is UpgradePhoenix)
+
+        if (upgrade is UpgradePhoenix)
         {
             IsPhoenixActive = false;
         }
@@ -133,7 +140,7 @@ public static class UpgradeManager
         CurrentUpgrades.Clear();
         IsPhoenixActive = false;
     }
-    
+
     /// <summary>
     /// Checks if the provided upgrade is binded.
     /// </summary>
@@ -156,8 +163,8 @@ public static class UpgradeManager
 
         // Remove new upgrade from upgrade pool
         UpgradePool.Remove(newUpgrade);
-        
-        if(newUpgrade is UpgradePhoenix)
+
+        if (newUpgrade is UpgradePhoenix)
         {
             IsPhoenixActive = true;
         }

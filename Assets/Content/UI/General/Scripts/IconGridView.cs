@@ -1,11 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class IconGridView : MonoBehaviour
 {
     [SerializeField] private RectTransform contentParent;
-    [FormerlySerializedAs("upgradeIconPrefab")] [SerializeField] private IconView iconPrefab;
+    [SerializeField] private IconView iconPrefab;
     
 
     [SerializeField] private UpgradeIcon[] upgradeIcons;
