@@ -24,17 +24,17 @@ public class SFXController : MonoBehaviour
         _audioSource = GetComponent<AudioSource>();
 
         // Player sounds
-        Action playPlayerPhoenix = () => { _PlaySound(playerPhoenix); };
-        Action playPlayerHit = () => { _PlaySound(playerHit); };
-        Action playPlayerShot = () => { _PlaySound(playerShot); };
-        Action playPlayerDash = () => { _PlaySound(playerDash); };
+        Action playPlayerPhoenix = () => { _SchedulePlaySound(playerPhoenix); };
+        Action playPlayerHit = () => { _SchedulePlaySound(playerHit); };
+        Action playPlayerShot = () => { _SchedulePlaySound(playerShot); };
+        Action playPlayerDash = () => { _SchedulePlaySound(playerDash); };
 
         // Enemy sounds
-        Action<float> playEnemyHit = (damage) => { _PlaySound(enemyHit); };
-        Action playEnemyShot = () => { _PlaySound(enemyShot); };
+        Action<float> playEnemyHit = (damage) => { _SchedulePlaySound(enemyHit); };
+        Action playEnemyShot = () => { _SchedulePlaySound(enemyShot); };
 
         // Other sounds
-        Action playBulletDestroyed = () => { _PlaySound(bulletDestroyed); };
+        Action playBulletDestroyed = () => { _SchedulePlaySound(bulletDestroyed); };
 
         // TODO: Potentially unnecessary to continuously subscribe/unsubscribe?
         SceneManager.sceneLoaded += (scene, mode) =>
