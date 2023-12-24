@@ -86,6 +86,7 @@ public class IngameUIManager : MonoBehaviour
         EventManager.OnWeaponReload.Unsubscribe(Reload);
         EventManager.OnPlayerAbilityUsed.Unsubscribe(AbilityUsed);
         EventManager.OnPlayerPhoenixed.Unsubscribe(Phoenixed);
+        EventManager.OnPlayerCollectCurrency.Unsubscribe(CollectedCurrency);
         EventManager.OnUpgradeChange.Unsubscribe(UpgradeChange);
     }
 }
