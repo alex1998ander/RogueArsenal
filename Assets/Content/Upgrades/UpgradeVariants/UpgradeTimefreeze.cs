@@ -7,6 +7,10 @@
 
     public override void OnAbility(PlayerController playerController, PlayerWeapon playerWeapon)
     {
+        UpgradeSpawnablePrefabHolder.SpawnPrefab(UpgradeSpawnablePrefabHolder.instance.timefreezePrefab,
+            playerController.transform.position,
+            Configuration.Timefreeze_Duration / Configuration.Timefreeze_TimeScale);
+
         playerController.StartCoroutine(Util.OnOffCoroutine(
             () => TimeController.ChangeTimeScale(Configuration.Timefreeze_TimeScale),
             TimeController.ResetTimeScale,

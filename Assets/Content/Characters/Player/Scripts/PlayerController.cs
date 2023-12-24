@@ -27,9 +27,11 @@ public class PlayerController : MonoBehaviour, ICharacterController
     private float _dashDelayEndTimestamp;
     private float _weaponReloadedTimeStamp;
 
-    private static readonly int Running = Animator.StringToHash("Running");
     private static readonly int MovementDirectionX = Animator.StringToHash("MovementDirectionX");
     private static readonly int MovementDirectionY = Animator.StringToHash("MovementDirectionY");
+    private static readonly int AimDirectionX = Animator.StringToHash("AimDirectionX");
+    private static readonly int AimDirectionY = Animator.StringToHash("AimDirectionY");
+    private static readonly int RunningBackwards = Animator.StringToHash("RunningBackwards");
 
     private void Awake()
     {
@@ -193,17 +195,15 @@ public class PlayerController : MonoBehaviour, ICharacterController
         if (PlayerData.canMove && !GameManager.GamePaused)
         {
             _movementInput = value.Get<Vector2>();
-            playerVisualsAnimator.SetBool(Running, _movementInput != Vector2.zero);
-            if (_movementInput != Vector2.zero)
-            {
-                playerVisualsAnimator.SetFloat(MovementDirectionY, _movementInput.y);
-                playerVisualsAnimator.SetFloat(MovementDirectionX, _movementInput.x);
-            }
+            playerVisualsAnimator.SetFloat(MovementDirectionX, _movementInput.x);
+            playerVisualsAnimator.SetFloat(MovementDirectionY, _movementInput.y);
+
+            // when movement and aim direction are at a 90 degree angle or greater, count as walking backwards
+            playerVisualsAnimator.SetBool(RunningBackwards, Vector2.Angle(_movementInput, _aimDirection) > 95.0f);
         }
         else
         {
             _movementInput = Vector2.zero;
-            playerVisualsAnimator.SetBool(Running, false);
         }
     }
 
@@ -242,7 +242,11 @@ public class PlayerController : MonoBehaviour, ICharacterController
                 // When the player is aiming up, adjust sorting order so weapon is behind player
                 playerWeaponSprite.sortingOrder = _angle >= 45.0 && _angle <= 135.0f ? -1 : 1;
 
-                //playerWeaponTransform.rotation = Quaternion.AngleAxis(_angle, Vector3.forward);
+                playerVisualsAnimator.SetFloat(AimDirectionX, _aimDirection.x);
+                playerVisualsAnimator.SetFloat(AimDirectionY, _aimDirection.y);
+
+                // when movement and aim direction are at a 90 degree angle or greater, count as walking backwards
+                playerVisualsAnimator.SetBool(RunningBackwards, Vector2.Angle(_movementInput, _aimDirection) > 95.0f);
             }
         }
     }
@@ -261,6 +265,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
             _dashEndTimestamp = Time.time + Configuration.Player_DashTime;
             PlayerData.invulnerable = true;
             _dashMovementDirection = _movementInput;
+            EventManager.OnPlayerDash.Trigger();
         }
     }
 
