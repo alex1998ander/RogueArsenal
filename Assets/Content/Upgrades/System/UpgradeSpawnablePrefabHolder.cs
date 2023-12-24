@@ -22,12 +22,12 @@ public class UpgradeSpawnablePrefabHolder : MonoBehaviour
     }
 
     /// <summary>
-    /// 
+    /// Spawns an instance of the given prefab at a given position.
     /// </summary>
-    /// <param name="prefab"></param>
-    /// <param name="position"></param>
-    /// <param name="lifetime"></param>
-    /// <param name="parentObject"></param>
+    /// <param name="prefab">Prefab to spawn</param>
+    /// <param name="position">World position to spawn instance</param>
+    /// <param name="lifetime">Lifetime of instance</param>
+    /// <param name="parentObject">GameObject to parent instance to</param>
     public static void SpawnPrefab(GameObject prefab, Vector3 position, float lifetime, GameObject parentObject = null)
     {
         GameObject prefabInstance = Instantiate(prefab, position, Quaternion.identity);
