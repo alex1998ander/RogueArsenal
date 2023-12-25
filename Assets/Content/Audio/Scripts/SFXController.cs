@@ -97,7 +97,11 @@ public class SFXController : MonoBehaviour
     /// <param name="sound">The given sound to play</param>
     private void _PlaySound(Sound sound)
     {
-        _audioSource.pitch = Random.Range(1f - sound.pitchVariationRange, 1f + sound.pitchVariationRange);
-        _audioSource.PlayOneShot(sound.audioClip, sound.volumeScale);
+        if (Time.time >= sound.NextPossiblePlayTimestamp)
+        {
+            sound.NextPossiblePlayTimestamp = Time.time + sound.minTimeBetweenPlays;
+            _audioSource.pitch = Random.Range(1f - sound.pitchVariationRange, 1f + sound.pitchVariationRange);
+            _audioSource.PlayOneShot(sound.audioClip, sound.volumeScale);
+        }
     }
 }
