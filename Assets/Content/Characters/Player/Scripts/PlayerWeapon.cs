@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
@@ -11,11 +12,7 @@ public class PlayerWeapon : MonoBehaviour
     {
         PlayerData.maxAmmo = Mathf.RoundToInt(Configuration.Weapon_MagazineSize * UpgradeManager.GetMagazineSizeMultiplier());
         PlayerData.reloadTime = Configuration.Weapon_ReloadTime * UpgradeManager.GetReloadTimeMultiplier();
-    }
-
-    private void Start()
-    {
-        Reload();
+        PlayerData.ammo = PlayerData.maxAmmo;
     }
 
     /// <summary>
@@ -76,8 +73,16 @@ public class PlayerWeapon : MonoBehaviour
         }
     }
 
-    public void Reload()
+    public void StartReload()
     {
+        EventManager.OnWeaponReloadStart.Trigger();
+        StartCoroutine(_EndReload());
+    }
+
+    private IEnumerator _EndReload()
+    {
+        yield return new WaitForSeconds(PlayerData.reloadTime);
         PlayerData.ammo = PlayerData.maxAmmo;
+        EventManager.OnWeaponReloadEnd.Trigger();
     }
 }

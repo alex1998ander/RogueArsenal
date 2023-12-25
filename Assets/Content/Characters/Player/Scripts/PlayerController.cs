@@ -114,15 +114,14 @@ public class PlayerController : MonoBehaviour, ICharacterController
         }
     }
 
-    private void ReloadWeapon()
+    private void StartReloadWeapon()
     {
         if (!PlayerData.canReload || Time.time <= _weaponReloadedTimeStamp)
             return;
 
         _weaponReloadedTimeStamp = Time.time + PlayerData.reloadTime;
-        playerWeapon.Reload();
+        playerWeapon.StartReload();
         UpgradeManager.OnReload(this, playerWeapon);
-        EventManager.OnWeaponReload.Trigger();
     }
 
     #endregion
@@ -254,7 +253,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
     private void OnReload()
     {
         if (PlayerData.canReload)
-            ReloadWeapon();
+            StartReloadWeapon();
     }
 
     private void OnDash()

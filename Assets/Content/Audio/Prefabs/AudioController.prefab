@@ -76,10 +76,22 @@ MonoBehaviour:
     minTimeBetweenPlays: 0
   playerShot:
     audioClip: {fileID: 8300000, guid: a533147658105d841a5455884ed95017, type: 3}
-    volumeScale: 0.8
+    volumeScale: 0.1
     pitchVariationRange: 0.2
     initialDelay: 0
     minTimeBetweenPlays: 0.05
+  playerReloadStart:
+    audioClip: {fileID: 8300000, guid: 6ddfbc4c2c3dc9b40a268dd2a8963cca, type: 3}
+    volumeScale: 0.4
+    pitchVariationRange: 0
+    initialDelay: 0
+    minTimeBetweenPlays: 0
+  playerReloadEnd:
+    audioClip: {fileID: 8300000, guid: b865e48f462e5074599c336fc0762410, type: 3}
+    volumeScale: 0.4
+    pitchVariationRange: 0
+    initialDelay: 0
+    minTimeBetweenPlays: 0
   playerDash:
     audioClip: {fileID: 8300000, guid: 1c65eb8400003b54e81905ad22b58df4, type: 3}
     volumeScale: 0.1
