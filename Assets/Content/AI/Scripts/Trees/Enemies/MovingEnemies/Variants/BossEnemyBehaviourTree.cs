@@ -20,9 +20,7 @@ namespace BehaviorTree
         [SerializeField] private GameObject turret;
         [SerializeField] private GameObject clone;
         [SerializeField] private GameObject shieldGenerator;
-        [SerializeField] private GameObject shield;
         [SerializeField] private GameObject bullet;
-        [SerializeField] private SpriteRenderer shadow;
         [SerializeField] private GameObject shockWave;
 
         protected override Node SetupTree()
@@ -37,6 +35,7 @@ namespace BehaviorTree
             Transform playerTransform = GameObject.Find("Player").GetComponent<Transform>();
             EnemyWeapon weapon = GetComponentInChildren<EnemyWeapon>();
             NavMeshAgent agent = GetComponent<NavMeshAgent>();
+            Animator animator = GetComponentInChildren<Animator>();
 
             agent.updateRotation = false;
             agent.updateUpAxis = false;
@@ -44,15 +43,14 @@ namespace BehaviorTree
             Node[] tasksPool = new Node[]
             {
                 new BossAttackDash(transform, rb, playerTransform, this.damageCollider),
-                new BossAttackStomp(transform, playerTransform, spriteRenderer, shadow, damageCollider, bossCollider2D),
+                new BossAttackStomp(transform, playerTransform, spriteRenderer, damageCollider, bossCollider2D),
                 new BossAttackLaserFocus(lineRenderer, playerTransform, transform), new BossAttackSpawnObject(transform, mine),
                 new BossAttackSpawnObject(transform, turret), new BossAttackSpawnObject(transform, clone, new Vector3(3, 3, 3)),
                 new BossAttack360Shot(transform, bullet), new BossAttackShield(shieldGenerator, bossCollider2D), new BossAttackShockwave(shockWave)
             };
 
-            const float attackSpeed = 15f;
+            const float attackSpeed = 1f;
             damageCollider.enabled = false;
-            shadow.enabled = false;
             shieldGenerator.SetActive(false);
 
             SharedData sharedData = new SharedData();
@@ -87,7 +85,7 @@ namespace BehaviorTree
                             new TaskAimAt(rb, weapon, playerTransform),
                             new TaskPickTargetAroundTransforms(playerTransform, minDistanceFromPlayer,
                                 maxDistanceFromPlayer),
-                            new TaskMoveToTarget(rb, agent, null, 1f),
+                            new TaskMoveToTarget(rb, agent, animator, 1f),
                             //new CheckIsAtTarget(),
                             new TaskAttackPlayer(weapon, attackSpeed),
                             new ChooseRandomAttackMove(tasks.Length),

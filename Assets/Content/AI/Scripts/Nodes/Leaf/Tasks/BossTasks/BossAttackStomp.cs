@@ -9,7 +9,6 @@ namespace BehaviorTree
         private Transform _stompTarget;
         private SpriteRenderer _bossVisual;
         private Transform _body;
-        private SpriteRenderer _shadow;
         private Collider2D _damageCollider;
         private Collider2D _bossCollider;
 
@@ -19,12 +18,11 @@ namespace BehaviorTree
         private bool _landPosSet = false;
         //Vector3 _landPos = Vector3.zero;
 
-        public BossAttackStomp(Transform body, Transform stompTarget, SpriteRenderer bossVisual, SpriteRenderer shadow, Collider2D damageCollider, Collider2D bossCollider)
+        public BossAttackStomp(Transform body, Transform stompTarget, SpriteRenderer bossVisual, Collider2D damageCollider, Collider2D bossCollider)
         {
             this._body = body;
             this._stompTarget = stompTarget;
             this._bossVisual = bossVisual;
-            this._shadow = shadow;
             this._damageCollider = damageCollider;
             this._bossCollider = bossCollider;
         }
@@ -41,14 +39,12 @@ namespace BehaviorTree
             {
                 //_landPos = _stompTarget.position;
                 _body.position = _stompTarget.position;
-                _shadow.enabled = true;
                 _landPosSet = true;
             }
 
             if (_timeCounter >= _waitTime - 0.1)
             {
                 _bossVisual.enabled = true;
-                _shadow.enabled = false;
                 _damageCollider.enabled = true;
                 _bossCollider.enabled = true;
             }
