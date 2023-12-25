@@ -49,7 +49,8 @@ namespace BehaviorTree
                 new BossAttack360Shot(transform, bullet), new BossAttackShield(shieldGenerator, bossCollider2D), new BossAttackShockwave(shockWave)
             };
 
-            const float attackSpeed = 1f;
+            const float attackSpeed = 15f;
+            const float abilityCooldown = 2f;
             damageCollider.enabled = false;
             shieldGenerator.SetActive(false);
 
@@ -82,24 +83,24 @@ namespace BehaviorTree
                         {
                             new Inverter(new ExpectData<AbilityState>(sharedData.AbilityState, AbilityState.Ability)),
                             new TaskSetLastKnownPlayerLocation(playerTransform),
-                            new TaskAimAt(rb, weapon, playerTransform),
+                            new TaskLookAt(playerTransform, rb, null),
                             new TaskPickTargetAroundTransforms(playerTransform, minDistanceFromPlayer,
                                 maxDistanceFromPlayer),
                             new TaskMoveToTarget(rb, agent, animator, 1f),
                             //new CheckIsAtTarget(),
                             new TaskAttackPlayer(weapon, attackSpeed),
                             new ChooseRandomAttackMove(tasks.Length),
-                            new TaskWait(2f, true),
+                            new TaskWait(abilityCooldown, true),
                             new SetData<AbilityState>(sharedData.AbilityState, AbilityState.Ability)
                         }),
                         new Sequence(new List<Node>
                         {
                             new ExpectData<AbilityState>(sharedData.AbilityState, AbilityState.Ability),
                             new TaskSetLastKnownPlayerLocation(playerTransform),
-                            new TaskAimAt(rb, weapon, playerTransform),
+                            new TaskLookAt(playerTransform, rb, null),
                             new TaskSetMovementSpeed(agent, 0),
                             //new RandomAttackMove(tasks),
-                            tasksPool[tasksPool.Length - 2],
+                            tasksPool[0], //tasksPool.Length - 2
                             new TaskSetMovementSpeed(agent, 3.5f),
                             new SetData<AbilityState>(sharedData.AbilityState, AbilityState.Cooldown)
                         }),
