@@ -9,7 +9,7 @@ using Random = UnityEngine.Random;
 public class SFXController : MonoBehaviour
 {
     [Header("Player Sound Clips")] public Sound playerPhoenix;
-    public Sound playerHit, playerShot, playerReloadStart, playerReloadEnd, playerDash;
+    public Sound playerHit, playerShot, playerShotEmpty, playerReloadStart, playerReloadEnd, playerDash;
 
     [Header("Enemy Sound Clips")] public Sound enemyHit;
     public Sound enemyShot, enemyDeath;
@@ -28,6 +28,7 @@ public class SFXController : MonoBehaviour
         Action playPlayerPhoenix = () => { _SchedulePlaySound(playerPhoenix); };
         Action playPlayerHit = () => { _SchedulePlaySound(playerHit); };
         Action playPlayerShot = () => { _SchedulePlaySound(playerShot); };
+        Action playPlayerShotEmpty = () => { _SchedulePlaySound(playerShotEmpty); };
         Action playPlayerReloadStart = () => { _SchedulePlaySound(playerReloadStart); };
         Action playPlayerReloadEnd = () => { _SchedulePlaySound(playerReloadEnd); };
         Action playPlayerDash = () => { _SchedulePlaySound(playerDash); };
@@ -46,7 +47,8 @@ public class SFXController : MonoBehaviour
         {
             EventManager.OnPlayerPhoenixed.Subscribe(playPlayerPhoenix);
             EventManager.OnPlayerHit.Subscribe(playPlayerHit);
-            EventManager.OnPlayerShotFired.Subscribe(playPlayerShot);
+            EventManager.OnPlayerShot.Subscribe(playPlayerShot);
+            EventManager.OnPlayerShotEmpty.Subscribe(playPlayerShotEmpty);
             EventManager.OnWeaponReloadStart.Subscribe(playPlayerReloadStart);
             EventManager.OnWeaponReloadEnd.Subscribe(playPlayerReloadEnd);
             EventManager.OnPlayerDash.Subscribe(playPlayerDash);
@@ -62,7 +64,8 @@ public class SFXController : MonoBehaviour
         {
             EventManager.OnPlayerPhoenixed.Unsubscribe(playPlayerPhoenix);
             EventManager.OnPlayerHit.Unsubscribe(playPlayerHit);
-            EventManager.OnPlayerShotFired.Unsubscribe(playPlayerShot);
+            EventManager.OnPlayerShot.Unsubscribe(playPlayerShot);
+            EventManager.OnPlayerShotEmpty.Unsubscribe(playPlayerShotEmpty);
             EventManager.OnWeaponReloadStart.Unsubscribe(playPlayerReloadStart);
             EventManager.OnWeaponReloadEnd.Unsubscribe(playPlayerReloadEnd);
             EventManager.OnPlayerDash.Unsubscribe(playPlayerDash);

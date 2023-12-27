@@ -33,7 +33,7 @@ public class UpgradeSmartPistol : Upgrade
             playertoEnemy.Normalize();
             playerWeapon.TryFire(false, false, playertoEnemy);
             UpgradeManager.OnFire(playerController, playerWeapon, playertoEnemy);
-            EventManager.OnPlayerShotFired.Trigger();
+            EventManager.OnPlayerShot.Trigger();
 
             // Turn sticky fingers and dashing on/off again
             PlayerData.stickyFingers = hasStickyFingers;

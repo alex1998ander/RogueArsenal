@@ -80,6 +80,12 @@ MonoBehaviour:
     pitchVariationRange: 0.2
     initialDelay: 0
     minTimeBetweenPlays: 0.05
+  playerShotEmpty:
+    audioClip: {fileID: 8300000, guid: 9b6d8464fcfad7044b4f516bd10f89f5, type: 3}
+    volumeScale: 0.1
+    pitchVariationRange: 0.2
+    initialDelay: 0
+    minTimeBetweenPlays: 0.05
   playerReloadStart:
     audioClip: {fileID: 8300000, guid: 6ddfbc4c2c3dc9b40a268dd2a8963cca, type: 3}
     volumeScale: 0.4

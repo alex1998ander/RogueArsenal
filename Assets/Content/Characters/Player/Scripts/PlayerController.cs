@@ -105,11 +105,12 @@ public class PlayerController : MonoBehaviour, ICharacterController
             if (playerWeapon.TryFire(true))
             {
                 UpgradeManager.OnFire(this, playerWeapon);
-                EventManager.OnPlayerShotFired.Trigger();
+                EventManager.OnPlayerShot.Trigger();
             }
             else
             {
                 UpgradeManager.OnMagazineEmptied(this, playerWeapon);
+                EventManager.OnPlayerShotEmpty.Trigger();
             }
         }
     }

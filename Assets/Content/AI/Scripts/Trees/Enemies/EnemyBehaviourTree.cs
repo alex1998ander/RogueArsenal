@@ -14,7 +14,7 @@ namespace BehaviorTree
 
         protected override Node SetupTree()
         {
-            EventManager.OnPlayerShotFired.Subscribe(HearPlayerShotFired);
+            EventManager.OnPlayerShot.Subscribe(HearPlayerShotFired);
             EventManager.OnPlayerPhoenixed.Subscribe(ForgetPlayer);
 
             Node root = new Node();
@@ -23,7 +23,7 @@ namespace BehaviorTree
 
         private void OnDestroy()
         {
-            EventManager.OnPlayerShotFired.Unsubscribe(HearPlayerShotFired);
+            EventManager.OnPlayerShot.Unsubscribe(HearPlayerShotFired);
             EventManager.OnPlayerPhoenixed.Unsubscribe(ForgetPlayer);
         }
 

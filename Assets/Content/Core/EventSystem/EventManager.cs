@@ -16,7 +16,8 @@ public static class EventManager
     public static readonly Event OnPlayerHit = new();
     public static readonly Event OnPlayerDeath = new();
     public static readonly Event OnPlayerPhoenixed = new();
-    public static readonly Event OnPlayerShotFired = new();
+    public static readonly Event OnPlayerShot = new();
+    public static readonly Event OnPlayerShotEmpty = new();
     public static readonly Event OnPlayerBulletDestroyed = new();
     public static readonly Event OnPlayerDash = new();
 
