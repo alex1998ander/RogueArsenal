@@ -34,6 +34,7 @@ public static class EventManager
     public static readonly Event OnPhoenixRevive = new();
     public static readonly Event OnShockwave = new();
     public static readonly Event OnStimpack = new();
+    public static readonly Event OnTimefreeze = new();
 
     #endregion
 

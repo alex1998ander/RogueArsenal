@@ -164,6 +164,12 @@ MonoBehaviour:
     pitchVariationRange: 0
     initialDelay: 0
     minTimeBetweenPlays: 0
+  timefreeze:
+    audioClip: {fileID: 8300000, guid: ec84d12332ec82144a00133817544b60, type: 3}
+    volumeScale: 0.5
+    pitchVariationRange: 0
+    initialDelay: 0
+    minTimeBetweenPlays: 0
 --- !u!82 &6242518293217424204
 AudioSource:
   m_ObjectHideFlags: 0

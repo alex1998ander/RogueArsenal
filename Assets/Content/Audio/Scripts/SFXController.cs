@@ -15,7 +15,7 @@ public class SFXController : MonoBehaviour
     public Sound enemyShot, enemyDeath;
 
     [Header("Other Sound Clips")] public Sound bulletDestroyed;
-    public Sound currencyCollectSound, explosion, bulletBounce, healingField, shockwave, stimpack;
+    public Sound currencyCollectSound, explosion, bulletBounce, healingField, shockwave, stimpack, timefreeze;
 
     // Audio Source to play sounds
     private AudioSource _audioSource;
@@ -46,7 +46,7 @@ public class SFXController : MonoBehaviour
         Action playHealingField = () => { _SchedulePlaySound(healingField); };
         Action playShockwave = () => { _SchedulePlaySound(shockwave); };
         Action playStimpack = () => { _SchedulePlaySound(stimpack); };
-
+        Action playTimefreeze = () => { _SchedulePlaySound(timefreeze, true); };
 
         // TODO: Potentially unnecessary to continuously subscribe/unsubscribe?
         SceneManager.sceneLoaded += (scene, mode) =>
@@ -69,6 +69,7 @@ public class SFXController : MonoBehaviour
             EventManager.OnHealingFieldStart.Subscribe(playHealingField);
             EventManager.OnShockwave.Subscribe(playShockwave);
             EventManager.OnStimpack.Subscribe(playStimpack);
+            EventManager.OnTimefreeze.Subscribe(playTimefreeze);
         };
 
         SceneManager.sceneUnloaded += scene =>
@@ -91,6 +92,7 @@ public class SFXController : MonoBehaviour
             EventManager.OnHealingFieldStart.Unsubscribe(playHealingField);
             EventManager.OnShockwave.Unsubscribe(playShockwave);
             EventManager.OnStimpack.Unsubscribe(playStimpack);
+            EventManager.OnTimefreeze.Unsubscribe(playTimefreeze);
         };
     }
 
@@ -98,34 +100,42 @@ public class SFXController : MonoBehaviour
     /// Schedules the playing of a given sound.
     /// </summary>
     /// <param name="sound">The given sound to play</param>
-    private void _SchedulePlaySound(Sound sound)
+    /// <param name="ignoreTimescale">Whether the current game time scale should be ignored when pitching the sound</param>
+    private void _SchedulePlaySound(Sound sound, bool ignoreTimescale = false)
     {
         if (sound.initialDelay > 0)
-            StartCoroutine(PlaySoundDelayed(sound));
+            StartCoroutine(PlaySoundDelayed(sound, ignoreTimescale));
         else
-            _PlaySound(sound);
+            _PlaySound(sound, ignoreTimescale);
     }
 
     /// <summary>
     /// Plays a given sound after its delay.
     /// </summary>
     /// <param name="sound">The given sound to play</param>
-    private IEnumerator PlaySoundDelayed(Sound sound)
+    /// <param name="ignoreTimescale">Whether the current game time scale should be ignored when pitching the sound</param>
+    private IEnumerator PlaySoundDelayed(Sound sound, bool ignoreTimescale = false)
     {
         yield return new WaitForSeconds(sound.initialDelay);
-        _PlaySound(sound);
+        _PlaySound(sound, ignoreTimescale);
     }
 
     /// <summary>
     /// Plays a given sound.
     /// </summary>
     /// <param name="sound">The given sound to play</param>
-    private void _PlaySound(Sound sound)
+    /// <param name="ignoreTimescale">Whether the current game time scale should be ignored when pitching the sound</param>
+    private void _PlaySound(Sound sound, bool ignoreTimescale = false)
     {
         if (Time.time >= sound.NextPossiblePlayTimestamp)
         {
             sound.NextPossiblePlayTimestamp = Time.time + sound.minTimeBetweenPlays;
-            _audioSource.pitch = Random.Range(1f - sound.pitchVariationRange, 1f + sound.pitchVariationRange);
+
+            float randomPitch = Random.Range(1f - sound.pitchVariationRange, 1f + sound.pitchVariationRange);
+            if (!ignoreTimescale)
+                randomPitch *= TimeController.GetTimeScale();
+            _audioSource.pitch = randomPitch;
+
             _audioSource.PlayOneShot(sound.audioClip, sound.volumeScale);
         }
     }

@@ -2,7 +2,6 @@
 
 public static class TimeController
 {
-    
     private static float _timeScale = 1f;
 
     public static void PauseGame()
@@ -29,4 +28,8 @@ public static class TimeController
         Time.timeScale = _timeScale;
     }
 
+    public static float GetTimeScale()
+    {
+        return _timeScale;
+    }
 }

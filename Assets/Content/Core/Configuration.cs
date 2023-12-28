@@ -96,6 +96,6 @@ public class Configuration
     public const float Stimpack_Duration = 5f;
 
     // Upgrade: Timefreeze
-    public const float Timefreeze_Duration = 3f;
+    public const float Timefreeze_Duration = 1f;
     public const float Timefreeze_TimeScale = 0.5f;
 }
