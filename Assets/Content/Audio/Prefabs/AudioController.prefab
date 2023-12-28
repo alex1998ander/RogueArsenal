@@ -146,6 +146,12 @@ MonoBehaviour:
     pitchVariationRange: 0.2
     initialDelay: 0
     minTimeBetweenPlays: 0.05
+  healingField:
+    audioClip: {fileID: 8300000, guid: 55d406d75cbc14f488b23cbafbed47c3, type: 3}
+    volumeScale: 0.2
+    pitchVariationRange: 0
+    initialDelay: 0
+    minTimeBetweenPlays: 0
 --- !u!82 &6242518293217424204
 AudioSource:
   m_ObjectHideFlags: 0

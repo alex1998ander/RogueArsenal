@@ -5,14 +5,14 @@ using UnityEngine;
 
 public class HealingField : MonoBehaviour
 {
-
     [SerializeField] private float healingPowerPer100MS = 5f;
     [SerializeField] private float radius = 1.5f;
     [SerializeField] private LayerMask targetLayer;
-    
+
     private void Start()
     {
         StartCoroutine(HealCharacter());
+        EventManager.OnHealingFieldStart.Trigger();
     }
 
     private IEnumerator HealCharacter()
