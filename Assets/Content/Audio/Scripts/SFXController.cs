@@ -15,7 +15,7 @@ public class SFXController : MonoBehaviour
     public Sound enemyShot, enemyDeath;
 
     [Header("Other Sound Clips")] public Sound bulletDestroyed;
-    public Sound currencyCollectSound, explosion;
+    public Sound currencyCollectSound, explosion, bulletBounce;
 
     // Audio Source to play sounds
     private AudioSource _audioSource;
@@ -42,6 +42,7 @@ public class SFXController : MonoBehaviour
         Action playBulletDestroyed = () => { _SchedulePlaySound(bulletDestroyed); };
         Action playCurrencyCollectSound = () => { _SchedulePlaySound(currencyCollectSound); };
         Action playExplosion = () => { _SchedulePlaySound(explosion); };
+        Action playBulletBounce = () => { _SchedulePlaySound(bulletBounce); };
 
         // TODO: Potentially unnecessary to continuously subscribe/unsubscribe?
         SceneManager.sceneLoaded += (scene, mode) =>
@@ -60,6 +61,7 @@ public class SFXController : MonoBehaviour
             EventManager.OnEnemyBulletDestroyed.Subscribe(playBulletDestroyed);
             EventManager.OnPlayerCollectCurrency.Subscribe(playCurrencyCollectSound);
             EventManager.OnExplosiveBulletExplosion.Subscribe(playExplosion);
+            EventManager.OnBulletBounce.Subscribe(playBulletBounce);
         };
 
         SceneManager.sceneUnloaded += scene =>
@@ -78,6 +80,7 @@ public class SFXController : MonoBehaviour
             EventManager.OnEnemyBulletDestroyed.Unsubscribe(playBulletDestroyed);
             EventManager.OnPlayerCollectCurrency.Unsubscribe(playCurrencyCollectSound);
             EventManager.OnExplosiveBulletExplosion.Unsubscribe(playExplosion);
+            EventManager.OnBulletBounce.Unsubscribe(playBulletBounce);
         };
     }
 

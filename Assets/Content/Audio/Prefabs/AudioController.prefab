@@ -140,6 +140,12 @@ MonoBehaviour:
     pitchVariationRange: 0.2
     initialDelay: 0
     minTimeBetweenPlays: 0.05
+  bulletBounce:
+    audioClip: {fileID: 8300000, guid: 155f1e389cb80ba4fb0a9438e19a9113, type: 3}
+    volumeScale: 0.2
+    pitchVariationRange: 0.2
+    initialDelay: 0
+    minTimeBetweenPlays: 0.05
 --- !u!82 &6242518293217424204
 AudioSource:
   m_ObjectHideFlags: 0
