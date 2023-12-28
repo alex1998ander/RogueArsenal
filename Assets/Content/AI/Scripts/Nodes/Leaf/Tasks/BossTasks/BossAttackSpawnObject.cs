@@ -23,15 +23,6 @@ namespace BehaviorTree
             this._object = objectToSpawn;
             this._scaling = scaling;
         }
-        
-        public BossAttackSpawnObject(Transform positionToSpawn, GameObject objectToSpawn, GameObject shield)
-        {
-            this._positionToSpawn = positionToSpawn;
-            this._object = objectToSpawn;
-            _positionToSpawn.position += new Vector3(0, 3, 0);
-            this._shield = shield;
-            shieldActivate = true;
-        }
 
         public override NodeState Evaluate()
         {

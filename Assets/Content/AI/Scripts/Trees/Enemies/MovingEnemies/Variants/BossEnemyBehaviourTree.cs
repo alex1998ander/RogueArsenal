@@ -45,12 +45,12 @@ namespace BehaviorTree
             {
                 new BossAttackDash(transform, rb, playerTransform, this.damageCollider),
                 new BossAttackStomp(transform, playerTransform, spriteRenderer, damageCollider, bossCollider2D, ui),
-                new BossAttackLaserFocus(lineRenderer, playerTransform, transform), new BossAttackSpawnObject(transform, mine),
+                new BossAttackLaserFocus(lineRenderer, playerTransform, transform), new BossAttackSpawnObject(playerTransform, mine),
                 new BossAttackSpawnObject(transform, turret), new BossAttackSpawnObject(transform, clone, new Vector3(1.5f, 1.5f, 1.5f)),
                 new BossAttack360Shot(transform, bullet), new BossAttackShield(shieldGenerator, bossCollider2D), new BossAttackShockwave(shockWave)
             };
 
-            const float attackSpeed = 1.5f;
+            const float attackSpeed = 0.75f;
             const float abilityCooldown = 5f;
             damageCollider.enabled = false;
             shieldGenerator.SetActive(false);
@@ -101,8 +101,8 @@ namespace BehaviorTree
                             new TaskSetLastKnownPlayerLocation(playerTransform),
                             new TaskLookAt(playerTransform, rb, null),
                             new TaskSetMovementSpeed(agent, 0),
-                            new RandomAttackMove(tasks),
-                            //tasksPool[0], //tasksPool.Length - 2
+                            //new RandomAttackMove(tasks),
+                            tasksPool[3], //tasksPool.Length - 2
                             new TaskSetMovementSpeed(agent, 3.5f),
                             new SetData<AbilityState>(sharedData.AbilityState, AbilityState.Cooldown)
                         }),
