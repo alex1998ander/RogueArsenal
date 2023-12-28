@@ -35,5 +35,6 @@ public class UpgradeExplosiveBullet : Upgrade
         }
 
         UpgradeSpawnablePrefabHolder.SpawnPrefab(UpgradeSpawnablePrefabHolder.instance.explosiveBullet, playerBullet.transform.position, 1f);
+        EventManager.OnExplosiveBulletExplosion.Trigger();
     }
 }

@@ -15,7 +15,7 @@ public class SFXController : MonoBehaviour
     public Sound enemyShot, enemyDeath;
 
     [Header("Other Sound Clips")] public Sound bulletDestroyed;
-    public Sound currencyCollectSound;
+    public Sound currencyCollectSound, explosion;
 
     // Audio Source to play sounds
     private AudioSource _audioSource;
@@ -41,11 +41,12 @@ public class SFXController : MonoBehaviour
         // Other sounds
         Action playBulletDestroyed = () => { _SchedulePlaySound(bulletDestroyed); };
         Action playCurrencyCollectSound = () => { _SchedulePlaySound(currencyCollectSound); };
+        Action playExplosion = () => { _SchedulePlaySound(explosion); };
 
         // TODO: Potentially unnecessary to continuously subscribe/unsubscribe?
         SceneManager.sceneLoaded += (scene, mode) =>
         {
-            EventManager.OnPlayerPhoenixed.Subscribe(playPlayerPhoenix);
+            EventManager.OnPhoenixRevive.Subscribe(playPlayerPhoenix);
             EventManager.OnPlayerHit.Subscribe(playPlayerHit);
             EventManager.OnPlayerShot.Subscribe(playPlayerShot);
             EventManager.OnPlayerShotEmpty.Subscribe(playPlayerShotEmpty);
@@ -58,11 +59,12 @@ public class SFXController : MonoBehaviour
             EventManager.OnPlayerBulletDestroyed.Subscribe(playBulletDestroyed);
             EventManager.OnEnemyBulletDestroyed.Subscribe(playBulletDestroyed);
             EventManager.OnPlayerCollectCurrency.Subscribe(playCurrencyCollectSound);
+            EventManager.OnExplosiveBulletExplosion.Subscribe(playExplosion);
         };
 
         SceneManager.sceneUnloaded += scene =>
         {
-            EventManager.OnPlayerPhoenixed.Unsubscribe(playPlayerPhoenix);
+            EventManager.OnPhoenixRevive.Unsubscribe(playPlayerPhoenix);
             EventManager.OnPlayerHit.Unsubscribe(playPlayerHit);
             EventManager.OnPlayerShot.Unsubscribe(playPlayerShot);
             EventManager.OnPlayerShotEmpty.Unsubscribe(playPlayerShotEmpty);
@@ -75,6 +77,7 @@ public class SFXController : MonoBehaviour
             EventManager.OnPlayerBulletDestroyed.Unsubscribe(playBulletDestroyed);
             EventManager.OnEnemyBulletDestroyed.Unsubscribe(playBulletDestroyed);
             EventManager.OnPlayerCollectCurrency.Unsubscribe(playCurrencyCollectSound);
+            EventManager.OnExplosiveBulletExplosion.Unsubscribe(playExplosion);
         };
     }
 

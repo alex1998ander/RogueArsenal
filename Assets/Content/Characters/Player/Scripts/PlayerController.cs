@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
 
         UpgradeManager.Init(this);
 
-        EventManager.OnPlayerPhoenixed.Subscribe(OnPhoenixed);
+        EventManager.OnPhoenixRevive.Subscribe(OnPhoenixed);
     }
 
     void FixedUpdate()
@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
 
     private void OnDestroy()
     {
-        EventManager.OnPlayerPhoenixed.Unsubscribe(OnPhoenixed);
+        EventManager.OnPhoenixRevive.Unsubscribe(OnPhoenixed);
     }
 
     #region PlayerActions

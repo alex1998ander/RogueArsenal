@@ -134,6 +134,12 @@ MonoBehaviour:
     pitchVariationRange: 0.1
     initialDelay: 0
     minTimeBetweenPlays: 0
+  explosion:
+    audioClip: {fileID: 8300000, guid: 4e489b0281700104dbd1e9b7ede25da9, type: 3}
+    volumeScale: 0.15
+    pitchVariationRange: 0.2
+    initialDelay: 0
+    minTimeBetweenPlays: 0.05
 --- !u!82 &6242518293217424204
 AudioSource:
   m_ObjectHideFlags: 0

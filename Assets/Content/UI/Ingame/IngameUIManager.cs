@@ -15,7 +15,7 @@ public class IngameUIManager : MonoBehaviour
         EventManager.OnPlayerAmmoUpdate.Subscribe(AmmoUpdate);
         EventManager.OnWeaponReloadStart.Subscribe(Reload);
         EventManager.OnPlayerAbilityUsed.Subscribe(AbilityUsed);
-        EventManager.OnPlayerPhoenixed.Subscribe(Phoenixed);
+        EventManager.OnPhoenixRevive.Subscribe(Phoenixed);
         EventManager.OnPlayerCollectCurrency.Subscribe(CollectedCurrency);
         EventManager.OnUpgradeChange.Subscribe(UpgradeChange);
         
@@ -85,7 +85,7 @@ public class IngameUIManager : MonoBehaviour
         EventManager.OnPlayerAmmoUpdate.Unsubscribe(AmmoUpdate);
         EventManager.OnWeaponReloadStart.Unsubscribe(Reload);
         EventManager.OnPlayerAbilityUsed.Unsubscribe(AbilityUsed);
-        EventManager.OnPlayerPhoenixed.Unsubscribe(Phoenixed);
+        EventManager.OnPhoenixRevive.Unsubscribe(Phoenixed);
         EventManager.OnPlayerCollectCurrency.Unsubscribe(CollectedCurrency);
         EventManager.OnUpgradeChange.Unsubscribe(UpgradeChange);
     }

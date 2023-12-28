@@ -9,7 +9,7 @@ public class PlayerVisualsController : MonoBehaviour
     private void Start()
     {
         EventManager.OnPlayerHealthUpdate.Subscribe(DamageHealFlicker);
-        EventManager.OnPlayerPhoenixed.Subscribe(OnPhoenixed);
+        EventManager.OnPhoenixRevive.Subscribe(OnPhoenixed);
     }
 
     private void DamageHealFlicker(float healthChange)
@@ -48,6 +48,6 @@ public class PlayerVisualsController : MonoBehaviour
     private void OnDestroy()
     {
         EventManager.OnPlayerHealthUpdate.Unsubscribe(DamageHealFlicker);
-        EventManager.OnPlayerPhoenixed.Unsubscribe(OnPhoenixed);
+        EventManager.OnPhoenixRevive.Unsubscribe(OnPhoenixed);
     }
 }
