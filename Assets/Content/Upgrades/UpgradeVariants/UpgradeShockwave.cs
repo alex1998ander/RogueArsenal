@@ -30,5 +30,7 @@ public class UpgradeShockwave : Upgrade
             if (results[i].gameObject.GetComponent<ICharacterController>().ThrowCharacter())
                 results[i].attachedRigidbody.AddForce(playertoEnemy.normalized * throwStrength);
         }
+
+        EventManager.OnShockwave.Trigger();
     }
 }
