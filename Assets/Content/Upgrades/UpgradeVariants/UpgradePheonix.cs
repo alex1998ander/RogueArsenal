@@ -24,7 +24,7 @@ public class UpgradePhoenix : Upgrade
             EventManager.OnPlayerHealthUpdate.Trigger(PlayerData.health);
 
             PlayerData.phoenixed = true;
-            EventManager.OnPlayerPhoenixed.Trigger();
+            EventManager.OnPhoenixRevive.Trigger();
         }
     }
 }

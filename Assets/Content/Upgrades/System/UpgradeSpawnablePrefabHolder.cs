@@ -5,8 +5,9 @@ public class UpgradeSpawnablePrefabHolder : MonoBehaviour
     public static UpgradeSpawnablePrefabHolder instance;
 
     [Header("Upgrade Prefabs")] [SerializeField]
-    public GameObject healingFieldPrefab;
+    public GameObject explosiveBullet;
 
+    [SerializeField] public GameObject healingFieldPrefab;
     [SerializeField] public GameObject mentalMeltdownPrefab;
     [SerializeField] public GameObject phoenixPrefab;
     [SerializeField] public GameObject shockwavePrefab;
@@ -28,6 +29,7 @@ public class UpgradeSpawnablePrefabHolder : MonoBehaviour
     /// <param name="position">World position to spawn instance</param>
     /// <param name="lifetime">Lifetime of instance</param>
     /// <param name="parentObject">GameObject to parent instance to</param>
+    /// <returns>The spawned instance</returns>
     public static void SpawnPrefab(GameObject prefab, Vector3 position, float lifetime, GameObject parentObject = null)
     {
         GameObject prefabInstance = Instantiate(prefab, position, Quaternion.identity);

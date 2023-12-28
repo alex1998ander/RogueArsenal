@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6651c2e6a4b482f8efc82175531070d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosiveBullet: {fileID: 2366838196180119498, guid: eca3ddb7639c5df469f8c4eda6dd2318, type: 3}
   healingFieldPrefab: {fileID: 5263074500707566537, guid: fe83cdc0ba7afca48861f6ca5d1f95bd, type: 3}
   mentalMeltdownPrefab: {fileID: 2538890594126050242, guid: a03f95e946bd87d47872117ff115995a, type: 3}
   phoenixPrefab: {fileID: 4472850322237418088, guid: a13fac04aabaa874b8f28fcb1e3e8322, type: 3}

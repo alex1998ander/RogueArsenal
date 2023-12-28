@@ -15,12 +15,26 @@ public static class EventManager
     public static readonly Event OnPlayerCollectCurrency = new();
     public static readonly Event OnPlayerHit = new();
     public static readonly Event OnPlayerDeath = new();
-    public static readonly Event OnPlayerPhoenixed = new();
-    public static readonly Event OnPlayerShotFired = new();
+
+    public static readonly Event OnPlayerShot = new();
+    public static readonly Event OnPlayerShotEmpty = new();
     public static readonly Event OnPlayerBulletDestroyed = new();
     public static readonly Event OnPlayerDash = new();
 
-    public static readonly Event OnWeaponReload = new();
+    public static readonly Event OnWeaponReloadStart = new();
+    public static readonly Event OnWeaponReloadEnd = new();
+
+    #endregion
+
+    #region Upgrade Events
+
+    public static readonly Event OnBulletBounce = new();
+    public static readonly Event OnExplosiveBulletExplosion = new();
+    public static readonly Event OnHealingFieldStart = new();
+    public static readonly Event OnPhoenixRevive = new();
+    public static readonly Event OnShockwave = new();
+    public static readonly Event OnStimpack = new();
+    public static readonly Event OnTimefreeze = new();
 
     #endregion
 

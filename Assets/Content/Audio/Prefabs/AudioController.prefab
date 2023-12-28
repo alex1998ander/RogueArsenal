@@ -67,46 +67,109 @@ MonoBehaviour:
     volumeScale: 0.6
     pitchVariationRange: 0
     initialDelay: 1.3
+    minTimeBetweenPlays: 0
   playerHit:
     audioClip: {fileID: 8300000, guid: 89e0e513ddf424342afaae6b080fe9df, type: 3}
     volumeScale: 0.1
     pitchVariationRange: 0.1
     initialDelay: 0
+    minTimeBetweenPlays: 0
   playerShot:
     audioClip: {fileID: 8300000, guid: a533147658105d841a5455884ed95017, type: 3}
-    volumeScale: 0.8
+    volumeScale: 0.1
     pitchVariationRange: 0.2
     initialDelay: 0
+    minTimeBetweenPlays: 0.05
+  playerShotEmpty:
+    audioClip: {fileID: 8300000, guid: 9b6d8464fcfad7044b4f516bd10f89f5, type: 3}
+    volumeScale: 0.1
+    pitchVariationRange: 0.2
+    initialDelay: 0
+    minTimeBetweenPlays: 0.05
+  playerReloadStart:
+    audioClip: {fileID: 8300000, guid: 6ddfbc4c2c3dc9b40a268dd2a8963cca, type: 3}
+    volumeScale: 0.4
+    pitchVariationRange: 0
+    initialDelay: 0
+    minTimeBetweenPlays: 0
+  playerReloadEnd:
+    audioClip: {fileID: 8300000, guid: b865e48f462e5074599c336fc0762410, type: 3}
+    volumeScale: 0.4
+    pitchVariationRange: 0
+    initialDelay: 0
+    minTimeBetweenPlays: 0
   playerDash:
     audioClip: {fileID: 8300000, guid: 1c65eb8400003b54e81905ad22b58df4, type: 3}
     volumeScale: 0.1
     pitchVariationRange: 0.1
     initialDelay: 0
+    minTimeBetweenPlays: 0
   enemyHit:
     audioClip: {fileID: 8300000, guid: 5e1d7de50fe86bb41ab1667f486ace30, type: 3}
     volumeScale: 0.2
     pitchVariationRange: 0.1
     initialDelay: 0
+    minTimeBetweenPlays: 0
   enemyShot:
-    audioClip: {fileID: 8300000, guid: 86eda0e4e227669419600df6ccffaa15, type: 3}
-    volumeScale: 0.4
-    pitchVariationRange: 0.2
+    audioClip: {fileID: 8300000, guid: 5eed84d76da8b9b4385cd2c7f448156c, type: 3}
+    volumeScale: 0.15
+    pitchVariationRange: 0.1
     initialDelay: 0
+    minTimeBetweenPlays: 0
   enemyDeath:
     audioClip: {fileID: 8300000, guid: 4a7e7301663be98448d6f19dc0128c37, type: 3}
     volumeScale: 0.4
     pitchVariationRange: 0.3
     initialDelay: 0
+    minTimeBetweenPlays: 0
   bulletDestroyed:
     audioClip: {fileID: 8300000, guid: bddfd64d262c3d74183950ea1e3a6447, type: 3}
     volumeScale: 0.6
     pitchVariationRange: 0.1
     initialDelay: 0
+    minTimeBetweenPlays: 0
   currencyCollectSound:
     audioClip: {fileID: 8300000, guid: c10ab038608c13b4596ff46d3bbb8084, type: 3}
     volumeScale: 0.4
     pitchVariationRange: 0.1
     initialDelay: 0
+    minTimeBetweenPlays: 0
+  explosion:
+    audioClip: {fileID: 8300000, guid: 4e489b0281700104dbd1e9b7ede25da9, type: 3}
+    volumeScale: 0.15
+    pitchVariationRange: 0.2
+    initialDelay: 0
+    minTimeBetweenPlays: 0.05
+  bulletBounce:
+    audioClip: {fileID: 8300000, guid: 155f1e389cb80ba4fb0a9438e19a9113, type: 3}
+    volumeScale: 0.2
+    pitchVariationRange: 0.2
+    initialDelay: 0
+    minTimeBetweenPlays: 0.05
+  healingField:
+    audioClip: {fileID: 8300000, guid: 55d406d75cbc14f488b23cbafbed47c3, type: 3}
+    volumeScale: 0.2
+    pitchVariationRange: 0
+    initialDelay: 0
+    minTimeBetweenPlays: 0
+  shockwave:
+    audioClip: {fileID: 8300000, guid: 28cb53a553743a944a61cd378aedb0f8, type: 3}
+    volumeScale: 0.2
+    pitchVariationRange: 0
+    initialDelay: 0
+    minTimeBetweenPlays: 0
+  stimpack:
+    audioClip: {fileID: 8300000, guid: 6684a3df74793684783404f8fabd880e, type: 3}
+    volumeScale: 0.4
+    pitchVariationRange: 0
+    initialDelay: 0
+    minTimeBetweenPlays: 0
+  timefreeze:
+    audioClip: {fileID: 8300000, guid: ec84d12332ec82144a00133817544b60, type: 3}
+    volumeScale: 0.5
+    pitchVariationRange: 0
+    initialDelay: 0
+    minTimeBetweenPlays: 0
 --- !u!82 &6242518293217424204
 AudioSource:
   m_ObjectHideFlags: 0
