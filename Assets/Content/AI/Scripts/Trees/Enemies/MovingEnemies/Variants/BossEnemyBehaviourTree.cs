@@ -22,6 +22,7 @@ namespace BehaviorTree
         [SerializeField] private GameObject shieldGenerator;
         [SerializeField] private GameObject bullet;
         [SerializeField] private GameObject shockWave;
+        [SerializeField] private GameObject ui;
 
         protected override Node SetupTree()
         {
@@ -43,9 +44,9 @@ namespace BehaviorTree
             Node[] tasksPool = new Node[]
             {
                 new BossAttackDash(transform, rb, playerTransform, this.damageCollider),
-                new BossAttackStomp(transform, playerTransform, spriteRenderer, damageCollider, bossCollider2D),
+                new BossAttackStomp(transform, playerTransform, spriteRenderer, damageCollider, bossCollider2D, ui),
                 new BossAttackLaserFocus(lineRenderer, playerTransform, transform), new BossAttackSpawnObject(transform, mine),
-                new BossAttackSpawnObject(transform, turret), new BossAttackSpawnObject(transform, clone, new Vector3(3, 3, 3)),
+                new BossAttackSpawnObject(transform, turret), new BossAttackSpawnObject(transform, clone, new Vector3(1.5f, 1.5f, 1.5f)),
                 new BossAttack360Shot(transform, bullet), new BossAttackShield(shieldGenerator, bossCollider2D), new BossAttackShockwave(shockWave)
             };
 
@@ -53,6 +54,7 @@ namespace BehaviorTree
             const float abilityCooldown = 2f;
             damageCollider.enabled = false;
             shieldGenerator.SetActive(false);
+            shockWave.SetActive(false);
 
             SharedData sharedData = new SharedData();
             sharedData.SetData(sharedData.AbilityState, AbilityState.None);
@@ -60,14 +62,14 @@ namespace BehaviorTree
 
 
             int[] taskCounter = {-1, -1, -1};
-            while (taskCounter[0] == taskCounter[1] && taskCounter[1] == taskCounter[2] && taskCounter[0] == taskCounter[2])
+            while ((taskCounter[0] == taskCounter[1]) || (taskCounter[1] == taskCounter[2]) || (taskCounter[0] == taskCounter[2]))
             {
                 for (int i = 0; i < taskCounter.Length; i++)
                 {
                     taskCounter[i] = Random.Range(0, tasksPool.Length - 1);
                 }
             }
-
+            Debug.Log(taskCounter[0]+"      "+taskCounter[1]+"      "+taskCounter[2]);
             Node[] tasks = {tasksPool[taskCounter[0]], tasksPool[taskCounter[1]], tasksPool[taskCounter[2]]};
 
             Node root = new Selector(new List<Node>
@@ -99,8 +101,8 @@ namespace BehaviorTree
                             new TaskSetLastKnownPlayerLocation(playerTransform),
                             new TaskLookAt(playerTransform, rb, null),
                             new TaskSetMovementSpeed(agent, 0),
-                            //new RandomAttackMove(tasks),
-                            tasksPool[0], //tasksPool.Length - 2
+                            new RandomAttackMove(tasks),
+                            //tasksPool[8], //tasksPool.Length - 2
                             new TaskSetMovementSpeed(agent, 3.5f),
                             new SetData<AbilityState>(sharedData.AbilityState, AbilityState.Cooldown)
                         }),

@@ -5,7 +5,7 @@ namespace BehaviorTree
 {
     public class BossAttackDash : Node
     {
-        private float _waitTime = 2f;
+        private float _waitTime = 3f;
 
         private float _timeCounter;
         
