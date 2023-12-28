@@ -50,8 +50,8 @@ namespace BehaviorTree
                 new BossAttack360Shot(transform, bullet), new BossAttackShield(shieldGenerator, bossCollider2D), new BossAttackShockwave(shockWave)
             };
 
-            const float attackSpeed = 15f;
-            const float abilityCooldown = 2f;
+            const float attackSpeed = 1.5f;
+            const float abilityCooldown = 5f;
             damageCollider.enabled = false;
             shieldGenerator.SetActive(false);
             shockWave.SetActive(false);
@@ -69,7 +69,7 @@ namespace BehaviorTree
                     taskCounter[i] = Random.Range(0, tasksPool.Length - 1);
                 }
             }
-            Debug.Log(taskCounter[0]+"      "+taskCounter[1]+"      "+taskCounter[2]);
+            
             Node[] tasks = {tasksPool[taskCounter[0]], tasksPool[taskCounter[1]], tasksPool[taskCounter[2]]};
 
             Node root = new Selector(new List<Node>
@@ -102,7 +102,7 @@ namespace BehaviorTree
                             new TaskLookAt(playerTransform, rb, null),
                             new TaskSetMovementSpeed(agent, 0),
                             new RandomAttackMove(tasks),
-                            //tasksPool[8], //tasksPool.Length - 2
+                            //tasksPool[0], //tasksPool.Length - 2
                             new TaskSetMovementSpeed(agent, 3.5f),
                             new SetData<AbilityState>(sharedData.AbilityState, AbilityState.Cooldown)
                         }),

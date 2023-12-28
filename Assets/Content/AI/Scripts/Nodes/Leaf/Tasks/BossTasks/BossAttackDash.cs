@@ -7,6 +7,8 @@ namespace BehaviorTree
     {
         private float _waitTime = 3f;
 
+        private const float DashForce = 1200f;
+
         private float _timeCounter;
         
         private Transform _dashTarget;
@@ -40,7 +42,7 @@ namespace BehaviorTree
             }
             if (_timeCounter >= _waitTime/2 && _damageZoneCollider.enabled == false)
             {
-                _rigidbody2D.AddForce(_dashDir * 1500f);
+                _rigidbody2D.AddForce(_dashDir * DashForce);
                 _damageZoneCollider.enabled = true;
             }
             if (_timeCounter >= _waitTime)
