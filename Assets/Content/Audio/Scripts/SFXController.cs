@@ -15,7 +15,7 @@ public class SFXController : MonoBehaviour
     public Sound enemyShot, enemyDeath;
 
     [Header("Other Sound Clips")] public Sound bulletDestroyed;
-    public Sound currencyCollectSound, explosion, bulletBounce, healingField;
+    public Sound currencyCollectSound, explosion, bulletBounce, healingField, shockwave, stimpack;
 
     // Audio Source to play sounds
     private AudioSource _audioSource;
@@ -44,6 +44,9 @@ public class SFXController : MonoBehaviour
         Action playExplosion = () => { _SchedulePlaySound(explosion); };
         Action playBulletBounce = () => { _SchedulePlaySound(bulletBounce); };
         Action playHealingField = () => { _SchedulePlaySound(healingField); };
+        Action playShockwave = () => { _SchedulePlaySound(shockwave); };
+        Action playStimpack = () => { _SchedulePlaySound(stimpack); };
+
 
         // TODO: Potentially unnecessary to continuously subscribe/unsubscribe?
         SceneManager.sceneLoaded += (scene, mode) =>
@@ -64,6 +67,8 @@ public class SFXController : MonoBehaviour
             EventManager.OnExplosiveBulletExplosion.Subscribe(playExplosion);
             EventManager.OnBulletBounce.Subscribe(playBulletBounce);
             EventManager.OnHealingFieldStart.Subscribe(playHealingField);
+            EventManager.OnShockwave.Subscribe(playShockwave);
+            EventManager.OnStimpack.Subscribe(playStimpack);
         };
 
         SceneManager.sceneUnloaded += scene =>
@@ -84,6 +89,8 @@ public class SFXController : MonoBehaviour
             EventManager.OnExplosiveBulletExplosion.Unsubscribe(playExplosion);
             EventManager.OnBulletBounce.Unsubscribe(playBulletBounce);
             EventManager.OnHealingFieldStart.Unsubscribe(playHealingField);
+            EventManager.OnShockwave.Unsubscribe(playShockwave);
+            EventManager.OnStimpack.Unsubscribe(playStimpack);
         };
     }
 

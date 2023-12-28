@@ -152,6 +152,18 @@ MonoBehaviour:
     pitchVariationRange: 0
     initialDelay: 0
     minTimeBetweenPlays: 0
+  shockwave:
+    audioClip: {fileID: 8300000, guid: 28cb53a553743a944a61cd378aedb0f8, type: 3}
+    volumeScale: 0.2
+    pitchVariationRange: 0
+    initialDelay: 0
+    minTimeBetweenPlays: 0
+  stimpack:
+    audioClip: {fileID: 8300000, guid: 6684a3df74793684783404f8fabd880e, type: 3}
+    volumeScale: 0.4
+    pitchVariationRange: 0
+    initialDelay: 0
+    minTimeBetweenPlays: 0
 --- !u!82 &6242518293217424204
 AudioSource:
   m_ObjectHideFlags: 0

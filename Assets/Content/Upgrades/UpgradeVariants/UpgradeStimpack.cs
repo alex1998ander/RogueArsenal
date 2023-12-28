@@ -14,5 +14,7 @@
             () => BulletDamage = 0f,
             Configuration.Stimpack_Duration)
         );
+
+        EventManager.OnStimpack.Trigger();
     }
 }
