@@ -111,9 +111,9 @@ MonoBehaviour:
     initialDelay: 0
     minTimeBetweenPlays: 0
   enemyShot:
-    audioClip: {fileID: 8300000, guid: 86eda0e4e227669419600df6ccffaa15, type: 3}
-    volumeScale: 0.4
-    pitchVariationRange: 0.2
+    audioClip: {fileID: 8300000, guid: 5eed84d76da8b9b4385cd2c7f448156c, type: 3}
+    volumeScale: 0.15
+    pitchVariationRange: 0.1
     initialDelay: 0
     minTimeBetweenPlays: 0
   enemyDeath:
