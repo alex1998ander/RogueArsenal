@@ -2,18 +2,11 @@
 
 public static class TimeController
 {
-    
     private static float _timeScale = 1f;
 
-    public static void PauseGame()
+    public static void PauseGame(bool enabled)
     {
-        _timeScale = 0f;
-        Time.timeScale = _timeScale;
-    }
-
-    public static void ResumeGame()
-    {
-        _timeScale = 1f;
+        _timeScale = enabled ? 0f : 1f;
         Time.timeScale = _timeScale;
     }
 
@@ -28,5 +21,4 @@ public static class TimeController
         _timeScale = 1f;
         Time.timeScale = _timeScale;
     }
-
 }

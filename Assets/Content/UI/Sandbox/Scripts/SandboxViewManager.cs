@@ -1,10 +1,9 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class SandboxViewManager : MonoBehaviour
 {
     [SerializeField] private UpgradePanelView upgradePanelDetailsView;
-    [FormerlySerializedAs("sandboxIconGridView")] [SerializeField] private SandboxDetailPanelIconGridView sandboxDetailPanelIconGridView;
+    [SerializeField] private SandboxDetailPanelIconGridView sandboxDetailPanelIconGridView;
     [SerializeField] private StringButtonView applyButton;
     [SerializeField] private StringButtonView optionsButton;
     [SerializeField] private StringButtonView mainMenuButton;

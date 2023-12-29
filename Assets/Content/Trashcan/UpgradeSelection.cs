@@ -52,7 +52,7 @@ public class UpgradeSelection : MonoBehaviour
         if (ProgressionManager.UpgradeReady)
         {
             UpgradeManager.BindUpgrade(cardIdx);
-            ProgressionManager.SetupNextUpgrade();
+            ProgressionManager.BuyUpgrade();
             Debug.Log("Weapon Upgrade");
         }
         else
@@ -60,6 +60,6 @@ public class UpgradeSelection : MonoBehaviour
             Debug.Log("SHOULD NOT SEE THIS");
         }
 
-        LevelManager.LoadNextLevel();
+        LevelManager.Continue();
     }
 }

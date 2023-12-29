@@ -1,5 +1,3 @@
-using UnityEngine;
-
 /// <summary>
 /// Manager for low level game states
 /// </summary>
@@ -7,18 +5,10 @@ public static class GameManager
 {
     public static bool GamePaused { get; private set; }
 
-    public static void TogglePause()
+    public static void Pause()
     {
-        if (GamePaused)
-        {
-            TimeController.ResumeGame();
-        }
-        else
-        {
-            TimeController.PauseGame();
-        }
-
         GamePaused = !GamePaused;
+        TimeController.PauseGame(GamePaused);
         EventManager.OnPauseGame.Trigger(GamePaused);
     }
 }
