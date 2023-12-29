@@ -14,16 +14,9 @@ public class UpgradeExplosiveBullet : Upgrade
 
     private readonly LayerMask _targetLayer = LayerMask.GetMask("Player", "Enemies");
 
-    public override bool OnBulletTrigger(PlayerBullet playerBullet, Collider2D other)
+    public override void OnBulletDestroy(PlayerBullet playerBullet)
     {
         _SpawnExplosion(playerBullet);
-        return false;
-    }
-
-    public override bool OnBulletCollision(PlayerBullet playerBullet, Collision2D collision)
-    {
-        _SpawnExplosion(playerBullet);
-        return false;
     }
 
     private void _SpawnExplosion(PlayerBullet playerBullet)
@@ -31,7 +24,7 @@ public class UpgradeExplosiveBullet : Upgrade
         Collider2D[] rangeCheck = Physics2D.OverlapCircleAll(playerBullet.transform.position, Configuration.ExplosiveBullet_Radius, _targetLayer);
         foreach (Collider2D targetCollider in rangeCheck)
         {
-            targetCollider.GetComponent<ICharacterHealth>().InflictDamage(Configuration.ExplosiveBullet_Damage);
+            targetCollider.GetComponentInChildren<ICharacterHealth>().InflictDamage(Configuration.ExplosiveBullet_Damage);
         }
 
         UpgradeSpawnablePrefabHolder.SpawnPrefab(UpgradeSpawnablePrefabHolder.instance.explosiveBullet, playerBullet.transform.position, 1f);
