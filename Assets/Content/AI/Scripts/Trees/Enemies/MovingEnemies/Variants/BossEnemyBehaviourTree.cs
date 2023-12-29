@@ -105,7 +105,7 @@ namespace BehaviorTree
                             new TaskLookAt(playerTransform, rb, null),
                             new TaskSetMovementSpeed(agent, 0),
                             new RandomAttackMove(tasks),
-                            //tasksPool[3], //tasksPool.Length - 2
+                            //tasksPool[tasksPool.Length - 2], //tasksPool.Length - 2
                             new TaskSetMovementSpeed(agent, 3.5f),
                             new SetData<AbilityState>(sharedData.AbilityState, AbilityState.Cooldown)
                         }),

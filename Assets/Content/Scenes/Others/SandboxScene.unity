@@ -53014,6 +53014,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 246007608086859832, guid: f43f83361cda54048b4f50595954404f, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 246007608086859832, guid: f43f83361cda54048b4f50595954404f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 246007608086859832, guid: f43f83361cda54048b4f50595954404f, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1679456885
+      objectReference: {fileID: 0}
+    - target: {fileID: 246007608086859832, guid: f43f83361cda54048b4f50595954404f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 675711986732708715, guid: f43f83361cda54048b4f50595954404f, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1386397755596586544, guid: f43f83361cda54048b4f50595954404f, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
       value: 1
