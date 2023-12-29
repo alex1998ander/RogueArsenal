@@ -3,7 +3,7 @@
     public override string Name => "Stimpack";
     public override UpgradeIdentification UpgradeIdentification => UpgradeIdentification.Stimpack;
     public override UpgradeType UpgradeType => UpgradeType.Ability;
-    public override string Description => "";
+    public override string Description => "Damage multiplier for a short duration";
 
     public override void OnAbility(PlayerController playerController, PlayerWeapon playerWeapon)
     {

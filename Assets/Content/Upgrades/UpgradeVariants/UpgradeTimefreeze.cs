@@ -3,7 +3,7 @@
     public override string Name => "Timefreeze";
     public override UpgradeIdentification UpgradeIdentification => UpgradeIdentification.Timefreeze;
     public override UpgradeType UpgradeType => UpgradeType.Ability;
-    public override string Description => "";
+    public override string Description => "Slows down time so you have more time to think about your mistake";
 
     public override void OnAbility(PlayerController playerController, PlayerWeapon playerWeapon)
     {
