@@ -177,18 +177,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba46bce3e439cdd489820f759add8589, type: 3}
---- !u!1 &8098458909443012984 stripped
+--- !u!1 &260221667950224925 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 7000351342101315975, guid: ba46bce3e439cdd489820f759add8589, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1358329203599744738, guid: ba46bce3e439cdd489820f759add8589, type: 3}
   m_PrefabInstance: {fileID: 1244610933344598271}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4201760150517501843
+--- !u!114 &7455721220963869408
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8098458909443012984}
+  m_GameObject: {fileID: 260221667950224925}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c68c75ab3457309458eb92dad368fd26, type: 3}
@@ -197,7 +197,7 @@ MonoBehaviour:
   wallLayer:
     serializedVersion: 2
     m_Bits: 256
-  movementSpeed: 5
+  movementSpeed: 20
   movementAcceleration: 30
-  minDistanceFromPlayer: 1
-  maxDistanceFromPlayer: 2
+  minDistanceFromPlayer: 4
+  maxDistanceFromPlayer: 6

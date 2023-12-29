@@ -11,15 +11,11 @@ public class AudioController : MonoBehaviour
 
     private void Awake()
     {
+        if (_instance != null)
+            Destroy(_instance.gameObject);
+
+        _instance = this;
         DontDestroyOnLoad(gameObject);
-        if (_instance == null)
-        {
-            _instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
     }
 
     /// <summary>

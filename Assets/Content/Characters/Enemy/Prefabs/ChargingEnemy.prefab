@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6897090847805330873
+--- !u!1 &1542388889299360263
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3910948449633608074}
-  - component: {fileID: 3965942547888825849}
-  - component: {fileID: 1986559776799917470}
+  - component: {fileID: 7920823305348838043}
+  - component: {fileID: 6586600090566268458}
+  - component: {fileID: 2159040945188584003}
   m_Layer: 13
   m_Name: ContactDamageZone
   m_TagString: Enemy
@@ -18,41 +18,41 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3910948449633608074
+--- !u!4 &7920823305348838043
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6897090847805330873}
+  m_GameObject: {fileID: 1542388889299360263}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5039621941748428165}
-  m_RootOrder: 2
+  m_Father: {fileID: 6910014811840088113}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3965942547888825849
+--- !u!114 &6586600090566268458
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6897090847805330873}
+  m_GameObject: {fileID: 1542388889299360263}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9375d9710a1b164d81fdc8ac2d7aab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   contactDamage: 35
---- !u!61 &1986559776799917470
+--- !u!61 &2159040945188584003
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6897090847805330873}
+  m_GameObject: {fileID: 1542388889299360263}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -177,18 +177,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba46bce3e439cdd489820f759add8589, type: 3}
---- !u!1 &3178048879812695894 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7000351342101315975, guid: ba46bce3e439cdd489820f759add8589, type: 3}
+--- !u!4 &6910014811840088113 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1358329203599744736, guid: ba46bce3e439cdd489820f759add8589, type: 3}
   m_PrefabInstance: {fileID: 5565478178470794961}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1160020143437838422
+--- !u!1 &6910014811840088115 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1358329203599744738, guid: ba46bce3e439cdd489820f759add8589, type: 3}
+  m_PrefabInstance: {fileID: 5565478178470794961}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6708876548403151155
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3178048879812695894}
+  m_GameObject: {fileID: 6910014811840088115}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76383c2d6cc9d4e45b8d5ba2c4992863, type: 3}
@@ -201,14 +206,9 @@ MonoBehaviour:
   movementAcceleration: 30
   minDistanceFromPlayer: 2
   maxDistanceFromPlayer: 3
-  damageZoneCollider: {fileID: 1986559776799917470}
+  damageZoneCollider: {fileID: 2159040945188584003}
   chargingSpeed: 20
   chargingAcceleration: 100
   preChargeTime: 1
   postChargeTime: 1
   chargePastPlayerDistance: 2
---- !u!4 &5039621941748428165 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 634120924221504340, guid: ba46bce3e439cdd489820f759add8589, type: 3}
-  m_PrefabInstance: {fileID: 5565478178470794961}
-  m_PrefabAsset: {fileID: 0}
