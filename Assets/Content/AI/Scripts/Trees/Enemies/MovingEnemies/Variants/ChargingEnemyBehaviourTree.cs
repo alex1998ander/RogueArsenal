@@ -72,7 +72,7 @@ namespace BehaviorTree
                             new ExpectData<ChargeState>(sharedData.ChargeState, ChargeState.None),
                             new CheckPlayerVisible(rb, playerTransform, wallLayer),
                             new TaskSetLastKnownPlayerLocation(playerTransform),
-                            new TaskAimAt(rb, enemyWeapon, playerTransform),
+                            // new TaskAimAt(rb, enemyWeapon, playerTransform),
                             new TaskPickTargetAroundTransforms(playerTransform, minDistanceFromPlayer,
                                 maxDistanceFromPlayer),
                             new TaskMoveToTarget(rb, agent, animator, 1f),

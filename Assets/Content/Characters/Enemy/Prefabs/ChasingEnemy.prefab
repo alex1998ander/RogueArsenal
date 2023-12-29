@@ -52,6 +52,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1358329203599744738, guid: ba46bce3e439cdd489820f759add8589, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+    - target: {fileID: 1358329203599744738, guid: ba46bce3e439cdd489820f759add8589, type: 3}
       propertyPath: m_Name
       value: ChasingEnemy
       objectReference: {fileID: 0}
@@ -153,7 +157,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8752020241937266114, guid: ba46bce3e439cdd489820f759add8589, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.589
+      value: 0.119
       objectReference: {fileID: 0}
     - target: {fileID: 9220590938802281169, guid: ba46bce3e439cdd489820f759add8589, type: 3}
       propertyPath: m_LocalScale.x
