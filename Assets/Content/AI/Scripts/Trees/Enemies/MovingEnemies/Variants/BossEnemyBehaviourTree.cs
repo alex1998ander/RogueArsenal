@@ -27,6 +27,9 @@ namespace BehaviorTree
         protected override Node SetupTree()
         {
             base.SetupTree();
+            
+            const float attackSpeed = 0.75f;
+            const float abilityCooldown = 5f;
 
             Collider2D bossCollider2D = GetComponent<BoxCollider2D>();
             LineRenderer lineRenderer = GetComponent<LineRenderer>();
@@ -38,20 +41,20 @@ namespace BehaviorTree
             NavMeshAgent agent = GetComponent<NavMeshAgent>();
             Animator animator = GetComponentInChildren<Animator>();
 
+            //For the nav mesh agent
             agent.updateRotation = false;
             agent.updateUpAxis = false;
 
+            //All abilities the boss can have
             Node[] tasksPool = new Node[]
             {
                 new BossAttackDash(transform, rb, playerTransform, this.damageCollider),
                 new BossAttackStomp(transform, playerTransform, spriteRenderer, damageCollider, bossCollider2D, ui),
-                new BossAttackLaserFocus(lineRenderer, playerTransform, transform), new BossAttackSpawnObject(playerTransform, mine),
+                new BossAttackLaserFocus(lineRenderer, playerTransform, transform), new BossAttackSpawnObject(playerTransform, mine, new Vector3(0.5f, 0.5f, 0.5f)),
                 new BossAttackSpawnObject(transform, turret), new BossAttackSpawnObject(transform, clone, new Vector3(1.5f, 1.5f, 1.5f)),
                 new BossAttack360Shot(transform, bullet), new BossAttackShield(shieldGenerator, bossCollider2D), new BossAttackShockwave(shockWave)
             };
-
-            const float attackSpeed = 0.75f;
-            const float abilityCooldown = 5f;
+            
             damageCollider.enabled = false;
             shieldGenerator.SetActive(false);
             shockWave.SetActive(false);
@@ -60,7 +63,7 @@ namespace BehaviorTree
             sharedData.SetData(sharedData.AbilityState, AbilityState.None);
             sharedData.SetData(sharedData.RandomAbility, -1);
 
-
+            //Each round the boss gets three of the abilities that can be used 
             int[] taskCounter = {-1, -1, -1};
             while ((taskCounter[0] == taskCounter[1]) || (taskCounter[1] == taskCounter[2]) || (taskCounter[0] == taskCounter[2]))
             {
@@ -101,8 +104,8 @@ namespace BehaviorTree
                             new TaskSetLastKnownPlayerLocation(playerTransform),
                             new TaskLookAt(playerTransform, rb, null),
                             new TaskSetMovementSpeed(agent, 0),
-                            //new RandomAttackMove(tasks),
-                            tasksPool[3], //tasksPool.Length - 2
+                            new RandomAttackMove(tasks),
+                            //tasksPool[3], //tasksPool.Length - 2
                             new TaskSetMovementSpeed(agent, 3.5f),
                             new SetData<AbilityState>(sharedData.AbilityState, AbilityState.Cooldown)
                         }),
