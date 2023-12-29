@@ -23,6 +23,7 @@ public static class LevelManager
     private static BlurController _currentBlurController;
 
     private static bool _pauseMenuActive;
+    private static bool _pauseAllowed;
     private static bool _sandboxActive;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
@@ -56,7 +57,8 @@ public static class LevelManager
     public static void StartGame()
     {
         UpgradeManager.ResetUpgrades();
-        LoadRandomLevel();
+        LoadLobbyLevel();
+        _pauseAllowed = true;
     }
 
     public static void Continue()
@@ -82,15 +84,20 @@ public static class LevelManager
         }
     }
 
-    public static void ShowUpgradeSelection(bool enabled)
+    private static void ShowUpgradeSelection(bool enabled)
     {
         TimeController.PauseGame(enabled);
         _upgradeSelectionRoot.SetActive(enabled);
         _currentBlurController.EnableBlur(enabled);
+        _pauseAllowed = false;
     }
 
-    public static void ShowPauseMenu(bool enabled)
+    private static void ShowPauseMenu(bool enabled)
     {
+        if (!_pauseAllowed)
+        {
+            return;
+        }
         _settingsRoot.SetActive(false);
         _pauseSceneRoot.SetActive(enabled);
         _currentBlurController.EnableBlur(enabled);
@@ -109,7 +116,9 @@ public static class LevelManager
 
     public static void LoadSandboxLevel()
     {
+        UpgradeManager.ResetUpgrades();
         _sandboxActive = true;
+        _pauseAllowed = true;
         SwitchLevelAsync("Assets/Content/Scenes/Others/SandboxScene.unity", _currentActiveScene);
         EventManager.OnLevelEnter.Trigger();
 
@@ -123,17 +132,26 @@ public static class LevelManager
         };   
     }
     
+    private static void LoadLobbyLevel()
+    {
+        SwitchLevelAsync("Assets/Content/Scenes/Levels/LevelLobby.unity", _currentActiveScene);
+        EventManager.OnLevelEnter.Trigger();
+        _pauseAllowed = true;
+    }
+    
     private static void LoadBossLevel()
     {
-        levelCounter++;
-        SceneManager.LoadScene(SceneManager.sceneCountInBuildSettings - 1);
+        SwitchLevelAsync("Assets/Content/Scenes/Levels/LevelBoss.unity", _currentActiveScene);
         EventManager.OnLevelEnter.Trigger();
+        _pauseAllowed = true;
     }
 
     private static void LoadMainMenu()
     {
+        SwitchLevelAsync("Assets/Content/Scenes/NewUI/UIMainMenu.unity", _currentActiveScene);
+        EventManager.OnLevelEnter.Trigger();
         _sandboxActive = false;
-        SceneManager.LoadScene(0);
+        _pauseAllowed = false;
         levelCounter = 0;
     }
 
@@ -151,7 +169,9 @@ public static class LevelManager
         levelCounter++;
         
         SwitchLevelAsync($"Assets/Content/Scenes/Levels/Level{nextSceneIdx}.unity", _currentActiveScene);
-
+        
+        _pauseAllowed = true;
+        
         ProgressionManager.IncreaseDifficultyLevel();
         EventManager.OnLevelEnter.Trigger();
     }

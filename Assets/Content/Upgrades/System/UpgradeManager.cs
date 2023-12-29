@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -122,7 +123,11 @@ public static class UpgradeManager
     /// <param name="upgradeIdentification">Upgrade identifier</param>
     public static void BindAllUpgrades_Sandbox()
     {
-        CurrentUpgrades.AddRange(DefaultUpgradePool);
+        foreach (var upgrade in DefaultUpgradePool.Where(upgrade => !CurrentUpgrades.Contains(upgrade)))
+        {
+            CurrentUpgrades.Add(upgrade);
+        }
+        
         IsPhoenixActive = true;
         
         Init(Object.FindObjectOfType<PlayerController>());
