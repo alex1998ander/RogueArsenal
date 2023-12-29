@@ -20,14 +20,16 @@ namespace BehaviorTree
         [SerializeField] private GameObject turret;
         [SerializeField] private GameObject clone;
         [SerializeField] private GameObject shieldGenerator;
-        [SerializeField] private GameObject shield;
         [SerializeField] private GameObject bullet;
-        [SerializeField] private SpriteRenderer shadow;
         [SerializeField] private GameObject shockWave;
+        [SerializeField] private GameObject ui;
 
         protected override Node SetupTree()
         {
             base.SetupTree();
+            
+            const float attackSpeed = 0.75f;
+            const float abilityCooldown = 5f;
 
             Collider2D bossCollider2D = GetComponent<BoxCollider2D>();
             LineRenderer lineRenderer = GetComponent<LineRenderer>();
@@ -37,39 +39,40 @@ namespace BehaviorTree
             Transform playerTransform = GameObject.Find("Player").GetComponent<Transform>();
             EnemyWeapon weapon = GetComponentInChildren<EnemyWeapon>();
             NavMeshAgent agent = GetComponent<NavMeshAgent>();
+            Animator animator = GetComponentInChildren<Animator>();
 
+            //For the nav mesh agent
             agent.updateRotation = false;
             agent.updateUpAxis = false;
 
+            //All abilities the boss can have
             Node[] tasksPool = new Node[]
             {
                 new BossAttackDash(transform, rb, playerTransform, this.damageCollider),
-                new BossAttackStomp(transform, playerTransform, spriteRenderer, shadow, damageCollider, bossCollider2D),
-                new BossAttackLaserFocus(lineRenderer, playerTransform, transform), new BossAttackSpawnObject(transform, mine),
-                new BossAttackSpawnObject(transform, turret), new BossAttackSpawnObject(transform, clone, new Vector3(3, 3, 3)),
+                new BossAttackStomp(transform, playerTransform, spriteRenderer, damageCollider, bossCollider2D, ui),
+                new BossAttackLaserFocus(lineRenderer, playerTransform, transform), new BossAttackSpawnObject(playerTransform, mine, new Vector3(0.5f, 0.5f, 0.5f)),
+                new BossAttackSpawnObject(transform, turret), new BossAttackSpawnObject(transform, clone, new Vector3(1.5f, 1.5f, 1.5f)),
                 new BossAttack360Shot(transform, bullet), new BossAttackShield(shieldGenerator, bossCollider2D), new BossAttackShockwave(shockWave)
             };
-
-            const float attackSpeed = 15f;
-            const float abilityCooldown = 2f;
+            
             damageCollider.enabled = false;
-            shadow.enabled = false;
             shieldGenerator.SetActive(false);
+            shockWave.SetActive(false);
 
             SharedData sharedData = new SharedData();
             sharedData.SetData(sharedData.AbilityState, AbilityState.None);
             sharedData.SetData(sharedData.RandomAbility, -1);
 
-
+            //Each round the boss gets three of the abilities that can be used 
             int[] taskCounter = {-1, -1, -1};
-            while (taskCounter[0] == taskCounter[1] && taskCounter[1] == taskCounter[2] && taskCounter[0] == taskCounter[2])
+            while ((taskCounter[0] == taskCounter[1]) || (taskCounter[1] == taskCounter[2]) || (taskCounter[0] == taskCounter[2]))
             {
                 for (int i = 0; i < taskCounter.Length; i++)
                 {
                     taskCounter[i] = Random.Range(0, tasksPool.Length - 1);
                 }
             }
-
+            
             Node[] tasks = {tasksPool[taskCounter[0]], tasksPool[taskCounter[1]], tasksPool[taskCounter[2]]};
 
             Node root = new Selector(new List<Node>
@@ -88,7 +91,7 @@ namespace BehaviorTree
                             new TaskLookAt(playerTransform, rb, null),
                             new TaskPickTargetAroundTransforms(playerTransform, minDistanceFromPlayer,
                                 maxDistanceFromPlayer),
-                            new TaskMoveToTarget(rb, agent, null, 1f),
+                            new TaskMoveToTarget(rb, agent, animator, 1f),
                             //new CheckIsAtTarget(),
                             new TaskAttackPlayer(weapon, attackSpeed),
                             new ChooseRandomAttackMove(tasks.Length),
@@ -101,8 +104,8 @@ namespace BehaviorTree
                             new TaskSetLastKnownPlayerLocation(playerTransform),
                             new TaskLookAt(playerTransform, rb, null),
                             new TaskSetMovementSpeed(agent, 0),
-                            //new RandomAttackMove(tasks),
-                            tasksPool[0], //tasksPool.Length - 2
+                            new RandomAttackMove(tasks),
+                            //tasksPool[tasksPool.Length - 2], //tasksPool.Length - 2
                             new TaskSetMovementSpeed(agent, 3.5f),
                             new SetData<AbilityState>(sharedData.AbilityState, AbilityState.Cooldown)
                         }),

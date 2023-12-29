@@ -29,7 +29,7 @@ public class EnemyLandMine : MonoBehaviour
 
     IEnumerator startCountdown()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(3);
         if (_playerIsInRange)
         {
             _player.GetComponent<PlayerHealth>().InflictDamage(30, true);

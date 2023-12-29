@@ -43,7 +43,7 @@ public class EnemyShieldGenerator : MonoBehaviour, ICharacterHealth
 
     void Update()
     {
-        transform.RotateAround(transform.parent.transform.position,
+        transform.RotateAround(transform.parent.transform.position - new Vector3(0,0.7f,0), 
             new Vector3(0, 0, 1), 50 * Time.deltaTime);
     }
 }

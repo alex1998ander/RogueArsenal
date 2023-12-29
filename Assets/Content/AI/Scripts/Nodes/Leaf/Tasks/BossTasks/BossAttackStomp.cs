@@ -9,9 +9,9 @@ namespace BehaviorTree
         private Transform _stompTarget;
         private SpriteRenderer _bossVisual;
         private Transform _body;
-        private SpriteRenderer _shadow;
         private Collider2D _damageCollider;
         private Collider2D _bossCollider;
+        private GameObject _ui;
 
         private float _waitTime = 3f;
         private float _timeCounter;
@@ -19,14 +19,14 @@ namespace BehaviorTree
         private bool _landPosSet = false;
         //Vector3 _landPos = Vector3.zero;
 
-        public BossAttackStomp(Transform body, Transform stompTarget, SpriteRenderer bossVisual, SpriteRenderer shadow, Collider2D damageCollider, Collider2D bossCollider)
+        public BossAttackStomp(Transform body, Transform stompTarget, SpriteRenderer bossVisual, Collider2D damageCollider, Collider2D bossCollider,GameObject ui)
         {
             this._body = body;
             this._stompTarget = stompTarget;
             this._bossVisual = bossVisual;
-            this._shadow = shadow;
             this._damageCollider = damageCollider;
             this._bossCollider = bossCollider;
+            this._ui = ui;
         }
 
         public override NodeState Evaluate()
@@ -35,22 +35,22 @@ namespace BehaviorTree
 
             _bossVisual.enabled = false;
             _bossCollider.enabled = false;
+            _ui.SetActive(false);
 
             _timeCounter += Time.fixedDeltaTime;
             if (_timeCounter >= _waitTime / 2 && !_landPosSet)
             {
                 //_landPos = _stompTarget.position;
                 _body.position = _stompTarget.position;
-                _shadow.enabled = true;
                 _landPosSet = true;
             }
 
             if (_timeCounter >= _waitTime - 0.1)
             {
                 _bossVisual.enabled = true;
-                _shadow.enabled = false;
                 _damageCollider.enabled = true;
                 _bossCollider.enabled = true;
+                _ui.SetActive(true);
             }
 
             if (_timeCounter >= _waitTime)
