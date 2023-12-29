@@ -17,6 +17,9 @@ public class EnemyHealth : MonoBehaviour, ICharacterHealth
     /// <param name="fatal">ignored</param>
     public void InflictDamage(float damageAmount, bool fatal = false, bool ignoreInvulnerability = false)
     {
+        if (IsDead())
+            return;
+
         _currentHealth -= damageAmount;
 
         EventManager.OnEnemyDamage.Trigger(damageAmount);

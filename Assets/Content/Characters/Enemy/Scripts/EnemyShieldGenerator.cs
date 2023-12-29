@@ -23,6 +23,9 @@ public class EnemyShieldGenerator : MonoBehaviour, ICharacterHealth
     /// <param name="fatal">ignored</param>
     public void InflictDamage(float damageAmount, bool fatal = false, bool ignoreInvulnerability = false)
     {
+        if (IsDead())
+            return;
+
         _currentHealth -= damageAmount;
 
         // if enemy dies

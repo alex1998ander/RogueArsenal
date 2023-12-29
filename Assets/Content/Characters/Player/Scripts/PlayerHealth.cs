@@ -15,6 +15,9 @@ public class PlayerHealth : MonoBehaviour, ICharacterHealth
     /// <param name="ignoreInvulnerability">Whether player invulnerability should be ignored</param>
     public void InflictDamage(float damageAmount, bool fatal, bool ignoreInvulnerability = false)
     {
+        if (IsDead())
+            return;
+
         if (PlayerData.invulnerable && !ignoreInvulnerability)
             return;
 
