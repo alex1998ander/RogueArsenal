@@ -19,6 +19,11 @@ public class DPSMeasurer : MonoBehaviour, ICharacterHealth
         _damageCounter += damageAmount;
     }
 
+    public bool IsDead()
+    {
+        return false;
+    }
+
     private IEnumerator SetDpsText()
     {
         while (true)

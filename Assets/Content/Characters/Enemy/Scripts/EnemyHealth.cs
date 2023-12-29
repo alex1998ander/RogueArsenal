@@ -22,11 +22,16 @@ public class EnemyHealth : MonoBehaviour, ICharacterHealth
         EventManager.OnEnemyDamage.Trigger(damageAmount);
 
         // if enemy dies
-        if (_currentHealth <= 0)
+        if (IsDead())
         {
             EventManager.OnEnemyDeath.Trigger(transform.position);
             Destroy(gameObject.transform.root.gameObject);
         }
+    }
+
+    public bool IsDead()
+    {
+        return _currentHealth <= 0;
     }
 
     public Vector2 GetHealth()

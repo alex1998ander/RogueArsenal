@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorBehaviour : MonoBehaviour,ICharacterHealth
+public class DoorBehaviour : MonoBehaviour, ICharacterHealth
 {
     [SerializeField] private float maxHealth = 1f;
     private float _currentHealth;
@@ -24,9 +24,14 @@ public class DoorBehaviour : MonoBehaviour,ICharacterHealth
         //EventManager.OnEnemyDamage.Trigger(damageAmount);
 
         // if enemy dies
-        if (_currentHealth <= 0)
+        if (IsDead())
         {
             Destroy(gameObject);
         }
+    }
+
+    public bool IsDead()
+    {
+        return _currentHealth <= 0;
     }
 }

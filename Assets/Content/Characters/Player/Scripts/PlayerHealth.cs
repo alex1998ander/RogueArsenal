@@ -23,7 +23,7 @@ public class PlayerHealth : MonoBehaviour, ICharacterHealth
         EventManager.OnPlayerHealthUpdate.Trigger(-damageAmount);
 
         // if player dies
-        if (PlayerData.health <= 0)
+        if (IsDead())
         {
             // if player can die
             if (fatal)
@@ -44,6 +44,11 @@ public class PlayerHealth : MonoBehaviour, ICharacterHealth
                 PlayerData.health = 1;
             }
         }
+    }
+
+    public bool IsDead()
+    {
+        return PlayerData.health <= 0;
     }
 
     public void InflictContactDamage(float damageAmount)
