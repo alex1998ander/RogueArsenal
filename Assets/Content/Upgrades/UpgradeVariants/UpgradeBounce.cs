@@ -29,6 +29,8 @@ public class UpgradeBounce : Upgrade
         playerBullet.AdjustFacingMovementDirection();
         playerBullet.BouncesLeft--;
 
+        EventManager.OnBulletBounce.Trigger();
+
         return true;
     }
 }

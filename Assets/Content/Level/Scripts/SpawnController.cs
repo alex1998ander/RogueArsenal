@@ -97,7 +97,7 @@ public class SpawnController : MonoBehaviour
 
         foreach (Transform spawnPointTransform in randomSpawnpointTransforms)
         {
-            Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], spawnPointTransform.position, Quaternion.identity);
+            GameObject spawnedEnemy = Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], spawnPointTransform.position, Quaternion.identity, null);
         }
     }
 

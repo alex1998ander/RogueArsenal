@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public static class TimeController
 {
@@ -20,5 +20,10 @@ public static class TimeController
     {
         _timeScale = 1f;
         Time.timeScale = _timeScale;
+    }
+
+    public static float GetTimeScale()
+    {
+        return _timeScale;
     }
 }

@@ -28,6 +28,8 @@ public class UpgradeBurst : Upgrade
                 playerWeapon.TryFire(false, false, fireDirectionOverwrite);
             else
                 playerWeapon.TryFire(false);
+
+            EventManager.OnPlayerShot.Trigger();
         }
     }
 }

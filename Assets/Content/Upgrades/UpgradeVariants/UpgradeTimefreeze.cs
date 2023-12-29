@@ -16,5 +16,7 @@
             TimeController.ResetTimeScale,
             Configuration.Timefreeze_Duration / Configuration.Timefreeze_TimeScale)
         );
+
+        EventManager.OnTimefreeze.Trigger();
     }
 }

@@ -54,7 +54,8 @@ public class Configuration
     public const float DemonicPact_BaseHealAmount = 0.2f;
 
     // Upgrade: Explosive Bullet
-    public const float ExplosiveBullet_Radius = 1f;
+    public const float ExplosiveBullet_Damage = 300f;
+    public const float ExplosiveBullet_Radius = 100.5f;
 
     // Upgrade: Healing Field
     public const float HealingField_Duration = 1.5f;
@@ -95,6 +96,6 @@ public class Configuration
     public const float Stimpack_Duration = 5f;
 
     // Upgrade: Timefreeze
-    public const float Timefreeze_Duration = 3f;
+    public const float Timefreeze_Duration = 1f;
     public const float Timefreeze_TimeScale = 0.5f;
 }

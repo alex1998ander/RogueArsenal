@@ -50,7 +50,7 @@ public static class UpgradeManager
 
     public static Upgrade GetUpgradeFromIdentifier(UpgradeIdentification upgradeIdentification)
     {
-        return DefaultUpgradePool[(int)upgradeIdentification];
+        return DefaultUpgradePool[(int) upgradeIdentification];
     }
 
     public static Upgrade[] GenerateNewRandomUpgradeSelection(int count)
@@ -481,6 +481,18 @@ public static class UpgradeManager
         }
 
         return bulletSurvives;
+    }
+
+    /// <summary>
+    /// Executes the functionalities of all assigned upgrades when the bullet is destroyed
+    /// </summary>
+    /// <param name="playerBullet">The destroyed bullet</param>
+    public static void OnBulletDestroy(PlayerBullet playerBullet)
+    {
+        foreach (Upgrade upgrade in CurrentUpgrades)
+        {
+            upgrade.OnBulletDestroy(playerBullet);
+        }
     }
 
     /// <summary>

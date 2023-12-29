@@ -5,7 +5,7 @@ namespace Content.Characters.Enemy.Scripts
 {
     public class EnemyShockwave : MonoBehaviour
     {
-        private const float Radius = 5;
+        private const float Radius = 3;
         private const int PlayerForce = 15000;
         private const int PlayerDamage = 5;
 
@@ -23,7 +23,7 @@ namespace Content.Characters.Enemy.Scripts
             _shockwaveCollider.radius = 0.0001f;
         }
 
-        public void Start()
+        public void Awake()
         {
             _shockwave = GetComponent<ParticleSystem>();
             _shockwaveCollider = GetComponent<CircleCollider2D>();

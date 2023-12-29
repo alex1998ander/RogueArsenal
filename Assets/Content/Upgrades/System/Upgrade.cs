@@ -103,6 +103,12 @@ public abstract class Upgrade
     }
 
     /// <summary>
+    /// Optional functionality that is executed when the bullet is destroyed
+    /// </summary>
+    /// <param name="playerBullet">The destroyed bullet</param>
+    public virtual void OnBulletDestroy(PlayerBullet playerBullet) { }
+
+    /// <summary>
     /// Optional functionality that is executed when the player dies
     /// </summary>
     /// <param name="playerController">Player reference</param>
