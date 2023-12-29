@@ -6,7 +6,7 @@ public class UpgradeBounce : Upgrade
     public override UpgradeIdentification UpgradeIdentification => UpgradeIdentification.Bounce;
     public override UpgradeType UpgradeType => UpgradeType.Weapon;
     public override string FlavorText => "Inject your bullets with enthusiasm, turning your attacks into a lively pinball game.";
-    public override string Description => "Bullets bounce off of walls\n\nBullet Damage +25%";
+    public override string Description => "Bullets bounce off of walls";
 
     public override float BulletDamage => 0.25f;
 
