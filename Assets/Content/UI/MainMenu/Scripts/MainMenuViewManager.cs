@@ -10,6 +10,6 @@ public class MainMenuViewManager : MonoBehaviour
     {
         startButton.Initialize(LevelManager.StartGame);
         settingsButton.Initialize(() => LevelManager.ShowSettingsMenu(true));
-        sandboxButton.Initialize(null);
+        sandboxButton.Initialize(LevelManager.LoadSandboxLevel);
     }
 }

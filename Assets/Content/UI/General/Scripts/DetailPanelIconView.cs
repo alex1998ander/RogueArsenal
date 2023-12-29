@@ -18,13 +18,13 @@ public class DetailPanelIconView : IconView
         _upgradePanelDetailsView = upgradePanelDetailsView;
     }
 
-    public void OnUpgradeHoverEnter()
+    public virtual void OnUpgradeHoverEnter()
     {
         _upgradePanelDetailsView.InitializeUpgradePanelView(UpgradeManager.GetUpgradeFromIdentifier(_upgradeIdentification));
         upgradeIcon.color = new Color(1f, 1f, 1f, 0.7f);
     }
     
-    public void OnUpgradeHoverExit()
+    public virtual void OnUpgradeHoverExit()
     {
         upgradeIcon.color = new Color(1f, 1f, 1f, 1f);
     }

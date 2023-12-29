@@ -1557,7 +1557,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1903628174}
   - component: {fileID: 1903628171}
-  - component: {fileID: 1903628170}
   - component: {fileID: 1903628173}
   m_Layer: 0
   m_Name: UI Camera
@@ -1566,14 +1565,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1903628170
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1903628169}
-  m_Enabled: 1
 --- !u!20 &1903628171
 Camera:
   m_ObjectHideFlags: 0
@@ -1602,7 +1593,7 @@ Camera:
   field of view: 60
   orthographic: 1
   orthographic size: 500
-  m_Depth: -1
+  m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 32

@@ -2,18 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 public static class UpgradeManager
 {
     // upgrades
-    public static List<Upgrade> CurrentUpgrades { get; private set; } = new()
-    {
-        new UpgradeBurst(),
-        new UpgradeCarefulPlanning(),
-        new UpgradeDemonicPact(),
-        new UpgradeExplosiveBullet(),
-        new UpgradeGlassCannon()
-    };
+    public static List<Upgrade> CurrentUpgrades { get; private set; } = new();
 
     private static Upgrade[] _currentUpgradeSelection;
 
@@ -100,6 +94,8 @@ public static class UpgradeManager
         {
             IsPhoenixActive = true;
         }
+        
+        Init(Object.FindObjectOfType<PlayerController>());
     }
 
     /// <summary>
@@ -128,6 +124,8 @@ public static class UpgradeManager
     {
         CurrentUpgrades.AddRange(DefaultUpgradePool);
         IsPhoenixActive = true;
+        
+        Init(Object.FindObjectOfType<PlayerController>());
     }
 
     /// <summary>

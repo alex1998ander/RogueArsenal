@@ -27,22 +27,15 @@ public class SandboxDetailPanelIconView : DetailPanelIconView
         }
     }
 
-    public void OnUpgradeHoverEnter()
+    public override void OnUpgradeHoverEnter()
     {
         _upgradePanelDetailsView.InitializeUpgradePanelView(UpgradeManager.GetUpgradeFromIdentifier(_upgradeIdentification));
         SetIconHover();
     }
 
-    public void OnUpgradeHoverExit()
+    public override void OnUpgradeHoverExit()
     {
-        if (active)
-        {
-            SetIconEnabled();
-        }
-        else
-        {
-            SetIconDisabled();
-        }
+        upgradeIcon.color = active ? new Color(1f, 1f, 1f, 1f) : new Color(0.8f, 0.7f, 0.7f, 0.5f);
     }
 
     public void OnUpgradeClick()
@@ -108,7 +101,7 @@ public class SandboxDetailPanelIconView : DetailPanelIconView
             transform.localScale = new Vector3(scale, scale, scale);
             upgradeIcon.color = new Color(color.x, color.y, color.z, color.w);
 
-            time += Time.deltaTime;
+            time += Time.unscaledDeltaTime;
             yield return null;
         }
     }
