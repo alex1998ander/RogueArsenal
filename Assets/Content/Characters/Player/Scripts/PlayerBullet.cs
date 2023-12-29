@@ -77,6 +77,11 @@ public class PlayerBullet : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        UpgradeManager.OnBulletDestroy(this);
+    }
+
     /// <summary>
     /// Initializes this bullet and set its velocity
     /// </summary>

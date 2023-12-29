@@ -47,6 +47,7 @@ public class MainMenu : MonoBehaviour
     public void StartGame()
     {
         LevelManager.LoadNextLevel();
+        EventManager.OnStartGame.Trigger();
     }
 
     public void StartGameAtTheEnd()
