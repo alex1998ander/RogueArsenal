@@ -7,7 +7,7 @@ public class UpgradeSelectionViewManager : MonoBehaviour
     [SerializeField] private IconGridView upgradeIconView;
     [SerializeField] private TextMeshProUGUI upgradeInventoryHeaderText;
 
-    private void Start()
+    private void OnEnable()
     {
         var upgradeSelection = UpgradeManager.GenerateNewRandomUpgradeSelection(3);
         

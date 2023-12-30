@@ -91,7 +91,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
 
     private void FireWeapon()
     {
-        if (Time.time <= _fireCooldownEndTimestamp || _isDashing || GameManager.GamePaused)
+        if (Time.time <= _fireCooldownEndTimestamp || _isDashing || TimeController.GamePaused)
             return;
 
         if (Time.time <= _weaponReloadedTimeStamp)
@@ -192,7 +192,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
 
     private void OnMove(InputValue value)
     {
-        if (PlayerData.canMove && !GameManager.GamePaused)
+        if (PlayerData.canMove && !TimeController.GamePaused)
         {
             _movementInput = value.Get<Vector2>();
             playerVisualsAnimator.SetFloat(MovementDirectionX, _movementInput.x);
@@ -214,7 +214,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
 
     private void OnAbility()
     {
-        if (PlayerData.canUseAbility && !GameManager.GamePaused && Time.time > _abilityCooldownEndTimestamp)
+        if (PlayerData.canUseAbility && !TimeController.GamePaused && Time.time > _abilityCooldownEndTimestamp)
         {
             // This assignment has to be done before "UpgradeManager.OnAbility()" so that the variable can be overwritten by this function if necessary
             _abilityCooldownEndTimestamp = Time.time + PlayerData.abilityCooldown;
@@ -226,7 +226,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
 
     private void OnAim(InputValue value)
     {
-        if (PlayerData.canMove && !GameManager.GamePaused)
+        if (PlayerData.canMove && !TimeController.GamePaused)
         {
             _aimDirection = value.Get<Vector2>();
             if (Vector2.Distance(Vector2.zero, _aimDirection) > 0.5)
@@ -271,7 +271,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
 
     private void OnPause()
     {
-        GameManager.TogglePause();
+        TimeController.TogglePause();
     }
     
     #endregion

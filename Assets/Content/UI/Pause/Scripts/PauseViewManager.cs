@@ -10,11 +10,32 @@ public class PauseViewManager : MonoBehaviour
 
     private void Start()
     {
-        upgradeIconGridView.InitializeUpgradeView(UpgradeManager.CurrentUpgrades);
-        upgradePanelDetailsView.InitializeUpgradePanelView(UpgradeManager.GetUpgradeFromIdentifier(UpgradeIdentification.BigBullet));
-        
-        resumeButton.Initialize(GameManager.TogglePause);
+        resumeButton.Initialize(() => TimeController.PauseGame(false));
         mainMenuButton.Initialize(LevelManager.LoadMainMenu);
         settingsButton.Initialize(() => LevelManager.ShowSettingsMenu(true));
+    }
+
+    private void OnEnable()
+    {
+        if (upgradeIconGridView == null || upgradePanelDetailsView == null)
+        {
+            return;
+        }
+
+        var currentUpgrades = UpgradeManager.CurrentUpgrades;
+
+        if (currentUpgrades.Count == 0)
+        {
+            upgradePanelDetailsView.gameObject.SetActive(false);
+            upgradeIconGridView.gameObject.SetActive(false);
+        }
+        else
+        {
+            upgradePanelDetailsView.gameObject.SetActive(true);
+            upgradeIconGridView.gameObject.SetActive(true);
+            
+            upgradeIconGridView.InitializeUpgradeView(UpgradeManager.CurrentUpgrades);
+            upgradePanelDetailsView.InitializeUpgradePanelView(UpgradeManager.GetUpgradeFromIdentifier(UpgradeIdentification.BigBullet));
+        }
     }
 }

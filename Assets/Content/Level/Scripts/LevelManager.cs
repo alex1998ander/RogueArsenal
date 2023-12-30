@@ -104,7 +104,7 @@ public static class LevelManager
 
     private static void ShowUpgradeSelection(bool enabled)
     {
-        TimeController.PauseGame(enabled);
+        TimeController.ForcePauseGame(enabled);
         _upgradeSelectionRoot.SetActive(enabled);
         _currentBlurController.EnableBlur(enabled);
         _pauseAllowed = false;
@@ -130,7 +130,7 @@ public static class LevelManager
             _mainMenuUIRoot.SetActive(!enabled);
         }
 
-        if (GameManager.GamePaused)
+        if (gameState is GameState.Ingame or GameState.Boss or GameState.Sandbox)
         {
             _pauseSceneRoot.SetActive(!enabled);
         }
@@ -195,7 +195,7 @@ public static class LevelManager
 
     public static void LoadMainMenu()
     {
-        GameManager.Resume();
+        TimeController.ResetTimeScale();
         var asyncOperation = SceneManager.LoadSceneAsync("Assets/Content/Scenes/NewUI/UIMainMenu.unity", LoadSceneMode.Additive);
         asyncOperation.completed += _ =>
         {
@@ -205,6 +205,7 @@ public static class LevelManager
             SceneManager.SetActiveScene(_currentActiveScene);
             _currentBlurController = Object.FindFirstObjectByType<BlurController>();
             _mainMenuUIRoot = Object.FindFirstObjectByType<MainMenuViewManager>().gameObject;
+
         };
 
         if (gameState == GameState.Sandbox)
@@ -217,7 +218,7 @@ public static class LevelManager
             SceneManager.UnloadSceneAsync(SceneManager.GetSceneByPath("Assets/Content/Scenes/NewUI/UIPause.unity"));
             SceneManager.UnloadSceneAsync(SceneManager.GetSceneByPath("Assets/Content/Scenes/NewUI/UIUpgradeSelection.unity"));
         }
-
+        
         gameState = GameState.MainMenu;
         _pauseAllowed = false;
         levelCounter = 0;
