@@ -19,7 +19,7 @@ namespace BehaviorTree
 
             // Get relevant components
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
-            Transform playerTransform = GameObject.Find("Player").GetComponent<Transform>();
+            Transform playerTransform = FindObjectOfType<PlayerController>().GetComponent<Transform>();
             EnemyWeapon enemyWeapon = GetComponentInChildren<EnemyWeapon>();
             Animator animator = GetComponentInChildren<Animator>();
 

@@ -2,11 +2,13 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class SettingsView : MonoBehaviour
+public class SettingsViewManager : MonoBehaviour
 {
     [SerializeField] private ToggleView fullscreenToggle;
     [SerializeField] private ToggleView vSyncToggle;
     [SerializeField] private SelectionView resolutionSelection;
+    [SerializeField] private StringButtonView cancelButton;
+    [SerializeField] private StringButtonView applyButton;
     
     private List<Resolution> _resolutions;
 
@@ -39,6 +41,13 @@ public class SettingsView : MonoBehaviour
         }
         
         resolutionSelection.Initialize(_resolutions.Select(res => $"{res.width} x {res.height}").ToList(), selectedResolution, null);
+        
+        cancelButton.Initialize(() => LevelManager.ShowSettingsMenu(false));
+        applyButton.Initialize(() =>
+        {
+            ApplyGraphics();
+            LevelManager.ShowSettingsMenu(false);
+        });
     }
     
     public void ApplyGraphics()

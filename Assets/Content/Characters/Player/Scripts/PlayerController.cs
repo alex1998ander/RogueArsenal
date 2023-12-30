@@ -269,6 +269,11 @@ public class PlayerController : MonoBehaviour, ICharacterController
         }
     }
 
+    private void OnPause()
+    {
+        GameManager.TogglePause();
+    }
+    
     #endregion
 
     #region Sandbox

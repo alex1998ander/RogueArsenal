@@ -32,7 +32,7 @@ public class MusicController : MonoBehaviour
         // TODO: Define start soundtrack?
         _currentMusic = gameplayMusicSelection[0];
 
-        SceneManager.sceneLoaded += (scene, mode) =>
+        SceneManager.sceneLoaded += (_, _) =>
         {
             EventManager.OnLevelEnter.Subscribe(FadeRandomMainLoop);
             EventManager.OnLevelExit.Subscribe(FadeRandomUpgradeLoop);
@@ -40,7 +40,7 @@ public class MusicController : MonoBehaviour
             EventManager.OnPauseGame.Subscribe(MuffleMusic);
         };
 
-        SceneManager.sceneUnloaded += scene =>
+        SceneManager.sceneUnloaded += _ =>
         {
             EventManager.OnLevelEnter.Unsubscribe(FadeRandomMainLoop);
             EventManager.OnLevelExit.Unsubscribe(FadeRandomUpgradeLoop);
@@ -54,7 +54,7 @@ public class MusicController : MonoBehaviour
     /// <summary>
     /// Plays the intro of the current music. This cancels the currently playing track or a current fade.
     /// </summary>
-    public void PlayIntro()
+    private void PlayIntro()
     {
         _ResetAudioSources();
         _PlayAudioClipOnCurrentAudioSource(_currentMusic.intro);
@@ -74,7 +74,7 @@ public class MusicController : MonoBehaviour
     /// <summary>
     /// Fades music into a random main loop of the current music.
     /// </summary>
-    public void FadeRandomMainLoop()
+    private void FadeRandomMainLoop()
     {
         AudioClip[] mainLoops = _currentMusic.mainLoops;
         FadeMusic(mainLoops[Random.Range(0, mainLoops.Length)]);
@@ -83,7 +83,7 @@ public class MusicController : MonoBehaviour
     /// <summary>
     /// Plays a random upgrade loop of the current music. This cancels the currently playing track or a current fade.
     /// </summary>
-    public void PlayRandomUpgradeLoop()
+    private void PlayRandomUpgradeLoop()
     {
         _ResetAudioSources();
 
@@ -94,7 +94,7 @@ public class MusicController : MonoBehaviour
     /// <summary>
     /// Fades music into a random upgrade loop of the current music.
     /// </summary>
-    public void FadeRandomUpgradeLoop()
+    private void FadeRandomUpgradeLoop()
     {
         AudioClip[] upgradeLoops = _currentMusic.upgradeLoops;
         FadeMusic(upgradeLoops[Random.Range(0, upgradeLoops.Length)]);
@@ -104,18 +104,11 @@ public class MusicController : MonoBehaviour
     /// Apply or remove a damped effect to the current music track.
     /// </summary>
     /// <param name="enabled">Bool whether the effect is added or removed.</param>
-    public void MuffleMusic(bool enabled)
+    private void MuffleMusic(bool enabled)
     {
         if (!_currentlyPlaying) return;
 
-        if (enabled)
-        {
-            _audioSourceMusicCurrent.outputAudioMixerGroup.audioMixer.SetFloat("lowPassCutOff", 200f);
-        }
-        else
-        {
-            _audioSourceMusicCurrent.outputAudioMixerGroup.audioMixer.SetFloat("lowPassCutOff", 22000f);
-        }
+        _audioSourceMusicCurrent.outputAudioMixerGroup.audioMixer.SetFloat("lowPassCutOff", enabled ? 200f : 22000f);
     }
 
     /// <summary>
