@@ -60,6 +60,7 @@ namespace BehaviorTree
             {
                 state = NodeState.SUCCESS;
                 SetData(sharedData.IsAtTarget, true);
+                ClearData(sharedData.Target);
             }
 
             return state;

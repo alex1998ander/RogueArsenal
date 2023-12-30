@@ -2,12 +2,16 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(AudioController))]
 [RequireComponent(typeof(AudioSource))]
 public class SFXController : MonoBehaviour
 {
+    // Audio Source to play sounds
+    [SerializeField] private AudioSource audioSource;
+
     [Header("Player Sound Clips")] public Sound playerPhoenix;
     public Sound playerHit, playerShot, playerShotEmpty, playerReloadStart, playerReloadEnd, playerDash;
 
@@ -17,13 +21,8 @@ public class SFXController : MonoBehaviour
     [Header("Other Sound Clips")] public Sound bulletDestroyed;
     public Sound currencyCollectSound, explosion, bulletBounce, healingField, shockwave, stimpack, timefreeze;
 
-    // Audio Source to play sounds
-    private AudioSource _audioSource;
-
     private void Awake()
     {
-        _audioSource = GetComponent<AudioSource>();
-
         // Player sounds
         Action playPlayerPhoenix = () => { _SchedulePlaySound(playerPhoenix); };
         Action playPlayerHit = () => { _SchedulePlaySound(playerHit); };
@@ -74,6 +73,7 @@ public class SFXController : MonoBehaviour
 
         SceneManager.sceneUnloaded += scene =>
         {
+            Debug.Log("scene Unloaded");
             EventManager.OnPhoenixRevive.Unsubscribe(playPlayerPhoenix);
             EventManager.OnPlayerHit.Unsubscribe(playPlayerHit);
             EventManager.OnPlayerShot.Unsubscribe(playPlayerShot);
@@ -134,9 +134,9 @@ public class SFXController : MonoBehaviour
             float randomPitch = Random.Range(1f - sound.pitchVariationRange, 1f + sound.pitchVariationRange);
             if (!ignoreTimescale)
                 randomPitch *= TimeController.GetTimeScale();
-            _audioSource.pitch = randomPitch;
+            audioSource.pitch = randomPitch;
 
-            _audioSource.PlayOneShot(sound.audioClip, sound.volumeScale);
+            audioSource.PlayOneShot(sound.audioClip, sound.volumeScale);
         }
     }
 }

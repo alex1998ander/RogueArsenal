@@ -27,7 +27,7 @@ namespace BehaviorTree
         protected override Node SetupTree()
         {
             base.SetupTree();
-            
+
             const float attackSpeed = 0.75f;
             const float abilityCooldown = 5f;
 
@@ -50,11 +50,14 @@ namespace BehaviorTree
             {
                 new BossAttackDash(transform, rb, playerTransform, this.damageCollider),
                 new BossAttackStomp(transform, playerTransform, spriteRenderer, damageCollider, bossCollider2D, ui),
-                new BossAttackLaserFocus(lineRenderer, playerTransform, transform), new BossAttackSpawnObject(playerTransform, mine, new Vector3(0.5f, 0.5f, 0.5f)),
-                new BossAttackSpawnObject(transform, turret), new BossAttackSpawnObject(transform, clone, new Vector3(1.5f, 1.5f, 1.5f)),
-                new BossAttack360Shot(transform, bullet), new BossAttackShield(shieldGenerator, bossCollider2D), new BossAttackShockwave(shockWave)
+                new BossAttackLaserFocus(lineRenderer, playerTransform, transform),
+                new BossAttackSpawnObject(playerTransform, mine, new Vector3(0.5f, 0.5f, 0.5f)),
+                new BossAttackSpawnObject(transform, turret),
+                new BossAttackSpawnObject(transform, clone, new Vector3(1.5f, 1.5f, 1.5f)),
+                new BossAttack360Shot(transform, bullet),
+                new BossAttackShield(shieldGenerator, bossCollider2D), new BossAttackShockwave(shockWave)
             };
-            
+
             damageCollider.enabled = false;
             shieldGenerator.SetActive(false);
             shockWave.SetActive(false);
@@ -72,7 +75,7 @@ namespace BehaviorTree
                     taskCounter[i] = Random.Range(0, tasksPool.Length - 1);
                 }
             }
-            
+
             Node[] tasks = {tasksPool[taskCounter[0]], tasksPool[taskCounter[1]], tasksPool[taskCounter[2]]};
 
             Node root = new Selector(new List<Node>

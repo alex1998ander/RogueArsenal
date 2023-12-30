@@ -12,6 +12,6 @@ public class UpgradeHealingField : Upgrade
 
     public override void OnAbility(PlayerController playerController, PlayerWeapon playerWeapon)
     {
-        UpgradeSpawnablePrefabHolder.SpawnPrefab(UpgradeSpawnablePrefabHolder.instance.healingFieldPrefab, playerController.transform.position, Configuration.HealingField_Duration);
+        UpgradeSpawnablePrefabHolder.SpawnPrefab(UpgradeSpawnablePrefabHolder.instance.healingFieldPrefab, playerController.transform.position, Configuration.HealingField_Duration + 0.1f);
     }
 }

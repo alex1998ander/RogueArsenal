@@ -64,8 +64,12 @@ namespace BehaviorTree
                             new CheckPlayerVisible(rb, playerTransform, wallLayer),
                             new TaskSetLastKnownPlayerLocation(playerTransform),
                             new TaskAimAt(rb, weapon, playerTransform),
-                            new TaskPickTargetAroundTransforms(playerTransform, minDistanceFromPlayer,
-                                maxDistanceFromPlayer),
+                            new Selector(new List<Node>()
+                            {
+                                new HasData<Vector3>(sharedData.Target),
+                                new TaskPickTargetAroundTransforms(playerTransform, minDistanceFromPlayer,
+                                    maxDistanceFromPlayer),
+                            }),
                             new TaskMoveToTarget(rb, agent, animator, 1f),
                             new TaskWait(1f, false),
                             new TaskAttackPlayer(weapon, 1f),

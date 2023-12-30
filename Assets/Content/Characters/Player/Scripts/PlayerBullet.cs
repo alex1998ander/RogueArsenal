@@ -54,7 +54,7 @@ public class PlayerBullet : MonoBehaviour
             Destroy(gameObject);
         }
 
-        ICharacterHealth characterHealth = other.gameObject.GetComponent<ICharacterHealth>();
+        ICharacterHealth characterHealth = other.GetComponentInParent<ICharacterHealth>();
         if (characterHealth is PlayerHealth)
         {
             if (Time.time >= _spawnEndTimestamp)

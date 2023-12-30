@@ -170,6 +170,7 @@ MonoBehaviour:
     pitchVariationRange: 0
     initialDelay: 0
     minTimeBetweenPlays: 0
+  audioSource: {fileID: 6242518293217424204}
 --- !u!82 &6242518293217424204
 AudioSource:
   m_ObjectHideFlags: 0
