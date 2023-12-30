@@ -13,8 +13,8 @@ public class PauseViewManager : MonoBehaviour
         upgradeIconGridView.InitializeUpgradeView(UpgradeManager.CurrentUpgrades);
         upgradePanelDetailsView.InitializeUpgradePanelView(UpgradeManager.GetUpgradeFromIdentifier(UpgradeIdentification.BigBullet));
         
-        resumeButton.Initialize(GameManager.Pause);
-        mainMenuButton.Initialize(null);
+        resumeButton.Initialize(GameManager.TogglePause);
+        mainMenuButton.Initialize(LevelManager.LoadMainMenu);
         settingsButton.Initialize(() => LevelManager.ShowSettingsMenu(true));
     }
 }

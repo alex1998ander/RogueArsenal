@@ -271,7 +271,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
 
     private void OnPause()
     {
-        GameManager.Pause();
+        GameManager.TogglePause();
     }
     
     #endregion

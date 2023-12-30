@@ -1,12 +1,11 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class SandboxViewManager : MonoBehaviour
 {
     [SerializeField] private UpgradePanelView upgradePanelDetailsView;
     [SerializeField] private SandboxDetailPanelIconGridView sandboxDetailPanelIconGridView;
     [SerializeField] private StringButtonView applyButton;
-    [FormerlySerializedAs("optionsButton")] [SerializeField] private StringButtonView settingsButton;
+    [SerializeField] private StringButtonView settingsButton;
     [SerializeField] private StringButtonView mainMenuButton;
 
     private void Start()
@@ -14,8 +13,8 @@ public class SandboxViewManager : MonoBehaviour
         sandboxDetailPanelIconGridView.InitializeUpgradeView(UpgradeManager.DefaultUpgradePool);
         upgradePanelDetailsView.InitializeUpgradePanelView(UpgradeManager.GetUpgradeFromIdentifier(UpgradeIdentification.BigBullet));
         
-        applyButton.Initialize(GameManager.Pause);
+        applyButton.Initialize(GameManager.TogglePause);
         settingsButton.Initialize(() => LevelManager.ShowSettingsMenu(true));
-        mainMenuButton.Initialize(null);
+        mainMenuButton.Initialize(LevelManager.LoadMainMenu);
     }
 }

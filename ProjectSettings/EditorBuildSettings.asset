@@ -12,6 +12,12 @@ EditorBuildSettings:
     path: Assets/Content/Trashcan/UpgradeSelection.unity
     guid: c7f4911c9b107ba4890d589805a42852
   - enabled: 1
+    path: Assets/Content/Scenes/Levels/LevelLobby.unity
+    guid: 192a9ccdeca29c448b204efcf4fb4651
+  - enabled: 1
+    path: Assets/Content/Scenes/NewUI/UIGameOver.unity
+    guid: 5d4d252688c30584989f8b4202298e5b
+  - enabled: 1
     path: Assets/Content/Scenes/Levels/Level1.unity
     guid: d73f471e4b09aec4abdc4b8bbad14a36
   - enabled: 1
