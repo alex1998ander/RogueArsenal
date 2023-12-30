@@ -6,7 +6,7 @@ public class UpgradePiercing : Upgrade
     public override UpgradeIdentification UpgradeIdentification => UpgradeIdentification.Piercing;
     public override UpgradeType UpgradeType => UpgradeType.Weapon;
     public override string FlavorText => "";
-    public override string Description => "";
+    public override string Description => "You can now shoot through enemies and hit their friends behind them";
 
     public override void Init(PlayerBullet playerBullet)
     {

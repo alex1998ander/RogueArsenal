@@ -6,7 +6,7 @@ public class UpgradeSmartPistol : Upgrade
     public override UpgradeIdentification UpgradeIdentification => UpgradeIdentification.SmartPistol;
     public override UpgradeType UpgradeType => UpgradeType.Ability;
     public override string FlavorText => "";
-    public override string Description => "";
+    public override string Description => "Shoots all enemies around you automatically";
 
     public override void OnAbility(PlayerController playerController, PlayerWeapon playerWeapon)
     {
