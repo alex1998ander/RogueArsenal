@@ -31,6 +31,8 @@ public static class LevelManager
     public static void Initialize()
     {
         EventManager.OnPauseGame.Subscribe(ShowPauseMenu);
+        EventManager.OnPlayerDeath.Subscribe(ShowGameOver);
+        
         _currentActiveScene = SceneManager.GetActiveScene();
 
         var settingsLoad = SceneManager.LoadSceneAsync("Assets/Content/Scenes/NewUI/UISettings.unity", LoadSceneMode.Additive);
@@ -69,6 +71,17 @@ public static class LevelManager
             ShowPauseMenu(false);
             LoadRandomLevel();
         }
+    }
+
+    private static void ShowGameOver()
+    {
+        if (_sandboxActive)
+        {
+            return;
+        }
+        _gameOverRoot.SetActive(true);
+        _currentBlurController.EnableBlur(true);
+        _pauseAllowed = false;
     }
 
     private static void ShowUpgradeSelection(bool enabled)
