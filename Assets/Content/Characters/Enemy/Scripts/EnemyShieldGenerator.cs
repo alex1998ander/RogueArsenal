@@ -1,19 +1,14 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class EnemyShieldGenerator : MonoBehaviour, ICharacterHealth
 {
-    [SerializeField] private float maxHealth = 100f;
     [SerializeField] private Collider2D bossCollider2D;
+
     private float _currentHealth;
 
     private void Awake()
     {
-        _currentHealth = maxHealth;
+        _currentHealth = Configuration.Boss_ShieldMaxHealth;
     }
 
     /// <summary>
@@ -33,6 +28,7 @@ public class EnemyShieldGenerator : MonoBehaviour, ICharacterHealth
         {
             gameObject.SetActive(false);
             bossCollider2D.enabled = true;
+            _currentHealth = Configuration.Boss_ShieldMaxHealth;
         }
     }
 
@@ -43,7 +39,6 @@ public class EnemyShieldGenerator : MonoBehaviour, ICharacterHealth
 
     void Update()
     {
-        transform.RotateAround(transform.parent.transform.position - new Vector3(0,0.7f,0), 
-            new Vector3(0, 0, 1), 50 * Time.deltaTime);
+        transform.RotateAround(transform.position, new Vector3(0, 0, 1), Configuration.Boss_ShieldRotationSpeed * Time.deltaTime);
     }
 }

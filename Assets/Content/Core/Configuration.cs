@@ -47,6 +47,8 @@ public class Configuration
     public const float Boss_MineDamage = 50f;
     public const float Boss_360ShotBulletDamage = 20f;
     public const float Boss_360ShotBulletDistance = 20f;
+    public const float Boss_ShieldMaxHealth = 75f;
+    public const float Boss_ShieldRotationSpeed = 65f;
 
     // Upgrade: Big Bullet
     public const int BigBullet_PiercesCount = 3;
