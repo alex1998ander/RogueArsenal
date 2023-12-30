@@ -15,6 +15,7 @@ namespace BehaviorTree
     [RequireComponent(typeof(LineRenderer))]
     public class BossEnemyBehaviourTree : MovingEnemyBehaviourTree
     {
+        [SerializeField] private SpriteRenderer bossSprite;
         [SerializeField] private Collider2D damageCollider;
         [SerializeField] private GameObject mine;
         [SerializeField] private GameObject turret;
@@ -31,9 +32,7 @@ namespace BehaviorTree
             const float attackSpeed = 0.75f;
             const float abilityCooldown = 5f;
 
-            Collider2D bossCollider2D = GetComponent<BoxCollider2D>();
             LineRenderer lineRenderer = GetComponent<LineRenderer>();
-            SpriteRenderer spriteRenderer = GetComponentInChildren<SpriteRenderer>();
             Transform transform = this.transform;
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
             Transform playerTransform = GameObject.Find("Player").GetComponent<Transform>();
@@ -49,13 +48,13 @@ namespace BehaviorTree
             Node[] tasksPool = new Node[]
             {
                 new BossAttackDash(transform, rb, playerTransform, this.damageCollider),
-                new BossAttackStomp(transform, playerTransform, spriteRenderer, damageCollider, bossCollider2D, ui),
+                new BossAttackStomp(transform, playerTransform, bossSprite, ui),
                 new BossAttackLaserFocus(lineRenderer, playerTransform, transform),
                 new BossAttackSpawnObject(playerTransform, mine, new Vector3(0.5f, 0.5f, 0.5f)),
                 new BossAttackSpawnObject(transform, turret),
                 new BossAttackSpawnObject(transform, clone, new Vector3(1.5f, 1.5f, 1.5f)),
                 new BossAttack360Shot(transform, bullet),
-                new BossAttackShield(shieldGenerator, bossCollider2D), new BossAttackShockwave(shockWave)
+                new BossAttackShield(shieldGenerator), new BossAttackShockwave(shockWave)
             };
 
             damageCollider.enabled = false;
@@ -107,8 +106,8 @@ namespace BehaviorTree
                             new TaskSetLastKnownPlayerLocation(playerTransform),
                             new TaskLookAt(playerTransform, rb, null),
                             new TaskSetMovementSpeed(agent, 0),
-                            new RandomAttackMove(tasks),
-                            //tasksPool[tasksPool.Length - 2], //tasksPool.Length - 2
+                            // new RandomAttackMove(tasks),
+                            tasksPool[7], //tasksPool.Length - 2
                             new TaskSetMovementSpeed(agent, 3.5f),
                             new SetData<AbilityState>(sharedData.AbilityState, AbilityState.Cooldown)
                         }),

@@ -118,9 +118,9 @@ GameObject:
   - component: {fileID: 4277269782241390922}
   - component: {fileID: 6536853245497469976}
   - component: {fileID: 8814177450506606928}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: LandMine
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

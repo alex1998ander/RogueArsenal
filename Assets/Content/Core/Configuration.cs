@@ -38,6 +38,15 @@ public class Configuration
     public const float Enemy_StunImmunityTime = 2f;
     public const float Enemy_ThrownTime = 1f;
     public const float Enemy_ThrownImmunityTime = 2f;
+    
+    // Boss constants
+    public const float Boss_StompRadius = 1f;
+    public const float Boss_StompDamage = 40f;
+    public const float Boss_LaserDamage = 30f;
+    public const float Boss_MineCountdown = 3f;
+    public const float Boss_MineDamage = 50f;
+    public const float Boss_360ShotBulletDamage = 20f;
+    public const float Boss_360ShotBulletDistance = 20f;
 
     // Upgrade: Big Bullet
     public const int BigBullet_PiercesCount = 3;

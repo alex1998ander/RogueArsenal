@@ -5,9 +5,10 @@ public class EnemyLandMine : MonoBehaviour
 {
     private bool _playerIsInRange = false;
     private GameObject _player;
+
     void Start()
     {
-        StartCoroutine(startCountdown());
+        StartCoroutine(StartCountdown());
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -27,14 +28,15 @@ public class EnemyLandMine : MonoBehaviour
         }
     }
 
-    IEnumerator startCountdown()
+    IEnumerator StartCountdown()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(Configuration.Boss_MineCountdown);
         if (_playerIsInRange)
         {
-            _player.GetComponent<PlayerHealth>().InflictDamage(30, true);
-            EventManager.OnPlayerHealthUpdate.Trigger(30);
+            _player.GetComponentInParent<PlayerHealth>().InflictDamage(Configuration.Boss_MineDamage, true);
+            EventManager.OnPlayerHealthUpdate.Trigger(-Configuration.Boss_MineDamage);
         }
+
         Destroy(gameObject);
     }
 }
