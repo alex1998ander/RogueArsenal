@@ -27,7 +27,6 @@ public static class LevelManager
     private static bool _pauseAllowed;
     private static bool _sandboxActive;
 
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
     public static void Initialize()
     {
         EventManager.OnPauseGame.Subscribe(ShowPauseMenu);
@@ -43,7 +42,21 @@ public static class LevelManager
         };        
     }
 
-    public static void StartGame()
+    public static void LoadGame()
+    {
+        Initialize();
+        var asyncOperation = SceneManager.LoadSceneAsync("Assets/Content/Scenes/NewUI/UIMainMenu.unity", LoadSceneMode.Additive);
+        asyncOperation.completed += _ =>
+        {
+            SceneManager.UnloadSceneAsync(SceneManager.GetSceneByPath("Assets/Content/Scenes/Others/SplashScene.unity"));
+            _currentActiveScene = SceneManager.GetSceneByPath("Assets/Content/Scenes/NewUI/UIMainMenu.unity");
+            SceneManager.SetActiveScene(_currentActiveScene);
+        };
+        
+        EventManager.OnMainMenuEnter.Trigger();
+    }
+
+    public static void StartRound()
     {
         UpgradeManager.ResetUpgrades();
         LoadLobbyLevel();

@@ -9,24 +9,21 @@ namespace BehaviorTree
         private Transform _stompTarget;
         private SpriteRenderer _bossVisual;
         private Transform _body;
-        private Collider2D _damageCollider;
-        private Collider2D _bossCollider;
         private GameObject _ui;
 
         private float _waitTime = 3f;
         private float _timeCounter;
 
         private bool _landPosSet = false;
-        //Vector3 _landPos = Vector3.zero;
 
-        public BossAttackStomp(Transform body, Transform stompTarget, SpriteRenderer bossVisual, Collider2D damageCollider, Collider2D bossCollider,GameObject ui)
+        private readonly LayerMask _targetLayer = LayerMask.GetMask("Player_Trigger");
+
+        public BossAttackStomp(Transform body, Transform stompTarget, SpriteRenderer bossVisual, GameObject ui)
         {
-            this._body = body;
-            this._stompTarget = stompTarget;
-            this._bossVisual = bossVisual;
-            this._damageCollider = damageCollider;
-            this._bossCollider = bossCollider;
-            this._ui = ui;
+            _body = body;
+            _stompTarget = stompTarget;
+            _bossVisual = bossVisual;
+            _ui = ui;
         }
 
         public override NodeState Evaluate()
@@ -34,35 +31,28 @@ namespace BehaviorTree
             state = NodeState.FAILURE;
 
             _bossVisual.enabled = false;
-            _bossCollider.enabled = false;
             _ui.SetActive(false);
 
             _timeCounter += Time.fixedDeltaTime;
             if (_timeCounter >= _waitTime / 2 && !_landPosSet)
             {
-                //_landPos = _stompTarget.position;
                 _body.position = _stompTarget.position;
                 _landPosSet = true;
             }
 
-            if (_timeCounter >= _waitTime - 0.1)
-            {
-                _bossVisual.enabled = true;
-                _damageCollider.enabled = true;
-                _bossCollider.enabled = true;
-                _ui.SetActive(true);
-            }
-
             if (_timeCounter >= _waitTime)
             {
+                _bossVisual.enabled = true;
+                _ui.SetActive(true);
+
+                Collider2D playerCollider = Physics2D.OverlapCircle(_stompTarget.position, Configuration.Boss_StompRadius, _targetLayer);
+                playerCollider?.GetComponentInParent<ICharacterHealth>()?.InflictDamage(Configuration.Boss_StompDamage);
+
+                Debug.DrawLine(_stompTarget.position, _stompTarget.position + new Vector3(1f, 0f, 0f), Color.green, 5f);
+
                 _timeCounter = 0f;
-                _damageCollider.enabled = true;
-                _bossCollider.enabled = true;
                 _landPosSet = false;
-                
-                
-                _damageCollider.enabled = false;
-                //_body.position = _landPos;
+
                 state = NodeState.SUCCESS;
             }
 
