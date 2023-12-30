@@ -10,7 +10,7 @@ public class SceneChangeTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player") && !SpawnController.CheckEnemiesAlive())
         {
-            LevelManager.LoadNextLevel();
+            LevelManager.Continue();
             EventManager.OnLevelExit.Trigger();
         }
     }

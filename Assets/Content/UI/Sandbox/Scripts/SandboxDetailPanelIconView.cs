@@ -1,24 +1,21 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class SandboxIconView : IconView
+public class SandboxDetailPanelIconView : DetailPanelIconView
 {
-    private SandboxIconGridView _manager;
-    private UpgradeIdentification _upgradeIdentification;
     public bool active;
+    private SandboxDetailPanelIconGridView _manager;
 
     private void Awake()
     {
         upgradeIcon.alphaHitTestMinimumThreshold = 0.1f;
     }
 
-    public void Initialize(Sprite sprite, string name, bool active, UpgradeIdentification upgradeIdentification, SandboxIconGridView manager)
+    public void Initialize(Sprite sprite, string name, UpgradePanelView upgradePanelDetailsView, UpgradeIdentification upgradeIdentification, bool active, SandboxDetailPanelIconGridView manager)
     {
-        upgradeIcon.sprite = sprite;
-        upgradeName.text = name;
-        this.active = active;
-        _upgradeIdentification = upgradeIdentification;
+        base.Initialize(sprite, name, upgradePanelDetailsView, upgradeIdentification);
         _manager = manager;
+        this.active = active;
 
         if (this.active)
         {
@@ -30,23 +27,15 @@ public class SandboxIconView : IconView
         }
     }
 
-    public void OnUpgradeHoverEnter()
+    public override void OnUpgradeHoverEnter()
     {
-        _manager.SetUpgradeDetailView(_upgradeIdentification);
+        _upgradePanelDetailsView.InitializeUpgradePanelView(UpgradeManager.GetUpgradeFromIdentifier(_upgradeIdentification));
         SetIconHover();
     }
 
-    public void OnUpgradeHoverExit()
+    public override void OnUpgradeHoverExit()
     {
-        _manager.SetUpgradeDetailView(_upgradeIdentification);
-        if (active)
-        {
-            SetIconEnabled();
-        }
-        else
-        {
-            SetIconDisabled();
-        }
+        upgradeIcon.color = active ? new Color(1f, 1f, 1f, 1f) : new Color(0.8f, 0.7f, 0.7f, 0.5f);
     }
 
     public void OnUpgradeClick()
@@ -112,7 +101,7 @@ public class SandboxIconView : IconView
             transform.localScale = new Vector3(scale, scale, scale);
             upgradeIcon.color = new Color(color.x, color.y, color.z, color.w);
 
-            time += Time.deltaTime;
+            time += Time.unscaledDeltaTime;
             yield return null;
         }
     }

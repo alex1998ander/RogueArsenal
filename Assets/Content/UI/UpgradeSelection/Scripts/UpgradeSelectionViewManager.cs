@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class UpgradeSelectionManager : MonoBehaviour
+public class UpgradeSelectionViewManager : MonoBehaviour
 {
     [SerializeField] private UpgradePanelView[] upgradeViews;
     [SerializeField] private IconGridView upgradeIconView;

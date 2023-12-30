@@ -18,7 +18,7 @@ public static class ProgressionManager
         }
     }
 
-    public static void SetupNextUpgrade()
+    public static void BuyUpgrade()
     {
         CollectedCurrency -= CurrentUpgradePrice;
         CurrentUpgradePrice = Mathf.RoundToInt(CurrentUpgradePrice * NextUpgradePrinceInPercent);

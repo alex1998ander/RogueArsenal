@@ -35,7 +35,7 @@ namespace BehaviorTree
             LineRenderer lineRenderer = GetComponent<LineRenderer>();
             Transform transform = this.transform;
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
-            Transform playerTransform = GameObject.Find("Player").GetComponent<Transform>();
+            Transform playerTransform = FindObjectOfType<PlayerController>().GetComponent<Transform>();
             EnemyWeapon weapon = GetComponentInChildren<EnemyWeapon>();
             NavMeshAgent agent = GetComponent<NavMeshAgent>();
             Animator animator = GetComponentInChildren<Animator>();
