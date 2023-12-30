@@ -3,11 +3,16 @@ using UnityEngine;
 
 public class EnemyLandMine : MonoBehaviour
 {
+    [SerializeField] private SpriteRenderer mineSprite;
+
     private bool _playerIsInRange = false;
     private GameObject _player;
 
+    private Animator _animator;
+
     void Start()
     {
+        _animator = GetComponentInChildren<Animator>();
         StartCoroutine(StartCountdown());
     }
 
@@ -31,12 +36,17 @@ public class EnemyLandMine : MonoBehaviour
     IEnumerator StartCountdown()
     {
         yield return new WaitForSeconds(Configuration.Boss_MineCountdown);
+
+        mineSprite.enabled = false;
+        _animator.SetBool("Exploded", true);
+        // TODO: Play sound when exploding
+
         if (_playerIsInRange)
         {
             _player.GetComponentInParent<PlayerHealth>().InflictDamage(Configuration.Boss_MineDamage, true);
             EventManager.OnPlayerHealthUpdate.Trigger(-Configuration.Boss_MineDamage);
         }
 
-        Destroy(gameObject);
+        Destroy(gameObject, 1f);
     }
 }
