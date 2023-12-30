@@ -28,6 +28,24 @@ public class AudioController : MonoBehaviour
     }
 
     /// <summary>
+    /// Music volume setter.
+    /// </summary>
+    /// <param name="volume">Master volume value</param>
+    public static void SetMusicVolume(float volume)
+    {
+        _instance.audioMixerMaster.SetFloat("music", Mathf.Log10(volume) * 60);
+    }
+
+    /// <summary>
+    /// SFX volume setter.
+    /// </summary>
+    /// <param name="volume">Master volume value</param>
+    public static void SetSFXVolume(float volume)
+    {
+        _instance.audioMixerMaster.SetFloat("sfx", Mathf.Log10(volume) * 60);
+    }
+
+    /// <summary>
     /// Master volume getter
     /// </summary>
     /// <returns>Master volume value</returns>

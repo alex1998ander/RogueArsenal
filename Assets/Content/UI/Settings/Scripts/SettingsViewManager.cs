@@ -1,17 +1,21 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SettingsViewManager : MonoBehaviour
 {
     [SerializeField] private ToggleView fullscreenToggle;
     [SerializeField] private ToggleView vSyncToggle;
     [SerializeField] private SelectionView resolutionSelection;
+    [SerializeField] private Slider soundVolumeSlider;
+    [SerializeField] private Slider musicVolumeSlider;
     [SerializeField] private StringButtonView cancelButton;
     [SerializeField] private StringButtonView applyButton;
     
     private List<Resolution> _resolutions;
-
+    
     private void Start()
     {
         fullscreenToggle.Initialize(null, Screen.fullScreen);
@@ -48,14 +52,22 @@ public class SettingsViewManager : MonoBehaviour
             ApplyGraphics();
             LevelManager.ShowSettingsMenu(false);
         });
+
+        SetVolumes();
     }
-    
-    public void ApplyGraphics()
+
+    private void ApplyGraphics()
     {
         QualitySettings.vSyncCount = vSyncToggle.Enabled ? 1 : 0;
 
         var res = _resolutions[resolutionSelection.SelectedOptionIndex];
         
         Screen.SetResolution(res.width, res.height, fullscreenToggle.Enabled, res.refreshRate);
+    }
+    
+    public void SetVolumes()
+    {
+        AudioController.SetMusicVolume(musicVolumeSlider.value);
+        AudioController.SetSFXVolume(soundVolumeSlider.value);
     }
 }
