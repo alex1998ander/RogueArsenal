@@ -95,6 +95,7 @@ namespace BehaviorTree
                                 maxDistanceFromPlayer),
                             new TaskMoveToTarget(rb, agent, animator, 1f),
                             //new CheckIsAtTarget(),
+                            new TaskAimAt(rb, weapon, playerTransform),
                             new TaskAttackPlayer(weapon, attackSpeed),
                             new ChooseRandomAttackMove(tasks.Length),
                             new TaskWait(abilityCooldown, true),
@@ -106,8 +107,8 @@ namespace BehaviorTree
                             new TaskSetLastKnownPlayerLocation(playerTransform),
                             new TaskLookAt(playerTransform, rb, null),
                             new TaskSetMovementSpeed(agent, 0),
-                            // new RandomAttackMove(tasks),
-                            tasksPool[7], //tasksPool.Length - 2
+                            new RandomAttackMove(tasks),
+                            // tasksPool[7], //tasksPool.Length - 2
                             new TaskSetMovementSpeed(agent, 3.5f),
                             new SetData<AbilityState>(sharedData.AbilityState, AbilityState.Cooldown)
                         }),
