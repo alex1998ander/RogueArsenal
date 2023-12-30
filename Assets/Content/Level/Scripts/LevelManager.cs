@@ -25,14 +25,14 @@ public static class LevelManager
     private static BlurController _currentBlurController;
 
     private static GameState gameState = GameState.MainMenu;
-    
+
     private static bool _pauseAllowed;
 
     private static void Initialize()
     {
         EventManager.OnPauseGame.Subscribe(ShowPauseMenu);
         EventManager.OnPlayerDeath.Subscribe(ShowGameOver);
-        
+
         _currentActiveScene = SceneManager.GetActiveScene();
 
         var settingsLoad = SceneManager.LoadSceneAsync("Assets/Content/Scenes/NewUI/UISettings.unity", LoadSceneMode.Additive);
@@ -40,7 +40,7 @@ public static class LevelManager
         {
             _settingsRoot = SceneManager.GetSceneByPath("Assets/Content/Scenes/NewUI/UISettings.unity").GetRootGameObjects()[0];
             _settingsRoot.SetActive(false);
-        };        
+        };
     }
 
     public static void LoadGame()
@@ -55,7 +55,7 @@ public static class LevelManager
             _currentBlurController = Object.FindFirstObjectByType<BlurController>();
             _mainMenuUIRoot = Object.FindFirstObjectByType<MainMenuViewManager>().gameObject;
         };
-        
+
         EventManager.OnMainMenuEnter.Trigger();
     }
 
@@ -96,6 +96,7 @@ public static class LevelManager
         {
             return;
         }
+
         _gameOverRoot.SetActive(true);
         _currentBlurController.EnableBlur(true);
         _pauseAllowed = false;
@@ -115,6 +116,7 @@ public static class LevelManager
         {
             return;
         }
+
         _settingsRoot.SetActive(false);
         _pauseSceneRoot.SetActive(enabled);
         _currentBlurController.EnableBlur(enabled);
@@ -127,7 +129,7 @@ public static class LevelManager
             _currentBlurController.EnableBlur(enabled);
             _mainMenuUIRoot.SetActive(!enabled);
         }
-        
+
         if (GameManager.GamePaused)
         {
             _pauseSceneRoot.SetActive(!enabled);
@@ -142,45 +144,47 @@ public static class LevelManager
         _pauseAllowed = true;
         SwitchLevelAsync("Assets/Content/Scenes/Others/SandboxScene.unity", _currentActiveScene);
         EventManager.OnLevelEnter.Trigger();
-        
+
         var sandboxUILoad = SceneManager.LoadSceneAsync("Assets/Content/Scenes/NewUI/UISandbox.unity", LoadSceneMode.Additive);
         sandboxUILoad.completed += _ =>
         {
             _pauseSceneRoot = SceneManager.GetSceneByPath("Assets/Content/Scenes/NewUI/UISandbox.unity").GetRootGameObjects()[0];
             _pauseSceneRoot.SetActive(false);
-        };   
-        
+        };
+
         gameState = GameState.Sandbox;
     }
-    
+
     private static void LoadLobbyLevel()
     {
         SwitchLevelAsync("Assets/Content/Scenes/Levels/LevelLobby.unity", _currentActiveScene);
         EventManager.OnLevelEnter.Trigger();
         _pauseAllowed = true;
-        
+
         var gameOverLoad = SceneManager.LoadSceneAsync("Assets/Content/Scenes/NewUI/UIGameOver.unity", LoadSceneMode.Additive);
         gameOverLoad.completed += _ =>
         {
             _gameOverRoot = SceneManager.GetSceneByPath("Assets/Content/Scenes/NewUI/UIGameOver.unity").GetRootGameObjects()[0];
             _gameOverRoot.SetActive(false);
         };
-        
+
         var pauseSceneLoad = SceneManager.LoadSceneAsync("Assets/Content/Scenes/NewUI/UIPause.unity", LoadSceneMode.Additive);
         pauseSceneLoad.completed += _ =>
         {
             _pauseSceneRoot = SceneManager.GetSceneByPath("Assets/Content/Scenes/NewUI/UIPause.unity").GetRootGameObjects()[0];
             _pauseSceneRoot.SetActive(false);
         };
-        
+
         var upgradeSelectionLoad = SceneManager.LoadSceneAsync("Assets/Content/Scenes/NewUI/UIUpgradeSelection.unity", LoadSceneMode.Additive);
         upgradeSelectionLoad.completed += _ =>
         {
             _upgradeSelectionRoot = SceneManager.GetSceneByPath("Assets/Content/Scenes/NewUI/UIUpgradeSelection.unity").GetRootGameObjects()[0];
             _upgradeSelectionRoot.SetActive(false);
         };
+
+        gameState = GameState.Ingame;
     }
-    
+
     private static void LoadBossLevel()
     {
         SwitchLevelAsync("Assets/Content/Scenes/Levels/LevelBoss.unity", _currentActiveScene);
@@ -213,11 +217,11 @@ public static class LevelManager
             SceneManager.UnloadSceneAsync(SceneManager.GetSceneByPath("Assets/Content/Scenes/NewUI/UIPause.unity"));
             SceneManager.UnloadSceneAsync(SceneManager.GetSceneByPath("Assets/Content/Scenes/NewUI/UIUpgradeSelection.unity"));
         }
-        
+
         gameState = GameState.MainMenu;
         _pauseAllowed = false;
         levelCounter = 0;
-        
+
         EventManager.OnMainMenuEnter.Trigger();
     }
 
@@ -233,12 +237,12 @@ public static class LevelManager
         secondLastSceneIdx = lastSceneIdx;
         lastSceneIdx = nextSceneIdx;
         levelCounter++;
-        
+
         SwitchLevelAsync($"Assets/Content/Scenes/Levels/Level{nextSceneIdx}.unity", _currentActiveScene);
-        
+
         _pauseAllowed = true;
         gameState = GameState.Ingame;
-        
+
         ProgressionManager.IncreaseDifficultyLevel();
         EventManager.OnLevelEnter.Trigger();
     }
