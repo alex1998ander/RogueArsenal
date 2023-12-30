@@ -8,7 +8,7 @@ public class MainMenuViewManager : MonoBehaviour
 
     private void Start()
     {
-        startButton.Initialize(LevelManager.StartGame);
+        startButton.Initialize(LevelManager.StartRound);
         settingsButton.Initialize(() => LevelManager.ShowSettingsMenu(true));
         sandboxButton.Initialize(LevelManager.LoadSandboxLevel);
     }
