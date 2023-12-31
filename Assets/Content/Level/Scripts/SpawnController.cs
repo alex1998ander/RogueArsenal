@@ -12,9 +12,12 @@ public class SpawnController : MonoBehaviour
     [SerializeField] private bool respawnEnemiesIndefinitely = false;
 
     private static SpawnController _instance;
-    
-    private const float EnemySpawnFillrateIncreasePerDifficultyLevelInPercent = 0.035f;
-    private const float BaseEnemySpawnFillrateInPercent = 0.5f;
+
+    // In percent
+    private const float EnemySpawnRateIncreasePerDifficulty = 0.035f;
+
+    // In percent
+    private const float BaseEnemySpawnRate = 0.5f;
 
     private readonly List<List<Transform>> _spawnPointCollections = new List<List<Transform>>();
     private readonly List<Transform> _allSpawnPoints = new List<Transform>();
@@ -23,7 +26,7 @@ public class SpawnController : MonoBehaviour
     private void Awake()
     {
         _instance = this;
-        
+
         // Get the different spawn point collections inside the level.
         // This assumes the following structure inside the hierarchy:
         // - SpawnController (GameObject with this script)
@@ -36,7 +39,7 @@ public class SpawnController : MonoBehaviour
         //         - SpawnPoint
         //         - ...
         //     - ...
-        
+
         foreach (Transform roomTransform in transform)
         {
             List<Transform> spawnPointCollection = new List<Transform>();
@@ -58,12 +61,11 @@ public class SpawnController : MonoBehaviour
     {
         SpawnEnemiesAtSpawnPointCollection(_allSpawnPoints, spawnCount);
     }
-    
+
     public static void SpawnEnemies()
     {
-        _instance.SpawnEnemies(BaseEnemySpawnFillrateInPercent + EnemySpawnFillrateIncreasePerDifficultyLevelInPercent * ProgressionManager.DifficultyLevel);
+        _instance.SpawnEnemies(BaseEnemySpawnRate + EnemySpawnRateIncreasePerDifficulty * ProgressionManager.DifficultyLevel);
     }
-    
 
     /// <summary>
     /// 
@@ -71,7 +73,6 @@ public class SpawnController : MonoBehaviour
     /// <param name="fillrate"></param>
     public void SpawnEnemies(float fillrate)
     {
-        
         float spawnFillrate = Mathf.Clamp(fillrate, 0f, 1f);
 
         foreach (List<Transform> spawnPointCollection in _spawnPointCollections)
@@ -81,7 +82,7 @@ public class SpawnController : MonoBehaviour
 
             SpawnEnemiesAtSpawnPointCollection(spawnPointCollection, spawnCount);
         }
-        
+
         EventManager.OnEnemyDeath.Subscribe(OnEnemyDeath);
     }
 
