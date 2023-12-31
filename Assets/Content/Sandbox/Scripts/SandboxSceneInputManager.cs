@@ -8,8 +8,8 @@ public class SandboxSceneInputManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
-            ReloadSandboxScene();
+        // if (Input.GetKeyDown(KeyCode.T))
+        //     ReloadSandboxScene();
         for (int i = 0; i <= 9; i++)
         {
             if (Input.GetKeyDown((KeyCode) Enum.Parse(typeof(KeyCode), "Alpha" + i)))

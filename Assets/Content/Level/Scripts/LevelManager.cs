@@ -92,11 +92,6 @@ public static class LevelManager
 
     private static void ShowGameOver()
     {
-        if (gameState == GameState.Sandbox)
-        {
-            return;
-        }
-
         _gameOverRoot.SetActive(true);
         _currentBlurController.EnableBlur(true);
         _pauseAllowed = false;
@@ -144,6 +139,13 @@ public static class LevelManager
         _pauseAllowed = true;
         SwitchLevelAsync("Assets/Content/Scenes/Others/SandboxScene.unity", _currentActiveScene);
         EventManager.OnLevelEnter.Trigger();
+        
+        var gameOverLoad = SceneManager.LoadSceneAsync("Assets/Content/Scenes/NewUI/UIGameOver.unity", LoadSceneMode.Additive);
+        gameOverLoad.completed += _ =>
+        {
+            _gameOverRoot = SceneManager.GetSceneByPath("Assets/Content/Scenes/NewUI/UIGameOver.unity").GetRootGameObjects()[0];
+            _gameOverRoot.SetActive(false);
+        };
 
         var sandboxUILoad = SceneManager.LoadSceneAsync("Assets/Content/Scenes/NewUI/UISandbox.unity", LoadSceneMode.Additive);
         sandboxUILoad.completed += _ =>
@@ -213,6 +215,7 @@ public static class LevelManager
 
         if (gameState == GameState.Sandbox)
         {
+            SceneManager.UnloadSceneAsync(SceneManager.GetSceneByPath("Assets/Content/Scenes/NewUI/UIGameOver.unity"));
             SceneManager.UnloadSceneAsync(SceneManager.GetSceneByPath("Assets/Content/Scenes/NewUI/UISandbox.unity"));
         }
         else
