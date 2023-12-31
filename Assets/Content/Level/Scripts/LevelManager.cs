@@ -196,16 +196,19 @@ public static class LevelManager
     public static void LoadMainMenu()
     {
         TimeController.ResetTimeScale();
-        var asyncOperation = SceneManager.LoadSceneAsync("Assets/Content/Scenes/NewUI/UIMainMenu.unity", LoadSceneMode.Additive);
-        asyncOperation.completed += _ =>
+        var loadAsyncOperation = SceneManager.LoadSceneAsync("Assets/Content/Scenes/NewUI/UIMainMenu.unity", LoadSceneMode.Additive);
+        loadAsyncOperation.completed += _ =>
         {
             TimeController.PauseGame(false);
-            SceneManager.UnloadSceneAsync(_currentActiveScene);
+            var unloadAsyncOperation = SceneManager.UnloadSceneAsync(_currentActiveScene);
             _currentActiveScene = SceneManager.GetSceneByPath("Assets/Content/Scenes/NewUI/UIMainMenu.unity");
             SceneManager.SetActiveScene(_currentActiveScene);
-            _currentBlurController = Object.FindFirstObjectByType<BlurController>();
-            _mainMenuUIRoot = Object.FindFirstObjectByType<MainMenuViewManager>().gameObject;
 
+            unloadAsyncOperation.completed += _ =>
+            {
+                _mainMenuUIRoot = Object.FindFirstObjectByType<MainMenuViewManager>().gameObject;
+                _currentBlurController = Object.FindFirstObjectByType<BlurController>();
+            };
         };
 
         if (gameState == GameState.Sandbox)
@@ -255,9 +258,13 @@ public static class LevelManager
         {
             TimeController.PauseGame(false);
             _currentActiveScene = SceneManager.GetSceneByPath(scenePath);
-            SceneManager.UnloadSceneAsync(oldScene);
+            var unloadAsyncOperation = SceneManager.UnloadSceneAsync(oldScene);
             SceneManager.SetActiveScene(_currentActiveScene);
-            _currentBlurController = Object.FindFirstObjectByType<BlurController>();
+            
+            unloadAsyncOperation.completed += _ =>
+            {
+                _currentBlurController = Object.FindFirstObjectByType<BlurController>();
+            };
 
             SpawnController.SpawnEnemies();
         };
