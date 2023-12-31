@@ -95,8 +95,11 @@ public static class UpgradeManager
         {
             IsPhoenixActive = true;
         }
-        
-        Init(Object.FindObjectOfType<PlayerController>());
+
+        PlayerController playerController = Object.FindObjectOfType<PlayerController>();
+        Init(playerController);
+        playerController.Init_Sandbox();
+        Object.FindObjectOfType<IngameUIManager>().Init_Sandbox();
     }
 
     /// <summary>
@@ -114,6 +117,11 @@ public static class UpgradeManager
         {
             IsPhoenixActive = false;
         }
+
+        PlayerController playerController = Object.FindObjectOfType<PlayerController>();
+        Init(playerController);
+        playerController.Init_Sandbox();
+        Object.FindObjectOfType<IngameUIManager>().Init_Sandbox();
     }
 
     /// <summary>
@@ -127,9 +135,9 @@ public static class UpgradeManager
         {
             CurrentUpgrades.Add(upgrade);
         }
-        
+
         IsPhoenixActive = true;
-        
+
         Init(Object.FindObjectOfType<PlayerController>());
     }
 

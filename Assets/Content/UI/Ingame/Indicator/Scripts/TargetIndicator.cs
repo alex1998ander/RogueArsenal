@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class Targetindicator : MonoBehaviour
+public class TargetIndicator : MonoBehaviour
 {
     private Transform _target;
     private const float HideDistance = 3.0f;

@@ -8,6 +8,11 @@ public class PlayerWeapon : MonoBehaviour
     [SerializeField] private GameObject playerBulletPrefab;
     [SerializeField] private Transform firePointTransform;
 
+    public void Init_Sandbox()
+    {
+        Awake();
+    }
+
     private void Awake()
     {
         PlayerData.maxAmmo = Mathf.RoundToInt(Configuration.Weapon_MagazineSize * UpgradeManager.GetMagazineSizeMultiplier());
