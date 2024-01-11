@@ -25,7 +25,7 @@ public class EnemyIndicatorController : MonoBehaviour
             foreach (GameObject enemyPoint in _enemyPoints)
             {
                 _enemyIndicators.Add(Instantiate(targetIndicator, transform));
-                _enemyIndicators[i].GetComponent<Targetindicator>().SetTarget(enemyPoint.transform);
+                _enemyIndicators[i].GetComponent<TargetIndicator>().SetTarget(enemyPoint.transform);
                 i++;
             }
         }

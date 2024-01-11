@@ -12,6 +12,9 @@ public class SceneChangeTrigger : MonoBehaviour
         {
             LevelManager.Continue();
             EventManager.OnLevelExit.Trigger();
+
+            // TODO: move this where it makes more sense
+            PlayerData.invulnerable = false;
         }
     }
 }

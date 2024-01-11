@@ -33,6 +33,12 @@ public class PlayerController : MonoBehaviour, ICharacterController
     private static readonly int AimDirectionY = Animator.StringToHash("AimDirectionY");
     private static readonly int RunningBackwards = Animator.StringToHash("RunningBackwards");
 
+    public void Init_Sandbox()
+    {
+        Awake();
+        playerWeapon.Init_Sandbox();
+    }
+
     private void Awake()
     {
         playerHealth = GetComponent<PlayerHealth>();
