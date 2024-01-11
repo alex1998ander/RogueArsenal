@@ -38,6 +38,7 @@ public class MusicController : MonoBehaviour
         EventManager.OnLevelExit.Subscribe(FadeRandomUpgradeLoop);
         EventManager.OnMainMenuEnter.Subscribe(PlayIntro);
         EventManager.OnPauseGame.Subscribe(MuffleMusic);
+        EventManager.OnFreezeGamePlay.Subscribe(MuffleMusic);
 
         _ResetAudioSources();
     }

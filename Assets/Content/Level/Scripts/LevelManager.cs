@@ -99,7 +99,7 @@ public static class LevelManager
 
     private static void ShowUpgradeSelection(bool enabled)
     {
-        TimeController.ForcePauseGame(enabled);
+        GameManager.FreezeGamePlay(enabled);
         _upgradeSelectionRoot.SetActive(enabled);
         _currentBlurController.EnableBlur(enabled);
         _pauseAllowed = false;
@@ -201,7 +201,9 @@ public static class LevelManager
         var loadAsyncOperation = SceneManager.LoadSceneAsync("Assets/Content/Scenes/NewUI/UIMainMenu.unity", LoadSceneMode.Additive);
         loadAsyncOperation.completed += _ =>
         {
-            TimeController.PauseGame(false);
+            GameManager.PauseGame(false);
+            GameManager.FreezeGamePlay(false);
+            
             var unloadAsyncOperation = SceneManager.UnloadSceneAsync(_currentActiveScene);
             _currentActiveScene = SceneManager.GetSceneByPath("Assets/Content/Scenes/NewUI/UIMainMenu.unity");
             SceneManager.SetActiveScene(_currentActiveScene);
@@ -259,7 +261,9 @@ public static class LevelManager
         var asyncOperation = SceneManager.LoadSceneAsync(scenePath, LoadSceneMode.Additive);
         asyncOperation.completed += _ =>
         {
-            TimeController.PauseGame(false);
+            GameManager.PauseGame(false);
+            GameManager.FreezeGamePlay(false);
+            
             _currentActiveScene = SceneManager.GetSceneByPath(scenePath);
             var unloadAsyncOperation = SceneManager.UnloadSceneAsync(oldScene);
             SceneManager.SetActiveScene(_currentActiveScene);

@@ -13,7 +13,7 @@ public class SandboxViewManager : MonoBehaviour
         sandboxDetailPanelIconGridView.InitializeUpgradeView(UpgradeManager.DefaultUpgradePool);
         upgradePanelDetailsView.InitializeUpgradePanelView(UpgradeManager.GetUpgradeFromIdentifier(UpgradeIdentification.BigBullet));
         
-        applyButton.Initialize(() => TimeController.PauseGame(false));
+        applyButton.Initialize(() => GameManager.FreezeGamePlay(false));
         settingsButton.Initialize(() => LevelManager.ShowSettingsMenu(true));
         mainMenuButton.Initialize(LevelManager.LoadMainMenu);
     }
