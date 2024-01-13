@@ -7,7 +7,7 @@ public class UpgradeBurst : Upgrade
     public override UpgradeIdentification UpgradeIdentification => UpgradeIdentification.Burst;
     public override UpgradeType UpgradeType => UpgradeType.Weapon;
     public override string FlavorText => "Trade the single-shot snooze for a burst of pew-pew-pew and turn your enemies into a walking target.";
-    public override string Description => "Multiple bullets are fired in a sequence";
+    public override string Description => "pew-pew-pew\npew-pew-pew";
 
     public override float BulletDamage => -0.3f;
     public override float MagazineSize => -0.3f;

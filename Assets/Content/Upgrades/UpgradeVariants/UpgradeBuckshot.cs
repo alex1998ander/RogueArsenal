@@ -4,7 +4,7 @@
     public override UpgradeIdentification UpgradeIdentification => UpgradeIdentification.Buckshot;
     public override UpgradeType UpgradeType => UpgradeType.Weapon;
     public override string FlavorText => "Unleash a shotgun-inspired impact that scatters enemies like confetti.";
-    public override string Description => "Bullets now spread like a shotgun";
+    public override string Description => "Adds a shotgun vibe to your weapon.";
 
     public override int BulletCount => 4;
     public override float FireCooldown => 2.0f;

@@ -4,7 +4,7 @@
     public override UpgradeIdentification UpgradeIdentification => UpgradeIdentification.Minigun;
     public override UpgradeType UpgradeType => UpgradeType.Weapon;
     public override string FlavorText => "";
-    public override string Description => "More bullets! But lower damage and bullet size as well as spray";
+    public override string Description => "Did someone say \"More bullets\"?";
 
     public override float BulletDamage => -0.8f;
     public override float BulletSize => -0.4f;

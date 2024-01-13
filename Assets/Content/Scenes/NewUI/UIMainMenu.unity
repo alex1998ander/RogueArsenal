@@ -807,6 +807,7 @@ MonoBehaviour:
   startButton: {fileID: 1740312789}
   settingsButton: {fileID: 1566975578}
   sandboxButton: {fileID: 1907551918}
+  root: {fileID: 599645203}
 --- !u!1 &1045874204
 GameObject:
   m_ObjectHideFlags: 0

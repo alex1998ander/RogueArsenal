@@ -7,7 +7,7 @@ public class UpgradeShockwave : Upgrade
     public override UpgradeIdentification UpgradeIdentification => UpgradeIdentification.Shockwave;
     public override UpgradeType UpgradeType => UpgradeType.Weapon;
     public override string FlavorText => "";
-    public override string Description => "Damage enemies in radius around you";
+    public override string Description => "Clearing your path with a blast of sheer kinetic power.";
 
     public override void OnAbility(PlayerController playerController, PlayerWeapon playerWeapon)
     {

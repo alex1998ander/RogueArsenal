@@ -8,7 +8,7 @@ public class UpgradeExplosiveBullet : Upgrade
     public override UpgradeIdentification UpgradeIdentification => UpgradeIdentification.ExplosiveBullet;
     public override UpgradeType UpgradeType => UpgradeType.Weapon;
     public override string FlavorText => "Arm yourself with these explosive delights, turning your bullets into cheeky troublemakers that go 'boom' upon impact.";
-    public override string Description => "Bullet explodes on impact";
+    public override string Description => "Arm yourself with these explosive delights.";
 
     public override float FireCooldown => 1f;
 

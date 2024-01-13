@@ -4,8 +4,8 @@
     public override UpgradeIdentification UpgradeIdentification => UpgradeIdentification.Shield;
     public override UpgradeType UpgradeType => UpgradeType.Ability;
 
-    public override string FlavorText => "Rise from the ashes with the power of a phoenix and turn your defeat into a glorious opportunity that ignite your comeback.";
-    public override string Description => "Shields you of damage";
+    public override string FlavorText => "";
+    public override string Description => "Elegantly turn enemy bullets back to their dismayed shooters.";
 
     public static bool IsShieldActive { get; private set; } = false;
 

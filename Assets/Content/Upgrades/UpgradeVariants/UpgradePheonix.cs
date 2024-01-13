@@ -7,7 +7,7 @@ public class UpgradePhoenix : Upgrade
     public override UpgradeIdentification UpgradeIdentification => UpgradeIdentification.Phoenix;
     public override UpgradeType UpgradeType => UpgradeType.Passive;
     public override string FlavorText => "Rise from the ashes with the power of a phoenix and turn your defeat into a glorious opportunity that ignite your comeback.";
-    public override string Description => "Respawn once on death";
+    public override string Description => "Rise from the ashes with the power of a phoenix.";
 
     public override float Health => -0.35f;
 

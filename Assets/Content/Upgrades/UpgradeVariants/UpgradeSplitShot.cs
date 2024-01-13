@@ -6,7 +6,7 @@ public class UpgradeSplitShot : Upgrade
     public override string Name => "Split Shot";
     public override UpgradeIdentification UpgradeIdentification => UpgradeIdentification.SplitShot;
     public override UpgradeType UpgradeType => UpgradeType.Weapon;
-    public override string Description => "Splits your bullet so you can shoot in two directions at once";
+    public override string Description => "Turn every pull of the trigger into a triple-play spectacle.";
 
 
     public override void OnFire(PlayerBullet playerBullet)

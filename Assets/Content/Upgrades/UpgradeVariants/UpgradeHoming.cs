@@ -6,7 +6,7 @@ public class UpgradeHoming : Upgrade
     public override UpgradeIdentification UpgradeIdentification => UpgradeIdentification.Homing;
     public override UpgradeType UpgradeType => UpgradeType.Weapon;
     public override string FlavorText => "Give your bullets a crash course in stalking 101, turning them into slightly creepy projectiles that relentlessly pursue visible targets.";
-    public override string Description => "Bullets home towards visible targets but decreased damage and slower relead";
+    public override string Description => "Give your bullets a crash course in stalking 101.";
 
     public override float BulletDamage => -0.25f;
     public override float FireCooldown => 0.5f;
