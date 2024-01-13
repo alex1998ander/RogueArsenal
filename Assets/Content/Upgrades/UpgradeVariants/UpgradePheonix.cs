@@ -1,6 +1,3 @@
-using System.Collections;
-using UnityEngine;
-
 public class UpgradePhoenix : Upgrade
 {
     public override string Name => "Phoenix";
@@ -11,6 +8,11 @@ public class UpgradePhoenix : Upgrade
 
     public override float Health => -0.35f;
 
+
+    public override void Init(PlayerController playerController)
+    {
+        PlayerData.phoenixed = false;
+    }
 
     public override void OnPlayerDeath(PlayerController playerController)
     {

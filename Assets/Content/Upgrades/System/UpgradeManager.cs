@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -42,8 +41,7 @@ public static class UpgradeManager
     };
 
     private static readonly List<Upgrade> UpgradePool = new();
-
-    public static bool IsPhoenixActive { get; private set; }
+    public static bool IsPhoenixActive => CurrentUpgrades.OfType<UpgradePhoenix>().Any();
 
     static UpgradeManager()
     {
@@ -74,11 +72,6 @@ public static class UpgradeManager
         Upgrade newUpgrade = DefaultUpgradePool[weaponIndex];
 
         CurrentUpgrades.Add(newUpgrade);
-
-        if (newUpgrade is UpgradePhoenix)
-        {
-            IsPhoenixActive = true;
-        }
     }
 
     /// <summary>
@@ -91,11 +84,6 @@ public static class UpgradeManager
         Upgrade newUpgrade = GetUpgradeFromIdentifier(upgradeIdentification);
 
         CurrentUpgrades.Add(newUpgrade);
-
-        if (newUpgrade is UpgradePhoenix)
-        {
-            IsPhoenixActive = true;
-        }
 
         PlayerController playerController = Object.FindObjectOfType<PlayerController>();
         Init(playerController);
@@ -113,11 +101,6 @@ public static class UpgradeManager
         Upgrade upgrade = GetUpgradeFromIdentifier(upgradeIdentification);
 
         CurrentUpgrades.Remove(upgrade);
-
-        if (upgrade is UpgradePhoenix)
-        {
-            IsPhoenixActive = false;
-        }
 
         PlayerController playerController = Object.FindObjectOfType<PlayerController>();
         Init(playerController);
@@ -137,8 +120,6 @@ public static class UpgradeManager
             CurrentUpgrades.Add(upgrade);
         }
 
-        IsPhoenixActive = true;
-
         Init(Object.FindObjectOfType<PlayerController>());
     }
 
@@ -150,7 +131,6 @@ public static class UpgradeManager
     public static void UnbindAllUpgrades_Sandbox()
     {
         CurrentUpgrades.Clear();
-        IsPhoenixActive = false;
     }
 
     /// <summary>
@@ -175,11 +155,6 @@ public static class UpgradeManager
 
         // Remove new upgrade from upgrade pool
         UpgradePool.Remove(newUpgrade);
-
-        if (newUpgrade is UpgradePhoenix)
-        {
-            IsPhoenixActive = true;
-        }
     }
 
     /// <summary>
@@ -205,7 +180,6 @@ public static class UpgradeManager
         CurrentUpgrades.Clear();
         UpgradePool.Clear();
         UpgradePool.AddRange(DefaultUpgradePool);
-        IsPhoenixActive = false;
     }
 
     /// <summary>

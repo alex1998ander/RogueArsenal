@@ -16,21 +16,17 @@ public class IngameUIManager : MonoBehaviour
         EventManager.OnPlayerAbilityUsed.Subscribe(AbilityUsed);
         EventManager.OnPhoenixRevive.Subscribe(Phoenixed);
         EventManager.OnPlayerCollectCurrency.Subscribe(CollectedCurrency);
-        EventManager.OnUpgradeChange.Subscribe(UpgradeChange);
+        EventManager.OnUpgradeChange.Subscribe(UpdateBarConfigValues);
 
-        UpgradeChange();
-        SetIngameUIBarsToDefault();
+        UpdateBarConfigValues();
+        SetIngameUIToDefaultValues();
+        phoenixIndicatorView.ShowIndicator(UpgradeManager.IsPhoenixActive);
     }
 
     public void Init_Sandbox()
     {
-        UpgradeChange();
-        SetIngameUIBarsToDefault();
-    }
-
-    private void UpgradeChange()
-    {
-        UpdateBarConfigValues(PlayerData.abilityCooldown, PlayerData.maxAmmo, PlayerData.reloadTime, ProgressionManager.CurrentUpgradePrice, PlayerData.maxHealth);
+        UpdateBarConfigValues();
+        SetIngameUIToDefaultValues();
         phoenixIndicatorView.ShowIndicator(UpgradeManager.IsPhoenixActive);
     }
 
@@ -64,6 +60,11 @@ public class IngameUIManager : MonoBehaviour
         healthBarView.SetValue(PlayerData.health);
     }
 
+    private void UpdateBarConfigValues()
+    {
+        UpdateBarConfigValues(PlayerData.abilityCooldown, PlayerData.maxAmmo, PlayerData.reloadTime, ProgressionManager.CurrentUpgradePrice, PlayerData.maxHealth);
+    }
+    
     private void UpdateBarConfigValues(float abilityReloadTime, float ammoBarMaxValue, float ammoBarReloadTime, float currencyBarMaxValue, float healthBarMaxValue)
     {
         abilityBarView.SetReloadTime(abilityReloadTime);
@@ -73,12 +74,10 @@ public class IngameUIManager : MonoBehaviour
         healthBarView.SetMaxValue(healthBarMaxValue);
     }
 
-    private void SetIngameUIBarsToDefault()
+    private void SetIngameUIToDefaultValues()
     {
         abilityBarView.SetViewToDefault();
         phoenixIndicatorView.EnableIndicator();
-        phoenixIndicatorView.ShowIndicator(false);
-        ammoBarView.SetViewToDefault();
         ammoBarView.SetViewToDefault();
         currencyBarView.SetViewToDefault();
         healthBarView.SetViewToDefault();
@@ -92,6 +91,6 @@ public class IngameUIManager : MonoBehaviour
         EventManager.OnPlayerAbilityUsed.Unsubscribe(AbilityUsed);
         EventManager.OnPhoenixRevive.Unsubscribe(Phoenixed);
         EventManager.OnPlayerCollectCurrency.Unsubscribe(CollectedCurrency);
-        EventManager.OnUpgradeChange.Unsubscribe(UpgradeChange);
+        EventManager.OnUpgradeChange.Unsubscribe(UpdateBarConfigValues);
     }
 }
