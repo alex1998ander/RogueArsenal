@@ -72,6 +72,7 @@ public class PlayerHealth : MonoBehaviour, ICharacterHealth
     public void Heal(float healingAmount)
     {
         PlayerData.health = Mathf.Min(PlayerData.health + healingAmount, PlayerController.GetMaxHealth());
+        EventManager.OnPlayerHealthUpdate.Trigger(healingAmount);
     }
 
     /// <summary>

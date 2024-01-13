@@ -31,7 +31,11 @@ public class UpgradeDemonicPact : Upgrade
     public override bool OnBulletTrigger(PlayerBullet playerBullet, Collider2D other)
     {
         if (!other.CompareTag("Player"))
+        {
             _playerController.playerHealth.Heal(Configuration.DemonicPact_BaseHealAmount * playerBullet.Damage);
+            _nextDamageTimestamp = Time.time + 1f / Configuration.DemonicPact_BurstsPerSecond;
+        }
+
         return base.OnBulletTrigger(playerBullet, other);
     }
 }
