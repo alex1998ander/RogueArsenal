@@ -2,7 +2,7 @@ public static class PlayerData
 {
     public static float health;
     public static float maxHealth;
-    
+
     public static int ammo;
     public static int maxAmmo;
     public static float reloadTime;
@@ -15,11 +15,13 @@ public static class PlayerData
     public static bool canFire = true;
     public static bool canReload = true;
     public static bool canUseAbility = true;
+
     public static bool invulnerable;
-    
+    public static bool IsDashing;
+
     // Upgrade: Phoenix
     public static bool phoenixed;
-    
+
     // Upgrade: Sticky Fingers
     public static bool stickyFingers;
 }

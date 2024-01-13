@@ -19,7 +19,6 @@ public class PlayerController : MonoBehaviour, ICharacterController
     private Vector2 _aimDirection;
     private float _angle;
     private bool _isFiring;
-    private bool _isDashing;
 
     private float _fireCooldownEndTimestamp;
     private float _abilityCooldownEndTimestamp;
@@ -74,14 +73,14 @@ public class PlayerController : MonoBehaviour, ICharacterController
     {
         float moveSpeed;
         Vector2 movementDirection;
-        if (_isDashing)
+        if (PlayerData.IsDashing)
         {
             moveSpeed = Configuration.Player_DashSpeed;
             movementDirection = _dashMovementDirection;
 
             if (Time.time > _dashEndTimestamp)
             {
-                _isDashing = false;
+                PlayerData.IsDashing = false;
                 PlayerData.invulnerable = false;
                 _dashDelayEndTimestamp = Time.time + Configuration.Player_DashCoolDown;
             }
@@ -97,7 +96,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
 
     private void FireWeapon()
     {
-        if (Time.time <= _fireCooldownEndTimestamp || _isDashing || GameManager.GamePlayFrozen)
+        if (Time.time <= _fireCooldownEndTimestamp || PlayerData.IsDashing || GameManager.GamePlayFrozen)
             return;
 
         if (Time.time <= _weaponReloadedTimeStamp)
@@ -265,9 +264,9 @@ public class PlayerController : MonoBehaviour, ICharacterController
 
     private void OnDash()
     {
-        if (PlayerData.canDash && !_isDashing && Time.time > _dashDelayEndTimestamp)
+        if (PlayerData.canDash && !PlayerData.IsDashing && Time.time > _dashDelayEndTimestamp)
         {
-            _isDashing = true;
+            PlayerData.IsDashing = true;
             _dashEndTimestamp = Time.time + Configuration.Player_DashTime;
             PlayerData.invulnerable = true;
             _dashMovementDirection = _movementInput;
@@ -279,7 +278,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
     {
         GameManager.TogglePause();
     }
-    
+
     #endregion
 
     #region Sandbox

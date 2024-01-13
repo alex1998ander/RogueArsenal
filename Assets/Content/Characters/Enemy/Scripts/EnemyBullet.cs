@@ -39,7 +39,7 @@ public class EnemyBullet : MonoBehaviour
                 bullet.GetComponent<EnemyBounceBullet>().Init(_assignedDamage, _assignedDistance, transform.transform.gameObject);
                 Destroy(gameObject);
             }
-            else
+            else if (!PlayerData.IsDashing)
             {
                 other.GetComponentInParent<PlayerHealth>()?.InflictDamage(_assignedDamage, true);
                 Destroy(gameObject);

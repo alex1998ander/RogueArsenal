@@ -246,6 +246,7 @@ MonoBehaviour:
   playerVisualsAnimator: {fileID: 27103892123731142}
   playerWeapon: {fileID: 3840289594856838949}
   playerWeaponSprite: {fileID: 7180327322790109523}
+  playerTrigger: {fileID: 2894428577900141322}
   playerHealth: {fileID: 0}
 --- !u!114 &6483694604525781009
 MonoBehaviour:
