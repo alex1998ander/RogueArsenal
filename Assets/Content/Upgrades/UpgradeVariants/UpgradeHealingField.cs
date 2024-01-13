@@ -8,7 +8,7 @@ public class UpgradeHealingField : Upgrade
     public override string FlavorText => "Transform the battlefield into a spa-like oasis of mending with a field of rejuvenation that magically patches up your injuries.";
     public override string Description => "Right click creates a healing field";
 
-    public override float Health => 0.3f;
+    public override float AbilityDelay => 0.4f;
 
     public override void OnAbility(PlayerController playerController, PlayerWeapon playerWeapon)
     {
