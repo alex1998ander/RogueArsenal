@@ -56,8 +56,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7, y: 0.35}
-  m_EdgeRadius: 0
+  m_Size: {x: 0.52, y: 0.2}
+  m_EdgeRadius: 0.09
 --- !u!1 &2874848648748659377
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,7 +246,6 @@ MonoBehaviour:
   playerVisualsAnimator: {fileID: 27103892123731142}
   playerWeapon: {fileID: 3840289594856838949}
   playerWeaponSprite: {fileID: 7180327322790109523}
-  playerTrigger: {fileID: 2894428577900141322}
   playerHealth: {fileID: 0}
 --- !u!114 &6483694604525781009
 MonoBehaviour:
