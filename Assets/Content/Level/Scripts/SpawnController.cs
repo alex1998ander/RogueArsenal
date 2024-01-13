@@ -14,10 +14,10 @@ public class SpawnController : MonoBehaviour
     private static SpawnController _instance;
 
     // In percent
-    private const float EnemySpawnRateIncreasePerDifficulty = 0.035f;
+    private const float EnemySpawnRateIncreasePerDifficulty = 0.047f;
 
     // In percent
-    private const float BaseEnemySpawnRate = 0.5f;
+    private const float BaseEnemySpawnRate = 0.3f;
 
     private readonly List<List<Transform>> _spawnPointCollections = new List<List<Transform>>();
     private readonly List<Transform> _allSpawnPoints = new List<Transform>();
