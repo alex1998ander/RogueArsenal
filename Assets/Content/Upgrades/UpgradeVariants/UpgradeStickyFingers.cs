@@ -15,13 +15,11 @@ public class UpgradeStickyFingers : Upgrade
     {
         PlayerData.stickyFingers = true;
         PlayerData.canDash = false;
-        PlayerData.canReload = false;
     }
 
     public override void OnMagazineEmptied(PlayerController playerController, PlayerWeapon playerWeapon)
     {
         PlayerData.stickyFingers = false;
         PlayerData.canDash = true;
-        PlayerData.canReload = true;
     }
 }

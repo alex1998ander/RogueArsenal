@@ -111,6 +111,12 @@ public class PlayerController : MonoBehaviour, ICharacterController
             {
                 UpgradeManager.OnFire(this, playerWeapon);
                 EventManager.OnPlayerShot.Trigger();
+
+                // FIXME: This is a stupid place to do auto reloading. Too bad!
+                if (PlayerData.ammo == 0)
+                {
+                    StartReloadWeapon();
+                }
             }
             else
             {
