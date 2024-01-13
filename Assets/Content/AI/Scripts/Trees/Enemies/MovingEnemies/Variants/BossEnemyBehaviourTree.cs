@@ -29,9 +29,6 @@ namespace BehaviorTree
         {
             base.SetupTree();
 
-            const float attackSpeed = 0.75f;
-            const float abilityCooldown = 5f;
-
             LineRenderer lineRenderer = GetComponent<LineRenderer>();
             Transform transform = this.transform;
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
@@ -96,9 +93,9 @@ namespace BehaviorTree
                             new TaskMoveToTarget(rb, agent, animator, 1f),
                             //new CheckIsAtTarget(),
                             new TaskAimAt(rb, weapon, playerTransform),
-                            new TaskAttackPlayer(weapon, attackSpeed),
+                            new TaskAttackPlayer(weapon, Configuration.Boss_AttackSpeed),
                             new ChooseRandomAttackMove(tasks.Length),
-                            new TaskWait(abilityCooldown, true),
+                            new TaskWait(Configuration.Boss_AbilityCooldown, true),
                             new SetData<AbilityState>(sharedData.AbilityState, AbilityState.Ability)
                         }),
                         new Sequence(new List<Node>

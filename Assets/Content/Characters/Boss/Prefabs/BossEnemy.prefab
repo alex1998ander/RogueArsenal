@@ -183,9 +183,13 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.6430176
       objectReference: {fileID: 0}
+    - target: {fileID: 2549209689420417610, guid: ba46bce3e439cdd489820f759add8589, type: 3}
+      propertyPath: defaultDistance
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2669020309141495006, guid: ba46bce3e439cdd489820f759add8589, type: 3}
       propertyPath: maxHealth
-      value: 900
+      value: 3000
       objectReference: {fileID: 0}
     - target: {fileID: 3378174812999030056, guid: ba46bce3e439cdd489820f759add8589, type: 3}
       propertyPath: m_Size.x
@@ -638,7 +642,8 @@ PrefabInstance:
       propertyPath: bossCollider2D
       value: 
       objectReference: {fileID: 2958260088549180810}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2564705626203222133, guid: feb23fe8ac7c1bd4486974a4332be910, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: feb23fe8ac7c1bd4486974a4332be910, type: 3}
 --- !u!1 &7197257874185321857 stripped
 GameObject:

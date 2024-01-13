@@ -12,7 +12,7 @@ namespace BehaviorTree
         private GameObject _ui;
         private GameObject _weapon;
 
-        private float _waitTime = 3f;
+        private float _waitTime = 1.5f;
         private float _timeCounter;
 
         private bool _landPosSet = false;
