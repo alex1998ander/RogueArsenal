@@ -15,6 +15,8 @@ public class PlayerBullet : MonoBehaviour
     [Header("Upgrade: Bounce")] [SerializeField]
     private PhysicsMaterial2D bulletBouncePhysicsMaterial;
 
+    public bool TriggerUpgradesOnDestroy { get; set; } = true;
+
     public int BouncesLeft { get; set; }
 
     // Upgrade: Piercing
@@ -79,7 +81,8 @@ public class PlayerBullet : MonoBehaviour
 
     private void OnDestroy()
     {
-        UpgradeManager.OnBulletDestroy(this);
+        if (TriggerUpgradesOnDestroy)
+            UpgradeManager.OnBulletDestroy(this);
     }
 
     /// <summary>

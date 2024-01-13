@@ -18,6 +18,10 @@ public class UpgradeSplitShot : Upgrade
     {
         yield return new WaitForSeconds(Configuration.SplitShot_Delay);
 
+        // Prevent triggering 'OnDestroy' upgrades on this bullet (e.g. when has 'ExplosiveBullets', don't explode on splitting)
+        // Do this AFTER the delay so the original bullet triggers 'OnDestroy' upgrades if it gets destroyed beforehand
+        playerBullet.TriggerUpgradesOnDestroy = false;
+
         PlayerBullet leftBullet = CopyBullet(playerBullet, Configuration.SplitShot_HalfAngle);
         PlayerBullet rightBullet = CopyBullet(playerBullet, -Configuration.SplitShot_HalfAngle);
         PlayerBullet middleBullet = CopyBullet(playerBullet, 0);
