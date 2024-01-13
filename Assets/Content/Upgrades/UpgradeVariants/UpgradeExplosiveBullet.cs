@@ -24,7 +24,11 @@ public class UpgradeExplosiveBullet : Upgrade
         Collider2D[] rangeCheck = Physics2D.OverlapCircleAll(playerBullet.transform.position, Configuration.ExplosiveBullet_Radius, _targetLayer);
         foreach (Collider2D targetCollider in rangeCheck)
         {
-            targetCollider.GetComponentInParent<ICharacterHealth>().InflictDamage(Configuration.ExplosiveBullet_Damage);
+            ICharacterHealth characterHealth = targetCollider.GetComponentInParent<ICharacterHealth>();
+            if (characterHealth is PlayerHealth)
+                characterHealth.InflictDamage(Configuration.ExplosiveBullet_Damage * Configuration.Player_SelfDamageMultiplier);
+            else
+                characterHealth.InflictDamage(Configuration.ExplosiveBullet_Damage);
         }
 
         UpgradeSpawnablePrefabHolder.SpawnPrefab(UpgradeSpawnablePrefabHolder.instance.explosiveBullet, playerBullet.transform.position, 1f);

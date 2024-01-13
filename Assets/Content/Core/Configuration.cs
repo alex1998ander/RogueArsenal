@@ -8,11 +8,11 @@ public class Configuration
     public const float Player_MaxHealth = 100f;
     public const float Player_MovementSpeed = 5f;
     public const float Player_DashSpeed = 15f;
-    public const float Player_DashTime = 0.2f;
+    public const float Player_DashTime = 0.3f;
     public const float Player_DashCoolDown = 0.1f;
     public const float Player_FireCoolDown = 0.2f;
     public const float Player_AbilityCoolDown = 5.0f;
-    public const float Player_SelfDamageMultiplier = 0.4f;
+    public const float Player_SelfDamageMultiplier = 0.2f; //0.4f;
 
     // Weapon constants
     public const float Weapon_Damage = 30f;
@@ -38,9 +38,9 @@ public class Configuration
     public const float Enemy_StunImmunityTime = 2f;
     public const float Enemy_ThrownTime = 1f;
     public const float Enemy_ThrownImmunityTime = 2f;
-    public const float Enemy_DashTime = 1f;
+    public const float Enemy_DashTime = 0.2f;
     public const float Enemy_DashForce = 70f;
-    
+
     // Boss constants
     public const float Boss_AttackSpeed = 0.3f;
     public const float Boss_AbilityCooldown = 4f;
@@ -65,6 +65,7 @@ public class Configuration
     public const float Burst_FireDelayFraction = 0.15f;
 
     // Upgrade: Demonic Pact
+    public const int DemonicPact_BurstsPerSecond = 3;
     public const float DemonicPact_HealthLossPerSecond = 5f;
     public const float DemonicPact_BaseHealAmount = 0.2f;
 
@@ -116,7 +117,7 @@ public class Configuration
     // Upgrade: Timefreeze
     public const float Timefreeze_Duration = 1f;
     public const float Timefreeze_TimeScale = 0.5f;
-    
+
     // Upgrade: Shield
     public const float Shield_Duration = 2f;
 }

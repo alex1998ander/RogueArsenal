@@ -23,6 +23,7 @@ public class PlayerHealth : MonoBehaviour, ICharacterHealth
 
         PlayerData.health -= damageAmount;
 
+        EventManager.OnPlayerHit.Trigger();
         EventManager.OnPlayerHealthUpdate.Trigger(-damageAmount);
 
         // if player dies

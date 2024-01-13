@@ -42,7 +42,6 @@ public class EnemyBullet : MonoBehaviour
             else
             {
                 other.GetComponentInParent<PlayerHealth>()?.InflictDamage(_assignedDamage, true);
-                EventManager.OnPlayerHit.Trigger();
                 Destroy(gameObject);
             }
         }

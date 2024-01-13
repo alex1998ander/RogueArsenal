@@ -99,9 +99,9 @@ namespace BehaviorTree
                         {
                             new ExpectData<ChargeState>(sharedData.ChargeState, ChargeState.PostCharge),
                             new SetAnimatorParameter<bool>(animator, "Running", false),
+                            new TaskActivateDamageZone(false, damageZoneCollider),
                             new TaskWait(postChargeTime, true),
                             new TaskSetAgentActive(agent, true),
-                            new TaskActivateDamageZone(false, damageZoneCollider),
                             new SetData<ChargeState>(sharedData.ChargeState, ChargeState.None)
                         }),
                         // Case: Enemy just heard the player shoot

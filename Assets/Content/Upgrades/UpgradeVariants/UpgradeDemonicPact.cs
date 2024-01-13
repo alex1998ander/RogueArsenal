@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class UpgradeDemonicPact : Upgrade
 {
@@ -10,15 +11,21 @@ public class UpgradeDemonicPact : Upgrade
 
     private PlayerController _playerController;
 
+    private float _nextDamageTimestamp;
+
     public override void Init(PlayerController playerController)
     {
         _playerController = playerController;
+        _nextDamageTimestamp = Time.time + 1f / Configuration.DemonicPact_BurstsPerSecond;
     }
 
     public override void PlayerUpdate(PlayerController playerController)
     {
-        if (SpawnController.CheckEnemiesAlive())
-            _playerController.playerHealth.InflictDamage(Configuration.DemonicPact_HealthLossPerSecond * Time.fixedDeltaTime, true, true);
+        if (SpawnController.CheckEnemiesAlive() && Time.time >= _nextDamageTimestamp)
+        {
+            _playerController.playerHealth.InflictDamage(Configuration.DemonicPact_BurstsPerSecond / Configuration.DemonicPact_HealthLossPerSecond, false, true);
+            _nextDamageTimestamp = Time.time + 1f / Configuration.DemonicPact_BurstsPerSecond;
+        }
     }
 
     public override bool OnBulletTrigger(PlayerBullet playerBullet, Collider2D other)
