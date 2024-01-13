@@ -1,24 +1,41 @@
-using UnityEngine;
-
 /// <summary>
 /// Manager for low level game states
 /// </summary>
 public static class GameManager
 {
-    public static bool GamePaused { get; private set; }
+    private static bool _gamePaused;
+    
+    public static bool GamePaused => _gamePaused || GamePlayFrozen;
 
+    public static bool GamePlayFrozen { get; private set; }
+    
+    
+    public static void PauseGame(bool paused)
+    {
+        if (_gamePaused == paused)
+        {
+            return;
+        }
+        
+        TimeController.PauseTime(paused);
+        _gamePaused = paused;
+        EventManager.OnPauseGame.Trigger(paused);
+    }
+    
     public static void TogglePause()
     {
-        if (GamePaused)
-        {
-            TimeController.ResumeGame();
-        }
-        else
-        {
-            TimeController.PauseGame();
-        }
+        PauseGame(!_gamePaused);
+    }    
 
-        GamePaused = !GamePaused;
-        EventManager.OnPauseGame.Trigger(GamePaused);
+    public static void FreezeGamePlay(bool frozen)
+    {
+        if (GamePlayFrozen == frozen)
+        {
+            return;
+        }
+        
+        TimeController.PauseTime(frozen);
+        GamePlayFrozen = frozen;
+        EventManager.OnFreezeGamePlay.Trigger(frozen);
     }
 }

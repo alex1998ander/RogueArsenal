@@ -1,17 +1,21 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class IconGridView : MonoBehaviour
 {
     [SerializeField] private RectTransform contentParent;
-    [FormerlySerializedAs("upgradeIconPrefab")] [SerializeField] private IconView iconPrefab;
+    [SerializeField] private IconView iconPrefab;
     
 
     [SerializeField] private UpgradeIcon[] upgradeIcons;
 
     public void InitializeUpgradeView(List<Upgrade> upgrades)
     {
+        
+        foreach(Transform child in contentParent.transform) {
+            Destroy(child.gameObject);
+        }
+        
         foreach (var upgrade in upgrades)
         {
             var upgradeIcon = Instantiate(iconPrefab, contentParent);

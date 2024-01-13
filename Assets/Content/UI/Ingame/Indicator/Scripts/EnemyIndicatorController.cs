@@ -15,7 +15,7 @@ public class EnemyIndicatorController : MonoBehaviour
         int enemyTagLength = GameObject.FindGameObjectsWithTag("Enemy").Length;
         
         //Debug.Log("Number of Enemies: " + enemyTagLength);
-        if (enemyTagLength > 3) return;
+        if (enemyTagLength > 6) return;
         if (enemyTagLength < _currentEnemies)
         {
             int i = 0;
@@ -25,7 +25,7 @@ public class EnemyIndicatorController : MonoBehaviour
             foreach (GameObject enemyPoint in _enemyPoints)
             {
                 _enemyIndicators.Add(Instantiate(targetIndicator, transform));
-                _enemyIndicators[i].GetComponent<Targetindicator>().SetTarget(enemyPoint.transform);
+                _enemyIndicators[i].GetComponent<TargetIndicator>().SetTarget(enemyPoint.transform);
                 i++;
             }
         }

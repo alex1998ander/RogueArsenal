@@ -9,12 +9,20 @@ public class ExitIndicatorController : MonoBehaviour
 
     void Start()
     {
+        StartCoroutine(_DelaySetup());
+    }
+
+    // TODO: this is dumb
+    private IEnumerator _DelaySetup()
+    {
+        yield return new WaitForSeconds(1f);
         int i = 0;
         GameObject[] exitPoints = GameObject.FindGameObjectsWithTag("ExitPoints");
+        Debug.Log("Found exits: " + exitPoints.Length);
         foreach (GameObject exitPoint in exitPoints)
         {
             _exitIndicators.Add(Instantiate(targetIndicator, transform));
-            _exitIndicators[i].GetComponent<Targetindicator>().SetTarget(exitPoint.transform);
+            _exitIndicators[i].GetComponent<TargetIndicator>().SetTarget(exitPoint.transform);
             i++;
         }
     }

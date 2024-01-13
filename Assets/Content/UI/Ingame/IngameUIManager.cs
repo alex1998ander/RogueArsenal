@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class IngameUIManager : MonoBehaviour
@@ -18,7 +17,13 @@ public class IngameUIManager : MonoBehaviour
         EventManager.OnPhoenixRevive.Subscribe(Phoenixed);
         EventManager.OnPlayerCollectCurrency.Subscribe(CollectedCurrency);
         EventManager.OnUpgradeChange.Subscribe(UpgradeChange);
-        
+
+        UpgradeChange();
+        SetIngameUIBarsToDefault();
+    }
+
+    public void Init_Sandbox()
+    {
         UpgradeChange();
         SetIngameUIBarsToDefault();
     }
@@ -33,7 +38,7 @@ public class IngameUIManager : MonoBehaviour
     {
         phoenixIndicatorView.DisableIndicator();
     }
-    
+
     private void CollectedCurrency()
     {
         currencyBarView.SetValue(ProgressionManager.CollectedCurrency);

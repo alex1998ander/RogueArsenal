@@ -5,29 +5,33 @@ using UnityEngine;
 
 public class HealingField : MonoBehaviour
 {
-    [SerializeField] private float healingPowerPer100MS = 5f;
-    [SerializeField] private float radius = 1.5f;
-    [SerializeField] private LayerMask targetLayer;
+    private LayerMask _targetLayer;
 
     private void Start()
     {
+        _targetLayer = LayerMask.GetMask("Player_Trigger");
         StartCoroutine(HealCharacter());
         EventManager.OnHealingFieldStart.Trigger();
     }
 
     private IEnumerator HealCharacter()
     {
-        while (true)
+        int burstsLeft = Configuration.HealingField_Bursts;
+        float timeBetweenBursts = Configuration.HealingField_Duration / Configuration.HealingField_Bursts;
+        float healValuePerBurst = Configuration.HealingField_Amount / Configuration.HealingField_Bursts;
+
+        while (burstsLeft > 0)
         {
-            Collider2D[] rangeCheck = Physics2D.OverlapCircleAll(transform.position, radius, targetLayer);
+            Collider2D[] rangeCheck = Physics2D.OverlapCircleAll(transform.position, Configuration.HealingField_Radius, _targetLayer);
 
             foreach (Collider2D character in rangeCheck)
             {
-                character.GetComponent<PlayerHealth>().Heal(healingPowerPer100MS);
-                EventManager.OnPlayerHealthUpdate.Trigger(healingPowerPer100MS);
+                character.GetComponentInParent<PlayerHealth>().Heal(healValuePerBurst);
+                EventManager.OnPlayerHealthUpdate.Trigger(healValuePerBurst);
             }
 
-            yield return new WaitForSeconds(0.1f);
+            burstsLeft--;
+            yield return new WaitForSeconds(timeBetweenBursts);
         }
     }
 }

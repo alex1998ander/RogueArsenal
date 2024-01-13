@@ -1,24 +1,32 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using JetBrains.Annotations;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class SpawnController : MonoBehaviour
 {
     [SerializeField] private GameObject[] enemyPrefabs;
+    [SerializeField] private GameObject player;
     [SerializeField] private bool spawnAtStart = true;
     [SerializeField] private bool respawnEnemiesIndefinitely = false;
 
-    private const float EnemySpawnFillrateIncreasePerDifficultyLevelInPercent = 0.035f;
-    private const float BaseEnemySpawnFillrateInPercent = 0.5f;
+    private static SpawnController _instance;
+
+    // In percent
+    private const float EnemySpawnRateIncreasePerDifficulty = 0.035f;
+
+    // In percent
+    private const float BaseEnemySpawnRate = 0.5f;
 
     private readonly List<List<Transform>> _spawnPointCollections = new List<List<Transform>>();
     private readonly List<Transform> _allSpawnPoints = new List<Transform>();
 
-    void Start()
+
+    private void Awake()
     {
+        _instance = this;
+
         // Get the different spawn point collections inside the level.
         // This assumes the following structure inside the hierarchy:
         // - SpawnController (GameObject with this script)
@@ -31,6 +39,7 @@ public class SpawnController : MonoBehaviour
         //         - SpawnPoint
         //         - ...
         //     - ...
+
         foreach (Transform roomTransform in transform)
         {
             List<Transform> spawnPointCollection = new List<Transform>();
@@ -42,20 +51,20 @@ public class SpawnController : MonoBehaviour
 
             _spawnPointCollections.Add(spawnPointCollection);
         }
-
-        if (spawnAtStart)
-            SpawnEnemies(BaseEnemySpawnFillrateInPercent + EnemySpawnFillrateIncreasePerDifficultyLevelInPercent * ProgressionManager.DifficultyLevel);
-
-        EventManager.OnEnemyDeath.Subscribe(OnEnemyDeath);
     }
 
     /// <summary>
-    /// 
+    /// SANDBOX ONLY
     /// </summary>
     /// <param name="spawnCount"></param>
     public void SpawnEnemies(int spawnCount)
     {
         SpawnEnemiesAtSpawnPointCollection(_allSpawnPoints, spawnCount);
+    }
+
+    public static void SpawnEnemies()
+    {
+        _instance.SpawnEnemies(BaseEnemySpawnRate + EnemySpawnRateIncreasePerDifficulty * ProgressionManager.DifficultyLevel);
     }
 
     /// <summary>
@@ -73,10 +82,12 @@ public class SpawnController : MonoBehaviour
 
             SpawnEnemiesAtSpawnPointCollection(spawnPointCollection, spawnCount);
         }
+
+        EventManager.OnEnemyDeath.Subscribe(OnEnemyDeath);
     }
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     /// <param name="spawnPointCollection"></param>
     /// <param name="spawnCount"></param>
@@ -87,7 +98,7 @@ public class SpawnController : MonoBehaviour
 
         foreach (Transform spawnPointTransform in randomSpawnpointTransforms)
         {
-            Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], spawnPointTransform.position, Quaternion.identity);
+            GameObject spawnedEnemy = Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], spawnPointTransform.position, Quaternion.identity, null);
         }
     }
 

@@ -10,7 +10,7 @@ public class UpgradeMentalMeltdown : Upgrade
 
     public override bool OnBulletTrigger(PlayerBullet playerBullet, Collider2D other)
     {
-        ICharacterController characterController = other.gameObject.GetComponent<ICharacterController>();
+        ICharacterController characterController = other.gameObject.GetComponentInParent<ICharacterController>();
         if (characterController != null)
         {
             if (characterController.StunCharacter())

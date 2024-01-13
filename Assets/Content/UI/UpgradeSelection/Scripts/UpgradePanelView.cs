@@ -162,6 +162,8 @@ public class UpgradePanelView : MonoBehaviour
     public void OnUpgradeClick()
     {
         UpgradeManager.BindUpgrade(id);
+        ProgressionManager.BuyUpgrade();
+        LevelManager.Continue();
     }
 }
 

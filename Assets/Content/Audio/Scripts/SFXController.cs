@@ -2,12 +2,16 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(AudioController))]
 [RequireComponent(typeof(AudioSource))]
 public class SFXController : MonoBehaviour
 {
+    // Audio Source to play sounds
+    [SerializeField] private AudioSource audioSource;
+
     [Header("Player Sound Clips")] public Sound playerPhoenix;
     public Sound playerHit, playerShot, playerShotEmpty, playerReloadStart, playerReloadEnd, playerDash;
 
@@ -15,14 +19,11 @@ public class SFXController : MonoBehaviour
     public Sound enemyShot, enemyDeath;
 
     [Header("Other Sound Clips")] public Sound bulletDestroyed;
-    public Sound currencyCollectSound, explosion, bulletBounce, healingField, shockwave, stimpack, timefreeze;
-
-    // Audio Source to play sounds
-    private AudioSource _audioSource;
+    public Sound currencyCollectSound, explosion, bulletBounce, healingField, shield, shockwave, stimpack, timefreeze;
 
     private void Awake()
     {
-        _audioSource = GetComponent<AudioSource>();
+        DontDestroyOnLoad(gameObject);
 
         // Player sounds
         Action playPlayerPhoenix = () => { _SchedulePlaySound(playerPhoenix); };
@@ -44,56 +45,31 @@ public class SFXController : MonoBehaviour
         Action playExplosion = () => { _SchedulePlaySound(explosion); };
         Action playBulletBounce = () => { _SchedulePlaySound(bulletBounce); };
         Action playHealingField = () => { _SchedulePlaySound(healingField); };
+        Action playShield = () => { _SchedulePlaySound(shield); };
         Action playShockwave = () => { _SchedulePlaySound(shockwave); };
         Action playStimpack = () => { _SchedulePlaySound(stimpack); };
         Action playTimefreeze = () => { _SchedulePlaySound(timefreeze, true); };
 
-        // TODO: Potentially unnecessary to continuously subscribe/unsubscribe?
-        SceneManager.sceneLoaded += (scene, mode) =>
-        {
-            EventManager.OnPhoenixRevive.Subscribe(playPlayerPhoenix);
-            EventManager.OnPlayerHit.Subscribe(playPlayerHit);
-            EventManager.OnPlayerShot.Subscribe(playPlayerShot);
-            EventManager.OnPlayerShotEmpty.Subscribe(playPlayerShotEmpty);
-            EventManager.OnWeaponReloadStart.Subscribe(playPlayerReloadStart);
-            EventManager.OnWeaponReloadEnd.Subscribe(playPlayerReloadEnd);
-            EventManager.OnPlayerDash.Subscribe(playPlayerDash);
-            EventManager.OnEnemyDamage.Subscribe(playEnemyHit);
-            EventManager.OnEnemyShotFired.Subscribe(playEnemyShot);
-            EventManager.OnEnemyDeath.Subscribe(playEnemyDeath);
-            EventManager.OnPlayerBulletDestroyed.Subscribe(playBulletDestroyed);
-            EventManager.OnEnemyBulletDestroyed.Subscribe(playBulletDestroyed);
-            EventManager.OnPlayerCollectCurrency.Subscribe(playCurrencyCollectSound);
-            EventManager.OnExplosiveBulletExplosion.Subscribe(playExplosion);
-            EventManager.OnBulletBounce.Subscribe(playBulletBounce);
-            EventManager.OnHealingFieldStart.Subscribe(playHealingField);
-            EventManager.OnShockwave.Subscribe(playShockwave);
-            EventManager.OnStimpack.Subscribe(playStimpack);
-            EventManager.OnTimefreeze.Subscribe(playTimefreeze);
-        };
-
-        SceneManager.sceneUnloaded += scene =>
-        {
-            EventManager.OnPhoenixRevive.Unsubscribe(playPlayerPhoenix);
-            EventManager.OnPlayerHit.Unsubscribe(playPlayerHit);
-            EventManager.OnPlayerShot.Unsubscribe(playPlayerShot);
-            EventManager.OnPlayerShotEmpty.Unsubscribe(playPlayerShotEmpty);
-            EventManager.OnWeaponReloadStart.Unsubscribe(playPlayerReloadStart);
-            EventManager.OnWeaponReloadEnd.Unsubscribe(playPlayerReloadEnd);
-            EventManager.OnPlayerDash.Unsubscribe(playPlayerDash);
-            EventManager.OnEnemyDamage.Unsubscribe(playEnemyHit);
-            EventManager.OnEnemyShotFired.Unsubscribe(playEnemyShot);
-            EventManager.OnEnemyDeath.Unsubscribe(playEnemyDeath);
-            EventManager.OnPlayerBulletDestroyed.Unsubscribe(playBulletDestroyed);
-            EventManager.OnEnemyBulletDestroyed.Unsubscribe(playBulletDestroyed);
-            EventManager.OnPlayerCollectCurrency.Unsubscribe(playCurrencyCollectSound);
-            EventManager.OnExplosiveBulletExplosion.Unsubscribe(playExplosion);
-            EventManager.OnBulletBounce.Unsubscribe(playBulletBounce);
-            EventManager.OnHealingFieldStart.Unsubscribe(playHealingField);
-            EventManager.OnShockwave.Unsubscribe(playShockwave);
-            EventManager.OnStimpack.Unsubscribe(playStimpack);
-            EventManager.OnTimefreeze.Unsubscribe(playTimefreeze);
-        };
+        EventManager.OnPhoenixRevive.Subscribe(playPlayerPhoenix);
+        EventManager.OnPlayerHit.Subscribe(playPlayerHit);
+        EventManager.OnPlayerShot.Subscribe(playPlayerShot);
+        EventManager.OnPlayerShotEmpty.Subscribe(playPlayerShotEmpty);
+        EventManager.OnWeaponReloadStart.Subscribe(playPlayerReloadStart);
+        EventManager.OnWeaponReloadEnd.Subscribe(playPlayerReloadEnd);
+        EventManager.OnPlayerDash.Subscribe(playPlayerDash);
+        EventManager.OnEnemyDamage.Subscribe(playEnemyHit);
+        EventManager.OnEnemyShotFired.Subscribe(playEnemyShot);
+        EventManager.OnEnemyDeath.Subscribe(playEnemyDeath);
+        EventManager.OnPlayerBulletDestroyed.Subscribe(playBulletDestroyed);
+        EventManager.OnEnemyBulletDestroyed.Subscribe(playBulletDestroyed);
+        EventManager.OnPlayerCollectCurrency.Subscribe(playCurrencyCollectSound);
+        EventManager.OnExplosiveBulletExplosion.Subscribe(playExplosion);
+        EventManager.OnBulletBounce.Subscribe(playBulletBounce);
+        EventManager.OnHealingFieldStart.Subscribe(playHealingField);
+        EventManager.OnShieldStart.Subscribe(playShield);
+        EventManager.OnShockwave.Subscribe(playShockwave);
+        EventManager.OnStimpack.Subscribe(playStimpack);
+        EventManager.OnTimefreeze.Subscribe(playTimefreeze);
     }
 
     /// <summary>
@@ -134,9 +110,9 @@ public class SFXController : MonoBehaviour
             float randomPitch = Random.Range(1f - sound.pitchVariationRange, 1f + sound.pitchVariationRange);
             if (!ignoreTimescale)
                 randomPitch *= TimeController.GetTimeScale();
-            _audioSource.pitch = randomPitch;
+            audioSource.pitch = randomPitch;
 
-            _audioSource.PlayOneShot(sound.audioClip, sound.volumeScale);
+            audioSource.PlayOneShot(sound.audioClip, sound.volumeScale);
         }
     }
 }

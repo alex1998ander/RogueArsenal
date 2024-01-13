@@ -6,8 +6,14 @@ public static class ProgressionManager
     public static int CollectedCurrency { private set; get; }
     public static bool UpgradeReady { private set; get; }
 
-    public static int CurrentUpgradePrice { get; private set; }= 100;
+    public static int CurrentUpgradePrice { get; private set; } = InitialUpgradePrice;
+    private const int InitialUpgradePrice = 100;
     private const float NextUpgradePrinceInPercent = 1.05f;
+
+    static ProgressionManager()
+    {
+        EventManager.OnMainMenuEnter.Subscribe(ResetProgression);
+    }
 
     public static void CollectCurrency()
     {
@@ -18,7 +24,7 @@ public static class ProgressionManager
         }
     }
 
-    public static void SetupNextUpgrade()
+    public static void BuyUpgrade()
     {
         CollectedCurrency -= CurrentUpgradePrice;
         CurrentUpgradePrice = Mathf.RoundToInt(CurrentUpgradePrice * NextUpgradePrinceInPercent);
@@ -29,5 +35,13 @@ public static class ProgressionManager
     public static void IncreaseDifficultyLevel()
     {
         DifficultyLevel++;
+    }
+
+    public static void ResetProgression()
+    {
+        DifficultyLevel = 0;
+        CollectedCurrency = 0;
+        UpgradeReady = false;
+        CurrentUpgradePrice = InitialUpgradePrice;
     }
 }

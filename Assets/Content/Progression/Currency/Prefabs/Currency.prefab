@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3906501553116121274}
   - component: {fileID: 3613333692904916473}
   - component: {fileID: 24893246598197100}
-  - component: {fileID: 3861143986807094954}
+  - component: {fileID: 3761621528635459646}
   - component: {fileID: 4050174707416121871}
   m_Layer: 7
   m_Name: Currency
@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40599ce80f3fc9947a68a845270635d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  obstacleCollider: {fileID: 3761621528635459646}
 --- !u!50 &24893246598197100
 Rigidbody2D:
   serializedVersion: 4
@@ -64,13 +65,13 @@ Rigidbody2D:
   m_LinearDrag: 10
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Material: {fileID: 6200000, guid: 088ee386674341f4291cbc7136dc2ab0, type: 2}
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
---- !u!61 &3861143986807094954
-BoxCollider2D:
+--- !u!58 &3761621528635459646
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -83,18 +84,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.198497, y: 0.198497}
-  m_EdgeRadius: 0
+  m_Radius: 0.075
 --- !u!58 &4050174707416121871
 CircleCollider2D:
   m_ObjectHideFlags: 0

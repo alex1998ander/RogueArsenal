@@ -19,7 +19,7 @@ namespace BehaviorTree
 
             // Get relevant components
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
-            Transform playerTransform = GameObject.Find("Player").GetComponent<Transform>();
+            Transform playerTransform = FindObjectOfType<PlayerController>().GetComponent<Transform>();
             EnemyWeapon enemyWeapon = GetComponentInChildren<EnemyWeapon>();
             Animator animator = GetComponentInChildren<Animator>();
 
@@ -72,7 +72,7 @@ namespace BehaviorTree
                             new ExpectData<ChargeState>(sharedData.ChargeState, ChargeState.None),
                             new CheckPlayerVisible(rb, playerTransform, wallLayer),
                             new TaskSetLastKnownPlayerLocation(playerTransform),
-                            new TaskAimAt(rb, enemyWeapon, playerTransform),
+                            // new TaskAimAt(rb, enemyWeapon, playerTransform),
                             new TaskPickTargetAroundTransforms(playerTransform, minDistanceFromPlayer,
                                 maxDistanceFromPlayer),
                             new TaskMoveToTarget(rb, agent, animator, 1f),
@@ -89,7 +89,7 @@ namespace BehaviorTree
                             new TaskWait(preChargeTime, true),
                             new TaskPickTargetAroundTransforms(playerTransform, 0, 0),
                             new TaskSetMovementSpeed(agent, chargingSpeed),
-                            new TaskSetMovementAcceleration(agent, chargingAcceleration),
+                            new TaskEnemyDash(playerTransform,rb,transform),
                             new SetData<ChargeState>(sharedData.ChargeState, ChargeState.MidCharge),
                         }),
                         // Case: Enemy is currently charging
@@ -108,7 +108,6 @@ namespace BehaviorTree
                             new SetAnimatorParameter<bool>(animator, "Running", false),
                             new TaskWait(postChargeTime, true),
                             new TaskSetMovementSpeed(agent, movementSpeed),
-                            new TaskSetMovementAcceleration(agent, movementAcceleration),
                             new TaskActivateDamageZone(false, damageZoneCollider),
                             new SetData<ChargeState>(sharedData.ChargeState, ChargeState.None)
                         }),

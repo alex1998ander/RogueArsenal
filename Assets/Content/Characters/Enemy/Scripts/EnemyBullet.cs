@@ -1,19 +1,19 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Content.Characters.Enemy.Scripts;
 using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
     [SerializeField] private float defaultBulletSpeed = 10f;
+    [SerializeField] private GameObject bounceBullet;
 
     private Rigidbody2D _rb;
 
     private float _assignedDamage;
     private float _assignedDistance;
-    private GameObject _sourceCharacter;
 
-    private bool _currentlyColliding = false;
     private int _bouncesLeft;
 
     private void Awake()
@@ -27,27 +27,31 @@ public class EnemyBullet : MonoBehaviour
         Destroy(gameObject, _assignedDistance / defaultBulletSpeed);
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!_currentlyColliding)
-        {
-            Destroy(gameObject);
-            EventManager.OnEnemyBulletDestroyed.Trigger();
-        }
-
         // Player hit
-        if (other.gameObject.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-            other.gameObject.GetComponent<PlayerHealth>().InflictDamage(_assignedDamage, true);
-            EventManager.OnPlayerHit.Trigger();
+            if (UpgradeShield.IsShieldActive)
+            {
+                Quaternion invertedRotation = transform.rotation * Quaternion.AngleAxis(180, Vector3.forward);
+                GameObject bullet = GameObject.Instantiate(bounceBullet, transform.position, invertedRotation); //Quaternion.Inverse(transform.rotation)  alternative abbounce Richtung
+                bullet.GetComponent<EnemyBounceBullet>().Init(_assignedDamage, _assignedDistance, transform.transform.gameObject);
+                Destroy(gameObject);
+            }
+            else
+            {
+                other.GetComponentInParent<PlayerHealth>()?.InflictDamage(_assignedDamage, true);
+                EventManager.OnPlayerHit.Trigger();
+                Destroy(gameObject);
+            }
         }
-
-        _currentlyColliding = true;
     }
 
-    private void OnCollisionExit2D(Collision2D other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        _currentlyColliding = false;
+        Destroy(gameObject);
+        EventManager.OnEnemyBulletDestroyed.Trigger();
     }
 
     /// <summary>
@@ -59,6 +63,5 @@ public class EnemyBullet : MonoBehaviour
     {
         _assignedDamage = assignedDamage;
         _assignedDistance = assignedDistance;
-        _sourceCharacter = sourceCharacter;
     }
 }

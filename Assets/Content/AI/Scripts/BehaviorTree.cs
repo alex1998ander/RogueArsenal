@@ -13,7 +13,7 @@ namespace BehaviorTree
         /// <summary>
         /// On game start, builds the behaviour tree.
         /// </summary>
-        protected void Start()
+        protected void Awake()
         {
             root = SetupTree();
         }

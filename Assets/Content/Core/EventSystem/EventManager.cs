@@ -31,6 +31,7 @@ public static class EventManager
     public static readonly Event OnBulletBounce = new();
     public static readonly Event OnExplosiveBulletExplosion = new();
     public static readonly Event OnHealingFieldStart = new();
+    public static readonly Event OnShieldStart = new();
     public static readonly Event OnPhoenixRevive = new();
     public static readonly Event OnShockwave = new();
     public static readonly Event OnStimpack = new();
@@ -62,7 +63,9 @@ public static class EventManager
 
     #region Game Events
 
+    public static readonly Event OnStartGame = new();
     public static readonly Event<bool> OnPauseGame = new();
+    public static readonly Event<bool> OnFreezeGamePlay = new();
     public static readonly Event OnMainMenuEnter = new();
     public static readonly Event OnUpgradeChange = new();
 

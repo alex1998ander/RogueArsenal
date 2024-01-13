@@ -10,8 +10,11 @@ public class SceneChangeTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player") && !SpawnController.CheckEnemiesAlive())
         {
-            LevelManager.LoadNextLevel();
+            LevelManager.Continue();
             EventManager.OnLevelExit.Trigger();
+
+            // TODO: move this where it makes more sense
+            PlayerData.invulnerable = false;
         }
     }
 }

@@ -1,19 +1,14 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-public class EnemyShieldGenerator : MonoBehaviour,ICharacterHealth
+public class EnemyShieldGenerator : MonoBehaviour, ICharacterHealth
 {
-    [SerializeField] private float maxHealth = 100f;
     [SerializeField] private Collider2D bossCollider2D;
+
     private float _currentHealth;
 
     private void Awake()
     {
-        _currentHealth = maxHealth;
+        _currentHealth = Configuration.Boss_ShieldMaxHealth;
     }
 
     /// <summary>
@@ -23,30 +18,27 @@ public class EnemyShieldGenerator : MonoBehaviour,ICharacterHealth
     /// <param name="fatal">ignored</param>
     public void InflictDamage(float damageAmount, bool fatal = false, bool ignoreInvulnerability = false)
     {
+        if (IsDead())
+            return;
+
         _currentHealth -= damageAmount;
 
-        //EventManager.OnEnemyDamage.Trigger(damageAmount);
-
         // if enemy dies
-        if (_currentHealth <= 0)
+        if (IsDead())
         {
             gameObject.SetActive(false);
             bossCollider2D.enabled = true;
+            _currentHealth = Configuration.Boss_ShieldMaxHealth;
         }
     }
-    
-    // Start is called before the first frame update
-    void Start()
+
+    public bool IsDead()
     {
-        //transform.position = new Vector3(0.8f, 0, 0);
+        return _currentHealth <= 0;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        transform.RotateAround(transform.parent.transform.position, 
-            new Vector3(0, 0, 1), 50 * Time.deltaTime);
+        transform.RotateAround(transform.position, new Vector3(0, 0, 1), Configuration.Boss_ShieldRotationSpeed * Time.deltaTime);
     }
-
-    
 }

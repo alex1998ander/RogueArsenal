@@ -6,12 +6,12 @@ public class UpgradeSmartPistol : Upgrade
     public override UpgradeIdentification UpgradeIdentification => UpgradeIdentification.SmartPistol;
     public override UpgradeType UpgradeType => UpgradeType.Ability;
     public override string FlavorText => "";
-    public override string Description => "";
+    public override string Description => "Shoots all enemies around you automatically";
 
     public override void OnAbility(PlayerController playerController, PlayerWeapon playerWeapon)
     {
         // Get all colliders of enemies around the player
-        Collider2D[] results = Physics2D.OverlapCircleAll(playerController.transform.position, Configuration.SmartPistol_Range, LayerMask.GetMask("Enemies"));
+        Collider2D[] results = Physics2D.OverlapCircleAll(playerController.transform.position, Configuration.SmartPistol_Range, LayerMask.GetMask("Enemy_Trigger"));
 
         for (int i = 0; i < results.Length; i++)
         {

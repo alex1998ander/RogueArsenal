@@ -10,12 +10,16 @@ public class CurrencyController : MonoBehaviour
         Critical
     }
 
+    [SerializeField] private CircleCollider2D obstacleCollider;
+
     private const float DropForce = 15f;
     private const float InitialMoveForce = 0.8f;
     private const float MoveForceGain = 1.1f;
+    private const float MaxMoveForce = 3.0f;
     private const float InactiveLifetimeInSeconds = 0.2f;
     private const float StableLifetimeInSeconds = 1.2f;
     private const float CriticalLifetimeInSeconds = 1f;
+    private const float SqrCollectDistance = 0.1f;
 
     private Rigidbody2D _rb;
     private Transform _playerTransform;
@@ -27,6 +31,7 @@ public class CurrencyController : MonoBehaviour
 
     void Awake()
     {
+        Mathf.Pow(SqrCollectDistance, 2f);
         _rb = GetComponent<Rigidbody2D>();
     }
 
@@ -45,11 +50,19 @@ public class CurrencyController : MonoBehaviour
         if (_collected)
         {
             Vector2 playerPosition = _playerTransform.position;
-            Vector2 toPlayerDirection = (playerPosition - _rb.position).normalized;
-            _rb.AddForce(toPlayerDirection * _moveForce, ForceMode2D.Force);
-            _moveForce *= MoveForceGain;
+            Vector2 currencyToPlayer = playerPosition - _rb.position;
+            _rb.AddForce(currencyToPlayer.normalized * _moveForce, ForceMode2D.Force);
+            _moveForce = Mathf.Min(_moveForce * MoveForceGain, MaxMoveForce);
+
+            if (currencyToPlayer.sqrMagnitude <= SqrCollectDistance)
+            {
+                ProgressionManager.CollectCurrency();
+                EventManager.OnPlayerCollectCurrency.Trigger();
+                Destroy(gameObject);
+            }
         }
-        else if (Time.time > _lifetimeEndTimestamp)
+
+        if (Time.time > _lifetimeEndTimestamp)
         {
             switch (_state)
             {
@@ -70,7 +83,10 @@ public class CurrencyController : MonoBehaviour
                 }
                 case CurrencyState.Critical:
                 {
-                    Destroy(gameObject);
+                    if (_collected)
+                        obstacleCollider.enabled = false;
+                    else
+                        Destroy(gameObject);
                     break;
                 }
             }
@@ -82,16 +98,6 @@ public class CurrencyController : MonoBehaviour
         if (_state != CurrencyState.Inactive && other.CompareTag("Player"))
         {
             _collected = true;
-        }
-    }
-
-    private void OnCollisionStay2D(Collision2D other)
-    {
-        if (_state != CurrencyState.Inactive && other.gameObject.CompareTag("Player"))
-        {
-            ProgressionManager.CollectCurrency();
-            EventManager.OnPlayerCollectCurrency.Trigger();
-            Destroy(gameObject);
         }
     }
 }

@@ -11,15 +11,8 @@ public class AudioController : MonoBehaviour
 
     private void Awake()
     {
+        _instance = this;
         DontDestroyOnLoad(gameObject);
-        if (_instance == null)
-        {
-            _instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
     }
 
     /// <summary>
@@ -29,6 +22,24 @@ public class AudioController : MonoBehaviour
     public static void SetMasterVolume(float volume)
     {
         _instance.audioMixerMaster.SetFloat("master", Mathf.Log10(volume) * 60);
+    }
+
+    /// <summary>
+    /// Music volume setter.
+    /// </summary>
+    /// <param name="volume">Master volume value</param>
+    public static void SetMusicVolume(float volume)
+    {
+        _instance.audioMixerMaster.SetFloat("music", Mathf.Log10(volume) * 60);
+    }
+
+    /// <summary>
+    /// SFX volume setter.
+    /// </summary>
+    /// <param name="volume">Master volume value</param>
+    public static void SetSFXVolume(float volume)
+    {
+        _instance.audioMixerMaster.SetFloat("sfx", Mathf.Log10(volume) * 60);
     }
 
     /// <summary>

@@ -6,12 +6,12 @@ public class UpgradeHoming : Upgrade
     public override UpgradeIdentification UpgradeIdentification => UpgradeIdentification.Homing;
     public override UpgradeType UpgradeType => UpgradeType.Weapon;
     public override string FlavorText => "Give your bullets a crash course in stalking 101, turning them into slightly creepy projectiles that relentlessly pursue visible targets.";
-    public override string Description => "Bullets home towards visible targets\n\nBullet Damage -25%\nFire Delay +50%";
+    public override string Description => "Bullets home towards visible targets but decreased damage and slower relead";
 
     public override float BulletDamage => -0.25f;
     public override float FireCooldown => 0.5f;
 
-    private LayerMask targetLayer = LayerMask.GetMask("Player", "Enemies");
+    private readonly LayerMask _targetLayer = LayerMask.GetMask("Player_Trigger", "Enemy_Trigger");
 
     private float _bulletSpeed;
     private float _bulletRotationSpeed;
@@ -54,7 +54,7 @@ public class UpgradeHoming : Upgrade
     private bool CheckCharacterInFieldOfView(Transform transform, ref Vector2 closestTarget, ref Vector2 directionToTarget)
     {
         Vector2 position = transform.position;
-        Collider2D[] rangeCheck = Physics2D.OverlapCircleAll(position, Configuration.Homing_Radius, targetLayer);
+        Collider2D[] rangeCheck = Physics2D.OverlapCircleAll(position, Configuration.Homing_Radius, _targetLayer);
 
         if (rangeCheck.Length <= 0)
         {

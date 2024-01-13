@@ -1,13 +1,15 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 public static class UpgradeManager
 {
     // upgrades
-    public static List<Upgrade> CurrentUpgrades { get; private set; } = new(){};
-    
+    public static List<Upgrade> CurrentUpgrades { get; private set; } = new ();
+
     private static Upgrade[] _currentUpgradeSelection;
 
     // Need to be synchronized to UpgradeIdentification enum
@@ -28,6 +30,7 @@ public static class UpgradeManager
         new UpgradeMinigun(),
         new UpgradePiercing(),
         new UpgradePhoenix(),
+        new UpgradeShield(),
         new UpgradeShockwave(),
         new UpgradeSinusoidalShots(),
         new UpgradeSmartPistol(),
@@ -49,9 +52,9 @@ public static class UpgradeManager
 
     public static Upgrade GetUpgradeFromIdentifier(UpgradeIdentification upgradeIdentification)
     {
-        return DefaultUpgradePool[(int)upgradeIdentification];
+        return DefaultUpgradePool[(int) upgradeIdentification];
     }
-    
+
     public static Upgrade[] GenerateNewRandomUpgradeSelection(int count)
     {
         System.Random rnd = new System.Random();
@@ -71,8 +74,8 @@ public static class UpgradeManager
         Upgrade newUpgrade = DefaultUpgradePool[weaponIndex];
 
         CurrentUpgrades.Add(newUpgrade);
-        
-        if(newUpgrade is UpgradePhoenix)
+
+        if (newUpgrade is UpgradePhoenix)
         {
             IsPhoenixActive = true;
         }
@@ -88,11 +91,16 @@ public static class UpgradeManager
         Upgrade newUpgrade = GetUpgradeFromIdentifier(upgradeIdentification);
 
         CurrentUpgrades.Add(newUpgrade);
-        
-        if(newUpgrade is UpgradePhoenix)
+
+        if (newUpgrade is UpgradePhoenix)
         {
             IsPhoenixActive = true;
         }
+
+        PlayerController playerController = Object.FindObjectOfType<PlayerController>();
+        Init(playerController);
+        playerController.Init_Sandbox();
+        Object.FindObjectOfType<IngameUIManager>().Init_Sandbox();
     }
 
     /// <summary>
@@ -105,11 +113,16 @@ public static class UpgradeManager
         Upgrade upgrade = GetUpgradeFromIdentifier(upgradeIdentification);
 
         CurrentUpgrades.Remove(upgrade);
-        
-        if(upgrade is UpgradePhoenix)
+
+        if (upgrade is UpgradePhoenix)
         {
             IsPhoenixActive = false;
         }
+
+        PlayerController playerController = Object.FindObjectOfType<PlayerController>();
+        Init(playerController);
+        playerController.Init_Sandbox();
+        Object.FindObjectOfType<IngameUIManager>().Init_Sandbox();
     }
 
     /// <summary>
@@ -119,8 +132,14 @@ public static class UpgradeManager
     /// <param name="upgradeIdentification">Upgrade identifier</param>
     public static void BindAllUpgrades_Sandbox()
     {
-        CurrentUpgrades.AddRange(DefaultUpgradePool);
+        foreach (var upgrade in DefaultUpgradePool.Where(upgrade => !CurrentUpgrades.Contains(upgrade)))
+        {
+            CurrentUpgrades.Add(upgrade);
+        }
+
         IsPhoenixActive = true;
+
+        Init(Object.FindObjectOfType<PlayerController>());
     }
 
     /// <summary>
@@ -133,7 +152,7 @@ public static class UpgradeManager
         CurrentUpgrades.Clear();
         IsPhoenixActive = false;
     }
-    
+
     /// <summary>
     /// Checks if the provided upgrade is binded.
     /// </summary>
@@ -156,8 +175,8 @@ public static class UpgradeManager
 
         // Remove new upgrade from upgrade pool
         UpgradePool.Remove(newUpgrade);
-        
-        if(newUpgrade is UpgradePhoenix)
+
+        if (newUpgrade is UpgradePhoenix)
         {
             IsPhoenixActive = true;
         }
@@ -476,6 +495,18 @@ public static class UpgradeManager
         }
 
         return bulletSurvives;
+    }
+
+    /// <summary>
+    /// Executes the functionalities of all assigned upgrades when the bullet is destroyed
+    /// </summary>
+    /// <param name="playerBullet">The destroyed bullet</param>
+    public static void OnBulletDestroy(PlayerBullet playerBullet)
+    {
+        foreach (Upgrade upgrade in CurrentUpgrades)
+        {
+            upgrade.OnBulletDestroy(playerBullet);
+        }
     }
 
     /// <summary>

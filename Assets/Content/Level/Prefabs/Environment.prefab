@@ -369,7 +369,7 @@ GameObject:
   - component: {fileID: 4211043559999999379}
   - component: {fileID: 7044270616925684289}
   - component: {fileID: 1270203693675359967}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Furniture_Collidable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -603,7 +603,7 @@ GameObject:
   - component: {fileID: 8879249101100828785}
   - component: {fileID: 8879249101100828787}
   - component: {fileID: 8879249101100828784}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SceneChangeTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}

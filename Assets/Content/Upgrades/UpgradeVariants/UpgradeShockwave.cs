@@ -7,14 +7,14 @@ public class UpgradeShockwave : Upgrade
     public override UpgradeIdentification UpgradeIdentification => UpgradeIdentification.Shockwave;
     public override UpgradeType UpgradeType => UpgradeType.Weapon;
     public override string FlavorText => "";
-    public override string Description => "";
+    public override string Description => "Damage enemies in radius around you";
 
     public override void OnAbility(PlayerController playerController, PlayerWeapon playerWeapon)
     {
         UpgradeSpawnablePrefabHolder.SpawnPrefab(UpgradeSpawnablePrefabHolder.instance.shockwavePrefab, playerController.transform.position, Configuration.Shockwave_Duration);
 
         // Get all colliders of enemies around the player
-        Collider2D[] results = Physics2D.OverlapCircleAll(playerController.transform.position, Configuration.Shockwave_Range, LayerMask.GetMask("Enemies"));
+        Collider2D[] results = Physics2D.OverlapCircleAll(playerController.transform.position, Configuration.Shockwave_Range, LayerMask.GetMask("Enemy_Trigger"));
 
         for (int i = 0; i < results.Length; i++)
         {
@@ -27,7 +27,7 @@ public class UpgradeShockwave : Upgrade
 
             // Inverse of playerToEnemy.magnitude to lessen shockwave strength for far away enemies
             float throwStrength = Mathf.Clamp((1f / playertoEnemy.magnitude) * Configuration.Shockwave_MaxStrength, Configuration.Shockwave_MinStrength, Configuration.Shockwave_MaxStrength);
-            if (results[i].gameObject.GetComponent<ICharacterController>().ThrowCharacter())
+            if (results[i].gameObject.GetComponentInParent<ICharacterController>().ThrowCharacter())
                 results[i].attachedRigidbody.AddForce(playertoEnemy.normalized * throwStrength);
         }
 
