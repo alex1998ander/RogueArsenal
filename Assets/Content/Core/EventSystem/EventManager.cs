@@ -31,6 +31,7 @@ public static class EventManager
     public static readonly Event OnBulletBounce = new();
     public static readonly Event OnExplosiveBulletExplosion = new();
     public static readonly Event OnHealingFieldStart = new();
+    public static readonly Event OnShieldStart = new();
     public static readonly Event OnPhoenixRevive = new();
     public static readonly Event OnShockwave = new();
     public static readonly Event OnStimpack = new();

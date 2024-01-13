@@ -19,12 +19,12 @@ public class SFXController : MonoBehaviour
     public Sound enemyShot, enemyDeath;
 
     [Header("Other Sound Clips")] public Sound bulletDestroyed;
-    public Sound currencyCollectSound, explosion, bulletBounce, healingField, shockwave, stimpack, timefreeze;
+    public Sound currencyCollectSound, explosion, bulletBounce, healingField, shield, shockwave, stimpack, timefreeze;
 
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
-        
+
         // Player sounds
         Action playPlayerPhoenix = () => { _SchedulePlaySound(playerPhoenix); };
         Action playPlayerHit = () => { _SchedulePlaySound(playerHit); };
@@ -45,6 +45,7 @@ public class SFXController : MonoBehaviour
         Action playExplosion = () => { _SchedulePlaySound(explosion); };
         Action playBulletBounce = () => { _SchedulePlaySound(bulletBounce); };
         Action playHealingField = () => { _SchedulePlaySound(healingField); };
+        Action playShield = () => { _SchedulePlaySound(shield); };
         Action playShockwave = () => { _SchedulePlaySound(shockwave); };
         Action playStimpack = () => { _SchedulePlaySound(stimpack); };
         Action playTimefreeze = () => { _SchedulePlaySound(timefreeze, true); };
@@ -65,6 +66,7 @@ public class SFXController : MonoBehaviour
         EventManager.OnExplosiveBulletExplosion.Subscribe(playExplosion);
         EventManager.OnBulletBounce.Subscribe(playBulletBounce);
         EventManager.OnHealingFieldStart.Subscribe(playHealingField);
+        EventManager.OnShieldStart.Subscribe(playShield);
         EventManager.OnShockwave.Subscribe(playShockwave);
         EventManager.OnStimpack.Subscribe(playStimpack);
         EventManager.OnTimefreeze.Subscribe(playTimefreeze);
