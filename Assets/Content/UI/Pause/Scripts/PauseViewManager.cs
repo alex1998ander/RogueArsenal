@@ -10,7 +10,7 @@ public class PauseViewManager : MonoBehaviour
 
     private void Start()
     {
-        resumeButton.Initialize(() => TimeController.PauseGame(false));
+        resumeButton.Initialize(() => GameManager.PauseGame(false));
         mainMenuButton.Initialize(LevelManager.LoadMainMenu);
         settingsButton.Initialize(() => LevelManager.ShowSettingsMenu(true));
     }
@@ -34,8 +34,8 @@ public class PauseViewManager : MonoBehaviour
             upgradePanelDetailsView.gameObject.SetActive(true);
             upgradeIconGridView.gameObject.SetActive(true);
             
-            upgradeIconGridView.InitializeUpgradeView(UpgradeManager.CurrentUpgrades);
-            upgradePanelDetailsView.InitializeUpgradePanelView(UpgradeManager.GetUpgradeFromIdentifier(UpgradeIdentification.BigBullet));
+            upgradeIconGridView.InitializeUpgradeView(currentUpgrades);
+            upgradePanelDetailsView.InitializeUpgradePanelView(UpgradeManager.GetUpgradeFromIdentifier(currentUpgrades[0].UpgradeIdentification));
         }
     }
 }

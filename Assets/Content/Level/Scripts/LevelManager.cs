@@ -92,11 +92,6 @@ public static class LevelManager
 
     private static void ShowGameOver()
     {
-        if (gameState == GameState.Sandbox)
-        {
-            return;
-        }
-
         _gameOverRoot.SetActive(true);
         _currentBlurController.EnableBlur(true);
         _pauseAllowed = false;
@@ -104,7 +99,7 @@ public static class LevelManager
 
     private static void ShowUpgradeSelection(bool enabled)
     {
-        TimeController.ForcePauseGame(enabled);
+        GameManager.FreezeGamePlay(enabled);
         _upgradeSelectionRoot.SetActive(enabled);
         _currentBlurController.EnableBlur(enabled);
         _pauseAllowed = false;
@@ -144,6 +139,13 @@ public static class LevelManager
         _pauseAllowed = true;
         SwitchLevelAsync("Assets/Content/Scenes/Others/SandboxScene.unity", _currentActiveScene);
         EventManager.OnLevelEnter.Trigger();
+        
+        var gameOverLoad = SceneManager.LoadSceneAsync("Assets/Content/Scenes/NewUI/UIGameOver.unity", LoadSceneMode.Additive);
+        gameOverLoad.completed += _ =>
+        {
+            _gameOverRoot = SceneManager.GetSceneByPath("Assets/Content/Scenes/NewUI/UIGameOver.unity").GetRootGameObjects()[0];
+            _gameOverRoot.SetActive(false);
+        };
 
         var sandboxUILoad = SceneManager.LoadSceneAsync("Assets/Content/Scenes/NewUI/UISandbox.unity", LoadSceneMode.Additive);
         sandboxUILoad.completed += _ =>
@@ -196,20 +198,26 @@ public static class LevelManager
     public static void LoadMainMenu()
     {
         TimeController.ResetTimeScale();
-        var asyncOperation = SceneManager.LoadSceneAsync("Assets/Content/Scenes/NewUI/UIMainMenu.unity", LoadSceneMode.Additive);
-        asyncOperation.completed += _ =>
+        var loadAsyncOperation = SceneManager.LoadSceneAsync("Assets/Content/Scenes/NewUI/UIMainMenu.unity", LoadSceneMode.Additive);
+        loadAsyncOperation.completed += _ =>
         {
-            TimeController.PauseGame(false);
-            SceneManager.UnloadSceneAsync(_currentActiveScene);
+            GameManager.PauseGame(false);
+            GameManager.FreezeGamePlay(false);
+            
+            var unloadAsyncOperation = SceneManager.UnloadSceneAsync(_currentActiveScene);
             _currentActiveScene = SceneManager.GetSceneByPath("Assets/Content/Scenes/NewUI/UIMainMenu.unity");
             SceneManager.SetActiveScene(_currentActiveScene);
-            _currentBlurController = Object.FindFirstObjectByType<BlurController>();
-            _mainMenuUIRoot = Object.FindFirstObjectByType<MainMenuViewManager>().gameObject;
 
+            unloadAsyncOperation.completed += _ =>
+            {
+                _mainMenuUIRoot = Object.FindFirstObjectByType<MainMenuViewManager>().gameObject;
+                _currentBlurController = Object.FindFirstObjectByType<BlurController>();
+            };
         };
 
         if (gameState == GameState.Sandbox)
         {
+            SceneManager.UnloadSceneAsync(SceneManager.GetSceneByPath("Assets/Content/Scenes/NewUI/UIGameOver.unity"));
             SceneManager.UnloadSceneAsync(SceneManager.GetSceneByPath("Assets/Content/Scenes/NewUI/UISandbox.unity"));
         }
         else
@@ -253,11 +261,17 @@ public static class LevelManager
         var asyncOperation = SceneManager.LoadSceneAsync(scenePath, LoadSceneMode.Additive);
         asyncOperation.completed += _ =>
         {
-            TimeController.PauseGame(false);
+            GameManager.PauseGame(false);
+            GameManager.FreezeGamePlay(false);
+            
             _currentActiveScene = SceneManager.GetSceneByPath(scenePath);
-            SceneManager.UnloadSceneAsync(oldScene);
+            var unloadAsyncOperation = SceneManager.UnloadSceneAsync(oldScene);
             SceneManager.SetActiveScene(_currentActiveScene);
-            _currentBlurController = Object.FindFirstObjectByType<BlurController>();
+            
+            unloadAsyncOperation.completed += _ =>
+            {
+                _currentBlurController = Object.FindFirstObjectByType<BlurController>();
+            };
 
             SpawnController.SpawnEnemies();
         };

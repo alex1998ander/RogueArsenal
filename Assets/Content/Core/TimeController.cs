@@ -2,46 +2,19 @@ using UnityEngine;
 
 public static class TimeController
 {
-    public static bool GamePaused { get; private set; }
-    
-    private static bool _locked;
     private static float _timeScale = 1f;
-
-    public static void TogglePause()
-    {
-        PauseGame(!GamePaused);
-    }    
     
-    public static void PauseGame(bool enabled)
+    /// <summary>
+    /// Pauses the game time
+    /// </summary>
+    /// <remarks>
+    /// If you want to pause the game, call GameManager.PauseGame() instead.
+    /// </remarks>
+    /// <param name="paused">Bool, whether the time is paused or not</param>
+    public static void PauseTime(bool paused)
     {
-        if (GamePaused == enabled)
-        {
-            return;
-        }
-        
-        if (_locked)
-        {
-            return;
-        }
-        
-        GamePaused = enabled;
-        _timeScale = enabled ? 0f : 1f;
+        _timeScale = paused ? 0f : 1f;
         Time.timeScale = _timeScale;
-        EventManager.OnPauseGame.Trigger(GamePaused);
-    }
-
-    public static void ForcePauseGame(bool enabled)
-    {
-        if (GamePaused == enabled)
-        {
-            return;
-        }
-        
-        _locked = enabled;
-        GamePaused = enabled;
-        _timeScale = enabled ? 0f : 1f;
-        Time.timeScale = _timeScale;
-        EventManager.OnPauseGame.Trigger(GamePaused);
     }
 
     public static void ChangeTimeScale(float timeScale)
@@ -54,7 +27,6 @@ public static class TimeController
     {
         _timeScale = 1f;
         Time.timeScale = _timeScale;
-        GamePaused = false;
         EventManager.OnPauseGame.Trigger(false);
     }
 

@@ -135,7 +135,6 @@ GameObject:
   - component: {fileID: 447305997}
   - component: {fileID: 447305996}
   - component: {fileID: 447305995}
-  - component: {fileID: 447305999}
   - component: {fileID: 447306000}
   m_Layer: 5
   m_Name: GameOverUI
@@ -227,23 +226,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &447305999
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 447305994}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71e7bd6bf5670ee4d85d52c50a7565a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  upgradePanelDetailsView: {fileID: 0}
-  upgradeIconGridView: {fileID: 0}
-  resumeButton: {fileID: 0}
-  mainMenuButton: {fileID: 0}
-  settingsButton: {fileID: 924002364}
 --- !u!114 &447306000
 MonoBehaviour:
   m_ObjectHideFlags: 0

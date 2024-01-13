@@ -11,6 +11,11 @@ public class IconGridView : MonoBehaviour
 
     public void InitializeUpgradeView(List<Upgrade> upgrades)
     {
+        
+        foreach(Transform child in contentParent.transform) {
+            Destroy(child.gameObject);
+        }
+        
         foreach (var upgrade in upgrades)
         {
             var upgradeIcon = Instantiate(iconPrefab, contentParent);
