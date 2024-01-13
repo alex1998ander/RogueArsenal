@@ -20558,7 +20558,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7595773359139025270, guid: 58da58bccb053904b8b5a408e035efce, type: 3}
       propertyPath: respawnEnemiesIndefinitely
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7595773359254882278, guid: 58da58bccb053904b8b5a408e035efce, type: 3}
       propertyPath: m_TagString
