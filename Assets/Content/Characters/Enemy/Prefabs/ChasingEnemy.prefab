@@ -71,6 +71,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 2549209689420417610, guid: ba46bce3e439cdd489820f759add8589, type: 3}
+      propertyPath: defaultDistance
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5465643821577156537, guid: ba46bce3e439cdd489820f759add8589, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
