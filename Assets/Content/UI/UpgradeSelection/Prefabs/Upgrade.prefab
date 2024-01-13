@@ -435,22 +435,24 @@ MonoBehaviour:
     upgradeIdentification: 13
   - banner: {fileID: 21300000, guid: 5fc7cc0ea7181f24cba61ef5980daf0c, type: 3}
     upgradeIdentification: 14
-  - banner: {fileID: 21300000, guid: 142d943d3f948634789a1f1a48f2cfa3, type: 3}
+  - banner: {fileID: 21300000, guid: 3229745f49bf44c42ac913595479c0d0, type: 3}
     upgradeIdentification: 15
-  - banner: {fileID: 21300000, guid: 4c2a461ed9137284897e78c81cb276fd, type: 3}
+  - banner: {fileID: 21300000, guid: 142d943d3f948634789a1f1a48f2cfa3, type: 3}
     upgradeIdentification: 16
-  - banner: {fileID: 21300000, guid: b18a50981ecdead40a5d06cf6f915e6e, type: 3}
+  - banner: {fileID: 21300000, guid: 4c2a461ed9137284897e78c81cb276fd, type: 3}
     upgradeIdentification: 17
-  - banner: {fileID: 21300000, guid: 05a40be787e0fb8459f6a317a063fd6b, type: 3}
+  - banner: {fileID: 21300000, guid: b18a50981ecdead40a5d06cf6f915e6e, type: 3}
     upgradeIdentification: 18
-  - banner: {fileID: 21300000, guid: 72ca72075f2bb9c4581b3378ed53b89f, type: 3}
+  - banner: {fileID: 21300000, guid: 05a40be787e0fb8459f6a317a063fd6b, type: 3}
     upgradeIdentification: 19
-  - banner: {fileID: 21300000, guid: d02772cbc9983b34bad611057ff8e2f6, type: 3}
+  - banner: {fileID: 21300000, guid: 72ca72075f2bb9c4581b3378ed53b89f, type: 3}
     upgradeIdentification: 20
-  - banner: {fileID: 21300000, guid: 6dbeaabea738e2246895032ea0cf2472, type: 3}
+  - banner: {fileID: 21300000, guid: d02772cbc9983b34bad611057ff8e2f6, type: 3}
     upgradeIdentification: 21
-  - banner: {fileID: 21300000, guid: a3b2536d00445484c9bea236f8f15799, type: 3}
+  - banner: {fileID: 21300000, guid: 6dbeaabea738e2246895032ea0cf2472, type: 3}
     upgradeIdentification: 22
+  - banner: {fileID: 21300000, guid: a3b2536d00445484c9bea236f8f15799, type: 3}
+    upgradeIdentification: 23
   upgradeModifier:
   - {fileID: 2603692790149377444}
   - {fileID: 2603692790478392262}
@@ -596,7 +598,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.04951233, y: 0.055000003}
   m_AnchorMax: {x: 0.67300004, y: 0.32480788}
-  m_AnchoredPosition: {x: 0, y: -8.999985}
+  m_AnchoredPosition: {x: 0, y: -9}
   m_SizeDelta: {x: -23.999973, y: 17.999996}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &4722514787788432784
@@ -730,7 +732,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24.4
+  m_fontSize: 25
   m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 1
