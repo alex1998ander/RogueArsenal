@@ -66,7 +66,7 @@ public class Configuration
     public const float DemonicPact_BaseHealAmount = 0.2f;
 
     // Upgrade: Explosive Bullet
-    public const float ExplosiveBullet_Damage = 3f;
+    public const float ExplosiveBullet_Damage = 30f;
     public const float ExplosiveBullet_Radius = 1.5f;
 
     // Upgrade: Healing Field
