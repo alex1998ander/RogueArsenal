@@ -15,7 +15,7 @@ public class EnemyIndicatorController : MonoBehaviour
         int enemyTagLength = GameObject.FindGameObjectsWithTag("Enemy").Length;
         
         //Debug.Log("Number of Enemies: " + enemyTagLength);
-        if (enemyTagLength > 3) return;
+        if (enemyTagLength > 6) return;
         if (enemyTagLength < _currentEnemies)
         {
             int i = 0;
