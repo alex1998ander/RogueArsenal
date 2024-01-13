@@ -14,6 +14,8 @@ namespace BehaviorTree
 
         private float _waitTime = 3f;
 
+        private float _timeDelayBeforeFinallySettingPosition = 0.3f;
+
         private float _timeCounter = 0;
 
         private Transform _body;
@@ -44,13 +46,13 @@ namespace BehaviorTree
             _lineRenderer.startWidth = 0.05f;
             _lineRenderer.endWidth = 0.05f;
 
-            if (_timeCounter < ((_waitTime / 3) -  0.2))
+            if (_timeCounter < ((_waitTime / 3) -  _timeDelayBeforeFinallySettingPosition))
             {
                 _lineRenderer.SetPositions(new[] { laserStart, laserEnd });
             }
 
             _timeCounter += Time.fixedDeltaTime;
-            if (_timeCounter >= ((_waitTime / 3) -  0.2) && _direction == Vector2.zero)
+            if (_timeCounter >= ((_waitTime / 3) -  _timeDelayBeforeFinallySettingPosition) && _direction == Vector2.zero)
             {
                 _direction = new Vector2(_focusTarget.position.x, _focusTarget.position.y) - new Vector2(_body.position.x, _body.position.y);
                 _lineRenderer.SetPositions(new[] { laserStart, laserEnd });
