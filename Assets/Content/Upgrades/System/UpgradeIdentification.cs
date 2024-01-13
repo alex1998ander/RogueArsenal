@@ -17,11 +17,11 @@
     Phoenix,
     Shield,
     Shockwave,
-    SinusoidalShots,
     SmartPistol,
     StickyFingers,
     SplitShot,
     Stimpack,
     Tank,
     Timefreeze, 
+    WavyBullet
 }
