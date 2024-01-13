@@ -127,6 +127,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChargingEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 1792242174117944192, guid: ba46bce3e439cdd489820f759add8589, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1792242174117944192, guid: ba46bce3e439cdd489820f759add8589, type: 3}
+      propertyPath: m_LinearDrag
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2134648023557939760, guid: ba46bce3e439cdd489820f759add8589, type: 3}
       propertyPath: m_Size.x
       value: 0.7
@@ -213,8 +221,5 @@ MonoBehaviour:
   minDistanceFromPlayer: 2
   maxDistanceFromPlayer: 3
   damageZoneCollider: {fileID: 2159040945188584003}
-  chargingSpeed: 20
-  chargingAcceleration: 100
   preChargeTime: 1
   postChargeTime: 1
-  chargePastPlayerDistance: 2

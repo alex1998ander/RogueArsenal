@@ -38,7 +38,8 @@ public class Configuration
     public const float Enemy_StunImmunityTime = 2f;
     public const float Enemy_ThrownTime = 1f;
     public const float Enemy_ThrownImmunityTime = 2f;
-    public const float Enemy_DashForce = 800f;
+    public const float Enemy_DashTime = 1f;
+    public const float Enemy_DashForce = 70f;
     
     // Boss constants
     public const float Boss_StompRadius = 1f;
