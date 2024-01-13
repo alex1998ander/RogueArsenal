@@ -6,6 +6,7 @@
     public override string FlavorText => "Embrace the spirit of meticulous plotting, trading rapid-fire chaos for jaw-dropping destruction.";
     public override string Description => "More bullet damage but also longer reload";
 
-    public override float BulletDamage => 1.5f;
+    public override float BulletDamage => 1.8f;
     public override float FireCooldown => 2f;
+    public override float WeaponSpray => -0.5f;
 }

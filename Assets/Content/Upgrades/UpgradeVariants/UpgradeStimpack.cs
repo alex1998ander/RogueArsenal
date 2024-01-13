@@ -5,6 +5,8 @@
     public override UpgradeType UpgradeType => UpgradeType.Ability;
     public override string Description => "Damage multiplier for a short duration";
 
+    public override float AbilityDelay => 1f;
+
     public override void OnAbility(PlayerController playerController, PlayerWeapon playerWeapon)
     {
         UpgradeSpawnablePrefabHolder.SpawnPrefab(UpgradeSpawnablePrefabHolder.instance.stimpackPrefab, playerController.transform.position, Configuration.Stimpack_Duration, playerController.gameObject);

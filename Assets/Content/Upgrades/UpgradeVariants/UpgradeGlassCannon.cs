@@ -6,6 +6,6 @@
     public override string FlavorText => "Deal devastating damage to your enemies, but be warned: A mere sneeze could knock you out.";
     public override string Description => "Massively increased damage but health is also massively decreased";
 
-    public override float BulletDamage => 3f;
-    public override float Health => -0.95f;
+    public override float BulletDamage => 1f;
+    public override float Health => -0.6f;
 }

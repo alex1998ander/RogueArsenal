@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52a2065eab89af44f9f8014438acd991, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultBulletSpeed: 10
+  defaultBulletSpeed: 6
   bounceBullet: {fileID: 1845687642861211236, guid: a18935538cef43d44a7ed7dd1e2a75c5, type: 3}
 --- !u!1 &2089230590041893716
 GameObject:

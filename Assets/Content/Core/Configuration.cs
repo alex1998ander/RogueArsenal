@@ -38,7 +38,8 @@ public class Configuration
     public const float Enemy_StunImmunityTime = 2f;
     public const float Enemy_ThrownTime = 1f;
     public const float Enemy_ThrownImmunityTime = 2f;
-    public const float Enemy_DashForce = 800f;
+    public const float Enemy_DashTime = 1f;
+    public const float Enemy_DashForce = 70f;
     
     // Boss constants
     public const float Boss_AttackSpeed = 0.3f;
@@ -68,19 +69,19 @@ public class Configuration
     public const float DemonicPact_BaseHealAmount = 0.2f;
 
     // Upgrade: Explosive Bullet
-    public const float ExplosiveBullet_Damage = 3f;
+    public const float ExplosiveBullet_Damage = 30f;
     public const float ExplosiveBullet_Radius = 1.5f;
 
     // Upgrade: Healing Field
     public const int HealingField_Bursts = 5;
-    public const float HealingField_Amount = 50f;
+    public const float HealingField_Amount = 30f;
     public const float HealingField_Duration = 1.5f;
     public const float HealingField_Radius = 1.5f;
 
     // Upgrade: Homing
     public const float Homing_HalfAngle = 50f;
     public const float Homing_Radius = 8f;
-    public const float Homing_RotationSpeed = 400f;
+    public const float Homing_RotationSpeed = 800f;
 
     // Upgrade: Phoenix
     public const float Phoenix_WarmUpTime = 4f;
@@ -104,7 +105,7 @@ public class Configuration
     public const float SmartPistol_Range = 5f;
 
     // Upgrade: Split Shot
-    public const float SplitShot_DamageMultiplierAfterwards = 1.1f;
+    public const float SplitShot_DamageMultiplierAfterwards = 0.5f;
     public const float SplitShot_Delay = 0.1f;
     public const float SplitShot_HalfAngle = 15f;
 

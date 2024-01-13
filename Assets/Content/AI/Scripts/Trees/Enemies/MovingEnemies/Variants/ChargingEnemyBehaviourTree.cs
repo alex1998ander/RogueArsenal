@@ -7,11 +7,8 @@ namespace BehaviorTree
     public class ChargingEnemyBehaviourTree : MovingEnemyBehaviourTree
     {
         [SerializeField] private Collider2D damageZoneCollider;
-        [SerializeField] private float chargingSpeed = 20f;
-        [SerializeField] private float chargingAcceleration = 100f;
         [SerializeField] private float preChargeTime = 1f;
         [SerializeField] private float postChargeTime = 1f;
-        [SerializeField] private float chargePastPlayerDistance = 2f;
 
         protected override Node SetupTree()
         {
@@ -72,7 +69,6 @@ namespace BehaviorTree
                             new ExpectData<ChargeState>(sharedData.ChargeState, ChargeState.None),
                             new CheckPlayerVisible(rb, playerTransform, wallLayer),
                             new TaskSetLastKnownPlayerLocation(playerTransform),
-                            // new TaskAimAt(rb, enemyWeapon, playerTransform),
                             new TaskPickTargetAroundTransforms(playerTransform, minDistanceFromPlayer,
                                 maxDistanceFromPlayer),
                             new TaskMoveToTarget(rb, agent, animator, 1f),
@@ -83,13 +79,11 @@ namespace BehaviorTree
                         new Sequence(new List<Node>
                         {
                             new ExpectData<ChargeState>(sharedData.ChargeState, ChargeState.PreCharge),
-                            // new TaskAimAt(rb, enemyWeapon, playerTransform),
                             new TaskLookAt(playerTransform, rb, animator),
                             new SetAnimatorParameter<bool>(animator, "Running", false),
                             new TaskWait(preChargeTime, true),
-                            new TaskPickTargetAroundTransforms(playerTransform, 0, 0),
-                            new TaskSetMovementSpeed(agent, chargingSpeed),
-                            new TaskEnemyDash(playerTransform,rb,transform),
+                            new TaskSetAgentActive(agent, false),
+                            new TaskEnemyDash(playerTransform, rb, transform),
                             new SetData<ChargeState>(sharedData.ChargeState, ChargeState.MidCharge),
                         }),
                         // Case: Enemy is currently charging
@@ -97,8 +91,7 @@ namespace BehaviorTree
                         {
                             new ExpectData<ChargeState>(sharedData.ChargeState, ChargeState.MidCharge),
                             new TaskActivateDamageZone(true, damageZoneCollider),
-                            new TaskMoveToTarget(rb, agent, animator, 1f),
-                            new CheckIsAtTarget(),
+                            new TaskWait(Configuration.Enemy_DashTime, true),
                             new SetData<ChargeState>(sharedData.ChargeState, ChargeState.PostCharge),
                         }),
                         // Case: Enemy finished charging
@@ -107,7 +100,7 @@ namespace BehaviorTree
                             new ExpectData<ChargeState>(sharedData.ChargeState, ChargeState.PostCharge),
                             new SetAnimatorParameter<bool>(animator, "Running", false),
                             new TaskWait(postChargeTime, true),
-                            new TaskSetMovementSpeed(agent, movementSpeed),
+                            new TaskSetAgentActive(agent, true),
                             new TaskActivateDamageZone(false, damageZoneCollider),
                             new SetData<ChargeState>(sharedData.ChargeState, ChargeState.None)
                         }),

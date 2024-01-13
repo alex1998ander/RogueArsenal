@@ -20,6 +20,7 @@ public class UpgradeSplitShot : Upgrade
 
         PlayerBullet leftBullet = CopyBullet(playerBullet, Configuration.SplitShot_HalfAngle);
         PlayerBullet rightBullet = CopyBullet(playerBullet, -Configuration.SplitShot_HalfAngle);
+        PlayerBullet middleBullet = CopyBullet(playerBullet, 0);
 
         // For Sinusoidal Shots: rotate the split bullets coming from the left bullet to the right and vice versa
         if (playerBullet.RotationMultiplier != 0)
@@ -31,10 +32,7 @@ public class UpgradeSplitShot : Upgrade
         // For Sinusoidal Shots: Split bullets need opposing rotation multipliers
         leftBullet.RotationMultiplier = 1;
         rightBullet.RotationMultiplier = -1;
-
-        // DEBUG: color left bullet red, right bullet green
-        leftBullet.gameObject.GetComponentInChildren<SpriteRenderer>().color = Color.red;
-        rightBullet.gameObject.GetComponentInChildren<SpriteRenderer>().color = Color.green;
+        middleBullet.RotationMultiplier = 1;
 
         Object.Destroy(playerBullet.gameObject);
     }

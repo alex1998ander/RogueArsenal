@@ -6,7 +6,8 @@
     public override string FlavorText => "Break the sound barrier with bullets that leave enemies in awe and questioning their life choices.";
     public override string Description => "Increased range and bullet speed but slower reload";
 
-    public override float BulletRange => 2.5f;
-    public override float BulletSpeed => 2.5f;
-    public override float FireCooldown => 1.0f;
+    public override float BulletDamage => 0.4f;
+    public override float BulletRange => 2f;
+    public override float BulletSpeed => 1.5f;
+    public override float FireCooldown => 0.4f;
 }
