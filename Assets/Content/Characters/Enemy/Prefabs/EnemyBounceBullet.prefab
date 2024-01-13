@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 122784083064474721}
   - component: {fileID: 8635364285670978257}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: Trigger
-  m_TagString: Untagged
+  m_TagString: PlayerBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 1845687642861211257}
   - component: {fileID: 1845687642861211259}
   - component: {fileID: 1845687642861211258}
-  - component: {fileID: 6409974813143793534}
+  - component: {fileID: 8334414557057284997}
   m_Layer: 0
   m_Name: EnemyBounceBullet
   m_TagString: PlayerBullet
@@ -122,7 +122,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &6409974813143793534
+--- !u!114 &8334414557057284997
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,7 +131,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1845687642861211236}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52a2065eab89af44f9f8014438acd991, type: 3}
+  m_Script: {fileID: 11500000, guid: 19b50aae61f34270a347ab530c84dfe5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   defaultBulletSpeed: 10
@@ -229,9 +229,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3221729062928653118}
   - component: {fileID: 8327393431056813577}
-  m_Layer: 17
+  m_Layer: 12
   m_Name: Collider
-  m_TagString: Untagged
+  m_TagString: PlayerBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

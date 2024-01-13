@@ -115,5 +115,5 @@ public class Configuration
     public const float Timefreeze_TimeScale = 0.5f;
     
     // Upgrade: Shield
-    public const float Shield_Duration = 5f;
+    public const float Shield_Duration = 2f;
 }

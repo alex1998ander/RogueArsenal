@@ -34,10 +34,10 @@ public class EnemyBullet : MonoBehaviour
         {
             if (UpgradeShield.IsShieldActive)
             {
-                GameObject bullet = GameObject.Instantiate(bounceBullet, transform.position + new Vector3(2, 0, 0), transform.rotation);
-                float angle = Mathf.Atan2(_rb.velocity.y, _rb.velocity.x) * Mathf.Rad2Deg;
-                bullet.transform.rotation = Quaternion.Euler(0f, 0f, angle - 90f);
-                bullet.GetComponent<EnemyBounceBullet>().Init(_assignedDamage, Configuration.Boss_360ShotBulletDistance, transform.transform.gameObject);
+                Quaternion invertedRotation = transform.rotation * Quaternion.AngleAxis(180, Vector3.forward);
+                GameObject bullet = GameObject.Instantiate(bounceBullet, transform.position, invertedRotation); //Quaternion.Inverse(transform.rotation)  alternative abbounce Richtung
+                bullet.GetComponent<EnemyBounceBullet>().Init(_assignedDamage, _assignedDistance, transform.transform.gameObject);
+                Destroy(gameObject);
             }
             else
             {

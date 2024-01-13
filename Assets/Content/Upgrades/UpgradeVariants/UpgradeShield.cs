@@ -20,9 +20,9 @@
 
     public void ActivateShield()
     {
+        PlayerData.canDash = false;
         PlayerData.invulnerable = true;
         IsShieldActive = true;
-        PlayerData.canDash = false;
     }
 
     public void DeactivateShield()

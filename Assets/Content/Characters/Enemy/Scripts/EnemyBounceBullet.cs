@@ -27,7 +27,7 @@ namespace Content.Characters.Enemy.Scripts
         private void OnTriggerEnter2D(Collider2D other)
         {
             ICharacterHealth characterHealth = other.GetComponentInParent<ICharacterHealth>();
-            if (!(characterHealth is PlayerHealth))
+            if (characterHealth is EnemyHealth)
             {
                 characterHealth?.InflictDamage(_assignedDamage, true);
             }
