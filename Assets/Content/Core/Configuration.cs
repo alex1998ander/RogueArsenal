@@ -38,6 +38,7 @@ public class Configuration
     public const float Enemy_StunImmunityTime = 2f;
     public const float Enemy_ThrownTime = 1f;
     public const float Enemy_ThrownImmunityTime = 2f;
+    public const float Enemy_DashForce = 800f;
     
     // Boss constants
     public const float Boss_StompRadius = 1f;
@@ -112,4 +113,7 @@ public class Configuration
     // Upgrade: Timefreeze
     public const float Timefreeze_Duration = 1f;
     public const float Timefreeze_TimeScale = 0.5f;
+    
+    // Upgrade: Shield
+    public const float Shield_Duration = 5f;
 }

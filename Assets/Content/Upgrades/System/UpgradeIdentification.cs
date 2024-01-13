@@ -15,6 +15,7 @@
     Minigun,
     Piercing,
     Phoenix,
+    Shield,
     Shockwave,
     SinusoidalShots,
     SmartPistol,
@@ -22,5 +23,5 @@
     SplitShot,
     Stimpack,
     Tank,
-    Timefreeze,
+    Timefreeze, 
 }
