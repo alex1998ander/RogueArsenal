@@ -78,7 +78,7 @@ public class Configuration
     // Upgrade: Homing
     public const float Homing_HalfAngle = 50f;
     public const float Homing_Radius = 8f;
-    public const float Homing_RotationSpeed = 400f;
+    public const float Homing_RotationSpeed = 800f;
 
     // Upgrade: Phoenix
     public const float Phoenix_WarmUpTime = 4f;
