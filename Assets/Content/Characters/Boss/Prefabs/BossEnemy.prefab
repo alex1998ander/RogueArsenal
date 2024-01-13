@@ -235,6 +235,10 @@ PrefabInstance:
       propertyPath: m_BaseOffset
       value: 2.22
       objectReference: {fileID: 0}
+    - target: {fileID: 6007049234129733462, guid: ba46bce3e439cdd489820f759add8589, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6554026467861570252, guid: ba46bce3e439cdd489820f759add8589, type: 3}
       propertyPath: m_Size.x
       value: 1.09375

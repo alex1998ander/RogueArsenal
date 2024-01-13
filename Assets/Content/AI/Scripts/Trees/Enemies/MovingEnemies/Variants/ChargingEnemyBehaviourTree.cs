@@ -89,7 +89,7 @@ namespace BehaviorTree
                             new TaskWait(preChargeTime, true),
                             new TaskPickTargetAroundTransforms(playerTransform, 0, 0),
                             new TaskSetMovementSpeed(agent, chargingSpeed),
-                            new TaskSetMovementAcceleration(agent, chargingAcceleration),
+                            new TaskEnemyDash(playerTransform,rb,transform),
                             new SetData<ChargeState>(sharedData.ChargeState, ChargeState.MidCharge),
                         }),
                         // Case: Enemy is currently charging
@@ -108,7 +108,6 @@ namespace BehaviorTree
                             new SetAnimatorParameter<bool>(animator, "Running", false),
                             new TaskWait(postChargeTime, true),
                             new TaskSetMovementSpeed(agent, movementSpeed),
-                            new TaskSetMovementAcceleration(agent, movementAcceleration),
                             new TaskActivateDamageZone(false, damageZoneCollider),
                             new SetData<ChargeState>(sharedData.ChargeState, ChargeState.None)
                         }),

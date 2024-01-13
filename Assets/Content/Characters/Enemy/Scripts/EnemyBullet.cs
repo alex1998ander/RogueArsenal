@@ -1,11 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Content.Characters.Enemy.Scripts;
 using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
     [SerializeField] private float defaultBulletSpeed = 10f;
+    [SerializeField] private GameObject bounceBullet;
 
     private Rigidbody2D _rb;
 
@@ -30,9 +32,19 @@ public class EnemyBullet : MonoBehaviour
         // Player hit
         if (other.CompareTag("Player"))
         {
-            other.GetComponentInParent<PlayerHealth>()?.InflictDamage(_assignedDamage, true);
-            EventManager.OnPlayerHit.Trigger();
-            Destroy(gameObject);
+            if (UpgradeShield.IsShieldActive)
+            {
+                GameObject bullet = GameObject.Instantiate(bounceBullet, transform.position + new Vector3(2, 0, 0), transform.rotation);
+                float angle = Mathf.Atan2(_rb.velocity.y, _rb.velocity.x) * Mathf.Rad2Deg;
+                bullet.transform.rotation = Quaternion.Euler(0f, 0f, angle - 90f);
+                bullet.GetComponent<EnemyBounceBullet>().Init(_assignedDamage, Configuration.Boss_360ShotBulletDistance, transform.transform.gameObject);
+            }
+            else
+            {
+                other.GetComponentInParent<PlayerHealth>()?.InflictDamage(_assignedDamage, true);
+                EventManager.OnPlayerHit.Trigger();
+                Destroy(gameObject);
+            }
         }
     }
 
