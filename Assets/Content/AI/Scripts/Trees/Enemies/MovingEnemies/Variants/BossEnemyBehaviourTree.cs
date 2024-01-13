@@ -48,7 +48,7 @@ namespace BehaviorTree
             Node[] tasksPool = new Node[]
             {
                 new BossAttackDash(transform, rb, playerTransform, this.damageCollider),
-                new BossAttackStomp(transform, playerTransform, bossSprite, ui),
+                new BossAttackStomp(transform, playerTransform, bossSprite, ui, weapon),
                 new BossAttackLaserFocus(lineRenderer, playerTransform, transform),
                 new BossAttackSpawnObject(playerTransform, mine, new Vector3(0.5f, 0.5f, 0.5f)),
                 new BossAttackSpawnObject(transform, turret),

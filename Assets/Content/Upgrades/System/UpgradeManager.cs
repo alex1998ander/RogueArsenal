@@ -8,7 +8,7 @@ using Object = UnityEngine.Object;
 public static class UpgradeManager
 {
     // upgrades
-    public static List<Upgrade> CurrentUpgrades { get; private set; } = new();
+    public static List<Upgrade> CurrentUpgrades { get; private set; } = new ();
 
     private static Upgrade[] _currentUpgradeSelection;
 
@@ -30,6 +30,7 @@ public static class UpgradeManager
         new UpgradeMinigun(),
         new UpgradePiercing(),
         new UpgradePhoenix(),
+        new UpgradeShield(),
         new UpgradeShockwave(),
         new UpgradeSinusoidalShots(),
         new UpgradeSmartPistol(),

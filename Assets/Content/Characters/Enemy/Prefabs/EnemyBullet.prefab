@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultBulletSpeed: 10
+  bounceBullet: {fileID: 1845687642861211236, guid: a18935538cef43d44a7ed7dd1e2a75c5, type: 3}
 --- !u!1 &2089230590041893716
 GameObject:
   m_ObjectHideFlags: 0

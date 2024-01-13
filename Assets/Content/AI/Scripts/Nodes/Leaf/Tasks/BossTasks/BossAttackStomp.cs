@@ -10,6 +10,7 @@ namespace BehaviorTree
         private SpriteRenderer _bossVisual;
         private Transform _body;
         private GameObject _ui;
+        private GameObject _weapon;
 
         private float _waitTime = 3f;
         private float _timeCounter;
@@ -18,12 +19,13 @@ namespace BehaviorTree
 
         private readonly LayerMask _targetLayer = LayerMask.GetMask("Player_Trigger");
 
-        public BossAttackStomp(Transform body, Transform stompTarget, SpriteRenderer bossVisual, GameObject ui)
+        public BossAttackStomp(Transform body, Transform stompTarget, SpriteRenderer bossVisual, GameObject ui, EnemyWeapon weapon)
         {
             _body = body;
             _stompTarget = stompTarget;
             _bossVisual = bossVisual;
             _ui = ui;
+            _weapon = weapon.gameObject;
         }
 
         public override NodeState Evaluate()
@@ -32,6 +34,7 @@ namespace BehaviorTree
 
             _bossVisual.enabled = false;
             _ui.SetActive(false);
+            _weapon.SetActive(false);
 
             _timeCounter += Time.fixedDeltaTime;
             if (_timeCounter >= _waitTime / 2 && !_landPosSet)
@@ -44,8 +47,9 @@ namespace BehaviorTree
             {
                 _bossVisual.enabled = true;
                 _ui.SetActive(true);
+                _weapon.SetActive(true);
 
-                Collider2D playerCollider = Physics2D.OverlapCircle(_stompTarget.position, Configuration.Boss_StompRadius, _targetLayer);
+                Collider2D playerCollider = Physics2D.OverlapCircle(_body.position, Configuration.Boss_StompRadius, _targetLayer);
                 playerCollider?.GetComponentInParent<ICharacterHealth>()?.InflictDamage(Configuration.Boss_StompDamage);
 
                 Debug.DrawLine(_stompTarget.position, _stompTarget.position + new Vector3(1f, 0f, 0f), Color.green, 5f);
