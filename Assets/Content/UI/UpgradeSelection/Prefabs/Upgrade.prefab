@@ -435,7 +435,7 @@ MonoBehaviour:
     upgradeIdentification: 13
   - banner: {fileID: 21300000, guid: 5fc7cc0ea7181f24cba61ef5980daf0c, type: 3}
     upgradeIdentification: 14
-  - banner: {fileID: 21300000, guid: 3229745f49bf44c42ac913595479c0d0, type: 3}
+  - banner: {fileID: 21300000, guid: 46569f48ab26ebb4181589f8ef322472, type: 3}
     upgradeIdentification: 15
   - banner: {fileID: 21300000, guid: 142d943d3f948634789a1f1a48f2cfa3, type: 3}
     upgradeIdentification: 16
@@ -732,7 +732,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
+  m_fontSize: 24.85
   m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 1

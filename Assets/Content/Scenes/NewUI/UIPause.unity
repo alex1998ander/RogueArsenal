@@ -1017,7 +1017,7 @@ MonoBehaviour:
     upgradeIdentification: 13
   - icon: {fileID: 21300000, guid: 075ee0e980333504898789086eeaa8b0, type: 3}
     upgradeIdentification: 14
-  - icon: {fileID: 21300000, guid: 9d5d5fd1640104945a282a5a1b550f75, type: 3}
+  - icon: {fileID: 21300000, guid: bd8c5157fc9ec914fa4ae911b90ff40d, type: 3}
     upgradeIdentification: 15
   - icon: {fileID: 21300000, guid: f02f11ad7d002fc4a9b1190f47358884, type: 3}
     upgradeIdentification: 16
