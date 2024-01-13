@@ -32,13 +32,13 @@ public static class UpgradeManager
         new UpgradePhoenix(),
         new UpgradeShield(),
         new UpgradeShockwave(),
-        new UpgradeSinusoidalShots(),
         new UpgradeSmartPistol(),
         new UpgradeStickyFingers(),
         new UpgradeSplitShot(),
         new UpgradeStimpack(),
         new UpgradeTank(),
         new UpgradeTimefreeze(),
+        new UpgradeWavyBullet()
     };
 
     private static readonly List<Upgrade> UpgradePool = new();

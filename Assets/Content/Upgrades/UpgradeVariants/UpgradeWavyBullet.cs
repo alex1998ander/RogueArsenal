@@ -1,12 +1,12 @@
 using UnityEngine;
 
-public class UpgradeSinusoidalShots : Upgrade
+public class UpgradeWavyBullet : Upgrade
 {
-    public override string Name => "Sinusoidal Shots";
-    public override UpgradeIdentification UpgradeIdentification => UpgradeIdentification.SinusoidalShots;
+    public override string Name => "WavyBullet";
+    public override UpgradeIdentification UpgradeIdentification => UpgradeIdentification.WavyBullet;
     public override UpgradeType UpgradeType => UpgradeType.Weapon;
     public override string FlavorText => "Straight lines are so passé! Unleash the power of trigonometry on your foes and watch them tremble in confusion.";
-    public override string Description => "Squiggly lines look fun now your bullets do too";
+    public override string Description => "Squiggly lines look fun, now your bullets do too";
 
     public override int BulletCount => 1;
     public override float BulletDamage => -0.4f;
