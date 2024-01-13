@@ -102,7 +102,7 @@ public class Configuration
     public const float SmartPistol_Range = 5f;
 
     // Upgrade: Split Shot
-    public const float SplitShot_DamageMultiplierAfterwards = 1.1f;
+    public const float SplitShot_DamageMultiplierAfterwards = 0.5f;
     public const float SplitShot_Delay = 0.1f;
     public const float SplitShot_HalfAngle = 15f;
 
