@@ -10,6 +10,7 @@ public class UpgradeSpawnablePrefabHolder : MonoBehaviour
     [SerializeField] public GameObject healingFieldPrefab;
     [SerializeField] public GameObject mentalMeltdownPrefab;
     [SerializeField] public GameObject phoenixPrefab;
+    [SerializeField] public GameObject shieldPrefab;
     [SerializeField] public GameObject shockwavePrefab;
     [SerializeField] public GameObject stimpackPrefab;
     [SerializeField] public GameObject timefreezePrefab;

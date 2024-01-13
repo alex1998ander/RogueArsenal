@@ -3,7 +3,7 @@
     public override string Name => "Shield";
     public override UpgradeIdentification UpgradeIdentification => UpgradeIdentification.Shield;
     public override UpgradeType UpgradeType => UpgradeType.Ability;
-    
+
     public override string FlavorText => "Rise from the ashes with the power of a phoenix and turn your defeat into a glorious opportunity that ignite your comeback.";
     public override string Description => "Shields you of damage";
 
@@ -11,11 +11,13 @@
 
     public override void OnAbility(PlayerController playerController, PlayerWeapon playerWeapon)
     {
+        UpgradeSpawnablePrefabHolder.SpawnPrefab(UpgradeSpawnablePrefabHolder.instance.shieldPrefab, playerController.transform.position, Configuration.Shield_Duration, playerController.gameObject);
         playerController.StartCoroutine(Util.OnOffCoroutine(
             ActivateShield,
             DeactivateShield,
             Configuration.Shield_Duration)
         );
+        EventManager.OnShieldStart.Trigger();
     }
 
     public void ActivateShield()

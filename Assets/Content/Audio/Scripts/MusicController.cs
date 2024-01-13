@@ -13,8 +13,6 @@ public class MusicController : MonoBehaviour
     // Gameplay Music selection
     [SerializeField] private Music[] gameplayMusicSelection;
 
-    public static AudioClipLibrary Library;
-
     private AudioSource _audioSourceMusicCurrent;
     private AudioSource _audioSourceMusicUnused;
 
@@ -26,8 +24,6 @@ public class MusicController : MonoBehaviour
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
-
-        Library = GetComponent<AudioClipLibrary>();
         _audioSourceMusicCurrent = audioSourceMusicFst;
         _audioSourceMusicUnused = audioSourceMusicSnd;
 
