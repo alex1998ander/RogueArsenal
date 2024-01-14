@@ -19,15 +19,13 @@ public class IngameUIManager : MonoBehaviour
         EventManager.OnUpgradeChange.Subscribe(UpdateBarConfigValues);
 
         UpdateBarConfigValues();
-        SetIngameUIToDefaultValues();
-        phoenixIndicatorView.ShowIndicator(UpgradeManager.IsPhoenixActive);
+        SetIngameUIValues();
     }
 
     public void Init_Sandbox()
     {
         UpdateBarConfigValues();
-        SetIngameUIToDefaultValues();
-        phoenixIndicatorView.ShowIndicator(UpgradeManager.IsPhoenixActive);
+        SetIngameUIValues();
     }
 
     private void Phoenixed()
@@ -74,13 +72,14 @@ public class IngameUIManager : MonoBehaviour
         healthBarView.SetMaxValue(healthBarMaxValue);
     }
 
-    private void SetIngameUIToDefaultValues()
+    private void SetIngameUIValues()
     {
         abilityBarView.SetViewToDefault();
-        phoenixIndicatorView.EnableIndicator();
-        ammoBarView.SetViewToDefault();
-        currencyBarView.SetViewToDefault();
-        healthBarView.SetViewToDefault();
+        ammoBarView.SetValue(PlayerData.ammo);
+        currencyBarView.SetValue(ProgressionManager.CollectedCurrency);
+        healthBarView.SetValue(PlayerData.health);
+        phoenixIndicatorView.ShowIndicator(UpgradeManager.IsPhoenixActive);
+        
     }
 
     private void OnDestroy()
