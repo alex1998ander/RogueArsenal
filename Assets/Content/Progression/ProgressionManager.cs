@@ -8,7 +8,7 @@ public static class ProgressionManager
 
     public static int CurrentUpgradePrice { get; private set; } = InitialUpgradePrice;
     private const int InitialUpgradePrice = 100;
-    private const float NextUpgradePrinceInPercent = 1.05f;
+    private const float NextUpgradePrinceInPercent = 1.15f;
 
     static ProgressionManager()
     {
