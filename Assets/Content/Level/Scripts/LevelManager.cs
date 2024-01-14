@@ -71,6 +71,7 @@ public static class LevelManager
         if (levelCounter > BossLevelThreshold)
         {
             LoadMainMenu();
+            return;
         }
 
         if (ProgressionManager.UpgradeReady)
