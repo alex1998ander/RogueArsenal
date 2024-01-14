@@ -74,7 +74,7 @@ MonoBehaviour:
     volumeScale: 0.1
     pitchVariationRange: 0.1
     initialDelay: 0
-    minTimeBetweenPlays: 0
+    minTimeBetweenPlays: 0.05
   playerShot:
     audioClip: {fileID: 8300000, guid: a533147658105d841a5455884ed95017, type: 3}
     volumeScale: 0.1
@@ -110,13 +110,13 @@ MonoBehaviour:
     volumeScale: 0.2
     pitchVariationRange: 0.1
     initialDelay: 0
-    minTimeBetweenPlays: 0
+    minTimeBetweenPlays: 0.05
   enemyShot:
     audioClip: {fileID: 8300000, guid: 5eed84d76da8b9b4385cd2c7f448156c, type: 3}
     volumeScale: 0.15
     pitchVariationRange: 0.1
     initialDelay: 0
-    minTimeBetweenPlays: 0
+    minTimeBetweenPlays: 0.05
   enemyDeath:
     audioClip: {fileID: 8300000, guid: 4a7e7301663be98448d6f19dc0128c37, type: 3}
     volumeScale: 0.4
@@ -128,7 +128,7 @@ MonoBehaviour:
     volumeScale: 0.6
     pitchVariationRange: 0.1
     initialDelay: 0
-    minTimeBetweenPlays: 0
+    minTimeBetweenPlays: 0.05
   currencyCollectSound:
     audioClip: {fileID: 8300000, guid: c10ab038608c13b4596ff46d3bbb8084, type: 3}
     volumeScale: 0.4
