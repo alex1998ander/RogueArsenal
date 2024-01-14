@@ -9,7 +9,8 @@ public class EnemyContactDamage : MonoBehaviour
         // Enemy deals contact damage to Player
         if (other.gameObject.CompareTag("Player"))
         {
-            other.gameObject.GetComponent<PlayerHealth>().InflictContactDamage(contactDamage);
+            other.GetComponentInParent<PlayerHealth>().InflictContactDamage(contactDamage);
+            EventManager.OnPlayerHit.Trigger();
         }
     }
 }

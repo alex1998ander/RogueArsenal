@@ -5,41 +5,83 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 1
+    path: Assets/Content/Scenes/Others/SplashScene.unity
+    guid: 86a7314fa41eeac4dabd72fd4db80f3c
   - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
-    path: Assets/Content/Scenes/Others/MainMenu.unity
+    path: Assets/Content/Trashcan/MainMenu.unity
     guid: 58f5daac22d53c642a53b16d73fa1edc
-  - enabled: 1
-    path: Assets/Content/Scenes/Others/UpgradeSelection.unity
+  - enabled: 0
+    path: Assets/Content/Trashcan/UpgradeSelection.unity
     guid: c7f4911c9b107ba4890d589805a42852
   - enabled: 1
-    path: Assets/Content/Scenes/Levels/lvl1.unity
+    path: Assets/Content/Scenes/Levels/LevelLobby.unity
+    guid: 192a9ccdeca29c448b204efcf4fb4651
+  - enabled: 1
+    path: Assets/Content/Scenes/NewUI/UIGameOver.unity
+    guid: 5d4d252688c30584989f8b4202298e5b
+  - enabled: 1
+    path: Assets/Content/Scenes/Levels/Level1.unity
     guid: d73f471e4b09aec4abdc4b8bbad14a36
   - enabled: 1
-    path: Assets/Content/Scenes/Levels/lvl2.unity
+    path: Assets/Content/Scenes/Levels/Level2.unity
     guid: 6178cfcbe112fdc40ba5d7e066104dfc
   - enabled: 1
-    path: Assets/Content/Scenes/Levels/lvl3.unity
+    path: Assets/Content/Scenes/Levels/Level3.unity
     guid: df9bed975545961418ba2c26a6a776a0
-  - enabled: 0
-    path: Assets/Content/Scenes/Levels/lvl4.unity
+  - enabled: 1
+    path: Assets/Content/Scenes/Levels/Level4.unity
     guid: f20ad47edbd93b244a6b38d796d203b0
-  - enabled: 0
-    path: Assets/Content/Scenes/Levels/lvl5.unity
+  - enabled: 1
+    path: Assets/Content/Scenes/Levels/Level5.unity
     guid: b77931ff4c57b7a4ba7d9843be12e3b4
-  - enabled: 0
-    path: Assets/Content/Scenes/Levels/lvl6.unity
+  - enabled: 1
+    path: Assets/Content/Scenes/Levels/Level6.unity
     guid: 52fb7b9342e3d294ab2642dd97e57007
   - enabled: 1
-    path: Assets/Content/Scenes/Levels/lvlLarge1.unity
-    guid: a19a790ca1c75484eb5a1b8d5e342718
+    path: Assets/Content/Scenes/Levels/Level7.unity
+    guid: 394a069f39f73bd4bbe1a907abbfb382
   - enabled: 1
-    path: Assets/Content/Scenes/Levels/lvlLarge2.unity
-    guid: bd3b51d956210b94eaefe3fe0756fff9
+    path: Assets/Content/Scenes/Levels/Level8.unity
+    guid: 9e769582f02add3438fd6ec4ef667249
   - enabled: 1
-    path: Assets/Content/Scenes/Levels/lvlLargeBossLevel.unity
+    path: Assets/Content/Scenes/Levels/Level9.unity
+    guid: 08975215054a9a343b3da59c87256ca5
+  - enabled: 1
+    path: Assets/Content/Scenes/Levels/Level10.unity
+    guid: 6f498f7047e45f947bfe822d430b0e53
+  - enabled: 1
+    path: Assets/Content/Scenes/Levels/Level11.unity
+    guid: d834be815307cdb45b81f089c1185bea
+  - enabled: 1
+    path: Assets/Content/Scenes/Levels/Level12.unity
+    guid: 35313c62cb05e454389c9ce0afe47c18
+  - enabled: 1
+    path: Assets/Content/Scenes/Levels/Level13.unity
+    guid: 1861d677b02e81041a95c31d2b5e7fe7
+  - enabled: 1
+    path: Assets/Content/Scenes/Levels/Level14.unity
+    guid: 29cab24ceb9282944855f6d01c816703
+  - enabled: 1
+    path: Assets/Content/Scenes/Levels/LevelBoss.unity
     guid: 01fbe18cf44c5d54f908432cd396bd70
+  - enabled: 1
+    path: Assets/Content/Scenes/NewUI/UIMainMenu.unity
+    guid: 0136b2616f58c6844a5ec387d47c685f
+  - enabled: 1
+    path: Assets/Content/Scenes/NewUI/UIPause.unity
+    guid: 9e5a75279daf8c54db9de568619c43c0
+  - enabled: 1
+    path: Assets/Content/Scenes/NewUI/UISandbox.unity
+    guid: 5da07aef8cf44c24ea1e7881d9f33212
+  - enabled: 1
+    path: Assets/Content/Scenes/NewUI/UISettings.unity
+    guid: 69e1aa28b29fb7541831b0314792c601
+  - enabled: 1
+    path: Assets/Content/Scenes/NewUI/UIUpgradeSelection.unity
+    guid: 061403ce033ab93438498bcf0c45ee0c
+  - enabled: 1
+    path: Assets/Content/Scenes/Others/SandboxScene.unity
+    guid: 0e0b917e66e42b24380ca25f42ad904d
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 4ebefec0244824142b9c4de7ff778f07, type: 2}

@@ -1,5 +1,5 @@
+using System;
 using UnityEngine;
-
 
 public class PlayerHealth : MonoBehaviour, ICharacterHealth
 {
@@ -7,30 +7,27 @@ public class PlayerHealth : MonoBehaviour, ICharacterHealth
 
     private float _contactDamageInvulnerabilityEndTimestamp;
 
-    private float _currentHealth; //TODO: int basiert  machen
-
-    /// <summary>
-    /// Resets the player's health. The currently active upgrades are taken into account.
-    /// </summary>
-    public void ResetHealth()
-    {
-        _currentHealth = PlayerController.GetMaxHealth();
-    }
-
-
     /// <summary>
     /// Decreases the player's health by the specified value and checks if the player dies. If so, affecting upgrades are performed and further actions are initiated.
     /// </summary>
     /// <param name="damageAmount">Amount of damage</param>
     /// <param name="fatal">Indicates whether the player can die from this damage. If the damage is greater than the current HP and the damage is not fatal, the player keeps 1 HP.</param>
-    public void InflictDamage(float damageAmount, bool fatal)
+    /// <param name="ignoreInvulnerability">Whether player invulnerability should be ignored</param>
+    public void InflictDamage(float damageAmount, bool fatal, bool ignoreInvulnerability = false)
     {
-        _currentHealth -= damageAmount;
+        if (IsDead())
+            return;
 
-        EventManager.OnPlayerDamage.Trigger(damageAmount);
+        if (PlayerData.invulnerable && !ignoreInvulnerability)
+            return;
+
+        PlayerData.health -= damageAmount;
+
+        EventManager.OnPlayerHit.Trigger();
+        EventManager.OnPlayerHealthUpdate.Trigger(-damageAmount);
 
         // if player dies
-        if (_currentHealth <= 0)
+        if (IsDead())
         {
             // if player can die
             if (fatal)
@@ -39,7 +36,7 @@ public class PlayerHealth : MonoBehaviour, ICharacterHealth
                 UpgradeManager.OnPlayerDeath(gameObject.GetComponent<PlayerController>());
 
                 // if player dies anyway
-                if (_currentHealth <= 0)
+                if (PlayerData.health <= 0)
                 {
                     gameObject.SetActive(false);
 
@@ -48,14 +45,19 @@ public class PlayerHealth : MonoBehaviour, ICharacterHealth
             }
             else
             {
-                _currentHealth = 1;
+                PlayerData.health = 1;
             }
         }
     }
 
+    public bool IsDead()
+    {
+        return PlayerData.health <= 0;
+    }
+
     public void InflictContactDamage(float damageAmount)
     {
-        if (Time.time > _contactDamageInvulnerabilityEndTimestamp)
+        if (!PlayerData.invulnerable && Time.time > _contactDamageInvulnerabilityEndTimestamp)
         {
             _contactDamageInvulnerabilityEndTimestamp = Time.time + defaultContactDamageInvulnerabilityDelay;
 
@@ -69,15 +71,17 @@ public class PlayerHealth : MonoBehaviour, ICharacterHealth
     /// <param name="healingAmount">Amount of healing</param>
     public void Heal(float healingAmount)
     {
-        _currentHealth = Mathf.Min(_currentHealth + healingAmount, PlayerController.GetMaxHealth());
+        PlayerData.health = Mathf.Min(PlayerData.health + healingAmount, PlayerController.GetMaxHealth());
+        EventManager.OnPlayerHealthUpdate.Trigger(healingAmount);
     }
 
     /// <summary>
     /// Return the current and max life of the player in a Vector2
     /// </summary>
     /// <returns>Current and max life of the player</returns>
+    [Obsolete]
     public Vector2 GetHealth()
     {
-        return new Vector2(_currentHealth, PlayerController.GetMaxHealth());
+        return new Vector2(PlayerData.health, PlayerController.GetMaxHealth());
     }
 }

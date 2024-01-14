@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - SpawnPoint
   - ExitPoints
+  - PlayerBullet
   layers:
   - Default
   - TransparentFX
@@ -14,20 +15,20 @@ TagManager:
   - 
   - Water
   - UI
-  - Player
-  - 
+  - Player_Trigger
+  - Currency
   - Walls
-  - Enemies
-  - PlayerBullets
-  - EnemyBullets
-  - WallCheck
+  - Enemy_Trigger
+  - PlayerBullet_Trigger
+  - EnemyBullet_Trigger
+  - PlayerBullet_Collider
   - DamageZone
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - SandboxTarget
+  - Player_Collider
+  - Enemy_Collider
+  - EnemyBullet_Collider
+  - Furniture
+  - EnemyShield
   - 
   - 
   - 
@@ -59,14 +60,23 @@ TagManager:
   - name: HealingField
     uniqueID: 2143196721
     locked: 0
+  - name: Currency
+    uniqueID: 2457320059
+    locked: 0
   - name: Enemies
     uniqueID: 1617481309
     locked: 0
   - name: Bullets
     uniqueID: 3485463937
     locked: 0
+  - name: Particles_BehindPlayer
+    uniqueID: 119437211
+    locked: 0
   - name: Player
     uniqueID: 3679157101
+    locked: 0
+  - name: Particles_BeforePlayer
+    uniqueID: 947682119
     locked: 0
   - name: UI
     uniqueID: 211826079

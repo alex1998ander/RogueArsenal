@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6126447075113653067
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6126447075113653069}
+  - component: {fileID: 6126447075113653068}
+  m_Layer: 0
+  m_Name: UpgradeSpawnablePrefabHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6126447075113653069
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6126447075113653067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.2974844, y: 3.7672324, z: 0.5004908}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6126447075113653068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6126447075113653067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6651c2e6a4b482f8efc82175531070d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosiveBullet: {fileID: 2366838196180119498, guid: eca3ddb7639c5df469f8c4eda6dd2318, type: 3}
+  healingFieldPrefab: {fileID: 5263074500707566537, guid: fe83cdc0ba7afca48861f6ca5d1f95bd, type: 3}
+  mentalMeltdownPrefab: {fileID: 2538890594126050242, guid: a03f95e946bd87d47872117ff115995a, type: 3}
+  phoenixPrefab: {fileID: 4472850322237418088, guid: a13fac04aabaa874b8f28fcb1e3e8322, type: 3}
+  shieldPrefab: {fileID: 739273547121169740, guid: b0183396c0daf174683ee5e57bf021e7, type: 3}
+  shockwavePrefab: {fileID: 1320863864590499383, guid: 1f48634cec406704aa29199dd71f99ec, type: 3}
+  stimpackPrefab: {fileID: 7665294777574412546, guid: 5682181fde4cb1143972f190add759f7, type: 3}
+  timefreezePrefab: {fileID: 1525064585024935403, guid: 11c6f13f55998a840a001aede1cfd599, type: 3}
+  bulletBouncePhysicsMaterial: {fileID: 6200000, guid: 396c01159a3dcae4296c00260e30da57, type: 2}

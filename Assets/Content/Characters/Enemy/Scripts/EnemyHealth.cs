@@ -15,18 +15,26 @@ public class EnemyHealth : MonoBehaviour, ICharacterHealth
     /// </summary>
     /// <param name="damageAmount">Amount of damage</param>
     /// <param name="fatal">ignored</param>
-    public void InflictDamage(float damageAmount, bool fatal = false)
+    public void InflictDamage(float damageAmount, bool fatal = false, bool ignoreInvulnerability = false)
     {
+        if (IsDead())
+            return;
+
         _currentHealth -= damageAmount;
 
         EventManager.OnEnemyDamage.Trigger(damageAmount);
 
         // if enemy dies
-        if (_currentHealth <= 0)
+        if (IsDead())
         {
-            EventManager.OnEnemyDeath.Trigger(gameObject);
+            EventManager.OnEnemyDeath.Trigger(transform.position);
             Destroy(gameObject.transform.root.gameObject);
         }
+    }
+
+    public bool IsDead()
+    {
+        return _currentHealth <= 0;
     }
 
     public Vector2 GetHealth()

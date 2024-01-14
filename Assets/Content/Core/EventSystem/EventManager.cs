@@ -8,20 +8,34 @@ public static class EventManager
 {
     #region Player Events
 
-    /// <summary>
-    /// The player takes damage. The amount of damage is passed as a parameter.
-    /// </summary>
-    public static readonly Event<float> OnPlayerDamage = new();
+    public static readonly Event OnPlayerAmmoUpdate = new();
+    public static readonly Event<float> OnPlayerHealthUpdate = new();
 
-    /// <summary>
-    /// The player dies.
-    /// </summary>
+    public static readonly Event OnPlayerAbilityUsed = new();
+    public static readonly Event OnPlayerCollectCurrency = new();
+    public static readonly Event OnPlayerHit = new();
     public static readonly Event OnPlayerDeath = new();
 
-    /// <summary>
-    /// The player just fired a shot.
-    /// </summary>
-    public static readonly Event OnPlayerShotFired = new();
+    public static readonly Event OnPlayerShot = new();
+    public static readonly Event OnPlayerShotEmpty = new();
+    public static readonly Event OnPlayerBulletDestroyed = new();
+    public static readonly Event OnPlayerDash = new();
+
+    public static readonly Event OnWeaponReloadStart = new();
+    public static readonly Event OnWeaponReloadEnd = new();
+
+    #endregion
+
+    #region Upgrade Events
+
+    public static readonly Event OnBulletBounce = new();
+    public static readonly Event OnExplosiveBulletExplosion = new();
+    public static readonly Event OnHealingFieldStart = new();
+    public static readonly Event OnShieldStart = new();
+    public static readonly Event OnPhoenixRevive = new();
+    public static readonly Event OnShockwave = new();
+    public static readonly Event OnStimpack = new();
+    public static readonly Event OnTimefreeze = new();
 
     #endregion
 
@@ -29,20 +43,10 @@ public static class EventManager
 
     #region Enemy Events
 
-    /// <summary>
-    /// A Enemy takes damage. The amount of damage is passed as a parameter.
-    /// </summary>
     public static readonly Event<float> OnEnemyDamage = new();
-
-    /// <summary>
-    /// The player dies.
-    /// </summary>
-    public static readonly Event<GameObject> OnEnemyDeath = new();
-    
-    /// <summary>
-    /// The enemy just fired a shot.
-    /// </summary>
+    public static readonly Event<Vector3> OnEnemyDeath = new();
     public static readonly Event OnEnemyShotFired = new();
+    public static readonly Event OnEnemyBulletDestroyed = new();
 
     #endregion
 
@@ -50,25 +54,20 @@ public static class EventManager
 
     #region Level Events
 
-    /// <summary>
-    /// The player exits a level and enters the upgrade selection screen.
-    /// </summary>
     public static readonly Event OnLevelExit = new();
-
-    /// <summary>
-    /// The player exits the upgrade selection screen and enters a level.
-    /// </summary>
     public static readonly Event OnLevelEnter = new();
 
     #endregion
-    
+
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     #region Game Events
 
+    public static readonly Event OnStartGame = new();
     public static readonly Event<bool> OnPauseGame = new();
-    
+    public static readonly Event<bool> OnFreezeGamePlay = new();
     public static readonly Event OnMainMenuEnter = new();
+    public static readonly Event OnUpgradeChange = new();
 
     #endregion
 }

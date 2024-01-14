@@ -2,239 +2,114 @@ using System;
 using UnityEditor;
 using UnityEngine;
 
-public class PlayerBullet : MonoBehaviour, IUpgradeableBullet
+public class PlayerBullet : MonoBehaviour
 {
-    [SerializeField] private float defaultDistance = 10f;
-    [SerializeField] private float defaultBulletSpeed = 20f;
-    private float _damage;
-    private GameObject _sourceCharacter;
+    public float Damage { get; set; }
+    public float TotalLifetime { get; private set; }
+    public float Lifetime { get; private set; }
 
-    private Rigidbody2D _rb;
+    public Rigidbody2D Rigidbody { get; private set; }
     private LineRenderer _lineRenderer;
 
     // Upgrade: Bounce
-    [Header("Upgrade: Bounce")] [SerializeField] private PhysicsMaterial2D bulletBouncePhysicsMaterial;
-    [SerializeField] private int maxBounces = 2;
-    private int _bouncesLeft;
+    [Header("Upgrade: Bounce")] [SerializeField]
+    private PhysicsMaterial2D bulletBouncePhysicsMaterial;
 
-    // Upgrade: Homing
-    [Header("Upgrade: Homing")] [SerializeField] private float homingRadius = 8f;
-    [SerializeField] [Range(1, 360)] private float homingAngleHalf = 50f;
-    [SerializeField] private float homingRotationSpeed = 250f;
-    [SerializeField] private LayerMask homingTargetLayer;
-    [SerializeField] [Range(0f, 1f)] private float visualViewBoundFocusSpeed = 0.3f;
-    [SerializeField] private float visualViewBoundLength = 4f;
-    private Vector2 _visualLastAngleLeft, _visualAngleRight;
+    public bool TriggerUpgradesOnDestroy { get; set; } = true;
 
-    // Upgrade: Explosive Bullet
-    [Header("Upgrade: Explosive Bullet")] [SerializeField] private float explosiveBulletRadius = 1f;
-    [SerializeField] private LayerMask explosiveBulletTargetLayer;
+    public int BouncesLeft { get; set; }
 
-    // Upgrade: Drill
-    [Header("Upgrade: Drill")] [SerializeField] private int drillPlayerBulletLayerId;
-    [SerializeField] private int drillWallLayerId;
+    // Upgrade: Piercing
+    public int PiercesLeft { get; set; }
+
+    // Upgrade: SinusoidalShots
+    public int RotationMultiplier { get; set; }
 
 #if UNITY_EDITOR
     private bool _canSeeTargetCharacterGizmos;
     private Vector2 _targetPositionGizmos;
 #endif
 
+    private float _spawnEndTimestamp;
+
     private void Awake()
     {
-        _bouncesLeft = maxBounces;
-        _rb = GetComponent<Rigidbody2D>();
+        _spawnEndTimestamp = Time.time + Configuration.Bullet_SpawnTime;
+        Rigidbody = GetComponent<Rigidbody2D>();
         _lineRenderer = GetComponent<LineRenderer>();
         UpgradeManager.Init(this);
     }
 
-    private void Start()
-    {
-        float bulletSpeed = defaultBulletSpeed * UpgradeManager.GetBulletSpeedMultiplier();
-        
-        _rb.velocity = bulletSpeed * transform.up;
-        Destroy(gameObject, defaultDistance * UpgradeManager.GetBulletRangeMultiplier() / bulletSpeed);
-    }
-
     private void FixedUpdate()
     {
+        Lifetime += Time.fixedDeltaTime;
         UpgradeManager.BulletUpdate(this);
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!UpgradeManager.OnBulletImpact(this, other))
+        if (other.CompareTag("Player") && Time.time < _spawnEndTimestamp)
+            return;
+
+        if (!UpgradeManager.OnBulletTrigger(this, other))
         {
             Destroy(gameObject);
         }
 
-        other.gameObject.GetComponent<ICharacterHealth>()?.InflictDamage(_damage, true);
-    }
-
-    /// <summary>
-    /// Initializes this bullet.
-    /// </summary>
-    /// <param name="assignedDamage">Amount of damage caused by this bullet.</param>
-    /// <param name="sourceCharacter">Reference of the character who shot this bullet.</param>
-    public void Init(float assignedDamage, GameObject sourceCharacter)
-    {
-        _damage = assignedDamage;
-        _sourceCharacter = sourceCharacter;
-    }
-
-
-    // Upgrade: Bounce
-    public void InitBounce()
-    {
-        GetComponent<Rigidbody2D>().sharedMaterial = bulletBouncePhysicsMaterial;
-    }
-
-    public bool ExecuteBounce_OnBulletImpact(Collision2D collision)
-    {
-        if (_bouncesLeft > 0 && !collision.gameObject.CompareTag("Enemy") && !collision.gameObject.CompareTag("Player"))
+        ICharacterHealth characterHealth = other.GetComponentInParent<ICharacterHealth>();
+        if (characterHealth is PlayerHealth)
         {
-            _bouncesLeft--;
-            
-            float angle = Mathf.Atan2(_rb.velocity.y, _rb.velocity.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0f, 0f, angle - 90f);
-            
-            return true;
-        }
-
-        return false;
-    }
-
-
-    // Upgrade: Homing
-    public void ExecuteHoming_BulletUpdate()
-    {
-        Vector2 targetPos = Vector2.zero;
-        Vector2 directionToTargetNormalized = Vector2.zero;
-
-        if (CheckCharacterInFieldOfView(ref targetPos, ref directionToTargetNormalized))
-        {
-            Vector2 forwardDirection = transform.up;
-            float rotationAmount = Vector3.Cross(directionToTargetNormalized, forwardDirection).z;
-            _rb.angularVelocity = -rotationAmount * homingRotationSpeed;
-
-            _rb.velocity = forwardDirection * defaultBulletSpeed;
-
-#if UNITY_EDITOR //////////////////////////////////////////////////////////////////////////////////
-            _canSeeTargetCharacterGizmos = true;
-            _targetPositionGizmos = targetPos;
-#endif ////////////////////////////////////////////////////////////////////////////////////////////
-        }
-        else
-        {
-            _rb.angularVelocity = 0;
-
-#if UNITY_EDITOR //////////////////////////////////////////////////////////////////////////////////
-            _canSeeTargetCharacterGizmos = false;
-            VisualizeHoming(_canSeeTargetCharacterGizmos, directionToTargetNormalized);
-#endif ////////////////////////////////////////////////////////////////////////////////////////////
-        }
-    }
-
-    /// <summary>
-    /// Checks if a target is in the field of view of this bullet
-    /// </summary>
-    /// <param name="closestTarget">Position of the closest target</param>
-    /// <param name="directionToTarget">Direction in which the target is located</param>
-    /// <returns>Bool, whether a target is in the field of view of this bullet</returns>
-    private bool CheckCharacterInFieldOfView(ref Vector2 closestTarget, ref Vector2 directionToTarget)
-    {
-        Collider2D[] rangeCheck = Physics2D.OverlapCircleAll(transform.position, homingRadius, homingTargetLayer);
-
-        if (rangeCheck.Length <= 0)
-        {
-            return false;
-        }
-
-        Vector2 position = transform.position;
-        Vector2 closestTargetPos = rangeCheck[0].transform.position;
-        float closestDistance = Mathf.Infinity;
-
-        foreach (Collider2D targetCollider in rangeCheck)
-        {
-            float curDistance = Vector2.Distance(targetCollider.transform.position, position);
-
-            if (curDistance < closestDistance)
+            if (Time.time >= _spawnEndTimestamp)
             {
-                closestTargetPos = targetCollider.transform.position;
-                closestDistance = curDistance;
+                characterHealth?.InflictDamage(Damage * Configuration.Player_SelfDamageMultiplier, true);
             }
         }
+        else
+        {
+            characterHealth?.InflictDamage(Damage, true);
+        }
+    }
 
-        closestTarget = closestTargetPos;
-        directionToTarget = (closestTargetPos - position).normalized;
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (!UpgradeManager.OnBulletCollision(this, collision))
+        {
+            EventManager.OnPlayerBulletDestroyed.Trigger();
+            Destroy(gameObject);
+        }
+    }
 
-        return Vector2.Angle(transform.up, directionToTarget) < homingAngleHalf /*&& !Physics2D.Raycast(position, directionToTarget, closestDistance)*/;
+    private void OnDestroy()
+    {
+        if (TriggerUpgradesOnDestroy)
+            UpgradeManager.OnBulletDestroy(this);
     }
 
     /// <summary>
-    /// Homing upgrade visualization 
+    /// Initializes this bullet and set its velocity
     /// </summary>
-    /// <param name="canSeeTargetCharacter">Bool, whether this bullet can "see" a target character</param>
-    /// <param name="directionToTarget">Vector pointing to the target character</param>
-    private void VisualizeHoming(bool canSeeTargetCharacter, Vector3 directionToTarget)
+    /// <param name="assignedDamage">Amount of damage caused by this bullet</param>
+    /// <param name="assignedLifetime">Lifetime in seconds</param>
+    public void Init(float assignedDamage, float assignedLifetime = 0)
     {
-        float currentRotation = -transform.eulerAngles.z;
-        Vector3 currentPosition = transform.position;
+        float bulletSpeed = Configuration.Bullet_MovementSpeed * UpgradeManager.GetBulletSpeedMultiplier();
 
-        Vector2 angleLeft;
-        Vector2 angleRight;
-
-        if (canSeeTargetCharacter)
+        if (assignedLifetime == 0)
         {
-            angleLeft = Quaternion.Euler(0f, 0f, -5f) * directionToTarget;
-            angleRight = Quaternion.Euler(0f, 0f, 5f) * directionToTarget;
-            _lineRenderer.startColor = Color.red;
-            _lineRenderer.endColor = Color.red;
-        }
-        else
-        {
-            angleLeft = Util.DirectionFromAngle(currentRotation - homingAngleHalf);
-            angleRight = Util.DirectionFromAngle(currentRotation + homingAngleHalf);
-            _lineRenderer.startColor = Color.grey;
-            _lineRenderer.endColor = Color.grey;
+            assignedLifetime = Configuration.Bullet_ShotDistance * UpgradeManager.GetBulletRangeMultiplier() / bulletSpeed;
         }
 
-        angleLeft = Vector2.Lerp(_visualLastAngleLeft, angleLeft, visualViewBoundFocusSpeed).normalized;
-        angleRight = Vector2.Lerp(_visualAngleRight, angleRight, visualViewBoundFocusSpeed).normalized;
+        Damage = assignedDamage;
+        TotalLifetime = assignedLifetime;
+        Rigidbody.velocity = bulletSpeed * transform.up;
 
-        _visualLastAngleLeft = angleLeft;
-        _visualAngleRight = angleRight;
-
-        _lineRenderer.SetPositions(new[] { currentPosition + (Vector3)angleLeft * visualViewBoundLength, currentPosition, currentPosition + (Vector3)angleRight * visualViewBoundLength });
+        Destroy(gameObject, TotalLifetime);
     }
 
-    // Upgrade: Explosive Bullet
-    public bool ExecuteExplosiveBullet_OnBulletImpact(Collision2D collision)
+    public void AdjustFacingMovementDirection()
     {
-        Collider2D[] rangeCheck = Physics2D.OverlapCircleAll(transform.position, explosiveBulletRadius, explosiveBulletTargetLayer);
-
-        foreach (Collider2D targetCollider in rangeCheck)
-        {
-            targetCollider.GetComponent<ICharacterHealth>().InflictDamage(0);
-        }
-
-        return false;
-    }
-
-
-    // Upgrade: Mental Meltdown
-    public bool ExecuteMentalMeltdown_OnBulletImpact(Collision2D collision)
-    {
-        collision.gameObject.GetComponent<ICharacterController>()?.StunCharacter();
-        return false;
-    }
-
-
-    // Upgrade: Drill
-    public void InitDrill()
-    {
-        throw new NotImplementedException();
-        // Enables that the projectile can shoot through a wall (is disabled by the bullet's child OnTriggerEnter2D method)
-        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Walls"), LayerMask.NameToLayer("PlayerBullets"), true);
+        float angle = Mathf.Atan2(Rigidbody.velocity.y, Rigidbody.velocity.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f, angle - 90f);
     }
 
 
@@ -242,14 +117,14 @@ public class PlayerBullet : MonoBehaviour, IUpgradeableBullet
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.white;
-        Handles.DrawWireDisc(transform.position, Vector3.forward, homingRadius);
+        Handles.DrawWireDisc(transform.position, Vector3.forward, Configuration.Homing_Radius);
 
-        Vector3 angle01 = Util.DirectionFromAngle(-transform.eulerAngles.z - homingAngleHalf);
-        Vector3 angle02 = Util.DirectionFromAngle(-transform.eulerAngles.z + homingAngleHalf);
+        Vector3 angle01 = Util.DirectionFromAngle(-transform.eulerAngles.z - Configuration.Homing_HalfAngle);
+        Vector3 angle02 = Util.DirectionFromAngle(-transform.eulerAngles.z + Configuration.Homing_HalfAngle);
 
         Gizmos.color = Color.yellow;
-        Gizmos.DrawLine(transform.position, transform.position + angle01 * homingRadius);
-        Gizmos.DrawLine(transform.position, transform.position + angle02 * homingRadius);
+        Gizmos.DrawLine(transform.position, transform.position + angle01 * Configuration.Homing_Radius);
+        Gizmos.DrawLine(transform.position, transform.position + angle02 * Configuration.Homing_Radius);
 
         if (_canSeeTargetCharacterGizmos)
         {

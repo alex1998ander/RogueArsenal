@@ -1,0 +1,27 @@
+﻿public enum UpgradeIdentification
+{
+    BigBullet,
+    Bounce,
+    Buckshot,
+    Burst,
+    CarefulPlanning,
+    DemonicPact,
+    ExplosiveBullet,
+    GlassCannon,
+    HealingField,
+    Hitman,
+    Homing,
+    MentalMeltdown,
+    Minigun,
+    Piercing,
+    Phoenix,
+    Shield,
+    Shockwave,
+    SmartPistol,
+    StickyFingers,
+    SplitShot,
+    Stimpack,
+    Tank,
+    Timefreeze, 
+    WavyBullet
+}
