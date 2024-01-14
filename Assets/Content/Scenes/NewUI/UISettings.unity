@@ -708,7 +708,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1011964684804413327, guid: 846f0b01df675454fae124ee906afce1, type: 3}
       propertyPath: m_Value
-      value: 0.2
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 1011964684804413327, guid: 846f0b01df675454fae124ee906afce1, type: 3}
       propertyPath: m_MinValue
