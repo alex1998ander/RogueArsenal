@@ -18,7 +18,6 @@ public class ExitIndicatorController : MonoBehaviour
         yield return new WaitForSeconds(1f);
         int i = 0;
         GameObject[] exitPoints = GameObject.FindGameObjectsWithTag("ExitPoints");
-        Debug.Log("Found exits: " + exitPoints.Length);
         foreach (GameObject exitPoint in exitPoints)
         {
             _exitIndicators.Add(Instantiate(targetIndicator, transform));
