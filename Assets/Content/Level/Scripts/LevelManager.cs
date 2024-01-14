@@ -139,7 +139,7 @@ public static class LevelManager
         _pauseAllowed = true;
         SwitchLevelAsync("Assets/Content/Scenes/Others/SandboxScene.unity", _currentActiveScene);
         EventManager.OnLevelEnter.Trigger();
-        
+
         var gameOverLoad = SceneManager.LoadSceneAsync("Assets/Content/Scenes/NewUI/UIGameOver.unity", LoadSceneMode.Additive);
         gameOverLoad.completed += _ =>
         {
@@ -203,7 +203,7 @@ public static class LevelManager
         {
             GameManager.PauseGame(false);
             GameManager.FreezeGamePlay(false);
-            
+
             var unloadAsyncOperation = SceneManager.UnloadSceneAsync(_currentActiveScene);
             _currentActiveScene = SceneManager.GetSceneByPath("Assets/Content/Scenes/NewUI/UIMainMenu.unity");
             SceneManager.SetActiveScene(_currentActiveScene);
@@ -226,7 +226,7 @@ public static class LevelManager
             SceneManager.UnloadSceneAsync(SceneManager.GetSceneByPath("Assets/Content/Scenes/NewUI/UIPause.unity"));
             SceneManager.UnloadSceneAsync(SceneManager.GetSceneByPath("Assets/Content/Scenes/NewUI/UIUpgradeSelection.unity"));
         }
-        
+
         gameState = GameState.MainMenu;
         _pauseAllowed = false;
         levelCounter = 0;
@@ -263,17 +263,18 @@ public static class LevelManager
         {
             GameManager.PauseGame(false);
             GameManager.FreezeGamePlay(false);
-            
+
             _currentActiveScene = SceneManager.GetSceneByPath(scenePath);
             var unloadAsyncOperation = SceneManager.UnloadSceneAsync(oldScene);
             SceneManager.SetActiveScene(_currentActiveScene);
-            
+
             unloadAsyncOperation.completed += _ =>
             {
                 _currentBlurController = Object.FindFirstObjectByType<BlurController>();
-            };
 
-            SpawnController.SpawnEnemies();
+                // Spawn enemies AFTER old level is fully unloaded so enemy AI won't find player of old level
+                SpawnController.SpawnEnemies();
+            };
         };
     }
 }
