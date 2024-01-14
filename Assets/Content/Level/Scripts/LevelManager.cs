@@ -79,6 +79,8 @@ public static class LevelManager
         }
         else if (levelCounter == BossLevelThreshold)
         {
+            ShowUpgradeSelection(false);
+            ShowPauseMenu(false);
             LoadBossLevel();
             gameState = GameState.Boss;
         }
