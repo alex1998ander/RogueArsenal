@@ -31,7 +31,7 @@ public class UpgradeSpawnablePrefabHolder : MonoBehaviour
     /// <param name="lifetime">Lifetime of instance</param>
     /// <param name="parentObject">GameObject to parent instance to</param>
     /// <returns>The spawned instance</returns>
-    public static void SpawnPrefab(GameObject prefab, Vector3 position, float lifetime, GameObject parentObject = null)
+    public static GameObject SpawnPrefab(GameObject prefab, Vector3 position, float lifetime, GameObject parentObject = null)
     {
         GameObject prefabInstance = Instantiate(prefab, position, Quaternion.identity);
         Destroy(prefabInstance, lifetime);
@@ -40,5 +40,7 @@ public class UpgradeSpawnablePrefabHolder : MonoBehaviour
         {
             prefabInstance.transform.SetParent(parentObject.transform, true);
         }
+
+        return prefabInstance;
     }
 }

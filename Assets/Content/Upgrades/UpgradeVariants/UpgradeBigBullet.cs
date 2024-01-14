@@ -11,9 +11,9 @@ public class UpgradeBigBullet : Upgrade
     public override float BulletSize => 4f;
     public override float BulletDamage => 1f;
     public override float MagazineSize => -0.6f;
-    public override float ReloadTime => 1.6f;
-    public override float FireCooldown => 2.5f;
-    public override float BulletSpeed => -0.7f;
+    public override float ReloadTime => 1f;
+    public override float FireCooldown => 2f;
+    public override float BulletSpeed => -0.5f;
 
     public override void Init(PlayerBullet playerBullet)
     {

@@ -10,6 +10,6 @@
     public override float BulletSize => -0.4f;
     public override float FireCooldown => -0.9f;
     public override float MagazineSize => 4f;
-    public override float ReloadTime => 2f;
+    public override float ReloadTime => 1.5f;
     public override float WeaponSpray => 3f;
 }
