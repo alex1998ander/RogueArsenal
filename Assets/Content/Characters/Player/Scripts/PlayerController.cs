@@ -115,12 +115,9 @@ public class PlayerController : MonoBehaviour, ICharacterController
                 if (PlayerData.ammo == 0)
                 {
                     StartReloadWeapon();
+                    UpgradeManager.OnMagazineEmptied(this, playerWeapon);
+                    PlayerData.stickyFingers = false;
                 }
-            }
-            else
-            {
-                UpgradeManager.OnMagazineEmptied(this, playerWeapon);
-                EventManager.OnPlayerShotEmpty.Trigger();
             }
         }
     }
