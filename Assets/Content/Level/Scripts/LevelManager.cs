@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 /// </summary>
 public static class LevelManager
 {
-    public const int BossLevelThreshold = 19;
+    public const int BossLevelThreshold = 14;
     private const int TotalLevelCount = 14;
 
     public static int levelCounter;
@@ -62,6 +62,7 @@ public static class LevelManager
     public static void StartRound()
     {
         UpgradeManager.ResetUpgrades();
+        PlayerData.ResetData();
         LoadLobbyLevel();
         _pauseAllowed = true;
     }

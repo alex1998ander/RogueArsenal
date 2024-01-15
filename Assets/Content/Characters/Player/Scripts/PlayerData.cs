@@ -22,6 +22,23 @@ public static class PlayerData
     // Upgrade: Phoenix
     public static bool phoenixed;
 
+    // Upgrade: Shield
+    public static bool ShieldActive;
+
     // Upgrade: Sticky Fingers
     public static bool stickyFingers;
+
+    public static void ResetData()
+    {
+        canMove = true;
+        canDash = true;
+        canFire = true;
+        canReload = true;
+        canUseAbility = true;
+        invulnerable = false;
+        IsDashing = false;
+        phoenixed = false;
+        ShieldActive = false;
+        stickyFingers = false;
+    }
 }
