@@ -11,10 +11,10 @@ namespace BehaviorTree
         private EnemyWeapon _weapon;
 
         // Time to wait
-        private static float _cooldownTime;
+        private float _cooldownTime;
 
         // Time counter
-        private static float _cooldownTimeCounter;
+        private float _cooldownTimeCounter;
 
         public TaskAttackPlayer(EnemyWeapon weapon, float cooldownTime)
         {

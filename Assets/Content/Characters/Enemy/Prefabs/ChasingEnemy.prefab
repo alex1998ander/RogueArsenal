@@ -213,3 +213,4 @@ MonoBehaviour:
   movementAcceleration: 30
   minDistanceFromPlayer: 4
   maxDistanceFromPlayer: 6
+  firerate: 1
