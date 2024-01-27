@@ -55,6 +55,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShotgunEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 2549209689420417610, guid: ba46bce3e439cdd489820f759add8589, type: 3}
+      propertyPath: bulletCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2549209689420417610, guid: ba46bce3e439cdd489820f759add8589, type: 3}
+      propertyPath: weaponSpray
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2549209689420417610, guid: ba46bce3e439cdd489820f759add8589, type: 3}
+      propertyPath: defaultDamage
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5465643821577156537, guid: ba46bce3e439cdd489820f759add8589, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -142,7 +154,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1358329203599744738, guid: ba46bce3e439cdd489820f759add8589, type: 3}
   m_PrefabInstance: {fileID: 4674258004273839968}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8208619226287129723
+--- !u!114 &8631668177932803488
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -151,7 +163,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5910848983959249282}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c68c75ab3457309458eb92dad368fd26, type: 3}
+  m_Script: {fileID: 11500000, guid: d492cce969c099940844388249e5d634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   wallLayer:
@@ -161,4 +173,4 @@ MonoBehaviour:
   movementAcceleration: 30
   minDistanceFromPlayer: 4
   maxDistanceFromPlayer: 6
-  firerate: 1
+  firerate: 0.6
