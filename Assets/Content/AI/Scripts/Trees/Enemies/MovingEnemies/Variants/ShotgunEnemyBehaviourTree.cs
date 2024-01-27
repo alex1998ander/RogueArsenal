@@ -69,7 +69,7 @@ namespace BehaviorTree
                             new TaskPickTargetAroundTransforms(playerTransform, minDistanceFromPlayer,
                                 maxDistanceFromPlayer),
                             new TaskMoveToTarget(rb, agent, animator, 1f),
-                            new TaskAttackPlayer(weapon, 1f / firerate),
+                            new TaskAttackPlayer(weapon, 1f / firerate, animator),
                         }),
                         // Case: Enemy just heard the player shoot
                         new Sequence(new List<Node>

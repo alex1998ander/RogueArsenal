@@ -74,7 +74,7 @@ namespace BehaviorTree
                             }),
                             new TaskMoveToTarget(rb, agent, animator, 1f),
                             //new TaskWait(1f / firerate, false),
-                            new TaskAttackPlayer(weapon, 1f / firerate),
+                            new TaskAttackPlayer(weapon, 1f / firerate, animator),
                         }),
                         // Case: Enemy just heard the player shoot
                         new Sequence(new List<Node>

@@ -21,7 +21,7 @@ namespace BehaviorTree
                 new CheckPlayerVisible(rb, playerTransform, wallLayer),
                 new TaskAimAt(rb, weapon, playerTransform, false),
                 new TaskWait(1f, false),
-                new TaskAttackPlayer(weapon, 1f),
+                new TaskAttackPlayer(weapon, 1f, null),
             });
 
             root.SetupSharedData(sharedData);

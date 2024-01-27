@@ -90,7 +90,7 @@ PrefabInstance:
     - target: {fileID: 6846983187112741943, guid: ba46bce3e439cdd489820f759add8589, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 696a585d877d7be4f8c92970a9de60fb, type: 2}
+      objectReference: {fileID: 9100000, guid: cada75b876a737d44bcf19637c172dc1, type: 2}
     - target: {fileID: 6866423785977518980, guid: ba46bce3e439cdd489820f759add8589, type: 3}
       propertyPath: m_FlipY
       value: 0
