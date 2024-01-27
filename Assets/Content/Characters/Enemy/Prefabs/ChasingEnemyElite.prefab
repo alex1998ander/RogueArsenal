@@ -78,7 +78,7 @@ PrefabInstance:
     - target: {fileID: 5638755095312020680, guid: 3713d6f55b36a9c43a544bc5601e18d7, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 238fbeefdc8831345b1e955dbe10b7f5, type: 2}
+      objectReference: {fileID: 9100000, guid: 5ac9239311b24b345b2785908246863d, type: 2}
     - target: {fileID: 6529200299389243206, guid: 3713d6f55b36a9c43a544bc5601e18d7, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
