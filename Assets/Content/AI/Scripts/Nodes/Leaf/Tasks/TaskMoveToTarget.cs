@@ -26,6 +26,7 @@ namespace BehaviorTree
         // Distance to the pathfinding target to count as having reached it
         private float _targetReachedDistance;
 
+        private static readonly int Running = Animator.StringToHash("Running");
         private static readonly int MovementDirectionX = Animator.StringToHash("MovementDirectionX");
         private static readonly int MovementDirectionY = Animator.StringToHash("MovementDirectionY");
 
@@ -45,6 +46,7 @@ namespace BehaviorTree
 
             if (_animator)
             {
+                _animator.SetBool(Running, _agent.velocity.magnitude > 0.1f);
                 _animator.SetFloat(MovementDirectionX, _agent.velocity.x);
                 _animator.SetFloat(MovementDirectionY, _agent.velocity.y);
             }
