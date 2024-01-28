@@ -19,7 +19,7 @@ public class SpawnController : MonoBehaviour
     private const float BaseEnemySpawnRate = 0.3f;
 
     // If calculated spawn rate exceeds this threshold, start spawning elite enemies instead. At calculated spawn rate reaches 100%, only spawn elites.
-    private const float EliteSpawnRateThreshold = 0.3f;
+    private const float EliteSpawnRateThreshold = 0.5f;
 
     private readonly List<List<Transform>> _spawnPointCollections = new();
     private readonly List<Transform> _allSpawnPoints = new();
@@ -74,7 +74,9 @@ public class SpawnController : MonoBehaviour
 
         // Subtract eliteEnemyFillrate to gradually replace normal enemies with elites
         float baseEnemyFillrate = Mathf.Clamp(fillrate, 0f, 1f) - eliteEnemyFillrate;
-        
+
+        Debug.Log("<color=cyan>total spawn points: " + _allSpawnPoints.Count + "</color>");
+        Debug.Log("<color=cyan>fillrate: " + fillrate + "</color>");
         Debug.Log("<color=yellow>baseEnemyFillrate: " + baseEnemyFillrate + "</color>");
         Debug.Log("<color=green>eliteEnemyFillrate: " + eliteEnemyFillrate + "</color>");
 
@@ -83,6 +85,10 @@ public class SpawnController : MonoBehaviour
             int baseEnemySpawnCount = Mathf.RoundToInt(spawnPointCollection.Count * baseEnemyFillrate);
             int eliteEnemySpawnCount = Mathf.RoundToInt(spawnPointCollection.Count * eliteEnemyFillrate);
             List<Transform> randomSpawnPoints = spawnPointCollection.OrderBy(x => Random.Range(0, int.MaxValue)).Take(baseEnemySpawnCount + eliteEnemySpawnCount).ToList();
+
+            Debug.Log("<color=red>spawnPointCollection: " + spawnPointCollection.Count + "</color>");
+            Debug.Log("<color=yellow>baseEnemySpawnCount: " + baseEnemySpawnCount + "</color>");
+            Debug.Log("<color=green>eliteEnemySpawnCount: " + eliteEnemySpawnCount + "</color>");
 
             int spawnPointIndex = 0;
             for (int i = 0; i < baseEnemySpawnCount; i++)
