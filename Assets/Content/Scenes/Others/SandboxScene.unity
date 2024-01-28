@@ -20557,9 +20557,37 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7595773359139025270, guid: 58da58bccb053904b8b5a408e035efce, type: 3}
+      propertyPath: enemyPrefabs.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7595773359139025270, guid: 58da58bccb053904b8b5a408e035efce, type: 3}
+      propertyPath: enemyPrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 5693812830689361526, guid: 06e6095c3b2747748aee15649a98c19a, type: 3}
+    - target: {fileID: 7595773359139025270, guid: 58da58bccb053904b8b5a408e035efce, type: 3}
+      propertyPath: enemyPrefabs.Array.data[4]
+      value: 
+      objectReference: {fileID: 4599981370267555756, guid: 222c48333ee8ded409333368c066c6c5, type: 3}
+    - target: {fileID: 7595773359139025270, guid: 58da58bccb053904b8b5a408e035efce, type: 3}
+      propertyPath: enemyPrefabs.Array.data[5]
+      value: 
+      objectReference: {fileID: 5910848983959249282, guid: 4e4c7c9c74d0c924caddc9a1b02ac459, type: 3}
+    - target: {fileID: 7595773359139025270, guid: 58da58bccb053904b8b5a408e035efce, type: 3}
       propertyPath: respawnEnemiesIndefinitely
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7595773359139025270, guid: 58da58bccb053904b8b5a408e035efce, type: 3}
+      propertyPath: eliteEnemyPrefabs.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7595773359139025270, guid: 58da58bccb053904b8b5a408e035efce, type: 3}
+      propertyPath: eliteEnemyPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 5910848983959249282, guid: 4e4c7c9c74d0c924caddc9a1b02ac459, type: 3}
+    - target: {fileID: 7595773359139025270, guid: 58da58bccb053904b8b5a408e035efce, type: 3}
+      propertyPath: eliteEnemyPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 5910848983959249282, guid: 4e4c7c9c74d0c924caddc9a1b02ac459, type: 3}
     - target: {fileID: 7595773359254882278, guid: 58da58bccb053904b8b5a408e035efce, type: 3}
       propertyPath: m_TagString
       value: ExitPoints

@@ -19,6 +19,18 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 1634767473, guid: 33a420a93b42fb24a9687fc1685158dc, type: 3}
+    - target: {fileID: 2313032406629865120, guid: e7d7064a2e496d941b3b596d24171d5c, type: 3}
+      propertyPath: m_Color.b
+      value: 0.85882354
+      objectReference: {fileID: 0}
+    - target: {fileID: 2313032406629865120, guid: e7d7064a2e496d941b3b596d24171d5c, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2313032406629865120, guid: e7d7064a2e496d941b3b596d24171d5c, type: 3}
+      propertyPath: m_Color.r
+      value: 0.45882353
+      objectReference: {fileID: 0}
     - target: {fileID: 6586600090566268458, guid: e7d7064a2e496d941b3b596d24171d5c, type: 3}
       propertyPath: contactDamage
       value: 35
@@ -90,6 +102,10 @@ PrefabInstance:
     - target: {fileID: 6910014811840088115, guid: e7d7064a2e496d941b3b596d24171d5c, type: 3}
       propertyPath: m_Name
       value: ChargingEnemyElite
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509417294022183439, guid: e7d7064a2e496d941b3b596d24171d5c, type: 3}
+      propertyPath: maxHealth
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 7509417294022183439, guid: e7d7064a2e496d941b3b596d24171d5c, type: 3}
       propertyPath: currencyDropAmount
