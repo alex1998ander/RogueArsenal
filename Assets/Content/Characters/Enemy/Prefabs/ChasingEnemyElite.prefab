@@ -67,6 +67,10 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 200
       objectReference: {fileID: 0}
+    - target: {fileID: 3769509418668712993, guid: 3713d6f55b36a9c43a544bc5601e18d7, type: 3}
+      propertyPath: currencyDropAmount
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5454188270964955699, guid: 3713d6f55b36a9c43a544bc5601e18d7, type: 3}
       propertyPath: m_Sprite
       value: 

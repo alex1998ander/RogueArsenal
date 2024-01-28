@@ -91,5 +91,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChargingEnemyElite
       objectReference: {fileID: 0}
+    - target: {fileID: 7509417294022183439, guid: e7d7064a2e496d941b3b596d24171d5c, type: 3}
+      propertyPath: currencyDropAmount
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7d7064a2e496d941b3b596d24171d5c, type: 3}

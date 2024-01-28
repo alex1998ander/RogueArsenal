@@ -3,6 +3,7 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour, ICharacterHealth
 {
     [SerializeField] private float maxHealth = 100f;
+    [SerializeField] private int currencyDropAmount;
     private float _currentHealth;
 
     private void Awake()
@@ -28,6 +29,7 @@ public class EnemyHealth : MonoBehaviour, ICharacterHealth
         if (IsDead())
         {
             EventManager.OnEnemyDeath.Trigger(transform.position);
+            EventManager.OnEnemyCurrencyDropped.Trigger(transform.position, currencyDropAmount);
             Destroy(gameObject.transform.root.gameObject);
         }
     }

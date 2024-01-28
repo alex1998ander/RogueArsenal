@@ -244,6 +244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  currencyDropAmount: 5
 --- !u!50 &1792242174117944192
 Rigidbody2D:
   serializedVersion: 4
@@ -775,6 +776,8 @@ MonoBehaviour:
   firePoint: {fileID: 7730465753498084907}
   defaultDistance: 5
   defaultDamage: 10
+  bulletCount: 1
+  weaponSpray: 0
 --- !u!1 &6139807093174445411
 GameObject:
   m_ObjectHideFlags: 0
