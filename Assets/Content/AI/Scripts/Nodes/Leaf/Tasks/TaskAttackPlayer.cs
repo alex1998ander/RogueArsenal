@@ -35,8 +35,6 @@ namespace BehaviorTree
             if (_animator)
             {
                 Vector3 aimDirection = _weapon.transform.right.normalized;
-                
-                Debug.Log("AimDirection: " + aimDirection);
 
                 _animator.SetFloat(AimDirectionX, aimDirection.x);
                 _animator.SetFloat(AimDirectionY, aimDirection.y);
