@@ -70,50 +70,46 @@ public class SpawnController : MonoBehaviour
 
     public void SpawnEnemies(float fillrate)
     {
-        float eliteEnemyFillrate = Mathf.InverseLerp(EliteSpawnRateThreshold, 1f, fillrate);
+        float enemyFillrate = Mathf.Clamp(fillrate, 0f, 1f);
+        float elitePercentage = Mathf.InverseLerp(EliteSpawnRateThreshold, 1f, fillrate);
 
-        // Subtract eliteEnemyFillrate to gradually replace normal enemies with elites
-        float baseEnemyFillrate = Mathf.Clamp(fillrate, 0f, 1f) - eliteEnemyFillrate;
+        Debug.Log("<color=green>total spawn points: " + _allSpawnPoints.Count + "</color>");
+        Debug.Log("<color=yellow>enemyFillrate: " + enemyFillrate + "</color>");
+        Debug.Log("<color=cyan>elitePercentage: " + elitePercentage + "</color>");
 
-        Debug.Log("<color=cyan>total spawn points: " + _allSpawnPoints.Count + "</color>");
-        Debug.Log("<color=cyan>fillrate: " + fillrate + "</color>");
-        Debug.Log("<color=yellow>baseEnemyFillrate: " + baseEnemyFillrate + "</color>");
-        Debug.Log("<color=green>eliteEnemyFillrate: " + eliteEnemyFillrate + "</color>");
-
+        // Go over spawn point collections, create collection subsets, then accumulate subsets to ensure at least one enemy in every room.
+        List<Transform> randomSpawnPoints = new();
         foreach (List<Transform> spawnPointCollection in _spawnPointCollections)
         {
-            int baseEnemySpawnCount = Mathf.RoundToInt(spawnPointCollection.Count * baseEnemyFillrate);
-            int eliteEnemySpawnCount = Mathf.RoundToInt(spawnPointCollection.Count * eliteEnemyFillrate);
-            List<Transform> randomSpawnPoints = spawnPointCollection.OrderBy(x => Random.Range(0, int.MaxValue)).Take(baseEnemySpawnCount + eliteEnemySpawnCount).ToList();
-
-            Debug.Log("<color=red>spawnPointCollection: " + spawnPointCollection.Count + "</color>");
-            Debug.Log("<color=yellow>baseEnemySpawnCount: " + baseEnemySpawnCount + "</color>");
-            Debug.Log("<color=green>eliteEnemySpawnCount: " + eliteEnemySpawnCount + "</color>");
-
-            int spawnPointIndex = 0;
-            for (int i = 0; i < baseEnemySpawnCount; i++)
-                Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], randomSpawnPoints[spawnPointIndex++].position, Quaternion.identity, null);
-
-            for (int i = 0; i < eliteEnemySpawnCount; i++)
-                Instantiate(eliteEnemyPrefabs[Random.Range(0, eliteEnemyPrefabs.Length)], randomSpawnPoints[spawnPointIndex++].position, Quaternion.identity, null);
+            int spawnPointCount = Mathf.RoundToInt(spawnPointCollection.Count * enemyFillrate);
+            List<Transform> spawnPointCollectionRandomSubset = spawnPointCollection.OrderBy(x => Random.Range(0, int.MaxValue)).Take(spawnPointCount).ToList();
+            randomSpawnPoints.AddRange(spawnPointCollectionRandomSubset);
         }
+
+        Debug.Log("<color=red>randomSpawnPoints: " + randomSpawnPoints.Count + "</color>");
+
+        int baseEnemySpawnCount = Mathf.RoundToInt(randomSpawnPoints.Count * (1f - elitePercentage));
+
+        List<Transform> baseEnemySpawnPoints = randomSpawnPoints.Take(baseEnemySpawnCount).ToList();
+        // All spawn points except the ones used for base enemies are the elite spawn points
+        List<Transform> eliteEnemySpawnPoints = randomSpawnPoints.Except(baseEnemySpawnPoints).ToList();
+
+        Debug.Log("<color=yellow>baseEnemySpawnPoints: " + baseEnemySpawnPoints.Count + "</color>");
+        Debug.Log("<color=cyan>eliteEnemySpawnPoints: " + eliteEnemySpawnPoints.Count + "</color>");
+
+        foreach (Transform spawnPoint in baseEnemySpawnPoints)
+            Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], spawnPoint.position, Quaternion.identity, null);
+        foreach (Transform spawnPoint in eliteEnemySpawnPoints)
+            Instantiate(eliteEnemyPrefabs[Random.Range(0, eliteEnemyPrefabs.Length)], spawnPoint.position, Quaternion.identity, null);
 
         EventManager.OnEnemyDeath.Subscribe(OnEnemyDeath);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <returns></returns>
     public static bool CheckEnemiesAlive()
     {
         return GameObject.FindGameObjectsWithTag("Enemy").Length > 0;
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="position"></param>
     private void OnEnemyDeath(Vector3 position)
     {
         if (respawnEnemiesIndefinitely)
