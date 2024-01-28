@@ -21,6 +21,9 @@ public class SpawnController : MonoBehaviour
     // If calculated spawn rate exceeds this threshold, start spawning elite enemies instead. At calculated spawn rate reaches 100%, only spawn elites.
     private const float EliteSpawnRateThreshold = 0.5f;
 
+    // How much percent of the total number of enemies can be elites
+    private const float EliteMaxPercentage = 0.8f;
+
     private readonly List<List<Transform>> _spawnPointCollections = new();
     private readonly List<Transform> _allSpawnPoints = new();
 
@@ -72,6 +75,7 @@ public class SpawnController : MonoBehaviour
     {
         float enemyFillrate = Mathf.Clamp(fillrate, 0f, 1f);
         float elitePercentage = Mathf.InverseLerp(EliteSpawnRateThreshold, 1f, fillrate);
+        elitePercentage = Mathf.Clamp(elitePercentage, 0f, EliteMaxPercentage);
 
         // Go over spawn point collections, create collection subsets, then accumulate subsets to ensure at least one enemy in every room.
         List<Transform> randomSpawnPoints = new();
