@@ -73,10 +73,6 @@ public class SpawnController : MonoBehaviour
         float enemyFillrate = Mathf.Clamp(fillrate, 0f, 1f);
         float elitePercentage = Mathf.InverseLerp(EliteSpawnRateThreshold, 1f, fillrate);
 
-        Debug.Log("<color=green>total spawn points: " + _allSpawnPoints.Count + "</color>");
-        Debug.Log("<color=yellow>enemyFillrate: " + enemyFillrate + "</color>");
-        Debug.Log("<color=cyan>elitePercentage: " + elitePercentage + "</color>");
-
         // Go over spawn point collections, create collection subsets, then accumulate subsets to ensure at least one enemy in every room.
         List<Transform> randomSpawnPoints = new();
         foreach (List<Transform> spawnPointCollection in _spawnPointCollections)
@@ -86,16 +82,11 @@ public class SpawnController : MonoBehaviour
             randomSpawnPoints.AddRange(spawnPointCollectionRandomSubset);
         }
 
-        Debug.Log("<color=red>randomSpawnPoints: " + randomSpawnPoints.Count + "</color>");
-
         int baseEnemySpawnCount = Mathf.RoundToInt(randomSpawnPoints.Count * (1f - elitePercentage));
 
         List<Transform> baseEnemySpawnPoints = randomSpawnPoints.Take(baseEnemySpawnCount).ToList();
         // All spawn points except the ones used for base enemies are the elite spawn points
         List<Transform> eliteEnemySpawnPoints = randomSpawnPoints.Except(baseEnemySpawnPoints).ToList();
-
-        Debug.Log("<color=yellow>baseEnemySpawnPoints: " + baseEnemySpawnPoints.Count + "</color>");
-        Debug.Log("<color=cyan>eliteEnemySpawnPoints: " + eliteEnemySpawnPoints.Count + "</color>");
 
         foreach (Transform spawnPoint in baseEnemySpawnPoints)
             Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], spawnPoint.position, Quaternion.identity, null);
