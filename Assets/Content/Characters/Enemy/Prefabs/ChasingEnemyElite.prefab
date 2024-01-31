@@ -89,7 +89,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7455721220963869408, guid: 3713d6f55b36a9c43a544bc5601e18d7, type: 3}
       propertyPath: firerate
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7455721220963869408, guid: 3713d6f55b36a9c43a544bc5601e18d7, type: 3}
       propertyPath: movementSpeed
