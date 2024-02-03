@@ -6,25 +6,19 @@ using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
-    [SerializeField] private float defaultBulletSpeed = 10f;
     [SerializeField] private GameObject bounceBullet;
 
     private Rigidbody2D _rb;
 
     private float _assignedDamage;
     private float _assignedDistance;
+    private float _assignedSpeed;
 
     private int _bouncesLeft;
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
-    }
-
-    private void Start()
-    {
-        _rb.velocity = transform.up * defaultBulletSpeed;
-        Destroy(gameObject, _assignedDistance / defaultBulletSpeed);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -52,15 +46,18 @@ public class EnemyBullet : MonoBehaviour
         Destroy(gameObject);
         EventManager.OnEnemyBulletDestroyed.Trigger();
     }
-
+    
     /// <summary>
     /// Initializes this bullet.
     /// </summary>
     /// <param name="assignedDamage">Amount of damage caused by this bullet.</param>
     /// <param name="sourceCharacter">Reference of the character who shot this bullet.</param>
-    public void Init(float assignedDamage, float assignedDistance, GameObject sourceCharacter)
+    public void Init(float assignedDamage, float assignedDistance, float assignedSpeed, GameObject sourceCharacter)
     {
         _assignedDamage = assignedDamage;
         _assignedDistance = assignedDistance;
+        _assignedSpeed = assignedSpeed;
+        _rb.velocity = transform.up * assignedSpeed;
+        Destroy(gameObject, _assignedDistance / assignedSpeed);
     }
 }

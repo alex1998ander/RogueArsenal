@@ -12,17 +12,25 @@ namespace BehaviorTree
 
         private LineRenderer _lineRenderer;
 
-        private float _waitTime = 3f;
+        private const float WaitTime = 3f;
 
         private float _timeDelayBeforeFinallySettingPosition = 0.3f;
 
-        private float _timeCounter = 0;
+        private float _timeCounterLaser = 0;
 
         private Transform _body;
 
         private bool _gotHitOnce = false;
         
         Vector2 _direction = Vector2.zero;
+
+        private const float FullWaitTime = 10f;
+
+        private float _timeToWait;
+
+        private float _timeCounter;
+
+        private int _waveCounter;
 
         public BossAttackLaserFocus(LineRenderer lineRenderer, Transform focusTarget, Transform body)
         {
@@ -32,12 +40,31 @@ namespace BehaviorTree
             _lineRenderer.enabled = false;
             this._focusTarget = focusTarget;
             this._body = body;
+            _timeToWait = FullWaitTime / Configuration.Boss_LaserRepetitions;
         }
 
         public override NodeState Evaluate()
         {
             state = NodeState.FAILURE;
 
+            _timeCounterLaser += Time.fixedDeltaTime;
+            if (_timeCounterLaser >= _timeToWait)
+            {
+                LaserFocus();
+                _timeToWait += FullWaitTime / Configuration.Boss_LaserRepetitions;
+                _waveCounter++;
+            }
+
+            if (_waveCounter == Configuration.Boss_LaserRepetitions)
+            {
+                state = NodeState.SUCCESS;
+            }
+
+            return state;
+        }
+
+        void LaserFocus()
+        {
             Vector3 laserStart = _body.position;
             Vector3 focusPos = _focusTarget.position;
             Vector3 laserEnd = focusPos + (focusPos - laserStart) * 3f;
@@ -46,19 +73,19 @@ namespace BehaviorTree
             _lineRenderer.startWidth = 0.05f;
             _lineRenderer.endWidth = 0.05f;
 
-            if (_timeCounter < ((_waitTime / 3) -  _timeDelayBeforeFinallySettingPosition))
+            if (_timeCounterLaser < ((WaitTime / 3) -  _timeDelayBeforeFinallySettingPosition))
             {
                 _lineRenderer.SetPositions(new[] { laserStart, laserEnd });
             }
 
-            _timeCounter += Time.fixedDeltaTime;
-            if (_timeCounter >= ((_waitTime / 3) -  _timeDelayBeforeFinallySettingPosition) && _direction == Vector2.zero)
+            _timeCounterLaser += Time.fixedDeltaTime;
+            if (_timeCounterLaser >= ((WaitTime / 3) -  _timeDelayBeforeFinallySettingPosition) && _direction == Vector2.zero)
             {
                 _direction = new Vector2(_focusTarget.position.x, _focusTarget.position.y) - new Vector2(_body.position.x, _body.position.y);
                 _lineRenderer.SetPositions(new[] { laserStart, laserEnd });
             }
             
-            if (_timeCounter >= (_waitTime/3))
+            if (_timeCounterLaser >= (WaitTime/3))
             {
                 _lineRenderer.startWidth = 1f;
                 _lineRenderer.endWidth = 1f;
@@ -72,16 +99,14 @@ namespace BehaviorTree
                 }
             }
             
-            if (_timeCounter >= _waitTime)
+            if (_timeCounterLaser >= WaitTime)
             {
                 _lineRenderer.enabled = false;
-                _timeCounter = 0;
+                _timeCounterLaser = 0;
                 _gotHitOnce = false;
                 _direction = Vector2.zero;
                 state = NodeState.SUCCESS;
             }
-
-            return state;
         }
     }
 }
