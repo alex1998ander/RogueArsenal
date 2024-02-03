@@ -7,9 +7,8 @@ using Random = UnityEngine.Random;
 public class SpawnController : MonoBehaviour
 {
     [SerializeField] private GameObject[] enemyPrefabs;
-    [SerializeField] private GameObject player;
-    [SerializeField] private bool spawnAtStart = true;
-    [SerializeField] private bool respawnEnemiesIndefinitely = false;
+    [SerializeField] private GameObject[] eliteEnemyPrefabs;
+    [SerializeField] private bool respawnEnemiesIndefinitely;
 
     private static SpawnController _instance;
 
@@ -19,9 +18,14 @@ public class SpawnController : MonoBehaviour
     // In percent
     private const float BaseEnemySpawnRate = 0.3f;
 
-    private readonly List<List<Transform>> _spawnPointCollections = new List<List<Transform>>();
-    private readonly List<Transform> _allSpawnPoints = new List<Transform>();
+    // If calculated spawn rate exceeds this threshold, start spawning elite enemies instead. At calculated spawn rate reaches 100%, only spawn elites.
+    private const float EliteSpawnRateThreshold = 0.5f;
 
+    // How much percent of the total number of enemies can be elites
+    private const float EliteMaxPercentage = 0.8f;
+
+    private readonly List<List<Transform>> _spawnPointCollections = new();
+    private readonly List<Transform> _allSpawnPoints = new();
 
     private void Awake()
     {
@@ -59,7 +63,7 @@ public class SpawnController : MonoBehaviour
     /// <param name="spawnCount"></param>
     public void SpawnEnemies(int spawnCount)
     {
-        SpawnEnemiesAtSpawnPointCollection(_allSpawnPoints, spawnCount);
+        //SpawnEnemiesAtSpawnPointCollection(_allSpawnPoints, spawnCount);
     }
 
     public static void SpawnEnemies()
@@ -67,54 +71,40 @@ public class SpawnController : MonoBehaviour
         _instance.SpawnEnemies(BaseEnemySpawnRate + EnemySpawnRateIncreasePerDifficulty * ProgressionManager.DifficultyLevel);
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="fillrate"></param>
     public void SpawnEnemies(float fillrate)
     {
-        float spawnFillrate = Mathf.Clamp(fillrate, 0f, 1f);
+        float enemyFillrate = Mathf.Clamp(fillrate, 0f, 1f);
+        float elitePercentage = Mathf.InverseLerp(EliteSpawnRateThreshold, 1f, fillrate);
+        elitePercentage = Mathf.Clamp(elitePercentage, 0f, EliteMaxPercentage);
 
+        // Go over spawn point collections, create collection subsets, then accumulate subsets to ensure at least one enemy in every room.
+        List<Transform> randomSpawnPoints = new();
         foreach (List<Transform> spawnPointCollection in _spawnPointCollections)
         {
-            // Calculate how many spawn points should be used
-            int spawnCount = Mathf.RoundToInt(spawnPointCollection.Count * spawnFillrate);
-
-            SpawnEnemiesAtSpawnPointCollection(spawnPointCollection, spawnCount);
+            int spawnPointCount = Mathf.RoundToInt(spawnPointCollection.Count * enemyFillrate);
+            List<Transform> spawnPointCollectionRandomSubset = spawnPointCollection.OrderBy(x => Random.Range(0, int.MaxValue)).Take(spawnPointCount).ToList();
+            randomSpawnPoints.AddRange(spawnPointCollectionRandomSubset);
         }
+
+        int baseEnemySpawnCount = Mathf.RoundToInt(randomSpawnPoints.Count * (1f - elitePercentage));
+
+        List<Transform> baseEnemySpawnPoints = randomSpawnPoints.Take(baseEnemySpawnCount).ToList();
+        // All spawn points except the ones used for base enemies are the elite spawn points
+        List<Transform> eliteEnemySpawnPoints = randomSpawnPoints.Except(baseEnemySpawnPoints).ToList();
+
+        foreach (Transform spawnPoint in baseEnemySpawnPoints)
+            Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], spawnPoint.position, Quaternion.identity, null);
+        foreach (Transform spawnPoint in eliteEnemySpawnPoints)
+            Instantiate(eliteEnemyPrefabs[Random.Range(0, eliteEnemyPrefabs.Length)], spawnPoint.position, Quaternion.identity, null);
 
         EventManager.OnEnemyDeath.Subscribe(OnEnemyDeath);
     }
 
-    /// <summary>
-    ///
-    /// </summary>
-    /// <param name="spawnPointCollection"></param>
-    /// <param name="spawnCount"></param>
-    private void SpawnEnemiesAtSpawnPointCollection(List<Transform> spawnPointCollection, int spawnCount)
-    {
-        // Get random collection of spawn points
-        List<Transform> randomSpawnpointTransforms = spawnPointCollection.OrderBy(x => Random.Range(0, int.MaxValue)).Take(spawnCount).ToList();
-
-        foreach (Transform spawnPointTransform in randomSpawnpointTransforms)
-        {
-            GameObject spawnedEnemy = Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], spawnPointTransform.position, Quaternion.identity, null);
-        }
-    }
-
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <returns></returns>
     public static bool CheckEnemiesAlive()
     {
         return GameObject.FindGameObjectsWithTag("Enemy").Length > 0;
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="position"></param>
     private void OnEnemyDeath(Vector3 position)
     {
         if (respawnEnemiesIndefinitely)

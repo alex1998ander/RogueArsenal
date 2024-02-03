@@ -47,12 +47,8 @@ namespace BehaviorTree
             if (_animator)
             {
                 _animator.SetBool(Running, _agent.velocity.magnitude > 0.1f);
-
-                if (_agent.velocity.magnitude > 0.1f)
-                {
-                    _animator.SetFloat(MovementDirectionX, _agent.velocity.x);
-                    _animator.SetFloat(MovementDirectionY, _agent.velocity.y);
-                }
+                _animator.SetFloat(MovementDirectionX, _agent.velocity.x);
+                _animator.SetFloat(MovementDirectionY, _agent.velocity.y);
             }
 
             state = NodeState.RUNNING;

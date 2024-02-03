@@ -7,8 +7,6 @@
     public override string FlavorText => "";
     public override string Description => "Elegantly turn enemy bullets back to their dismayed shooters.";
 
-    public static bool IsShieldActive { get; private set; } = false;
-
     public override void OnAbility(PlayerController playerController, PlayerWeapon playerWeapon)
     {
         UpgradeSpawnablePrefabHolder.SpawnPrefab(UpgradeSpawnablePrefabHolder.instance.shieldPrefab, playerController.transform.position, Configuration.Shield_Duration, playerController.gameObject);
@@ -24,13 +22,13 @@
     {
         PlayerData.canDash = false;
         PlayerData.invulnerable = true;
-        IsShieldActive = true;
+        PlayerData.ShieldActive = true;
     }
 
     public void DeactivateShield()
     {
-        PlayerData.invulnerable = false;
-        IsShieldActive = false;
         PlayerData.canDash = true;
+        PlayerData.invulnerable = false;
+        PlayerData.ShieldActive = false;
     }
 }

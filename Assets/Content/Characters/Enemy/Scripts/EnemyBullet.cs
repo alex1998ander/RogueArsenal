@@ -26,7 +26,7 @@ public class EnemyBullet : MonoBehaviour
         // Player hit
         if (other.CompareTag("Player"))
         {
-            if (UpgradeShield.IsShieldActive)
+            if (PlayerData.ShieldActive)
             {
                 Quaternion invertedRotation = transform.rotation * Quaternion.AngleAxis(180, Vector3.forward);
                 GameObject bullet = GameObject.Instantiate(bounceBullet, transform.position, invertedRotation); //Quaternion.Inverse(transform.rotation)  alternative abbounce Richtung

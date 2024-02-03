@@ -4,16 +4,14 @@ public class CurrencyDropController : MonoBehaviour
 {
     [SerializeField] private GameObject currencyPrefab;
 
-    private const int DropAmount = 5;
-
     private void Start()
     {
-        EventManager.OnEnemyDeath.Subscribe(DropCurrency);
+        EventManager.OnEnemyCurrencyDropped.Subscribe(DropCurrency);
     }
 
-    private void DropCurrency(Vector3 position)
+    private void DropCurrency(Vector3 position, int amount)
     {
-        for (int i = 0; i < DropAmount; i++)
+        for (int i = 0; i < amount; i++)
         {
             Instantiate(currencyPrefab, position, Quaternion.identity);
         }
@@ -21,6 +19,6 @@ public class CurrencyDropController : MonoBehaviour
 
     private void OnDestroy()
     {
-        EventManager.OnEnemyDeath.Unsubscribe(DropCurrency);
+        EventManager.OnEnemyCurrencyDropped.Unsubscribe(DropCurrency);
     }
 }

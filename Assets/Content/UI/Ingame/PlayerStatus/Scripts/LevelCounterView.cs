@@ -6,9 +6,12 @@ using UnityEngine;
 public class LevelCounterView : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI levelCounter;
-    
+
     void Start()
     {
-        levelCounter.text = $"Level {LevelManager.levelCounter + 1} / 20";
+        if (LevelManager.levelCounter <= LevelManager.BossLevelThreshold)
+            levelCounter.text = $"Level {LevelManager.levelCounter + 1} / {LevelManager.BossLevelThreshold + 1}";
+        else
+            levelCounter.text = "Boss";
     }
 }

@@ -14,6 +14,8 @@ namespace BehaviorTree
     /// </summary>
     public class ChasingEnemyBehaviourTree : MovingEnemyBehaviourTree
     {
+        [SerializeField] private float firerate = 1f;
+
         protected override Node SetupTree()
         {
             base.SetupTree();
@@ -71,8 +73,8 @@ namespace BehaviorTree
                                     maxDistanceFromPlayer),
                             }),
                             new TaskMoveToTarget(rb, agent, animator, 1f),
-                            new TaskWait(1f, false),
-                            new TaskAttackPlayer(weapon, 1f),
+                            //new TaskWait(1f / firerate, false),
+                            new TaskAttackPlayer(weapon, 1f / firerate, animator),
                         }),
                         // Case: Enemy just heard the player shoot
                         new Sequence(new List<Node>
