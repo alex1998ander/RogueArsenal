@@ -47,10 +47,13 @@ public class Configuration
     public const float Boss_StompRadius = 1f;
     public const float Boss_StompDamage = 40f;
     public const float Boss_LaserDamage = 30f;
+    public const int Boss_LaserRepetitions = 3;
     public const float Boss_MineCountdown = 3f;
     public const float Boss_MineDamage = 50f;
     public const float Boss_360ShotBulletDamage = 20f;
     public const float Boss_360ShotBulletDistance = 20f;
+    public const float Boss_360ShotBulletSpeed = 6f;
+    public const int Boss_360ShotWaveCount = 3;
     public const float Boss_ShieldMaxHealth = 75f;
     public const float Boss_ShieldRotationSpeed = 65f;
 

@@ -24,11 +24,14 @@ namespace BehaviorTree
         [SerializeField] private GameObject bullet;
         [SerializeField] private GameObject shockWave;
         [SerializeField] private GameObject ui;
+        private GameObject [] _mineSpawns;
 
         protected override Node SetupTree()
         {
             base.SetupTree();
-
+            
+            float Boss_AbilityCooldown = 4f;
+            GameObject [] _mineSpawns = GameObject.FindGameObjectsWithTag("MineSpawn");
             LineRenderer lineRenderer = GetComponent<LineRenderer>();
             Transform transform = this.transform;
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
@@ -36,7 +39,6 @@ namespace BehaviorTree
             EnemyWeapon weapon = GetComponentInChildren<EnemyWeapon>();
             NavMeshAgent agent = GetComponent<NavMeshAgent>();
             Animator animator = GetComponentInChildren<Animator>();
-
             //For the nav mesh agent
             agent.updateRotation = false;
             agent.updateUpAxis = false;
@@ -44,14 +46,15 @@ namespace BehaviorTree
             //All abilities the boss can have
             Node[] tasksPool = new Node[]
             {
-                new BossAttackDash(transform, rb, playerTransform, this.damageCollider),
+                new BossAttackSpawnObject(transform, turret, Vector3.one, 3),
+                new BossAttackSpawnObject(transform, clone, new Vector3(1.5f, 1.5f, 1.5f),3),
                 new BossAttackStomp(transform, playerTransform, bossSprite, ui, weapon),
+                new BossAttackDash(transform, rb, playerTransform, this.damageCollider),
                 new BossAttackLaserFocus(lineRenderer, playerTransform, transform),
-                new BossAttackSpawnObject(playerTransform, mine, new Vector3(0.5f, 0.5f, 0.5f)),
-                new BossAttackSpawnObject(transform, turret),
-                new BossAttackSpawnObject(transform, clone, new Vector3(1.5f, 1.5f, 1.5f)),
+                new BossAttackSpawnObject(_mineSpawns, mine, new Vector3(0.5f, 0.5f, 0.5f)),
                 new BossAttack360Shot(transform, bullet),
-                new BossAttackShield(shieldGenerator), new BossAttackShockwave(shockWave)
+                new BossAttackShield(shieldGenerator), 
+                new BossAttackShockwave(shockWave)
             };
 
             damageCollider.enabled = false;

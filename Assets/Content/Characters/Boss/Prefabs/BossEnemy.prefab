@@ -191,6 +191,10 @@ PrefabInstance:
       propertyPath: defaultDistance
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 2549209689420417610, guid: ba46bce3e439cdd489820f759add8589, type: 3}
+      propertyPath: defaultBulletSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2669020309141495006, guid: ba46bce3e439cdd489820f759add8589, type: 3}
       propertyPath: maxHealth
       value: 10000
@@ -513,6 +517,25 @@ MonoBehaviour:
   bullet: {fileID: 1845687642861211236, guid: e8f28205521d5364db79c8abc134746a, type: 3}
   shockWave: {fileID: 4123649021420044270}
   ui: {fileID: 3225180314139251665}
+  mineSpawns:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!4 &1528313252659859010 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1358329203599744736, guid: ba46bce3e439cdd489820f759add8589, type: 3}
