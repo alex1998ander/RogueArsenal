@@ -1,0 +1,2577 @@
+fileFormatVersion: 2
+guid: 0c0acbf5e1f407543b30b0b7385a94f9
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2082
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fd8894b57af8d240b5828f060cc5052
+      internalID: -359866408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 2082
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b51d787734a51614a8c54a2646a61fd5
+      internalID: -1045045622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 2082
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d2ba76837eabfa4e8d2140b97970063
+      internalID: -1442225932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_3
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 2080
+        width: 28
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8739dd645a007a4396f9a7cd56dd14e
+      internalID: -1794599288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_4
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 2082
+        width: 26
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad55d426d45fcf0429c72315098768a0
+      internalID: 1607412957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_5
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 2082
+        width: 26
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae8add8d5a148754f95160dc6f5170ca
+      internalID: 1607764290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 2092
+        width: 64
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 549175381fb88f048bb42791f3e90eb1
+      internalID: 201471191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_7
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 2092
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 716e87fb52d09db48918e31c5ac508d2
+      internalID: 2018172531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_8
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 2246
+        width: 76
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcfdbdd2ab5df3b44b8a40e8a8f40110
+      internalID: -807617269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_9
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 2260
+        width: 76
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca6879c5643c1934b9466502b8e98c10
+      internalID: -1520430306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_10
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 2306
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 873f5bf28815b3747a769b274368c055
+      internalID: -2119921345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_12
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 2372
+        width: 30
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f4085fdcd5f6f441aeff10dd4627bbc
+      internalID: 1820324763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_11
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 2354
+        width: 30
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4eaea2a8d83d09d4faef8f352adbbdb0
+      internalID: 1956065728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_13
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1952
+        width: 60
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfb917a053cf20342a2f03df9056853d
+      internalID: 434997161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_14
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 1952
+        width: 60
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea06a2360489032479d89390d1048e8d
+      internalID: 548966888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_15
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1902
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8236b8e6eb162ec46b93add0207cbf6c
+      internalID: -753042710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_16
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 1902
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b29bc231df342a844b4e302c0ba3164f
+      internalID: -146687306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_17
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 1902
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df5eea2cf3c114b48a3b6937c6feb90f
+      internalID: -1931053918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_18
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 1866
+        width: 48
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca111aee253b3cd48abec7599e107d32
+      internalID: 2087546191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_19
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1856
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1293d9f91fdfdbf42b1fb576df27227a
+      internalID: -12082437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_20
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 1856
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 087d813f4db473c48a345b5f7a9b61bd
+      internalID: 1532346715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_21
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 1856
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a6b948caaf096b44a55016caa746083
+      internalID: -1421681467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_22
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 1800
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1c634ff617fb6f46a0f265d53e40e87
+      internalID: -1256649909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_23
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1800
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b95abd9475458bb48865269de6d4cd8b
+      internalID: 423694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_24
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 1800
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7544b96309ad4b41a94e2457547be90
+      internalID: 1385892288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_25
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 1706
+        width: 42
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa61ecc80f37ff94b88c1db35cb69539
+      internalID: 581781129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_26
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 1642
+        width: 42
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67d07ffe1f0fedb439d7e38c778f7f2a
+      internalID: -1862900249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_27
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 1578
+        width: 42
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd9b26804e414dc4a95d17297ddc2e63
+      internalID: 77244176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_28
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 1618
+        width: 46
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 885eaca1eda875e459e2a2dc53953a8c
+      internalID: 361527706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_29
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 1520
+        width: 36
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1334c41c48c4e54ca636e0a8e7a2bbe
+      internalID: 1948402167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_30
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 1520
+        width: 32
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3b43c2ddbb7fab4eb47c5bfb3e2e13b
+      internalID: 537739097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_31
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 1396
+        width: 44
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dcb9a9f21fd57e4fb7a3b724c8bce74
+      internalID: 1260742408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_32
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 1396
+        width: 44
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 084de7c40168e404aab2f6fcfd7764a1
+      internalID: 1827071085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_33
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 1332
+        width: 44
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de4faf32a81b9934f908f48efa6dc3fd
+      internalID: -635737481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_34
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 1332
+        width: 44
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f606e54184c77d448afe29f49af1e09
+      internalID: -580225959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_35
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 1332
+        width: 76
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0865544258d0e2543be91653c01aa8b0
+      internalID: 1891527622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_36
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 1332
+        width: 76
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29869edbf7cd18c4fb809d299a51058d
+      internalID: 1349710079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_37
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 1236
+        width: 76
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57381e26b75088642abbfae508a4e0b2
+      internalID: 23223840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_38
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 1236
+        width: 76
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08b5756540ae26148b6923d07a9031e2
+      internalID: -394895813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_39
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 1166
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5eb38e9eafd7f44cbb7540224a714fd
+      internalID: -28121585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_40
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 1204
+        width: 32
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a628b87177d1c344484b50f328b2cd5c
+      internalID: 1798142995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_41
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 1204
+        width: 32
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26a1985fadc58504aae3e100157d9b10
+      internalID: 671739091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_42
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 1206
+        width: 34
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f75971698d36aa4cb8d7b35e4593f00
+      internalID: -1422487425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_43
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 1206
+        width: 30
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2d73f9c78861094188832c794abc2e8
+      internalID: 556262744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_44
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 1140
+        width: 32
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8095438ab23e5ed4ab335b6674563bbf
+      internalID: 470962046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_45
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 1140
+        width: 32
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe25adc65d70d97478b6b4ba61cb8363
+      internalID: -2054185549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_46
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 1142
+        width: 34
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfbddb376bc1646409aa1ad8bbbb5e81
+      internalID: -1158949460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_47
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 1142
+        width: 30
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2c1322880ab1fd428aa6fc09c5eac11
+      internalID: -818499008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_48
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 866
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 526d076ad1b7be14ba11225042b6a3e7
+      internalID: 1505641503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_49
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 866
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a725e1354bad5314cbd494fdcbe15a31
+      internalID: -1314058378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_50
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 866
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1073b48bcece4f2499dd6c27f84442ac
+      internalID: 1194929643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_51
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 866
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25115874b5b5c7e48b299695918d6e18
+      internalID: 606494296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_52
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 834
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8272ef2650c9c664c879e561ad6388fb
+      internalID: 236212027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_53
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 834
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 485a7aa229f03f24cb078ea319742f43
+      internalID: 359134395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_54
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 834
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 678b3794d47bdc44a819d9901aad31b6
+      internalID: -912539304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_55
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 834
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91cdc411dc0a0a94d95d1902c435c729
+      internalID: 1664217533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_56
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 852
+        width: 26
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efb79683ea23fa3428044a681e9910de
+      internalID: -613566525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_57
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 852
+        width: 26
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd27fc93a8fb5e6458f8a632b28ad406
+      internalID: -522458556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_58
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 852
+        width: 26
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80577323aa0c39f43a63d06b27ac8cbd
+      internalID: 608950487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_59
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 852
+        width: 26
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d48ac669f148db147842692d0014c1f9
+      internalID: -1729619547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_60
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 788
+        width: 26
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0e269147291a5a499b8db7af2b0a4eb
+      internalID: -1072336585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_61
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 788
+        width: 26
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa0edaea5560eb94ea1df3e06ba4aa06
+      internalID: 725537367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_62
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 788
+        width: 26
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f32be211c4249af4c8b4ab1b964e317b
+      internalID: 2122489370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_63
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 788
+        width: 26
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc5a5d875dd29d149bf02293fa99a656
+      internalID: 1818694387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_64
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 778
+        width: 32
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 293ca3ab3b79a7e4e90be04943d46b4a
+      internalID: 1083136747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_65
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 778
+        width: 32
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01a0409ab83628146999985324029d32
+      internalID: -670522569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_66
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 778
+        width: 32
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03cfe58308ceb224fbaf90a44eeb9e98
+      internalID: 237090599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_67
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 778
+        width: 32
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24301645a079929469a1d3325e6df578
+      internalID: 986039595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_68
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 778
+        width: 32
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d2ffac39c986c0448f37197c8f10fe2
+      internalID: 1134617472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_69
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 778
+        width: 32
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a09fe853c45a2d469ef46b90f42b78b
+      internalID: 1711611376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_70
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 720
+        width: 64
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac6fcb3dd1153524baf0e944a3f401cd
+      internalID: -1748092510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_71
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 720
+        width: 64
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05e102f2793c6324ea5c0041ca086049
+      internalID: -67855779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_72
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 720
+        width: 64
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d3964157fe5af44a978ae5859dc61ea
+      internalID: -44067780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_73
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 622
+        width: 28
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a63f202c0905e24bacfac74422c3681
+      internalID: -1887988322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_74
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 622
+        width: 28
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e024f8aba6a97f34ab2c2341776a3aab
+      internalID: -802604311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_75
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 626
+        width: 44
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcaa9bc3819fe5b499e20676b810ff0b
+      internalID: 821141855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_76
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 552
+        width: 32
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 495bb6fcbe99df443ad126d783fee164
+      internalID: 247791544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_77
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 546
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a22449034ee19e4abe12ed0c2e5a0e4
+      internalID: 217529686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_78
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 582
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1161f536f638c864e9ef8c1d4739a015
+      internalID: -1780630928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_79
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 436
+        width: 30
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f420c4509f265344beebeb494c24a97
+      internalID: 208913703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_80
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 404
+        width: 32
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0c634912b62a174eb4a629a4b13f541
+      internalID: 332118978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_81
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 428
+        width: 30
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1eb0a326cceb4143a6a5ca3c5d7ee3d
+      internalID: 391328790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_82
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 428
+        width: 30
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36606b33daba9974db72f224811d3128
+      internalID: 1782725003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_83
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 428
+        width: 30
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e560c98e9c251c74daa97393145ba801
+      internalID: 927512151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_84
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 452
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb60b259a75560448b981106971753f7
+      internalID: 622615159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_85
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 452
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbdc37bebab95cb4f9272c1e2f2e9216
+      internalID: 92344422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_86
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 452
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d8d195941ddd0140ad64133d6ce2fb7
+      internalID: 1899938845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_87
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 420
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8204bc174aeded4ca2e7d9854302827
+      internalID: 2031526781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_88
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 420
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8af4c4d9641ee5442863d150d43df906
+      internalID: -845395415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_89
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 420
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f91e023ae602d34d9282066772b418e
+      internalID: -428104292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_90
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 388
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2035e34663bf0e143ba8145236114c89
+      internalID: -197186144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_91
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 388
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 231b5cd4f97f07446819db42ecad2b22
+      internalID: -662376091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_92
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 388
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ba5a587bf8992346aedf9697dd7995e
+      internalID: 1187651487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_93
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 388
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff804d9c64f74394297cfeeac16c1413
+      internalID: -2015766565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_94
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 388
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c8a1267df8b73143b33c5754723ae4a
+      internalID: 1910635691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_95
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 388
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb5209e850d5f0042be26805f20626de
+      internalID: -1562386508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_96
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 334
+        width: 24
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c648e89caaaf6845bd266d32c5fb3ba
+      internalID: 1926794276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_97
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 330
+        width: 24
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e114d6471d09ce489cdf61e5e1966e6
+      internalID: 388091448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_98
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 270
+        width: 28
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85125b2d1de31e3448737ece508fe6b2
+      internalID: -1039342888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_99
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 270
+        width: 28
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ead1957dbd0103c408f6e71b2b445ada
+      internalID: 972651431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_100
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 270
+        width: 28
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 137f637f17f22af4c93eff7fdb70e626
+      internalID: -1198901187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_101
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 206
+        width: 62
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2063aa85835253246b6b575ba8cea185
+      internalID: -1742892010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_102
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 208
+        width: 18
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e10b460168323e24a93d01510f6ab0b5
+      internalID: -139192798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_103
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 110
+        width: 62
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 378e7f4ec40415b44b14556d1158eedb
+      internalID: -1766345986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_104
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 144
+        width: 18
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8de22ae59c64f0546aaed726e1d52f35
+      internalID: 1418276097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_105
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 288
+        width: 94
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2f57ba77eaee494ca3e45c7a580d351
+      internalID: 19405678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_106
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 288
+        width: 94
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0fdb436f8bcd58498e52e717600facb
+      internalID: 1130272054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_107
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 94
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62b9097690fbc4742b46807b7eba08b0
+      internalID: -1134825582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_108
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 94
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 247fa852ad1494c44ad962b77cc3de77
+      internalID: -2043192813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_109
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 94
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 949a04f5767d5d24ab5040ba168e4829
+      internalID: -2015343567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_Generic_furniture_32x32_110
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 96
+        width: 94
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8fa6c3d03286514d97b857380b9cae1
+      internalID: -699022529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      1_Generic_furniture_32x32_0: -359866408
+      1_Generic_furniture_32x32_1: -1045045622
+      1_Generic_furniture_32x32_10: -2119921345
+      1_Generic_furniture_32x32_100: -1198901187
+      1_Generic_furniture_32x32_101: -1742892010
+      1_Generic_furniture_32x32_102: -139192798
+      1_Generic_furniture_32x32_103: -1766345986
+      1_Generic_furniture_32x32_104: 1418276097
+      1_Generic_furniture_32x32_105: 19405678
+      1_Generic_furniture_32x32_106: 1130272054
+      1_Generic_furniture_32x32_107: -1134825582
+      1_Generic_furniture_32x32_108: -2043192813
+      1_Generic_furniture_32x32_109: -2015343567
+      1_Generic_furniture_32x32_11: 1956065728
+      1_Generic_furniture_32x32_110: -699022529
+      1_Generic_furniture_32x32_12: 1820324763
+      1_Generic_furniture_32x32_13: 434997161
+      1_Generic_furniture_32x32_14: 548966888
+      1_Generic_furniture_32x32_15: -753042710
+      1_Generic_furniture_32x32_16: -146687306
+      1_Generic_furniture_32x32_17: -1931053918
+      1_Generic_furniture_32x32_18: 2087546191
+      1_Generic_furniture_32x32_19: -12082437
+      1_Generic_furniture_32x32_2: -1442225932
+      1_Generic_furniture_32x32_20: 1532346715
+      1_Generic_furniture_32x32_21: -1421681467
+      1_Generic_furniture_32x32_22: -1256649909
+      1_Generic_furniture_32x32_23: 423694
+      1_Generic_furniture_32x32_24: 1385892288
+      1_Generic_furniture_32x32_25: 581781129
+      1_Generic_furniture_32x32_26: -1862900249
+      1_Generic_furniture_32x32_27: 77244176
+      1_Generic_furniture_32x32_28: 361527706
+      1_Generic_furniture_32x32_29: 1948402167
+      1_Generic_furniture_32x32_3: -1794599288
+      1_Generic_furniture_32x32_30: 537739097
+      1_Generic_furniture_32x32_31: 1260742408
+      1_Generic_furniture_32x32_32: 1827071085
+      1_Generic_furniture_32x32_33: -635737481
+      1_Generic_furniture_32x32_34: -580225959
+      1_Generic_furniture_32x32_35: 1891527622
+      1_Generic_furniture_32x32_36: 1349710079
+      1_Generic_furniture_32x32_37: 23223840
+      1_Generic_furniture_32x32_38: -394895813
+      1_Generic_furniture_32x32_39: -28121585
+      1_Generic_furniture_32x32_4: 1607412957
+      1_Generic_furniture_32x32_40: 1798142995
+      1_Generic_furniture_32x32_41: 671739091
+      1_Generic_furniture_32x32_42: -1422487425
+      1_Generic_furniture_32x32_43: 556262744
+      1_Generic_furniture_32x32_44: 470962046
+      1_Generic_furniture_32x32_45: -2054185549
+      1_Generic_furniture_32x32_46: -1158949460
+      1_Generic_furniture_32x32_47: -818499008
+      1_Generic_furniture_32x32_48: 1505641503
+      1_Generic_furniture_32x32_49: -1314058378
+      1_Generic_furniture_32x32_5: 1607764290
+      1_Generic_furniture_32x32_50: 1194929643
+      1_Generic_furniture_32x32_51: 606494296
+      1_Generic_furniture_32x32_52: 236212027
+      1_Generic_furniture_32x32_53: 359134395
+      1_Generic_furniture_32x32_54: -912539304
+      1_Generic_furniture_32x32_55: 1664217533
+      1_Generic_furniture_32x32_56: -613566525
+      1_Generic_furniture_32x32_57: -522458556
+      1_Generic_furniture_32x32_58: 608950487
+      1_Generic_furniture_32x32_59: -1729619547
+      1_Generic_furniture_32x32_6: 201471191
+      1_Generic_furniture_32x32_60: -1072336585
+      1_Generic_furniture_32x32_61: 725537367
+      1_Generic_furniture_32x32_62: 2122489370
+      1_Generic_furniture_32x32_63: 1818694387
+      1_Generic_furniture_32x32_64: 1083136747
+      1_Generic_furniture_32x32_65: -670522569
+      1_Generic_furniture_32x32_66: 237090599
+      1_Generic_furniture_32x32_67: 986039595
+      1_Generic_furniture_32x32_68: 1134617472
+      1_Generic_furniture_32x32_69: 1711611376
+      1_Generic_furniture_32x32_7: 2018172531
+      1_Generic_furniture_32x32_70: -1748092510
+      1_Generic_furniture_32x32_71: -67855779
+      1_Generic_furniture_32x32_72: -44067780
+      1_Generic_furniture_32x32_73: -1887988322
+      1_Generic_furniture_32x32_74: -802604311
+      1_Generic_furniture_32x32_75: 821141855
+      1_Generic_furniture_32x32_76: 247791544
+      1_Generic_furniture_32x32_77: 217529686
+      1_Generic_furniture_32x32_78: -1780630928
+      1_Generic_furniture_32x32_79: 208913703
+      1_Generic_furniture_32x32_8: -807617269
+      1_Generic_furniture_32x32_80: 332118978
+      1_Generic_furniture_32x32_81: 391328790
+      1_Generic_furniture_32x32_82: 1782725003
+      1_Generic_furniture_32x32_83: 927512151
+      1_Generic_furniture_32x32_84: 622615159
+      1_Generic_furniture_32x32_85: 92344422
+      1_Generic_furniture_32x32_86: 1899938845
+      1_Generic_furniture_32x32_87: 2031526781
+      1_Generic_furniture_32x32_88: -845395415
+      1_Generic_furniture_32x32_89: -428104292
+      1_Generic_furniture_32x32_9: -1520430306
+      1_Generic_furniture_32x32_90: -197186144
+      1_Generic_furniture_32x32_91: -662376091
+      1_Generic_furniture_32x32_92: 1187651487
+      1_Generic_furniture_32x32_93: -2015766565
+      1_Generic_furniture_32x32_94: 1910635691
+      1_Generic_furniture_32x32_95: -1562386508
+      1_Generic_furniture_32x32_96: 1926794276
+      1_Generic_furniture_32x32_97: 388091448
+      1_Generic_furniture_32x32_98: -1039342888
+      1_Generic_furniture_32x32_99: 972651431
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
