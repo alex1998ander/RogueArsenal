@@ -67,6 +67,10 @@ PrefabInstance:
       propertyPath: defaultDamage
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 2549209689420417610, guid: ba46bce3e439cdd489820f759add8589, type: 3}
+      propertyPath: defaultBulletSpeed
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 2669020309141495006, guid: ba46bce3e439cdd489820f759add8589, type: 3}
       propertyPath: maxHealth
       value: 200
