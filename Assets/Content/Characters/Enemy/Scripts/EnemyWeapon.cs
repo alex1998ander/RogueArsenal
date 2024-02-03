@@ -6,7 +6,8 @@ public class EnemyWeapon : MonoBehaviour
 {
     [SerializeField] private GameObject enemyBulletPrefab;
     [SerializeField] private Transform firePoint;
-
+    
+    [SerializeField] private float defaultBulletSpeed = 6f;
     [SerializeField] private float defaultDistance = 20f;
     [SerializeField] private float defaultDamage = 35f;
 
@@ -19,7 +20,7 @@ public class EnemyWeapon : MonoBehaviour
         {
             GameObject bullet = Instantiate(enemyBulletPrefab, firePoint.position, firePoint.rotation);
             bullet.transform.Rotate(Vector3.forward, Random.Range(-weaponSpray, weaponSpray));
-            bullet.GetComponent<EnemyBullet>().Init(defaultDamage, defaultDistance, transform.parent.gameObject);
+            bullet.GetComponent<EnemyBullet>().Init(defaultDamage, defaultDistance, defaultBulletSpeed, transform.parent.gameObject);
         }
     }
 }

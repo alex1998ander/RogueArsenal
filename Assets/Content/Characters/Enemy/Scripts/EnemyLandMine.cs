@@ -10,8 +10,11 @@ public class EnemyLandMine : MonoBehaviour
 
     private Animator _animator;
 
+    private float _mineCountDownDifference;
+
     void Start()
     {
+        _mineCountDownDifference = Random.Range(-1f, 1f);
         _animator = GetComponentInChildren<Animator>();
         StartCoroutine(StartCountdown());
     }
@@ -35,7 +38,7 @@ public class EnemyLandMine : MonoBehaviour
 
     IEnumerator StartCountdown()
     {
-        yield return new WaitForSeconds(Configuration.Boss_MineCountdown);
+        yield return new WaitForSeconds(Configuration.Boss_MineCountdown + _mineCountDownDifference);
 
         mineSprite.enabled = false;
         _animator.SetBool("Exploded", true);
