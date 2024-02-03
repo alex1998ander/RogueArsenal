@@ -16,12 +16,11 @@ public class EnemyWeapon : MonoBehaviour
 
     public void Fire()
     {
-        bullet.GetComponent<EnemyBullet>().Init(defaultDamage, defaultDistance, defaultBulletSpeed, transform.parent.gameObject);
         for (int i = 0; i < bulletCount; i++)
         {
             GameObject bullet = Instantiate(enemyBulletPrefab, firePoint.position, firePoint.rotation);
             bullet.transform.Rotate(Vector3.forward, Random.Range(-weaponSpray, weaponSpray));
-            bullet.GetComponent<EnemyBullet>().Init(defaultDamage, defaultDistance, transform.parent.gameObject);
+            bullet.GetComponent<EnemyBullet>().Init(defaultDamage, defaultDistance, defaultBulletSpeed, transform.parent.gameObject);
         }
     }
 }
