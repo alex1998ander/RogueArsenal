@@ -1,0 +1,1726 @@
+fileFormatVersion: 2
+guid: 87794c602c52dbe4683c13e5c962c03e
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_0
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 818
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36cdb2b553d4e434bb766c45a85ad0e8
+      internalID: 312857847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 818
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db0a6dd2b30632e49b9b9aa5fa1bf944
+      internalID: -210243320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 784
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d2d528253eedc944b74aaee7b9a44d0
+      internalID: 1646699645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_3
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 750
+        width: 38
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c36c92ad9850524fa01124c2b50539e
+      internalID: -856384181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_4
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 750
+        width: 38
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f1bd47ad5e4feb4c8b935a8131a3a71
+      internalID: -876206338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_5
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 750
+        width: 38
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5016a1666bc43fa459321ba74bb551e0
+      internalID: -1067082190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_6
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 762
+        width: 64
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 392927c199a758c4aac218f82d7d4eb1
+      internalID: -2120731170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_7
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 786
+        width: 26
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb93678be3e45d74791ae2ea6335c229
+      internalID: 429155029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 754
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a9b36007e12d5247b8a6e404bc1837d
+      internalID: -548909036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_10
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 684
+        width: 60
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4eeabb19c54c74c4086ed34877a33423
+      internalID: 395594239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_11
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 682
+        width: 60
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 570d4f22827a5e84ca3076027e94d96c
+      internalID: -20141838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_12
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 720
+        width: 32
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f8b5e3778d8d7241ba157d04ebc478e
+      internalID: 227277468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_13
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 672
+        width: 44
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0448a8b46b9994e4184d9a857819258d
+      internalID: -420882444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_14
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 662
+        width: 32
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f1dd61701c94554f8dac61d087637d9
+      internalID: 914797700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_15
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 662
+        width: 32
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48c6e8b6f79b52441b792e0c1630b1b0
+      internalID: -140795897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_16
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 662
+        width: 32
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c950ecbca52fc84f94b65068a68e6bd
+      internalID: 526087687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_17
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 692
+        width: 28
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a6c46be79be72343967cbe5a26693b2
+      internalID: 2143730503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_18
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 692
+        width: 28
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: def8292a18dd2284dadbb9e129b387da
+      internalID: 481763347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_19
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 620
+        width: 60
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42103399cfe826b439aef2b76a5114d5
+      internalID: 455919609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_20
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 620
+        width: 60
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27b027b8d592255409512b0449480bb6
+      internalID: -499114389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_21
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 640
+        width: 32
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 950d08041f65fc04d86e954b4f2966ac
+      internalID: -1884107871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_22
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 584
+        width: 58
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd9b87db5d43c884db90c3e5dec46b58
+      internalID: -726114758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_23
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 610
+        width: 26
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f41f58a5b24c2e4d84820bfd8e6d8f3
+      internalID: -343098631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_24
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 556
+        width: 60
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3e0f1a13aebce64ba6c065a918f2d42
+      internalID: -1109474255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_25
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 556
+        width: 60
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 853b118d338fa9640a6c7f1aca54c2f6
+      internalID: 665584143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_27
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 578
+        width: 26
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7803ee1783040ea4081f7e161afe2a50
+      internalID: 129473146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_28
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 590
+        width: 26
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98301d8006c6a06478dc30038dedcdae
+      internalID: -456282426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_29
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 590
+        width: 26
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 641d2d5b2722eb243888cc4a678f632f
+      internalID: -1140069387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_30
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 584
+        width: 62
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adeb7da8d4d356542b8c3b38299faaac
+      internalID: -1926860417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_31
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 586
+        width: 28
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 128a9e5a6fb46bb4184f86a0c64122ef
+      internalID: -364204566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_32
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 578
+        width: 26
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: feadb70f0d9e05042a95a7f6a53c5dda
+      internalID: 953235115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_33
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 588
+        width: 26
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af14fbc2545597c408b2645514135169
+      internalID: -1851983922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_34
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 538
+        width: 48
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac22a214d2358ab4689e04fb2fc14743
+      internalID: -123896813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_35
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 538
+        width: 46
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db5d14f0651a6ac47bdea0f414804d7c
+      internalID: -1696223003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_36
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 546
+        width: 26
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 255489b7406042a438760cda01af8a58
+      internalID: -234230207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_37
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 548
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fdf7448a0028e648a622e871577f491
+      internalID: -524445062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_38
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 514
+        width: 32
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b1f5773a3399624a8c7df94c6b1182c
+      internalID: 1322670320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_39
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 522
+        width: 48
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65fad3ae24f835e408417d3d0263adf7
+      internalID: -1850244644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_41
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 492
+        width: 50
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dec619ffa934f634281d5e6721b487ad
+      internalID: 1059329251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_43
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 454
+        width: 92
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a3beb023d39f924090737dd98eb53dd
+      internalID: 586821851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_44
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 474
+        width: 48
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5bb9fa22b0c77f4ea3ef05f9db03d66
+      internalID: -1837961617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_45
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 448
+        width: 40
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 631239f5733ec31499781cd3d3bbb262
+      internalID: -1815076159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_46
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 448
+        width: 36
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbc47e229607f5c4bb21f24a482107be
+      internalID: 802949649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_48
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 394
+        width: 48
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f76d943c132588949bccb9a120f05502
+      internalID: 1472849541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_49
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 394
+        width: 68
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ce33a193d02e6148b96bc14411514e9
+      internalID: -535229704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_52
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 390
+        width: 58
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4595e4620f0ca8a48b4d7b8bcf62f507
+      internalID: 1034729744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_53
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 362
+        width: 32
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e35fb67bf9b4a0146815f3860ef2ef66
+      internalID: -508106393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_54
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 362
+        width: 42
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 455e9d53ca6664b4b891123d43e8b791
+      internalID: -177165613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_55
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 358
+        width: 40
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5b577c76f81d0445a9c1622efbd6f52
+      internalID: -1452649085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_56
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 358
+        width: 38
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f82732357e22b654cbe02d4867720499
+      internalID: 1965209662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_57
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 256
+        width: 70
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91b02459b2ce6674fb74372f743cfbe7
+      internalID: -457752494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_58
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 256
+        width: 70
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fd6643dc3fda9548aac5e22129c3963
+      internalID: -93454296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_59
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 256
+        width: 70
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0837fb9d907a89488492f08f8316dcf
+      internalID: -454220237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_60
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 298
+        width: 68
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 878ab325d3bd7f04c900a1097b314d3f
+      internalID: -597754386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_61
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 256
+        width: 80
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6976c4f92e8456342aa3f90e7024736f
+      internalID: 2019311633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_62
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 160
+        width: 80
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f99993d81fd0eeb45bbdac83dbb61cd1
+      internalID: -535372994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_63
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 160
+        width: 80
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a670840d4edae564791581cf5220bfbb
+      internalID: -648900576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_64
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 160
+        width: 80
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ee1634f904f9ec45ac7c5917d73bc5f
+      internalID: 873612539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_65
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 160
+        width: 80
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34ecc9a61ee20eb419a0c0dfc2a3dcfe
+      internalID: -948567553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_66
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 64
+        width: 80
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ca244ad72c94d44d8c0bcb2a1565beb
+      internalID: -2038088007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_67
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 64
+        width: 80
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc79162c81a96f84990a5167b4efe24e
+      internalID: 1656207813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_68
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 64
+        width: 80
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68d2c0c770c95344888ed7e27b2689fa
+      internalID: 982968110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_69
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 64
+        width: 80
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ba142c90d201c9488e85a3c8856a5db
+      internalID: -996929650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_70
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 4
+        width: 48
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11d79984c103f304c8ed80b7ed0f4515
+      internalID: -1658125037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_73
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 818
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd0a1cbeaa40261408e6fa74b9038d70
+      internalID: 1736808934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_74
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 784
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa85581291357ee4aae9747aa9510ff7
+      internalID: -40632501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_75
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 784
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48bf19a2f12912b42978ca57ef5742f4
+      internalID: -1159155737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_76
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 784
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e954a68170016e84e9511ece8c7c9d1c
+      internalID: -1917630273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_77
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 754
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a095b269896c32b44a027e814bb41719
+      internalID: 2002357450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_78
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 754
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7341a01fd9e2c04408568baf8766485a
+      internalID: -1056158018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_9
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 640
+        width: 32
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee1a2a72b1ef09c4ead573c9e2efc4c8
+      internalID: -251422603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9_Fishing_furniture_32x32_26
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 514
+        width: 32
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 070f8161c7815f94baa0322929ed5f05
+      internalID: 1590989977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      9_Fishing_furniture_32x32_0: 312857847
+      9_Fishing_furniture_32x32_1: -210243320
+      9_Fishing_furniture_32x32_10: 395594239
+      9_Fishing_furniture_32x32_11: -20141838
+      9_Fishing_furniture_32x32_12: 227277468
+      9_Fishing_furniture_32x32_13: -420882444
+      9_Fishing_furniture_32x32_14: 914797700
+      9_Fishing_furniture_32x32_15: -140795897
+      9_Fishing_furniture_32x32_16: 526087687
+      9_Fishing_furniture_32x32_17: 2143730503
+      9_Fishing_furniture_32x32_18: 481763347
+      9_Fishing_furniture_32x32_19: 455919609
+      9_Fishing_furniture_32x32_2: 1646699645
+      9_Fishing_furniture_32x32_20: -499114389
+      9_Fishing_furniture_32x32_21: -1884107871
+      9_Fishing_furniture_32x32_22: -726114758
+      9_Fishing_furniture_32x32_23: -343098631
+      9_Fishing_furniture_32x32_24: -1109474255
+      9_Fishing_furniture_32x32_25: 665584143
+      9_Fishing_furniture_32x32_26: 1590989977
+      9_Fishing_furniture_32x32_27: 129473146
+      9_Fishing_furniture_32x32_28: -456282426
+      9_Fishing_furniture_32x32_29: -1140069387
+      9_Fishing_furniture_32x32_3: -856384181
+      9_Fishing_furniture_32x32_30: -1926860417
+      9_Fishing_furniture_32x32_31: -364204566
+      9_Fishing_furniture_32x32_32: 953235115
+      9_Fishing_furniture_32x32_33: -1851983922
+      9_Fishing_furniture_32x32_34: -123896813
+      9_Fishing_furniture_32x32_35: -1696223003
+      9_Fishing_furniture_32x32_36: -234230207
+      9_Fishing_furniture_32x32_37: -524445062
+      9_Fishing_furniture_32x32_38: 1322670320
+      9_Fishing_furniture_32x32_39: -1850244644
+      9_Fishing_furniture_32x32_4: -876206338
+      9_Fishing_furniture_32x32_40: -77614894
+      9_Fishing_furniture_32x32_41: 1059329251
+      9_Fishing_furniture_32x32_42: 1434740268
+      9_Fishing_furniture_32x32_43: 586821851
+      9_Fishing_furniture_32x32_44: -1837961617
+      9_Fishing_furniture_32x32_45: -1815076159
+      9_Fishing_furniture_32x32_46: 802949649
+      9_Fishing_furniture_32x32_47: -1797151503
+      9_Fishing_furniture_32x32_48: 1472849541
+      9_Fishing_furniture_32x32_49: -535229704
+      9_Fishing_furniture_32x32_5: -1067082190
+      9_Fishing_furniture_32x32_50: -959655859
+      9_Fishing_furniture_32x32_51: 1751381887
+      9_Fishing_furniture_32x32_52: 1034729744
+      9_Fishing_furniture_32x32_53: -508106393
+      9_Fishing_furniture_32x32_54: -177165613
+      9_Fishing_furniture_32x32_55: -1452649085
+      9_Fishing_furniture_32x32_56: 1965209662
+      9_Fishing_furniture_32x32_57: -457752494
+      9_Fishing_furniture_32x32_58: -93454296
+      9_Fishing_furniture_32x32_59: -454220237
+      9_Fishing_furniture_32x32_6: -2120731170
+      9_Fishing_furniture_32x32_60: -597754386
+      9_Fishing_furniture_32x32_61: 2019311633
+      9_Fishing_furniture_32x32_62: -535372994
+      9_Fishing_furniture_32x32_63: -648900576
+      9_Fishing_furniture_32x32_64: 873612539
+      9_Fishing_furniture_32x32_65: -948567553
+      9_Fishing_furniture_32x32_66: -2038088007
+      9_Fishing_furniture_32x32_67: 1656207813
+      9_Fishing_furniture_32x32_68: 982968110
+      9_Fishing_furniture_32x32_69: -996929650
+      9_Fishing_furniture_32x32_7: 429155029
+      9_Fishing_furniture_32x32_70: -1658125037
+      9_Fishing_furniture_32x32_71: -1393088213
+      9_Fishing_furniture_32x32_72: 1825347516
+      9_Fishing_furniture_32x32_73: 1736808934
+      9_Fishing_furniture_32x32_74: -40632501
+      9_Fishing_furniture_32x32_75: -1159155737
+      9_Fishing_furniture_32x32_76: -1917630273
+      9_Fishing_furniture_32x32_77: 2002357450
+      9_Fishing_furniture_32x32_78: -1056158018
+      9_Fishing_furniture_32x32_8: -548909036
+      9_Fishing_furniture_32x32_9: -251422603
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
