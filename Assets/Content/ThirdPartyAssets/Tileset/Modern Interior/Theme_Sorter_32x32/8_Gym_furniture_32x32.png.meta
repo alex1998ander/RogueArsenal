@@ -1,0 +1,2616 @@
+fileFormatVersion: 2
+guid: fe52f1215cafaec4f8c8fee81f12f9ff
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_0
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 974
+        width: 32
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0cf6fd7fefdae5418653eeb15783bc7
+      internalID: -792330779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_1
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 1010
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f454377d7fe1944cb3bd90ee6f783d0
+      internalID: -928770869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_2
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 1028
+        width: 60
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a455aa9ebf6d124c9784e6e280a2c5d
+      internalID: 1587408635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_3
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 1010
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef8752e0630f62e4b91eed1ebc9299be
+      internalID: 279912132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_6
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 982
+        width: 60
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfaefb943348b1448869b26e2755a8ca
+      internalID: -602228874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_7
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 942
+        width: 48
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0fa8c3cd027ab948ac18871ebfa90af
+      internalID: 1913003983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_8
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 942
+        width: 56
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff3edb8b7be2f65499e0657efa16f76a
+      internalID: -631293018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_9
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 970
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 223934e3445de974dbcef951680aab6d
+      internalID: -997714791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_10
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 878
+        width: 32
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 418be0dc44957da4abde1a4f7a7668b2
+      internalID: 303276053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_11
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 946
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5492798aea30d240aced11f774775df
+      internalID: 751828970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_12
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 930
+        width: 60
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc7afefff9cee554287c34a2e6803232
+      internalID: 97374498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_15
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 882
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3579b6d79d6b6ef42802502cc047aec0
+      internalID: -704237048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_16
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 912
+        width: 32
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a786f303fa3c9a4f9131e9857e4e1f3
+      internalID: -1926396931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_17
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 912
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1899bb72b56c92d46bcb3306b717bff4
+      internalID: -1775345997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_18
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 886
+        width: 60
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c1e3f2776eb9a64ca79bb09e3b2d8c8
+      internalID: -303642481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_19
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 872
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf17de9c6bd49534286e1a398e2114ad
+      internalID: -1702711581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_20
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 782
+        width: 32
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47c5ff9c409c97c42804e007f519352c
+      internalID: 2027803173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_21
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 818
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfaf04c2bbca6a0409e2e6208c6058bf
+      internalID: 1732646167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_22
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 836
+        width: 56
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e30b061e36f23394db441d95679e0be2
+      internalID: 1957666042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_23
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 812
+        width: 22
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23f4050254e28fe41956e1e2ec66d826
+      internalID: -600089948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_24
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 812
+        width: 24
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c8d9c64243e2c04085f76dec6272e77
+      internalID: -1806231606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_25
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 838
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f3d686dcf7c32342be0b328ec2ee36b
+      internalID: 716001157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_26
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 810
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2078a65d60127e04497a0968e23f8fa7
+      internalID: -836921674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_27
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 836
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db6ebf064d379cf4eaf6b39dd44cbf21
+      internalID: 340343894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_30
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 790
+        width: 56
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4f8fb09d424fc647b44f05f82359f48
+      internalID: -1364821403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_31
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 806
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0826407a32e0f6d4996331a667843468
+      internalID: -1993519696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_32
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 804
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b4ffcf459965b44cb33b22651a5db56
+      internalID: -373328808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_33
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 686
+        width: 32
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de5410d89de6396498e62287869f56d1
+      internalID: 324702253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_34
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 754
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36dcd6d192a75c842abba63476062bdc
+      internalID: -1713481341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_35
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 738
+        width: 56
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d756783488037554c91d4384d1f306b5
+      internalID: -1208696688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_36
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 702
+        width: 40
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b56ae6b0fc699bf4e8cf021e94dd9f03
+      internalID: 440542415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_37
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 706
+        width: 40
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e63f9a264f55b4d49b1d0dcd4db4c232
+      internalID: -268164557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_39
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 690
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e08d8dadc9f0ca47ada35f4465fc42d
+      internalID: -474288315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_40
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 694
+        width: 56
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bed4c07735576414ab06743765caa8d3
+      internalID: 21348200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_42
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 620
+        width: 24
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cabead182dadcc04d9de0ed62763f5e0
+      internalID: 1569377149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_43
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 624
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd3f5fa7e0ace044296b959f9826812f
+      internalID: 20373633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_44
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 572
+        width: 44
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f77fd3c79736d8f45be13b4e45557716
+      internalID: 2118804127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_45
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 640
+        width: 22
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de3e2852d178af749b4da827d4e9c89d
+      internalID: 664847060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_47
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 556
+        width: 80
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f34c1b4251945443abcd77bbbaf138f
+      internalID: 1022208699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_48
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 566
+        width: 64
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1739ad3d31c963b4cbb79edf1f9866f8
+      internalID: 290999571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_49
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 556
+        width: 24
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 548eb9e8c5450fc438d6f2646e87c69a
+      internalID: -480479596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_50
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 560
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e445a8668c88a1e47b5fcd92d1bdfd5f
+      internalID: 718948032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_51
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 560
+        width: 34
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38c6dd5704959af4fa3b53405091cfc2
+      internalID: -2061589503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_52
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 514
+        width: 48
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6270ee60486e10d4591cc599bcc2df81
+      internalID: 417324480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_53
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 492
+        width: 24
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b296a5d1912837d4bb2f7a4994c10d1e
+      internalID: 868110088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_54
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 496
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5945cc8e15dd804cb9b977edc62afe5
+      internalID: -177159338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_55
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 452
+        width: 62
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e798d9dc3b886674494cfb0209a59b44
+      internalID: -1160426223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_62
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 334
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72bab9028409ce64298b1ab5a8e6366b
+      internalID: 1349509835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_63
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 334
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5b8f23989d63934a91087b0bd18031b
+      internalID: -1823454089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_66
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 368
+        width: 22
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5d1a94f5f2c577429989cccd830a154
+      internalID: 279993083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_67
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 366
+        width: 26
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f39cccdbc516de4c9f424f6ea7a3e8f
+      internalID: 2061712468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_68
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 368
+        width: 22
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8330511587cd17343867afe5c13d7f7a
+      internalID: -1258528549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_69
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 366
+        width: 26
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac784a934141c7a45861eab1dcb71203
+      internalID: -1811369646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_70
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 356
+        width: 46
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cfccd3c7cacefb47b290ded1e92c370
+      internalID: -1365665819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_71
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 358
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ce091854be6f0f489d191a940573e53
+      internalID: -1618874906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_72
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 358
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aad1f44fe38560a4fae8f0d73f9e004b
+      internalID: -209368300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_73
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 334
+        width: 30
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7888fcfc95c80e6448ddd5f3fcabf813
+      internalID: 610070729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_74
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 334
+        width: 30
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a19ebd5de5ea00f4a8534d246f33be62
+      internalID: 2039766504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_75
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 324
+        width: 46
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 763fbd7e54eba9b4b8082d9ebc279782
+      internalID: -1400187710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_76
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 326
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 427be5409ec77a445a0069ab013f0409
+      internalID: 588947996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_77
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 326
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d2630b46c3dd214cabd3acf52a4b86a
+      internalID: 735795105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_78
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 270
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c03caddc79af1f47bbb8ce4e4915bdb
+      internalID: 967493529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_79
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 270
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dc0e5cc33b8a7c458d0aad86ee47b53
+      internalID: -1886496999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_82
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 260
+        width: 28
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dec72dc9f3e0bb45afc07bcf7ee0b0c
+      internalID: 1268944335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_83
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 256
+        width: 56
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c97701110d73817459e6e77ba561a9a6
+      internalID: 1972031775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_84
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 294
+        width: 10
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c92ea5cfb69d7dd45a23887cb59f0d33
+      internalID: 1790715837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_85
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 292
+        width: 50
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e95e90fcfc60504eb0e2421363dda38
+      internalID: -570832079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_86
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 294
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0c24c9a7a5f331458075479eb7f9071
+      internalID: -1218069789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_87
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 294
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1440c8d8fd46b044bb29b7e1696340a1
+      internalID: 680646667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_88
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 258
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4419ed4cb469e743bb986caba4fdda0
+      internalID: -1255211861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_89
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 260
+        width: 14
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b50581741b82bd47a6dc3ffbb4f94f6
+      internalID: -1476711627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_90
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 232
+        width: 30
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a6e91f80e52eb44aab82e43811458e8
+      internalID: 710502661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_91
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 232
+        width: 30
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6257918fbdc460341ba435368e8a377d
+      internalID: -1554921112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_92
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 262
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bfebf16b09148e46873c0c63405594c
+      internalID: 2054810459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_93
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 262
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3b985afe428d854aaaa4b1bb1a51f8c
+      internalID: -2019477515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_94
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 224
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7ba2bb56fe0b5745879225965c3d167
+      internalID: 227053478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_95
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 210
+        width: 62
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb5d4c17aff142c4c9995a0b515ac240
+      internalID: 1909524207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_96
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 210
+        width: 62
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1e64663d526a6347b32b6e9d0434e43
+      internalID: -66430001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_97
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 210
+        width: 62
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1278b4d6b6b777b48b2e429a7a190d2b
+      internalID: -1948313831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_98
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 210
+        width: 62
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3405ba678cd611b448dcf16f52ef3d4c
+      internalID: -1810140002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_99
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 210
+        width: 62
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 719032be6daeb164ba1122b6eb02d507
+      internalID: 676864628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_100
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 168
+        width: 30
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f8f4259049605843b7f4b918acaa21f
+      internalID: -1800901401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_101
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 192
+        width: 30
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0684278f4001a9644bb16a00f639f29e
+      internalID: 1192848591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_107
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 168
+        width: 30
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 801412e9c9d724b4a87c4bccc1be74b8
+      internalID: -2064741110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_110
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 132
+        width: 22
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdd930e318319d443819178334c0dc1d
+      internalID: -443649791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_111
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 132
+        width: 22
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d2681cdac4e2ab408e3fccfd9e7e85b
+      internalID: -1553509036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_113
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 100
+        width: 22
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f876a8f996f648c41a332d7e463c3774
+      internalID: 315421379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_114
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 100
+        width: 22
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cbc3cbf49601ed42bb901251fc56369
+      internalID: -1251334895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_115
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 64
+        width: 30
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f5e3611eead5524cbd91d3d6f5fe3a3
+      internalID: 1600134462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_116
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 64
+        width: 30
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 941b374e1008a2641a3ff55914901fd7
+      internalID: 1650954624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_117
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 32
+        width: 28
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: faba3637958fe6e40b160a75061c980d
+      internalID: 31356218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_118
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 20
+        width: 32
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7b8e28f3cd54a64c83a16c9f70a1f92
+      internalID: -1803604228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_120
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 20
+        width: 48
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5481d7a742054646b9c7b617fdb6f3e
+      internalID: 961628007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_121
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 32
+        width: 36
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 257673d907b8c754996909af4de1fbc6
+      internalID: -495711781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_122
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 32
+        width: 44
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d59a4ad5b57f57546a63e69705e011f5
+      internalID: 1812633596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_123
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 14
+        width: 44
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f794e9e03426a944b53f0cd71a2c255
+      internalID: -2091398105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_124
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 70
+        width: 22
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bd3e3a2f14bfe8428796ee92b1732b9
+      internalID: 1787164406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_125
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 70
+        width: 22
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86da78a971270bf4abe1c6935bdeef92
+      internalID: 972740576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_126
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18cdd6662adaed342a860d42c5692944
+      internalID: 720560401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_127
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 4
+        width: 28
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96664a42ac56044419c2f340956ed6f9
+      internalID: 1717195971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_128
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 4
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24691df4d708e814081c0756d756e943
+      internalID: -840964286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_4
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 912
+        width: 32
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14a79c7c5c8545c4586e0f34c4170029
+      internalID: -514460987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_5
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 912
+        width: 32
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58cc26b82fa95174487302ad071f044a
+      internalID: -1408674297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_13
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 878
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47cc25845f55e1c45acef4432e32db09
+      internalID: -907353222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_14
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 878
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ca445396ad929e4da95a24def4ef5dc
+      internalID: 652454105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_28
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 878
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9f7f1bbacb26504b9d1eb91b7108d82
+      internalID: -679864089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_29
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 876
+        width: 32
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d520bcd29e140541972d72100442a1b
+      internalID: 1835449264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_38
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 224
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edf1f175f05d77844abcdfe88ef473a2
+      internalID: -1903541451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_41
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbff52260d820a445b39cfd9d5b8466f
+      internalID: -1451611389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_46
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 192
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18efa28b75243fa4e85665b95e99ff83
+      internalID: 645282953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_56
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 334
+        width: 32
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1cbf677fcd4a1c45938394ddb87b965
+      internalID: 1753158557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_Gym_furniture_32x32_57
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 334
+        width: 32
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae706e9b99625eb49a233b350488824a
+      internalID: -598334114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      8_Gym_furniture_32x32_0: -792330779
+      8_Gym_furniture_32x32_1: -928770869
+      8_Gym_furniture_32x32_10: 303276053
+      8_Gym_furniture_32x32_100: -1800901401
+      8_Gym_furniture_32x32_101: 1192848591
+      8_Gym_furniture_32x32_102: -248559135
+      8_Gym_furniture_32x32_103: 1338978764
+      8_Gym_furniture_32x32_104: -758408930
+      8_Gym_furniture_32x32_105: -1498021388
+      8_Gym_furniture_32x32_106: 1261181717
+      8_Gym_furniture_32x32_107: -2064741110
+      8_Gym_furniture_32x32_108: 48654506
+      8_Gym_furniture_32x32_109: 840535155
+      8_Gym_furniture_32x32_11: 751828970
+      8_Gym_furniture_32x32_110: -443649791
+      8_Gym_furniture_32x32_111: -1553509036
+      8_Gym_furniture_32x32_112: 1138354606
+      8_Gym_furniture_32x32_113: 315421379
+      8_Gym_furniture_32x32_114: -1251334895
+      8_Gym_furniture_32x32_115: 1600134462
+      8_Gym_furniture_32x32_116: 1650954624
+      8_Gym_furniture_32x32_117: 31356218
+      8_Gym_furniture_32x32_118: -1803604228
+      8_Gym_furniture_32x32_119: -1679475710
+      8_Gym_furniture_32x32_12: 97374498
+      8_Gym_furniture_32x32_120: 961628007
+      8_Gym_furniture_32x32_121: -495711781
+      8_Gym_furniture_32x32_122: 1812633596
+      8_Gym_furniture_32x32_123: -2091398105
+      8_Gym_furniture_32x32_124: 1787164406
+      8_Gym_furniture_32x32_125: 972740576
+      8_Gym_furniture_32x32_126: 720560401
+      8_Gym_furniture_32x32_127: 1717195971
+      8_Gym_furniture_32x32_128: -840964286
+      8_Gym_furniture_32x32_13: -907353222
+      8_Gym_furniture_32x32_14: 652454105
+      8_Gym_furniture_32x32_15: -704237048
+      8_Gym_furniture_32x32_16: -1926396931
+      8_Gym_furniture_32x32_17: -1775345997
+      8_Gym_furniture_32x32_18: -303642481
+      8_Gym_furniture_32x32_19: -1702711581
+      8_Gym_furniture_32x32_2: 1587408635
+      8_Gym_furniture_32x32_20: 2027803173
+      8_Gym_furniture_32x32_21: 1732646167
+      8_Gym_furniture_32x32_22: 1957666042
+      8_Gym_furniture_32x32_23: -600089948
+      8_Gym_furniture_32x32_24: -1806231606
+      8_Gym_furniture_32x32_25: 716001157
+      8_Gym_furniture_32x32_26: -836921674
+      8_Gym_furniture_32x32_27: 340343894
+      8_Gym_furniture_32x32_28: -679864089
+      8_Gym_furniture_32x32_29: 1835449264
+      8_Gym_furniture_32x32_3: 279912132
+      8_Gym_furniture_32x32_30: -1364821403
+      8_Gym_furniture_32x32_31: -1993519696
+      8_Gym_furniture_32x32_32: -373328808
+      8_Gym_furniture_32x32_33: 324702253
+      8_Gym_furniture_32x32_34: -1713481341
+      8_Gym_furniture_32x32_35: -1208696688
+      8_Gym_furniture_32x32_36: 440542415
+      8_Gym_furniture_32x32_37: -268164557
+      8_Gym_furniture_32x32_38: -1903541451
+      8_Gym_furniture_32x32_39: -474288315
+      8_Gym_furniture_32x32_4: -514460987
+      8_Gym_furniture_32x32_40: 21348200
+      8_Gym_furniture_32x32_41: -1451611389
+      8_Gym_furniture_32x32_42: 1569377149
+      8_Gym_furniture_32x32_43: 20373633
+      8_Gym_furniture_32x32_44: 2118804127
+      8_Gym_furniture_32x32_45: 664847060
+      8_Gym_furniture_32x32_46: 645282953
+      8_Gym_furniture_32x32_47: 1022208699
+      8_Gym_furniture_32x32_48: 290999571
+      8_Gym_furniture_32x32_49: -480479596
+      8_Gym_furniture_32x32_5: -1408674297
+      8_Gym_furniture_32x32_50: 718948032
+      8_Gym_furniture_32x32_51: -2061589503
+      8_Gym_furniture_32x32_52: 417324480
+      8_Gym_furniture_32x32_53: 868110088
+      8_Gym_furniture_32x32_54: -177159338
+      8_Gym_furniture_32x32_55: -1160426223
+      8_Gym_furniture_32x32_56: 1753158557
+      8_Gym_furniture_32x32_57: -598334114
+      8_Gym_furniture_32x32_58: 1589452652
+      8_Gym_furniture_32x32_59: 1047316346
+      8_Gym_furniture_32x32_6: -602228874
+      8_Gym_furniture_32x32_60: 2089702300
+      8_Gym_furniture_32x32_61: -1466930874
+      8_Gym_furniture_32x32_62: 1349509835
+      8_Gym_furniture_32x32_63: -1823454089
+      8_Gym_furniture_32x32_64: 1619617127
+      8_Gym_furniture_32x32_65: -1634087836
+      8_Gym_furniture_32x32_66: 279993083
+      8_Gym_furniture_32x32_67: 2061712468
+      8_Gym_furniture_32x32_68: -1258528549
+      8_Gym_furniture_32x32_69: -1811369646
+      8_Gym_furniture_32x32_7: 1913003983
+      8_Gym_furniture_32x32_70: -1365665819
+      8_Gym_furniture_32x32_71: -1618874906
+      8_Gym_furniture_32x32_72: -209368300
+      8_Gym_furniture_32x32_73: 610070729
+      8_Gym_furniture_32x32_74: 2039766504
+      8_Gym_furniture_32x32_75: -1400187710
+      8_Gym_furniture_32x32_76: 588947996
+      8_Gym_furniture_32x32_77: 735795105
+      8_Gym_furniture_32x32_78: 967493529
+      8_Gym_furniture_32x32_79: -1886496999
+      8_Gym_furniture_32x32_8: -631293018
+      8_Gym_furniture_32x32_80: -614034586
+      8_Gym_furniture_32x32_81: 1593070593
+      8_Gym_furniture_32x32_82: 1268944335
+      8_Gym_furniture_32x32_83: 1972031775
+      8_Gym_furniture_32x32_84: 1790715837
+      8_Gym_furniture_32x32_85: -570832079
+      8_Gym_furniture_32x32_86: -1218069789
+      8_Gym_furniture_32x32_87: 680646667
+      8_Gym_furniture_32x32_88: -1255211861
+      8_Gym_furniture_32x32_89: -1476711627
+      8_Gym_furniture_32x32_9: -997714791
+      8_Gym_furniture_32x32_90: 710502661
+      8_Gym_furniture_32x32_91: -1554921112
+      8_Gym_furniture_32x32_92: 2054810459
+      8_Gym_furniture_32x32_93: -2019477515
+      8_Gym_furniture_32x32_94: 227053478
+      8_Gym_furniture_32x32_95: 1909524207
+      8_Gym_furniture_32x32_96: -66430001
+      8_Gym_furniture_32x32_97: -1948313831
+      8_Gym_furniture_32x32_98: -1810140002
+      8_Gym_furniture_32x32_99: 676864628
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
