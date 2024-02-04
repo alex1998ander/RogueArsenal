@@ -1,0 +1,906 @@
+fileFormatVersion: 2
+guid: 190d333ea0d8e494eb550f2b9f1f60f3
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 23_Tevelision_and_Film_Studio_furniture_32x32_0
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 386
+        width: 34
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7932f232d1d2744eaa19361e3f031a6
+      internalID: 1611064502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_Tevelision_and_Film_Studio_furniture_32x32_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 386
+        width: 32
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59532a5a58fe8bb40b14a819cb11009f
+      internalID: 117759000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_Tevelision_and_Film_Studio_furniture_32x32_2
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 392
+        width: 26
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a80c5325d56c074795a5c02aba33ac1
+      internalID: -482092652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_Tevelision_and_Film_Studio_furniture_32x32_3
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 368
+        width: 38
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09953436d72991441ab3c9b8d55fdc7c
+      internalID: 2123123733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_Tevelision_and_Film_Studio_furniture_32x32_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 368
+        width: 32
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dcab533482ed8142922a8c839c4d9f2
+      internalID: -983584499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_Tevelision_and_Film_Studio_furniture_32x32_6
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 372
+        width: 92
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3dcdf08ecd703841ab7f5931c845b3c
+      internalID: -1686785144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_Tevelision_and_Film_Studio_furniture_32x32_7
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 372
+        width: 28
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d7ab54fe78d1ce4ba2f6c1c74667535
+      internalID: 1163658470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_Tevelision_and_Film_Studio_furniture_32x32_8
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 368
+        width: 26
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89256acf36513124a83704197bb30e64
+      internalID: 2086927142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_Tevelision_and_Film_Studio_furniture_32x32_9
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 384
+        width: 26
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a990541a95922a6428ac88983192b212
+      internalID: -2055380422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_Tevelision_and_Film_Studio_furniture_32x32_10
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 322
+        width: 34
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a61ab21a174e75a4b99289d410d6c936
+      internalID: 2131346941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_Tevelision_and_Film_Studio_furniture_32x32_11
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 322
+        width: 32
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f32c1e84bfe11d45b60f039eab3d074
+      internalID: -1644825882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_Tevelision_and_Film_Studio_furniture_32x32_12
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 322
+        width: 26
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35b45eb27dac3f34292fa7689f1c67c7
+      internalID: -207001037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_Tevelision_and_Film_Studio_furniture_32x32_13
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 322
+        width: 28
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27894ee343896c54ea9e5dc1f09fb863
+      internalID: -1378777433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_Tevelision_and_Film_Studio_furniture_32x32_14
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 352
+        width: 26
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1f61c77dded4ac449d59f59e73c50f5
+      internalID: 1724309291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_Tevelision_and_Film_Studio_furniture_32x32_16
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 292
+        width: 44
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8085fbf5cb6733943b00ca9e14b2113d
+      internalID: -617739830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_Tevelision_and_Film_Studio_furniture_32x32_17
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 292
+        width: 44
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b5794f9dda48224cbe3dfeda9e9745d
+      internalID: -39355937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_Tevelision_and_Film_Studio_furniture_32x32_18
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 308
+        width: 156
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40cc91f419133da439f53241c471ed22
+      internalID: -1442049402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_Tevelision_and_Film_Studio_furniture_32x32_20
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 228
+        width: 44
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c1a465516f58f448b202236401818a6
+      internalID: 863814832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_Tevelision_and_Film_Studio_furniture_32x32_21
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 228
+        width: 44
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71a3982127b6fda4c9bc58adbf113c59
+      internalID: -2082607554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_Tevelision_and_Film_Studio_furniture_32x32_22
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 244
+        width: 92
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0904e9934c70b494087d442a751221e9
+      internalID: 318138723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_Tevelision_and_Film_Studio_furniture_32x32_24
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 160
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d81d0721050a494e856ff6198fab46a
+      internalID: 1072399995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_Tevelision_and_Film_Studio_furniture_32x32_25
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 180
+        width: 92
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6aa4570d27a7224ba0a36734babd5b2
+      internalID: 894067644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_Tevelision_and_Film_Studio_furniture_32x32_26
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 132
+        width: 88
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f90d8044bcda0e74b9db5814454ab90a
+      internalID: 723109459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_Tevelision_and_Film_Studio_furniture_32x32_28
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 154
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e1789ce06b5f06499ca9df5d2d1c7a0
+      internalID: -56507739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_Tevelision_and_Film_Studio_furniture_32x32_29
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 68
+        width: 88
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 910dda2c8d9072a48b5d9aca89a86ad5
+      internalID: 1301933141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_Tevelision_and_Film_Studio_furniture_32x32_31
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 90
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20ec1ee438176e64ca82834143333008
+      internalID: -2075299487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_Tevelision_and_Film_Studio_furniture_32x32_32
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 4
+        width: 88
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e8acc484a3d70d49abceea1310daa0f
+      internalID: -432824101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_Tevelision_and_Film_Studio_furniture_32x32_34
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 26
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9d8a0fc2853b5942b93a101c2a86c13
+      internalID: -1521260190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_Tevelision_and_Film_Studio_furniture_32x32_5
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 128
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 322f4fa18a8c1dd46a8b6b900a79f233
+      internalID: 181655137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_Tevelision_and_Film_Studio_furniture_32x32_15
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 96
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd829071861e9c54a8387de971ba9686
+      internalID: -1332859663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_Tevelision_and_Film_Studio_furniture_32x32_19
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 64
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc3ba7afaf3ffc542b87823e7a15802f
+      internalID: -117113216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_Tevelision_and_Film_Studio_furniture_32x32_23
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 32
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d2898ccbcdd05443ba2f9549c4287cd
+      internalID: 79372196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_Tevelision_and_Film_Studio_furniture_32x32_35
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 0
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38039ab801edfba41847b4b423fab728
+      internalID: -525927312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_Tevelision_and_Film_Studio_furniture_32x32_27
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 368
+        width: 38
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3c2aaa5947cc0f498f8ad123768e6d7
+      internalID: 853609654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_Tevelision_and_Film_Studio_furniture_32x32_30
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 368
+        width: 32
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bbe645f0894f1743aee843d62fb94d1
+      internalID: 1239534560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      23_Tevelision_and_Film_Studio_furniture_32x32_0: 1611064502
+      23_Tevelision_and_Film_Studio_furniture_32x32_1: 117759000
+      23_Tevelision_and_Film_Studio_furniture_32x32_10: 2131346941
+      23_Tevelision_and_Film_Studio_furniture_32x32_11: -1644825882
+      23_Tevelision_and_Film_Studio_furniture_32x32_12: -207001037
+      23_Tevelision_and_Film_Studio_furniture_32x32_13: -1378777433
+      23_Tevelision_and_Film_Studio_furniture_32x32_14: 1724309291
+      23_Tevelision_and_Film_Studio_furniture_32x32_15: -1332859663
+      23_Tevelision_and_Film_Studio_furniture_32x32_16: -617739830
+      23_Tevelision_and_Film_Studio_furniture_32x32_17: -39355937
+      23_Tevelision_and_Film_Studio_furniture_32x32_18: -1442049402
+      23_Tevelision_and_Film_Studio_furniture_32x32_19: -117113216
+      23_Tevelision_and_Film_Studio_furniture_32x32_2: -482092652
+      23_Tevelision_and_Film_Studio_furniture_32x32_20: 863814832
+      23_Tevelision_and_Film_Studio_furniture_32x32_21: -2082607554
+      23_Tevelision_and_Film_Studio_furniture_32x32_22: 318138723
+      23_Tevelision_and_Film_Studio_furniture_32x32_23: 79372196
+      23_Tevelision_and_Film_Studio_furniture_32x32_24: 1072399995
+      23_Tevelision_and_Film_Studio_furniture_32x32_25: 894067644
+      23_Tevelision_and_Film_Studio_furniture_32x32_26: 723109459
+      23_Tevelision_and_Film_Studio_furniture_32x32_27: 853609654
+      23_Tevelision_and_Film_Studio_furniture_32x32_28: -56507739
+      23_Tevelision_and_Film_Studio_furniture_32x32_29: 1301933141
+      23_Tevelision_and_Film_Studio_furniture_32x32_3: 2123123733
+      23_Tevelision_and_Film_Studio_furniture_32x32_30: 1239534560
+      23_Tevelision_and_Film_Studio_furniture_32x32_31: -2075299487
+      23_Tevelision_and_Film_Studio_furniture_32x32_32: -432824101
+      23_Tevelision_and_Film_Studio_furniture_32x32_33: -212445561
+      23_Tevelision_and_Film_Studio_furniture_32x32_34: -1521260190
+      23_Tevelision_and_Film_Studio_furniture_32x32_35: -525927312
+      23_Tevelision_and_Film_Studio_furniture_32x32_4: -983584499
+      23_Tevelision_and_Film_Studio_furniture_32x32_5: 181655137
+      23_Tevelision_and_Film_Studio_furniture_32x32_6: -1686785144
+      23_Tevelision_and_Film_Studio_furniture_32x32_7: 1163658470
+      23_Tevelision_and_Film_Studio_furniture_32x32_8: 2086927142
+      23_Tevelision_and_Film_Studio_furniture_32x32_9: -2055380422
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
