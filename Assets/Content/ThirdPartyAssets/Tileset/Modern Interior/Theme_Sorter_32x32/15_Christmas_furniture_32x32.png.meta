@@ -1,0 +1,1952 @@
+fileFormatVersion: 2
+guid: 6ccbfcc86b9356c4eaeb3832d1749d54
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_0
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 450
+        width: 60
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ba01f5f4acceef4cb00334b0393f0f0
+      internalID: 2147422883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_1
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 450
+        width: 60
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d65e78ac90490749be5560d381d8dee
+      internalID: -512005169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_2
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 462
+        width: 60
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7995a3b4977b3b4a940cb39f0223868
+      internalID: 197851807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_3
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 462
+        width: 60
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bed36960d5dcd3c4dafe6d27dde882d7
+      internalID: -1860796250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_4
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 494
+        width: 20
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e6c80378edba2741b83937f92d4445f
+      internalID: -801561959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_5
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 494
+        width: 20
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d64a9016223556548acddcf1c6937e19
+      internalID: -159660105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_6
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 496
+        width: 32
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4a6be61d234499479661f86370a1c50
+      internalID: 324090228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_7
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 422
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db73c43232f9246408a6ba28802716cd
+      internalID: -1925235518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_8
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 426
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee957248371fafa498d8e57f35afa228
+      internalID: -301036965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_9
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 422
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65f94756d295e264d86fb6be50aba598
+      internalID: 506756375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_11
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 430
+        width: 20
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ca7343066f056a478689ab4ffd7e262
+      internalID: -332964361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_12
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 430
+        width: 20
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 755be4f235ad3d346968e2edaf653e58
+      internalID: -1411413620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_13
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 428
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0814293e858ce064ab87aa3b8ef756db
+      internalID: -180844366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_14
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 390
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bb27f906ab07c54c915342d54fe84e0
+      internalID: 1659862522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_15
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 392
+        width: 16
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fd7f7b352bd5e447880ae0a2287c093
+      internalID: -318261212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_16
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 390
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87db4195c6335384b98a66733de73bbc
+      internalID: -481575648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_17
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 370
+        width: 82
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e049ef95a85dab4d9d944aff5f623f9
+      internalID: -2115877463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_18
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 368
+        width: 24
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2197c72c52bdeac4db0a8a08d6883a7a
+      internalID: -2111033653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_19
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 368
+        width: 24
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b0f11315cd9b6b4bbd908b15e3f7c50
+      internalID: -1182325167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_20
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 366
+        width: 20
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad4888de33b91ff46b6e5cf71d163d83
+      internalID: -1198402674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_21
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 352
+        width: 30
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f222277472b75a64ca5f1ce1f9d9aeb0
+      internalID: -2028197657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_22
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 352
+        width: 30
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a6308f069c65a04990c60d763de8be3
+      internalID: -1237950767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_23
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 352
+        width: 30
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2075987047f9004ea5dbddb9db7715e
+      internalID: 179354096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_24
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 352
+        width: 30
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54153e7fb0c29b1459adccde68e7b19e
+      internalID: -1593772499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_25
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 370
+        width: 64
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d90ba294ac9dbed4481549a294266b7d
+      internalID: -208266946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_26
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 358
+        width: 12
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5dc4489165c55ef45b8fd7fa7dbeb922
+      internalID: -88246975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_27
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 358
+        width: 12
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d5e5afd81375434eb9e0cfbedd111c1
+      internalID: -296373352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_28
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 358
+        width: 12
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f69c09ebb559afe4d8a8c987f01cca6b
+      internalID: 1036495390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_29
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 366
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3850765f0dc2fc4aa05bbbbe1585065
+      internalID: 1934969289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_30
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 314
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe13c1553cea87c489b4dd70158aaf0b
+      internalID: 1863578697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_31
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 316
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a5c3accccc01804a9d565074b7202aa
+      internalID: -1901316576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_33
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 324
+        width: 24
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a44ec136566fff44bdb2b239d3355a8
+      internalID: 9577838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_34
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 270
+        width: 30
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9de4ea2490de5e4d8761888ce4bab6e
+      internalID: -2127407400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_35
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 270
+        width: 30
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36b940196123df34f8882b119d4aeb94
+      internalID: 126846451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_36
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 270
+        width: 30
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a1b2d3149d99ff4684f30d2d4c8bc5c
+      internalID: 1028488623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_37
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 288
+        width: 24
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06a0993f9c5fd6e4899e714105ae69e7
+      internalID: 1097112953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_45
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 270
+        width: 30
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5ae0ba4e01a65441ad37480886e98b2
+      internalID: 2037983556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_46
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 288
+        width: 24
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 703098ef867808e4db3aea49fbf19045
+      internalID: 1276243613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_69
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 224
+        width: 28
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2343b1a81b826b6499e4615977f5211d
+      internalID: -1675336231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_74
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 160
+        width: 44
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3236e216afc11de46a09dfb97a32c598
+      internalID: -1233346156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_75
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 160
+        width: 94
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e01e7c46885b5f4fa037c7cf070240f
+      internalID: -572436657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_76
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 224
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2c8a68768ce253429f375e5a0d7042d
+      internalID: 1105058308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_77
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bdff6a25bc0d484caf1d47b746f7e8b
+      internalID: 271788326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_78
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bc20bce9050d1445a65c4acdcaf9d0f
+      internalID: -356527913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_79
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d678e596210b5e44aed610c87133dc9
+      internalID: -208641366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_80
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b43dd253a0bbc145a60fb0c6dae85ac
+      internalID: -955523792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_81
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 174
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8eb7a2fe64c7bff40ab709598fd06fa5
+      internalID: -929532826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_82
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 142
+        width: 38
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70d513d972dea174697f5b0e1f764d3f
+      internalID: -1944527517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_83
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 142
+        width: 38
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 995dfa3b13d1d3349848eef8feee12b3
+      internalID: 17490406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_84
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45d9bbd054403414a92b77845286c58f
+      internalID: -193308274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_85
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 160
+        width: 36
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f76d6220b6e3d24498a1e110b3267612
+      internalID: 771905222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_86
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 160
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47e919c0e76ce1a45a7b8e4e9f2c388b
+      internalID: 213439602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_87
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 128
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3afadde780cf9c44388eb67b5edeb45a
+      internalID: -148452507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_88
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 106
+        width: 44
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ab2656544016a743808df1bb64e440a
+      internalID: -287021896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_89
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 106
+        width: 44
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 477ce6279dc675840b0f110cc616939f
+      internalID: 1675716345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_90
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 106
+        width: 24
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a31592f3eb8883a4c9e953f7c69447e6
+      internalID: 697249068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_91
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 100
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a013b633ed1861d4599cac7b92a4ae0e
+      internalID: 432698444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_92
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 100
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43b1e1d01f50a4449bb122cefbbae830
+      internalID: 1623911671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_93
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 98
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd6ae9bb3788c3c489990c4f8a7aa33b
+      internalID: -1702011289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_94
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 100
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2be3e9c052944947afc430a812298b6
+      internalID: 269815144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_95
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 108
+        width: 24
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5d781886c9280e4cb0124f55b1eecc2
+      internalID: -794951242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_96
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 104
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc1b810a67094354e9db6aeb06417910
+      internalID: -1824422177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_97
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 104
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d77c0bf5e09e71408905d931722dd59
+      internalID: -233846526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_98
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 100
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a4613c86bc4d5a439517c59bda5ed2f
+      internalID: 405612039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_99
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 66
+        width: 28
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b04dcd7bc2bc8e4ea14cce78e40c4af
+      internalID: -441361736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_100
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 66
+        width: 24
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7acb73d6c39f114f8a044a398ca1b7e
+      internalID: 692729259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_101
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 70
+        width: 28
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 325cd7c03a3a0584598907102e8578cd
+      internalID: -1511718289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_102
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 68
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a86456c98dfbf6c4f96d136e481f4030
+      internalID: 1500095533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_103
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 66
+        width: 28
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ce8c863f19b68246aeab4ff6fe947c6
+      internalID: -1221903219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_104
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 36
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8acffb37699aab1429cf907ddbfb3d3c
+      internalID: 629194169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_105
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 38
+        width: 28
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55da0d637e0cd5543bec41f418ca0ea8
+      internalID: -1906119256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_106
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 36
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e18aee7863c55943aa5b5a825d9684d
+      internalID: -196716005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_107
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 36
+        width: 28
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 102b627a4a87e444ba4361b39efe58c0
+      internalID: 1714845135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_108
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 38
+        width: 28
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfe7695d285a7dc46ac087d83fb41d84
+      internalID: 436902080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_109
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 36
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8323bb0e394c2949bb31b77f127393f
+      internalID: -308609864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_110
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 38
+        width: 26
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e768492c9fc12624683e1bb803e9cc61
+      internalID: -922422623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_111
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 492
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db7948cccb7bd4c4e89796ccb3c840e8
+      internalID: 8658712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_112
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 498
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a431bb0e85312d44f87cc851dd5f02dd
+      internalID: 197050084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_113
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 466
+        width: 64
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d639e3ddf77fa9e48b8a9d3c60f564c1
+      internalID: 1770143368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_114
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 428
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d0fd12acef9fa7478a2deca1c88cc6c
+      internalID: -594830613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 15_Christmas_furniture_32x32_115
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 434
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 801a640a732fc2d4cae782677b7f3102
+      internalID: 730955972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      15_Christmas_furniture_32x32_0: 2147422883
+      15_Christmas_furniture_32x32_1: -512005169
+      15_Christmas_furniture_32x32_10: -61084111
+      15_Christmas_furniture_32x32_100: 692729259
+      15_Christmas_furniture_32x32_101: -1511718289
+      15_Christmas_furniture_32x32_102: 1500095533
+      15_Christmas_furniture_32x32_103: -1221903219
+      15_Christmas_furniture_32x32_104: 629194169
+      15_Christmas_furniture_32x32_105: -1906119256
+      15_Christmas_furniture_32x32_106: -196716005
+      15_Christmas_furniture_32x32_107: 1714845135
+      15_Christmas_furniture_32x32_108: 436902080
+      15_Christmas_furniture_32x32_109: -308609864
+      15_Christmas_furniture_32x32_11: -332964361
+      15_Christmas_furniture_32x32_110: -922422623
+      15_Christmas_furniture_32x32_111: 8658712
+      15_Christmas_furniture_32x32_112: 197050084
+      15_Christmas_furniture_32x32_113: 1770143368
+      15_Christmas_furniture_32x32_114: -594830613
+      15_Christmas_furniture_32x32_115: 730955972
+      15_Christmas_furniture_32x32_12: -1411413620
+      15_Christmas_furniture_32x32_13: -180844366
+      15_Christmas_furniture_32x32_14: 1659862522
+      15_Christmas_furniture_32x32_15: -318261212
+      15_Christmas_furniture_32x32_16: -481575648
+      15_Christmas_furniture_32x32_17: -2115877463
+      15_Christmas_furniture_32x32_18: -2111033653
+      15_Christmas_furniture_32x32_19: -1182325167
+      15_Christmas_furniture_32x32_2: 197851807
+      15_Christmas_furniture_32x32_20: -1198402674
+      15_Christmas_furniture_32x32_21: -2028197657
+      15_Christmas_furniture_32x32_22: -1237950767
+      15_Christmas_furniture_32x32_23: 179354096
+      15_Christmas_furniture_32x32_24: -1593772499
+      15_Christmas_furniture_32x32_25: -208266946
+      15_Christmas_furniture_32x32_26: -88246975
+      15_Christmas_furniture_32x32_27: -296373352
+      15_Christmas_furniture_32x32_28: 1036495390
+      15_Christmas_furniture_32x32_29: 1934969289
+      15_Christmas_furniture_32x32_3: -1860796250
+      15_Christmas_furniture_32x32_30: 1863578697
+      15_Christmas_furniture_32x32_31: -1901316576
+      15_Christmas_furniture_32x32_32: -807483777
+      15_Christmas_furniture_32x32_33: 9577838
+      15_Christmas_furniture_32x32_34: -2127407400
+      15_Christmas_furniture_32x32_35: 126846451
+      15_Christmas_furniture_32x32_36: 1028488623
+      15_Christmas_furniture_32x32_37: 1097112953
+      15_Christmas_furniture_32x32_38: 1992803583
+      15_Christmas_furniture_32x32_39: -1188985695
+      15_Christmas_furniture_32x32_4: -801561959
+      15_Christmas_furniture_32x32_40: 957198886
+      15_Christmas_furniture_32x32_41: 1982522388
+      15_Christmas_furniture_32x32_42: -385332823
+      15_Christmas_furniture_32x32_43: -655139024
+      15_Christmas_furniture_32x32_44: -1548264473
+      15_Christmas_furniture_32x32_45: 2037983556
+      15_Christmas_furniture_32x32_46: 1276243613
+      15_Christmas_furniture_32x32_47: 1876444110
+      15_Christmas_furniture_32x32_48: -1715417490
+      15_Christmas_furniture_32x32_49: 660997326
+      15_Christmas_furniture_32x32_5: -159660105
+      15_Christmas_furniture_32x32_50: 1089865290
+      15_Christmas_furniture_32x32_51: -850073359
+      15_Christmas_furniture_32x32_52: 87930777
+      15_Christmas_furniture_32x32_53: 691362913
+      15_Christmas_furniture_32x32_54: -781064754
+      15_Christmas_furniture_32x32_55: 1008370469
+      15_Christmas_furniture_32x32_56: 285526864
+      15_Christmas_furniture_32x32_57: -261689844
+      15_Christmas_furniture_32x32_58: -145683562
+      15_Christmas_furniture_32x32_59: -1169257412
+      15_Christmas_furniture_32x32_6: 324090228
+      15_Christmas_furniture_32x32_60: 752277528
+      15_Christmas_furniture_32x32_61: 2095388376
+      15_Christmas_furniture_32x32_62: -977261206
+      15_Christmas_furniture_32x32_63: -849851717
+      15_Christmas_furniture_32x32_64: -47615932
+      15_Christmas_furniture_32x32_65: 1875446378
+      15_Christmas_furniture_32x32_66: 1079221348
+      15_Christmas_furniture_32x32_67: 1877011314
+      15_Christmas_furniture_32x32_68: -1295171898
+      15_Christmas_furniture_32x32_69: -1675336231
+      15_Christmas_furniture_32x32_7: -1925235518
+      15_Christmas_furniture_32x32_70: 566913275
+      15_Christmas_furniture_32x32_71: 345073877
+      15_Christmas_furniture_32x32_72: -559233247
+      15_Christmas_furniture_32x32_73: 1054741344
+      15_Christmas_furniture_32x32_74: -1233346156
+      15_Christmas_furniture_32x32_75: -572436657
+      15_Christmas_furniture_32x32_76: 1105058308
+      15_Christmas_furniture_32x32_77: 271788326
+      15_Christmas_furniture_32x32_78: -356527913
+      15_Christmas_furniture_32x32_79: -208641366
+      15_Christmas_furniture_32x32_8: -301036965
+      15_Christmas_furniture_32x32_80: -955523792
+      15_Christmas_furniture_32x32_81: -929532826
+      15_Christmas_furniture_32x32_82: -1944527517
+      15_Christmas_furniture_32x32_83: 17490406
+      15_Christmas_furniture_32x32_84: -193308274
+      15_Christmas_furniture_32x32_85: 771905222
+      15_Christmas_furniture_32x32_86: 213439602
+      15_Christmas_furniture_32x32_87: -148452507
+      15_Christmas_furniture_32x32_88: -287021896
+      15_Christmas_furniture_32x32_89: 1675716345
+      15_Christmas_furniture_32x32_9: 506756375
+      15_Christmas_furniture_32x32_90: 697249068
+      15_Christmas_furniture_32x32_91: 432698444
+      15_Christmas_furniture_32x32_92: 1623911671
+      15_Christmas_furniture_32x32_93: -1702011289
+      15_Christmas_furniture_32x32_94: 269815144
+      15_Christmas_furniture_32x32_95: -794951242
+      15_Christmas_furniture_32x32_96: -1824422177
+      15_Christmas_furniture_32x32_97: -233846526
+      15_Christmas_furniture_32x32_98: 405612039
+      15_Christmas_furniture_32x32_99: -441361736
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
