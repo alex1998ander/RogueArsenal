@@ -1,0 +1,5285 @@
+fileFormatVersion: 2
+guid: 83b7c1ee76ad937408fde023032843fb
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_1
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 1414
+        width: 10
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdf20255e42263449a653a00c64be919
+      internalID: 377262588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_2
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 1414
+        width: 10
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 499c89cc00689d743ad65487e3070113
+      internalID: 1311212693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_3
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 1388
+        width: 24
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40104252407cedb449acb2c28f15fb9b
+      internalID: -1922857876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_4
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 1388
+        width: 24
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4558f3f5d4ec4a4eb3692e0c09df456
+      internalID: 1108490025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_5
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 1390
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6145b746a776c5e44862522aa1c60a39
+      internalID: -1594033846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_6
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 1390
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3336c0e04569baf46b64ac4512744728
+      internalID: -1420808772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_8
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 1262
+        width: 32
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bbb58e8162047b4399f2a7750bab480
+      internalID: 535909449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_11
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 1322
+        width: 28
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf5be6427e73a9740be6c28f716e928b
+      internalID: -1160541692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_12
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 1318
+        width: 28
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18ec4b90a4d54dd42b4b11d4d6871a82
+      internalID: 1891412856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_13
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 1318
+        width: 28
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2aa224b1002ed3640bd3411fa8d8d088
+      internalID: 1958719184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_14
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1196
+        width: 32
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8410d8977a1cc94ab676d03efc05140
+      internalID: 899894575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_15
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 1262
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c43f1abbaa4977c449443d7333cf40df
+      internalID: 253393489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_17
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1248
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e30fe00f2454d7d48be5e28ff144a1fe
+      internalID: -1678880605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_18
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 1266
+        width: 30
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efc9c223e441baf4f9d3acf7fbf541f3
+      internalID: 1838587924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_19
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 1266
+        width: 30
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03fc5e5b01c0d3748a79103c20afa484
+      internalID: -836233302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_20
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 1266
+        width: 30
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 343c3539f6cd55e4e86d15ff9caa2bfd
+      internalID: -546526489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_21
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 1238
+        width: 10
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9a9b4b5dfaac564bb63001cc6f88456
+      internalID: 2041641748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_22
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 1220
+        width: 28
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95e457785f50d1c4e8679ef364ff0fa7
+      internalID: 783708896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_23
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 1218
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1459f676cb956174f8da852b31f3c754
+      internalID: -1320575719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_24
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 1218
+        width: 14
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dceff631caf2b24f9c87986a960b072
+      internalID: -1668133373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_25
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 1222
+        width: 12
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7c7e9478e14d774690953b68e6d6fa7
+      internalID: -840501156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_26
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 1216
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cc9d5e0c7ac55b4298a21420a5fa65b
+      internalID: 158335270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_27
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 1218
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be48e8cb243088a45a4a2785dc70f736
+      internalID: 715237553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_28
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 1202
+        width: 28
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abf52f3e546ca054e86db855e26ca275
+      internalID: -1467283537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_29
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 1216
+        width: 14
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a5ed69c06c00894eb8cd5e73712160f
+      internalID: -1435584654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_30
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 1216
+        width: 14
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e8faef3b1b5faf44820aab7cb7ccc06
+      internalID: 1532739688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_31
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 1206
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26ecd387b5a26b54d855373bfb3d04a9
+      internalID: -991261409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_32
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1198
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91022091f4e945449873b7605ac9d776
+      internalID: 1334501418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_33
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 1194
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd8f9b0d5e8f13b4e8e7af54a6840404
+      internalID: -418343216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_34
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 1202
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e69d19fcec51f24bac0d640ccbdaa5f
+      internalID: 34866444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_35
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 1184
+        width: 14
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff007a391be896845819e2dde4522c9a
+      internalID: -1832256995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_36
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 1184
+        width: 14
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e64bf9f14c722174690490bb8b5b1d24
+      internalID: 31396404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_37
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 1162
+        width: 52
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 407ffe66f7ac56345abd165242f06e1a
+      internalID: 436968902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_38
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1100
+        width: 32
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25eb0ee1f26d3384392c94a482dfec49
+      internalID: -290318846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_39
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 1152
+        width: 28
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b99e07388f182c41996a97601b51432
+      internalID: -1114215393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_40
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 1138
+        width: 28
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b9a01555920e3845ba4994347936c02
+      internalID: 296733020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_41
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1092
+        width: 30
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c23c69220c62324da6fe1216a695e03
+      internalID: 1230277009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_42
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 1092
+        width: 30
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61bd8c5124d98b54c9b6994bf2b0af53
+      internalID: 106622047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_43
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 1152
+        width: 14
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0df1e65e5e3b2e40b4c792b5b2a10fc
+      internalID: 1424801152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_44
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 1122
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98400f55f657e234a84d35bfdcc1c982
+      internalID: -1466727627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_45
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 1106
+        width: 30
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2463ae403900e6e439671fbc8cd554b9
+      internalID: 1632063014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_46
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 1120
+        width: 28
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d3dce1a036b4474483ae6844cd78829
+      internalID: 1565330084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_51
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 1120
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5ad2fa2cdcb0214188f16d55b65c6bd
+      internalID: 817538878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_52
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1088
+        width: 20
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc748d71409e8f044b8dc1f86ca44a03
+      internalID: -2013655431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_53
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 1088
+        width: 20
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e9af27e54cef964bb24d0b9014c3d41
+      internalID: -1599107464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_54
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 1062
+        width: 52
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d9e0429907f4f4489965fa7a1cb1ced
+      internalID: -468748933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_55
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 1082
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1218471349de6a145b8d72745a1b9068
+      internalID: 1723408053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_59
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1056
+        width: 22
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f6c0dbf806fd3949bb225dfa1e03bb8
+      internalID: 474782543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_60
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 1056
+        width: 22
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19a80969203a75640851bdbba841607e
+      internalID: 560038717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_62
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 998
+        width: 44
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4748763fcf244841944513d78a99fb7
+      internalID: 1349504730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_63
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 1002
+        width: 44
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 764adda8f3d6f974f894deca861ffcad
+      internalID: -1156625641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_64
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 1000
+        width: 36
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ebfe4e2b4c361541b07977c085dad9e
+      internalID: 2019380749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_65
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 1056
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 817403f7319d32847877caabf8ff72a9
+      internalID: 913412487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_66
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 1056
+        width: 32
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 181c3b207cee7c94b974e0200adffb27
+      internalID: -1623654875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_67
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 1058
+        width: 6
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a3862d119e3ae9428444dfa79ec4bdb
+      internalID: -1329158921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_68
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 1032
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a60d179d91535b40b182fba1ae57f68
+      internalID: 865720928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_69
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 1032
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3be50e4886650a4e858bc948872d0e3
+      internalID: 737846512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_71
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 1000
+        width: 28
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f5343c4c458c4548b18efffb50c3d3f
+      internalID: -2076097892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_72
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 1002
+        width: 20
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78bbf47b1e8150e42aad7470a79acffb
+      internalID: -129038870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_73
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 1002
+        width: 20
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80e6d5fe1407b2f46bd0bd973dc5fe5c
+      internalID: 141596308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_74
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 992
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 973e7ae934548974cb453aa9fb9735c7
+      internalID: 1986917205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_75
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 970
+        width: 20
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a5519f05bedffe4c8a6c002906d89c4
+      internalID: -523794306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_76
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 970
+        width: 20
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4e65758901b7934ea88a619e6f10a61
+      internalID: 1482623959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_77
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 960
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7deebbe653241a64cb8d317e3dc45394
+      internalID: 605792225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_78
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 950
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d43c6a90a18336949837daed14ebe396
+      internalID: -659459833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_79
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 954
+        width: 30
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4aef022f8a96145478f6cca524c1e6ee
+      internalID: 827369485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_80
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 950
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17287be53601212409a530a9ebf8ac7a
+      internalID: -215978272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_81
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 954
+        width: 28
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2dd65ac40bc432f4f899c7313d3cdffd
+      internalID: -1750976918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_82
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 954
+        width: 28
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3da9f128d5b6c14a8e0dc7995e09213
+      internalID: -1588629295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_83
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 954
+        width: 28
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a1e7227de2699f48b95cdc5597f6dc3
+      internalID: 1938526773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_84
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 954
+        width: 28
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7e84ba345bd85942a19804b3ccb3dd1
+      internalID: -667969313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_86
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 896
+        width: 92
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fa86bfb81eb26249bc23b99fb76d1fa
+      internalID: -596147507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_88
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 866
+        width: 26
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6eab825228e4ee4b9ab9beaf4b2e5d7
+      internalID: 1669461456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_89
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 872
+        width: 30
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9b736d42d69584429703efd2d23dc72
+      internalID: 619871990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_90
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 872
+        width: 30
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10b8368558e414d4196d3420da6dd0c1
+      internalID: 282845320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_91
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 866
+        width: 26
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd5d654f923cb704193c3d5bf287d41f
+      internalID: -772140225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_92
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 886
+        width: 28
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7afc598cb1a0ac4da0dea115a1278dd
+      internalID: 1442485212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_93
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 886
+        width: 28
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d89a26ffb5df49488bfddcaa555d962
+      internalID: -608568147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_94
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 890
+        width: 28
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 035e4aa80c100994ca303621a6640d7c
+      internalID: -1270444602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_95
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 886
+        width: 28
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f04a6b1455b050247871f02e629a53d6
+      internalID: -651700381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_96
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 886
+        width: 28
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 991236a5301578b44850ea0d3719421a
+      internalID: 1884824817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_97
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 878
+        width: 32
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e3e6d33ad4d55b47ba3371cba0731a2
+      internalID: -2123417031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_98
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 878
+        width: 32
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 637318032797a084ca52b9326ac2f432
+      internalID: -1385450858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_99
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 878
+        width: 32
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36c5b518240b4764d940e2cdcb44ce8d
+      internalID: 402939344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_100
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 882
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa5697fce3c4f7c47b9cbbf85f216b06
+      internalID: 703659971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_103
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 844
+        width: 30
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daceac10048036743a80568ed90705c3
+      internalID: 911947459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_104
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 822
+        width: 28
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f660a07fb77d0d341b1affc5dfbda2be
+      internalID: -1922188216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_105
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 822
+        width: 28
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1db9fe1c101115b45b35be1a887d8976
+      internalID: -1013077747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_106
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 826
+        width: 28
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de5049a2bdf10b54d8528c7fa72f8683
+      internalID: -50729087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_107
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 822
+        width: 28
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65db69c581fd82b4386bcfb61912f361
+      internalID: -707070280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_108
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 822
+        width: 28
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 446eebe4ea8ecfe449b6c1660697f70f
+      internalID: -1495081810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_109
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 814
+        width: 32
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66abc61bbfdebaa45aa9f3d4b18d5fca
+      internalID: 1199835007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_110
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 814
+        width: 32
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 714504ae456fc4e4cb4e32430267476f
+      internalID: -1574098141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_111
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 814
+        width: 32
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fac4c14c3063228468f747b924c485f8
+      internalID: -846371732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_112
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 770
+        width: 26
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61a227109ce90d0419ef5c53afea342c
+      internalID: -620388792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_113
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 776
+        width: 30
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 592ec7950a8decb42a81aec77e22789e
+      internalID: -585966028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_114
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 776
+        width: 30
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6830d60dc9d0b2e46a05960cbf93b9ad
+      internalID: -394570009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_115
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 770
+        width: 26
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ba6ac35038b514458d3033cd2a0160f
+      internalID: -1630434863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_117
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 94
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d09514ba7a4857b4ea48ebdbf643f292
+      internalID: -499499817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_119
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 710
+        width: 32
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c58e523508dd294bad3f984e8fd4c59
+      internalID: -37351661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_120
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 746
+        width: 24
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0eab561fc4c59e34c90f88222b46470e
+      internalID: -1475776110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_121
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 748
+        width: 24
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2ea8dddbcc9b3c4e856df844ba42d8e
+      internalID: 392864378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_122
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 744
+        width: 24
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9621f16559223b4287d5f30bd3cb97b
+      internalID: -1703269669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_123
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 756
+        width: 24
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bbf16467b53ebd4882349a50c4c335d
+      internalID: -1243707081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_127
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 726
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abf5f95f175a8f441b5bd9511de9ae87
+      internalID: -1656450097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_128
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 716
+        width: 32
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b124c2dae67e674fbdd662ee0ce8000
+      internalID: -1299997249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_129
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 718
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0b2725124a083c43ba2f83d2f360c04
+      internalID: -15324448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_130
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 682
+        width: 24
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3c4923d0086f334c853c71d5c6303e1
+      internalID: 2065161237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_131
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 684
+        width: 24
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd636ca1039e5e543a6d9cb80cd7664e
+      internalID: -1393887458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_132
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 680
+        width: 24
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f97469d5321388f40ba3cb4de8e3f68e
+      internalID: 11951054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_133
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 692
+        width: 24
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e283c59da83f0234a85a44d3814fbbf7
+      internalID: -193031818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_137
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 688
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cf7d650cbc6fa848ad78a0aa5626b0b
+      internalID: -1287551642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_140
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 640
+        width: 10
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68fdeac9bb1581e43831a37953714f5b
+      internalID: 1745034623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_141
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 656
+        width: 22
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6d0e965c8a5c3b43afab662219cc0a3
+      internalID: -490280344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_142
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 656
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e3ce0e2f75a33943bde8eca6c1fe06b
+      internalID: -1799095062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_143
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 656
+        width: 22
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec7f2e7dc1d2f414baac5d917995680e
+      internalID: -1441132254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_144
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 618
+        width: 24
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: feb6941efd0b76c4982fe90692af9fe3
+      internalID: 1593503400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_145
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 620
+        width: 24
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ea9dbb7dc26efc48a353f5e8cf418dc
+      internalID: 788510742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_146
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 628
+        width: 24
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cf7900ac7821744697fa7fbbce2bc5d
+      internalID: -1019156226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_148
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 626
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba99552075fbfe643aa1e74de773c7b3
+      internalID: 356392321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_149
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 626
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc1094547e9003a44a29698ae8b060ff
+      internalID: 1400826878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_150
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 620
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70deba0b1d050b04cab9f30eaef51893
+      internalID: -1930457156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_151
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 616
+        width: 24
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f44de4ad41680bb478038a12b5f0ba81
+      internalID: -246555673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_152
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 548
+        width: 56
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab01118cdd91f4248b44a1cc5f9e59c7
+      internalID: 655759978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_167
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 330
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2f80b56eb09749468942bfaa38ebc3e
+      internalID: -1522233069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_169
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 334
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd888e75b34e42b4bb7314ae279bb64b
+      internalID: 1109398178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_170
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 340
+        width: 26
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e49277a42738fd43bfa66144038bcaa
+      internalID: -273151026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_171
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 384
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73dad669409960e4a8094e416350157c
+      internalID: 1427016643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_180
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 266
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efd24cdd2d9454948a90ee287cb927d3
+      internalID: 231971675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_182
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 270
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b71b475f208e574480b02bf13759972
+      internalID: 2073825963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_183
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 276
+        width: 26
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8dba76c501dfd54e9272cc9feb9a68c
+      internalID: -695735979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_184
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 276
+        width: 26
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68da692280457f446a862c3ae6aef0fe
+      internalID: -578660890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_187
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 290
+        width: 46
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ae570c90c5a8f347bd180be6b86c59c
+      internalID: -1444191881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_188
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 290
+        width: 46
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af25fdda8c71b844881a3261d2d41fe2
+      internalID: -46261409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_189
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 290
+        width: 46
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 215ee4410a1c0d54e9278fb22da83dd7
+      internalID: -2043414146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_190
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 234
+        width: 30
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad787d5c0a9db734bb23ed3930a91e55
+      internalID: 281529982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_191
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 234
+        width: 30
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3c2da6cb5a3bc54baa30427e6fcb2f0
+      internalID: 1844187848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_192
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 234
+        width: 30
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c5ed46457278db479f04a364b86dc02
+      internalID: 1179564343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_193
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 234
+        width: 30
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e57f630f5256bf40a51a623aadcc984
+      internalID: 1340420389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_194
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 234
+        width: 30
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfa886bc78d5b3741881729e8755946d
+      internalID: 1344261885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_195
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 234
+        width: 30
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c179c12e68c8d094d9678926427274a2
+      internalID: 196436439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_196
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 178
+        width: 58
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48046cfcccb98814f95fe9e91395c4df
+      internalID: 494925930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_197
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 178
+        width: 54
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4644a84928b9bd14d886571e95135989
+      internalID: 426729518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_198
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 226
+        width: 46
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82ad6a3f752837249b37d2afe35d2d11
+      internalID: 645445084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_199
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 226
+        width: 46
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1918b2d5e83cac74aaa4f7ae3d24a4ac
+      internalID: -313566678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_200
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 202
+        width: 30
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0c5b920a00757441aee4d823be3dcc7
+      internalID: 217952797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_201
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 202
+        width: 30
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d74c8b2c3a765db4c8b199a83adbb2e7
+      internalID: -515584251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_202
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 202
+        width: 30
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a534854442d0c24aab861de309931c2
+      internalID: -537166008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_203
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 202
+        width: 30
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c304285c4f2480498b374a0a763a6f8
+      internalID: 602540948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_204
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 202
+        width: 30
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6a56d63ca5ae454ca14b1d20042e155
+      internalID: -29958065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_205
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 202
+        width: 30
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97f35a7ee0cbbfc47a2ed201f1df990b
+      internalID: 1267503863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_206
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 192
+        width: 26
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad644a7673875744688706aa868f2178
+      internalID: -857070765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_207
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 194
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42922688888e61045b4b7b6fd5686907
+      internalID: 262046360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_208
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 192
+        width: 24
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf02588506a2d554b88c22fec03d85c3
+      internalID: -314767372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_209
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 170
+        width: 30
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 089fd08a44b8637468b7b58af0e664ef
+      internalID: -1497433403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_210
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 170
+        width: 30
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 375926d6b548be84795851504626ae16
+      internalID: -1328546965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_211
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 170
+        width: 30
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29036e22bbc30aa41a4cf0b9a22437ac
+      internalID: 856812454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_212
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 164
+        width: 18
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bc776f9a5c64e74586e9727cb38ce73
+      internalID: -805332281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_213
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 164
+        width: 18
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5089951cc3c4b94795cd5be846016da
+      internalID: -656315687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_214
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 164
+        width: 18
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12bca45a3b6a15e43a4514a151ea0f63
+      internalID: -1473292556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_215
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 162
+        width: 30
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10bc670547f4e3241925bde67102f991
+      internalID: -193523149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_216
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 160
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c134bf9725f5b0a4e9a7af5264d961d0
+      internalID: -1545787106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_217
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 132
+        width: 18
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a30c47a4ffad2c044bfe5abff239740d
+      internalID: 1888412758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_218
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 132
+        width: 18
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9a2afd230f9969428e735a583538906
+      internalID: -1451134497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_219
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 132
+        width: 18
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21769f1ff22bb9348ba94204d02cea05
+      internalID: -1618482840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_220
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 132
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf76c94826d52754b8e78de64900f517
+      internalID: -154722402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_221
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 132
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1261af7dc73fc94408d61dd3c4b73f22
+      internalID: -1209055819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_222
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 132
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c25e7e80a44f4314289512c7598c04b2
+      internalID: 2100611801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_223
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 138
+        width: 30
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65ebda2028d985e42af2535361a37c44
+      internalID: 344281632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_224
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 138
+        width: 30
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9fb52e44df40a1418dc53e7e273441b
+      internalID: -805823359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_225
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 138
+        width: 30
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dea49e7eb26fe6c459cf85f23d49467f
+      internalID: 1602872752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_226
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 138
+        width: 30
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5350636b5d5a0c242a23412b3803595e
+      internalID: 2087758909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_227
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 138
+        width: 30
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0c28e66bba61384eb4130237888ffb2
+      internalID: 950304835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_228
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 138
+        width: 30
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd5f8f71e2cebc245ad6d23955c52e73
+      internalID: 250940518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_229
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 128
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9371d3599c8f0f34b9bbcf35e63060ae
+      internalID: -1276607211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_230
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 128
+        width: 24
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cede516e9df600d42ba4887dc15aaa8e
+      internalID: -617525717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_231
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 100
+        width: 18
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2aa14cce56a53824a94b5e51f56dca73
+      internalID: 1886842858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_232
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 100
+        width: 18
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d20dc9f890196ee489d16308b17860f5
+      internalID: -1440903325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_233
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 100
+        width: 18
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cd85e003e0507e4ab5f0334a860dde6
+      internalID: 1309455261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_234
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 100
+        width: 18
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 165121d753fe8d449937327cf7d063bc
+      internalID: 1595133586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_235
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 100
+        width: 18
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c5954dc1da2bf34684b4bff439bf4a6
+      internalID: -1734434645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_236
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 100
+        width: 18
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b47ba6c989ea37e47a298e2f3b1d081f
+      internalID: 1118127599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_237
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 106
+        width: 30
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7abebe376f932734193667d9a8b1708e
+      internalID: 1551297490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_238
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 106
+        width: 30
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3736f06e875d734c8702b0a10982d31
+      internalID: -1357384196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_239
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 106
+        width: 30
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 644aea5ca74e2e44b8f59434061c6f45
+      internalID: -952693053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_240
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 106
+        width: 30
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2457d48fa5b87f94493147df1fd998d2
+      internalID: -807565963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_241
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 106
+        width: 30
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7960110064ceee1499b2feac1aac7da5
+      internalID: -19027983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_242
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 106
+        width: 30
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe4ffa6488419a54aa9c8465b981b313
+      internalID: 440483930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_243
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 98
+        width: 30
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 120b948f3b07d8840b424df6b879ddcf
+      internalID: -2091543115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_244
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 96
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c95f8ea7ae842754bbe10b0cd57e70b9
+      internalID: -745747540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_245
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 14
+        width: 32
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01103e0c43d3d9c44a838b370bd8352a
+      internalID: -1634534720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_246
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 14
+        width: 62
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 300972229df40f2458b2226928f8fd75
+      internalID: -1875617147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_247
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 14
+        width: 62
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cafe5699c04dd443b9ba6f2d29ccd04
+      internalID: -2075905243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_248
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 14
+        width: 62
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dee5f01d3afbac445955b441b2026fd9
+      internalID: -1410459168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_249
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 66
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ff77981f68d2db45951ec9b804ffc1c
+      internalID: 1519580603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_250
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 66
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65e4843bb16fd8b43acd26564d2947ab
+      internalID: -1386434066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_251
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 34
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3f154ec8c13cb848aa1aba555f225e3
+      internalID: 1247630034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_252
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 34
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59a60b2fb29c0ed4186840da5ae3acc3
+      internalID: -933151758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_0
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1292
+        width: 32
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9372efd134b59fc47a8c46881f75e1e2
+      internalID: -661191484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_7
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 1248
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f0f66f1f00b14e46b1e850a7194c84c
+      internalID: -359271722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_9
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 1252
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae9aed0f1d827e747a9178f0ac312380
+      internalID: 1128219706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_10
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1168
+        width: 32
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 342a0bed73016e842983fa8f13720f2f
+      internalID: -2043119317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_253
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 1168
+        width: 32
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6095b7861d2b7042b41d166cf3ea612
+      internalID: -1069375636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_254
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1168
+        width: 32
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8ee53880d32fd84586024791c902e86
+      internalID: 1155030852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_255
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 1170
+        width: 30
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01b3ec0de4762da4cbe80fa15fc0af19
+      internalID: 972833671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_256
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 1218
+        width: 30
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 840091406a88aed4996622ae88537a91
+      internalID: -1595657365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_47
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 1152
+        width: 14
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff7c9a00f58f20e42989edee321dcf08
+      internalID: 892282613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_48
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 992
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1c88f71c20443e45b132be3e9be17df
+      internalID: -1194371729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_49
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 960
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ebdf692d2d6bb44389b49ba2a4ff9cd
+      internalID: 947861829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_50
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 710
+        width: 32
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0d92b2bc12fbc247b1fe2939ca9cc5d
+      internalID: 911523928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_56
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 874
+        width: 28
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdb2230989910df4a8fac1bc109589e6
+      internalID: 304683479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_57
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 748
+        width: 32
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f4ce26eae978624188c3034b777926e
+      internalID: -1998073119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_58
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 750
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c17ef40451991c14b8837ae6a54437f7
+      internalID: -1656086260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_61
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 438
+        width: 64
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5675dd1818eb26f418ddf28ec24546ed
+      internalID: 627693057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_70
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 438
+        width: 64
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 349a96ec1267a334792b7241cb2c315e
+      internalID: -519173383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_85
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 384
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d553377d77c1d549a84268221199859
+      internalID: 932409476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_87
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 340
+        width: 26
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0b72a01fce4f1b41abfb629e490c109
+      internalID: 1819337552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_101
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 192
+        width: 26
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09d5e6d35b216204baef62550e356623
+      internalID: 810542818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_102
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 162
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69c2a4760616de747b4e9959a18ecc5d
+      internalID: 1255865223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_116
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 130
+        width: 26
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0493bd306549a1d4cbfcc697a5296e0d
+      internalID: -936961440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_118
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 98
+        width: 26
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa7e974bf30fd9249965cebb250751ae
+      internalID: 1326905906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_124
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 64
+        width: 24
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef8cef1e5b3aabf4893876ced4782d87
+      internalID: -1848960338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_125
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 34
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70f3d936853cd0047a5bfe6bc1980af2
+      internalID: -2027031652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_126
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 32
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38bd54d4e1b484443a3e2f7e75ac950f
+      internalID: 297577305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_134
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 64
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28f30c9f037bce64ea8c90791fb0f717
+      internalID: 653890413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_135
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 96
+        width: 28
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96b3912799fec2648a6b334417200484
+      internalID: -1443893611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_136
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 128
+        width: 26
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8648b2b11870eb54c9fc958f7f6b8761
+      internalID: -1009933470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_138
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a5b6dfeb8682854a94822918fdd216c
+      internalID: 301829059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_139
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 14
+        width: 32
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1fde513fa76a534f88f76b88b953695
+      internalID: 894934181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_147
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 14
+        width: 32
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bda11323004bb13479f36e7a5e9e691c
+      internalID: 1715956689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_153
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 14
+        width: 32
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c16b3ea9e916dd4eb488a007497c3e8
+      internalID: -22864979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_154
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 14
+        width: 32
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7ba23ba6a2ceae469a2f39168362f0d
+      internalID: 459395879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 18_Jail_furniture_32x32_16
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 1338
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d9295a0303ea8343a7a4fad94a8aa9f
+      internalID: -1619909231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      18_Jail_furniture_32x32_0: -661191484
+      18_Jail_furniture_32x32_1: 377262588
+      18_Jail_furniture_32x32_10: -2043119317
+      18_Jail_furniture_32x32_100: 703659971
+      18_Jail_furniture_32x32_101: 810542818
+      18_Jail_furniture_32x32_102: 1255865223
+      18_Jail_furniture_32x32_103: 911947459
+      18_Jail_furniture_32x32_104: -1922188216
+      18_Jail_furniture_32x32_105: -1013077747
+      18_Jail_furniture_32x32_106: -50729087
+      18_Jail_furniture_32x32_107: -707070280
+      18_Jail_furniture_32x32_108: -1495081810
+      18_Jail_furniture_32x32_109: 1199835007
+      18_Jail_furniture_32x32_11: -1160541692
+      18_Jail_furniture_32x32_110: -1574098141
+      18_Jail_furniture_32x32_111: -846371732
+      18_Jail_furniture_32x32_112: -620388792
+      18_Jail_furniture_32x32_113: -585966028
+      18_Jail_furniture_32x32_114: -394570009
+      18_Jail_furniture_32x32_115: -1630434863
+      18_Jail_furniture_32x32_116: -936961440
+      18_Jail_furniture_32x32_117: -499499817
+      18_Jail_furniture_32x32_118: 1326905906
+      18_Jail_furniture_32x32_119: -37351661
+      18_Jail_furniture_32x32_12: 1891412856
+      18_Jail_furniture_32x32_120: -1475776110
+      18_Jail_furniture_32x32_121: 392864378
+      18_Jail_furniture_32x32_122: -1703269669
+      18_Jail_furniture_32x32_123: -1243707081
+      18_Jail_furniture_32x32_124: -1848960338
+      18_Jail_furniture_32x32_125: -2027031652
+      18_Jail_furniture_32x32_126: 297577305
+      18_Jail_furniture_32x32_127: -1656450097
+      18_Jail_furniture_32x32_128: -1299997249
+      18_Jail_furniture_32x32_129: -15324448
+      18_Jail_furniture_32x32_13: 1958719184
+      18_Jail_furniture_32x32_130: 2065161237
+      18_Jail_furniture_32x32_131: -1393887458
+      18_Jail_furniture_32x32_132: 11951054
+      18_Jail_furniture_32x32_133: -193031818
+      18_Jail_furniture_32x32_134: 653890413
+      18_Jail_furniture_32x32_135: -1443893611
+      18_Jail_furniture_32x32_136: -1009933470
+      18_Jail_furniture_32x32_137: -1287551642
+      18_Jail_furniture_32x32_138: 301829059
+      18_Jail_furniture_32x32_139: 894934181
+      18_Jail_furniture_32x32_14: 899894575
+      18_Jail_furniture_32x32_140: 1745034623
+      18_Jail_furniture_32x32_141: -490280344
+      18_Jail_furniture_32x32_142: -1799095062
+      18_Jail_furniture_32x32_143: -1441132254
+      18_Jail_furniture_32x32_144: 1593503400
+      18_Jail_furniture_32x32_145: 788510742
+      18_Jail_furniture_32x32_146: -1019156226
+      18_Jail_furniture_32x32_147: 1715956689
+      18_Jail_furniture_32x32_148: 356392321
+      18_Jail_furniture_32x32_149: 1400826878
+      18_Jail_furniture_32x32_15: 253393489
+      18_Jail_furniture_32x32_150: -1930457156
+      18_Jail_furniture_32x32_151: -246555673
+      18_Jail_furniture_32x32_152: 655759978
+      18_Jail_furniture_32x32_153: -22864979
+      18_Jail_furniture_32x32_154: 459395879
+      18_Jail_furniture_32x32_155: -1950008868
+      18_Jail_furniture_32x32_156: 132962237
+      18_Jail_furniture_32x32_157: 415362680
+      18_Jail_furniture_32x32_158: 1058800440
+      18_Jail_furniture_32x32_159: 70422960
+      18_Jail_furniture_32x32_16: -1619909231
+      18_Jail_furniture_32x32_160: 1831585467
+      18_Jail_furniture_32x32_161: 1471174846
+      18_Jail_furniture_32x32_162: -1507663977
+      18_Jail_furniture_32x32_163: 460800885
+      18_Jail_furniture_32x32_164: -1039117235
+      18_Jail_furniture_32x32_165: -963972604
+      18_Jail_furniture_32x32_166: -53125908
+      18_Jail_furniture_32x32_167: -1522233069
+      18_Jail_furniture_32x32_168: -1900128936
+      18_Jail_furniture_32x32_169: 1109398178
+      18_Jail_furniture_32x32_17: -1678880605
+      18_Jail_furniture_32x32_170: -273151026
+      18_Jail_furniture_32x32_171: 1427016643
+      18_Jail_furniture_32x32_172: -1358289047
+      18_Jail_furniture_32x32_173: 1497862010
+      18_Jail_furniture_32x32_174: 330843038
+      18_Jail_furniture_32x32_175: 427246590
+      18_Jail_furniture_32x32_176: -814735433
+      18_Jail_furniture_32x32_177: -635314677
+      18_Jail_furniture_32x32_178: -637700166
+      18_Jail_furniture_32x32_179: -112790910
+      18_Jail_furniture_32x32_18: 1838587924
+      18_Jail_furniture_32x32_180: 231971675
+      18_Jail_furniture_32x32_181: 2097247631
+      18_Jail_furniture_32x32_182: 2073825963
+      18_Jail_furniture_32x32_183: -695735979
+      18_Jail_furniture_32x32_184: -578660890
+      18_Jail_furniture_32x32_185: -1924661694
+      18_Jail_furniture_32x32_186: 1001391839
+      18_Jail_furniture_32x32_187: -1444191881
+      18_Jail_furniture_32x32_188: -46261409
+      18_Jail_furniture_32x32_189: -2043414146
+      18_Jail_furniture_32x32_19: -836233302
+      18_Jail_furniture_32x32_190: 281529982
+      18_Jail_furniture_32x32_191: 1844187848
+      18_Jail_furniture_32x32_192: 1179564343
+      18_Jail_furniture_32x32_193: 1340420389
+      18_Jail_furniture_32x32_194: 1344261885
+      18_Jail_furniture_32x32_195: 196436439
+      18_Jail_furniture_32x32_196: 494925930
+      18_Jail_furniture_32x32_197: 426729518
+      18_Jail_furniture_32x32_198: 645445084
+      18_Jail_furniture_32x32_199: -313566678
+      18_Jail_furniture_32x32_2: 1311212693
+      18_Jail_furniture_32x32_20: -546526489
+      18_Jail_furniture_32x32_200: 217952797
+      18_Jail_furniture_32x32_201: -515584251
+      18_Jail_furniture_32x32_202: -537166008
+      18_Jail_furniture_32x32_203: 602540948
+      18_Jail_furniture_32x32_204: -29958065
+      18_Jail_furniture_32x32_205: 1267503863
+      18_Jail_furniture_32x32_206: -857070765
+      18_Jail_furniture_32x32_207: 262046360
+      18_Jail_furniture_32x32_208: -314767372
+      18_Jail_furniture_32x32_209: -1497433403
+      18_Jail_furniture_32x32_21: 2041641748
+      18_Jail_furniture_32x32_210: -1328546965
+      18_Jail_furniture_32x32_211: 856812454
+      18_Jail_furniture_32x32_212: -805332281
+      18_Jail_furniture_32x32_213: -656315687
+      18_Jail_furniture_32x32_214: -1473292556
+      18_Jail_furniture_32x32_215: -193523149
+      18_Jail_furniture_32x32_216: -1545787106
+      18_Jail_furniture_32x32_217: 1888412758
+      18_Jail_furniture_32x32_218: -1451134497
+      18_Jail_furniture_32x32_219: -1618482840
+      18_Jail_furniture_32x32_22: 783708896
+      18_Jail_furniture_32x32_220: -154722402
+      18_Jail_furniture_32x32_221: -1209055819
+      18_Jail_furniture_32x32_222: 2100611801
+      18_Jail_furniture_32x32_223: 344281632
+      18_Jail_furniture_32x32_224: -805823359
+      18_Jail_furniture_32x32_225: 1602872752
+      18_Jail_furniture_32x32_226: 2087758909
+      18_Jail_furniture_32x32_227: 950304835
+      18_Jail_furniture_32x32_228: 250940518
+      18_Jail_furniture_32x32_229: -1276607211
+      18_Jail_furniture_32x32_23: -1320575719
+      18_Jail_furniture_32x32_230: -617525717
+      18_Jail_furniture_32x32_231: 1886842858
+      18_Jail_furniture_32x32_232: -1440903325
+      18_Jail_furniture_32x32_233: 1309455261
+      18_Jail_furniture_32x32_234: 1595133586
+      18_Jail_furniture_32x32_235: -1734434645
+      18_Jail_furniture_32x32_236: 1118127599
+      18_Jail_furniture_32x32_237: 1551297490
+      18_Jail_furniture_32x32_238: -1357384196
+      18_Jail_furniture_32x32_239: -952693053
+      18_Jail_furniture_32x32_24: -1668133373
+      18_Jail_furniture_32x32_240: -807565963
+      18_Jail_furniture_32x32_241: -19027983
+      18_Jail_furniture_32x32_242: 440483930
+      18_Jail_furniture_32x32_243: -2091543115
+      18_Jail_furniture_32x32_244: -745747540
+      18_Jail_furniture_32x32_245: -1634534720
+      18_Jail_furniture_32x32_246: -1875617147
+      18_Jail_furniture_32x32_247: -2075905243
+      18_Jail_furniture_32x32_248: -1410459168
+      18_Jail_furniture_32x32_249: 1519580603
+      18_Jail_furniture_32x32_25: -840501156
+      18_Jail_furniture_32x32_250: -1386434066
+      18_Jail_furniture_32x32_251: 1247630034
+      18_Jail_furniture_32x32_252: -933151758
+      18_Jail_furniture_32x32_253: -1069375636
+      18_Jail_furniture_32x32_254: 1155030852
+      18_Jail_furniture_32x32_255: 972833671
+      18_Jail_furniture_32x32_256: -1595657365
+      18_Jail_furniture_32x32_26: 158335270
+      18_Jail_furniture_32x32_27: 715237553
+      18_Jail_furniture_32x32_28: -1467283537
+      18_Jail_furniture_32x32_29: -1435584654
+      18_Jail_furniture_32x32_3: -1922857876
+      18_Jail_furniture_32x32_30: 1532739688
+      18_Jail_furniture_32x32_31: -991261409
+      18_Jail_furniture_32x32_32: 1334501418
+      18_Jail_furniture_32x32_33: -418343216
+      18_Jail_furniture_32x32_34: 34866444
+      18_Jail_furniture_32x32_35: -1832256995
+      18_Jail_furniture_32x32_36: 31396404
+      18_Jail_furniture_32x32_37: 436968902
+      18_Jail_furniture_32x32_38: -290318846
+      18_Jail_furniture_32x32_39: -1114215393
+      18_Jail_furniture_32x32_4: 1108490025
+      18_Jail_furniture_32x32_40: 296733020
+      18_Jail_furniture_32x32_41: 1230277009
+      18_Jail_furniture_32x32_42: 106622047
+      18_Jail_furniture_32x32_43: 1424801152
+      18_Jail_furniture_32x32_44: -1466727627
+      18_Jail_furniture_32x32_45: 1632063014
+      18_Jail_furniture_32x32_46: 1565330084
+      18_Jail_furniture_32x32_47: 892282613
+      18_Jail_furniture_32x32_48: -1194371729
+      18_Jail_furniture_32x32_49: 947861829
+      18_Jail_furniture_32x32_5: -1594033846
+      18_Jail_furniture_32x32_50: 911523928
+      18_Jail_furniture_32x32_51: 817538878
+      18_Jail_furniture_32x32_52: -2013655431
+      18_Jail_furniture_32x32_53: -1599107464
+      18_Jail_furniture_32x32_54: -468748933
+      18_Jail_furniture_32x32_55: 1723408053
+      18_Jail_furniture_32x32_56: 304683479
+      18_Jail_furniture_32x32_57: -1998073119
+      18_Jail_furniture_32x32_58: -1656086260
+      18_Jail_furniture_32x32_59: 474782543
+      18_Jail_furniture_32x32_6: -1420808772
+      18_Jail_furniture_32x32_60: 560038717
+      18_Jail_furniture_32x32_61: 627693057
+      18_Jail_furniture_32x32_62: 1349504730
+      18_Jail_furniture_32x32_63: -1156625641
+      18_Jail_furniture_32x32_64: 2019380749
+      18_Jail_furniture_32x32_65: 913412487
+      18_Jail_furniture_32x32_66: -1623654875
+      18_Jail_furniture_32x32_67: -1329158921
+      18_Jail_furniture_32x32_68: 865720928
+      18_Jail_furniture_32x32_69: 737846512
+      18_Jail_furniture_32x32_7: -359271722
+      18_Jail_furniture_32x32_70: -519173383
+      18_Jail_furniture_32x32_71: -2076097892
+      18_Jail_furniture_32x32_72: -129038870
+      18_Jail_furniture_32x32_73: 141596308
+      18_Jail_furniture_32x32_74: 1986917205
+      18_Jail_furniture_32x32_75: -523794306
+      18_Jail_furniture_32x32_76: 1482623959
+      18_Jail_furniture_32x32_77: 605792225
+      18_Jail_furniture_32x32_78: -659459833
+      18_Jail_furniture_32x32_79: 827369485
+      18_Jail_furniture_32x32_8: 535909449
+      18_Jail_furniture_32x32_80: -215978272
+      18_Jail_furniture_32x32_81: -1750976918
+      18_Jail_furniture_32x32_82: -1588629295
+      18_Jail_furniture_32x32_83: 1938526773
+      18_Jail_furniture_32x32_84: -667969313
+      18_Jail_furniture_32x32_85: 932409476
+      18_Jail_furniture_32x32_86: -596147507
+      18_Jail_furniture_32x32_87: 1819337552
+      18_Jail_furniture_32x32_88: 1669461456
+      18_Jail_furniture_32x32_89: 619871990
+      18_Jail_furniture_32x32_9: 1128219706
+      18_Jail_furniture_32x32_90: 282845320
+      18_Jail_furniture_32x32_91: -772140225
+      18_Jail_furniture_32x32_92: 1442485212
+      18_Jail_furniture_32x32_93: -608568147
+      18_Jail_furniture_32x32_94: -1270444602
+      18_Jail_furniture_32x32_95: -651700381
+      18_Jail_furniture_32x32_96: 1884824817
+      18_Jail_furniture_32x32_97: -2123417031
+      18_Jail_furniture_32x32_98: -1385450858
+      18_Jail_furniture_32x32_99: 402939344
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
