@@ -5,7 +5,6 @@ public class FurnitureController : MonoBehaviour
 {
     [SerializeField] private GameObject debrisPrefab;
     [SerializeField] private int splitGridSize = 3;
-    [SerializeField] private bool squareDebrisPieces = false;
     [SerializeField] private AudioClip breakSound;
 
     private Sprite[] _debrisSprites;
@@ -13,7 +12,7 @@ public class FurnitureController : MonoBehaviour
     private void Start()
     {
         Sprite furnitureSprite = GetComponent<SpriteRenderer>().sprite;
-        _debrisSprites = _SplitSprite(furnitureSprite, splitGridSize, squareDebrisPieces);
+        _debrisSprites = _SplitSprite(furnitureSprite, splitGridSize);
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -25,14 +24,8 @@ public class FurnitureController : MonoBehaviour
         {
             // TODO: instantiate at centers of split regions 
             GameObject debris = Instantiate(debrisPrefab, transform.position, Quaternion.identity);
-
-            SpriteRenderer debrisSpriteRenderer = debris.GetComponent<SpriteRenderer>();
-            debrisSpriteRenderer.sprite = _debrisSprites[i];
-
-            Rigidbody2D debrisRb = debris.GetComponent<Rigidbody2D>();
-            Vector2 randomDropForce = Random.insideUnitCircle * 15f;
-            debrisRb.velocity = randomDropForce;
-            // TODO: Random angular momentum on rigidbody
+            DebrisController dc = debris.GetComponent<DebrisController>();
+            dc.Init(_debrisSprites[i]);
         }
 
         // TODO: break sound
@@ -41,13 +34,12 @@ public class FurnitureController : MonoBehaviour
 
     /// <summary>
     /// Splits a given sprite into multiple, equally sized sprites using a certain grid size.
+    /// Split sprites are also clamped to be square shaped and then rounded down to the nearest power of two to insure consistent masking later on.
     /// </summary>
     /// <param name="sprite">The original sprite to split.</param>
     /// <param name="gridSize">The grid size used to split the sprite</param>
-    /// <param name="forceSquare"></param>
-    /// <param name="forcePowerOfTwo"></param>
     /// <returns>The array containing the split sprites, always of size gridSize * gridSize</returns>
-    private static Sprite[] _SplitSprite(Sprite sprite, int gridSize, bool forceSquare, bool forcePowerOfTwo = false)
+    private static Sprite[] _SplitSprite(Sprite sprite, int gridSize)
     {
         Sprite[] splitSprites = new Sprite[gridSize * gridSize];
 
@@ -62,18 +54,17 @@ public class FurnitureController : MonoBehaviour
         // if force sprites to be square shaped, clamp it to smaller size, calculate offset accordingly
         float widthOffset = 0f;
         float heightOffset = 0f;
-        if (forceSquare)
+
+        // Take smaller width/height to force square shaped sprite, calculate sprite offset
+        if (splitSpriteWidth < splitSpriteHeight)
         {
-            if (splitSpriteWidth < splitSpriteHeight)
-            {
-                heightOffset = (splitSpriteHeight - splitSpriteWidth) / 2f;
-                adjustedSplitSpriteHeight = splitSpriteWidth;
-            }
-            else
-            {
-                widthOffset = (splitSpriteWidth - splitSpriteHeight) / 2f;
-                adjustedSplitSpriteWidth = splitSpriteHeight;
-            }
+            heightOffset = (splitSpriteHeight - splitSpriteWidth) / 2f;
+            adjustedSplitSpriteHeight = splitSpriteWidth;
+        }
+        else
+        {
+            widthOffset = (splitSpriteWidth - splitSpriteHeight) / 2f;
+            adjustedSplitSpriteWidth = splitSpriteHeight;
         }
 
         int splitSpriteIdx = 0;

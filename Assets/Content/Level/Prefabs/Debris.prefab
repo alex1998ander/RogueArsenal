@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2049415639448095787}
+  - component: {fileID: 8766885350489731181}
   - component: {fileID: 2110712136732563846}
   - component: {fileID: 8261090979756050789}
   - component: {fileID: 7062534043133763412}
@@ -35,6 +36,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8766885350489731181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8750916843633979250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a855964c9e7341c458f638df9b79aa96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debrisMask_4x4: {fileID: 21300000, guid: 67cc7c777e60aff4da453ad6a281a59f, type: 3}
+  debrisMask_8x8: {fileID: 21300000, guid: a72ae7efa8bf99b4da9da2417e0f43b8, type: 3}
+  debrisMask_16x16: {fileID: 21300000, guid: b5c99599c1cde004887dfda2cdc2ef2e, type: 3}
+  debrisMask_32x32: {fileID: 21300000, guid: bb72f32eadb75694c9dcedee901ce3bb, type: 3}
+  debrisMask_64x64: {fileID: 21300000, guid: c4e383faf93dcb2489c4bd4bbeb87b79, type: 3}
 --- !u!212 &2110712136732563846
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -85,7 +103,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
-  m_MaskInteraction: 0
+  m_MaskInteraction: 1
   m_SpriteSortPoint: 0
 --- !u!331 &8261090979756050789
 SpriteMask:
@@ -128,7 +146,7 @@ SpriteMask:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b5c99599c1cde004887dfda2cdc2ef2e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a72ae7efa8bf99b4da9da2417e0f43b8, type: 3}
   m_MaskAlphaCutoff: 0.2
   m_FrontSortingLayerID: 0
   m_BackSortingLayerID: 0
@@ -155,8 +173,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1.625}
-    newSize: {x: 0.8125, y: 0.8125}
+    oldSize: {x: 0.04, y: 0.04}
+    newSize: {x: 0.04, y: 0.04}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
