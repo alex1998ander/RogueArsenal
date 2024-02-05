@@ -1,5 +1,4 @@
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class CurrencyController : MonoBehaviour
 {
@@ -12,7 +11,6 @@ public class CurrencyController : MonoBehaviour
 
     [SerializeField] private CircleCollider2D obstacleCollider;
 
-    private const float DropForce = 15f;
     private const float InitialMoveForce = 0.8f;
     private const float MoveForceGain = 1.1f;
     private const float MaxMoveForce = 3.0f;
@@ -37,9 +35,6 @@ public class CurrencyController : MonoBehaviour
 
     private void Start()
     {
-        Vector2 randomDir = Random.insideUnitCircle * DropForce;
-        _rb.velocity = randomDir;
-
         _playerTransform = GameObject.FindWithTag("Player").transform;
 
         _lifetimeEndTimestamp = Time.time + InactiveLifetimeInSeconds;
