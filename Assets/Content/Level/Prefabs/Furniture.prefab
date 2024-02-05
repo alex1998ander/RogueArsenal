@@ -50,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debrisPrefab: {fileID: 8750916843633979250, guid: 11a40f2b1097e7848b7f7645d0165d3a, type: 3}
   splitGridSize: 3
+  squareDebrisPieces: 1
   breakSound: {fileID: 0}
 --- !u!212 &8188631327053753547
 SpriteRenderer:
