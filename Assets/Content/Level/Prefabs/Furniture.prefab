@@ -48,6 +48,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7681dcebd34d47448b641bb71247af27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debrisPrefab: {fileID: 8750916843633979250, guid: 11a40f2b1097e7848b7f7645d0165d3a, type: 3}
+  splitGridSize: 3
+  breakSound: {fileID: 0}
 --- !u!212 &8188631327053753547
 SpriteRenderer:
   m_ObjectHideFlags: 0
