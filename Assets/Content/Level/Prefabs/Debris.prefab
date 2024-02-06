@@ -48,11 +48,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a855964c9e7341c458f638df9b79aa96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debrisMask_4x4: {fileID: 21300000, guid: 67cc7c777e60aff4da453ad6a281a59f, type: 3}
-  debrisMask_8x8: {fileID: 21300000, guid: a72ae7efa8bf99b4da9da2417e0f43b8, type: 3}
-  debrisMask_16x16: {fileID: 21300000, guid: b5c99599c1cde004887dfda2cdc2ef2e, type: 3}
-  debrisMask_32x32: {fileID: 21300000, guid: bb72f32eadb75694c9dcedee901ce3bb, type: 3}
-  debrisMask_64x64: {fileID: 21300000, guid: c4e383faf93dcb2489c4bd4bbeb87b79, type: 3}
+  debrisMasks:
+  - {fileID: 21300000, guid: 67cc7c777e60aff4da453ad6a281a59f, type: 3}
+  - {fileID: 21300000, guid: a72ae7efa8bf99b4da9da2417e0f43b8, type: 3}
+  - {fileID: 21300000, guid: bd12890d6b19697489ddb0e3c220f702, type: 3}
+  - {fileID: 21300000, guid: b5c99599c1cde004887dfda2cdc2ef2e, type: 3}
+  - {fileID: 21300000, guid: 3dff867d205e93848adb554b11518027, type: 3}
+  - {fileID: 21300000, guid: a0d6b7b9cbfcd5f4990f5d4a951a00fc, type: 3}
+  - {fileID: 21300000, guid: 85b717f656c9b654fb7c3b5ef83fbaa2, type: 3}
+  - {fileID: 21300000, guid: bb72f32eadb75694c9dcedee901ce3bb, type: 3}
+  - {fileID: 21300000, guid: 52e87db849679a741bd84990c58f5382, type: 3}
+  - {fileID: 21300000, guid: f39aff38a998b194eba87d0f9273fb07, type: 3}
+  - {fileID: 21300000, guid: fe793020d9f20874ea895945150a2c07, type: 3}
+  - {fileID: 21300000, guid: 198bbeec8d19f2c409862cf82bcd3de7, type: 3}
+  - {fileID: 21300000, guid: 84e843e71d8f47943b4c3cdb87c65983, type: 3}
+  - {fileID: 21300000, guid: eed4c8477367a3f439a052949cefe4d7, type: 3}
+  - {fileID: 21300000, guid: fc032a3046d3ef14ca0a9a8f990d1162, type: 3}
+  - {fileID: 21300000, guid: c4e383faf93dcb2489c4bd4bbeb87b79, type: 3}
 --- !u!212 &2110712136732563846
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -91,7 +103,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -183606707
+  m_SortingLayerID: 1963921387
   m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
@@ -195,8 +207,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 1
-  m_AngularDrag: 0.05
+  m_LinearDrag: 6
+  m_AngularDrag: 2
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 1

@@ -2,49 +2,30 @@ using UnityEngine;
 
 public class DebrisController : MonoBehaviour
 {
-    [SerializeField] private Sprite debrisMask_4x4;
-    [SerializeField] private Sprite debrisMask_8x8;
-    [SerializeField] private Sprite debrisMask_16x16;
-    [SerializeField] private Sprite debrisMask_32x32;
-    [SerializeField] private Sprite debrisMask_64x64;
+    [SerializeField] private Sprite[] debrisMasks;
 
-    private SpriteRenderer _sr;
-    private SpriteMask _sm;
-    private Rigidbody2D _rb;
-    private BoxCollider2D _bc;
+    // The size increases of the sprite masks (with 4, 4x4, then 8x8, then 12x12, etc.)
+    private const int MaskStepSize = 4;
+
+    private const float DropForce = 15f;
+    private const float RotationForce = 500f;
 
     public void Init(Sprite sprite)
     {
-        _sr = GetComponent<SpriteRenderer>();
-        _sm = GetComponent<SpriteMask>();
-        _rb = GetComponent<Rigidbody2D>();
-        _bc = GetComponent<BoxCollider2D>();
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        SpriteMask sm = GetComponent<SpriteMask>();
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        BoxCollider2D bc = GetComponent<BoxCollider2D>();
 
-        _sr.sprite = sprite;
+        sr.sprite = sprite;
 
-        switch (sprite.rect.width)
-        {
-            case < 8f:
-                _sm.sprite = debrisMask_4x4;
-                break;
-            case < 16f:
-                _sm.sprite = debrisMask_8x8;
-                break;
-            case < 32f:
-                _sm.sprite = debrisMask_16x16;
-                break;
-            case < 64f:
-                _sm.sprite = debrisMask_32x32;
-                break;
-            default:
-                _sm.sprite = debrisMask_64x64;
-                break;
-        }
+        int debrisMaskIdx = Mathf.Clamp((int) sprite.rect.width / MaskStepSize - 1, 0, debrisMasks.Length);
+        sm.sprite = debrisMasks[debrisMaskIdx];
 
-        _bc.size = sprite.bounds.size;
+        bc.size = sprite.bounds.size;
 
-        Vector2 randomDropForce = Random.insideUnitCircle * 15f;
-        _rb.velocity = randomDropForce;
-        // TODO: Random angular momentum on rigidbody
+        Vector2 randomDropForce = Random.insideUnitCircle * DropForce;
+        rb.velocity = randomDropForce;
+        rb.angularVelocity = Random.Range(-RotationForce, RotationForce);
     }
 }
