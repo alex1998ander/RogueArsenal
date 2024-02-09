@@ -13,8 +13,8 @@ public class DebrisController : MonoBehaviour
 
     private const float RandomAngularVelocityRange = 500f;
 
-    private const float RandomLifetimeMinSeconds = 0.5f;
-    private const float RandomLifetimeMaxSeconds = 2f;
+    private const float RandomLifetimeMinSeconds = 1f;
+    private const float RandomLifetimeMaxSeconds = 4f;
 
     private float _lifetimeStartTimestamp;
     private float _lifetimeEndTimestamp;
