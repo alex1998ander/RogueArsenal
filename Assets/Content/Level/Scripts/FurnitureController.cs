@@ -7,7 +7,7 @@ public class FurnitureController : MonoBehaviour
     [SerializeField] private int splitGridY = 2;
     [SerializeField] private AudioClip breakSound;
 
-    private Sprite[] _debrisSprites;
+    private Sprite[,] _debrisSprites;
 
     private void Start()
     {
@@ -40,9 +40,9 @@ public class FurnitureController : MonoBehaviour
     /// <param name="gridX">The grid size used to split the sprite</param>
     /// <param name="gridY"></param>
     /// <returns>The array containing the split sprites, always of size gridX * gridY</returns>
-    private static Sprite[] _SplitSprite(Sprite sprite, int gridX, int gridY)
+    private static Sprite[,] _SplitSprite(Sprite sprite, int gridX, int gridY)
     {
-        Sprite[] splitSprites = new Sprite[gridX * gridY];
+        Sprite[,] splitSprites = new Sprite[gridX, gridY];
 
         // calculated size of a single split sprite
         float splitSpriteWidth = sprite.rect.width / gridX;
@@ -68,7 +68,6 @@ public class FurnitureController : MonoBehaviour
             adjustedSplitSpriteWidth = splitSpriteHeight;
         }
 
-        int splitSpriteIdx = 0;
         for (int y = 0; y < gridY; y++)
         {
             for (int x = 0; x < gridX; x++)
@@ -81,9 +80,7 @@ public class FurnitureController : MonoBehaviour
                 );
 
                 Sprite splitSprite = Sprite.Create(sprite.texture, splitSpriteRect, new Vector2(0.5f, 0.5f), sprite.pixelsPerUnit);
-                splitSprites[splitSpriteIdx] = splitSprite;
-
-                splitSpriteIdx++;
+                splitSprites[x, y] = splitSprite;
             }
         }
 
