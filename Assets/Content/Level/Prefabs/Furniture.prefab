@@ -49,8 +49,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debrisPrefab: {fileID: 8750916843633979250, guid: 11a40f2b1097e7848b7f7645d0165d3a, type: 3}
-  splitGridSize: 3
-  squareDebrisPieces: 1
+  furnitureSprite: {fileID: 0}
+  splitGridX: 2
+  splitGridY: 2
   breakSound: {fileID: 0}
 --- !u!212 &8188631327053753547
 SpriteRenderer:
@@ -91,7 +92,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -183606707
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
