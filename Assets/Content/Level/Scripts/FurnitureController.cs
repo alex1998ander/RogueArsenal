@@ -78,25 +78,27 @@ public class FurnitureController : MonoBehaviour
         float splitSpriteWidth = sprite.rect.width / gridX;
         float splitSpriteHeight = sprite.rect.height / gridY;
 
-        // adjusted size of a single split sprite (changed by forcing sprites to be square)
-        float adjustedSplitSpriteWidth = splitSpriteWidth;
-        float adjustedSplitSpriteHeight = splitSpriteHeight;
-
         // offsets to correct centers of sprites, needed because of squaring of sprites 
         float widthOffset = 0f;
         float heightOffset = 0f;
 
-        // Take smaller width/height to force square shaped sprite, calculate sprite offset
+        // Take smaller width/height to use a sprite size, calculate sprite offset
+        float splitSpriteSize;
         if (splitSpriteWidth < splitSpriteHeight)
         {
             heightOffset = (splitSpriteHeight - splitSpriteWidth) / 2f;
-            adjustedSplitSpriteHeight = splitSpriteWidth;
+            splitSpriteSize = splitSpriteWidth;
         }
         else
         {
             widthOffset = (splitSpriteWidth - splitSpriteHeight) / 2f;
-            adjustedSplitSpriteWidth = splitSpriteHeight;
+            splitSpriteSize = splitSpriteHeight;
         }
+
+        // TODO? Extract rounding functionality, remove magic number
+        // Round size down to nearest multiple of 4 (4 because of the debris masks increasing in steps of 4)
+        // to insure consistency? honestly kinda overkill but it looks nicer for some sprites
+        splitSpriteSize = ((int) splitSpriteSize / 4) * 4;
 
         for (int y = 0; y < gridY; y++)
         {
@@ -105,8 +107,8 @@ public class FurnitureController : MonoBehaviour
                 Rect splitSpriteRect = new Rect(
                     sprite.rect.x + x * splitSpriteWidth + widthOffset,
                     sprite.rect.y + y * splitSpriteHeight + heightOffset,
-                    adjustedSplitSpriteWidth,
-                    adjustedSplitSpriteHeight
+                    splitSpriteSize,
+                    splitSpriteSize
                 );
 
                 // Vector2(0.5, 0.5f) means the pivot of the sprite is in the center
