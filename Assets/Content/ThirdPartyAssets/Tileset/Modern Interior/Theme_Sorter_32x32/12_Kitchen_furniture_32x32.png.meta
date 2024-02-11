@@ -1,0 +1,4961 @@
+fileFormatVersion: 2
+guid: a5d712b81694df34fadd11cfc322343c
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_5
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 1312
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c7e5c2c5da243e4e840ffd8ceacf834
+      internalID: 736513323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_6
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 1312
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3751e540c1e0a554f913d94549cc896e
+      internalID: 872477188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_9
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 1280
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b410fdedbb6066a4aada1995a9915184
+      internalID: 1243533036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_10
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 1280
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ff3de079f7f4c747b845db6214647fe
+      internalID: 1942177792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_11
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 1282
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5549f20ebc25764e8caab6e4835495a
+      internalID: -395677810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_12
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 1280
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecdc4dc9eddad57439e98fa9be6587bd
+      internalID: -1608212940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_17
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 1242
+        width: 54
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbe6df2aae12fcc4fa8f086e9477856f
+      internalID: 2079299951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_18
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 1242
+        width: 54
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd2dcd15b958c684588fed9d2efe1625
+      internalID: -1292901039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_19
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1186
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e897835d47448d44c8f84065a770900c
+      internalID: -1348561756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_20
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 1186
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48c1aef5d6b710d4ea6b253f3f913e43
+      internalID: -1219668388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_21
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 1186
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25ba7c89fc0aa8848b2e7a479cbf35d5
+      internalID: -1147414644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_22
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 1186
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bb5e708b0f41cc428bf045cf4a95cfe
+      internalID: -61585131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_23
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 1172
+        width: 26
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 832c3cf7164d30549a18333873380c03
+      internalID: -1221259285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_24
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 1172
+        width: 26
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0863b37236420e4e9c283954c0e3fca
+      internalID: 2086042854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_25
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 1172
+        width: 26
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef5264e290f2a5d4abddb607b6acf2f5
+      internalID: 41793198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_26
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 1172
+        width: 26
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35e10d3a07eb6be42bda504ad0dab2fb
+      internalID: -411385448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_27
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1156
+        width: 32
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6846340b54d0c4458d14b1695c18001
+      internalID: 1741900735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_28
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 1190
+        width: 10
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 868acfa2f1f8c114890671b2ce5d1ba9
+      internalID: -930159685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_29
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 1178
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6f9743e04975fd4fbee0737dcea623f
+      internalID: 488023317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_30
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 1178
+        width: 54
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 484e57e9d26f63e4caef72d3ad8ca080
+      internalID: 896864911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_31
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 1178
+        width: 54
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de06321aa90c1c24581cef5172d0a0b4
+      internalID: 1022732653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_32
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1154
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73f791b2dbc21c14fb984df520bba6da
+      internalID: -1934370737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_33
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 1154
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dea365dae95fb6d43bca00f646444348
+      internalID: 1944088668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_34
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 1154
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ec196db880f5fb45a8c45fc5c556c76
+      internalID: 1707673828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_35
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 1154
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f9540f3db03ffa419d00e0f6bfc2c26
+      internalID: -1855131357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_36
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 1156
+        width: 10
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a42ae16c15c56c64691baefbd8fa9b92
+      internalID: -1298890784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_41
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 1108
+        width: 26
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c74b048ab3119441abd6eb16d7e34e7
+      internalID: -460123331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_42
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 1108
+        width: 26
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16aef25cb92be2045bbb72792cdc8648
+      internalID: -322395379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_43
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 1108
+        width: 26
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a2c4c6674802ba4fb68434070cbaae4
+      internalID: 818937872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_44
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 1108
+        width: 26
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e181613fd0eb65408eb01cf73fa83cd
+      internalID: -1658691021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_45
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1098
+        width: 32
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9eb087d0ce233c94d95370c0cf907400
+      internalID: 487129828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_46
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 1116
+        width: 32
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f52be33ec7d06f4e85709cb82d1280a
+      internalID: 1427643832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_47
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 1122
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba65edec6cf3c8f4e8644f6ca5e0eabc
+      internalID: 1446199493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_48
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 1098
+        width: 22
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b41c19f01244ae43a83f9c6213fab05
+      internalID: -947144221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_49
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 1098
+        width: 30
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 345d825e23f27b34eb08d33f4c57fb62
+      internalID: -473622937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_50
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 1106
+        width: 30
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46ad5c0aaabac634ebfcbffc0ab05ca6
+      internalID: -1661653096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_51
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 1122
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da2fd1b6ecaf88c4ab5793d7b9d99407
+      internalID: 943679862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_52
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 1088
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c69fb39e8806afc478bc4798c34253e0
+      internalID: -1979081413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_54
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 1072
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5dbf85f1de794c54980cad9de21b5393
+      internalID: -355176977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_55
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 1072
+        width: 20
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: beeb2f19a49ec2442b1465fd06b65885
+      internalID: 1222100823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_56
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 1004
+        width: 60
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0f296e8610eb07478e2bebd7eed33d1
+      internalID: -100853063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_57
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 1004
+        width: 60
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4608ec270d8dc548b4476d714b198aa
+      internalID: -1230471622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_58
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 1052
+        width: 32
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4efaea1c3c19be04d9c6024d3496418e
+      internalID: -1106158403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_59
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 1052
+        width: 32
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1575dd998014f045be5ee52d6b708a0
+      internalID: 1629856847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_61
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 1036
+        width: 28
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99c44c3478205524eb78c19fce9367b2
+      internalID: -1854087432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_62
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1016
+        width: 32
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a69184db468e6b24a97b7b1f9f8a5e24
+      internalID: -722903747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_63
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 982
+        width: 64
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bf9374675fbea0418865acc8b8b9361
+      internalID: 1885948021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_64
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 908
+        width: 60
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28278b7307ef7fb47805939824454ee5
+      internalID: -1313884189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_65
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 940
+        width: 60
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfbaf075dd3e45d4a9aef1b0142ed151
+      internalID: -1959411679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_66
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 988
+        width: 60
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e9ac8b75fa031a4da2beaca3f215b4a
+      internalID: -2011667878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_67
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 988
+        width: 92
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05f10b420f1e10344ba97583d648f2c5
+      internalID: 2135274409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_68
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 968
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4147030cb9c2fd54fbf9c91fec6c6b31
+      internalID: 851842290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_69
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 924
+        width: 22
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b74223f134cabdd4688e876c99995ba2
+      internalID: 2056945499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_70
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 936
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf1d588aef511e4439482e86255e566b
+      internalID: -209271020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_71
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 924
+        width: 60
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adc210fe156a07b498f04f8eec4080a3
+      internalID: -306606504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_72
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 924
+        width: 92
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d438c87a33334341bcb57825487c449
+      internalID: -1711692803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_73
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 902
+        width: 22
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1f21defa66c7eb429458c24e92bac5b
+      internalID: 170871359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_74
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 902
+        width: 22
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b280c93a99dece341919264a7ab8cd6c
+      internalID: 176631876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_75
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 876
+        width: 60
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b5df8e38127a5c43b104c07d68ab4e1
+      internalID: -1505525543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_76
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 868
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9036b828d352c6d4691cb7d100e8de8b
+      internalID: 1066434214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_77
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 866
+        width: 16
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecbd9af5cb314994fb17812fdb366859
+      internalID: -2071700252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_78
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 868
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ab4dd2c2de23d34cac0b2df0a2a290a
+      internalID: 303467354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_79
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 866
+        width: 26
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e4a2b210fe717441a6992c6ad78ad71
+      internalID: -1956420757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_80
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 820
+        width: 60
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e538c29c5232ac94e958c52b0c884b6a
+      internalID: 765220741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_81
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 860
+        width: 60
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76b01968b55fd4b4485c7b6160e9cf5e
+      internalID: 576653970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_82
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 860
+        width: 92
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d44c696d0be218b44b4aa41920444faa
+      internalID: 1990818047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_83
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 840
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 702d887b6895dc943a2cec631ac20b92
+      internalID: -496328333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_84
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 836
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56cc9f76cf281db4b96c1abffe733455
+      internalID: -488630059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_85
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 838
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbe5344800e986a44b993ea2148da787
+      internalID: 1420410236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_86
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 812
+        width: 60
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96c7450b98f39ab4a83e94bb7d5cf548
+      internalID: 1916544825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_87
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 804
+        width: 28
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3f3710b258b1504c925c01988eeea3d
+      internalID: -1406979046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_88
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 808
+        width: 26
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcbfdeec8e7341a4b86a356241e24339
+      internalID: 1095346522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_89
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 812
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 526e87ece6ecca148aafb59af21afad1
+      internalID: 413494080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_90
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 746
+        width: 32
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 256884824bfaa5d41ad461ee6bcdd937
+      internalID: -1744819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_91
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 776
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51fbe541d25a49e4294db36ca1556cf4
+      internalID: -947729764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_92
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 776
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dfe8cce1838faa44b5b6c79ffec7870
+      internalID: 978892423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_93
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 776
+        width: 28
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd6e4e5b0a6103446a99ab069cafbfc8
+      internalID: 1519580238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_94
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 724
+        width: 60
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfd55625617116d4bb84094bacfe62db
+      internalID: 758751199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_95
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 724
+        width: 60
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca2a2a940272cb241aee8ffb79fae1e5
+      internalID: 1541651198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_96
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 776
+        width: 30
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e8923d1d053d224ab1bb743f7cb7b22
+      internalID: 1022418342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_97
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 776
+        width: 18
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86c45ea320e8e064386576ebe2e40daa
+      internalID: 1164261859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_98
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 774
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7bd2dd19c6ee0846a48bbe427933556
+      internalID: -1922879178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_99
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 738
+        width: 12
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5febc27d9bd7e6d418d75b0b0f374dd3
+      internalID: -1104798107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_100
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 740
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb228089eba975149ac084402a975c56
+      internalID: -409106817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_101
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 710
+        width: 42
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a50e27393d276c49886871d1b2d79dd
+      internalID: -1665640655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_102
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 738
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 395b245b77468f348bacb951eb15ec2a
+      internalID: -673500314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_103
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 706
+        width: 54
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79d94d33b6031d5479bb59484f7f1227
+      internalID: -583004769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_104
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 650
+        width: 48
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46cb55d5dea4c5245aa280286898c64e
+      internalID: -1079379450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_105
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 650
+        width: 48
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25bcf35afd367bb42a54e189e9783a93
+      internalID: -661681623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_106
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 706
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa5a8675cb0fbf34bb3e5bbfeb91f447
+      internalID: -2103112970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_108
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 628
+        width: 60
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8daf1c682761b345834c746d85cc356
+      internalID: 111448438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_109
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 642
+        width: 48
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e5177ea6d0923e4fb14d72e4dd447e1
+      internalID: 703736428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_110
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 642
+        width: 48
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0526bc8af5b0c749a67e611fc118ebb
+      internalID: 931621554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_112
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 600
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce31a870f275ee741b6e01a6f51083ad
+      internalID: 1820042897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_113
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 608
+        width: 20
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4501791c68d48334e8e12311f4f765ed
+      internalID: -169816053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_114
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 616
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6789d134fa1c7d047886aea826199ca0
+      internalID: -505183952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_115
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 580
+        width: 44
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e424187ae0d4cd4ca63372d8ad9d165
+      internalID: 1283239606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_116
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 580
+        width: 28
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fec3f201395e51d4e89db7ab1c0401bd
+      internalID: -1893566169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_123
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 582
+        width: 22
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbf9aa1c125ace24c87118f87b6be86c
+      internalID: 353717491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_125
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 516
+        width: 44
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c265b47c0493504d82d01f152955f68
+      internalID: 1581659828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_126
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 516
+        width: 28
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15342367651ab6f4f8ebfa275d1c2153
+      internalID: 1779623317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_129
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 488
+        width: 46
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 504a4dfc7b5aa284c92a9a35b7df5be4
+      internalID: -1255522175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_130
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 490
+        width: 32
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0679c138db14d124b8d17e5410a2f134
+      internalID: -925751029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_132
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 428
+        width: 26
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dbd15f34b45cfb43b67ba4a3d73576b
+      internalID: 1190042455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_133
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 428
+        width: 40
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a663b73fa4aef474f9210923451b61cd
+      internalID: -1528676481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_134
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 430
+        width: 26
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2caaa2d842464b4c8de8ab54685263c
+      internalID: -1002931607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_135
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 430
+        width: 40
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22a6c898badcc11419d7102ed4e3b828
+      internalID: -850817519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_138
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 424
+        width: 46
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 737793c2440bbda4a90b42c55bc09e6d
+      internalID: 1982363440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_139
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 450
+        width: 28
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9429d0af59583ae4d9e93fd17c702104
+      internalID: 1687536350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_140
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 460
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2a3e8b1af9f0b04995438dfda660db3
+      internalID: -1997527162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_141
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 452
+        width: 12
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 223696dfbe21bbe45922356b305259fa
+      internalID: -1580082837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_142
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 456
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7937fb2312c20a4d8a9ac0b181d4ee2
+      internalID: 580027772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_144
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 428
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7c06d501abc2f946899b93908ff0f01
+      internalID: 1156950588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_145
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 422
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17a18ee542a25e447b432221b16527be
+      internalID: -1593586735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_146
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 420
+        width: 32
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8dc976feaf205244f9a67b544cf922d6
+      internalID: -434121595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_147
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 422
+        width: 28
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6d060c17533aa941a1d9f843121bff2
+      internalID: -334608110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_148
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 424
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc355e2c26a4b1d4b8f4e39f56a8e52e
+      internalID: 374443467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_149
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 416
+        width: 36
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb0a1b535da52c84bb07338527227aec
+      internalID: -404882476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_150
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 360
+        width: 46
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad1980e80acebfa4b854024665dc7f09
+      internalID: -980737189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_151
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 396
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4b1f973a9f2f3f4f9f23af8fdb31040
+      internalID: -957707304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_152
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 388
+        width: 64
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d46d92bb4807606489a5585045bd8ca5
+      internalID: 1909376777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_153
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 388
+        width: 22
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95d0bd33595b5ff49bc9329793b4021a
+      internalID: -432886420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_154
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 394
+        width: 26
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec50fad55364a8d40a54ba3e3a5e5c48
+      internalID: 273398712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_155
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 370
+        width: 22
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4caafa914a138e41a1f9d2ee433d472
+      internalID: 1681864374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_156
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 358
+        width: 42
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66e52685175775b4da93d3d5cf160b13
+      internalID: -2124587238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_157
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 358
+        width: 42
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cee595341857ca94ea9655a87a5bb7fc
+      internalID: -2878676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_158
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 358
+        width: 32
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58fb88dac42c84b489fe4ed92d8c4609
+      internalID: -1573560657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_159
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 288
+        width: 26
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3b6ebe2bc632cb438c9ecfda71abbb6
+      internalID: 936277570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_160
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 288
+        width: 52
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bffc557e6e88264b8936a58602a7146
+      internalID: -1547431881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_161
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 288
+        width: 26
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 750c0cf59acb56c4dbf378593d0d44a8
+      internalID: -726060568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_162
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 288
+        width: 52
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5cc3cf56e109e640839e9dd73d52d09
+      internalID: 1099872291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_163
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 292
+        width: 24
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9344ddb245daa414a94b80518d4123f2
+      internalID: 1338191715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_164
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 292
+        width: 24
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76bc5cef5a1e62441a034171d554f4d6
+      internalID: 1382403110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_165
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 328
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cc6d99ad002bb14d89a756200f1829a
+      internalID: -1445097251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_166
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 328
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a8c49592ee02fb4face76f445717051
+      internalID: 171528381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_170
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 296
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffad9241286c6dc4e9edaca5546e4dbe
+      internalID: -972284414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_171
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 296
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44f0f0b6de1df9944a4933c9187a8ed7
+      internalID: 1054351724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_172
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 292
+        width: 64
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52094feaa2ea3d5418868663c15089cd
+      internalID: 1878957930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_173
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 228
+        width: 24
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f120ad120064124eaa13906d7dad981
+      internalID: -1931772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_174
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 228
+        width: 24
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5a94758d55035c4094919df5662de1f
+      internalID: -1707441781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_175
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 264
+        width: 26
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bd5f2cb0817af644abe67f99910b994
+      internalID: 1083249539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_176
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 264
+        width: 26
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9b40e1300e806a479a94c96e73526c2
+      internalID: -1735452271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_177
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 234
+        width: 32
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66c083fa1d09228438367ec8a59c7aab
+      internalID: -1780964502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_181
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 192
+        width: 26
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af051e63b8e58d842b15a4196f420fcb
+      internalID: -2134623843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_182
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 192
+        width: 52
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b5a2948063aabc4da6599b117f1ee01
+      internalID: -436357491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_183
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 192
+        width: 26
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 200aed73b8fbd1a43827db288f04428c
+      internalID: 419395390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_184
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 192
+        width: 52
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db9c6a498f0799b4a8472b0e0d94a94a
+      internalID: -1722685333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_185
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 232
+        width: 26
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a08e2faa9d0766f4caeb277ae1e27cfa
+      internalID: 738721161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_186
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 232
+        width: 26
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89b99ef33a9173f4d83393adddf4f715
+      internalID: 629471735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_187
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 164
+        width: 64
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c65e5adb7cedec42a1a59bd9d6e15f8
+      internalID: -1275894968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_188
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 124
+        width: 26
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4660c41eb7ca764ba0617c5ac21281a
+      internalID: 43526208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_189
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 116
+        width: 32
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bd58e7ef269fc249b5641eaa908f586
+      internalID: 84330000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_190
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 68
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b652e3c187970b74faa71790f5cf463e
+      internalID: 884161515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_191
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 68
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b574da889650894c94a952cf8d1129d
+      internalID: 1634606428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_192
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 66
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3ced7e2a34f71c4690e56bbcec3b9a6
+      internalID: -906139157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_193
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 68
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dbc181c824ec4f4b941306484b036f7
+      internalID: 2040630063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_194
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 76
+        width: 24
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a50411c1cc559ee49a45652e623a1813
+      internalID: 1775939589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_195
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 72
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5ca298c111d98a4bb25a8885f0cb422
+      internalID: -1446746148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_196
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 72
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bfd18b20e4ab3a4a98e004e1fc04ea2
+      internalID: -1472062157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_197
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 68
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bb42a3fdc7ce6d4abc78a4d9ed84808
+      internalID: -709230293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_198
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 64
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d1764b0bd7f76a42bf796abc98b58cb
+      internalID: 867880810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_199
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 66
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1dba7337f9d21c4da4e6e503ab85c82
+      internalID: -409555991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_200
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 64
+        width: 24
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00cd1701bf741e9408b09518bb316f7a
+      internalID: 372705416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_201
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 66
+        width: 26
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5de37d87bf5f32b4ba4874834d84a450
+      internalID: 354885921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_202
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 64
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4826db7d311fb1a44a4da62ba5a9ab3f
+      internalID: -504544759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_203
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 66
+        width: 30
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15d599d0341db08428dcb7f1a3736377
+      internalID: -143441202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_204
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 64
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d7a35eca4f0f8d4c8058378a54ebd8a
+      internalID: 500628884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_205
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 34
+        width: 28
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61bf595bf9916c043b03bc3855be9591
+      internalID: -2054595085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_206
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 34
+        width: 24
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8aaf7ca419b74854e829e65fab02fe27
+      internalID: -1641689611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_207
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 38
+        width: 28
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17c08d9eb2c2eb7438916ef07a02f37f
+      internalID: 156354526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_208
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 36
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 219e062685a089743b84828069267428
+      internalID: -240470413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_209
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 34
+        width: 28
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c353c7660a664b7469372dd46792d862
+      internalID: -33765548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_210
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 34
+        width: 30
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e04f4ed0559cc8947accbe9a60a30f44
+      internalID: -1375871450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_211
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 32
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29513e1665608ed44bfc9923d14c7e46
+      internalID: 1092185669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_212
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 2
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca8fe25ed5cde094a90584c92631450b
+      internalID: -1155255831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_213
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 34
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa723ef82ccd0a446ba6c3b13f9b764c
+      internalID: 1294695212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_214
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 34
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1369747af4039114d8e285c32ac15e3b
+      internalID: -1447132935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_215
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 4
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9de80ef82a377b948bb34c6311fe80bd
+      internalID: 480093046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_216
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 6
+        width: 28
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ded74160204172c479fb5912e9ab7f57
+      internalID: -1485272154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_217
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 4
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07067d75e57c210439129479f7a2526f
+      internalID: 2011337278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_218
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 4
+        width: 28
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e404f287824ddf24b9ee3d171994154a
+      internalID: 1215168808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_219
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 6
+        width: 28
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa11f0a2ab9c3914487675fdaaf23c81
+      internalID: 1753888550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_220
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 4
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f91f60f3520542b42a96f6d99778557a
+      internalID: -1911349611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_221
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 6
+        width: 26
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd10ee2c24e53ac41819ad775eb94bde
+      internalID: 297911357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_222
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 0
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19007da7443b1c94489dd8cc7d21a1ed
+      internalID: 1317213850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_223
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 0
+        width: 24
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b5cbf0d856a48f47afd2507f2dfa92b
+      internalID: 1978082149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_224
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 2
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc7021b372b447241ad64703291c5154
+      internalID: -1308529159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_225
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 2
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 857d2b0a179e5b3459971980efecd694
+      internalID: -633385954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_0
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 1313
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 582678f5c75e5384d9c135032cb08be1
+      internalID: -2138140938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_1
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 1350
+        width: 26
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec5e6e45710aca542a2217a77cedc834
+      internalID: -1443955772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_2
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 1350
+        width: 26
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d44c20dbd11e17b4ea6c68ce6ffacb0c
+      internalID: 1700095540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_3
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 1350
+        width: 24
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 156bd7ef866d560498f42db979d1dd07
+      internalID: 1657836687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_4
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 1314
+        width: 48
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0fcf543cefc2734aaf10e3b6ae36b27
+      internalID: 540873747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_7
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 1282
+        width: 48
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70e98b918f530d545ae77a573f516f95
+      internalID: 2081269385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_8
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 1251
+        width: 48
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e4ba59f4b4b0a54b86ddaa6f921bdf5
+      internalID: 1760364292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_13
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 1156
+        width: 32
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f95c975185675144bfeb929c652b14a
+      internalID: 821040728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_14
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 746
+        width: 32
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6ddbffefe3400e43be6c5db5d2db0c0
+      internalID: 1399161291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_15
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 746
+        width: 32
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56838cc234844f14fa6ae311672b882d
+      internalID: 1778127911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_16
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 746
+        width: 32
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 507d35489f53dd049a4226b6e09d05db
+      internalID: -13543117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_37
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 484
+        width: 32
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28c3a1ce4e9b58348a39e33b1efc4998
+      internalID: 2012951703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_38
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 476
+        width: 32
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6597a60af9cf26a4397764be29e6c4db
+      internalID: -1059335980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_39
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 234
+        width: 32
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a72bf1ebcf5c3e542b2d04679a3422d7
+      internalID: -1139606179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_40
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 164
+        width: 64
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d894799bb4a36d84fae42c7a5d2a00b1
+      internalID: -989055612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_53
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 170
+        width: 32
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 486756005dbec6c4fb8b1e28a220cfdd
+      internalID: 713164416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_60
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 170
+        width: 32
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfffd17763e5db143ad19aa1781f3a8b
+      internalID: 669860569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_111
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 170
+        width: 32
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f95b80ef5b3fcf64ea4cce4393bfb192
+      internalID: 519057017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_122
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 170
+        width: 32
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 530a93276b41cec4a9b4d24dc6bbe5cf
+      internalID: 847836193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_131
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 116
+        width: 32
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 452c6174fc89c5a4bae384be971eae42
+      internalID: -929445459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_136
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 116
+        width: 32
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c388e7fb7cc76af4c9020ad34b52a428
+      internalID: 1280218627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_137
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 116
+        width: 32
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17ccbc2934a54a8499504806ab771a85
+      internalID: -778478647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_143
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 64
+        width: 26
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbf1d97913b85c7469e9713ad30c3e58
+      internalID: 1784495614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_167
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 34
+        width: 32
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a81142ef80519d148a63c7a2a6c0e960
+      internalID: 410065992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_168
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 895880c92ff9d0244bddb90c14c623ff
+      internalID: 1215436479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_169
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 2
+        width: 26
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8885938f118b184593e9291839959f0
+      internalID: -2043984199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_178
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 0
+        width: 26
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2890b0d4545a2649a8e3fe952d5cbd7
+      internalID: 1084910798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_179
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 32
+        width: 24
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c60933ab6ce06404ea1bd26f77ef677e
+      internalID: 255280987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_180
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 32
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47288b2d087011e48ad960c814619aaf
+      internalID: 1307571661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_226
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 0
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f503b25ceb1d09c4faf1d0169a234da7
+      internalID: -1987462585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 12_Kitchen_furniture_32x32_107
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 358
+        width: 33
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25ee07a4cdce26a4996eeca5f6dd9459
+      internalID: 735741780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      12_Kitchen_furniture_32x32_0: -2138140938
+      12_Kitchen_furniture_32x32_1: -1443955772
+      12_Kitchen_furniture_32x32_10: 1942177792
+      12_Kitchen_furniture_32x32_100: -409106817
+      12_Kitchen_furniture_32x32_101: -1665640655
+      12_Kitchen_furniture_32x32_102: -673500314
+      12_Kitchen_furniture_32x32_103: -583004769
+      12_Kitchen_furniture_32x32_104: -1079379450
+      12_Kitchen_furniture_32x32_105: -661681623
+      12_Kitchen_furniture_32x32_106: -2103112970
+      12_Kitchen_furniture_32x32_107: 735741780
+      12_Kitchen_furniture_32x32_108: 111448438
+      12_Kitchen_furniture_32x32_109: 703736428
+      12_Kitchen_furniture_32x32_11: -395677810
+      12_Kitchen_furniture_32x32_110: 931621554
+      12_Kitchen_furniture_32x32_111: 519057017
+      12_Kitchen_furniture_32x32_112: 1820042897
+      12_Kitchen_furniture_32x32_113: -169816053
+      12_Kitchen_furniture_32x32_114: -505183952
+      12_Kitchen_furniture_32x32_115: 1283239606
+      12_Kitchen_furniture_32x32_116: -1893566169
+      12_Kitchen_furniture_32x32_117: -786554684
+      12_Kitchen_furniture_32x32_118: -2018771902
+      12_Kitchen_furniture_32x32_119: -1036354072
+      12_Kitchen_furniture_32x32_12: -1608212940
+      12_Kitchen_furniture_32x32_120: 330170069
+      12_Kitchen_furniture_32x32_121: -1731974433
+      12_Kitchen_furniture_32x32_122: 847836193
+      12_Kitchen_furniture_32x32_123: 353717491
+      12_Kitchen_furniture_32x32_124: 124723424
+      12_Kitchen_furniture_32x32_125: 1581659828
+      12_Kitchen_furniture_32x32_126: 1779623317
+      12_Kitchen_furniture_32x32_127: 1092139251
+      12_Kitchen_furniture_32x32_128: -527262153
+      12_Kitchen_furniture_32x32_129: -1255522175
+      12_Kitchen_furniture_32x32_13: 821040728
+      12_Kitchen_furniture_32x32_130: -925751029
+      12_Kitchen_furniture_32x32_131: -929445459
+      12_Kitchen_furniture_32x32_132: 1190042455
+      12_Kitchen_furniture_32x32_133: -1528676481
+      12_Kitchen_furniture_32x32_134: -1002931607
+      12_Kitchen_furniture_32x32_135: -850817519
+      12_Kitchen_furniture_32x32_136: 1280218627
+      12_Kitchen_furniture_32x32_137: -778478647
+      12_Kitchen_furniture_32x32_138: 1982363440
+      12_Kitchen_furniture_32x32_139: 1687536350
+      12_Kitchen_furniture_32x32_14: 1399161291
+      12_Kitchen_furniture_32x32_140: -1997527162
+      12_Kitchen_furniture_32x32_141: -1580082837
+      12_Kitchen_furniture_32x32_142: 580027772
+      12_Kitchen_furniture_32x32_143: 1784495614
+      12_Kitchen_furniture_32x32_144: 1156950588
+      12_Kitchen_furniture_32x32_145: -1593586735
+      12_Kitchen_furniture_32x32_146: -434121595
+      12_Kitchen_furniture_32x32_147: -334608110
+      12_Kitchen_furniture_32x32_148: 374443467
+      12_Kitchen_furniture_32x32_149: -404882476
+      12_Kitchen_furniture_32x32_15: 1778127911
+      12_Kitchen_furniture_32x32_150: -980737189
+      12_Kitchen_furniture_32x32_151: -957707304
+      12_Kitchen_furniture_32x32_152: 1909376777
+      12_Kitchen_furniture_32x32_153: -432886420
+      12_Kitchen_furniture_32x32_154: 273398712
+      12_Kitchen_furniture_32x32_155: 1681864374
+      12_Kitchen_furniture_32x32_156: -2124587238
+      12_Kitchen_furniture_32x32_157: -2878676
+      12_Kitchen_furniture_32x32_158: -1573560657
+      12_Kitchen_furniture_32x32_159: 936277570
+      12_Kitchen_furniture_32x32_16: -13543117
+      12_Kitchen_furniture_32x32_160: -1547431881
+      12_Kitchen_furniture_32x32_161: -726060568
+      12_Kitchen_furniture_32x32_162: 1099872291
+      12_Kitchen_furniture_32x32_163: 1338191715
+      12_Kitchen_furniture_32x32_164: 1382403110
+      12_Kitchen_furniture_32x32_165: -1445097251
+      12_Kitchen_furniture_32x32_166: 171528381
+      12_Kitchen_furniture_32x32_167: 410065992
+      12_Kitchen_furniture_32x32_168: 1215436479
+      12_Kitchen_furniture_32x32_169: -2043984199
+      12_Kitchen_furniture_32x32_17: 2079299951
+      12_Kitchen_furniture_32x32_170: -972284414
+      12_Kitchen_furniture_32x32_171: 1054351724
+      12_Kitchen_furniture_32x32_172: 1878957930
+      12_Kitchen_furniture_32x32_173: -1931772
+      12_Kitchen_furniture_32x32_174: -1707441781
+      12_Kitchen_furniture_32x32_175: 1083249539
+      12_Kitchen_furniture_32x32_176: -1735452271
+      12_Kitchen_furniture_32x32_177: -1780964502
+      12_Kitchen_furniture_32x32_178: 1084910798
+      12_Kitchen_furniture_32x32_179: 255280987
+      12_Kitchen_furniture_32x32_18: -1292901039
+      12_Kitchen_furniture_32x32_180: 1307571661
+      12_Kitchen_furniture_32x32_181: -2134623843
+      12_Kitchen_furniture_32x32_182: -436357491
+      12_Kitchen_furniture_32x32_183: 419395390
+      12_Kitchen_furniture_32x32_184: -1722685333
+      12_Kitchen_furniture_32x32_185: 738721161
+      12_Kitchen_furniture_32x32_186: 629471735
+      12_Kitchen_furniture_32x32_187: -1275894968
+      12_Kitchen_furniture_32x32_188: 43526208
+      12_Kitchen_furniture_32x32_189: 84330000
+      12_Kitchen_furniture_32x32_19: -1348561756
+      12_Kitchen_furniture_32x32_190: 884161515
+      12_Kitchen_furniture_32x32_191: 1634606428
+      12_Kitchen_furniture_32x32_192: -906139157
+      12_Kitchen_furniture_32x32_193: 2040630063
+      12_Kitchen_furniture_32x32_194: 1775939589
+      12_Kitchen_furniture_32x32_195: -1446746148
+      12_Kitchen_furniture_32x32_196: -1472062157
+      12_Kitchen_furniture_32x32_197: -709230293
+      12_Kitchen_furniture_32x32_198: 867880810
+      12_Kitchen_furniture_32x32_199: -409555991
+      12_Kitchen_furniture_32x32_2: 1700095540
+      12_Kitchen_furniture_32x32_20: -1219668388
+      12_Kitchen_furniture_32x32_200: 372705416
+      12_Kitchen_furniture_32x32_201: 354885921
+      12_Kitchen_furniture_32x32_202: -504544759
+      12_Kitchen_furniture_32x32_203: -143441202
+      12_Kitchen_furniture_32x32_204: 500628884
+      12_Kitchen_furniture_32x32_205: -2054595085
+      12_Kitchen_furniture_32x32_206: -1641689611
+      12_Kitchen_furniture_32x32_207: 156354526
+      12_Kitchen_furniture_32x32_208: -240470413
+      12_Kitchen_furniture_32x32_209: -33765548
+      12_Kitchen_furniture_32x32_21: -1147414644
+      12_Kitchen_furniture_32x32_210: -1375871450
+      12_Kitchen_furniture_32x32_211: 1092185669
+      12_Kitchen_furniture_32x32_212: -1155255831
+      12_Kitchen_furniture_32x32_213: 1294695212
+      12_Kitchen_furniture_32x32_214: -1447132935
+      12_Kitchen_furniture_32x32_215: 480093046
+      12_Kitchen_furniture_32x32_216: -1485272154
+      12_Kitchen_furniture_32x32_217: 2011337278
+      12_Kitchen_furniture_32x32_218: 1215168808
+      12_Kitchen_furniture_32x32_219: 1753888550
+      12_Kitchen_furniture_32x32_22: -61585131
+      12_Kitchen_furniture_32x32_220: -1911349611
+      12_Kitchen_furniture_32x32_221: 297911357
+      12_Kitchen_furniture_32x32_222: 1317213850
+      12_Kitchen_furniture_32x32_223: 1978082149
+      12_Kitchen_furniture_32x32_224: -1308529159
+      12_Kitchen_furniture_32x32_225: -633385954
+      12_Kitchen_furniture_32x32_226: -1987462585
+      12_Kitchen_furniture_32x32_23: -1221259285
+      12_Kitchen_furniture_32x32_24: 2086042854
+      12_Kitchen_furniture_32x32_25: 41793198
+      12_Kitchen_furniture_32x32_26: -411385448
+      12_Kitchen_furniture_32x32_27: 1741900735
+      12_Kitchen_furniture_32x32_28: -930159685
+      12_Kitchen_furniture_32x32_29: 488023317
+      12_Kitchen_furniture_32x32_3: 1657836687
+      12_Kitchen_furniture_32x32_30: 896864911
+      12_Kitchen_furniture_32x32_31: 1022732653
+      12_Kitchen_furniture_32x32_32: -1934370737
+      12_Kitchen_furniture_32x32_33: 1944088668
+      12_Kitchen_furniture_32x32_34: 1707673828
+      12_Kitchen_furniture_32x32_35: -1855131357
+      12_Kitchen_furniture_32x32_36: -1298890784
+      12_Kitchen_furniture_32x32_37: 2012951703
+      12_Kitchen_furniture_32x32_38: -1059335980
+      12_Kitchen_furniture_32x32_39: -1139606179
+      12_Kitchen_furniture_32x32_4: 540873747
+      12_Kitchen_furniture_32x32_40: -989055612
+      12_Kitchen_furniture_32x32_41: -460123331
+      12_Kitchen_furniture_32x32_42: -322395379
+      12_Kitchen_furniture_32x32_43: 818937872
+      12_Kitchen_furniture_32x32_44: -1658691021
+      12_Kitchen_furniture_32x32_45: 487129828
+      12_Kitchen_furniture_32x32_46: 1427643832
+      12_Kitchen_furniture_32x32_47: 1446199493
+      12_Kitchen_furniture_32x32_48: -947144221
+      12_Kitchen_furniture_32x32_49: -473622937
+      12_Kitchen_furniture_32x32_5: 736513323
+      12_Kitchen_furniture_32x32_50: -1661653096
+      12_Kitchen_furniture_32x32_51: 943679862
+      12_Kitchen_furniture_32x32_52: -1979081413
+      12_Kitchen_furniture_32x32_53: 713164416
+      12_Kitchen_furniture_32x32_54: -355176977
+      12_Kitchen_furniture_32x32_55: 1222100823
+      12_Kitchen_furniture_32x32_56: -100853063
+      12_Kitchen_furniture_32x32_57: -1230471622
+      12_Kitchen_furniture_32x32_58: -1106158403
+      12_Kitchen_furniture_32x32_59: 1629856847
+      12_Kitchen_furniture_32x32_6: 872477188
+      12_Kitchen_furniture_32x32_60: 669860569
+      12_Kitchen_furniture_32x32_61: -1854087432
+      12_Kitchen_furniture_32x32_62: -722903747
+      12_Kitchen_furniture_32x32_63: 1885948021
+      12_Kitchen_furniture_32x32_64: -1313884189
+      12_Kitchen_furniture_32x32_65: -1959411679
+      12_Kitchen_furniture_32x32_66: -2011667878
+      12_Kitchen_furniture_32x32_67: 2135274409
+      12_Kitchen_furniture_32x32_68: 851842290
+      12_Kitchen_furniture_32x32_69: 2056945499
+      12_Kitchen_furniture_32x32_7: 2081269385
+      12_Kitchen_furniture_32x32_70: -209271020
+      12_Kitchen_furniture_32x32_71: -306606504
+      12_Kitchen_furniture_32x32_72: -1711692803
+      12_Kitchen_furniture_32x32_73: 170871359
+      12_Kitchen_furniture_32x32_74: 176631876
+      12_Kitchen_furniture_32x32_75: -1505525543
+      12_Kitchen_furniture_32x32_76: 1066434214
+      12_Kitchen_furniture_32x32_77: -2071700252
+      12_Kitchen_furniture_32x32_78: 303467354
+      12_Kitchen_furniture_32x32_79: -1956420757
+      12_Kitchen_furniture_32x32_8: 1760364292
+      12_Kitchen_furniture_32x32_80: 765220741
+      12_Kitchen_furniture_32x32_81: 576653970
+      12_Kitchen_furniture_32x32_82: 1990818047
+      12_Kitchen_furniture_32x32_83: -496328333
+      12_Kitchen_furniture_32x32_84: -488630059
+      12_Kitchen_furniture_32x32_85: 1420410236
+      12_Kitchen_furniture_32x32_86: 1916544825
+      12_Kitchen_furniture_32x32_87: -1406979046
+      12_Kitchen_furniture_32x32_88: 1095346522
+      12_Kitchen_furniture_32x32_89: 413494080
+      12_Kitchen_furniture_32x32_9: 1243533036
+      12_Kitchen_furniture_32x32_90: -1744819
+      12_Kitchen_furniture_32x32_91: -947729764
+      12_Kitchen_furniture_32x32_92: 978892423
+      12_Kitchen_furniture_32x32_93: 1519580238
+      12_Kitchen_furniture_32x32_94: 758751199
+      12_Kitchen_furniture_32x32_95: 1541651198
+      12_Kitchen_furniture_32x32_96: 1022418342
+      12_Kitchen_furniture_32x32_97: 1164261859
+      12_Kitchen_furniture_32x32_98: -1922879178
+      12_Kitchen_furniture_32x32_99: -1104798107
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

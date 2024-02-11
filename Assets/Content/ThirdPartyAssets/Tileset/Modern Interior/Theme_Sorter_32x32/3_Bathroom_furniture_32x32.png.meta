@@ -1,0 +1,3369 @@
+fileFormatVersion: 2
+guid: e42e5e99089c8c84fb0ebcd4058161ce
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1712
+        width: 32
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1aa105e4981a0da4a8fe88a1ea846c77
+      internalID: -1629468824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 1712
+        width: 32
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7dc7dac81b5d7249b2c8b5729413a2d
+      internalID: 1431207117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_2
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 1772
+        width: 24
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 571f96e06f3b38448ba345206953843f
+      internalID: -1066335855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_3
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 1740
+        width: 24
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f18096ee4e62e394bb5797b26ced7491
+      internalID: -816775626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_4
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 1708
+        width: 24
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0174447f0a440ff4f8fe1084832ee895
+      internalID: 1778986635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_5
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 1710
+        width: 28
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3b8a8395781fec4c8abd56b37f468fb
+      internalID: 1017305577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_6
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 1710
+        width: 28
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63a785882329c2147b4480108c72e823
+      internalID: -1147539737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_7
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 1710
+        width: 28
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92eff346e44a712409938cd8b2e8e944
+      internalID: -313552280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_8
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 1710
+        width: 28
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe080d05dfd532c46b99b99daabc30bc
+      internalID: -319652582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_9
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 1734
+        width: 20
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abacc890e52bb7649806574941bc56b6
+      internalID: -1491339355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_10
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 1702
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23d09748787f6f94a8687cf72d3e5c3c
+      internalID: 1004147733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_11
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 1710
+        width: 40
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48be1dceb19be924a909534bc4ee12a8
+      internalID: -977729175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_12
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 1760
+        width: 36
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e6ad53d0f18fe54db5fddc9d957a909
+      internalID: 442716323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_13
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 1722
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bfd1066714c1944ab9be77a654b394b
+      internalID: -882369103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1582
+        width: 32
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1b5d5ce152ae5d45902cf3a35b34c10
+      internalID: -1838472523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_15
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 1616
+        width: 28
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86827f9c55de7294f909ffa0c7a7b463
+      internalID: 1124103250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_16
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 1616
+        width: 28
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc36720d97fc23b4fa75615b89223566
+      internalID: 1669208389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_17
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 1616
+        width: 28
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03393bcbca9da444ca76e6837f588da9
+      internalID: 1031908727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_18
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 1616
+        width: 28
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb461964d759ac54f9c3099188d67c7a
+      internalID: -1790163406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_19
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 1616
+        width: 28
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 881c4bf342cc5a74aa2d822c5d9540a6
+      internalID: 1348236203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_20
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1480
+        width: 62
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7c07f8a20c1941409eb8e5b08da5451
+      internalID: 875708846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_21
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 1456
+        width: 40
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c22d436b9cb3f824aa146d9a46ada7b1
+      internalID: 642051195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_22
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 1456
+        width: 40
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7aff38a6a4182774a9505b3b7d00fa9c
+      internalID: 86228460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_23
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 1456
+        width: 40
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a58f2486e3c4bbd459a5ee507fbb930a
+      internalID: -1140428446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_24
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 1488
+        width: 18
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4ace01021191d8459b833e0a40bac8e
+      internalID: 138582498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_25
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 1488
+        width: 18
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d360ef008978ec4f824cf8b73b5199d
+      internalID: -1385300728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_26
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 1545
+        width: 62
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe1858e6e821908408c0e8fc0f19ef3e
+      internalID: 106060485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_27
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 1544
+        width: 62
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66679d598452fd3479b81bdcd3879555
+      internalID: -2073952552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_28
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 1512
+        width: 62
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e5217387988c1745a390f68e49c6a4e
+      internalID: 1175003071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_29
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 1450
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5c8740dbba0cc040a5d3de422cb5220
+      internalID: -1571948986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_30
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 1418
+        width: 22
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0b3f97263875364abfe943dd6014ce7
+      internalID: -1342419778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_31
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 1422
+        width: 56
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9aa3aca63eec1d34a805cc8e4e5dfff6
+      internalID: 1670298752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_32
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 1422
+        width: 56
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4f8da8fba2cfd744a036d44fcf57b0d
+      internalID: 1167879094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_33
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1416
+        width: 62
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cf6915d784177348a3105eb72b24727
+      internalID: -421640198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_34
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1352
+        width: 62
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 112d31ae37177064ba8769b0c4646325
+      internalID: 1759727125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_35
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 1290
+        width: 42
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 947b8379a0d97d645bf38a21ca8a6c22
+      internalID: -328749342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_36
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 1386
+        width: 42
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09db95bb338700b469df56ba6a458b41
+      internalID: 801503995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_37
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 1322
+        width: 42
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f008b5061c06db41a159efca2944f9b
+      internalID: 870188572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_38
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 1326
+        width: 54
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa71bf07afabea645b7847cf74376a84
+      internalID: 1958258039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_39
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 1366
+        width: 28
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52c8b12765fd182498f93170b7cc98e5
+      internalID: -776562527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_40
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 1366
+        width: 28
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b9be306a86c2a0438dcfca1cbf9be03
+      internalID: 823606313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_41
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 1366
+        width: 28
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cd1ba4e87332dd4ebcc111d08f47301
+      internalID: 376433609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_42
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 1366
+        width: 28
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f418559700baed4f863052162f4499a
+      internalID: 1025491071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_43
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1370
+        width: 32
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3771f319a97cab479ce65d410b3f5ce
+      internalID: 1948081978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_44
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 1350
+        width: 32
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a89f51ff3ab0fe348a675a5e408d0709
+      internalID: 425165509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_45
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 1350
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b038f284ae2c23941a5aa930ec96f839
+      internalID: -2045780146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_46
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 1370
+        width: 32
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 609e8c9cfbef87446922bc9e36e4a052
+      internalID: -1957215284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_47
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 1230
+        width: 54
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 557dc3b218fc28f44859679d153867e2
+      internalID: -859344171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_48
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 1216
+        width: 55
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b52f247ae4336ea4aae312ead075d2dd
+      internalID: -733450426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_49
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 1224
+        width: 48
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 368a5e3d79e4f0843b11521ffe1d89a3
+      internalID: 1405971048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_50
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 1224
+        width: 48
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70e839cc7389045419fb499b80067c92
+      internalID: 1917770497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_51
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 1224
+        width: 48
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 406b5724f5fb9384ca86d9ee1eb872bf
+      internalID: 1491339270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_52
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 1158
+        width: 24
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 851f2abbb87e858448e59145d06824de
+      internalID: 1785068218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_53
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 1158
+        width: 24
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 365c7a2748b7e634cae681c34ee8bba7
+      internalID: 527084267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_54
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 1158
+        width: 24
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32c1c38960e92ea4e96b9294c6a855d1
+      internalID: -1948580645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_55
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 1178
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08e54e460f8092e4f8e724a2ae28f4bd
+      internalID: 1242953305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_56
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 974
+        width: 62
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccf5f311f297ade4c854781f64a808ca
+      internalID: 1122389721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_57
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 975
+        width: 62
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ce8be53495828945847cebb47a1e28e
+      internalID: -911390092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_58
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 972
+        width: 28
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c74883d88e22d843aa2e729e6df38cf
+      internalID: -1840863795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_59
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 972
+        width: 28
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd079d8676c3e27498c77e2f95a1a923
+      internalID: 1458572887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_60
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 972
+        width: 28
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f74d94bb2d05f3f469d05fd866889653
+      internalID: -1007122535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_61
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 972
+        width: 28
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6eb3f3e3b5417bb4ba060520a7b4a6fa
+      internalID: -2144898328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_62
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 972
+        width: 28
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e122d56727ff40448d74582294b99f4
+      internalID: -1246647600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_63
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 972
+        width: 28
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fd392f8bb5ae714e851c5e6c0df4e3b
+      internalID: -19001396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_64
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 1030
+        width: 20
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f40dc47c6b4e5944b2eaab97b53d786
+      internalID: 996116386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_65
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 1030
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10b06404408bb894b827a888116cf8a1
+      internalID: -1696589321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_66
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 974
+        width: 24
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68bf6506ffed0864792d62deb53ddf08
+      internalID: 1245923897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_67
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 970
+        width: 24
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3842b40cd3b240346a7e8a57b650f0aa
+      internalID: 161983503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_68
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 876
+        width: 28
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e44af92b3908f9446a9c763c46c612c3
+      internalID: 88140735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_69
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 876
+        width: 28
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f352e4d97eea8243a9337f56ad58103
+      internalID: -918344368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_70
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 876
+        width: 28
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f3c9038adfb06947ae09e597179fe68
+      internalID: 1365421157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_71
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 876
+        width: 28
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db0678c6055fd934286896039b6ab02e
+      internalID: 1636380786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_72
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 876
+        width: 28
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6698cf33ac4731e4fa84b646525a9264
+      internalID: -1402258854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_73
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 876
+        width: 28
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11bf985c7fbb6e143a5cae6c80681a6e
+      internalID: 1983378309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_74
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 910
+        width: 24
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 161c96a34e129a74e8bf563db6f2955b
+      internalID: -44467884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_75
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 906
+        width: 24
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8b8b5804f12f6c4a9740b26d30344ff
+      internalID: 2144800604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_76
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 724
+        width: 32
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eaff693223348664c8253faeeffb9b37
+      internalID: -2053551930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_77
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 724
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12e0a112b0b450d419ad69a4dd86619c
+      internalID: -1518079442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_78
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 710
+        width: 40
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f39e7498c2054c9498f7580db2c897e7
+      internalID: 1971997561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_79
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 682
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f71d7b8aefa1134b9a3b71d1cd20198
+      internalID: 174886280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_80
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 752
+        width: 18
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02dd4176651b9b34aaeb873856054c5c
+      internalID: 192631457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_81
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 752
+        width: 18
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfa0152cec1477d44a7f133323efde67
+      internalID: 1680922516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_82
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 752
+        width: 56
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98ba77e87fa840641904021517173bf6
+      internalID: -1315043714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_83
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 752
+        width: 56
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 741b615dee7a8954b93fc2779bbdaaec
+      internalID: -2002836517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_84
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 660
+        width: 32
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9384480b925fe2f4284fb936531182e1
+      internalID: 481028851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_85
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 660
+        width: 32
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6441f389b3d10254385613a4bc23c99e
+      internalID: -277417151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_86
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 640
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95f2f3c1bfbd2734dbea913bc869cf9e
+      internalID: 2042098835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_87
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 640
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ef397b45bb27b0448df11a8c4151206
+      internalID: 1113777235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_88
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 692
+        width: 32
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d14a3476648f634b9b4bcc1483bc569
+      internalID: -488610614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_89
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 688
+        width: 28
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3647ad4d1c4bae149bde6c62fd8bf8b4
+      internalID: 2026441108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_90
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 688
+        width: 28
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 200ab8b54f158f844a17526e6192b426
+      internalID: 783875868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_91
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 656
+        width: 22
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bb4c280e2839bf4da7e09212c91b5c7
+      internalID: 1364861290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_92
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 656
+        width: 22
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 474c6e9fa8d8d784897956f06af43de3
+      internalID: -1622836464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_93
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 624
+        width: 22
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d09126ceec26244189c67767be25af7
+      internalID: -583444035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_94
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 634
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49d2e15151eca2f4396a028a63ee3bab
+      internalID: -1986639680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_95
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 690
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36830441fb9d5ab4988714cce749ef96
+      internalID: -1174765597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_96
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 690
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a06ab6ca8f8cf09449ccb075c2fb234c
+      internalID: -1973058494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_97
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 690
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bfa8bdb5ff89174d95bc7995b11a718
+      internalID: -595890785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_98
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 690
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22cb731ce617f0e47893a36003b775f9
+      internalID: -1867626281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_99
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 690
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e211efbe6b74a644782311292e780bf6
+      internalID: -308809255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_100
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 626
+        width: 24
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 379139b4fca6fd0419502ed8c4c8bda3
+      internalID: 181313753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_101
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 626
+        width: 24
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7f33524db383aa46929a3f9881f4aca
+      internalID: 368278376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_102
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 626
+        width: 24
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04401aa936261ee459f75449378db2f1
+      internalID: 784033241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_103
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 626
+        width: 24
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f965865c43863ae4e920cc17e66d9c5f
+      internalID: -1198788913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_104
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 626
+        width: 24
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b14ca9d2137b543449a8665fa71bd082
+      internalID: 54902752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_105
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 342
+        width: 48
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb73336a4b4968a44816267187f63a89
+      internalID: -1675424556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_106
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 472
+        width: 32
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9678b280b5db91141b0cef225ed18c33
+      internalID: 579395774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_107
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 486
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6de8613fb6afb2439ac5374218ba372
+      internalID: -2032277413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_108
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 486
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 891ff9a2a6704424eac7911e5cbc76dd
+      internalID: 776929777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_109
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 456
+        width: 28
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c555b95a7b42de478be2b6556f019f8
+      internalID: 1681110333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_110
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 454
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8505f608795f46b48a97a73eff8844a8
+      internalID: 549364720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_111
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 422
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33a3873db6180a64fafd5025ac47de38
+      internalID: -1470314547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_112
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 422
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3573f185635cede48a40c9eb70a7a5ec
+      internalID: -88323098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_113
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 422
+        width: 29
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc18fa1166265bf4391194a17fcb315e
+      internalID: -1230021401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_114
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 432
+        width: 28
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a0dc80dc31e23b4faca6a9e8ff43abf
+      internalID: 898349753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_115
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 454
+        width: 32
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a02bcf0c44452374986ff3277b7d335c
+      internalID: 346940652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_116
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 454
+        width: 32
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dccf027b65d1085469d8a66823369145
+      internalID: 986566611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_117
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 496
+        width: 28
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1861bb0dc719d0b4a94073c5b94167ef
+      internalID: -1605551008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_118
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 464
+        width: 28
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5723cda8f8bf2b3459d8afab9efb1d32
+      internalID: 686448062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_119
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 458
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47fef624d34b4ae48bf7684ba6d0f04d
+      internalID: 741540595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_120
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 435
+        width: 26
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ec78992302393a4fa7ebc22d1c5bd37
+      internalID: -1196885227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_121
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 390
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 044234fc0f135a34ba7aa76e891ee54f
+      internalID: 1955484551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_122
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 366
+        width: 24
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25cbb4068831efa47b28ee7fefd2173e
+      internalID: 1697741399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_123
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 302
+        width: 24
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74bf24a040002db4f998be48b7fbba8d
+      internalID: -267340185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_124
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 270
+        width: 57
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 173790b89290e9345b616f2667931a4e
+      internalID: -1856319733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_125
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 271
+        width: 56
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de3f3062121f828469d5ce168547ad0e
+      internalID: -605950754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_126
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 236
+        width: 28
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d90546822033f0d44a94a3b1377eeb5e
+      internalID: -1825569876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_127
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 236
+        width: 28
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58c277b2d1db9f143af89c08362ea5a9
+      internalID: 188290848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_128
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 237
+        width: 28
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28c0b20d218aed34183c02d057352a83
+      internalID: 840886688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_129
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 236
+        width: 28
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1af33fc626c0565488c0ba105f07ab5a
+      internalID: -639266694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_130
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 236
+        width: 28
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17969d86cb5494a418b3c1e436ab6951
+      internalID: 1528796543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_131
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 236
+        width: 28
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c1e420844498444881366bcde62b19c
+      internalID: 1631743713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_132
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 236
+        width: 28
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebe45b8c593db694a960958e19c7fb76
+      internalID: 1153720888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_133
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 140
+        width: 28
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23ce7e2558753a74383638c7dede3783
+      internalID: 366076461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_134
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 140
+        width: 28
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55f636cfdd791c54ca2ae096304ebd1b
+      internalID: -434145421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_135
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 140
+        width: 28
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 719dcec59753ccb4f9a9592256d77a1e
+      internalID: -1350411436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_136
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 140
+        width: 28
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af765e24ca3fa52408723155f1977dd2
+      internalID: -927203247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_137
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 140
+        width: 28
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5cdf1db17ac7bc4cb86527c3b8e3145
+      internalID: 2118567480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_138
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 140
+        width: 28
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fe360647a01fde469a596f48e82a4cc
+      internalID: -1738438976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_139
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 140
+        width: 28
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbfaae61a113da1418c9afc361a64774
+      internalID: 764054070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_140
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 44
+        width: 28
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8c846391be15624998be1d3ecd40e50
+      internalID: 1934854397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_141
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 44
+        width: 28
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 425b0d8cbd4bf3c4bbbf20d48a17b03f
+      internalID: -648271568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_142
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 44
+        width: 28
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bea2225b8743e2946ac73bab642584f1
+      internalID: 172374895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_143
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 44
+        width: 28
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9bb3d19fa4cf2e4aa5d71dc20dfdcb0
+      internalID: 2139263440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_144
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 44
+        width: 28
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d1b500769ebd434a9e705ea2cfd4093
+      internalID: -1793356708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_145
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 44
+        width: 28
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e7ab5a4f937b0843a3a722673d78c0c
+      internalID: 2111473803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3_Bathroom_furniture_32x32_146
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 44
+        width: 28
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcfe842e0e962a1458987f1d63f6f588
+      internalID: -1051143290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      3_Bathroom_furniture_32x32_0: -1629468824
+      3_Bathroom_furniture_32x32_1: 1431207117
+      3_Bathroom_furniture_32x32_10: 1004147733
+      3_Bathroom_furniture_32x32_100: 181313753
+      3_Bathroom_furniture_32x32_101: 368278376
+      3_Bathroom_furniture_32x32_102: 784033241
+      3_Bathroom_furniture_32x32_103: -1198788913
+      3_Bathroom_furniture_32x32_104: 54902752
+      3_Bathroom_furniture_32x32_105: -1675424556
+      3_Bathroom_furniture_32x32_106: 579395774
+      3_Bathroom_furniture_32x32_107: -2032277413
+      3_Bathroom_furniture_32x32_108: 776929777
+      3_Bathroom_furniture_32x32_109: 1681110333
+      3_Bathroom_furniture_32x32_11: -977729175
+      3_Bathroom_furniture_32x32_110: 549364720
+      3_Bathroom_furniture_32x32_111: -1470314547
+      3_Bathroom_furniture_32x32_112: -88323098
+      3_Bathroom_furniture_32x32_113: -1230021401
+      3_Bathroom_furniture_32x32_114: 898349753
+      3_Bathroom_furniture_32x32_115: 346940652
+      3_Bathroom_furniture_32x32_116: 986566611
+      3_Bathroom_furniture_32x32_117: -1605551008
+      3_Bathroom_furniture_32x32_118: 686448062
+      3_Bathroom_furniture_32x32_119: 741540595
+      3_Bathroom_furniture_32x32_12: 442716323
+      3_Bathroom_furniture_32x32_120: -1196885227
+      3_Bathroom_furniture_32x32_121: 1955484551
+      3_Bathroom_furniture_32x32_122: 1697741399
+      3_Bathroom_furniture_32x32_123: -267340185
+      3_Bathroom_furniture_32x32_124: -1856319733
+      3_Bathroom_furniture_32x32_125: -605950754
+      3_Bathroom_furniture_32x32_126: -1825569876
+      3_Bathroom_furniture_32x32_127: 188290848
+      3_Bathroom_furniture_32x32_128: 840886688
+      3_Bathroom_furniture_32x32_129: -639266694
+      3_Bathroom_furniture_32x32_13: -882369103
+      3_Bathroom_furniture_32x32_130: 1528796543
+      3_Bathroom_furniture_32x32_131: 1631743713
+      3_Bathroom_furniture_32x32_132: 1153720888
+      3_Bathroom_furniture_32x32_133: 366076461
+      3_Bathroom_furniture_32x32_134: -434145421
+      3_Bathroom_furniture_32x32_135: -1350411436
+      3_Bathroom_furniture_32x32_136: -927203247
+      3_Bathroom_furniture_32x32_137: 2118567480
+      3_Bathroom_furniture_32x32_138: -1738438976
+      3_Bathroom_furniture_32x32_139: 764054070
+      3_Bathroom_furniture_32x32_14: -1838472523
+      3_Bathroom_furniture_32x32_140: 1934854397
+      3_Bathroom_furniture_32x32_141: -648271568
+      3_Bathroom_furniture_32x32_142: 172374895
+      3_Bathroom_furniture_32x32_143: 2139263440
+      3_Bathroom_furniture_32x32_144: -1793356708
+      3_Bathroom_furniture_32x32_145: 2111473803
+      3_Bathroom_furniture_32x32_146: -1051143290
+      3_Bathroom_furniture_32x32_15: 1124103250
+      3_Bathroom_furniture_32x32_16: 1669208389
+      3_Bathroom_furniture_32x32_17: 1031908727
+      3_Bathroom_furniture_32x32_18: -1790163406
+      3_Bathroom_furniture_32x32_19: 1348236203
+      3_Bathroom_furniture_32x32_2: -1066335855
+      3_Bathroom_furniture_32x32_20: 875708846
+      3_Bathroom_furniture_32x32_21: 642051195
+      3_Bathroom_furniture_32x32_22: 86228460
+      3_Bathroom_furniture_32x32_23: -1140428446
+      3_Bathroom_furniture_32x32_24: 138582498
+      3_Bathroom_furniture_32x32_25: -1385300728
+      3_Bathroom_furniture_32x32_26: 106060485
+      3_Bathroom_furniture_32x32_27: -2073952552
+      3_Bathroom_furniture_32x32_28: 1175003071
+      3_Bathroom_furniture_32x32_29: -1571948986
+      3_Bathroom_furniture_32x32_3: -816775626
+      3_Bathroom_furniture_32x32_30: -1342419778
+      3_Bathroom_furniture_32x32_31: 1670298752
+      3_Bathroom_furniture_32x32_32: 1167879094
+      3_Bathroom_furniture_32x32_33: -421640198
+      3_Bathroom_furniture_32x32_34: 1759727125
+      3_Bathroom_furniture_32x32_35: -328749342
+      3_Bathroom_furniture_32x32_36: 801503995
+      3_Bathroom_furniture_32x32_37: 870188572
+      3_Bathroom_furniture_32x32_38: 1958258039
+      3_Bathroom_furniture_32x32_39: -776562527
+      3_Bathroom_furniture_32x32_4: 1778986635
+      3_Bathroom_furniture_32x32_40: 823606313
+      3_Bathroom_furniture_32x32_41: 376433609
+      3_Bathroom_furniture_32x32_42: 1025491071
+      3_Bathroom_furniture_32x32_43: 1948081978
+      3_Bathroom_furniture_32x32_44: 425165509
+      3_Bathroom_furniture_32x32_45: -2045780146
+      3_Bathroom_furniture_32x32_46: -1957215284
+      3_Bathroom_furniture_32x32_47: -859344171
+      3_Bathroom_furniture_32x32_48: -733450426
+      3_Bathroom_furniture_32x32_49: 1405971048
+      3_Bathroom_furniture_32x32_5: 1017305577
+      3_Bathroom_furniture_32x32_50: 1917770497
+      3_Bathroom_furniture_32x32_51: 1491339270
+      3_Bathroom_furniture_32x32_52: 1785068218
+      3_Bathroom_furniture_32x32_53: 527084267
+      3_Bathroom_furniture_32x32_54: -1948580645
+      3_Bathroom_furniture_32x32_55: 1242953305
+      3_Bathroom_furniture_32x32_56: 1122389721
+      3_Bathroom_furniture_32x32_57: -911390092
+      3_Bathroom_furniture_32x32_58: -1840863795
+      3_Bathroom_furniture_32x32_59: 1458572887
+      3_Bathroom_furniture_32x32_6: -1147539737
+      3_Bathroom_furniture_32x32_60: -1007122535
+      3_Bathroom_furniture_32x32_61: -2144898328
+      3_Bathroom_furniture_32x32_62: -1246647600
+      3_Bathroom_furniture_32x32_63: -19001396
+      3_Bathroom_furniture_32x32_64: 996116386
+      3_Bathroom_furniture_32x32_65: -1696589321
+      3_Bathroom_furniture_32x32_66: 1245923897
+      3_Bathroom_furniture_32x32_67: 161983503
+      3_Bathroom_furniture_32x32_68: 88140735
+      3_Bathroom_furniture_32x32_69: -918344368
+      3_Bathroom_furniture_32x32_7: -313552280
+      3_Bathroom_furniture_32x32_70: 1365421157
+      3_Bathroom_furniture_32x32_71: 1636380786
+      3_Bathroom_furniture_32x32_72: -1402258854
+      3_Bathroom_furniture_32x32_73: 1983378309
+      3_Bathroom_furniture_32x32_74: -44467884
+      3_Bathroom_furniture_32x32_75: 2144800604
+      3_Bathroom_furniture_32x32_76: -2053551930
+      3_Bathroom_furniture_32x32_77: -1518079442
+      3_Bathroom_furniture_32x32_78: 1971997561
+      3_Bathroom_furniture_32x32_79: 174886280
+      3_Bathroom_furniture_32x32_8: -319652582
+      3_Bathroom_furniture_32x32_80: 192631457
+      3_Bathroom_furniture_32x32_81: 1680922516
+      3_Bathroom_furniture_32x32_82: -1315043714
+      3_Bathroom_furniture_32x32_83: -2002836517
+      3_Bathroom_furniture_32x32_84: 481028851
+      3_Bathroom_furniture_32x32_85: -277417151
+      3_Bathroom_furniture_32x32_86: 2042098835
+      3_Bathroom_furniture_32x32_87: 1113777235
+      3_Bathroom_furniture_32x32_88: -488610614
+      3_Bathroom_furniture_32x32_89: 2026441108
+      3_Bathroom_furniture_32x32_9: -1491339355
+      3_Bathroom_furniture_32x32_90: 783875868
+      3_Bathroom_furniture_32x32_91: 1364861290
+      3_Bathroom_furniture_32x32_92: -1622836464
+      3_Bathroom_furniture_32x32_93: -583444035
+      3_Bathroom_furniture_32x32_94: -1986639680
+      3_Bathroom_furniture_32x32_95: -1174765597
+      3_Bathroom_furniture_32x32_96: -1973058494
+      3_Bathroom_furniture_32x32_97: -595890785
+      3_Bathroom_furniture_32x32_98: -1867626281
+      3_Bathroom_furniture_32x32_99: -308809255
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

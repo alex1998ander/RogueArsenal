@@ -3,11 +3,13 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour, ICharacterHealth
 {
     [SerializeField] private float maxHealth = 100f;
-    [SerializeField] private int currencyDropAmount;
+
+    private ObjectDropController _currencyDropController;
     private float _currentHealth;
 
     private void Awake()
     {
+        _currencyDropController = GetComponent<ObjectDropController>();
         _currentHealth = maxHealth;
     }
 
@@ -28,8 +30,10 @@ public class EnemyHealth : MonoBehaviour, ICharacterHealth
         // if enemy dies
         if (IsDead())
         {
+            if (_currencyDropController)
+                _currencyDropController.DropObjects();
+
             EventManager.OnEnemyDeath.Trigger(transform.position);
-            EventManager.OnEnemyCurrencyDropped.Trigger(transform.position, currencyDropAmount);
             Destroy(gameObject.transform.root.gameObject);
         }
     }

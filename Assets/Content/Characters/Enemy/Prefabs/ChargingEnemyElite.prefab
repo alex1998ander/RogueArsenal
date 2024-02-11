@@ -31,6 +31,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.45882353
       objectReference: {fileID: 0}
+    - target: {fileID: 6297751852411033472, guid: e7d7064a2e496d941b3b596d24171d5c, type: 3}
+      propertyPath: objectCount
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 6586600090566268458, guid: e7d7064a2e496d941b3b596d24171d5c, type: 3}
       propertyPath: contactDamage
       value: 35

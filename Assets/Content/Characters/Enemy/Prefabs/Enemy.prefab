@@ -202,6 +202,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1358329203599744736}
   - component: {fileID: 2669020309141495006}
+  - component: {fileID: 1898996338707923281}
   - component: {fileID: 1792242174117944192}
   - component: {fileID: 5083032137538339661}
   m_Layer: 0
@@ -244,7 +245,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  currencyDropAmount: 5
+  currencyDropController: {fileID: 1898996338707923281}
+--- !u!114 &1898996338707923281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358329203599744738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdb26335fb364b9cb835bf34bbf9ec8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectPrefabs:
+  - {fileID: 2293191116336101554, guid: 1bb20f701ed2e8546ae4ad23ce19b9dc, type: 3}
+  objectCount: 5
+  dropForce: 15
 --- !u!50 &1792242174117944192
 Rigidbody2D:
   serializedVersion: 4
@@ -774,6 +791,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyBulletPrefab: {fileID: 1845687642861211236, guid: e8f28205521d5364db79c8abc134746a, type: 3}
   firePoint: {fileID: 7730465753498084907}
+  defaultBulletSpeed: 6
   defaultDistance: 5
   defaultDamage: 10
   bulletCount: 1

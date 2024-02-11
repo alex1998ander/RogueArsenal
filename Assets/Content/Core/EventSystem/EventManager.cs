@@ -47,7 +47,6 @@ public static class EventManager
     public static readonly Event<Vector3> OnEnemyDeath = new();
     public static readonly Event OnEnemyShotFired = new();
     public static readonly Event OnEnemyBulletDestroyed = new();
-    public static readonly Event<Vector3, int> OnEnemyCurrencyDropped = new();
 
     #endregion
 

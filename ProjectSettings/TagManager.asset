@@ -30,7 +30,7 @@ TagManager:
   - EnemyBullet_Collider
   - Furniture
   - EnemyShield
-  - 
+  - Debris
   - 
   - 
   - 
@@ -54,6 +54,9 @@ TagManager:
     locked: 0
   - name: Walls
     uniqueID: 4290607887
+    locked: 0
+  - name: Debris
+    uniqueID: 1963921387
     locked: 0
   - name: Furniture
     uniqueID: 4111360589
