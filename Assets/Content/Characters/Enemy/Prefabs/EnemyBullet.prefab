@@ -61,7 +61,7 @@ GameObject:
   - component: {fileID: 6409974813143793534}
   m_Layer: 0
   m_Name: EnemyBullet
-  m_TagString: Untagged
+  m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -117,7 +117,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52a2065eab89af44f9f8014438acd991, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultBulletSpeed: 6
   bounceBullet: {fileID: 1845687642861211236, guid: a18935538cef43d44a7ed7dd1e2a75c5, type: 3}
 --- !u!1 &2089230590041893716
 GameObject:
@@ -190,7 +189,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -615810195
-  m_SortingLayer: 10
+  m_SortingLayer: 11
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4b083d3ff99ef684489bbb325628f7f6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

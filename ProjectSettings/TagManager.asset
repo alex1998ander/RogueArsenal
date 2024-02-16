@@ -9,6 +9,7 @@ TagManager:
   - ExitPoints
   - PlayerBullet
   - MineSpawn
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX
@@ -28,10 +29,10 @@ TagManager:
   - Player_Collider
   - Enemy_Collider
   - EnemyBullet_Collider
-  - Furniture
+  - Furniture_Collider
   - EnemyShield
   - Debris
-  - 
+  - Furniture_Trigger
   - 
   - 
   - 

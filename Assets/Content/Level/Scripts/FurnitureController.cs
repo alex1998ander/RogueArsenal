@@ -1,7 +1,8 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class FurnitureController : MonoBehaviour
+public class FurnitureController : MonoBehaviour, ICharacterHealth
 {
     [SerializeField] private GameObject debrisPrefab;
 
@@ -13,6 +14,9 @@ public class FurnitureController : MonoBehaviour
     [SerializeField, Range(1, 5)] private int splitGridY = 2;
 
     [SerializeField] private AudioClip breakSound;
+
+    [SerializeField] private BoxCollider2D trigger;
+    [SerializeField] private BoxCollider2D collider;
 
     // Split sprites of this piece of furniture representing debris 
     private Sprite[,] _debrisSprites;
@@ -54,12 +58,6 @@ public class FurnitureController : MonoBehaviour
 
         // TODO: break sound
         Destroy(gameObject);
-    }
-
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("PlayerBullet"))
-            _Break();
     }
 
     /// <summary>
@@ -125,12 +123,32 @@ public class FurnitureController : MonoBehaviour
         if (!furnitureSprite)
             return;
 
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+
+        // Lazy hack: only do hitbox adjustment on initial setting of furniture sprite so they can be edited afterwards
+        if (sr.sprite != null)
+            return;
+
         // OnValidate is called when adjusting values in the editor (e.g. changing a value, changing the furniture sprite, etc.)
-        // use this to automatically adjust the box collider and nav mesh obstacle sizes to fit the sprite exactly so manually adjusting those is not needed
-        GetComponent<SpriteRenderer>().sprite = furnitureSprite;
-        BoxCollider2D bc = GetComponent<BoxCollider2D>();
+        // use this to automatically adjust the trigger/collider and nav mesh obstacle sizes to fit the sprite exactly so manually adjusting those is not needed
+        sr.sprite = furnitureSprite;
+        trigger.size = furnitureSprite.bounds.size;
+        trigger.offset = Vector2.zero;
+        collider.size = furnitureSprite.bounds.size;
+        collider.offset = Vector2.zero;
+
         NavMeshObstacle ob = GetComponent<NavMeshObstacle>();
-        bc.size = furnitureSprite.bounds.size;
         ob.size = furnitureSprite.bounds.size;
+        ob.center = Vector3.zero;
+    }
+
+    public void InflictDamage(float damageAmount, bool fatal = false, bool ignoreInvulnerability = false)
+    {
+        _Break();
+    }
+
+    public bool IsDead()
+    {
+        return _broken;
     }
 }
