@@ -149,7 +149,7 @@ public class FurnitureController : MonoBehaviour, ICharacterHealth
         if (sr.sprite != null)
         {
             // set nav mesh obstacle size and offset to collider dimensions for more accurate pathfinding
-            ob.size = collider.size;
+            ob.size = new Vector3(collider.size.x, collider.size.y, 1f);
             ob.center = collider.offset;
             return;
         }
