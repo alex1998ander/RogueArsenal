@@ -143,9 +143,16 @@ public class FurnitureController : MonoBehaviour, ICharacterHealth
         if (!furnitureSprite)
             return;
 
+        NavMeshObstacle ob = GetComponent<NavMeshObstacle>();
+
         // Lazy hack: only do hitbox adjustment on initial setting of furniture sprite so they can be edited afterwards
         if (sr.sprite != null)
+        {
+            // set nav mesh obstacle size and offset to collider dimensions for more accurate pathfinding
+            ob.size = collider.size;
+            ob.center = collider.offset;
             return;
+        }
 
         // OnValidate is called when adjusting values in the editor (e.g. changing a value, changing the furniture sprite, etc.)
         // use this to automatically adjust the trigger/collider and nav mesh obstacle sizes to fit the sprite exactly so manually adjusting those is not needed
@@ -155,7 +162,6 @@ public class FurnitureController : MonoBehaviour, ICharacterHealth
         collider.size = furnitureSprite.bounds.size;
         collider.offset = Vector2.zero;
 
-        NavMeshObstacle ob = GetComponent<NavMeshObstacle>();
         ob.size = furnitureSprite.bounds.size;
         ob.center = Vector3.zero;
     }
