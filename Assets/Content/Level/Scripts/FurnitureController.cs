@@ -145,10 +145,11 @@ public class FurnitureController : MonoBehaviour, ICharacterHealth
 
         NavMeshObstacle ob = GetComponent<NavMeshObstacle>();
 
-        // Lazy hack: only do hitbox adjustment on initial setting of furniture sprite so they can be edited afterwards
+        // Lazy hack: only do trigger/collider adjustments on initial setting of furniture sprite so they can be edited afterwards (to edit collider for easier movement)
         if (sr.sprite != null)
         {
             // set nav mesh obstacle size and offset to collider dimensions for more accurate pathfinding
+            // set z value to 1 so obstacle still carves out nav mesh
             ob.size = new Vector3(collider.size.x, collider.size.y, 1f);
             ob.center = collider.offset;
             return;
