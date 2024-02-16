@@ -54,6 +54,7 @@ MonoBehaviour:
   splitGridX: 2
   splitGridY: 2
   breakSound: {fileID: 0}
+  sr: {fileID: 8188631327053753547}
   trigger: {fileID: 9111345364569790379}
   collider: {fileID: 1468285962022587488}
 --- !u!212 &8188631327053753547

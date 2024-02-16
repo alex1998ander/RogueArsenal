@@ -15,8 +15,11 @@ public class FurnitureController : MonoBehaviour, ICharacterHealth
 
     [SerializeField] private AudioClip breakSound;
 
+    [SerializeField] private SpriteRenderer sr;
+
     [SerializeField] private BoxCollider2D trigger;
     [SerializeField] private BoxCollider2D collider;
+
 
     // Split sprites of this piece of furniture representing debris 
     private Sprite[,] _debrisSprites;
@@ -24,14 +27,31 @@ public class FurnitureController : MonoBehaviour, ICharacterHealth
     // FurnitureControllers of all child objects
     private FurnitureController[] _childFurniture;
 
+    private Transform _playerTransform;
+
     private bool _broken;
 
     private void Start()
     {
-        GetComponent<SpriteRenderer>().sprite = furnitureSprite;
+        sr = GetComponent<SpriteRenderer>();
+        sr.sprite = furnitureSprite;
         _debrisSprites = _SplitSprite(furnitureSprite, splitGridX, splitGridY);
 
         _childFurniture = GetComponentsInChildren<FurnitureController>();
+
+        _playerTransform = FindObjectOfType<PlayerController>().GetComponent<Transform>();
+    }
+
+    private void Update()
+    {
+        if (transform.position.y > _playerTransform.position.y)
+        {
+            sr.sortingLayerName = "Particles_BehindPlayer";
+        }
+        else
+        {
+            sr.sortingLayerName = "Particles_BeforePlayer";
+        }
     }
 
     /// <summary>
@@ -122,8 +142,6 @@ public class FurnitureController : MonoBehaviour, ICharacterHealth
     {
         if (!furnitureSprite)
             return;
-
-        SpriteRenderer sr = GetComponent<SpriteRenderer>();
 
         // Lazy hack: only do hitbox adjustment on initial setting of furniture sprite so they can be edited afterwards
         if (sr.sprite != null)
