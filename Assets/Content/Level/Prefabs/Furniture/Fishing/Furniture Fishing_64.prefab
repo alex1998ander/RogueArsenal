@@ -9,15 +9,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1468285962022587488, guid: 09e46f65f16f1f743a8a806b6a33405c, type: 3}
       propertyPath: m_Size.x
-      value: 2.5
+      value: 1.500014
       objectReference: {fileID: 0}
     - target: {fileID: 1468285962022587488, guid: 09e46f65f16f1f743a8a806b6a33405c, type: 3}
       propertyPath: m_Size.y
-      value: 0.99662757
+      value: 1.001029
+      objectReference: {fileID: 0}
+    - target: {fileID: 1468285962022587488, guid: 09e46f65f16f1f743a8a806b6a33405c, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.49999303
       objectReference: {fileID: 0}
     - target: {fileID: 1468285962022587488, guid: 09e46f65f16f1f743a8a806b6a33405c, type: 3}
       propertyPath: m_Offset.y
-      value: -0.9391862
+      value: -0.9369855
       objectReference: {fileID: 0}
     - target: {fileID: 2427854694796873821, guid: 09e46f65f16f1f743a8a806b6a33405c, type: 3}
       propertyPath: splitGridX
@@ -84,16 +88,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7441905933744205346, guid: 09e46f65f16f1f743a8a806b6a33405c, type: 3}
+      propertyPath: m_Center.x
+      value: 0.49999303
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441905933744205346, guid: 09e46f65f16f1f743a8a806b6a33405c, type: 3}
       propertyPath: m_Center.y
-      value: -0.9391862
+      value: -0.9369855
       objectReference: {fileID: 0}
     - target: {fileID: 7441905933744205346, guid: 09e46f65f16f1f743a8a806b6a33405c, type: 3}
       propertyPath: m_Extents.x
-      value: 1.25
+      value: 0.750007
       objectReference: {fileID: 0}
     - target: {fileID: 7441905933744205346, guid: 09e46f65f16f1f743a8a806b6a33405c, type: 3}
       propertyPath: m_Extents.y
-      value: 0.49831378
+      value: 0.5005145
       objectReference: {fileID: 0}
     - target: {fileID: 7441905933744205346, guid: 09e46f65f16f1f743a8a806b6a33405c, type: 3}
       propertyPath: m_Extents.z
