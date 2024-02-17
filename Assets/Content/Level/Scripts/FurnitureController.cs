@@ -141,7 +141,10 @@ public class FurnitureController : MonoBehaviour, ICharacterHealth
     private void OnValidate()
     {
         if (!furnitureSprite)
+        {
+            sr.sprite = null;
             return;
+        }
 
         NavMeshObstacle ob = GetComponent<NavMeshObstacle>();
 
