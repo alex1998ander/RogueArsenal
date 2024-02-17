@@ -20,6 +20,10 @@ PrefabInstance:
       value: -0.7835374
       objectReference: {fileID: 0}
     - target: {fileID: 2427854694796873821, guid: 09e46f65f16f1f743a8a806b6a33405c, type: 3}
+      propertyPath: splitGridY
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2427854694796873821, guid: 09e46f65f16f1f743a8a806b6a33405c, type: 3}
       propertyPath: furnitureSprite
       value: 
       objectReference: {fileID: -433775448, guid: 2ce547cd4307a774bb3e80785e1097af, type: 3}
