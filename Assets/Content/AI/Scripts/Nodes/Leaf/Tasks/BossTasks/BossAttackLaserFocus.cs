@@ -24,10 +24,6 @@ namespace BehaviorTree
         
         Vector2 _direction = Vector2.zero;
 
-        private const float FullWaitTime = 10f;
-
-        private float _timeToWait;
-
         private float _timeCounter;
 
         private int _waveCounter;
@@ -40,23 +36,17 @@ namespace BehaviorTree
             _lineRenderer.enabled = false;
             this._focusTarget = focusTarget;
             this._body = body;
-            _timeToWait = FullWaitTime / Configuration.Boss_LaserRepetitions;
         }
 
         public override NodeState Evaluate()
         {
             state = NodeState.FAILURE;
 
-            _timeCounterLaser += Time.fixedDeltaTime;
-            if (_timeCounterLaser >= _timeToWait)
-            {
-                LaserFocus();
-                _timeToWait += FullWaitTime / Configuration.Boss_LaserRepetitions;
-                _waveCounter++;
-            }
+            LaserFocus();
 
             if (_waveCounter == Configuration.Boss_LaserRepetitions)
             {
+                _waveCounter = 0;
                 state = NodeState.SUCCESS;
             }
 
@@ -72,13 +62,13 @@ namespace BehaviorTree
             _lineRenderer.enabled = true;
             _lineRenderer.startWidth = 0.05f;
             _lineRenderer.endWidth = 0.05f;
-
+            _timeCounterLaser += Time.fixedDeltaTime;
+            
             if (_timeCounterLaser < ((WaitTime / 3) -  _timeDelayBeforeFinallySettingPosition))
             {
                 _lineRenderer.SetPositions(new[] { laserStart, laserEnd });
             }
-
-            _timeCounterLaser += Time.fixedDeltaTime;
+            
             if (_timeCounterLaser >= ((WaitTime / 3) -  _timeDelayBeforeFinallySettingPosition) && _direction == Vector2.zero)
             {
                 _direction = new Vector2(_focusTarget.position.x, _focusTarget.position.y) - new Vector2(_body.position.x, _body.position.y);
@@ -105,7 +95,7 @@ namespace BehaviorTree
                 _timeCounterLaser = 0;
                 _gotHitOnce = false;
                 _direction = Vector2.zero;
-                state = NodeState.SUCCESS;
+                _waveCounter++;
             }
         }
     }

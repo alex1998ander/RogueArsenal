@@ -41,6 +41,8 @@ public static class LevelManager
             _settingsRoot = SceneManager.GetSceneByPath("Assets/Content/Scenes/NewUI/UISettings.unity").GetRootGameObjects()[0];
             _settingsRoot.SetActive(false);
         };
+        
+        SceneManager.LoadSceneAsync("Assets/Content/Scenes/NewUI/UIControlHint.unity", LoadSceneMode.Additive);
     }
 
     public static void LoadGame()
@@ -189,6 +191,7 @@ public static class LevelManager
         };
 
         gameState = GameState.Ingame;
+        EventManager.OnLevelEnter.Trigger();
     }
 
     private static void LoadBossLevel()

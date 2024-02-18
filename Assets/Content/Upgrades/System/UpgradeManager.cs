@@ -158,6 +158,15 @@ public static class UpgradeManager
     }
 
     /// <summary>
+    /// Checks if an ability upgrade is binded.
+    /// </summary>
+    /// <returns>Bool, whether an ability is binded or not</returns>
+    public static bool HasBindedAbility()
+    {
+        return CurrentUpgrades.Any(c => c is UpgradeHealingField or UpgradeShield or UpgradeShockwave or UpgradeSmartPistol or UpgradeStimpack or UpgradeTimefreeze);
+    }
+
+    /// <summary>
     /// Returns the bound upgrade at the passed index.
     /// </summary>
     /// <param name="index">Upgrade index</param>

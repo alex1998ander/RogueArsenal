@@ -52,8 +52,6 @@ namespace BehaviorTree
                 Collider2D playerCollider = Physics2D.OverlapCircle(_body.position, Configuration.Boss_StompRadius, _targetLayer);
                 playerCollider?.GetComponentInParent<ICharacterHealth>()?.InflictDamage(Configuration.Boss_StompDamage);
 
-                Debug.DrawLine(_stompTarget.position, _stompTarget.position + new Vector3(1f, 0f, 0f), Color.green, 5f);
-
                 _timeCounter = 0f;
                 _landPosSet = false;
 
