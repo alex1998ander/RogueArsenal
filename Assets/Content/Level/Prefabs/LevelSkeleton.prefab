@@ -494,98 +494,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7595773359436309087}
     m_Modifications:
-    - target: {fileID: 248444351009708599, guid: b7f94f7af8b67774fae9dc9afe642988, type: 3}
-      propertyPath: m_SortingLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 248444351009708599, guid: b7f94f7af8b67774fae9dc9afe642988, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 1679456885
-      objectReference: {fileID: 0}
-    - target: {fileID: 1765586094626518344, guid: b7f94f7af8b67774fae9dc9afe642988, type: 3}
-      propertyPath: m_Name
-      value: Grid
-      objectReference: {fileID: 0}
-    - target: {fileID: 2888533144048677454, guid: b7f94f7af8b67774fae9dc9afe642988, type: 3}
-      propertyPath: m_SortingLayer
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2888533144048677454, guid: b7f94f7af8b67774fae9dc9afe642988, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -183606707
-      objectReference: {fileID: 0}
-    - target: {fileID: 3087952016510468424, guid: b7f94f7af8b67774fae9dc9afe642988, type: 3}
-      propertyPath: m_Name
-      value: Furniture_Collidable
-      objectReference: {fileID: 0}
-    - target: {fileID: 4211043559999999379, guid: b7f94f7af8b67774fae9dc9afe642988, type: 3}
-      propertyPath: m_SortingLayer
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4211043559999999379, guid: b7f94f7af8b67774fae9dc9afe642988, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -183606707
-      objectReference: {fileID: 0}
     - target: {fileID: 5002917419201498556, guid: b7f94f7af8b67774fae9dc9afe642988, type: 3}
       propertyPath: m_Name
       value: Environment
       objectReference: {fileID: 0}
-    - target: {fileID: 8053994185185771425, guid: b7f94f7af8b67774fae9dc9afe642988, type: 3}
-      propertyPath: m_SortingLayer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8053994185185771425, guid: b7f94f7af8b67774fae9dc9afe642988, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -4359409
-      objectReference: {fileID: 0}
-    - target: {fileID: 8879249100949323500, guid: b7f94f7af8b67774fae9dc9afe642988, type: 3}
-      propertyPath: enemy.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8879249100949323500, guid: b7f94f7af8b67774fae9dc9afe642988, type: 3}
-      propertyPath: enemy.Array.data[0]
-      value: 
-      objectReference: {fileID: 260221667950224925, guid: 3713d6f55b36a9c43a544bc5601e18d7, type: 3}
-    - target: {fileID: 8879249100949323500, guid: b7f94f7af8b67774fae9dc9afe642988, type: 3}
-      propertyPath: enemy.Array.data[1]
-      value: 
-      objectReference: {fileID: 7775573610081196474, guid: 5db8b9a75fc49834ea42a9ddd265228e, type: 3}
-    - target: {fileID: 8879249100949323500, guid: b7f94f7af8b67774fae9dc9afe642988, type: 3}
-      propertyPath: enemy.Array.data[2]
-      value: 
-      objectReference: {fileID: 6910014811840088115, guid: e7d7064a2e496d941b3b596d24171d5c, type: 3}
-    - target: {fileID: 8879249100949323500, guid: b7f94f7af8b67774fae9dc9afe642988, type: 3}
-      propertyPath: enemyPrefabs.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8879249100949323500, guid: b7f94f7af8b67774fae9dc9afe642988, type: 3}
-      propertyPath: enemyPrefabs.Array.data[0]
-      value: 
-      objectReference: {fileID: 260221667950224925, guid: 3713d6f55b36a9c43a544bc5601e18d7, type: 3}
-    - target: {fileID: 8879249100949323500, guid: b7f94f7af8b67774fae9dc9afe642988, type: 3}
-      propertyPath: enemyPrefabs.Array.data[1]
-      value: 
-      objectReference: {fileID: 6910014811840088115, guid: e7d7064a2e496d941b3b596d24171d5c, type: 3}
-    - target: {fileID: 8879249100949323500, guid: b7f94f7af8b67774fae9dc9afe642988, type: 3}
-      propertyPath: enemyPrefabs.Array.data[2]
-      value: 
-      objectReference: {fileID: 7775573610081196474, guid: 5db8b9a75fc49834ea42a9ddd265228e, type: 3}
-    - target: {fileID: 8879249100949323500, guid: b7f94f7af8b67774fae9dc9afe642988, type: 3}
-      propertyPath: eliteEnemyPrefabs.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8879249100949323500, guid: b7f94f7af8b67774fae9dc9afe642988, type: 3}
-      propertyPath: eliteEnemyPrefabs.Array.data[0]
-      value: 
-      objectReference: {fileID: 5693812830689361526, guid: 06e6095c3b2747748aee15649a98c19a, type: 3}
-    - target: {fileID: 8879249100949323500, guid: b7f94f7af8b67774fae9dc9afe642988, type: 3}
-      propertyPath: eliteEnemyPrefabs.Array.data[1]
-      value: 
-      objectReference: {fileID: 4599981370267555756, guid: 222c48333ee8ded409333368c066c6c5, type: 3}
-    - target: {fileID: 8879249100949323500, guid: b7f94f7af8b67774fae9dc9afe642988, type: 3}
-      propertyPath: eliteEnemyPrefabs.Array.data[2]
-      value: 
-      objectReference: {fileID: 5910848983959249282, guid: 4e4c7c9c74d0c924caddc9a1b02ac459, type: 3}
     - target: {fileID: 8979630097798048865, guid: b7f94f7af8b67774fae9dc9afe642988, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -630,29 +542,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9193147672366732174, guid: b7f94f7af8b67774fae9dc9afe642988, type: 3}
-      propertyPath: m_Name
-      value: Ground
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7f94f7af8b67774fae9dc9afe642988, type: 3}
---- !u!1 &779239909776177874 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1765586094626518344, guid: b7f94f7af8b67774fae9dc9afe642988, type: 3}
-  m_PrefabInstance: {fileID: 1319824771643412378}
-  m_PrefabAsset: {fileID: 0}
---- !u!156049354 &5894315914577934555
-Grid:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 779239909776177874}
-  m_Enabled: 1
-  m_CellSize: {x: 1, y: 1, z: 1}
-  m_CellGap: {x: 0, y: 0, z: 0}
-  m_CellLayout: 0
-  m_CellSwizzle: 0
 --- !u!4 &7984592265110201339 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8979630097798048865, guid: b7f94f7af8b67774fae9dc9afe642988, type: 3}

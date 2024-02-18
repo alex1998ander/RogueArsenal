@@ -1,7 +1,8 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class FurnitureController : MonoBehaviour
+public class FurnitureController : MonoBehaviour, ICharacterHealth
 {
     [SerializeField] private GameObject debrisPrefab;
 
@@ -14,20 +15,43 @@ public class FurnitureController : MonoBehaviour
 
     [SerializeField] private AudioClip breakSound;
 
+    [SerializeField] private SpriteRenderer sr;
+
+    [SerializeField] private BoxCollider2D trigger;
+    [SerializeField] private BoxCollider2D collider;
+
+
     // Split sprites of this piece of furniture representing debris 
     private Sprite[,] _debrisSprites;
 
     // FurnitureControllers of all child objects
     private FurnitureController[] _childFurniture;
 
+    private Transform _playerTransform;
+
     private bool _broken;
 
     private void Start()
     {
-        GetComponent<SpriteRenderer>().sprite = furnitureSprite;
+        sr = GetComponent<SpriteRenderer>();
+        sr.sprite = furnitureSprite;
         _debrisSprites = _SplitSprite(furnitureSprite, splitGridX, splitGridY);
 
         _childFurniture = GetComponentsInChildren<FurnitureController>();
+
+        _playerTransform = FindObjectOfType<PlayerController>().GetComponent<Transform>();
+    }
+
+    private void Update()
+    {
+        if (transform.position.y > _playerTransform.position.y)
+        {
+            sr.sortingLayerName = "Particles_BehindPlayer";
+        }
+        else
+        {
+            sr.sortingLayerName = "Particles_BeforePlayer";
+        }
     }
 
     /// <summary>
@@ -54,12 +78,6 @@ public class FurnitureController : MonoBehaviour
 
         // TODO: break sound
         Destroy(gameObject);
-    }
-
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("PlayerBullet"))
-            _Break();
     }
 
     /// <summary>
@@ -123,14 +141,42 @@ public class FurnitureController : MonoBehaviour
     private void OnValidate()
     {
         if (!furnitureSprite)
+        {
+            sr.sprite = null;
             return;
+        }
+
+        NavMeshObstacle ob = GetComponent<NavMeshObstacle>();
+
+        // Lazy hack: only do trigger/collider adjustments on initial setting of furniture sprite so they can be edited afterwards (to edit collider for easier movement)
+        if (sr.sprite != null)
+        {
+            // set nav mesh obstacle size and offset to collider dimensions for more accurate pathfinding
+            // set z value to 1 so obstacle still carves out nav mesh
+            ob.size = new Vector3(collider.size.x, collider.size.y, 1f);
+            ob.center = collider.offset;
+            return;
+        }
 
         // OnValidate is called when adjusting values in the editor (e.g. changing a value, changing the furniture sprite, etc.)
-        // use this to automatically adjust the box collider and nav mesh obstacle sizes to fit the sprite exactly so manually adjusting those is not needed
-        GetComponent<SpriteRenderer>().sprite = furnitureSprite;
-        BoxCollider2D bc = GetComponent<BoxCollider2D>();
-        NavMeshObstacle ob = GetComponent<NavMeshObstacle>();
-        bc.size = furnitureSprite.bounds.size;
+        // use this to automatically adjust the trigger/collider and nav mesh obstacle sizes to fit the sprite exactly so manually adjusting those is not needed
+        sr.sprite = furnitureSprite;
+        trigger.size = furnitureSprite.bounds.size;
+        trigger.offset = Vector2.zero;
+        collider.size = furnitureSprite.bounds.size;
+        collider.offset = Vector2.zero;
+
         ob.size = furnitureSprite.bounds.size;
+        ob.center = Vector3.zero;
+    }
+
+    public void InflictDamage(float damageAmount, bool fatal = false, bool ignoreInvulnerability = false)
+    {
+        _Break();
+    }
+
+    public bool IsDead()
+    {
+        return _broken;
     }
 }
