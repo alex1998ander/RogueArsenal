@@ -20,6 +20,7 @@ public static class EventManager
     public static readonly Event OnPlayerShotEmpty = new();
     public static readonly Event OnPlayerBulletDestroyed = new();
     public static readonly Event OnPlayerDash = new();
+    public static readonly Event OnPlayerMovement = new();
 
     public static readonly Event OnWeaponReloadStart = new();
     public static readonly Event OnWeaponReloadEnd = new();

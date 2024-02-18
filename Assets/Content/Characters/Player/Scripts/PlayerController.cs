@@ -207,6 +207,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
 
             // when movement and aim direction are at a 90 degree angle or greater, count as walking backwards
             playerVisualsAnimator.SetBool(RunningBackwards, Vector2.Angle(_movementInput, _aimDirection) > 95.0f);
+            EventManager.OnPlayerMovement.Trigger();
         }
         else
         {
