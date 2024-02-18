@@ -6,6 +6,7 @@ namespace Content.Core.ControlHintSystem
     {
         private const int UnusedControlReminderThreshold = 3;
 
+        private static bool _dashPromptObsolete;
         private static int _dashPromptLastLevel;
         private static int _abilityPromptLastLevel = -3;
 
@@ -35,6 +36,8 @@ namespace Content.Core.ControlHintSystem
         {
             _dashPromptLastLevel = 0;
             _abilityPromptLastLevel = -3;
+
+            _dashPromptObsolete = false;
 
             _manager.movementPrompt.SetActive(false);
             _manager.shootPrompt.SetActive(false);
@@ -93,7 +96,11 @@ namespace Content.Core.ControlHintSystem
 
         public static void TriggerDashPrompt()
         {
-            _manager.DisplayPrompt(_manager.dashPrompt, false);
+            if (!_dashPromptObsolete)
+            {
+                _manager.DisplayPrompt(_manager.dashPrompt, false);
+                _dashPromptObsolete = true;
+            }
         }
     }
 }
