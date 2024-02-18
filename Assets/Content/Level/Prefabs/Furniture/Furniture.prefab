@@ -53,7 +53,17 @@ MonoBehaviour:
   furnitureSprite: {fileID: 0}
   splitGridX: 2
   splitGridY: 2
-  breakSound: {fileID: 0}
+  breakSounds:
+  - {fileID: 8300000, guid: 5970b438b3aa126459c02f0007004e29, type: 3}
+  - {fileID: 8300000, guid: 7533d8b3de272504db8d7962e538a182, type: 3}
+  - {fileID: 8300000, guid: 8dd4ec50dec926f44b9e045b2b6e4f1f, type: 3}
+  - {fileID: 8300000, guid: 5adab8259bf086b4bbf6236e96c74eec, type: 3}
+  - {fileID: 8300000, guid: ad26ed79581bb2b4b8e1a6e3f372509d, type: 3}
+  - {fileID: 8300000, guid: 5d885d51a9070f54cb92854035d898c8, type: 3}
+  - {fileID: 8300000, guid: a92098e82ef246c4dad88f39dd3b0df0, type: 3}
+  - {fileID: 8300000, guid: 7b0c2b85232a6f349a777e788dbd2ff0, type: 3}
+  - {fileID: 8300000, guid: ce322cc0d3ad371479a39408e1f0cdfb, type: 3}
+  - {fileID: 8300000, guid: 7c8b907108b3eb54d96037cf990b928e, type: 3}
   sr: {fileID: 8188631327053753547}
   trigger: {fileID: 9111345364569790379}
   collider: {fileID: 1468285962022587488}
@@ -118,10 +128,10 @@ AudioSource:
   m_GameObject: {fileID: 2975501803122960543}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -7988329704407475406, guid: 0808c9ad0cba0ab4a9ab951865cb4f40, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.618
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -129,7 +139,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 13.338949
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0

@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 public class FurnitureController : MonoBehaviour, ICharacterHealth
 {
@@ -13,13 +15,13 @@ public class FurnitureController : MonoBehaviour, ICharacterHealth
     [SerializeField, Range(1, 5)] private int splitGridX = 2;
     [SerializeField, Range(1, 5)] private int splitGridY = 2;
 
-    [SerializeField] private AudioClip breakSound;
-
-    [SerializeField] private SpriteRenderer sr;
+    [SerializeField] private AudioClip[] breakSounds;
 
     [SerializeField] private BoxCollider2D trigger;
     [SerializeField] private BoxCollider2D collider;
 
+    private SpriteRenderer _sr;
+    private AudioSource _as;
 
     // Split sprites of this piece of furniture representing debris 
     private Sprite[,] _debrisSprites;
@@ -33,8 +35,10 @@ public class FurnitureController : MonoBehaviour, ICharacterHealth
 
     private void Start()
     {
-        sr = GetComponent<SpriteRenderer>();
-        sr.sprite = furnitureSprite;
+        _as = GetComponent<AudioSource>();
+
+        _sr = GetComponent<SpriteRenderer>();
+        _sr.sprite = furnitureSprite;
         _debrisSprites = _SplitSprite(furnitureSprite, splitGridX, splitGridY);
 
         _childFurniture = GetComponentsInChildren<FurnitureController>();
@@ -46,11 +50,11 @@ public class FurnitureController : MonoBehaviour, ICharacterHealth
     {
         if (transform.position.y > _playerTransform.position.y)
         {
-            sr.sortingLayerName = "Particles_BehindPlayer";
+            _sr.sortingLayerName = "Particles_BehindPlayer";
         }
         else
         {
-            sr.sortingLayerName = "Particles_BeforePlayer";
+            _sr.sortingLayerName = "Particles_BeforePlayer";
         }
     }
 
@@ -76,8 +80,14 @@ public class FurnitureController : MonoBehaviour, ICharacterHealth
             childFurniture._Break();
         }
 
-        // TODO: break sound
-        Destroy(gameObject);
+        AudioClip randomClip = breakSounds[Random.Range(0, breakSounds.Length)];
+        _as.PlayOneShot(randomClip);
+
+        trigger.enabled = false;
+        collider.enabled = false;
+        _sr.enabled = false;
+
+        Destroy(gameObject, randomClip.length);
     }
 
     /// <summary>
@@ -140,16 +150,19 @@ public class FurnitureController : MonoBehaviour, ICharacterHealth
 
     private void OnValidate()
     {
+        if (!_sr)
+            _sr = GetComponent<SpriteRenderer>();
+
         if (!furnitureSprite)
         {
-            sr.sprite = null;
+            _sr.sprite = null;
             return;
         }
 
         NavMeshObstacle ob = GetComponent<NavMeshObstacle>();
 
         // Lazy hack: only do trigger/collider adjustments on initial setting of furniture sprite so they can be edited afterwards (to edit collider for easier movement)
-        if (sr.sprite != null)
+        if (_sr.sprite != null)
         {
             // set nav mesh obstacle size and offset to collider dimensions for more accurate pathfinding
             // set z value to 1 so obstacle still carves out nav mesh
@@ -160,7 +173,7 @@ public class FurnitureController : MonoBehaviour, ICharacterHealth
 
         // OnValidate is called when adjusting values in the editor (e.g. changing a value, changing the furniture sprite, etc.)
         // use this to automatically adjust the trigger/collider and nav mesh obstacle sizes to fit the sprite exactly so manually adjusting those is not needed
-        sr.sprite = furnitureSprite;
+        _sr.sprite = furnitureSprite;
         trigger.size = furnitureSprite.bounds.size;
         trigger.offset = Vector2.zero;
         collider.size = furnitureSprite.bounds.size;
