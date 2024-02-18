@@ -16,17 +16,16 @@ namespace BehaviorTree
         private Transform _body;
         
         private Rigidbody2D _rigidbody2D;
-        
-        private Collider2D _damageZoneCollider;
+
+        private bool hasDashed = false;
         
         Vector2 _dashDir;
 
-        public BossAttackDash(Transform body, Rigidbody2D rigidbody2D, Transform dashTarget, Collider2D damageZoneCollider)
+        public BossAttackDash(Transform body, Rigidbody2D rigidbody2D, Transform dashTarget)
         {
             this._body = body;
             this._rigidbody2D = rigidbody2D;
             this._dashTarget = dashTarget;
-            this._damageZoneCollider = damageZoneCollider;
             _dashDir = Vector2.zero;
         }
         
@@ -40,14 +39,14 @@ namespace BehaviorTree
                 _dashDir = (_dashTarget.position - _body.position);
                 Debug.DrawLine(_body.position, _dashTarget.position, Color.red , 2);
             }
-            if (_timeCounter >= _waitTime/2 && _damageZoneCollider.enabled == false)
+            if (_timeCounter >= _waitTime/2 && !hasDashed)
             {
                 _rigidbody2D.AddForce(_dashDir * DashForce);
-                _damageZoneCollider.enabled = true;
+                hasDashed = true;
             }
             if (_timeCounter >= _waitTime)
             {
-                _damageZoneCollider.enabled = false;
+                hasDashed = false;
                 _dashDir = Vector2.zero;
                 _timeCounter = 0f;
                 state = NodeState.SUCCESS;

@@ -42,7 +42,7 @@ public class Configuration
     public const float Enemy_DashForce = 30f;
 
     // Boss constants
-    public const float Boss_AttackSpeed = 0.3f;
+    public const float Boss_AttackSpeed = 15; //0.25f
     public const float Boss_AbilityCooldown = 4f;
     public const float Boss_StompRadius = 1f;
     public const float Boss_StompDamage = 40f;

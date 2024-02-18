@@ -81,7 +81,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7441905933744205346, guid: 09e46f65f16f1f743a8a806b6a33405c, type: 3}
       propertyPath: m_Extents.x
-      value: 0.5
+      value: 0.8125
       objectReference: {fileID: 0}
     - target: {fileID: 7441905933744205346, guid: 09e46f65f16f1f743a8a806b6a33405c, type: 3}
       propertyPath: m_Extents.y

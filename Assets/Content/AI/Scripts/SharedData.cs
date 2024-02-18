@@ -32,6 +32,7 @@ namespace BehaviorTree
         public SharedDataType<ChargeState> ChargeState;
         public SharedDataType<AbilityState> AbilityState;
         public SharedDataType<int> RandomAbility;
+        public SharedDataType<int> AbilityPool;
 
         // Data container
         private Dictionary<int, object> _data = new();
@@ -48,6 +49,7 @@ namespace BehaviorTree
             ChargeState = new(_keyCounter++);
             AbilityState = new(_keyCounter++);
             RandomAbility = new(_keyCounter++);
+            AbilityPool = new(_keyCounter++);
         }
 
         /// <summary>
