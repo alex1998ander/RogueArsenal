@@ -13,11 +13,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1468285962022587488, guid: 09e46f65f16f1f743a8a806b6a33405c, type: 3}
       propertyPath: m_Size.y
-      value: 0.6228471
+      value: 0.55787474
       objectReference: {fileID: 0}
     - target: {fileID: 1468285962022587488, guid: 09e46f65f16f1f743a8a806b6a33405c, type: 3}
       propertyPath: m_Offset.y
-      value: -0.40732646
+      value: -0.3748403
       objectReference: {fileID: 0}
     - target: {fileID: 2427854694796873821, guid: 09e46f65f16f1f743a8a806b6a33405c, type: 3}
       propertyPath: furnitureSprite
@@ -73,7 +73,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7441905933744205346, guid: 09e46f65f16f1f743a8a806b6a33405c, type: 3}
       propertyPath: m_Center.y
-      value: -0.40732646
+      value: -0.3748403
       objectReference: {fileID: 0}
     - target: {fileID: 7441905933744205346, guid: 09e46f65f16f1f743a8a806b6a33405c, type: 3}
       propertyPath: m_Extents.x
@@ -81,7 +81,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7441905933744205346, guid: 09e46f65f16f1f743a8a806b6a33405c, type: 3}
       propertyPath: m_Extents.y
-      value: 0.31142354
+      value: 0.27893737
       objectReference: {fileID: 0}
     - target: {fileID: 7441905933744205346, guid: 09e46f65f16f1f743a8a806b6a33405c, type: 3}
       propertyPath: m_Extents.z

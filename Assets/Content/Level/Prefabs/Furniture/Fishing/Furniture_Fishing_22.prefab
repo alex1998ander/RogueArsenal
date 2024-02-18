@@ -9,15 +9,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1468285962022587488, guid: 09e46f65f16f1f743a8a806b6a33405c, type: 3}
       propertyPath: m_Size.x
-      value: 0.8125
+      value: 0.7530701
       objectReference: {fileID: 0}
     - target: {fileID: 1468285962022587488, guid: 09e46f65f16f1f743a8a806b6a33405c, type: 3}
       propertyPath: m_Size.y
-      value: 0.5597335
+      value: 0.5003036
+      objectReference: {fileID: 0}
+    - target: {fileID: 1468285962022587488, guid: 09e46f65f16f1f743a8a806b6a33405c, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.029714942
       objectReference: {fileID: 0}
     - target: {fileID: 1468285962022587488, guid: 09e46f65f16f1f743a8a806b6a33405c, type: 3}
       propertyPath: m_Offset.y
-      value: -0.31388324
+      value: -0.2841683
       objectReference: {fileID: 0}
     - target: {fileID: 2427854694796873821, guid: 09e46f65f16f1f743a8a806b6a33405c, type: 3}
       propertyPath: furnitureSprite
@@ -72,16 +76,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7441905933744205346, guid: 09e46f65f16f1f743a8a806b6a33405c, type: 3}
+      propertyPath: m_Center.x
+      value: -0.029714942
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441905933744205346, guid: 09e46f65f16f1f743a8a806b6a33405c, type: 3}
       propertyPath: m_Center.y
-      value: -0.31388324
+      value: -0.2841683
       objectReference: {fileID: 0}
     - target: {fileID: 7441905933744205346, guid: 09e46f65f16f1f743a8a806b6a33405c, type: 3}
       propertyPath: m_Extents.x
-      value: 0.40625
+      value: 0.37653506
       objectReference: {fileID: 0}
     - target: {fileID: 7441905933744205346, guid: 09e46f65f16f1f743a8a806b6a33405c, type: 3}
       propertyPath: m_Extents.y
-      value: 0.27986676
+      value: 0.2501518
       objectReference: {fileID: 0}
     - target: {fileID: 7441905933744205346, guid: 09e46f65f16f1f743a8a806b6a33405c, type: 3}
       propertyPath: m_Extents.z
