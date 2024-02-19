@@ -65798,6 +65798,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6511148507241209126, guid: 04e31dcae904aa84f904703f063be9e6, type: 3}
   m_PrefabInstance: {fileID: 407656519}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &407656521 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6803469753556684686, guid: 04e31dcae904aa84f904703f063be9e6, type: 3}
+  m_PrefabInstance: {fileID: 407656519}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84c5cd29c59dbac40a69dd0d83a76fe1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &436735690
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -70936,6 +70947,14 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7505396538029910481, guid: 39e234d5b0581e84b827610c29dd4084, type: 3}
+      propertyPath: orderOffset
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7505396538029910481, guid: 39e234d5b0581e84b827610c29dd4084, type: 3}
+      propertyPath: parentSpriteOrderer
+      value: 
+      objectReference: {fileID: 407656521}
     - target: {fileID: 7790803780350065529, guid: 39e234d5b0581e84b827610c29dd4084, type: 3}
       propertyPath: m_RootOrder
       value: 2

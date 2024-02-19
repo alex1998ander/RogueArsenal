@@ -1636,6 +1636,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7505396538029910481, guid: 39e234d5b0581e84b827610c29dd4084, type: 3}
+      propertyPath: parentSpriteOrderer
+      value: 
+      objectReference: {fileID: 1065679320}
     - target: {fileID: 7790803780350065529, guid: 39e234d5b0581e84b827610c29dd4084, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2950,6 +2954,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0f9b2bbf83ddde45903619a644ecdba, type: 3}
+--- !u!114 &1065679320 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3454861831359863330, guid: e0f9b2bbf83ddde45903619a644ecdba, type: 3}
+  m_PrefabInstance: {fileID: 1065679319}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84c5cd29c59dbac40a69dd0d83a76fe1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1067257670
 GameObject:
   m_ObjectHideFlags: 0

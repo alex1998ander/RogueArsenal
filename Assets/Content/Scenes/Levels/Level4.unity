@@ -167,6 +167,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 285593246}
     m_Modifications:
+    - target: {fileID: 838906991907250994, guid: bbb53ed1bf7dcbc40a863de258190f2c, type: 3}
+      propertyPath: orderOffset
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 838906991907250994, guid: bbb53ed1bf7dcbc40a863de258190f2c, type: 3}
+      propertyPath: parentSpriteOrderer
+      value: 
+      objectReference: {fileID: 285593247}
     - target: {fileID: 1122132803728191898, guid: bbb53ed1bf7dcbc40a863de258190f2c, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -49673,6 +49681,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1122132803728191898, guid: 5f27254b4e2d9794ba657666ab28881e, type: 3}
   m_PrefabInstance: {fileID: 285593245}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &285593247 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 838906991907250994, guid: 5f27254b4e2d9794ba657666ab28881e, type: 3}
+  m_PrefabInstance: {fileID: 285593245}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84c5cd29c59dbac40a69dd0d83a76fe1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &291182264
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -50355,6 +50374,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1273849626}
     m_Modifications:
+    - target: {fileID: 838906991907250994, guid: 40bbc92d1f659764bb3a30f039add229, type: 3}
+      propertyPath: orderOffset
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 838906991907250994, guid: 40bbc92d1f659764bb3a30f039add229, type: 3}
+      propertyPath: parentSpriteOrderer
+      value: 
+      objectReference: {fileID: 1273849627}
     - target: {fileID: 1122132803728191898, guid: 40bbc92d1f659764bb3a30f039add229, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -52138,6 +52165,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1122132803728191898, guid: 5f27254b4e2d9794ba657666ab28881e, type: 3}
   m_PrefabInstance: {fileID: 1273849625}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1273849627 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 838906991907250994, guid: 5f27254b4e2d9794ba657666ab28881e, type: 3}
+  m_PrefabInstance: {fileID: 1273849625}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84c5cd29c59dbac40a69dd0d83a76fe1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1318675559
 GameObject:
   m_ObjectHideFlags: 0
@@ -52494,6 +52532,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1122132803728191898, guid: 5f27254b4e2d9794ba657666ab28881e, type: 3}
   m_PrefabInstance: {fileID: 1382009615}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1382009617 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 838906991907250994, guid: 5f27254b4e2d9794ba657666ab28881e, type: 3}
+  m_PrefabInstance: {fileID: 1382009615}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84c5cd29c59dbac40a69dd0d83a76fe1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1398843244
 GameObject:
   m_ObjectHideFlags: 0
@@ -53080,6 +53129,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1382009616}
     m_Modifications:
+    - target: {fileID: 838906991907250994, guid: aa4f4b2946e6a304e983a3d3bcf70154, type: 3}
+      propertyPath: orderOffset
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 838906991907250994, guid: aa4f4b2946e6a304e983a3d3bcf70154, type: 3}
+      propertyPath: parentSpriteOrderer
+      value: 
+      objectReference: {fileID: 1382009617}
     - target: {fileID: 1122132803728191898, guid: aa4f4b2946e6a304e983a3d3bcf70154, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -53233,6 +53290,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 285593246}
     m_Modifications:
+    - target: {fileID: 838906991907250994, guid: 6cb90ee1de5204c4699f0fd4cae3fc50, type: 3}
+      propertyPath: orderOffset
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 838906991907250994, guid: 6cb90ee1de5204c4699f0fd4cae3fc50, type: 3}
+      propertyPath: parentSpriteOrderer
+      value: 
+      objectReference: {fileID: 285593247}
     - target: {fileID: 1122132803728191898, guid: 6cb90ee1de5204c4699f0fd4cae3fc50, type: 3}
       propertyPath: m_RootOrder
       value: 3
