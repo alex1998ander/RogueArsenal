@@ -7,7 +7,7 @@ public class UpgradeDemonicPact : Upgrade
     public override UpgradeIdentification UpgradeIdentification => UpgradeIdentification.DemonicPact;
     public override UpgradeType UpgradeType => UpgradeType.Weapon;
     public override string FlavorText => "Embrace the dark arts of bullet wizardry and trade a bit of your life essence for instant trigger happiness.";
-    public override string Description => "Embrace the dark arts of bullet wizardry and steal some life essence.";
+    public override string Description => "Dealing damage heals you, but you constantly take damage";
 
     private PlayerController _playerController;
 
