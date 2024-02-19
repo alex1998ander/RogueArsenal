@@ -8,6 +8,9 @@ public class UpgradeSplitShot : Upgrade
     public override UpgradeType UpgradeType => UpgradeType.Weapon;
     public override string Description => "Turn every pull of the trigger into a triple-play spectacle.";
 
+    public override float BulletDamage => -0.2f;
+    public override float FireCooldown => 0.3f;
+
 
     public override void OnFire(PlayerBullet playerBullet)
     {
