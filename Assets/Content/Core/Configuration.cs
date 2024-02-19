@@ -57,9 +57,6 @@ public class Configuration
     public const float Boss_ShieldMaxHealth = 200f;
     public const float Boss_ShieldRotationSpeed = 65f;
 
-    // Upgrade: Big Bullet
-    public const int BigBullet_PiercesCount = 3;
-
     // Upgrade: Bounce
     public const int Bounce_BounceCount = 2;
 
