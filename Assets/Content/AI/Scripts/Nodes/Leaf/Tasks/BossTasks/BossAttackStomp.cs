@@ -10,6 +10,7 @@ namespace BehaviorTree
         private SpriteRenderer _bossVisual;
         private Transform _body;
         private GameObject _ui;
+        private BoxCollider2D _contactDamageZone;
         private GameObject _weapon;
 
         private float _waitTime = 1.5f;
@@ -19,12 +20,13 @@ namespace BehaviorTree
 
         private readonly LayerMask _targetLayer = LayerMask.GetMask("Player_Trigger");
 
-        public BossAttackStomp(Transform body, Transform stompTarget, SpriteRenderer bossVisual, GameObject ui, EnemyWeapon weapon)
+        public BossAttackStomp(Transform body, Transform stompTarget, SpriteRenderer bossVisual, GameObject ui, EnemyWeapon weapon, BoxCollider2D contactDamageZone)
         {
             _body = body;
             _stompTarget = stompTarget;
             _bossVisual = bossVisual;
             _ui = ui;
+            _contactDamageZone = contactDamageZone;
             _weapon = weapon.gameObject;
         }
 
@@ -32,6 +34,7 @@ namespace BehaviorTree
         {
             state = NodeState.FAILURE;
 
+            _contactDamageZone.enabled = false;
             _bossVisual.enabled = false;
             _ui.SetActive(false);
             _weapon.SetActive(false);
@@ -45,6 +48,7 @@ namespace BehaviorTree
 
             if (_timeCounter >= _waitTime)
             {
+                _contactDamageZone.enabled = true;
                 _bossVisual.enabled = true;
                 _ui.SetActive(true);
                 _weapon.SetActive(true);

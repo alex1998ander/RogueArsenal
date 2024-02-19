@@ -129,8 +129,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1617481309
-  m_SortingLayer: 8
+  m_SortingLayerID: 947682119
+  m_SortingLayer: 10
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 7fa09140bb2efea4183b2fba69eb99c6, type: 3}
   m_Color: {r: 0.3820755, g: 0.45402002, b: 1, a: 1}
@@ -213,8 +213,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1617481309
-  m_SortingLayer: 8
+  m_SortingLayerID: 947682119
+  m_SortingLayer: 10
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 7fa09140bb2efea4183b2fba69eb99c6, type: 3}
   m_Color: {r: 0.3820755, g: 0.45402002, b: 1, a: 1}
@@ -723,7 +723,7 @@ LineRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 947682119
-  m_SortingLayer: 12
+  m_SortingLayer: 10
   m_SortingOrder: 0
   m_Positions:
   - {x: 0, y: 0, z: 0}
@@ -802,6 +802,7 @@ MonoBehaviour:
   movementAcceleration: 30
   minDistanceFromPlayer: 4
   maxDistanceFromPlayer: 6
+  contactDamageZone: {fileID: 7912696378675739813}
   bossSprite: {fileID: 6387821662178478886}
   mine: {fileID: 4533860549031871824, guid: 9ffcac323820e8444adc39853b67e6c6, type: 3}
   turret: {fileID: 7775573610081196474, guid: 5db8b9a75fc49834ea42a9ddd265228e, type: 3}
@@ -916,6 +917,22 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1320863864590499383, guid: 1f48634cec406704aa29199dd71f99ec, type: 3}
   m_PrefabInstance: {fileID: 3129582002889556441}
   m_PrefabAsset: {fileID: 0}
+--- !u!58 &8408736939713368555
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4123649021420044270}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!114 &2140946343556480608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -935,6 +952,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1528313252659859010}
     m_Modifications:
+    - target: {fileID: 243151009532849539, guid: feb23fe8ac7c1bd4486974a4332be910, type: 3}
+      propertyPath: m_SortingLayer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 243151009532849539, guid: feb23fe8ac7c1bd4486974a4332be910, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 947682119
+      objectReference: {fileID: 0}
+    - target: {fileID: 1710471003727663319, guid: feb23fe8ac7c1bd4486974a4332be910, type: 3}
+      propertyPath: m_SortingLayer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1710471003727663319, guid: feb23fe8ac7c1bd4486974a4332be910, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 947682119
+      objectReference: {fileID: 0}
     - target: {fileID: 4410034449696225152, guid: feb23fe8ac7c1bd4486974a4332be910, type: 3}
       propertyPath: m_Name
       value: ShieldGenerator

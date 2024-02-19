@@ -2,25 +2,34 @@
 
 namespace BehaviorTree
 {
-    public class BossChangeAttackDependingOnHealth: Node
+    public class BossChangeAttackDependingOnHealth : Node
     {
-        private Transform _body;
-        private float _healthBoundry = 2/3;
-        
+        private EnemyHealth _enemyHealth;
+
         public BossChangeAttackDependingOnHealth(Transform body)
         {
-            this._body = body;
+            _enemyHealth = body.GetComponent<EnemyHealth>();
         }
 
         public override NodeState Evaluate()
         {
             state = NodeState.SUCCESS;
-            Vector2 health = _body.GetComponent<EnemyHealth>().GetHealth();
-            if (health.y * _healthBoundry < health.x)
+            Vector2 health = _enemyHealth.GetHealth();
+
+            switch (health.x / health.y)
             {
-                SetData(sharedData.AbilityPool, sharedData.GetData(sharedData.AbilityPool) + 1);
-                _healthBoundry = 1/3;
-            } 
+                case <= 1f / 3f:
+                {
+                    SetData(sharedData.AbilityPool, 2);
+                    break;
+                }
+                case <= 2f / 3f:
+                {
+                    SetData(sharedData.AbilityPool, 1);
+                    break;
+                }
+            }
+
             return state;
         }
     }

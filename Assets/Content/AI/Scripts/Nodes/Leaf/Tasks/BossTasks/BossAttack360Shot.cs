@@ -6,7 +6,7 @@ namespace BehaviorTree
     {
         GameObject _enemyBulletPrefab;
         private Transform _body;
-        
+
         private float _fullWaitTime = 3f;
 
         private float _timeToWait;
@@ -17,15 +17,18 @@ namespace BehaviorTree
 
         public BossAttack360Shot(Transform body, GameObject bullet)
         {
-            this._enemyBulletPrefab = bullet;
-            this._body = body;
+            _enemyBulletPrefab = bullet;
+            _body = body;
             _timeToWait = _fullWaitTime / 3;
         }
 
         public override NodeState Evaluate()
         {
-            state = NodeState.RUNNING;
+            state = NodeState.FAILURE;
             _timeCounter += Time.fixedDeltaTime;
+
+            Debug.Log("time counter: " + _timeCounter);
+
             if (_timeCounter >= _timeToWait)
             {
                 Fire360Shot();
@@ -37,10 +40,11 @@ namespace BehaviorTree
             {
                 state = NodeState.SUCCESS;
             }
+
             return state;
         }
 
-        void Fire360Shot()
+        private void Fire360Shot()
         {
             for (int i = 1; i < 16; i++)
             {

@@ -15,6 +15,7 @@ namespace BehaviorTree
     [RequireComponent(typeof(LineRenderer))]
     public class BossEnemyBehaviourTree : MovingEnemyBehaviourTree
     {
+        [SerializeField] private BoxCollider2D contactDamageZone;
         [SerializeField] private SpriteRenderer bossSprite;
         [SerializeField] private GameObject mine;
         [SerializeField] private GameObject turret;
@@ -48,8 +49,8 @@ namespace BehaviorTree
             SharedData sharedData = new SharedData();
             sharedData.SetData(sharedData.AbilityState, AbilityState.None);
             sharedData.SetData(sharedData.RandomAbility, -1);
-            sharedData.SetData(sharedData.AbilityPool, 1);
-            
+            sharedData.SetData(sharedData.AbilityPool, 0);
+
             //All abilities the boss can have
             //Node[] tasksPool = new Node[]
             // {
@@ -80,7 +81,7 @@ namespace BehaviorTree
                 {
                     new BossAttackSpawnObject(transform, turret, Vector3.one, 3),
                     new BossAttackSpawnObject(transform, clone, new Vector3(1.5f, 1.5f, 1.5f), 3),
-                    new BossAttackStomp(transform, playerTransform, bossSprite, ui, weapon)
+                    new BossAttackStomp(transform, playerTransform, bossSprite, ui, weapon, contactDamageZone)
                 },
                 new Node[]
                 {
@@ -104,10 +105,18 @@ namespace BehaviorTree
                     new CheckIsAwareOfPlayer(),
                     new Selector(new List<Node>
                     {
+                        new Sequence(new List<Node>()
+                        {
+                            new ExpectData<AbilityState>(sharedData.AbilityState, AbilityState.Cooldown),
+                            new Logger("Cooldown"),
+                            new TaskWait(Configuration.Boss_AbilityCooldown, true),
+                            new SetData<AbilityState>(sharedData.AbilityState, AbilityState.None)
+                        }),
                         // Case: Enemy can see player and attacks him
                         new Sequence(new List<Node>
                         {
-                            new Inverter(new ExpectData<AbilityState>(sharedData.AbilityState, AbilityState.Ability)),
+                            new ExpectData<AbilityState>(sharedData.AbilityState, AbilityState.None),
+                            new Logger("Standard"),
                             new TaskSetLastKnownPlayerLocation(playerTransform),
                             new TaskLookAt(playerTransform, rb, null),
                             new TaskPickTargetAroundTransforms(playerTransform, minDistanceFromPlayer,
@@ -116,30 +125,49 @@ namespace BehaviorTree
                             //new CheckIsAtTarget(),
                             new TaskAimAt(rb, weapon, playerTransform),
                             new TaskAttackPlayer(weapon, Configuration.Boss_AttackSpeed, animator),
-                            new BossChangeAttackDependingOnHealth(transform),
-                            new ChooseRandomAttackMove(tasks[sharedData.GetData(sharedData.AbilityPool)].Length),
                             new TaskWait(Configuration.Boss_AbilityCooldown, true),
+                            new ChooseRandomAttackMove(tasks[sharedData.GetData(sharedData.AbilityPool)].Length),
+                            new BossChangeAttackDependingOnHealth(transform),
                             new SetData<AbilityState>(sharedData.AbilityState, AbilityState.Ability)
                         }),
                         new Sequence(new List<Node>
                         {
                             new ExpectData<AbilityState>(sharedData.AbilityState, AbilityState.Ability),
+                            new ExpectData<int>(sharedData.AbilityPool, 0),
+                            new Logger("Pool 0"),
                             new TaskSetLastKnownPlayerLocation(playerTransform),
                             new TaskLookAt(playerTransform, rb, null),
                             new TaskSetMovementSpeed(agent, 0),
-                            new RandomAttackMove(tasks[sharedData.GetData(sharedData.AbilityPool)]),
+                            new RandomAttackMove(tasks[0]),
                             //tasksPool[4], //tasksPool.Length - 2
                             new TaskSetMovementSpeed(agent, 3.5f),
                             new SetData<AbilityState>(sharedData.AbilityState, AbilityState.Cooldown)
                         }),
-                        // Case: Enemy just heard the player shoot
                         new Sequence(new List<Node>
                         {
-                            new Inverter(new ExpectData<AbilityState>(sharedData.AbilityState, AbilityState.Ability)),
-                            new HasData<bool>(sharedData.HasHeardPlayerShot),
+                            new ExpectData<AbilityState>(sharedData.AbilityState, AbilityState.Ability),
+                            new ExpectData<int>(sharedData.AbilityPool, 1),
+                            new Logger("Pool 1"),
                             new TaskSetLastKnownPlayerLocation(playerTransform),
-                            new TaskSetTargetToLastKnownPlayerLocation(),
-                            new ClearData<bool>(sharedData.HasHeardPlayerShot)
+                            new TaskLookAt(playerTransform, rb, null),
+                            new TaskSetMovementSpeed(agent, 0),
+                            new RandomAttackMove(tasks[1]),
+                            //tasksPool[4], //tasksPool.Length - 2
+                            new TaskSetMovementSpeed(agent, 3.5f),
+                            new SetData<AbilityState>(sharedData.AbilityState, AbilityState.Cooldown)
+                        }),
+                        new Sequence(new List<Node>
+                        {
+                            new ExpectData<AbilityState>(sharedData.AbilityState, AbilityState.Ability),
+                            new ExpectData<int>(sharedData.AbilityPool, 2),
+                            new Logger("Pool 2"),
+                            new TaskSetLastKnownPlayerLocation(playerTransform),
+                            new TaskLookAt(playerTransform, rb, null),
+                            new TaskSetMovementSpeed(agent, 0),
+                            new RandomAttackMove(tasks[2]),
+                            //tasksPool[4], //tasksPool.Length - 2
+                            new TaskSetMovementSpeed(agent, 3.5f),
+                            new SetData<AbilityState>(sharedData.AbilityState, AbilityState.Cooldown)
                         })
                     })
                 }),
