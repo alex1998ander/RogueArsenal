@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-public class UpgradeBigBullet : Upgrade
+﻿public class UpgradeBigBullet : Upgrade
 {
     public override string Name => "Big Bullet";
     public override UpgradeIdentification UpgradeIdentification => UpgradeIdentification.BigBullet;
@@ -14,18 +12,4 @@ public class UpgradeBigBullet : Upgrade
     public override float ReloadTime => 0.5f;
     public override float FireCooldown => 1.5f;
     public override float BulletSpeed => -0.5f;
-
-    public override void Init(PlayerBullet playerBullet)
-    {
-        playerBullet.PiercesLeft += Configuration.BigBullet_PiercesCount;
-    }
-
-    public override bool OnBulletTrigger(PlayerBullet playerBullet, Collider2D other)
-    {
-        if (playerBullet.PiercesLeft <= 0 || (!other.CompareTag("Enemy") && !other.CompareTag("Player")))
-            return false;
-
-        playerBullet.PiercesLeft--;
-        return true;
-    }
 }
