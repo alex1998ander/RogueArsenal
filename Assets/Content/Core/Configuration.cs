@@ -68,9 +68,10 @@ public class Configuration
     public const float Burst_FireDelayFraction = 0.15f;
 
     // Upgrade: Demonic Pact
-    public const int DemonicPact_BurstsPerSecond = 3;
+    public const int DemonicPact_BurstsPerSecond = 1;
     public const float DemonicPact_HealthLossPerSecond = 5f;
-    public const float DemonicPact_BaseHealAmount = 0.2f;
+    public const float DemonicPact_BaseHealAmount = 0.1f;
+    public const float DemonicPact_MinHealthPercentage = 0.2f;
 
     // Upgrade: Explosive Bullet
     public const float ExplosiveBullet_MinDamage = 2f;

@@ -21,10 +21,14 @@ public class UpgradeDemonicPact : Upgrade
 
     public override void PlayerUpdate(PlayerController playerController)
     {
-        if (SpawnController.CheckEnemiesAlive() && Time.time >= _nextDamageTimestamp)
+        if (Time.time >= _nextDamageTimestamp && SpawnController.CheckEnemiesAlive())
         {
-            _playerController.playerHealth.InflictDamage(Configuration.DemonicPact_BurstsPerSecond / Configuration.DemonicPact_HealthLossPerSecond, false, true);
-            _nextDamageTimestamp = Time.time + 1f / Configuration.DemonicPact_BurstsPerSecond;
+            float currentHealthPercentage = PlayerData.health / PlayerData.maxHealth;
+            if (currentHealthPercentage >= Configuration.DemonicPact_MinHealthPercentage)
+            {
+                _playerController.playerHealth.InflictDamage(Configuration.DemonicPact_HealthLossPerSecond / Configuration.DemonicPact_BurstsPerSecond, false, true);
+                _nextDamageTimestamp = Time.time + 1f / Configuration.DemonicPact_BurstsPerSecond;
+            }
         }
     }
 
