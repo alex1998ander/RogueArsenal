@@ -9,6 +9,9 @@ public class PlayerController : MonoBehaviour, ICharacterController
     [SerializeField] private PlayerWeapon playerWeapon;
     [SerializeField] private SpriteRenderer playerWeaponSprite;
 
+    // TODO: Remove this serialized field cuz it's stupid and I was lazy
+    [SerializeField] private SpriteOrderer playerWeaponSpriteOrderer;
+
     public PlayerHealth playerHealth;
 
     private Rigidbody2D _rigidbody;
@@ -245,10 +248,11 @@ public class PlayerController : MonoBehaviour, ICharacterController
                 _angle = Mathf.Atan2(_aimDirection.y, _aimDirection.x) * Mathf.Rad2Deg;
                 playerWeapon.transform.rotation = Quaternion.Euler(0, 0, _angle);
 
+                // TODO: move visual adjustment code somewhere else
                 // When the player is aiming left, flip weapon so it's not heads-down
                 playerWeaponSprite.flipY = _aimDirection.x < 0.0f;
                 // When the player is aiming up, adjust sorting order so weapon is behind player
-                playerWeaponSprite.sortingOrder = _angle >= 45.0 && _angle <= 135.0f ? -1 : 1;
+                playerWeaponSpriteOrderer.orderOffset = _angle >= 45.0 && _angle <= 135.0f ? -32 : 0;
 
                 playerVisualsAnimator.SetFloat(AimDirectionX, _aimDirection.x);
                 playerVisualsAnimator.SetFloat(AimDirectionY, _aimDirection.y);

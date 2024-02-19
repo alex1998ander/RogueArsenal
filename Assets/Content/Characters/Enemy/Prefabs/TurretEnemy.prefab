@@ -131,6 +131,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5332633539760445557, guid: ba46bce3e439cdd489820f759add8589, type: 3}
+      propertyPath: orderOffset
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5332633539760445557, guid: ba46bce3e439cdd489820f759add8589, type: 3}
+      propertyPath: parentSpriteOrderer
+      value: 
+      objectReference: {fileID: 8106070802245065757}
     - target: {fileID: 5465643821577156537, guid: ba46bce3e439cdd489820f759add8589, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -253,6 +261,17 @@ PrefabInstance:
     - {fileID: 3530932478298407239, guid: ba46bce3e439cdd489820f759add8589, type: 3}
     - {fileID: 5083032137538339661, guid: ba46bce3e439cdd489820f759add8589, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ba46bce3e439cdd489820f759add8589, type: 3}
+--- !u!114 &7206985120945275963 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2104862171445363555, guid: ba46bce3e439cdd489820f759add8589, type: 3}
+  m_PrefabInstance: {fileID: 8732939508167771992}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84c5cd29c59dbac40a69dd0d83a76fe1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7775573610081196474 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1358329203599744738, guid: ba46bce3e439cdd489820f759add8589, type: 3}
@@ -296,9 +315,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1617481309
-  m_SortingLayer: 7
-  m_SortingOrder: 0
+  m_SortingLayerID: -615810195
+  m_SortingLayer: 9
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 7fa09140bb2efea4183b2fba69eb99c6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -325,3 +344,17 @@ MonoBehaviour:
   wallLayer:
     serializedVersion: 2
     m_Bits: 256
+--- !u!114 &8106070802245065757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7775573610081196474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84c5cd29c59dbac40a69dd0d83a76fe1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orderOffset: -1
+  parentSpriteOrderer: {fileID: 7206985120945275963}

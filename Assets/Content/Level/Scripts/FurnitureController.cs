@@ -46,18 +46,6 @@ public class FurnitureController : MonoBehaviour, ICharacterHealth
         _playerTransform = FindObjectOfType<PlayerController>().GetComponent<Transform>();
     }
 
-    private void Update()
-    {
-        if (transform.position.y > _playerTransform.position.y)
-        {
-            _sr.sortingLayerName = "Particles_BehindPlayer";
-        }
-        else
-        {
-            _sr.sortingLayerName = "Particles_BeforePlayer";
-        }
-    }
-
     /// <summary>
     /// Breaks this piece of furniture and all child furniture objects.
     /// </summary>

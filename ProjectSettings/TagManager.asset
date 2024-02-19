@@ -59,17 +59,11 @@ TagManager:
   - name: Debris
     uniqueID: 1963921387
     locked: 0
-  - name: Furniture
-    uniqueID: 4111360589
-    locked: 0
   - name: HealingField
     uniqueID: 2143196721
     locked: 0
   - name: Currency
     uniqueID: 2457320059
-    locked: 0
-  - name: Enemies
-    uniqueID: 1617481309
     locked: 0
   - name: Bullets
     uniqueID: 3485463937
@@ -77,7 +71,7 @@ TagManager:
   - name: Particles_BehindPlayer
     uniqueID: 119437211
     locked: 0
-  - name: Player
+  - name: Character
     uniqueID: 3679157101
     locked: 0
   - name: Particles_BeforePlayer

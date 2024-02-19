@@ -245,7 +245,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  currencyDropController: {fileID: 1898996338707923281}
 --- !u!114 &1898996338707923281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -561,6 +560,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 526204081913427373}
+  - component: {fileID: 5332633539760445557}
   - component: {fileID: 6846983187112741943}
   - component: {fileID: 6866423785977518980}
   m_Layer: 0
@@ -586,6 +586,19 @@ Transform:
   m_Father: {fileID: 1358329203599744736}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5332633539760445557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4627805616870664689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84c5cd29c59dbac40a69dd0d83a76fe1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orderOffset: 0
 --- !u!95 &6846983187112741943
 Animator:
   serializedVersion: 5
@@ -645,8 +658,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1617481309
-  m_SortingLayer: 7
+  m_SortingLayerID: -615810195
+  m_SortingLayer: 9
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -730,7 +743,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1617481309
-  m_SortingLayer: 7
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 0.1764706}
@@ -805,6 +818,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9220590938802281169}
+  - component: {fileID: 2104862171445363555}
   - component: {fileID: 6554026467861570252}
   m_Layer: 0
   m_Name: WeaponVisuals
@@ -828,6 +842,19 @@ Transform:
   m_Father: {fileID: 8752020241937266114}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2104862171445363555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6139807093174445411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84c5cd29c59dbac40a69dd0d83a76fe1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orderOffset: 0
 --- !u!212 &6554026467861570252
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -866,9 +893,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1617481309
-  m_SortingLayer: 7
-  m_SortingOrder: 1
+  m_SortingLayerID: -615810195
+  m_SortingLayer: 9
+  m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
