@@ -54,7 +54,7 @@ public class Configuration
     public const float Boss_360ShotBulletDistance = 20f;
     public const float Boss_360ShotBulletSpeed = 6f;
     public const int Boss_360ShotWaveCount = 3;
-    public const float Boss_ShieldMaxHealth = 75f;
+    public const float Boss_ShieldMaxHealth = 200f;
     public const float Boss_ShieldRotationSpeed = 65f;
 
     // Upgrade: Big Bullet
