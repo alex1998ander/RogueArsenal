@@ -120,8 +120,8 @@ public class Configuration
     public const float SplitShot_HalfAngle = 15f;
 
     // Upgrade: Stimpack
-    public const float Stimpack_DamageMultiplier = 2f;
-    public const float Stimpack_Duration = 5f;
+    public const float Stimpack_DamageMultiplier = 1.5f;
+    public const float Stimpack_Duration = 4f;
 
     // Upgrade: Timefreeze
     public const float Timefreeze_Duration = 1f;

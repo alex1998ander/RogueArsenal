@@ -3,9 +3,9 @@
     public override string Name => "Shield";
     public override UpgradeIdentification UpgradeIdentification => UpgradeIdentification.Shield;
     public override UpgradeType UpgradeType => UpgradeType.Ability;
-
     public override string FlavorText => "";
     public override string Description => "Elegantly turn enemy bullets back to their dismayed shooters.";
+    public override float AbilityDelay => 0.4f;
 
     public override void OnAbility(PlayerController playerController, PlayerWeapon playerWeapon)
     {
