@@ -6,11 +6,7 @@
     public override string FlavorText => "Roar into battle as the ferocious Tankasaurus, impervious to damage and ready to stomp through enemy lines.";
     public override string Description => "Roar into battle as the ferocious Tankasaurus.";
 
-    public override float Health => 1f;
-    public override float FireCooldown => 1f;
-
-    public override void Init(PlayerController playerController)
-    {
-        PlayerData.canDash = false;
-    }
+    public override float Health => 0.6f;
+    public override float PlayerMovementSpeed => -0.08f;
+    public override float FireCooldown => 0.4f;
 }
