@@ -9,6 +9,8 @@ public class UpgradeShockwave : Upgrade
     public override string FlavorText => "";
     public override string Description => "Clearing your path with a blast of sheer kinetic power.";
 
+    public override float AbilityDelay => -0.4f;
+
     public override void OnAbility(PlayerController playerController, PlayerWeapon playerWeapon)
     {
         UpgradeSpawnablePrefabHolder.SpawnPrefab(UpgradeSpawnablePrefabHolder.instance.shockwavePrefab, playerController.transform.position, Configuration.Shockwave_Duration);
