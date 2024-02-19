@@ -13,7 +13,7 @@ public class SpawnController : MonoBehaviour
     private static SpawnController _instance;
 
     // In percent
-    private const float EnemySpawnRateIncreasePerDifficulty = 0.047f;
+    private const float EnemySpawnRateIncreasePerDifficulty = 0.04f;
 
     // In percent
     private const float BaseEnemySpawnRate = 0.3f;

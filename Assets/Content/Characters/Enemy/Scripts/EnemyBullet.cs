@@ -23,6 +23,13 @@ public class EnemyBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.CompareTag("Furniture"))
+        {
+            other.GetComponentInParent<FurnitureController>()?.InflictDamage(_assignedDamage, true);
+            Destroy(gameObject);
+            return;
+        }
+
         // Player hit
         if (other.CompareTag("Player"))
         {
@@ -46,7 +53,7 @@ public class EnemyBullet : MonoBehaviour
         Destroy(gameObject);
         EventManager.OnEnemyBulletDestroyed.Trigger();
     }
-    
+
     /// <summary>
     /// Initializes this bullet.
     /// </summary>
