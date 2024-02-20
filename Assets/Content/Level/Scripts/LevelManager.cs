@@ -9,7 +9,7 @@ using Random = UnityEngine.Random;
 public static class LevelManager
 {
     public const int BossLevelThreshold = 14;
-    private const int TotalLevelCount = 1;
+    private const int TotalLevelCount = 14;
 
     public static int levelCounter;
 
