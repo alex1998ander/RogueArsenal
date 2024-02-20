@@ -9,7 +9,7 @@ using Random = UnityEngine.Random;
 public static class LevelManager
 {
     public const int BossLevelThreshold = 14;
-    private const int TotalLevelCount = 14;
+    private const int TotalLevelCount = 1;
 
     public static int levelCounter;
 
@@ -41,7 +41,7 @@ public static class LevelManager
             _settingsRoot = SceneManager.GetSceneByPath("Assets/Content/Scenes/NewUI/UISettings.unity").GetRootGameObjects()[0];
             _settingsRoot.SetActive(false);
         };
-        
+
         SceneManager.LoadSceneAsync("Assets/Content/Scenes/NewUI/UIControlHint.unity", LoadSceneMode.Additive);
     }
 
