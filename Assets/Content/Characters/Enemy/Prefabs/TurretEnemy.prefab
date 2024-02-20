@@ -59,6 +59,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TurretEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 1430017506941268220, guid: ba46bce3e439cdd489820f759add8589, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1605850763079308340, guid: ba46bce3e439cdd489820f759add8589, type: 3}
       propertyPath: m_Size.x
       value: 0.7
