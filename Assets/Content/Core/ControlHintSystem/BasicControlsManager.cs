@@ -11,7 +11,18 @@ public class BasicControlsManager : MonoBehaviour
 
     void Awake()
     {
-        EventManager.OnPlayerMovement.Subscribe(() => playerMoved = true);
+        EventManager.OnPlayerMovement.Subscribe(OnPlayerMoved);
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.OnPlayerMovement.Unsubscribe(OnPlayerMoved);
+    }
+
+    private void OnPlayerMoved()
+    {
+        playerMoved = true;
+        ControlHintSystem.TriggerShootPrompt();
     }
 
     private void Start()
@@ -25,12 +36,12 @@ public class BasicControlsManager : MonoBehaviour
 
         if (!playerMoved)
         {
-            ControlHintSystem.ShowBasicControlPrompt();
-            StartCoroutine(HideBasicControlPrompt());
+            ControlHintSystem.ShowMovementControlPrompt();
+            StartCoroutine(HideMovementControlPrompt());
         }
     }
 
-    private IEnumerator HideBasicControlPrompt()
+    private IEnumerator HideMovementControlPrompt()
     {
         yield return new WaitForSeconds(ControlHintManager.FadeDuration);
 
@@ -39,7 +50,7 @@ public class BasicControlsManager : MonoBehaviour
             yield return null;
         }
 
-        ControlHintSystem.HideBasicControlPrompt();
+        ControlHintSystem.HideMovementControlPrompt();
     }
 
     private void OnTriggerEnter2D(Collider2D other)

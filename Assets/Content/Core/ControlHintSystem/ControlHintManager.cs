@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,8 +6,7 @@ namespace Content.Core.ControlHintSystem
 {
     public class ControlHintManager : MonoBehaviour
     {
-        private const int ReminderDelay = 2;
-        private const int ReminderDuration = 5;
+        private const int ReminderDuration = 3;
         public const float FadeDuration = 0.5f;
 
         [SerializeField] public GameObject movementPrompt;
@@ -28,9 +26,9 @@ namespace Content.Core.ControlHintSystem
             abilityPrompt.SetActive(false);
         }
 
-        public void DisplayPrompt(GameObject prompt, bool withDelay = true)
+        public void DisplayPrompt(GameObject prompt, float delay = 0f)
         {
-            StartCoroutine(PromptCoroutine(prompt, withDelay));
+            StartCoroutine(PromptCoroutine(prompt, delay));
         }
 
         public void ShowPrompt(GameObject prompt)
@@ -45,19 +43,17 @@ namespace Content.Core.ControlHintSystem
             StartCoroutine(HidePrompt(image));
         }
 
-        private IEnumerator PromptCoroutine(GameObject prompt, bool withDelay)
+        private IEnumerator PromptCoroutine(GameObject prompt, float delay)
         {
             var image = prompt.GetComponent<Image>();
 
-            if (withDelay)
-            {
-                yield return new WaitForSeconds(ReminderDelay);
-            }
+            yield return new WaitForSeconds(delay);
+
 
             StartCoroutine(ShowPrompt(image));
 
             yield return new WaitForSeconds(ReminderDuration + FadeDuration);
-            
+
             StartCoroutine(HidePrompt(image));
         }
 
