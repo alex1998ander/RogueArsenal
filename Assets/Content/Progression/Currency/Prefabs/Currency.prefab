@@ -49,6 +49,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40599ce80f3fc9947a68a845270635d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeInToColor: {r: 1, g: 1, b: 0, a: 0}
+  stableColor: {r: 1, g: 1, b: 0, a: 1}
+  criticalColor: {r: 1, g: 0, b: 0, a: 1}
+  fadeOutToColor: {r: 1, g: 0, b: 0, a: 0}
   obstacleCollider: {fileID: 3761621528635459646}
 --- !u!50 &24893246598197100
 Rigidbody2D:
