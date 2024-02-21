@@ -28,7 +28,7 @@ public class CurrencyController : MonoBehaviour
     private const float PreCriticalLifetime = 0.2f;
     private const float CriticalLifetime = 1.0f;
     private const float UnobtainableLifetime = 0.2f;
-    private const float SqrCollectDistance = 0.1f;
+    private const float SqrCollectDistance = 0.1f * 0.1f;
 
     private Rigidbody2D _rb;
     private SpriteRenderer _sr;
@@ -41,16 +41,15 @@ public class CurrencyController : MonoBehaviour
     private bool _collected;
     private CurrencyState _state = CurrencyState.Inactive;
 
-    void Awake()
+    private void Start()
     {
-        Mathf.Pow(SqrCollectDistance, 2f);
         _rb = GetComponent<Rigidbody2D>();
         _sr = GetComponentInChildren<SpriteRenderer>();
         _light = GetComponentInChildren<Light2D>();
-    }
 
-    private void Start()
-    {
+        _sr.color = fadeInToColor;
+        _light.color = fadeInToColor;
+
         _playerTransform = GameObject.FindWithTag("Player").transform;
 
         _lifetimeEndTimestamp = Time.time;
@@ -81,18 +80,14 @@ public class CurrencyController : MonoBehaviour
                 {
                     if (_FadeCurrencyColorByTime(fadeInToColor, stableColor, _lifetimeEndTimestamp, _lifetimeEndTimestamp + InactiveLifetime))
                     {
-                        Debug.Log("finish inactive");
                         _lifetimeEndTimestamp = Time.time + StableLifetime;
                         _state = CurrencyState.Stable;
                     }
 
-                    // _lifetimeEndTimestamp = Time.time + StableLifetime;
-                    // _state = CurrencyState.Stable;
                     break;
                 }
                 case CurrencyState.Stable:
                 {
-                    Debug.Log("finish stable");
                     // DON'T set _lifetimeEndTimestamp like before so the next case gets called every fixed update
                     _state = CurrencyState.PreCritical;
 
@@ -102,23 +97,9 @@ public class CurrencyController : MonoBehaviour
                 {
                     if (_FadeCurrencyColorByTime(stableColor, criticalColor, _lifetimeEndTimestamp, _lifetimeEndTimestamp + PreCriticalLifetime))
                     {
-                        Debug.Log("finish precritical");
                         _lifetimeEndTimestamp = Time.time + CriticalLifetime;
                         _state = CurrencyState.Critical;
                     }
-
-
-                    // float fadeToCriticalProgress = Mathf.InverseLerp(_lifetimeEndTimestamp, _lifetimeEndTimestamp + PreCriticalLifetime, Time.time);
-                    //
-                    // Color fadedColor = Color.Lerp(Color.yellow, Color.red, fadeToCriticalProgress);
-                    // _sr.color = fadedColor;
-                    // _light.color = fadedColor;
-                    //
-                    // if (fadeToCriticalProgress >= 1f)
-                    // {
-                    //     _lifetimeEndTimestamp = Time.time + CriticalLifetime;
-                    //     _state = CurrencyState.Critical;
-                    // }
 
                     break;
                 }
@@ -128,7 +109,6 @@ public class CurrencyController : MonoBehaviour
                         obstacleCollider.enabled = false;
                     else
                     {
-                        Debug.Log("finish critical");
                         // DON'T set _lifetimeEndTimestamp like before so the next case gets called every fixed update
                         _state = CurrencyState.Unobtainable;
                     }
@@ -139,17 +119,8 @@ public class CurrencyController : MonoBehaviour
                 {
                     if (_FadeCurrencyColorByTime(criticalColor, fadeOutToColor, _lifetimeEndTimestamp, _lifetimeEndTimestamp + UnobtainableLifetime))
                     {
-                        Debug.Log("finish unobtainable");
                         Destroy(gameObject);
                     }
-
-                    // float remainingLifetime = 1f - Mathf.InverseLerp(_lifetimeEndTimestamp, _lifetimeEndTimestamp + UnobtainableLifetime, Time.time);
-                    //
-                    // _sr.color = new Color(1, 0, 0, remainingLifetime);
-                    // _light.color = new Color(1, 0, 0, remainingLifetime);
-                    //
-                    // if (remainingLifetime <= 0f)
-                    //     Destroy(gameObject);
 
                     break;
                 }
@@ -159,13 +130,13 @@ public class CurrencyController : MonoBehaviour
 
     private bool _FadeCurrencyColorByTime(Color fadeFrom, Color fadeInto, float startTime, float endTime)
     {
-        float progress = Mathf.InverseLerp(startTime, endTime, Time.time);
+        float fadeProgress = Mathf.InverseLerp(startTime, endTime, Time.time);
 
-        Color fadedColor = Color.Lerp(fadeFrom, fadeInto, progress);
+        Color fadedColor = Color.Lerp(fadeFrom, fadeInto, fadeProgress);
         _sr.color = fadedColor;
         _light.color = fadedColor;
 
-        if (progress >= 1f)
+        if (fadeProgress >= 1f)
             return true;
 
         return false;
