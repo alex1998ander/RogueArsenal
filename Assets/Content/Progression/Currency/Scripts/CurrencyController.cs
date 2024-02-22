@@ -1,20 +1,29 @@
+using System;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using Random = UnityEngine.Random;
 
 public class CurrencyController : MonoBehaviour
 {
     private enum CurrencyState
     {
-        Inactive,
-        Stable,
-        PreCritical,
-        Critical,
-        Unobtainable
+        Inactive, // Can't be collected
+        Stable, // Can now be collected
+        PreCritical, // Transition state between Stable and Critical
+        Critical, // Still can be collected, but not for long
+        Unobtainable // Can't be collected anymore
     }
 
-    [SerializeField] private Color fadeInToColor = Color.clear;
+    // Color the currency starts with, fades into stableColor during inactive lifetime
+    [SerializeField] private Color fadeInFromColor = Color.clear;
+
+    // Color during stable lifetime
     [SerializeField] private Color stableColor = Color.yellow;
+
+    // Color during critical lifetime
     [SerializeField] private Color criticalColor = Color.red;
+
+    // Color the currency fades into after critical lifetime during unobtainable lifetime
     [SerializeField] private Color fadeOutToColor = Color.clear;
 
     [SerializeField] private CircleCollider2D obstacleCollider;
@@ -24,11 +33,13 @@ public class CurrencyController : MonoBehaviour
     private const float MaxMoveForce = 3.0f;
 
     private const float InactiveLifetime = 0.2f;
-    private const float StableLifetime = 1.2f;
+    private const float MinStableLifetime = 1.6f;
+    private const float MaxStableLifetime = 2.0f;
     private const float PreCriticalLifetime = 0.2f;
     private const float CriticalLifetime = 1.0f;
-    private const float UnobtainableLifetime = 0.2f;
-    private const float SqrCollectDistance = 0.1f * 0.1f;
+    private const float UnobtainableLifetime = 0.1f;
+
+    private const float SqrCollectDistance = 0.5f * 0.5f; // TODO: Replace with static power of 2 function call, can't find it right now
 
     private Rigidbody2D _rb;
     private SpriteRenderer _sr;
@@ -47,11 +58,12 @@ public class CurrencyController : MonoBehaviour
         _sr = GetComponentInChildren<SpriteRenderer>();
         _light = GetComponentInChildren<Light2D>();
 
-        _sr.color = fadeInToColor;
-        _light.color = fadeInToColor;
+        _sr.color = fadeInFromColor;
+        _light.color = fadeInFromColor;
 
         _playerTransform = GameObject.FindWithTag("Player").transform;
 
+        // set timestamp to current time for 'inactive' lifetime to correctly lerp colors
         _lifetimeEndTimestamp = Time.time;
     }
 
@@ -78,9 +90,12 @@ public class CurrencyController : MonoBehaviour
             {
                 case CurrencyState.Inactive:
                 {
-                    if (_FadeCurrencyColorByTime(fadeInToColor, stableColor, _lifetimeEndTimestamp, _lifetimeEndTimestamp + InactiveLifetime))
+                    if (_FadeCurrencyColorByTime(fadeInFromColor,
+                            stableColor,
+                            _lifetimeEndTimestamp,
+                            _lifetimeEndTimestamp + InactiveLifetime))
                     {
-                        _lifetimeEndTimestamp = Time.time + StableLifetime;
+                        _lifetimeEndTimestamp = Time.time + Random.Range(MinStableLifetime, MaxStableLifetime);
                         _state = CurrencyState.Stable;
                     }
 
@@ -95,7 +110,11 @@ public class CurrencyController : MonoBehaviour
                 }
                 case CurrencyState.PreCritical:
                 {
-                    if (_FadeCurrencyColorByTime(stableColor, criticalColor, _lifetimeEndTimestamp, _lifetimeEndTimestamp + PreCriticalLifetime))
+                    if (_FadeCurrencyColorByTime(
+                            stableColor,
+                            criticalColor,
+                            _lifetimeEndTimestamp,
+                            _lifetimeEndTimestamp + PreCriticalLifetime))
                     {
                         _lifetimeEndTimestamp = Time.time + CriticalLifetime;
                         _state = CurrencyState.Critical;
@@ -117,7 +136,10 @@ public class CurrencyController : MonoBehaviour
                 }
                 case CurrencyState.Unobtainable:
                 {
-                    if (_FadeCurrencyColorByTime(criticalColor, fadeOutToColor, _lifetimeEndTimestamp, _lifetimeEndTimestamp + UnobtainableLifetime))
+                    if (_FadeCurrencyColorByTime(criticalColor,
+                            fadeOutToColor,
+                            _lifetimeEndTimestamp,
+                            _lifetimeEndTimestamp + UnobtainableLifetime))
                     {
                         Destroy(gameObject);
                     }
