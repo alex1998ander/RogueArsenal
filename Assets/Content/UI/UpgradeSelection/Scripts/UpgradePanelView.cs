@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,15 +18,6 @@ public class UpgradePanelView : MonoBehaviour
     private const string ModifierNameWeaponSpray = "Spray";
     private const string ModifierNameBulletSpeed = "Bullet Speed";
     private const string ModifierNameBulletRange = "Range";
-
-    private readonly Color _modifierColorBulletDamage = new Color(1f, 0.33f, 0.33f);
-    private readonly Color _modifierColorFireCooldown = new Color(0.83f,0.67f,0);
-    private readonly Color _modifierColorHealth = new Color(0.44f,0.78f,0.22f);
-    private readonly Color _modifierColorMagazineSize = new Color(0.8f,0.66f,1f);
-    private readonly Color _modifierColorReloadTime = new Color(0.8f,0.87f,0.53f);
-    private readonly Color _modifierColorWeaponSpray = new Color(0.83f,0.55f,0.37f);
-    private readonly Color _modifierColorBulletSpeed = new Color(0.33f,0.87f,1f);
-    private readonly Color _modifierColorBulletRange = new Color(1f,0.5f,0.9f);
 
     private const float ModificationLevelUpperThresholdPositiveLow = 0.2f;
     private const float ModificationLevelUpperThresholdPositiveMedium = 0.5f;
@@ -111,23 +103,22 @@ public class UpgradePanelView : MonoBehaviour
 
     private void InitializeModifiers(Upgrade upgrade, ref int modifierIndex)
     {
-        if (SetModificationLevel((1 + upgrade.BulletDamage) * (upgrade.BulletCount + 1) - 1, ref modifierIndex, ModifierNameBulletDamage, _modifierColorBulletDamage)) return;
-        if (SetModificationLevel(-upgrade.FireCooldown, ref modifierIndex, ModifierNameFireCooldown, _modifierColorFireCooldown)) return;
-        if (SetModificationLevel(upgrade.Health, ref modifierIndex, ModifierNameHealth, _modifierColorHealth)) return;
-        if (SetModificationLevel(upgrade.MagazineSize, ref modifierIndex, ModifierNameMagazineSize, _modifierColorMagazineSize)) return;
-        if (SetModificationLevel(upgrade.ReloadTime, ref modifierIndex, ModifierNameReloadTime, _modifierColorReloadTime)) return;
-        if (SetModificationLevel(upgrade.WeaponSpray, ref modifierIndex, ModifierNameWeaponSpray, _modifierColorWeaponSpray)) return;
-        if (SetModificationLevel(upgrade.BulletSpeed, ref modifierIndex, ModifierNameBulletSpeed, _modifierColorBulletSpeed)) return;
-        SetModificationLevel(upgrade.BulletRange, ref modifierIndex, ModifierNameBulletRange, _modifierColorBulletRange);
+        if (SetModificationLevel((1 + upgrade.BulletDamage) * (upgrade.BulletCount + 1) - 1, ref modifierIndex, ModifierNameBulletDamage)) return;
+        if (SetModificationLevel(-upgrade.FireCooldown, ref modifierIndex, ModifierNameFireCooldown)) return;
+        if (SetModificationLevel(upgrade.Health, ref modifierIndex, ModifierNameHealth)) return;
+        if (SetModificationLevel(upgrade.MagazineSize, ref modifierIndex, ModifierNameMagazineSize)) return;
+        if (SetModificationLevel(upgrade.ReloadTime, ref modifierIndex, ModifierNameReloadTime)) return;
+        if (SetModificationLevel(upgrade.WeaponSpray, ref modifierIndex, ModifierNameWeaponSpray)) return;
+        if (SetModificationLevel(upgrade.BulletSpeed, ref modifierIndex, ModifierNameBulletSpeed)) return;
+        SetModificationLevel(upgrade.BulletRange, ref modifierIndex, ModifierNameBulletRange);
     }
 
-    private bool SetModificationLevel(float upgradeModificationValue, ref int modifierIndex, string modifierName, Color modifierColor)
+    private bool SetModificationLevel(float upgradeModificationValue, ref int modifierIndex, string modifierName)
     {
         if (upgradeModificationValue != 0f)
         {
             upgradeModifier[modifierIndex].SetModificationLevel(DetermineModificationLevel(upgradeModificationValue));
             upgradeModifier[modifierIndex].SetModifierName(modifierName);
-            upgradeModifier[modifierIndex].SetModifierColor(modifierColor);
 
             modifierIndex++;
         }
@@ -153,10 +144,28 @@ public class UpgradePanelView : MonoBehaviour
 
     public void OnUpgradeHoverEnter()
     {
+        StartCoroutine(FadeScale(1.02f, 0.1f));
     }
 
     public void OnUpgradeHoverExit()
     {
+        StartCoroutine(FadeScale(1f, 0.1f));
+    }
+    
+    private IEnumerator FadeScale(float targetScale, float duration)
+    {
+        var time = 0f;
+        var initialScale = transform.localScale.x;
+
+        while (time < duration)
+        {
+            var scale = Mathf.Lerp(initialScale, targetScale, time / duration);
+
+            transform.localScale = new Vector3(scale, scale, scale);
+
+            time += Time.unscaledDeltaTime;
+            yield return null;
+        }
     }
 
     public void OnUpgradeClick()

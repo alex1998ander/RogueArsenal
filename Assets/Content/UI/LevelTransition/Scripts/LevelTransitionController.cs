@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LevelTransitionController : MonoBehaviour
 {
-    private const float MaxTime = 5f;
+    private const float MaxTime = 3f;
     
     [SerializeField] private AnimationCurve cameraMovementY;
     [SerializeField] private AnimationCurve cameraZoom;
