@@ -34,7 +34,7 @@ TagManager:
   - EnemyShield
   - Debris
   - Furniture_Trigger
-  - 
+  - LevelTransition
   - 
   - 
   - 
@@ -80,4 +80,7 @@ TagManager:
     locked: 0
   - name: UI
     uniqueID: 211826079
+    locked: 0
+  - name: Transition
+    uniqueID: 3619252833
     locked: 0

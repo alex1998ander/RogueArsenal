@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Object = UnityEngine.Object;
@@ -190,6 +191,8 @@ public static class LevelManager
             _upgradeSelectionRoot.SetActive(false);
         };
 
+        SceneManager.LoadSceneAsync("Assets/Content/Scenes/NewUI/UITransition.unity", LoadSceneMode.Additive);
+
         gameState = GameState.Ingame;
         EventManager.OnLevelEnter.Trigger();
     }
@@ -233,6 +236,7 @@ public static class LevelManager
             SceneManager.UnloadSceneAsync(SceneManager.GetSceneByPath("Assets/Content/Scenes/NewUI/UIGameOver.unity"));
             SceneManager.UnloadSceneAsync(SceneManager.GetSceneByPath("Assets/Content/Scenes/NewUI/UIPause.unity"));
             SceneManager.UnloadSceneAsync(SceneManager.GetSceneByPath("Assets/Content/Scenes/NewUI/UIUpgradeSelection.unity"));
+            SceneManager.UnloadSceneAsync(SceneManager.GetSceneByPath("Assets/Content/Scenes/NewUI/UITransition.unity"));
         }
 
         gameState = GameState.MainMenu;
@@ -255,13 +259,33 @@ public static class LevelManager
         lastSceneIdx = nextSceneIdx;
         levelCounter++;
 
-        SwitchLevelAsync($"Assets/Content/Scenes/Levels/Level{nextSceneIdx}.unity", _currentActiveScene);
+        LevelTransitionController.Singleton.TriggerLevelTransition(() =>
+        {
+            var asyncUnloadOperation = SceneManager.UnloadSceneAsync(_currentActiveScene);
+            asyncUnloadOperation.completed += _ =>
+            {
+                var asyncLoadOperation = SceneManager.LoadSceneAsync($"Assets/Content/Scenes/Levels/Level{nextSceneIdx}.unity", LoadSceneMode.Additive);
+                asyncLoadOperation.completed += _ =>
+                {
+                    GameManager.PauseGame(false);
+                    GameManager.FreezeGamePlay(false);
 
-        _pauseAllowed = true;
-        gameState = GameState.Ingame;
+                    _currentActiveScene = SceneManager.GetSceneByPath($"Assets/Content/Scenes/Levels/Level{nextSceneIdx}.unity");
+                    SceneManager.SetActiveScene(_currentActiveScene);
 
-        ProgressionManager.IncreaseDifficultyLevel();
-        EventManager.OnLevelEnter.Trigger();
+                    _currentBlurController = Object.FindFirstObjectByType<BlurController>();
+
+                    // Spawn enemies AFTER old level is fully unloaded so enemy AI won't find player of old level
+                    SpawnController.SpawnEnemies();
+                };
+            };
+
+            _pauseAllowed = true;
+            gameState = GameState.Ingame;
+
+            ProgressionManager.IncreaseDifficultyLevel();
+            EventManager.OnLevelEnter.Trigger();
+        });
     }
 
     private static void SwitchLevelAsync(string scenePath, Scene oldScene)

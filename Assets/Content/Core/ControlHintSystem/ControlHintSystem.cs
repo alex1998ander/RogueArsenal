@@ -1,11 +1,12 @@
-﻿using UnityEngine;
-
-namespace Content.Core.ControlHintSystem
+﻿namespace Content.Core.ControlHintSystem
 {
     public static class ControlHintSystem
     {
-        private const int UnusedControlReminderThreshold = 3;
+        private const float ReminderDelay = 2f;
+        private const float ShootInstructionDelay = 0.5f;
+        private const int UnusedControlReminderThreshold = 2;
 
+        private static bool _shootPromptObsolete;
         private static bool _dashPromptObsolete;
         private static int _dashPromptLastLevel;
         private static int _abilityPromptLastLevel = -3;
@@ -31,13 +32,18 @@ namespace Content.Core.ControlHintSystem
             _manager = manager;
         }
 
-
         private static void Reset()
         {
             _dashPromptLastLevel = 0;
             _abilityPromptLastLevel = -3;
 
             _dashPromptObsolete = false;
+            _shootPromptObsolete = false;
+
+            if (_manager == null)
+            {
+                return;
+            }
 
             _manager.movementPrompt.SetActive(false);
             _manager.shootPrompt.SetActive(false);
@@ -62,43 +68,47 @@ namespace Content.Core.ControlHintSystem
                 return;
             }
 
-            if (currentLevel >= _abilityPromptLastLevel + UnusedControlReminderThreshold)
+            if (currentLevel > _abilityPromptLastLevel + UnusedControlReminderThreshold && UpgradeManager.HasBindedAbility())
             {
-                if (UpgradeManager.HasBindedAbility())
-                {
-                    _abilityPromptLastLevel = LevelManager.levelCounter;
-                    _manager.DisplayPrompt(_manager.abilityPrompt);
-                }
+                _abilityPromptLastLevel = LevelManager.levelCounter;
+                _manager.DisplayPrompt(_manager.abilityPrompt, ReminderDelay);
             }
             else if (currentLevel >= _dashPromptLastLevel + UnusedControlReminderThreshold)
             {
                 _dashPromptLastLevel = LevelManager.levelCounter;
-                _manager.DisplayPrompt(_manager.dashPrompt);
+                _manager.DisplayPrompt(_manager.dashPrompt, ReminderDelay);
             }
         }
 
-        public static void ShowBasicControlPrompt()
+        public static void ShowMovementControlPrompt()
         {
             _manager.ShowPrompt(_manager.movementPrompt);
-            _manager.ShowPrompt(_manager.shootPrompt);
         }
 
-        public static void HideBasicControlPrompt()
+        public static void HideMovementControlPrompt()
         {
             _manager.HidePrompt(_manager.movementPrompt);
-            _manager.HidePrompt(_manager.shootPrompt);
         }
 
         public static void TriggerReloadPrompt()
         {
-            _manager.DisplayPrompt(_manager.reloadPrompt);
+            _manager.DisplayPrompt(_manager.reloadPrompt, ReminderDelay);
+        }
+
+        public static void TriggerShootPrompt()
+        {
+            if (!_shootPromptObsolete)
+            {
+                _manager.DisplayPrompt(_manager.shootPrompt, ShootInstructionDelay);
+                _shootPromptObsolete = true;
+            }
         }
 
         public static void TriggerDashPrompt()
         {
             if (!_dashPromptObsolete)
             {
-                _manager.DisplayPrompt(_manager.dashPrompt, false);
+                _manager.DisplayPrompt(_manager.dashPrompt);
                 _dashPromptObsolete = true;
             }
         }
