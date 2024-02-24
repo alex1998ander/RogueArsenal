@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,10 +13,11 @@ public class PlayerController : MonoBehaviour, ICharacterController
     // TODO: Remove this serialized field cuz it's stupid and I was lazy
     [SerializeField] private SpriteOrderer playerWeaponSpriteOrderer;
 
+    [SerializeField] private ParticleSystem abilityChargedEffectParticleSystem;
+
     public PlayerHealth playerHealth;
 
     private Rigidbody2D _rigidbody;
-    private Collider2D _collider;
     private Vector2 _movementInput;
     private Vector2 _dashMovementDirection;
     private Vector2 _aimDirection;
@@ -44,7 +46,6 @@ public class PlayerController : MonoBehaviour, ICharacterController
     {
         playerHealth = GetComponent<PlayerHealth>();
         _rigidbody = GetComponent<Rigidbody2D>();
-        _collider = GetComponent<Collider2D>();
 
         PlayerData.maxHealth = Mathf.RoundToInt(Configuration.Player_MaxHealth * UpgradeManager.GetHealthMultiplier());
         PlayerData.health = PlayerData.maxHealth;
@@ -230,9 +231,17 @@ public class PlayerController : MonoBehaviour, ICharacterController
             // This assignment has to be done before "UpgradeManager.OnAbility()" so that the variable can be overwritten by this function if necessary
             _abilityCooldownEndTimestamp = Time.time + PlayerData.abilityCooldown;
 
+            StartCoroutine(PlayAbilityRechargedEffect(PlayerData.abilityCooldown));
+
             UpgradeManager.OnAbility(this, playerWeapon);
             EventManager.OnPlayerAbilityUsed.Trigger();
         }
+    }
+
+    private IEnumerator PlayAbilityRechargedEffect(float time)
+    {
+        yield return new WaitForSeconds(time);
+        abilityChargedEffectParticleSystem.Play();
     }
 
     private void OnAim(InputValue value)
