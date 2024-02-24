@@ -113,7 +113,7 @@ public class Configuration
     public const float SinusoidalShots_SplitShotHalfAngleAdjustment = -40f;
 
     // Upgrade: Smart Pistol
-    public const float SmartPistol_Range = 5f;
+    public const float SmartPistol_Range = 10f;
 
     // Upgrade: Split Shot
     public const float SplitShot_DamageMultiplierAfterwards = 0.5f;
