@@ -24,7 +24,7 @@ public class UpgradeExplosiveBullet : Upgrade
     {
         float bulletDamageMultiplierBase = Mathf.InverseLerp(Configuration.ExplosiveBullet_BulletDamageBaseMin, Configuration.ExplosiveBullet_BulletDamageBaseMax, playerBullet.Damage);
         float explosionDamage = Mathf.Lerp(Configuration.ExplosiveBullet_MinDamage, Configuration.ExplosiveBullet_MaxDamage, bulletDamageMultiplierBase);
-        float explosionScale = Mathf.Lerp(Configuration.ExplosiveBullet_MinScale, Configuration.ExplosiveBullet_MaxScale, bulletDamageMultiplierBase);
+        float explosionScale = Mathf.Lerp(Configuration.ExplosiveBullet_MinSize, Configuration.ExplosiveBullet_MaxSize, bulletDamageMultiplierBase);
 
         Collider2D[] rangeCheck = Physics2D.OverlapCircleAll(playerBullet.transform.position, Configuration.ExplosiveBullet_Radius * explosionScale, _targetLayer);
         foreach (Collider2D targetCollider in rangeCheck)
