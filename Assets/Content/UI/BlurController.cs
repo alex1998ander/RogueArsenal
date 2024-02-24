@@ -7,6 +7,6 @@ public class BlurController : MonoBehaviour
 
     public void EnableBlur(bool enabled)
     {
-        postProcessVolume.enabled = enabled;
+        //postProcessVolume.enabled = enabled;
     }
 }
