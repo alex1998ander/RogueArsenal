@@ -6,7 +6,8 @@ public class IngameUIManager : MonoBehaviour
     [SerializeField] private AmmoBarView ammoBarView;
     [SerializeField] private CurrencyBarView currencyBarView;
     [SerializeField] private HealthBarView healthBarView;
-    [SerializeField] private PhoenixIndicatorView phoenixIndicatorView;
+    [SerializeField] private IndicatorView healingFieldIndicatorView;
+    [SerializeField] private IndicatorView phoenixIndicatorView;
 
     private void Start()
     {
@@ -31,6 +32,11 @@ public class IngameUIManager : MonoBehaviour
     private void Phoenixed()
     {
         phoenixIndicatorView.DisableIndicator();
+    }
+
+    private void UsedHealingField() ////////////////////////////////////////////////////// HERE
+    {
+        healingFieldIndicatorView.DisableIndicator();
     }
 
     private void CollectedCurrency()
@@ -78,6 +84,7 @@ public class IngameUIManager : MonoBehaviour
         ammoBarView.SetValue(PlayerData.ammo);
         currencyBarView.SetValue(ProgressionManager.CollectedCurrency);
         healthBarView.SetValue(PlayerData.health);
+        healingFieldIndicatorView.ShowIndicator(UpgradeManager.IsPhoenixActive); ////////////////////////////////////////////////////// HERE
         phoenixIndicatorView.ShowIndicator(UpgradeManager.IsPhoenixActive);
         
     }
