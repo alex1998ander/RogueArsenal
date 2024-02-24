@@ -32,7 +32,7 @@ public class EnemyHealth : MonoBehaviour, ICharacterHealth
 
         EventManager.OnEnemyDamage.Trigger(damageAmount);
         
-        _bt.NoticePlayer();
+        _bt?.NoticePlayer();
 
         // if enemy dies
         if (IsDead())
