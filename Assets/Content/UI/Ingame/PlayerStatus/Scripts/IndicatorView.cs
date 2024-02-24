@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PhoenixIndicatorView : MonoBehaviour
+public class IndicatorView : MonoBehaviour
 {
     [SerializeField] private Image indicatorImage;
     [SerializeField] private Sprite indicatorEnabledSprite;
