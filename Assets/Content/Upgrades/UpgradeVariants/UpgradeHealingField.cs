@@ -10,8 +10,17 @@ public class UpgradeHealingField : Upgrade
 
     public override float AbilityDelay => 0.6f;
 
+    public override void Init(PlayerController playerController)
+    {
+        PlayerData.healingFieldUsed = false;
+    }
+
     public override void OnAbility(PlayerController playerController, PlayerWeapon playerWeapon)
     {
+        if (PlayerData.healingFieldUsed)
+            return;
+
         UpgradeSpawnablePrefabHolder.SpawnPrefab(UpgradeSpawnablePrefabHolder.instance.healingFieldPrefab, playerController.transform.position, Configuration.HealingField_Duration + 0.1f);
+        PlayerData.healingFieldUsed = true;
     }
 }
