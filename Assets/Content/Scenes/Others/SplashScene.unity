@@ -196,7 +196,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da24d24507db77f4d994b53a8a28a28a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crosshairCursor: {fileID: 2800000, guid: c3268fe435eebd4428d1a533706ba7cc, type: 3}
+  crosshairCursor: {fileID: 2800000, guid: 5caf8dbf7dcdb1b44b01a293b6b5ce7a, type: 3}
+  reloadCursor:
+  - {fileID: 2800000, guid: ee35c16b967b39a40a11c3b64e7e0008, type: 3}
+  - {fileID: 2800000, guid: ad26d7394b7651e47b6fdb53967abe5f, type: 3}
+  - {fileID: 2800000, guid: 7193e35544961fc4183f098ebe74309e, type: 3}
+  - {fileID: 2800000, guid: a067004863b655144bacaf0b960545e3, type: 3}
+  - {fileID: 2800000, guid: bb091bcb94ef90c43af9326d38429e05, type: 3}
+  - {fileID: 2800000, guid: c94849fa66cbef540b457a2f236a94f3, type: 3}
+  - {fileID: 2800000, guid: be190addde11ef1419c0e7b0c81fe4ee, type: 3}
+  - {fileID: 2800000, guid: 9c7d958908a54c24ba7f6318dab26346, type: 3}
+  - {fileID: 2800000, guid: 59b1b5241410a8c4a9d69825f3480ce2, type: 3}
+  - {fileID: 2800000, guid: 71f4fd501fdd06e45b43dce8bcd703bf, type: 3}
+  - {fileID: 2800000, guid: 41a7b9b26d02e5c40b1fbc6469ca1682, type: 3}
+  - {fileID: 2800000, guid: 8f5362de07db83d47af8a53df4584027, type: 3}
+  - {fileID: 2800000, guid: e84d5e8f7162b5f449b3a3c07d7bc995, type: 3}
+  - {fileID: 2800000, guid: 94a1b9547dcf7da4c8d6393867343448, type: 3}
+  - {fileID: 2800000, guid: 558e1433a0ec8004db6dda92975519a0, type: 3}
+  - {fileID: 2800000, guid: 9dae00ec17bf34544b0d6397222a4613, type: 3}
+  - {fileID: 2800000, guid: 044c3086c5461104abb6bc0db2009735, type: 3}
+  - {fileID: 2800000, guid: 696cdd6df2796a642a6e7e14a647acaa, type: 3}
+  - {fileID: 2800000, guid: 6b945722bd9e40247bc4c7d037dad2f2, type: 3}
+  - {fileID: 2800000, guid: f639b26c66aeea44ab7e7d9540a59bb1, type: 3}
+  - {fileID: 2800000, guid: 9e2d209afe59dc04999abb03830ad356, type: 3}
+  - {fileID: 2800000, guid: 23f44adccd48de245bc447cad609db77, type: 3}
+  - {fileID: 2800000, guid: dd4a73368712ec84582588fd92d8cffc, type: 3}
+  - {fileID: 2800000, guid: 5634a93f0d55786428ea0d10630e84f7, type: 3}
 --- !u!4 &591432777
 Transform:
   m_ObjectHideFlags: 0
