@@ -51,12 +51,15 @@ public class PlayerBullet : MonoBehaviour
         if (other.CompareTag("Player") && Time.time < _spawnEndTimestamp)
             return;
 
+        ICharacterHealth characterHealth = other.GetComponentInParent<ICharacterHealth>();
+        if (characterHealth is EnemyHealth && characterHealth.IsDead())
+            return;
+
         if (!UpgradeManager.OnBulletTrigger(this, other))
         {
             Destroy(gameObject);
         }
 
-        ICharacterHealth characterHealth = other.GetComponentInParent<ICharacterHealth>();
         if (characterHealth is PlayerHealth)
         {
             if (Time.time >= _spawnEndTimestamp)
