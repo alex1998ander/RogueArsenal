@@ -45,6 +45,11 @@ namespace BehaviorTree
             return SetCharacterState(root.sharedData.IsThrown, Configuration.Enemy_ThrownTime, Configuration.Enemy_ThrownImmunityTime, ref _thrownImmunityEndTimestamp);
         }
 
+        public void NoticePlayer()
+        {
+            root.SetData(root.sharedData.IsAwareOfPlayer, true);
+        }
+
         /// <summary>
         /// Sets given state to true for given period of time if the enemy isn't still immune.
         /// If so, sets that state to false after time has passed and updates immunity to that state.
