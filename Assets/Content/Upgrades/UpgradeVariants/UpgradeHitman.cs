@@ -7,7 +7,7 @@
     public override string Description => "Break the sound barrier with your bullets.";
 
     public override float BulletDamage => 0.4f;
-    public override float BulletRange => 2f;
     public override float BulletSpeed => 1.5f;
     public override float FireCooldown => 0.4f;
+    public override float WeaponSpray => -0.8f;
 }
