@@ -1,14 +1,19 @@
+using BehaviorTree;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour, ICharacterHealth
 {
     [SerializeField] private float maxHealth = 100f;
 
+    private EnemyBehaviourTree _bt;
+    
     private ObjectDropController _currencyDropController;
     private float _currentHealth;
 
     private void Awake()
     {
+        _bt = GetComponent<EnemyBehaviourTree>();
+        
         _currencyDropController = GetComponent<ObjectDropController>();
         _currentHealth = maxHealth;
     }
@@ -26,6 +31,8 @@ public class EnemyHealth : MonoBehaviour, ICharacterHealth
         _currentHealth -= damageAmount;
 
         EventManager.OnEnemyDamage.Trigger(damageAmount);
+        
+        _bt?.NoticePlayer();
 
         // if enemy dies
         if (IsDead())

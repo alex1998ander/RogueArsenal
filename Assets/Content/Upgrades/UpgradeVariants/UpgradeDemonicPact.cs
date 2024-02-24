@@ -16,7 +16,7 @@ public class UpgradeDemonicPact : Upgrade
     public override void Init(PlayerController playerController)
     {
         _playerController = playerController;
-        _nextDamageTimestamp = Time.time + 1f / Configuration.DemonicPact_BurstsPerSecond;
+        _nextDamageTimestamp = Time.time + 1f / Configuration.DemonicPact_DamageBurstsPerSecond;
     }
 
     public override void PlayerUpdate(PlayerController playerController)
@@ -26,8 +26,8 @@ public class UpgradeDemonicPact : Upgrade
             float currentHealthPercentage = PlayerData.health / PlayerData.maxHealth;
             if (currentHealthPercentage >= Configuration.DemonicPact_MinHealthPercentage)
             {
-                _playerController.playerHealth.InflictDamage(Configuration.DemonicPact_HealthLossPerSecond / Configuration.DemonicPact_BurstsPerSecond, false, true);
-                _nextDamageTimestamp = Time.time + 1f / Configuration.DemonicPact_BurstsPerSecond;
+                _playerController.playerHealth.InflictDamage(Configuration.DemonicPact_DamagePerSecond / Configuration.DemonicPact_DamageBurstsPerSecond, false, true);
+                _nextDamageTimestamp = Time.time + 1f / Configuration.DemonicPact_DamageBurstsPerSecond;
             }
         }
     }
@@ -36,8 +36,11 @@ public class UpgradeDemonicPact : Upgrade
     {
         if (!other.CompareTag("Player"))
         {
-            _playerController.playerHealth.Heal(Configuration.DemonicPact_BaseHealAmount * playerBullet.Damage);
-            _nextDamageTimestamp = Time.time + 1f / Configuration.DemonicPact_BurstsPerSecond;
+            float healMultiplierBase = Mathf.InverseLerp(Configuration.DemonicPact_MinBulletDamageBase, Configuration.DemonicPact_MaxBulletDamageBase, playerBullet.Damage);
+            float healAmount = Mathf.Lerp(Configuration.DemonicPact_MinHealAmount, Configuration.DemonicPact_MaxHealAmount, healMultiplierBase);
+
+            _playerController.playerHealth.Heal(healAmount);
+            _nextDamageTimestamp = Time.time + (float) Configuration.DemonicPact_IgnoredDamageBurstsAfterHeal / Configuration.DemonicPact_DamageBurstsPerSecond;
         }
 
         return base.OnBulletTrigger(playerBullet, other);

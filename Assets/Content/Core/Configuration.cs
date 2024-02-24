@@ -65,23 +65,27 @@ public class Configuration
     public const float Burst_FireDelayFraction = 0.15f;
 
     // Upgrade: Demonic Pact
-    public const int DemonicPact_BurstsPerSecond = 1;
-    public const float DemonicPact_HealthLossPerSecond = 5f;
-    public const float DemonicPact_BaseHealAmount = 0.1f;
+    public const int DemonicPact_DamageBurstsPerSecond = 1;
+    public const float DemonicPact_IgnoredDamageBurstsAfterHeal = 2f;
+    public const float DemonicPact_DamagePerSecond = 5f;
+    public const float DemonicPact_MinHealAmount = 0.5f;
+    public const float DemonicPact_MaxHealAmount = 20f;
+    public const float DemonicPact_MinBulletDamageBase = 5.0f;
+    public const float DemonicPact_MaxBulletDamageBase = 300.0f;
     public const float DemonicPact_MinHealthPercentage = 0.2f;
 
     // Upgrade: Explosive Bullet
     public const float ExplosiveBullet_MinDamage = 2f;
     public const float ExplosiveBullet_MaxDamage = 60f;
-    public const float ExplosiveBullet_MinScale = 0.5f;
-    public const float ExplosiveBullet_MaxScale = 1.5f;
+    public const float ExplosiveBullet_MinSize = 0.5f;
+    public const float ExplosiveBullet_MaxSize = 1.5f;
     public const float ExplosiveBullet_BulletDamageBaseMin = 5f;
     public const float ExplosiveBullet_BulletDamageBaseMax = 50f;
     public const float ExplosiveBullet_Radius = 1.5f;
 
     // Upgrade: Healing Field
     public const int HealingField_Bursts = 5;
-    public const float HealingField_Amount = 30f;
+    public const float HealingField_Amount = 50f;
     public const float HealingField_Duration = 1.5f;
     public const float HealingField_Radius = 1.5f;
 
@@ -109,7 +113,7 @@ public class Configuration
     public const float SinusoidalShots_SplitShotHalfAngleAdjustment = -40f;
 
     // Upgrade: Smart Pistol
-    public const float SmartPistol_Range = 5f;
+    public const float SmartPistol_Range = 10f;
 
     // Upgrade: Split Shot
     public const float SplitShot_DamageMultiplierAfterwards = 0.5f;

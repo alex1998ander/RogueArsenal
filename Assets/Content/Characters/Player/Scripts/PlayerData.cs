@@ -22,6 +22,9 @@ public static class PlayerData
     // Upgrade: Phoenix
     public static bool phoenixed;
 
+    // Upgrade: Healing Field
+    public static bool healingFieldUsed;
+
     // Upgrade: Shield
     public static bool ShieldActive;
 
