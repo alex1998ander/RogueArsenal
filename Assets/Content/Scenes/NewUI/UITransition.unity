@@ -465,7 +465,7 @@ GameObject:
   - component: {fileID: 815859318}
   - component: {fileID: 815859319}
   m_Layer: 22
-  m_Name: Floor2Bottom.3
+  m_Name: Desk2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -484,7 +484,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1161696828}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &815859319
 SpriteRenderer:
@@ -549,7 +549,7 @@ GameObject:
   - component: {fileID: 888696994}
   - component: {fileID: 888696995}
   m_Layer: 22
-  m_Name: Floor2Bottom.4
+  m_Name: Fruits
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -717,7 +717,7 @@ GameObject:
   - component: {fileID: 1092370057}
   - component: {fileID: 1092370058}
   m_Layer: 22
-  m_Name: Floor2Bottom.1
+  m_Name: Desk1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -778,7 +778,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -675714463
   m_SortingLayer: 12
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: -105846093, guid: 3ab63dbf706158447a85ac09f58e0fdd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -827,8 +827,8 @@ Transform:
   - {fileID: 1081654474}
   - {fileID: 565469775}
   - {fileID: 1092370057}
-  - {fileID: 1890469448}
   - {fileID: 815859318}
+  - {fileID: 1890469448}
   - {fileID: 888696994}
   - {fileID: 1709870384}
   m_Father: {fileID: 0}
@@ -1092,7 +1092,7 @@ GameObject:
   - component: {fileID: 1709870384}
   - component: {fileID: 1709870385}
   m_Layer: 22
-  m_Name: Floor2Bottom.5
+  m_Name: Plant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1176,7 +1176,7 @@ GameObject:
   - component: {fileID: 1890469448}
   - component: {fileID: 1890469449}
   m_Layer: 22
-  m_Name: Floor2Bottom.2
+  m_Name: Globe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1195,7 +1195,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1161696828}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1890469449
 SpriteRenderer:
