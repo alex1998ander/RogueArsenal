@@ -7,7 +7,7 @@ using Object = UnityEngine.Object;
 public static class UpgradeManager
 {
     // upgrades
-    public static List<Upgrade> CurrentUpgrades { get; private set; } = new ();
+    public static List<Upgrade> CurrentUpgrades { get; private set; } = new();
 
     private static Upgrade[] _currentUpgradeSelection;
 
@@ -42,6 +42,7 @@ public static class UpgradeManager
 
     private static readonly List<Upgrade> UpgradePool = new();
     public static bool IsPhoenixActive => CurrentUpgrades.OfType<UpgradePhoenix>().Any();
+    public static bool IsHealingFieldActive => CurrentUpgrades.OfType<UpgradeHealingField>().Any();
 
     static UpgradeManager()
     {

@@ -399,7 +399,7 @@ MonoBehaviour:
   ammoBarView: {fileID: 6215683896661265740}
   currencyBarView: {fileID: 7052078094787622709}
   healthBarView: {fileID: 3183458087111455572}
-  healingFieldIndicatorView: {fileID: 0}
+  healingFieldIndicatorView: {fileID: 7204790513093062835}
   phoenixIndicatorView: {fileID: 796759666350031695}
 --- !u!1 &796759666281234489
 GameObject:

@@ -16,6 +16,7 @@ public class IngameUIManager : MonoBehaviour
         EventManager.OnWeaponReloadStart.Subscribe(Reload);
         EventManager.OnPlayerAbilityUsed.Subscribe(AbilityUsed);
         EventManager.OnPhoenixRevive.Subscribe(Phoenixed);
+        EventManager.OnHealingFieldStart.Subscribe(UsedHealingField);
         EventManager.OnPlayerCollectCurrency.Subscribe(CollectedCurrency);
         EventManager.OnUpgradeChange.Subscribe(UpdateBarConfigValues);
 
@@ -34,7 +35,7 @@ public class IngameUIManager : MonoBehaviour
         phoenixIndicatorView.DisableIndicator();
     }
 
-    private void UsedHealingField() ////////////////////////////////////////////////////// HERE
+    private void UsedHealingField()
     {
         healingFieldIndicatorView.DisableIndicator();
     }
@@ -68,7 +69,7 @@ public class IngameUIManager : MonoBehaviour
     {
         UpdateBarConfigValues(PlayerData.abilityCooldown, PlayerData.maxAmmo, PlayerData.reloadTime, ProgressionManager.CurrentUpgradePrice, PlayerData.maxHealth);
     }
-    
+
     private void UpdateBarConfigValues(float abilityReloadTime, float ammoBarMaxValue, float ammoBarReloadTime, float currencyBarMaxValue, float healthBarMaxValue)
     {
         abilityBarView.SetReloadTime(abilityReloadTime);
@@ -84,9 +85,8 @@ public class IngameUIManager : MonoBehaviour
         ammoBarView.SetValue(PlayerData.ammo);
         currencyBarView.SetValue(ProgressionManager.CollectedCurrency);
         healthBarView.SetValue(PlayerData.health);
-        healingFieldIndicatorView.ShowIndicator(UpgradeManager.IsPhoenixActive); ////////////////////////////////////////////////////// HERE
+        healingFieldIndicatorView.ShowIndicator(UpgradeManager.IsHealingFieldActive);
         phoenixIndicatorView.ShowIndicator(UpgradeManager.IsPhoenixActive);
-        
     }
 
     private void OnDestroy()
@@ -96,6 +96,7 @@ public class IngameUIManager : MonoBehaviour
         EventManager.OnWeaponReloadStart.Unsubscribe(Reload);
         EventManager.OnPlayerAbilityUsed.Unsubscribe(AbilityUsed);
         EventManager.OnPhoenixRevive.Unsubscribe(Phoenixed);
+        EventManager.OnHealingFieldStart.Unsubscribe(UsedHealingField);
         EventManager.OnPlayerCollectCurrency.Unsubscribe(CollectedCurrency);
         EventManager.OnUpgradeChange.Unsubscribe(UpdateBarConfigValues);
     }
