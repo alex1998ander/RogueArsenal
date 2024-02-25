@@ -1,7 +1,6 @@
-using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Serialization;
+using UnityEngine.Rendering.Universal;
 using Random = UnityEngine.Random;
 
 public class PlayerWeapon : MonoBehaviour
@@ -9,6 +8,8 @@ public class PlayerWeapon : MonoBehaviour
     [SerializeField] private GameObject playerBulletPrefab;
     [SerializeField] private Transform firePointTransform;
     [SerializeField] private SpriteRenderer muzzleFlashSprite;
+    [SerializeField] private Light2D muzzleFlashLight;
+    [SerializeField] private float muzzleFlashLightIntensity;
     [SerializeField] private Animator muzzleFlashAnimator;
     [SerializeField] private SpriteRenderer weaponSprite;
     [SerializeField] private SpriteOrderer weaponSpriteOrderer;
@@ -130,6 +131,7 @@ public class PlayerWeapon : MonoBehaviour
     private void PlayMuzzleFlashEffects()
     {
         muzzleFlashAnimator.SetTrigger(Shoot);
+        muzzleFlashLight.intensity = muzzleFlashLightIntensity;
     }
 
     private bool IsAimingLeft()
