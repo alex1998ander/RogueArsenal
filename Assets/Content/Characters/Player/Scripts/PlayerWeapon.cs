@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -7,6 +8,15 @@ public class PlayerWeapon : MonoBehaviour
 {
     [SerializeField] private GameObject playerBulletPrefab;
     [SerializeField] private Transform firePointTransform;
+    [SerializeField] private SpriteRenderer muzzleFlashSprite;
+    [SerializeField] private Animator muzzleFlashAnimator;
+    [SerializeField] private SpriteRenderer weaponSprite;
+    [SerializeField] private SpriteOrderer weaponSpriteOrderer;
+
+    private Vector3 _defaultFirePointOffset;
+    private Vector3 _defaultMuzzleFlashOffset;
+
+    private static readonly int Shoot = Animator.StringToHash("Shoot");
 
     public void Init_Sandbox()
     {
@@ -18,6 +28,31 @@ public class PlayerWeapon : MonoBehaviour
         PlayerData.maxAmmo = Mathf.RoundToInt(Configuration.Weapon_MagazineSize * UpgradeManager.GetMagazineSizeMultiplier());
         PlayerData.reloadTime = Configuration.Weapon_ReloadTime * UpgradeManager.GetReloadTimeMultiplier();
         PlayerData.ammo = PlayerData.maxAmmo;
+
+        _defaultFirePointOffset = firePointTransform.localPosition;
+        _defaultMuzzleFlashOffset = muzzleFlashSprite.transform.localPosition;
+    }
+
+    private void FixedUpdate()
+    {
+        Vector3 newOffset = IsAimingLeft() ? new Vector3(_defaultFirePointOffset.x, -_defaultFirePointOffset.y, _defaultFirePointOffset.z) : _defaultFirePointOffset;
+        firePointTransform.localPosition = newOffset;
+    }
+
+    private void Update()
+    {
+        bool aimingLeft = IsAimingLeft();
+
+        // When the player is aiming left, flip weapon so it's not heads-down
+        weaponSprite.flipY = aimingLeft;
+        muzzleFlashSprite.flipY = aimingLeft;
+
+        // when aiming left, flip the y offset of the muzzle flash to fit the flipped sprite
+        Vector3 newOffset = aimingLeft ? new Vector3(_defaultMuzzleFlashOffset.x, -_defaultMuzzleFlashOffset.y, _defaultMuzzleFlashOffset.z) : _defaultMuzzleFlashOffset;
+        muzzleFlashSprite.transform.localPosition = newOffset;
+
+        // When the player is aiming up, adjust sorting order so weapon is behind player
+        weaponSpriteOrderer.orderOffset = IsAimingUp() ? -32 : 0;
     }
 
     /// <summary>
@@ -47,6 +82,7 @@ public class PlayerWeapon : MonoBehaviour
         }
 
         Fire(firePoint, fireDirection);
+        PlayMuzzleFlashEffects();
 
         if (spendAmmo)
         {
@@ -89,5 +125,20 @@ public class PlayerWeapon : MonoBehaviour
         yield return new WaitForSeconds(PlayerData.reloadTime);
         PlayerData.ammo = PlayerData.maxAmmo;
         EventManager.OnWeaponReloadEnd.Trigger();
+    }
+
+    private void PlayMuzzleFlashEffects()
+    {
+        muzzleFlashAnimator.SetTrigger(Shoot);
+    }
+
+    private bool IsAimingLeft()
+    {
+        return transform.eulerAngles.z is >= 90f and <= 270f;
+    }
+
+    private bool IsAimingUp()
+    {
+        return transform.eulerAngles.z is >= 45f and <= 135f;
     }
 }

@@ -8,11 +8,6 @@ public class PlayerController : MonoBehaviour, ICharacterController
 {
     [SerializeField] private Animator playerVisualsAnimator;
     [SerializeField] private PlayerWeapon playerWeapon;
-    [SerializeField] private SpriteRenderer playerWeaponSprite;
-
-    // TODO: Remove this serialized field cuz it's stupid and I was lazy
-    [SerializeField] private SpriteOrderer playerWeaponSpriteOrderer;
-
     [SerializeField] private ParticleSystem abilityChargedEffectParticleSystem;
 
     public PlayerHealth playerHealth;
@@ -251,17 +246,12 @@ public class PlayerController : MonoBehaviour, ICharacterController
             _aimDirection = value.Get<Vector2>();
             if (Vector2.Distance(Vector2.zero, _aimDirection) > 0.5)
             {
-                _aimDirection = (Vector2) Camera.main.ScreenToWorldPoint(_aimDirection) - _rigidbody.position;
+                Vector2 screenToWorldPosition = Camera.main.ScreenToWorldPoint(_aimDirection);
+                _aimDirection = screenToWorldPosition - (Vector2) playerWeapon.transform.position;
                 _aimDirection.Normalize();
 
                 _angle = Mathf.Atan2(_aimDirection.y, _aimDirection.x) * Mathf.Rad2Deg;
                 playerWeapon.transform.rotation = Quaternion.Euler(0, 0, _angle);
-
-                // TODO: move visual adjustment code somewhere else
-                // When the player is aiming left, flip weapon so it's not heads-down
-                playerWeaponSprite.flipY = _aimDirection.x < 0.0f;
-                // When the player is aiming up, adjust sorting order so weapon is behind player
-                playerWeaponSpriteOrderer.orderOffset = _angle >= 45.0 && _angle <= 135.0f ? -32 : 0;
 
                 playerVisualsAnimator.SetFloat(AimDirectionX, _aimDirection.x);
                 playerVisualsAnimator.SetFloat(AimDirectionY, _aimDirection.y);
