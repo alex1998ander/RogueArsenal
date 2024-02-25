@@ -81,7 +81,7 @@ namespace BehaviorTree
                 _lineRenderer.endWidth = 1f;
                 int layerMaskToInt = LayerMask.GetMask("Player_Trigger");
                 RaycastHit2D[] hits = new RaycastHit2D[1];
-                int gotHits = Physics2D.BoxCastNonAlloc(new Vector2(_body.position.x, _body.position.y), new Vector2(2, 10), 0, _direction, hits, 20, layerMaskToInt);
+                int gotHits = Physics2D.BoxCastNonAlloc(new Vector2(_body.position.x, _body.position.y), new Vector2(1, 15), 0, _direction, hits, 20, layerMaskToInt);
                 if (gotHits == 1  && !_gotHitOnce)
                 {
                     hits[0].transform.GetComponent<PlayerHealth>().InflictDamage(Configuration.Boss_LaserDamage, true);

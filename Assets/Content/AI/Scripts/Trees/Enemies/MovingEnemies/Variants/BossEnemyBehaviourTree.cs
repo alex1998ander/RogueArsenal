@@ -49,31 +49,7 @@ namespace BehaviorTree
             sharedData.SetData(sharedData.AbilityState, AbilityState.None);
             sharedData.SetData(sharedData.RandomAbility, -1);
             sharedData.SetData(sharedData.AbilityPool, 0);
-
-            //All abilities the boss can have
-            //Node[] tasksPool = new Node[]
-            // {
-            //     new BossAttackSpawnObject(transform, turret, Vector3.one, 3),
-            //     new BossAttackSpawnObject(transform, clone, new Vector3(1.5f, 1.5f, 1.5f), 3),
-            //     new BossAttackStomp(transform, playerTransform, bossSprite, ui, weapon),
-            //     new BossAttackDash(transform, rb, playerTransform),
-            //     new BossAttackLaserFocus(lineRenderer, playerTransform, transform),
-            //     new BossAttackSpawnObject(_mineSpawns, mine, new Vector3(0.5f, 0.5f, 0.5f)),
-            //     new BossAttack360Shot(transform, bullet),
-            //     new BossAttackShield(shieldGenerator),
-            //     new BossAttackShockwave(shockWave)
-            // };
-            //Each round the boss gets three of the abilities that can be used 
-            // int[] taskCounter = {-1, -1, -1};
-            // while ((taskCounter[0] == taskCounter[1]) || (taskCounter[1] == taskCounter[2]) || (taskCounter[0] == taskCounter[2]))
-            // {
-            //     for (int i = 0; i < taskCounter.Length; i++)
-            //     {
-            //         taskCounter[i] = Random.Range(0, tasksPool.Length - 1);
-            //     }
-            // }
-            //
-            // Node[] tasks = {tasksPool[taskCounter[0]], tasksPool[taskCounter[1]], tasksPool[taskCounter[2]]};
+            
             Node[][] tasks =
             {
                 new Node[]
