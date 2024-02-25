@@ -53226,7 +53226,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2514743810775616636, guid: f43f83361cda54048b4f50595954404f, type: 3}
       propertyPath: maxHealth
-      value: 3000
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 2633749590434208488, guid: f43f83361cda54048b4f50595954404f, type: 3}
       propertyPath: weaponSpray
