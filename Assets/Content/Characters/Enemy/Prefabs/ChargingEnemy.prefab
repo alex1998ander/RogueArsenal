@@ -72,6 +72,73 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.76, y: 1.310675}
   m_EdgeRadius: 0
+--- !u!1001 &5380860868072846150
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 5364349254091400060}
+    m_Modifications:
+    - target: {fileID: 570960589405539265, guid: d97f514186bd59a478dfbeafa43ffa56, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 570960589405539265, guid: d97f514186bd59a478dfbeafa43ffa56, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 570960589405539265, guid: d97f514186bd59a478dfbeafa43ffa56, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.274
+      objectReference: {fileID: 0}
+    - target: {fileID: 570960589405539265, guid: d97f514186bd59a478dfbeafa43ffa56, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 570960589405539265, guid: d97f514186bd59a478dfbeafa43ffa56, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 570960589405539265, guid: d97f514186bd59a478dfbeafa43ffa56, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 570960589405539265, guid: d97f514186bd59a478dfbeafa43ffa56, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 570960589405539265, guid: d97f514186bd59a478dfbeafa43ffa56, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 570960589405539265, guid: d97f514186bd59a478dfbeafa43ffa56, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 570960589405539265, guid: d97f514186bd59a478dfbeafa43ffa56, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 570960589405539265, guid: d97f514186bd59a478dfbeafa43ffa56, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3863244887004918765, guid: d97f514186bd59a478dfbeafa43ffa56, type: 3}
+      propertyPath: m_Name
+      value: ChargeEffect
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d97f514186bd59a478dfbeafa43ffa56, type: 3}
+--- !u!198 &190323198340789095 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5190540972715819041, guid: d97f514186bd59a478dfbeafa43ffa56, type: 3}
+  m_PrefabInstance: {fileID: 5380860868072846150}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &3847786901802962623 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 9208381019069480441, guid: d97f514186bd59a478dfbeafa43ffa56, type: 3}
+  m_PrefabInstance: {fileID: 5380860868072846150}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5565478178470794961
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -200,6 +267,11 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 6846983187112741943, guid: ba46bce3e439cdd489820f759add8589, type: 3}
   m_PrefabInstance: {fileID: 5565478178470794961}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &5364349254091400060 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 526204081913427373, guid: ba46bce3e439cdd489820f759add8589, type: 3}
+  m_PrefabInstance: {fileID: 5565478178470794961}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6910014811840088113 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1358329203599744736, guid: ba46bce3e439cdd489820f759add8589, type: 3}
@@ -225,12 +297,13 @@ MonoBehaviour:
   wallLayer:
     serializedVersion: 2
     m_Bits: 256
+  enemyAnimator: {fileID: 1313311681012423398}
   movementSpeed: 5
   movementAcceleration: 30
   minDistanceFromPlayer: 2
   maxDistanceFromPlayer: 3
-  enemyAnimator: {fileID: 1313311681012423398}
-  muzzleFlashAnimator: {fileID: 0}
   damageZoneCollider: {fileID: 2159040945188584003}
   preChargeTime: 1
   postChargeTime: 1
+  chargingEffect: {fileID: 3847786901802962623}
+  dashingEffect: {fileID: 190323198340789095}

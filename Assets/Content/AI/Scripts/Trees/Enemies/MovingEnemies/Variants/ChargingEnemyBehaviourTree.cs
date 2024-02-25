@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Serialization;
 
 namespace BehaviorTree
 {
@@ -9,10 +10,18 @@ namespace BehaviorTree
         [SerializeField] private Collider2D damageZoneCollider;
         [SerializeField] private float preChargeTime = 1f;
         [SerializeField] private float postChargeTime = 1f;
+        [SerializeField] private ParticleSystem chargingEffect;
+        [SerializeField] private ParticleSystem dashingEffect;
 
         protected override Node SetupTree()
         {
             base.SetupTree();
+
+            ParticleSystem.MainModule charging = chargingEffect.main;
+            charging.duration = preChargeTime;
+
+            ParticleSystem.MainModule dashing = dashingEffect.main;
+            dashing.duration = Configuration.Enemy_DashTime * 2;
 
             // Get relevant components
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
@@ -80,6 +89,7 @@ namespace BehaviorTree
                             new ExpectData<ChargeState>(sharedData.ChargeState, ChargeState.PreCharge),
                             new TaskLookAt(playerTransform, rb, enemyAnimator),
                             new SetAnimatorParameter<bool>(enemyAnimator, "Running", false),
+                            new TaskPlayParticleSystem(chargingEffect),
                             new TaskWait(preChargeTime, true),
                             new TaskSetAgentActive(agent, false),
                             new TaskEnemyDash(playerTransform, rb, transform),
@@ -89,6 +99,7 @@ namespace BehaviorTree
                         new Sequence(new List<Node>
                         {
                             new ExpectData<ChargeState>(sharedData.ChargeState, ChargeState.MidCharge),
+                            new TaskPlayParticleSystem(dashingEffect),
                             new TaskActivateDamageZone(true, damageZoneCollider),
                             new TaskWait(Configuration.Enemy_DashTime, true),
                             new SetData<ChargeState>(sharedData.ChargeState, ChargeState.PostCharge),
