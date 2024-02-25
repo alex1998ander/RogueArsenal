@@ -24,6 +24,12 @@ namespace BehaviorTree
         [SerializeField] private GameObject bullet;
         [SerializeField] private GameObject shockWave;
         [SerializeField] private GameObject ui;
+
+        [SerializeField] private ParticleSystem chargingEffect;
+        [SerializeField] private ParticleSystem dashingEffect;
+        [SerializeField] private LightFader chargeLightFader;
+        [SerializeField] private float chargeLightMaxIntensity;
+
         private GameObject[] _mineSpawns;
 
         protected override Node SetupTree()
@@ -49,7 +55,7 @@ namespace BehaviorTree
             sharedData.SetData(sharedData.AbilityState, AbilityState.None);
             sharedData.SetData(sharedData.RandomAbility, -1);
             sharedData.SetData(sharedData.AbilityPool, 0);
-            
+
             Node[][] tasks =
             {
                 new Node[]
@@ -60,7 +66,7 @@ namespace BehaviorTree
                 },
                 new Node[]
                 {
-                    new BossAttackDash(transform, rb, playerTransform),
+                    new BossAttackDash(transform, rb, playerTransform, chargingEffect, dashingEffect, chargeLightFader, chargeLightMaxIntensity),
                     new BossAttack360Shot(transform, bullet),
                     new BossAttackSpawnObject(_mineSpawns, mine, new Vector3(0.5f, 0.5f, 0.5f))
                 },

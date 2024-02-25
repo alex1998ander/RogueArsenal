@@ -373,5 +373,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84c5cd29c59dbac40a69dd0d83a76fe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  orderOffset: -1
+  orderOffset: -8
   parentSpriteOrderer: {fileID: 7206985120945275963}
