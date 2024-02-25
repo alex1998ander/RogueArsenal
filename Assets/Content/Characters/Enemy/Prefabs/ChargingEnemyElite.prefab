@@ -40,6 +40,10 @@ PrefabInstance:
       value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 6708876548403151155, guid: e7d7064a2e496d941b3b596d24171d5c, type: 3}
+      propertyPath: enemyAnimator
+      value: 
+      objectReference: {fileID: 8217650363457668473}
+    - target: {fileID: 6708876548403151155, guid: e7d7064a2e496d941b3b596d24171d5c, type: 3}
       propertyPath: movementSpeed
       value: 6
       objectReference: {fileID: 0}
@@ -115,5 +119,14 @@ PrefabInstance:
       propertyPath: currencyDropAmount
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 8131310648336234390, guid: e7d7064a2e496d941b3b596d24171d5c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7d7064a2e496d941b3b596d24171d5c, type: 3}
+--- !u!95 &8217650363457668473 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1313311681012423398, guid: e7d7064a2e496d941b3b596d24171d5c, type: 3}
+  m_PrefabInstance: {fileID: 6931927628213182367}
+  m_PrefabAsset: {fileID: 0}

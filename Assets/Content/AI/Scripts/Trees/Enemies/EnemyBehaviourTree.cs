@@ -8,6 +8,7 @@ namespace BehaviorTree
     {
         // Layer mask of the walls of the level.
         [SerializeField] protected LayerMask wallLayer;
+        [SerializeField] protected Animator muzzleFlashAnimator;
 
         private float _stunImmunityEndTimestamp;
         private float _thrownImmunityEndTimestamp;

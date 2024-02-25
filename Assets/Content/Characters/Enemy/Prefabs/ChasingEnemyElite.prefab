@@ -59,6 +59,14 @@ PrefabInstance:
       propertyPath: objectCount
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 2925180615266283733, guid: 3713d6f55b36a9c43a544bc5601e18d7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.824
+      objectReference: {fileID: 0}
+    - target: {fileID: 2925180615266283733, guid: 3713d6f55b36a9c43a544bc5601e18d7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.098
+      objectReference: {fileID: 0}
     - target: {fileID: 3613333551336993461, guid: 3713d6f55b36a9c43a544bc5601e18d7, type: 3}
       propertyPath: defaultDamage
       value: 14
@@ -96,6 +104,10 @@ PrefabInstance:
       value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7455721220963869408, guid: 3713d6f55b36a9c43a544bc5601e18d7, type: 3}
+      propertyPath: enemyAnimator
+      value: 
+      objectReference: {fileID: 205163657678269603}
+    - target: {fileID: 7455721220963869408, guid: 3713d6f55b36a9c43a544bc5601e18d7, type: 3}
       propertyPath: movementSpeed
       value: 25
       objectReference: {fileID: 0}
@@ -104,12 +116,20 @@ PrefabInstance:
       value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 7455721220963869408, guid: 3713d6f55b36a9c43a544bc5601e18d7, type: 3}
+      propertyPath: muzzleFlashAnimator
+      value: 
+      objectReference: {fileID: 334844138640069041}
+    - target: {fileID: 7455721220963869408, guid: 3713d6f55b36a9c43a544bc5601e18d7, type: 3}
       propertyPath: maxDistanceFromPlayer
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7455721220963869408, guid: 3713d6f55b36a9c43a544bc5601e18d7, type: 3}
       propertyPath: minDistanceFromPlayer
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7458311529036313288, guid: 3713d6f55b36a9c43a544bc5601e18d7, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7976897037397172782, guid: 3713d6f55b36a9c43a544bc5601e18d7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -141,3 +161,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3713d6f55b36a9c43a544bc5601e18d7, type: 3}
+--- !u!95 &205163657678269603 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5638755095312020680, guid: 3713d6f55b36a9c43a544bc5601e18d7, type: 3}
+  m_PrefabInstance: {fileID: 5519164230764632171}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &334844138640069041 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5205484248387537370, guid: 3713d6f55b36a9c43a544bc5601e18d7, type: 3}
+  m_PrefabInstance: {fileID: 5519164230764632171}
+  m_PrefabAsset: {fileID: 0}

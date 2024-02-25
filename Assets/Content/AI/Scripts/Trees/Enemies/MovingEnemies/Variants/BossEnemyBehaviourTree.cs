@@ -38,7 +38,6 @@ namespace BehaviorTree
             Transform playerTransform = FindObjectOfType<PlayerController>().GetComponent<Transform>();
             EnemyWeapon weapon = GetComponentInChildren<EnemyWeapon>();
             NavMeshAgent agent = GetComponent<NavMeshAgent>();
-            Animator animator = GetComponentInChildren<Animator>();
             //For the nav mesh agent
             agent.updateRotation = false;
             agent.updateUpAxis = false;
@@ -121,10 +120,10 @@ namespace BehaviorTree
                             new TaskLookAt(playerTransform, rb, null),
                             new TaskPickTargetAroundTransforms(playerTransform, minDistanceFromPlayer,
                                 maxDistanceFromPlayer),
-                            new TaskMoveToTarget(rb, agent, animator, 1f),
+                            new TaskMoveToTarget(rb, agent, enemyAnimator, 1f),
                             //new CheckIsAtTarget(),
                             new TaskAimAt(rb, weapon, playerTransform),
-                            new TaskAttackPlayer(weapon, Configuration.Boss_AttackSpeed, animator),
+                            new TaskAttackPlayer(weapon, Configuration.Boss_AttackSpeed, enemyAnimator, muzzleFlashAnimator),
                             new TaskWait(Configuration.Boss_AbilityCooldown, true),
                             new ChooseRandomAttackMove(tasks[sharedData.GetData(sharedData.AbilityPool)].Length),
                             new BossChangeAttackDependingOnHealth(transform),

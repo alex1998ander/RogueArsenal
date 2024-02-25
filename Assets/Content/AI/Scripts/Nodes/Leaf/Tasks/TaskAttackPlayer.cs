@@ -13,31 +13,35 @@ namespace BehaviorTree
         // Time to wait
         private float _cooldownTime;
 
-        private Animator _animator;
+        private Animator _enemyAnimator;
+
+        private Animator _muzzleFlashAnimator;
 
         // Time counter
         private float _cooldownTimeCounter;
 
         private static readonly int AimDirectionX = Animator.StringToHash("AimDirectionX");
         private static readonly int AimDirectionY = Animator.StringToHash("AimDirectionY");
+        private static readonly int Shoot = Animator.StringToHash("Shoot");
 
-        public TaskAttackPlayer(EnemyWeapon weapon, float cooldownTime, Animator animator)
+        public TaskAttackPlayer(EnemyWeapon weapon, float cooldownTime, Animator enemyAnimator, Animator muzzleFlashAnimator)
         {
             _weapon = weapon;
             _cooldownTime = cooldownTime;
-            _animator = animator;
+            _enemyAnimator = enemyAnimator;
+            _muzzleFlashAnimator = muzzleFlashAnimator;
         }
 
         public override NodeState Evaluate()
         {
             state = NodeState.RUNNING;
 
-            if (_animator)
+            if (_enemyAnimator)
             {
                 Vector3 aimDirection = _weapon.transform.right.normalized;
 
-                _animator.SetFloat(AimDirectionX, aimDirection.x);
-                _animator.SetFloat(AimDirectionY, aimDirection.y);
+                _enemyAnimator.SetFloat(AimDirectionX, aimDirection.x);
+                _enemyAnimator.SetFloat(AimDirectionY, aimDirection.y);
             }
 
             _cooldownTimeCounter += Time.fixedDeltaTime;
@@ -47,6 +51,9 @@ namespace BehaviorTree
                 state = NodeState.SUCCESS;
                 _weapon.Fire();
                 EventManager.OnEnemyShotFired.Trigger();
+
+                if (_muzzleFlashAnimator)
+                    _muzzleFlashAnimator.SetTrigger(Shoot);
             }
 
             return state;

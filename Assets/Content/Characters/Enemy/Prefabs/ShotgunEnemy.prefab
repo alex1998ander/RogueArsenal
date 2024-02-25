@@ -83,6 +83,14 @@ PrefabInstance:
       propertyPath: currencyDropAmount
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4169747532024137770, guid: ba46bce3e439cdd489820f759add8589, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.897
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169747532024137770, guid: ba46bce3e439cdd489820f759add8589, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.042
+      objectReference: {fileID: 0}
     - target: {fileID: 5465643821577156537, guid: ba46bce3e439cdd489820f759add8589, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -171,6 +179,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.45882353
       objectReference: {fileID: 0}
+    - target: {fileID: 8558107979541023287, guid: ba46bce3e439cdd489820f759add8589, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8752020241937266114, guid: ba46bce3e439cdd489820f759add8589, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.098
@@ -185,6 +197,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba46bce3e439cdd489820f759add8589, type: 3}
+--- !u!95 &1848283131305594437 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6446946111005765925, guid: ba46bce3e439cdd489820f759add8589, type: 3}
+  m_PrefabInstance: {fileID: 4674258004273839968}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2295448283053159255 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6846983187112741943, guid: ba46bce3e439cdd489820f759add8589, type: 3}
+  m_PrefabInstance: {fileID: 4674258004273839968}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5910848983959249282 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1358329203599744738, guid: ba46bce3e439cdd489820f759add8589, type: 3}
@@ -209,4 +231,6 @@ MonoBehaviour:
   movementAcceleration: 10
   minDistanceFromPlayer: 0.5
   maxDistanceFromPlayer: 2
+  enemyAnimator: {fileID: 2295448283053159255}
+  muzzleFlashAnimator: {fileID: 1848283131305594437}
   firerate: 0.8

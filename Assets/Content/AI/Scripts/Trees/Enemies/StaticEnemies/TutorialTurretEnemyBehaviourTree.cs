@@ -6,6 +6,7 @@ namespace BehaviorTree
     public class TutorialTurretEnemyBehaviourTree : EnemyBehaviourTree
     {
         private float _attackSpeed = 0.1f;
+
         protected override Node SetupTree()
         {
             base.SetupTree();
@@ -15,7 +16,7 @@ namespace BehaviorTree
 
             Node root = new Sequence(new List<Node>()
             {
-                new TaskAttackPlayer(weapon, _attackSpeed, null),
+                new TaskAttackPlayer(weapon, _attackSpeed, null, muzzleFlashAnimator),
             });
 
             root.SetupSharedData(sharedData);

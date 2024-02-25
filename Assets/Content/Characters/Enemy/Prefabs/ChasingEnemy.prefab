@@ -79,6 +79,14 @@ PrefabInstance:
       propertyPath: defaultDistance
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4169747532024137770, guid: ba46bce3e439cdd489820f759add8589, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.011
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169747532024137770, guid: ba46bce3e439cdd489820f759add8589, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.068
+      objectReference: {fileID: 0}
     - target: {fileID: 5465643821577156537, guid: ba46bce3e439cdd489820f759add8589, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -163,6 +171,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 8558107979541023287, guid: ba46bce3e439cdd489820f759add8589, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8752020241937266114, guid: ba46bce3e439cdd489820f759add8589, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.119
@@ -213,4 +225,16 @@ MonoBehaviour:
   movementAcceleration: 30
   minDistanceFromPlayer: 4
   maxDistanceFromPlayer: 6
+  enemyAnimator: {fileID: 5638755095312020680}
+  muzzleFlashAnimator: {fileID: 5205484248387537370}
   firerate: 1
+--- !u!95 &5205484248387537370 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6446946111005765925, guid: ba46bce3e439cdd489820f759add8589, type: 3}
+  m_PrefabInstance: {fileID: 1244610933344598271}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &5638755095312020680 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6846983187112741943, guid: ba46bce3e439cdd489820f759add8589, type: 3}
+  m_PrefabInstance: {fileID: 1244610933344598271}
+  m_PrefabAsset: {fileID: 0}

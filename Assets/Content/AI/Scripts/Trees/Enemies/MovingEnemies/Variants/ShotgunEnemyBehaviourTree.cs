@@ -23,7 +23,6 @@ namespace BehaviorTree
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
             Transform playerTransform = FindObjectOfType<PlayerController>().GetComponent<Transform>();
             EnemyWeapon weapon = GetComponentInChildren<EnemyWeapon>();
-            Animator animator = GetComponentInChildren<Animator>();
             NavMeshAgent agent = GetComponent<NavMeshAgent>();
             agent.updateRotation = false;
             agent.updateUpAxis = false;
@@ -70,8 +69,8 @@ namespace BehaviorTree
                             new TaskAimAt(rb, weapon, playerTransform),
                             new TaskPickTargetAroundTransforms(playerTransform, minDistanceFromPlayer,
                                 maxDistanceFromPlayer),
-                            new TaskMoveToTarget(rb, agent, animator, 1f),
-                            new TaskAttackPlayer(weapon, 1f / firerate, animator),
+                            new TaskMoveToTarget(rb, agent, enemyAnimator, 1f),
+                            new TaskAttackPlayer(weapon, 1f / firerate, enemyAnimator, muzzleFlashAnimator),
                         }),
                         // Case: Enemy just heard the player shoot
                         new Sequence(new List<Node>
@@ -86,7 +85,7 @@ namespace BehaviorTree
                         {
                             new HasData<Vector3>(sharedData.LastKnownPlayerLocation),
                             new TaskSetTargetToLastKnownPlayerLocation(),
-                            new TaskMoveToTarget(rb, agent, animator, 1f),
+                            new TaskMoveToTarget(rb, agent, enemyAnimator, 1f),
                             new CheckIsAtTarget(),
                             new ClearData<Vector3>(sharedData.LastKnownPlayerLocation),
                         }),
@@ -100,7 +99,7 @@ namespace BehaviorTree
                                 new TaskPickTargetAroundTransforms(spawnPointTransforms, minDistanceFromPlayer,
                                     maxDistanceFromPlayer),
                             }),
-                            new TaskMoveToTarget(rb, agent, animator, 1f),
+                            new TaskMoveToTarget(rb, agent, enemyAnimator, 1f),
                             new CheckIsAtTarget(),
                             new ClearData<Vector3>(sharedData.Target),
                         }),

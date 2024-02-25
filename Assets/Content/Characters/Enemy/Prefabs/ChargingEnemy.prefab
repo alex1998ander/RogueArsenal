@@ -151,6 +151,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0.375
       objectReference: {fileID: 0}
+    - target: {fileID: 4459895270819111239, guid: ba46bce3e439cdd489820f759add8589, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5465643821577156537, guid: ba46bce3e439cdd489820f759add8589, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -191,6 +195,11 @@ PrefabInstance:
     - {fileID: 2549209689420417610, guid: ba46bce3e439cdd489820f759add8589, type: 3}
     - {fileID: 6554026467861570252, guid: ba46bce3e439cdd489820f759add8589, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ba46bce3e439cdd489820f759add8589, type: 3}
+--- !u!95 &1313311681012423398 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6846983187112741943, guid: ba46bce3e439cdd489820f759add8589, type: 3}
+  m_PrefabInstance: {fileID: 5565478178470794961}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6910014811840088113 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1358329203599744736, guid: ba46bce3e439cdd489820f759add8589, type: 3}
@@ -220,6 +229,8 @@ MonoBehaviour:
   movementAcceleration: 30
   minDistanceFromPlayer: 2
   maxDistanceFromPlayer: 3
+  enemyAnimator: {fileID: 1313311681012423398}
+  muzzleFlashAnimator: {fileID: 0}
   damageZoneCollider: {fileID: 2159040945188584003}
   preChargeTime: 1
   postChargeTime: 1

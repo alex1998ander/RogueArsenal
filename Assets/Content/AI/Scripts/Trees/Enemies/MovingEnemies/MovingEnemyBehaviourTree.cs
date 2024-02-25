@@ -10,10 +10,12 @@ namespace BehaviorTree
         [SerializeField] protected float minDistanceFromPlayer = 4f;
         [SerializeField] protected float maxDistanceFromPlayer = 6f;
 
+        [SerializeField] protected Animator enemyAnimator;
+
         protected override Node SetupTree()
         {
             base.SetupTree();
-            
+
             NavMeshAgent agent = GetComponent<NavMeshAgent>();
             agent.updateRotation = false;
             agent.updateUpAxis = false;

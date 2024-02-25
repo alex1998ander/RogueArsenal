@@ -18,7 +18,6 @@ namespace BehaviorTree
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
             Transform playerTransform = FindObjectOfType<PlayerController>().GetComponent<Transform>();
             EnemyWeapon enemyWeapon = GetComponentInChildren<EnemyWeapon>();
-            Animator animator = GetComponentInChildren<Animator>();
 
             // Set up nav agent
             NavMeshAgent agent = GetComponent<NavMeshAgent>();
@@ -71,7 +70,7 @@ namespace BehaviorTree
                             new TaskSetLastKnownPlayerLocation(playerTransform),
                             new TaskPickTargetAroundTransforms(playerTransform, minDistanceFromPlayer,
                                 maxDistanceFromPlayer),
-                            new TaskMoveToTarget(rb, agent, animator, 1f),
+                            new TaskMoveToTarget(rb, agent, enemyAnimator, 1f),
                             new CheckIsAtTarget(),
                             new SetData<ChargeState>(sharedData.ChargeState, ChargeState.PreCharge),
                         }),
@@ -79,8 +78,8 @@ namespace BehaviorTree
                         new Sequence(new List<Node>
                         {
                             new ExpectData<ChargeState>(sharedData.ChargeState, ChargeState.PreCharge),
-                            new TaskLookAt(playerTransform, rb, animator),
-                            new SetAnimatorParameter<bool>(animator, "Running", false),
+                            new TaskLookAt(playerTransform, rb, enemyAnimator),
+                            new SetAnimatorParameter<bool>(enemyAnimator, "Running", false),
                             new TaskWait(preChargeTime, true),
                             new TaskSetAgentActive(agent, false),
                             new TaskEnemyDash(playerTransform, rb, transform),
@@ -98,7 +97,7 @@ namespace BehaviorTree
                         new Sequence(new List<Node>
                         {
                             new ExpectData<ChargeState>(sharedData.ChargeState, ChargeState.PostCharge),
-                            new SetAnimatorParameter<bool>(animator, "Running", false),
+                            new SetAnimatorParameter<bool>(enemyAnimator, "Running", false),
                             new TaskActivateDamageZone(false, damageZoneCollider),
                             new TaskWait(postChargeTime, true),
                             new TaskSetAgentActive(agent, true),
@@ -119,7 +118,7 @@ namespace BehaviorTree
                             new ExpectData<ChargeState>(sharedData.ChargeState, ChargeState.None),
                             new HasData<Vector3>(sharedData.LastKnownPlayerLocation),
                             new TaskSetTargetToLastKnownPlayerLocation(),
-                            new TaskMoveToTarget(rb, agent, animator, 1f),
+                            new TaskMoveToTarget(rb, agent, enemyAnimator, 1f),
                             new CheckIsAtTarget(),
                             new ClearData<Vector3>(sharedData.LastKnownPlayerLocation),
                         }),
@@ -134,7 +133,7 @@ namespace BehaviorTree
                                 new TaskPickTargetAroundTransforms(spawnPointTransforms, minDistanceFromPlayer,
                                     maxDistanceFromPlayer),
                             }),
-                            new TaskMoveToTarget(rb, agent, animator, 1f),
+                            new TaskMoveToTarget(rb, agent, enemyAnimator, 1f),
                             new CheckIsAtTarget(),
                             new ClearData<Vector3>(sharedData.Target),
                         }),
