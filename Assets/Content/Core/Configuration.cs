@@ -46,7 +46,7 @@ public class Configuration
     public const float Boss_AbilityCooldown = 2f;
     public const float Boss_StompRadius = 1f;
     public const float Boss_StompDamage = 40f;
-    public const float Boss_DashForce = 600f;
+    public const float Boss_DashForce = 80f;
     public const float Boss_DashPrepareTime = 2f;
     public const float Boss_DashMidChargeTime = 1f;
     public const float Boss_DashPostChargeTime = 0.5f;

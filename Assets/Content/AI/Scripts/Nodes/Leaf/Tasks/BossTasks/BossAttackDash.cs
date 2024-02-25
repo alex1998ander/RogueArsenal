@@ -49,7 +49,7 @@ namespace BehaviorTree
             {
                 case <= Configuration.Boss_DashPrepareTime:
                 {
-                    _dashDir = _dashTarget.position - _body.position;
+                    _dashDir = (_dashTarget.position - _body.position).normalized;
                     if (!_chargingEffect.isPlaying)
                     {
                         _chargingEffect.Play();
@@ -62,7 +62,7 @@ namespace BehaviorTree
                 {
                     if (!hasDashed)
                     {
-                        _rigidbody2D.AddForce(_dashDir * Configuration.Boss_DashForce);
+                        _rigidbody2D.AddForce(_dashDir * Configuration.Boss_DashForce, ForceMode2D.Impulse);
                         _dashingEffect.Play();
                         _chargeLightFader.IntensityChange = -_chargeLightMaxIntensity / (Configuration.Boss_DashMidChargeTime * 2);
                         hasDashed = true;
