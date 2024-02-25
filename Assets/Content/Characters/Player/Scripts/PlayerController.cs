@@ -270,7 +270,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
 
     private void OnDash()
     {
-        if (PlayerData.canDash && !PlayerData.IsDashing && Time.time > _dashDelayEndTimestamp)
+        if (_movementInput != Vector2.zero && PlayerData.canDash && !PlayerData.IsDashing && Time.time > _dashDelayEndTimestamp)
         {
             PlayerData.IsDashing = true;
             _dashEndTimestamp = Time.time + Configuration.Player_DashTime;
