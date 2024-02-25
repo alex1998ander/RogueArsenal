@@ -3,7 +3,9 @@ using UnityEngine.Rendering.Universal;
 
 public class LightFader : MonoBehaviour
 {
-    [SerializeField] private float intensityLossPerSecond = 1f;
+    [SerializeField] public float IntensityChange = -1f;
+    [SerializeField] public float MinLightIntensity = 0f;
+    [SerializeField] public float MaxLightIntensity = 5f;
 
     private Light2D _light;
 
@@ -14,6 +16,6 @@ public class LightFader : MonoBehaviour
 
     void Update()
     {
-        _light.intensity = Mathf.Max(0, _light.intensity - Time.deltaTime * intensityLossPerSecond);
+        _light.intensity = Mathf.Clamp(_light.intensity + IntensityChange * Time.deltaTime, MinLightIntensity, MaxLightIntensity);
     }
 }

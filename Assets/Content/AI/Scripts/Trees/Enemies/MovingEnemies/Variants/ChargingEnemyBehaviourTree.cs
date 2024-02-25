@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Serialization;
 
 namespace BehaviorTree
 {
@@ -12,6 +11,8 @@ namespace BehaviorTree
         [SerializeField] private float postChargeTime = 1f;
         [SerializeField] private ParticleSystem chargingEffect;
         [SerializeField] private ParticleSystem dashingEffect;
+        [SerializeField] private LightFader chargeLightFader;
+        [SerializeField] private float chargeLightMaxIntensity;
 
         protected override Node SetupTree()
         {
@@ -90,6 +91,7 @@ namespace BehaviorTree
                             new TaskLookAt(playerTransform, rb, enemyAnimator),
                             new SetAnimatorParameter<bool>(enemyAnimator, "Running", false),
                             new TaskPlayParticleSystem(chargingEffect),
+                            new TaskActivateLightFader(chargeLightFader, chargeLightMaxIntensity / preChargeTime, 0f, chargeLightMaxIntensity),
                             new TaskWait(preChargeTime, true),
                             new TaskSetAgentActive(agent, false),
                             new TaskEnemyDash(playerTransform, rb, transform),
@@ -100,6 +102,7 @@ namespace BehaviorTree
                         {
                             new ExpectData<ChargeState>(sharedData.ChargeState, ChargeState.MidCharge),
                             new TaskPlayParticleSystem(dashingEffect),
+                            new TaskActivateLightFader(chargeLightFader, -chargeLightMaxIntensity / (Configuration.Enemy_DashTime * 2), 0f, chargeLightMaxIntensity),
                             new TaskActivateDamageZone(true, damageZoneCollider),
                             new TaskWait(Configuration.Enemy_DashTime, true),
                             new SetData<ChargeState>(sharedData.ChargeState, ChargeState.PostCharge),

@@ -127,6 +127,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChargeEffect
       objectReference: {fileID: 0}
+    - target: {fileID: 6673211506575029631, guid: d97f514186bd59a478dfbeafa43ffa56, type: 3}
+      propertyPath: IntensityChange
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6673211506575029631, guid: d97f514186bd59a478dfbeafa43ffa56, type: 3}
+      propertyPath: MaxLightIntensity
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d97f514186bd59a478dfbeafa43ffa56, type: 3}
 --- !u!198 &190323198340789095 stripped
@@ -134,6 +142,17 @@ ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 5190540972715819041, guid: d97f514186bd59a478dfbeafa43ffa56, type: 3}
   m_PrefabInstance: {fileID: 5380860868072846150}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1598965819834631737 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6673211506575029631, guid: d97f514186bd59a478dfbeafa43ffa56, type: 3}
+  m_PrefabInstance: {fileID: 5380860868072846150}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e9ccf1a49a91594ca6cf649ac4ba01a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &3847786901802962623 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 9208381019069480441, guid: d97f514186bd59a478dfbeafa43ffa56, type: 3}
@@ -307,3 +326,5 @@ MonoBehaviour:
   postChargeTime: 1
   chargingEffect: {fileID: 3847786901802962623}
   dashingEffect: {fileID: 190323198340789095}
+  chargeLightFader: {fileID: 1598965819834631737}
+  chargeLightMaxIntensity: 1
