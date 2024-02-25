@@ -277,11 +277,6 @@ PrefabInstance:
     - {fileID: 3530932478298407239, guid: ba46bce3e439cdd489820f759add8589, type: 3}
     - {fileID: 5083032137538339661, guid: ba46bce3e439cdd489820f759add8589, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ba46bce3e439cdd489820f759add8589, type: 3}
---- !u!95 &2326537338697889405 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 6446946111005765925, guid: ba46bce3e439cdd489820f759add8589, type: 3}
-  m_PrefabInstance: {fileID: 8732939508167771992}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &7206985120945275963 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2104862171445363555, guid: ba46bce3e439cdd489820f759add8589, type: 3}
@@ -365,7 +360,7 @@ MonoBehaviour:
   wallLayer:
     serializedVersion: 2
     m_Bits: 256
-  muzzleFlashAnimator: {fileID: 2326537338697889405}
+  enemyAnimator: {fileID: 0}
 --- !u!114 &8106070802245065757
 MonoBehaviour:
   m_ObjectHideFlags: 0

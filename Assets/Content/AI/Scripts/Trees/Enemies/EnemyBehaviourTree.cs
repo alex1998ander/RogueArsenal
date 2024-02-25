@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 namespace BehaviorTree
 {
@@ -8,7 +9,8 @@ namespace BehaviorTree
     {
         // Layer mask of the walls of the level.
         [SerializeField] protected LayerMask wallLayer;
-        [SerializeField] protected Animator muzzleFlashAnimator;
+
+        [SerializeField] protected Animator enemyAnimator;
 
         private float _stunImmunityEndTimestamp;
         private float _thrownImmunityEndTimestamp;

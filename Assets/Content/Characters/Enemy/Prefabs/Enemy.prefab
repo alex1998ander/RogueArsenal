@@ -993,7 +993,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1308685956420991409
 Transform:
   m_ObjectHideFlags: 0
@@ -1038,7 +1038,7 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 1
-  m_Color: {r: 0, g: 0.9696946, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.69173265, b: 0, a: 1}
   m_Intensity: 0
   m_LightVolumeIntensity: 0.18
   m_LightVolumeIntensityEnabled: 0
@@ -1150,6 +1150,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyBulletPrefab: {fileID: 1845687642861211236, guid: e8f28205521d5364db79c8abc134746a, type: 3}
   firePoint: {fileID: 7730465753498084907}
+  muzzleFlashAnimator: {fileID: 6446946111005765925}
+  muzzleFlashLight: {fileID: 5446149136046239098}
+  muzzleFlashLightIntensity: 0.5
   defaultBulletSpeed: 6
   defaultDistance: 5
   defaultDamage: 10

@@ -55244,12 +55244,11 @@ MonoBehaviour:
   wallLayer:
     serializedVersion: 2
     m_Bits: 0
-  muzzleFlashAnimator: {fileID: 0}
+  enemyAnimator: {fileID: 0}
   movementSpeed: 20
   movementAcceleration: 30
   minDistanceFromPlayer: 4
   maxDistanceFromPlayer: 6
-  enemyAnimator: {fileID: 0}
   exitPoint: {fileID: 309370398}
 --- !u!1001 &1228766568
 PrefabInstance:
@@ -56775,7 +56774,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2048312726
 Transform:
   m_ObjectHideFlags: 0
@@ -56807,7 +56806,7 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 1
-  m_Color: {r: 0, g: 0.9696946, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.72862947, b: 0.28773582, a: 1}
   m_Intensity: 0
   m_LightVolumeIntensity: 0.18
   m_LightVolumeIntensityEnabled: 0
@@ -57596,6 +57595,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyBulletPrefab: {fileID: 1845687642861211236, guid: e8f28205521d5364db79c8abc134746a, type: 3}
   firePoint: {fileID: 2494113435700894153}
+  muzzleFlashAnimator: {fileID: 547409583}
+  muzzleFlashLight: {fileID: 2048312727}
+  muzzleFlashLightIntensity: 0
   defaultBulletSpeed: 6
   defaultDistance: 16
   defaultDamage: 16

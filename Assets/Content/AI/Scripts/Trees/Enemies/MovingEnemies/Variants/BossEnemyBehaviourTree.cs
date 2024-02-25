@@ -123,7 +123,7 @@ namespace BehaviorTree
                             new TaskMoveToTarget(rb, agent, enemyAnimator, 1f),
                             //new CheckIsAtTarget(),
                             new TaskAimAt(rb, weapon, playerTransform),
-                            new TaskAttackPlayer(weapon, Configuration.Boss_AttackSpeed, enemyAnimator, muzzleFlashAnimator),
+                            new TaskAttackPlayer(weapon, Configuration.Boss_AttackSpeed, enemyAnimator),
                             new TaskWait(Configuration.Boss_AbilityCooldown, true),
                             new ChooseRandomAttackMove(tasks[sharedData.GetData(sharedData.AbilityPool)].Length),
                             new BossChangeAttackDependingOnHealth(transform),

@@ -15,21 +15,17 @@ namespace BehaviorTree
 
         private Animator _enemyAnimator;
 
-        private Animator _muzzleFlashAnimator;
-
         // Time counter
         private float _cooldownTimeCounter;
 
         private static readonly int AimDirectionX = Animator.StringToHash("AimDirectionX");
         private static readonly int AimDirectionY = Animator.StringToHash("AimDirectionY");
-        private static readonly int Shoot = Animator.StringToHash("Shoot");
 
-        public TaskAttackPlayer(EnemyWeapon weapon, float cooldownTime, Animator enemyAnimator, Animator muzzleFlashAnimator)
+        public TaskAttackPlayer(EnemyWeapon weapon, float cooldownTime, Animator enemyAnimator)
         {
             _weapon = weapon;
             _cooldownTime = cooldownTime;
             _enemyAnimator = enemyAnimator;
-            _muzzleFlashAnimator = muzzleFlashAnimator;
         }
 
         public override NodeState Evaluate()
@@ -51,9 +47,6 @@ namespace BehaviorTree
                 state = NodeState.SUCCESS;
                 _weapon.Fire();
                 EventManager.OnEnemyShotFired.Trigger();
-
-                if (_muzzleFlashAnimator)
-                    _muzzleFlashAnimator.SetTrigger(Shoot);
             }
 
             return state;
