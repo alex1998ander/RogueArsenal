@@ -13,32 +13,18 @@ namespace BehaviorTree
         // Time to wait
         private float _cooldownTime;
 
-        private Animator _enemyAnimator;
-
         // Time counter
         private float _cooldownTimeCounter;
 
-        private static readonly int AimDirectionX = Animator.StringToHash("AimDirectionX");
-        private static readonly int AimDirectionY = Animator.StringToHash("AimDirectionY");
-
-        public TaskAttackPlayer(EnemyWeapon weapon, float cooldownTime, Animator enemyAnimator)
+        public TaskAttackPlayer(EnemyWeapon weapon, float cooldownTime)
         {
             _weapon = weapon;
             _cooldownTime = cooldownTime;
-            _enemyAnimator = enemyAnimator;
         }
 
         public override NodeState Evaluate()
         {
             state = NodeState.RUNNING;
-
-            if (_enemyAnimator)
-            {
-                Vector3 aimDirection = _weapon.transform.right.normalized;
-
-                _enemyAnimator.SetFloat(AimDirectionX, aimDirection.x);
-                _enemyAnimator.SetFloat(AimDirectionY, aimDirection.y);
-            }
 
             _cooldownTimeCounter += Time.fixedDeltaTime;
             if (_cooldownTimeCounter >= _cooldownTime)

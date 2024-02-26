@@ -27,8 +27,6 @@ namespace BehaviorTree
             state = NodeState.FAILURE;
             _timeCounter += Time.fixedDeltaTime;
 
-            Debug.Log("time counter: " + _timeCounter);
-
             if (_timeCounter >= _timeToWait)
             {
                 Fire360Shot();

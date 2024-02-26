@@ -16,7 +16,7 @@ namespace BehaviorTree
 
             Node root = new Sequence(new List<Node>()
             {
-                new TaskAttackPlayer(weapon, _attackSpeed, null),
+                new TaskAttackPlayer(weapon, _attackSpeed),
             });
 
             root.SetupSharedData(sharedData);

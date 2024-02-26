@@ -66,11 +66,11 @@ namespace BehaviorTree
                         {
                             new CheckPlayerVisible(rb, playerTransform, wallLayer),
                             new TaskSetLastKnownPlayerLocation(playerTransform),
-                            new TaskAimAt(rb, weapon, playerTransform),
+                            new TaskAimAt(rb, weapon, playerTransform, enemyAnimator),
                             new TaskPickTargetAroundTransforms(playerTransform, minDistanceFromPlayer,
                                 maxDistanceFromPlayer),
                             new TaskMoveToTarget(rb, agent, enemyAnimator, 1f),
-                            new TaskAttackPlayer(weapon, 1f / firerate, enemyAnimator),
+                            new TaskAttackPlayer(weapon, 1f / firerate),
                         }),
                         // Case: Enemy just heard the player shoot
                         new Sequence(new List<Node>

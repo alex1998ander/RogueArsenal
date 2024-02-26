@@ -19,9 +19,9 @@ namespace BehaviorTree
             {
                 new Inverter(new CheckHasState(sharedData.IsStunned)),
                 new CheckPlayerVisible(rb, playerTransform, wallLayer),
-                new TaskAimAt(rb, weapon, playerTransform, false),
+                new TaskAimAt(rb, weapon, playerTransform, enemyAnimator, false),
                 new TaskWait(1f, false),
-                new TaskAttackPlayer(weapon, 1f, null),
+                new TaskAttackPlayer(weapon, 1f),
             });
 
             root.SetupSharedData(sharedData);

@@ -17,15 +17,21 @@ namespace BehaviorTree
         // Transform of the player
         private readonly Transform _aimAtTransform;
 
+        private readonly Animator _enemyAnimator;
+
         private readonly SpriteRenderer _weaponSprite;
 
         private readonly bool _adjustSprite;
 
-        public TaskAimAt(Rigidbody2D rb, EnemyWeapon weapon, Transform aimAtTransform, bool adjustSprite = true)
+        private static readonly int AimDirectionX = Animator.StringToHash("AimDirectionX");
+        private static readonly int AimDirectionY = Animator.StringToHash("AimDirectionY");
+
+        public TaskAimAt(Rigidbody2D rb, EnemyWeapon weapon, Transform aimAtTransform, Animator enemyAnimator, bool adjustSprite = true)
         {
             _rb = rb;
             _weapon = weapon;
             _aimAtTransform = aimAtTransform;
+            _enemyAnimator = enemyAnimator;
             _adjustSprite = adjustSprite;
 
             _weaponSprite = weapon.GetComponentInChildren<SpriteRenderer>();
@@ -37,6 +43,12 @@ namespace BehaviorTree
 
             if (aimDirection != Vector2.zero)
             {
+                if (_enemyAnimator)
+                {
+                    _enemyAnimator.SetFloat(AimDirectionX, aimDirection.x);
+                    _enemyAnimator.SetFloat(AimDirectionY, aimDirection.y);
+                }
+
                 // Calculate angle
                 float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
                 _weapon.transform.rotation = Quaternion.Euler(0, 0, angle);
