@@ -26,6 +26,8 @@ public static class LevelManager
 
     private static GameState gameState = GameState.MainMenu;
 
+    public static GameState GameState => gameState;
+
     private static bool _pauseAllowed;
 
     private static void Initialize()
