@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class BossArenaShrinking : MonoBehaviour
@@ -22,13 +23,9 @@ public class BossArenaShrinking : MonoBehaviour
     
     private void Start()
     {
-        _bossHealth = FindObjectOfType<EnemyHealth>();
-        
+        StartCoroutine(DelayedSearchForBossHealthScript());
         for (int i = 0; i < 3; i++)
         {
-            Debug.Log(i);
-            Debug.Log(_startMarker[i]);
-            Debug.Log(walls[i].transform.position);
             _startMarker[i] = walls[i].transform.position;
             
             _direction = Vector3.Normalize(transform.position - walls[i].position);
@@ -41,7 +38,7 @@ public class BossArenaShrinking : MonoBehaviour
 
     private void Update()
     {
-        if (_bossHealth.GetHealth().x * 2 / 3 < _bossHealth.GetHealth().y)
+        if (_bossHealth != null && (_bossHealth.GetHealth().x / _bossHealth.GetHealth().y) <= 1f / 3f)
         {
             _startTime = _startTime== 0? Time.time : _startTime;
             // Distance moved equals elapsed time times speed..
@@ -55,5 +52,11 @@ public class BossArenaShrinking : MonoBehaviour
             }
              
         }
+    }
+
+    IEnumerator  DelayedSearchForBossHealthScript()
+    {
+        yield return new WaitForSeconds(5f);
+        _bossHealth = FindObjectOfType<EnemyHealth>();
     }
 }
