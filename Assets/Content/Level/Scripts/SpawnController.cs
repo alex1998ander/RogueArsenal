@@ -99,6 +99,7 @@ public class SpawnController : MonoBehaviour
         foreach (Transform spawnPoint in eliteEnemySpawnPoints)
             Instantiate(eliteEnemyPrefabs[Random.Range(0, eliteEnemyPrefabs.Length)], spawnPoint.position, Quaternion.identity, null);
 
+        EventManager.OnEnemiesSpawned.Trigger();
         EventManager.OnEnemyDeath.Subscribe(OnEnemyDeath);
     }
 

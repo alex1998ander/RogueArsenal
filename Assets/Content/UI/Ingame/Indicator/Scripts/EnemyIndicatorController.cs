@@ -11,6 +11,12 @@ public class EnemyIndicatorController : MonoBehaviour
     private int _currentEnemies = Int32.MaxValue;
 
     private const int MaxEnemiesToMark = 5;
+    private bool _enemiesSpawned = false;
+
+    private void Start()
+    {
+        EventManager.OnEnemiesSpawned.Subscribe(UpdateEnemieCounter);
+    }
 
     void Update()
     {
@@ -26,7 +32,7 @@ public class EnemyIndicatorController : MonoBehaviour
             return;
         }
 
-        if (enemies.Length < _currentEnemies)
+        if (enemies.Length < _currentEnemies | _enemiesSpawned)
         {
             int i = 0;
             _currentEnemies = enemies.Length;
@@ -37,6 +43,8 @@ public class EnemyIndicatorController : MonoBehaviour
                 _enemyIndicators[i].GetComponent<TargetIndicator>().SetTarget(enemy.transform);
                 i++;
             }
+
+            _enemiesSpawned = false;
         }
     }
 
@@ -48,5 +56,10 @@ public class EnemyIndicatorController : MonoBehaviour
         }
 
         _enemyIndicators.Clear();
+    }
+
+    void UpdateEnemieCounter()
+    {
+        _enemiesSpawned = true;
     }
 }

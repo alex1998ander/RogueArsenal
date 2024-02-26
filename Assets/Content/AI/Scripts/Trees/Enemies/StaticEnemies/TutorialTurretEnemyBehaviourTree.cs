@@ -5,7 +5,7 @@ namespace BehaviorTree
 {
     public class TutorialTurretEnemyBehaviourTree : EnemyBehaviourTree
     {
-        private float _attackSpeed = 0.1f;
+        private float _attackSpeed = 0.15f;
 
         protected override Node SetupTree()
         {
