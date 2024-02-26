@@ -21,6 +21,8 @@ namespace BehaviorTree
 
         private readonly SpriteRenderer _weaponSprite;
 
+        private readonly SpriteOrderer _weaponSpriteOrderer;
+
         private readonly bool _adjustSprite;
 
         private static readonly int AimDirectionX = Animator.StringToHash("AimDirectionX");
@@ -35,6 +37,7 @@ namespace BehaviorTree
             _adjustSprite = adjustSprite;
 
             _weaponSprite = weapon.GetComponentInChildren<SpriteRenderer>();
+            _weaponSpriteOrderer = weapon.GetComponentInChildren<SpriteOrderer>();
         }
 
         public override NodeState Evaluate()
@@ -63,13 +66,22 @@ namespace BehaviorTree
                 {
                     // When the enemy is aiming left, flip weapon so it's not heads-down
                     _weaponSprite.flipY = aimDirection.x < 0.0f;
+
                     // When the enemy is aiming up, adjust sorting order so weapon is behind enemy
                     _weaponSprite.sortingOrder = angle >= 45.0 && angle <= 135.0f ? -1 : 1;
+
+                    // When the player is aiming up, adjust sorting order so weapon is behind player
+                    _weaponSpriteOrderer.orderOffset = IsAimingUp() ? -64 : 0;
                 }
             }
 
             state = NodeState.SUCCESS;
             return state;
+        }
+
+        private bool IsAimingUp()
+        {
+            return _weapon.gameObject.transform.eulerAngles.z is >= 45f and <= 135f;
         }
     }
 }
