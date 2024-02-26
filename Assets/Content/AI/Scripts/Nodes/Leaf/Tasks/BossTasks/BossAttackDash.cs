@@ -8,6 +8,7 @@ namespace BehaviorTree
         private Transform _body;
         private Rigidbody2D _rigidbody2D;
         private Transform _dashTarget;
+        private BoxCollider2D _contactDamageZone;
         private ParticleSystem _chargingEffect;
         private ParticleSystem _dashingEffect;
         private LightFader _chargeLightFader;
@@ -17,11 +18,12 @@ namespace BehaviorTree
         private bool hasDashed;
         Vector2 _dashDir;
 
-        public BossAttackDash(Transform body, Rigidbody2D rigidbody2D, Transform dashTarget, ParticleSystem chargingEffect, ParticleSystem dashingEffect, LightFader chargeLightFader, float chargeLightMaxIntensity)
+        public BossAttackDash(Transform body, Rigidbody2D rigidbody2D, Transform dashTarget, BoxCollider2D contactDamageZone, ParticleSystem chargingEffect, ParticleSystem dashingEffect, LightFader chargeLightFader, float chargeLightMaxIntensity)
         {
             _body = body;
             _rigidbody2D = rigidbody2D;
             _dashTarget = dashTarget;
+            _contactDamageZone = contactDamageZone;
             _chargingEffect = chargingEffect;
             _dashingEffect = dashingEffect;
             _chargeLightFader = chargeLightFader;
@@ -44,7 +46,6 @@ namespace BehaviorTree
             state = NodeState.FAILURE;
 
             _timeCounter += Time.fixedDeltaTime;
-
             switch (_timeCounter)
             {
                 case <= Configuration.Boss_DashPrepareTime:
@@ -62,6 +63,7 @@ namespace BehaviorTree
                 {
                     if (!hasDashed)
                     {
+                        _contactDamageZone.enabled = true;
                         _rigidbody2D.AddForce(_dashDir * Configuration.Boss_DashForce, ForceMode2D.Impulse);
                         _dashingEffect.Play();
                         _chargeLightFader.IntensityChange = -_chargeLightMaxIntensity / (Configuration.Boss_DashMidChargeTime * 2);
@@ -72,6 +74,7 @@ namespace BehaviorTree
                 }
                 case <= Configuration.Boss_DashPrepareTime + Configuration.Boss_DashMidChargeTime + Configuration.Boss_DashPostChargeTime:
                 {
+                    _contactDamageZone.enabled = false;
                     hasDashed = false;
                     _timeCounter = 0f;
                     state = NodeState.SUCCESS;

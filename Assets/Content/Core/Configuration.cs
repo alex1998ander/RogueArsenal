@@ -44,6 +44,11 @@ public class Configuration
     // Boss constants
     public const float Boss_AttackSpeed = 0.25f;
     public const float Boss_AbilityCooldown = 2f;
+    public const float Boss_StompJumpTime = 0.5f;
+    public const float Boss_StompTargetingTime = 2.0f;
+    public const float Boss_StompFallingTime = 0.5f;
+    public const float Boss_StompLandingTime = 0.1f;
+    public const float Boss_StompCooldownTime = 1.0f;
     public const float Boss_StompRadius = 1f;
     public const float Boss_StompDamage = 40f;
     public const float Boss_DashForce = 80f;

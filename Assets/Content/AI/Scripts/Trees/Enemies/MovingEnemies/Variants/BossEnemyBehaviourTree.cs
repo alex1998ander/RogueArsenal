@@ -62,11 +62,11 @@ namespace BehaviorTree
                 {
                     new BossAttackSpawnObject(transform, turret, Vector3.one, 3),
                     new BossAttackSpawnObject(transform, clone, new Vector3(1.5f, 1.5f, 1.5f), 3),
-                    new BossAttackStomp(transform, playerTransform, bossSprite, ui, weapon, contactDamageZone)
+                    new BossAttackStomp(transform, playerTransform, enemyAnimator, ui, weapon),
                 },
                 new Node[]
                 {
-                    new BossAttackDash(transform, rb, playerTransform, chargingEffect, dashingEffect, chargeLightFader, chargeLightMaxIntensity),
+                    new BossAttackDash(transform, rb, playerTransform, contactDamageZone, chargingEffect, dashingEffect, chargeLightFader, chargeLightMaxIntensity),
                     new BossAttack360Shot(transform, bullet),
                     new BossAttackSpawnObject(_mineSpawns, mine, new Vector3(0.5f, 0.5f, 0.5f))
                 },
@@ -89,7 +89,6 @@ namespace BehaviorTree
                         new Sequence(new List<Node>()
                         {
                             new ExpectData<AbilityState>(sharedData.AbilityState, AbilityState.Cooldown),
-                            new Logger("Cooldown"),
                             new TaskWait(Configuration.Boss_AbilityCooldown, true),
                             new SetData<AbilityState>(sharedData.AbilityState, AbilityState.None)
                         }),
@@ -97,7 +96,6 @@ namespace BehaviorTree
                         new Sequence(new List<Node>
                         {
                             new ExpectData<AbilityState>(sharedData.AbilityState, AbilityState.None),
-                            new Logger("Standard"),
                             new TaskSetLastKnownPlayerLocation(playerTransform),
                             new TaskLookAt(playerTransform, rb, null),
                             new TaskPickTargetAroundTransforms(playerTransform, minDistanceFromPlayer,
@@ -115,7 +113,6 @@ namespace BehaviorTree
                         {
                             new ExpectData<AbilityState>(sharedData.AbilityState, AbilityState.Ability),
                             new ExpectData<int>(sharedData.AbilityPool, 0),
-                            new Logger("Pool 0"),
                             new TaskSetLastKnownPlayerLocation(playerTransform),
                             new TaskLookAt(playerTransform, rb, null),
                             new TaskSetMovementSpeed(agent, 0),
@@ -128,7 +125,6 @@ namespace BehaviorTree
                         {
                             new ExpectData<AbilityState>(sharedData.AbilityState, AbilityState.Ability),
                             new ExpectData<int>(sharedData.AbilityPool, 1),
-                            new Logger("Pool 1"),
                             new TaskSetLastKnownPlayerLocation(playerTransform),
                             new TaskLookAt(playerTransform, rb, null),
                             new TaskSetMovementSpeed(agent, 0),
@@ -141,7 +137,6 @@ namespace BehaviorTree
                         {
                             new ExpectData<AbilityState>(sharedData.AbilityState, AbilityState.Ability),
                             new ExpectData<int>(sharedData.AbilityPool, 2),
-                            new Logger("Pool 2"),
                             new TaskSetLastKnownPlayerLocation(playerTransform),
                             new TaskLookAt(playerTransform, rb, null),
                             new TaskSetMovementSpeed(agent, 0),

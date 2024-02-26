@@ -7,26 +7,26 @@ namespace BehaviorTree
     public class BossAttackStomp : Node
     {
         private Transform _stompTarget;
-        private SpriteRenderer _bossVisual;
+        private Animator _bossAnimator;
         private Transform _body;
         private GameObject _ui;
-        private BoxCollider2D _contactDamageZone;
         private GameObject _weapon;
 
-        private float _waitTime = 1.5f;
+        private bool _stompStarted;
+        private bool _stomped;
         private float _timeCounter;
-
-        private bool _landPosSet = false;
 
         private readonly LayerMask _targetLayer = LayerMask.GetMask("Player_Trigger");
 
-        public BossAttackStomp(Transform body, Transform stompTarget, SpriteRenderer bossVisual, GameObject ui, EnemyWeapon weapon, BoxCollider2D contactDamageZone)
+        private static readonly int StompStart = Animator.StringToHash("StompStart");
+        private static readonly int StompEnd = Animator.StringToHash("StompEnd");
+
+        public BossAttackStomp(Transform body, Transform stompTarget, Animator bossAnimator, GameObject ui, EnemyWeapon weapon)
         {
             _body = body;
             _stompTarget = stompTarget;
-            _bossVisual = bossVisual;
+            _bossAnimator = bossAnimator;
             _ui = ui;
-            _contactDamageZone = contactDamageZone;
             _weapon = weapon.gameObject;
         }
 
@@ -34,32 +34,71 @@ namespace BehaviorTree
         {
             state = NodeState.FAILURE;
 
-            _contactDamageZone.enabled = false;
-            _bossVisual.enabled = false;
-            _ui.SetActive(false);
-            _weapon.SetActive(false);
-
-            _timeCounter += Time.fixedDeltaTime;
-            if (_timeCounter >= _waitTime / 2 && !_landPosSet)
+            if (_timeCounter == 0f)
             {
-                _body.position = _stompTarget.position;
-                _landPosSet = true;
+                _ui.SetActive(false);
+                _weapon.SetActive(false);
+                _bossAnimator.SetTrigger(StompStart);
             }
 
-            if (_timeCounter >= _waitTime)
+            _timeCounter += Time.fixedDeltaTime;
+            switch (_timeCounter)
             {
-                _contactDamageZone.enabled = true;
-                _bossVisual.enabled = true;
-                _ui.SetActive(true);
-                _weapon.SetActive(true);
+                case <= Configuration.Boss_StompJumpTime:
+                {
+                    break;
+                }
+                case <= Configuration.Boss_StompJumpTime
+                        + Configuration.Boss_StompTargetingTime:
+                {
+                    _body.position = _stompTarget.position;
 
-                Collider2D playerCollider = Physics2D.OverlapCircle(_body.position, Configuration.Boss_StompRadius, _targetLayer);
-                playerCollider?.GetComponentInParent<ICharacterHealth>()?.InflictDamage(Configuration.Boss_StompDamage);
+                    break;
+                }
+                case <= Configuration.Boss_StompJumpTime
+                        + Configuration.Boss_StompTargetingTime
+                        + Configuration.Boss_StompFallingTime:
+                {
+                    if (!_stompStarted)
+                    {
+                        _bossAnimator.SetTrigger(StompEnd);
+                        _stompStarted = true;
+                    }
 
-                _timeCounter = 0f;
-                _landPosSet = false;
+                    break;
+                }
+                case <= Configuration.Boss_StompJumpTime
+                        + Configuration.Boss_StompTargetingTime
+                        + Configuration.Boss_StompFallingTime
+                        + Configuration.Boss_StompLandingTime:
+                {
+                    if (!_stomped)
+                    {
+                        Collider2D playerCollider = Physics2D.OverlapCircle(_body.position, Configuration.Boss_StompRadius, _targetLayer);
+                        playerCollider?.GetComponentInParent<ICharacterHealth>()?.InflictDamage(Configuration.Boss_StompDamage);
 
-                state = NodeState.SUCCESS;
+                        _stomped = true;
+                    }
+
+                    break;
+                }
+                case <= Configuration.Boss_StompJumpTime
+                        + Configuration.Boss_StompTargetingTime
+                        + Configuration.Boss_StompFallingTime
+                        + Configuration.Boss_StompLandingTime
+                        + Configuration.Boss_StompCooldownTime:
+                {
+                    _ui.SetActive(true);
+                    _weapon.SetActive(true);
+
+                    _timeCounter = 0f;
+                    _stompStarted = false;
+                    _stomped = false;
+
+                    state = NodeState.SUCCESS;
+
+                    break;
+                }
             }
 
             return state;
