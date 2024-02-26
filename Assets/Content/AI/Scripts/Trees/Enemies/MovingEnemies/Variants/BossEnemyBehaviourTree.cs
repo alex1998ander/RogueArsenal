@@ -15,8 +15,8 @@ namespace BehaviorTree
     [RequireComponent(typeof(LineRenderer))]
     public class BossEnemyBehaviourTree : MovingEnemyBehaviourTree
     {
+        [SerializeField] private BoxCollider2D trigger;
         [SerializeField] private BoxCollider2D contactDamageZone;
-        [SerializeField] private SpriteRenderer bossSprite;
         [SerializeField] private GameObject mine;
         [SerializeField] private GameObject turret;
         [SerializeField] private GameObject clone;
@@ -62,7 +62,7 @@ namespace BehaviorTree
                 {
                     new BossAttackSpawnObject(transform, turret, Vector3.one, 3),
                     new BossAttackSpawnObject(transform, clone, new Vector3(1.5f, 1.5f, 1.5f), 3),
-                    new BossAttackStomp(transform, playerTransform, enemyAnimator, ui, weapon),
+                    new BossAttackStomp(trigger, transform, playerTransform, enemyAnimator, ui, weapon),
                 },
                 new Node[]
                 {

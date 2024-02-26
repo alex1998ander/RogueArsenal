@@ -6,9 +6,10 @@ namespace BehaviorTree
 {
     public class BossAttackStomp : Node
     {
+        private BoxCollider2D _trigger;
+        private Transform _body;
         private Transform _stompTarget;
         private Animator _bossAnimator;
-        private Transform _body;
         private GameObject _ui;
         private GameObject _weapon;
 
@@ -21,8 +22,9 @@ namespace BehaviorTree
         private static readonly int StompStart = Animator.StringToHash("StompStart");
         private static readonly int StompEnd = Animator.StringToHash("StompEnd");
 
-        public BossAttackStomp(Transform body, Transform stompTarget, Animator bossAnimator, GameObject ui, EnemyWeapon weapon)
+        public BossAttackStomp(BoxCollider2D trigger, Transform body, Transform stompTarget, Animator bossAnimator, GameObject ui, EnemyWeapon weapon)
         {
+            _trigger = trigger;
             _body = body;
             _stompTarget = stompTarget;
             _bossAnimator = bossAnimator;
@@ -46,6 +48,7 @@ namespace BehaviorTree
             {
                 case <= Configuration.Boss_StompJumpTime:
                 {
+                    _trigger.enabled = false;
                     break;
                 }
                 case <= Configuration.Boss_StompJumpTime
@@ -78,6 +81,8 @@ namespace BehaviorTree
                         playerCollider?.GetComponentInParent<ICharacterHealth>()?.InflictDamage(Configuration.Boss_StompDamage);
 
                         _stomped = true;
+
+                        _trigger.enabled = true;
                     }
 
                     break;

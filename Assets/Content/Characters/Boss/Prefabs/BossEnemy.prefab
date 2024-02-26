@@ -840,8 +840,8 @@ MonoBehaviour:
   movementAcceleration: 30
   minDistanceFromPlayer: 4
   maxDistanceFromPlayer: 6
+  trigger: {fileID: 2958260088549180810}
   contactDamageZone: {fileID: 7912696378675739813}
-  bossSprite: {fileID: 6387821662178478886}
   mine: {fileID: 4533860549031871824, guid: 9ffcac323820e8444adc39853b67e6c6, type: 3}
   turret: {fileID: 7775573610081196474, guid: 5db8b9a75fc49834ea42a9ddd265228e, type: 3}
   clone: {fileID: 260221667950224925, guid: 3713d6f55b36a9c43a544bc5601e18d7, type: 3}
@@ -886,11 +886,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ps: {fileID: 6097177670564164807}
---- !u!212 &6387821662178478886 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 6866423785977518980, guid: ba46bce3e439cdd489820f759add8589, type: 3}
-  m_PrefabInstance: {fileID: 570947769171841186}
-  m_PrefabAsset: {fileID: 0}
 --- !u!95 &6406712513012391061 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 6846983187112741943, guid: ba46bce3e439cdd489820f759add8589, type: 3}
