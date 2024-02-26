@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -8,6 +7,7 @@ public class SettingsViewManager : MonoBehaviour
 {
     [SerializeField] private ToggleView fullscreenToggle;
     [SerializeField] private ToggleView vSyncToggle;
+    [SerializeField] private ToggleView godToggle;
     [SerializeField] private SelectionView resolutionSelection;
     [SerializeField] private Slider soundVolumeSlider;
     [SerializeField] private Slider musicVolumeSlider;
@@ -20,6 +20,8 @@ public class SettingsViewManager : MonoBehaviour
     {
         fullscreenToggle.Initialize(null, Screen.fullScreen);
         vSyncToggle.Initialize(null, QualitySettings.vSyncCount != 0);
+        godToggle.Initialize(isGod => PlayerData.god = isGod, PlayerData.god);
+        
         _resolutions = new List<Resolution>(Screen.resolutions);
         
         var foundRes = false;

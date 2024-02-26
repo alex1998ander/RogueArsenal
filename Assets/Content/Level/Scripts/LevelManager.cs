@@ -23,7 +23,6 @@ public static class LevelManager
     private static GameObject _pauseSceneRoot;
     private static GameObject _settingsRoot;
     private static GameObject _upgradeSelectionRoot;
-    private static BlurController _currentBlurController;
 
     private static GameState gameState = GameState.MainMenu;
 
@@ -55,7 +54,6 @@ public static class LevelManager
             SceneManager.UnloadSceneAsync(SceneManager.GetSceneByPath("Assets/Content/Scenes/Others/SplashScene.unity"));
             _currentActiveScene = SceneManager.GetSceneByPath("Assets/Content/Scenes/NewUI/UIMainMenu.unity");
             SceneManager.SetActiveScene(_currentActiveScene);
-            _currentBlurController = Object.FindFirstObjectByType<BlurController>();
             _mainMenuUIRoot = Object.FindFirstObjectByType<MainMenuViewManager>().gameObject;
         };
 
@@ -100,7 +98,6 @@ public static class LevelManager
     private static void ShowGameOver()
     {
         _gameOverRoot.SetActive(true);
-        _currentBlurController.EnableBlur(true);
         _pauseAllowed = false;
     }
 
@@ -108,7 +105,6 @@ public static class LevelManager
     {
         GameManager.FreezeGamePlay(enabled);
         _upgradeSelectionRoot.SetActive(enabled);
-        _currentBlurController.EnableBlur(enabled);
         _pauseAllowed = false;
     }
 
@@ -121,14 +117,12 @@ public static class LevelManager
 
         _settingsRoot.SetActive(false);
         _pauseSceneRoot.SetActive(enabled);
-        _currentBlurController.EnableBlur(enabled);
     }
 
     public static void ShowSettingsMenu(bool enabled)
     {
         if (gameState == GameState.MainMenu)
         {
-            _currentBlurController.EnableBlur(enabled);
             _mainMenuUIRoot.SetActive(!enabled);
         }
 
@@ -222,7 +216,6 @@ public static class LevelManager
             unloadAsyncOperation.completed += _ =>
             {
                 _mainMenuUIRoot = Object.FindFirstObjectByType<MainMenuViewManager>().gameObject;
-                _currentBlurController = Object.FindFirstObjectByType<BlurController>();
             };
         };
 
@@ -273,8 +266,6 @@ public static class LevelManager
                     _currentActiveScene = SceneManager.GetSceneByPath($"Assets/Content/Scenes/Levels/Level{nextSceneIdx}.unity");
                     SceneManager.SetActiveScene(_currentActiveScene);
 
-                    _currentBlurController = Object.FindFirstObjectByType<BlurController>();
-
                     // Spawn enemies AFTER old level is fully unloaded so enemy AI won't find player of old level
                     SpawnController.SpawnEnemies();
                 };
@@ -302,8 +293,6 @@ public static class LevelManager
 
             unloadAsyncOperation.completed += _ =>
             {
-                _currentBlurController = Object.FindFirstObjectByType<BlurController>();
-
                 // Spawn enemies AFTER old level is fully unloaded so enemy AI won't find player of old level
                 SpawnController.SpawnEnemies();
             };

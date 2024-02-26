@@ -19,6 +19,8 @@ public static class PlayerData
     public static bool invulnerable;
     public static bool IsDashing;
 
+    public static bool god;
+
     // Upgrade: Phoenix
     public static bool phoenixed;
 

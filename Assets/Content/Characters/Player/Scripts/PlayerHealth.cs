@@ -15,6 +15,9 @@ public class PlayerHealth : MonoBehaviour, ICharacterHealth
     /// <param name="ignoreInvulnerability">Whether player invulnerability should be ignored</param>
     public void InflictDamage(float damageAmount, bool fatal, bool ignoreInvulnerability = false)
     {
+        if (PlayerData.god)
+            return;
+
         if (IsDead())
             return;
 
@@ -57,6 +60,9 @@ public class PlayerHealth : MonoBehaviour, ICharacterHealth
 
     public void InflictContactDamage(float damageAmount, bool ignoreContactDamageInvulnerability = false)
     {
+        if (PlayerData.god)
+            return;
+
         if (!PlayerData.invulnerable && (ignoreContactDamageInvulnerability || Time.time > _contactDamageInvulnerabilityEndTimestamp))
         {
             _contactDamageInvulnerabilityEndTimestamp = Time.time + defaultContactDamageInvulnerabilityDelay;
