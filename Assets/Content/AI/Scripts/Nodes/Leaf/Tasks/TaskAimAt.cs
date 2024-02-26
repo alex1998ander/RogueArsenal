@@ -39,6 +39,12 @@ namespace BehaviorTree
 
         public override NodeState Evaluate()
         {
+            if (GetData(sharedData.BossLaserFiring))
+            {
+                state = NodeState.SUCCESS;
+                return state;
+            }
+
             Vector2 aimDirection = ((Vector2) _aimAtTransform.position - _rb.position).normalized;
 
             if (aimDirection != Vector2.zero)

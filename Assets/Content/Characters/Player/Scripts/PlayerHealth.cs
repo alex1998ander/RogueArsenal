@@ -55,9 +55,9 @@ public class PlayerHealth : MonoBehaviour, ICharacterHealth
         return PlayerData.health <= 0;
     }
 
-    public void InflictContactDamage(float damageAmount)
+    public void InflictContactDamage(float damageAmount, bool ignoreContactDamageInvulnerability = false)
     {
-        if (!PlayerData.invulnerable && Time.time > _contactDamageInvulnerabilityEndTimestamp)
+        if (!PlayerData.invulnerable && (ignoreContactDamageInvulnerability || Time.time > _contactDamageInvulnerabilityEndTimestamp))
         {
             _contactDamageInvulnerabilityEndTimestamp = Time.time + defaultContactDamageInvulnerabilityDelay;
 

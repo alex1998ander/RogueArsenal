@@ -17,6 +17,8 @@ namespace BehaviorTree
     {
         [SerializeField] private BoxCollider2D trigger;
         [SerializeField] private BoxCollider2D contactDamageZone;
+        [SerializeField] private BoxCollider2D laserContactDamageZone;
+        [SerializeField] private Animator laserAnimator;
         [SerializeField] private GameObject mine;
         [SerializeField] private GameObject turret;
         [SerializeField] private GameObject clone;
@@ -55,14 +57,12 @@ namespace BehaviorTree
             sharedData.SetData(sharedData.AbilityState, AbilityState.None);
             sharedData.SetData(sharedData.RandomAbility, -1);
             sharedData.SetData(sharedData.AbilityPool, 0);
+            sharedData.SetData(sharedData.BossLaserFiring, false);
 
             Node[][] tasks =
             {
                 new Node[]
                 {
-                    // new BossAttackLaserFocus(lineRenderer, playerTransform, transform),
-                    // new BossAttackLaserFocus(lineRenderer, playerTransform, transform),
-                    // new BossAttackLaserFocus(lineRenderer, playerTransform, transform),
                     new BossAttackSpawnObject(transform, turret, Vector3.one, 3),
                     new BossAttackSpawnObject(transform, clone, new Vector3(1.5f, 1.5f, 1.5f), 3),
                     new BossAttackStomp(trigger, transform, playerTransform, enemyAnimator, ui, weapon),
@@ -75,11 +75,23 @@ namespace BehaviorTree
                 },
                 new Node[]
                 {
-                    new BossAttackLaserFocus(lineRenderer, playerTransform, transform),
+                    new Sequence(new List<Node>()
+                    {
+                        new TaskAimAt(rb, weapon, playerTransform, enemyAnimator),
+                        new BossAttackLaserFocus(laserContactDamageZone, laserAnimator),
+                    }),
                     new BossAttackShield(shieldGenerator),
                     new BossAttackShockwave(shockWave)
                 }
             };
+
+            foreach (Node[] nodes in tasks)
+            {
+                foreach (Node node in nodes)
+                {
+                    node.SetupSharedData(sharedData);
+                }
+            }
 
             Node root = new Selector(new List<Node>
             {

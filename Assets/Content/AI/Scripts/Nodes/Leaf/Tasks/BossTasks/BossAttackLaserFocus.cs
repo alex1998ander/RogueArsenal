@@ -4,99 +4,100 @@ using UnityEngine;
 
 namespace BehaviorTree
 {
-    [RequireComponent(typeof(LineRenderer))]
-    
     public class BossAttackLaserFocus : Node
     {
-        private Transform _focusTarget;
-
-        private LineRenderer _lineRenderer;
-
-        private const float WaitTime = 3f;
-
-        private float _timeDelayBeforeFinallySettingPosition = 0.3f;
-
-        private float _timeCounterLaser = 0;
-
-        private Transform _body;
-
-        private bool _gotHitOnce = false;
-        
-        Vector2 _direction = Vector2.zero;
+        private readonly BoxCollider2D _contactDamageZone;
+        private readonly Animator _animator;
 
         private float _timeCounter;
 
         private int _waveCounter;
 
-        public BossAttackLaserFocus(LineRenderer lineRenderer, Transform focusTarget, Transform body)
+        private static readonly int Aim = Animator.StringToHash("Aim");
+        private static readonly int Start = Animator.StringToHash("Start");
+        private static readonly int Active = Animator.StringToHash("Active");
+        private static readonly int Inactive = Animator.StringToHash("Inactive");
+        private static readonly int End = Animator.StringToHash("End");
+
+        public BossAttackLaserFocus(BoxCollider2D contactDamageZone, Animator animator)
         {
-            this._lineRenderer = lineRenderer;
-            _lineRenderer.startColor = Color.red;
-            _lineRenderer.endColor = Color.red;
-            _lineRenderer.enabled = false;
-            this._focusTarget = focusTarget;
-            this._body = body;
+            _contactDamageZone = contactDamageZone;
+            _animator = animator;
         }
 
         public override NodeState Evaluate()
         {
             state = NodeState.FAILURE;
 
-            LaserFocus();
-
-            if (_waveCounter == Configuration.Boss_LaserRepetitions)
+            _timeCounter += Time.fixedDeltaTime;
+            switch (_timeCounter)
             {
-                _waveCounter = 0;
-                state = NodeState.SUCCESS;
+                case <= Configuration.Boss_LaserAimTime:
+                {
+                    _animator.SetTrigger(Aim);
+
+                    break;
+                }
+                case <= Configuration.Boss_LaserAimTime
+                        + Configuration.Boss_LaserPreStartTime:
+                {
+                    sharedData.SetData(sharedData.BossLaserFiring, true);
+
+                    break;
+                }
+                case <= Configuration.Boss_LaserAimTime
+                        + Configuration.Boss_LaserPreStartTime
+                        + Configuration.Boss_LaserStartTime:
+                {
+                    _animator.SetTrigger(Start);
+
+                    break;
+                }
+                case <= Configuration.Boss_LaserAimTime
+                        + Configuration.Boss_LaserPreStartTime
+                        + Configuration.Boss_LaserStartTime
+                        + Configuration.Boss_LaserActiveTime:
+                {
+                    _contactDamageZone.enabled = true;
+                    _animator.SetTrigger(Active);
+
+                    break;
+                }
+                case <= Configuration.Boss_LaserAimTime
+                        + Configuration.Boss_LaserPreStartTime
+                        + Configuration.Boss_LaserStartTime
+                        + Configuration.Boss_LaserActiveTime
+                        + Configuration.Boss_LaserEndTime:
+                {
+                    _contactDamageZone.enabled = false;
+                    _animator.SetTrigger(End);
+
+                    break;
+                }
+                case <= Configuration.Boss_LaserAimTime
+                        + Configuration.Boss_LaserPreStartTime
+                        + Configuration.Boss_LaserStartTime
+                        + Configuration.Boss_LaserActiveTime
+                        + Configuration.Boss_LaserEndTime
+                        + Configuration.Boss_LaserTimeBetweenRepetitions:
+                {
+                    sharedData.SetData(sharedData.BossLaserFiring, false);
+
+                    _timeCounter = 0f;
+
+                    _waveCounter++;
+                    if (_waveCounter == Configuration.Boss_LaserRepetitions)
+                    {
+                        _animator.SetTrigger(Inactive);
+                        _waveCounter = 0;
+                        state = NodeState.SUCCESS;
+                    }
+
+                    break;
+                }
             }
 
             return state;
-        }
-
-        void LaserFocus()
-        {
-            Vector3 laserStart = _body.position;
-            Vector3 focusPos = _focusTarget.position;
-            Vector3 laserEnd = focusPos + (focusPos - laserStart) * 3f;
-            
-            _lineRenderer.enabled = true;
-            _lineRenderer.startWidth = 0.05f;
-            _lineRenderer.endWidth = 0.05f;
-            _timeCounterLaser += Time.fixedDeltaTime;
-            
-            if (_timeCounterLaser < ((WaitTime / 3) -  _timeDelayBeforeFinallySettingPosition))
-            {
-                _lineRenderer.SetPositions(new[] { laserStart, laserEnd });
-            }
-            
-            if (_timeCounterLaser >= ((WaitTime / 3) -  _timeDelayBeforeFinallySettingPosition) && _direction == Vector2.zero)
-            {
-                _direction = new Vector2(_focusTarget.position.x, _focusTarget.position.y) - new Vector2(_body.position.x, _body.position.y);
-                _lineRenderer.SetPositions(new[] { laserStart, laserEnd });
-            }
-            
-            if (_timeCounterLaser >= (WaitTime/3))
-            {
-                _lineRenderer.startWidth = 1f;
-                _lineRenderer.endWidth = 1f;
-                int layerMaskToInt = LayerMask.GetMask("Player_Trigger");
-                RaycastHit2D[] hits = new RaycastHit2D[1];
-                int gotHits = Physics2D.BoxCastNonAlloc(new Vector2(_body.position.x, _body.position.y), new Vector2(1, 15), 0, _direction, hits, 20, layerMaskToInt);
-                if (gotHits == 1  && !_gotHitOnce)
-                {
-                    hits[0].transform.GetComponent<PlayerHealth>().InflictDamage(Configuration.Boss_LaserDamage, true);
-                    _gotHitOnce = true;
-                }
-            }
-            
-            if (_timeCounterLaser >= WaitTime)
-            {
-                _lineRenderer.enabled = false;
-                _timeCounterLaser = 0;
-                _gotHitOnce = false;
-                _direction = Vector2.zero;
-                _waveCounter++;
-            }
         }
     }
 }

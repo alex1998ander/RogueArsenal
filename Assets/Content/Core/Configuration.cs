@@ -54,8 +54,13 @@ public class Configuration
     public const float Boss_DashForce = 80f;
     public const float Boss_DashPrepareTime = 2f;
     public const float Boss_DashMidChargeTime = 1f;
-    public const float Boss_DashPostChargeTime = 0.5f;
-    public const float Boss_LaserDamage = 30f;
+    public const float Boss_DashPostChargeTime = 0.2f;
+    public const float Boss_LaserAimTime = 0.5f;
+    public const float Boss_LaserPreStartTime = 0.2f;
+    public const float Boss_LaserStartTime = 0.3f;
+    public const float Boss_LaserActiveTime = 1.5f;
+    public const float Boss_LaserEndTime = 0.5f;
+    public const float Boss_LaserTimeBetweenRepetitions = 0.5f;
     public const int Boss_LaserRepetitions = 3;
     public const float Boss_MineCountdown = 3f;
     public const float Boss_MineDamage = 50f;

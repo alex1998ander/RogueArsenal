@@ -33,6 +33,7 @@ namespace BehaviorTree
         public SharedDataType<AbilityState> AbilityState;
         public SharedDataType<int> RandomAbility;
         public SharedDataType<int> AbilityPool;
+        public SharedDataType<bool> BossLaserFiring;
 
         // Data container
         private Dictionary<int, object> _data = new();
@@ -50,6 +51,7 @@ namespace BehaviorTree
             AbilityState = new(_keyCounter++);
             RandomAbility = new(_keyCounter++);
             AbilityPool = new(_keyCounter++);
+            BossLaserFiring = new(_keyCounter++);
         }
 
         /// <summary>
