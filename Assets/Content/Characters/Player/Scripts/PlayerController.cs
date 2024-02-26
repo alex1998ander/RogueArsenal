@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
     [SerializeField] private Animator playerVisualsAnimator;
     [SerializeField] private PlayerWeapon playerWeapon;
     [SerializeField] private ParticleSystem abilityChargedEffectParticleSystem;
+    [SerializeField] private ParticleSystem dashParticleSystem;
 
     public PlayerHealth playerHealth;
 
@@ -41,6 +42,9 @@ public class PlayerController : MonoBehaviour, ICharacterController
     {
         playerHealth = GetComponent<PlayerHealth>();
         _rigidbody = GetComponent<Rigidbody2D>();
+
+        ParticleSystem.MainModule dash = dashParticleSystem.main;
+        dash.duration = Configuration.Player_DashTime;
 
         PlayerData.maxHealth = Mathf.RoundToInt(Configuration.Player_MaxHealth * UpgradeManager.GetHealthMultiplier());
         PlayerData.health = PlayerData.maxHealth;
@@ -276,6 +280,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
             _dashEndTimestamp = Time.time + Configuration.Player_DashTime;
             PlayerData.invulnerable = true;
             _dashMovementDirection = _movementInput;
+            dashParticleSystem.Play();
             EventManager.OnPlayerDash.Trigger();
         }
     }
