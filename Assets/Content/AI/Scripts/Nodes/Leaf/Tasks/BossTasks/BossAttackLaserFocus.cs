@@ -36,6 +36,11 @@ namespace BehaviorTree
                 {
                     _animator.SetTrigger(Aim);
 
+                    _animator.ResetTrigger(Start);
+                    _animator.ResetTrigger(Active);
+                    _animator.ResetTrigger(Inactive);
+                    _animator.ResetTrigger(End);
+
                     break;
                 }
                 case <= Configuration.Boss_LaserAimTime
@@ -51,6 +56,11 @@ namespace BehaviorTree
                 {
                     _animator.SetTrigger(Start);
 
+                    _animator.ResetTrigger(Aim);
+                    _animator.ResetTrigger(Active);
+                    _animator.ResetTrigger(Inactive);
+                    _animator.ResetTrigger(End);
+
                     break;
                 }
                 case <= Configuration.Boss_LaserAimTime
@@ -60,6 +70,11 @@ namespace BehaviorTree
                 {
                     _contactDamageZone.enabled = true;
                     _animator.SetTrigger(Active);
+
+                    _animator.ResetTrigger(Aim);
+                    _animator.ResetTrigger(Start);
+                    _animator.ResetTrigger(Inactive);
+                    _animator.ResetTrigger(End);
 
                     break;
                 }
@@ -71,6 +86,11 @@ namespace BehaviorTree
                 {
                     _contactDamageZone.enabled = false;
                     _animator.SetTrigger(End);
+
+                    _animator.ResetTrigger(Aim);
+                    _animator.ResetTrigger(Start);
+                    _animator.ResetTrigger(Active);
+                    _animator.ResetTrigger(Inactive);
 
                     break;
                 }
@@ -89,6 +109,12 @@ namespace BehaviorTree
                     if (_waveCounter == Configuration.Boss_LaserRepetitions)
                     {
                         _animator.SetTrigger(Inactive);
+
+                        _animator.ResetTrigger(Aim);
+                        _animator.ResetTrigger(Start);
+                        _animator.ResetTrigger(Active);
+                        _animator.ResetTrigger(End);
+
                         _waveCounter = 0;
                         state = NodeState.SUCCESS;
                     }
