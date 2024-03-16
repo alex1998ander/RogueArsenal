@@ -1,5 +1,5 @@
 # Rogue Arsenal
-Rogue Arsenal is a 2D top-down roguelike shooter. As the player navigates through 15 randomly selected levels, they must face a variety of enemies, whose numbers and difficulty steadily increase. At the end of the 15 levels, there is a boss that must be defeated to win the game.
+Rogue Arsenal is a 2D top-down roguelike shooter. As the player navigates through 15 randomly selected levels, they must face a variety of enemies, whose numbers and difficulty steadily increase. At the end, there is a boss that must be defeated to win the game.
 
 The core of the game is the upgrade system: Enemies drop coins upon their death, which the player can collect. Once the player has collected enough coins, three randomly selected upgrades are available to them during the level transition, from which they can choose one. These upgrades grant the player various abilities that enhance them in different ways. The upgrades are combinable, resulting in a nearly endless number of combinations from a limited number of upgrades, thus providing many possible playstyles for the player.
 
