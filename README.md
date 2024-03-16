@@ -7,9 +7,9 @@ The core of the game is the upgrade system: Enemies drop coins upon their death,
 - Sandbox: In the sandbox game mode, you can try out all Upgrades the game has to offer. To apply upgrades, press Tab to open the menu, then select the upgrades you want to have, then press Apply.
 
 ## Controls
-Move: WASD
-Fire: LMB
-Ability: Q/E
-Reload: R
-Dash: RMB/Spacebar/Shift
-Menu: Tab
+- Move: WASD
+- Fire: LMB
+- Ability: Q/E
+- Reload: R
+- Dash: RMB/Spacebar/Shift
+- Menu: Tab
