@@ -5,7 +5,7 @@ The core of the game is the upgrade system: Enemies drop coins upon their death,
 
 ## Game Modes:
 - Normal: The standard game mode, entered by pressing "Start"
-- Sandbox: In the sandbox game mode, you can try out all Upgrades the game has to offer. To apply upgrades, press Tab to open the menu, then select the upgrades you want to have, then press Apply.
+- Sandbox: In the sandbox game mode, you can try out all Upgrades the game has to offer. To apply upgrades, press Escape to open the menu, then select the upgrades you want to have, then press Apply.
 
 ## Controls
 - Move: WASD
@@ -13,4 +13,4 @@ The core of the game is the upgrade system: Enemies drop coins upon their death,
 - Ability: Q/E
 - Reload: R
 - Dash: RMB/Spacebar/Shift
-- Menu: Tab
+- Menu: Escape
