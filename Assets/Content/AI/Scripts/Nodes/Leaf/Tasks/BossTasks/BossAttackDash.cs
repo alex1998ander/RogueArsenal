@@ -55,6 +55,7 @@ namespace BehaviorTree
                     {
                         _chargingEffect.Play();
                         _chargeLightFader.IntensityChange = _chargeLightMaxIntensity / Configuration.Boss_DashPrepareTime;
+                        sharedData.SetData(sharedData.ChargeState, ChargeState.PreCharge);
                     }
 
                     break;
@@ -68,6 +69,7 @@ namespace BehaviorTree
                         _dashingEffect.Play();
                         _chargeLightFader.IntensityChange = -_chargeLightMaxIntensity / (Configuration.Boss_DashMidChargeTime * 2);
                         hasDashed = true;
+                        sharedData.SetData(sharedData.ChargeState, ChargeState.MidCharge);
                     }
 
                     break;
@@ -78,6 +80,7 @@ namespace BehaviorTree
                     hasDashed = false;
                     _timeCounter = 0f;
                     state = NodeState.SUCCESS;
+                    sharedData.SetData(sharedData.ChargeState, ChargeState.None);
                     break;
                 }
             }
