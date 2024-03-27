@@ -21,5 +21,10 @@ namespace BehaviorTree
             Node root = new Node();
             return root;
         }
+
+        public ChargeState GetChargeState()
+        {
+            return root.sharedData.GetData(root.sharedData.ChargeState);
+        }
     }
 }
