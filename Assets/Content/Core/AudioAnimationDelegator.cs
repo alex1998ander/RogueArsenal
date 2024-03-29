@@ -7,21 +7,21 @@ using UnityEngine;
 /// </summary>
 public class AudioAnimationDelegator : MonoBehaviour
 {
-    [SerializeField] private List<KeyAudioPair> clips;
+    [SerializeField] private List<KeyAudioPair> audioSources;
 
-    private readonly Dictionary<string, AudioSource> _clips = new();
+    private readonly Dictionary<string, AudioSource> _audioSources = new();
 
     private void Awake()
     {
-        foreach (KeyAudioPair pair in clips)
+        foreach (KeyAudioPair pair in audioSources)
         {
-            _clips[pair.Key] = pair.Value;
+            _audioSources[pair.Key] = pair.Value;
         }
     }
 
     public void PlayClip(string clipName)
     {
-        _clips[clipName]?.Play();
+        _audioSources[clipName]?.Play();
     }
 }
 
