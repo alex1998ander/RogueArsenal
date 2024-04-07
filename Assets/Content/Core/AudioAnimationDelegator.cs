@@ -23,6 +23,11 @@ public class AudioAnimationDelegator : MonoBehaviour
     {
         _audioSources[clipName]?.Play();
     }
+
+    public void StopClip(string clipName)
+    {
+        _audioSources[clipName]?.Stop();
+    }
 }
 
 [Serializable]
