@@ -4,8 +4,8 @@ using UnityEngine;
 public class EnemyLandMine : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer mineSprite;
+    [SerializeField] private AudioSource mineExplosionSound;
 
-    private bool _playerIsInRange = false;
     private GameObject _player;
 
     private Animator _animator;
@@ -23,7 +23,6 @@ public class EnemyLandMine : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            _playerIsInRange = true;
             _player = other.gameObject;
         }
     }
@@ -32,7 +31,7 @@ public class EnemyLandMine : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            _playerIsInRange = false;
+            _player = null;
         }
     }
 
@@ -42,9 +41,9 @@ public class EnemyLandMine : MonoBehaviour
 
         mineSprite.enabled = false;
         _animator.SetBool("Exploded", true);
-        // TODO: Play sound when exploding
+        mineExplosionSound.Play();
 
-        if (_playerIsInRange)
+        if (_player)
         {
             _player.GetComponentInParent<PlayerHealth>().InflictDamage(Configuration.Boss_MineDamage, true);
             EventManager.OnPlayerHealthUpdate.Trigger(-Configuration.Boss_MineDamage);
