@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,6 +9,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
     [SerializeField] private PlayerWeapon playerWeapon;
     [SerializeField] private ParticleSystem abilityChargedEffectParticleSystem;
     [SerializeField] private AudioSource abilityUnavailableSound;
+    [SerializeField] private AudioSource abilityChargedSound;
     [SerializeField] private ParticleSystem dashParticleSystem;
 
     public PlayerHealth playerHealth;
@@ -245,6 +245,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
     private IEnumerator PlayAbilityRechargedEffect(float time)
     {
         yield return new WaitForSeconds(time);
+        abilityChargedSound.Play();
         abilityChargedEffectParticleSystem.Play();
     }
 

@@ -503,6 +503,7 @@ MonoBehaviour:
   playerWeapon: {fileID: 3840289594856838949}
   abilityChargedEffectParticleSystem: {fileID: 5478930237054461801}
   abilityUnavailableSound: {fileID: 817592229003230820}
+  abilityChargedSound: {fileID: 6648235080458296724}
   dashParticleSystem: {fileID: 7307602080538770223}
   playerHealth: {fileID: 0}
 --- !u!114 &6483694604525781009
@@ -1499,5 +1500,10 @@ Transform:
 --- !u!198 &5478930237054461801 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 779053058626781007, guid: 8f675ab96bf53194ca4147f4241ce7b8, type: 3}
+  m_PrefabInstance: {fileID: 5099995232886741030}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &6648235080458296724 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1911096551949174194, guid: 8f675ab96bf53194ca4147f4241ce7b8, type: 3}
   m_PrefabInstance: {fileID: 5099995232886741030}
   m_PrefabAsset: {fileID: 0}
