@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
     [SerializeField] private Animator playerVisualsAnimator;
     [SerializeField] private PlayerWeapon playerWeapon;
     [SerializeField] private ParticleSystem abilityChargedEffectParticleSystem;
+    [SerializeField] private AudioSource abilityUnavailableSound;
     [SerializeField] private ParticleSystem dashParticleSystem;
 
     public PlayerHealth playerHealth;
@@ -234,6 +235,10 @@ public class PlayerController : MonoBehaviour, ICharacterController
 
             UpgradeManager.OnAbility(this, playerWeapon);
             EventManager.OnPlayerAbilityUsed.Trigger();
+        }
+        else if (!GameManager.GamePaused)
+        {
+            abilityUnavailableSound.Play();
         }
     }
 
