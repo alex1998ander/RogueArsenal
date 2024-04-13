@@ -32,6 +32,7 @@ public class ButtonView : MonoBehaviour
 
     public void OnClick()
     {
+        image.color = _initialColor;
         _onClickAction?.Invoke();
     }
 }
