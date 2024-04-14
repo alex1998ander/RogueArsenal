@@ -305,6 +305,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 526204081913427373, guid: ba46bce3e439cdd489820f759add8589, type: 3}
   m_PrefabInstance: {fileID: 5565478178470794961}
   m_PrefabAsset: {fileID: 0}
+--- !u!61 &6590362918855983845 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 1605850763079308340, guid: ba46bce3e439cdd489820f759add8589, type: 3}
+  m_PrefabInstance: {fileID: 5565478178470794961}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6910014811840088113 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1358329203599744736, guid: ba46bce3e439cdd489820f759add8589, type: 3}
@@ -335,6 +340,7 @@ MonoBehaviour:
   movementAcceleration: 30
   minDistanceFromPlayer: 2
   maxDistanceFromPlayer: 3
+  enemyCollider: {fileID: 6590362918855983845}
   damageZoneCollider: {fileID: 2159040945188584003}
   preChargeTime: 1
   postChargeTime: 1

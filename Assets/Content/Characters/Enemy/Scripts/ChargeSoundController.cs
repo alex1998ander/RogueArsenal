@@ -33,7 +33,6 @@ public class ChargeSoundController : MonoBehaviour
                     _chargeUpSoundFadeEndTimestamp = Time.time + chargeUpSoundDuration;
                 }
 
-                Debug.Log("volume: " + chargeUpAudioSource.volume);
                 float progress = Mathf.InverseLerp(_chargeUpSoundFadeStartTimestamp, _chargeUpSoundFadeEndTimestamp, Time.time);
                 float volume = Mathf.Lerp(0f, _chargeUpSoundFinalVolumeValue, progress);
                 chargeUpAudioSource.volume = volume;

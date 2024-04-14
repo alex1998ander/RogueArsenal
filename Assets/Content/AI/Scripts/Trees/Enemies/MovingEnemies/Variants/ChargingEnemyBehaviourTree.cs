@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -6,6 +8,7 @@ namespace BehaviorTree
 {
     public class ChargingEnemyBehaviourTree : MovingEnemyBehaviourTree
     {
+        [SerializeField] private Collider2D enemyCollider;
         [SerializeField] private Collider2D damageZoneCollider;
         [SerializeField] private float preChargeTime = 1f;
         [SerializeField] private float postChargeTime = 1f;
@@ -27,7 +30,6 @@ namespace BehaviorTree
             // Get relevant components
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
             Transform playerTransform = FindObjectOfType<PlayerController>().GetComponent<Transform>();
-            EnemyWeapon enemyWeapon = GetComponentInChildren<EnemyWeapon>();
 
             // Set up nav agent
             NavMeshAgent agent = GetComponent<NavMeshAgent>();
@@ -101,6 +103,7 @@ namespace BehaviorTree
                         new Sequence(new List<Node>
                         {
                             new ExpectData<ChargeState>(sharedData.ChargeState, ChargeState.MidCharge),
+                            new TaskSetGameObjectLayer(enemyCollider.gameObject, LayerMask.NameToLayer("ChargingEnemy_MidChargeCollider")),
                             new TaskPlayParticleSystem(dashingEffect),
                             new TaskActivateLightFader(chargeLightFader, -chargeLightMaxIntensity / (Configuration.Enemy_DashTime * 2), 0f, chargeLightMaxIntensity),
                             new TaskActivateDamageZone(true, damageZoneCollider),
@@ -111,6 +114,7 @@ namespace BehaviorTree
                         new Sequence(new List<Node>
                         {
                             new ExpectData<ChargeState>(sharedData.ChargeState, ChargeState.PostCharge),
+                            new TaskSetGameObjectLayer(enemyCollider.gameObject, LayerMask.NameToLayer("Enemy_Collider")),
                             new SetAnimatorParameter<bool>(enemyAnimator, "Running", false),
                             new TaskActivateDamageZone(false, damageZoneCollider),
                             new TaskWait(postChargeTime, true),
