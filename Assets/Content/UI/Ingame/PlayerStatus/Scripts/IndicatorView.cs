@@ -6,14 +6,14 @@ public class IndicatorView : MonoBehaviour
     [SerializeField] private Image indicatorImage;
     [SerializeField] private Sprite indicatorEnabledSprite;
     [SerializeField] private Sprite indicatorDisabledSprite;
-    
+
     private Image image;
-    
+
     public void EnableIndicator()
     {
         indicatorImage.sprite = indicatorEnabledSprite;
     }
-    
+
     public void DisableIndicator()
     {
         indicatorImage.sprite = indicatorDisabledSprite;
@@ -22,5 +22,10 @@ public class IndicatorView : MonoBehaviour
     public void ShowIndicator(bool indicatorEnabled)
     {
         indicatorImage.gameObject.SetActive(indicatorEnabled);
+
+        if (indicatorEnabled)
+            EnableIndicator();
+        else
+            DisableIndicator();
     }
 }
