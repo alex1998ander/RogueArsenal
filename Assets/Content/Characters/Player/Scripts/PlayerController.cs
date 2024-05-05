@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
     {
         Awake();
         playerWeapon.Init_Sandbox();
+        EventManager.OnPhoenixRevive.Subscribe(OnPhoenixed);
     }
 
     private void Awake()
@@ -54,7 +55,10 @@ public class PlayerController : MonoBehaviour, ICharacterController
         PlayerData.abilityCooldown = Configuration.Player_AbilityCoolDown * UpgradeManager.GetAbilityDelayMultiplier();
 
         UpgradeManager.Init(this);
+    }
 
+    private void Start()
+    {
         EventManager.OnPhoenixRevive.Subscribe(OnPhoenixed);
     }
 
