@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour, ICharacterController
     private float _dashDelayEndTimestamp;
     private float _weaponReloadedTimeStamp;
 
+    private Coroutine _abilityRechargeCoroutine;
+
     private static readonly int MovementDirectionX = Animator.StringToHash("MovementDirectionX");
     private static readonly int MovementDirectionY = Animator.StringToHash("MovementDirectionY");
     private static readonly int AimDirectionX = Animator.StringToHash("AimDirectionX");
@@ -53,6 +55,11 @@ public class PlayerController : MonoBehaviour, ICharacterController
 
         PlayerData.fireCooldown = Configuration.Player_FireCoolDown * UpgradeManager.GetFireCooldownMultiplier();
         PlayerData.abilityCooldown = Configuration.Player_AbilityCoolDown * UpgradeManager.GetAbilityDelayMultiplier();
+        _abilityCooldownEndTimestamp = 0;
+        if (_abilityRechargeCoroutine != null)
+        {
+            StopCoroutine(_abilityRechargeCoroutine);
+        }
 
         UpgradeManager.Init(this);
     }
@@ -235,7 +242,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
             // This assignment has to be done before "UpgradeManager.OnAbility()" so that the variable can be overwritten by this function if necessary
             _abilityCooldownEndTimestamp = Time.time + PlayerData.abilityCooldown;
 
-            StartCoroutine(PlayAbilityRechargedEffect(PlayerData.abilityCooldown));
+            _abilityRechargeCoroutine = StartCoroutine(PlayAbilityRechargedEffect(PlayerData.abilityCooldown));
 
             UpgradeManager.OnAbility(this, playerWeapon);
             EventManager.OnPlayerAbilityUsed.Trigger();
