@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,6 +8,8 @@ public class PlayerController : MonoBehaviour, ICharacterController
     [SerializeField] private Animator playerVisualsAnimator;
     [SerializeField] private PlayerWeapon playerWeapon;
     [SerializeField] private ParticleSystem abilityChargedEffectParticleSystem;
+    [SerializeField] private AudioSource abilityUnavailableSound;
+    [SerializeField] private AudioSource abilityChargedSound;
     [SerializeField] private ParticleSystem dashParticleSystem;
 
     public PlayerHealth playerHealth;
@@ -26,6 +27,8 @@ public class PlayerController : MonoBehaviour, ICharacterController
     private float _dashDelayEndTimestamp;
     private float _weaponReloadedTimeStamp;
 
+    private Coroutine _abilityRechargeCoroutine;
+
     private static readonly int MovementDirectionX = Animator.StringToHash("MovementDirectionX");
     private static readonly int MovementDirectionY = Animator.StringToHash("MovementDirectionY");
     private static readonly int AimDirectionX = Animator.StringToHash("AimDirectionX");
@@ -36,6 +39,7 @@ public class PlayerController : MonoBehaviour, ICharacterController
     {
         Awake();
         playerWeapon.Init_Sandbox();
+        EventManager.OnPhoenixRevive.Subscribe(OnPhoenixed);
     }
 
     private void Awake()
@@ -51,9 +55,17 @@ public class PlayerController : MonoBehaviour, ICharacterController
 
         PlayerData.fireCooldown = Configuration.Player_FireCoolDown * UpgradeManager.GetFireCooldownMultiplier();
         PlayerData.abilityCooldown = Configuration.Player_AbilityCoolDown * UpgradeManager.GetAbilityDelayMultiplier();
+        _abilityCooldownEndTimestamp = 0;
+        if (_abilityRechargeCoroutine != null)
+        {
+            StopCoroutine(_abilityRechargeCoroutine);
+        }
 
         UpgradeManager.Init(this);
+    }
 
+    private void Start()
+    {
         EventManager.OnPhoenixRevive.Subscribe(OnPhoenixed);
     }
 
@@ -230,16 +242,21 @@ public class PlayerController : MonoBehaviour, ICharacterController
             // This assignment has to be done before "UpgradeManager.OnAbility()" so that the variable can be overwritten by this function if necessary
             _abilityCooldownEndTimestamp = Time.time + PlayerData.abilityCooldown;
 
-            StartCoroutine(PlayAbilityRechargedEffect(PlayerData.abilityCooldown));
+            _abilityRechargeCoroutine = StartCoroutine(PlayAbilityRechargedEffect(PlayerData.abilityCooldown));
 
             UpgradeManager.OnAbility(this, playerWeapon);
             EventManager.OnPlayerAbilityUsed.Trigger();
+        }
+        else if (!GameManager.GamePaused)
+        {
+            abilityUnavailableSound.Play();
         }
     }
 
     private IEnumerator PlayAbilityRechargedEffect(float time)
     {
         yield return new WaitForSeconds(time);
+        abilityChargedSound.Play();
         abilityChargedEffectParticleSystem.Play();
     }
 

@@ -38,6 +38,10 @@ public class EnemyContactDamage : MonoBehaviour
             other.GetComponentInParent<PlayerHealth>().InflictContactDamage(contactDamage);
             EventManager.OnPlayerHit.Trigger();
         }
+        else if (other.gameObject.CompareTag("Furniture"))
+        {
+            other.GetComponentInParent<ICharacterHealth>().InflictDamage(contactDamage);
+        }
     }
 
     private void OnTriggerStay2D(Collider2D other)

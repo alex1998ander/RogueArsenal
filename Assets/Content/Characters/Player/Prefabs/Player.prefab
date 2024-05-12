@@ -502,6 +502,8 @@ MonoBehaviour:
   playerVisualsAnimator: {fileID: 27103892123731142}
   playerWeapon: {fileID: 3840289594856838949}
   abilityChargedEffectParticleSystem: {fileID: 5478930237054461801}
+  abilityUnavailableSound: {fileID: 817592229003230820}
+  abilityChargedSound: {fileID: 6648235080458296724}
   dashParticleSystem: {fileID: 7307602080538770223}
   playerHealth: {fileID: 0}
 --- !u!114 &6483694604525781009
@@ -1153,6 +1155,10 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5738123226529229117, guid: af3b4c6ac5fd4014f9886568053fcec7, type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5738123226529229117, guid: af3b4c6ac5fd4014f9886568053fcec7, type: 3}
       propertyPath: VelocityModule.inWorldSpace
       value: 1
       objectReference: {fileID: 0}
@@ -1481,6 +1487,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f675ab96bf53194ca4147f4241ce7b8, type: 3}
+--- !u!82 &817592229003230820 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5593041276313085506, guid: 8f675ab96bf53194ca4147f4241ce7b8, type: 3}
+  m_PrefabInstance: {fileID: 5099995232886741030}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1103372523090201199 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5298808020616188489, guid: 8f675ab96bf53194ca4147f4241ce7b8, type: 3}
@@ -1489,5 +1500,10 @@ Transform:
 --- !u!198 &5478930237054461801 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 779053058626781007, guid: 8f675ab96bf53194ca4147f4241ce7b8, type: 3}
+  m_PrefabInstance: {fileID: 5099995232886741030}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &6648235080458296724 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1911096551949174194, guid: 8f675ab96bf53194ca4147f4241ce7b8, type: 3}
   m_PrefabInstance: {fileID: 5099995232886741030}
   m_PrefabAsset: {fileID: 0}

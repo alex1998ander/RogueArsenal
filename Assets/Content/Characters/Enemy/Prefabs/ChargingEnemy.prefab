@@ -45,7 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9375d9710a1b164d81fdc8ac2d7aab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zoneType: 0
   contactDamage: 25
+  damageTicksPerSecond: 1
 --- !u!61 &2159040945188584003
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -122,6 +124,18 @@ PrefabInstance:
     - target: {fileID: 570960589405539265, guid: d97f514186bd59a478dfbeafa43ffa56, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1540224293566336118, guid: d97f514186bd59a478dfbeafa43ffa56, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 6708876548403151155}
+    - target: {fileID: 1540224293566336118, guid: d97f514186bd59a478dfbeafa43ffa56, type: 3}
+      propertyPath: chargingEnemy
+      value: 
+      objectReference: {fileID: 6708876548403151155}
+    - target: {fileID: 1540224293566336118, guid: d97f514186bd59a478dfbeafa43ffa56, type: 3}
+      propertyPath: chargeUpSoundDuration
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3863244887004918765, guid: d97f514186bd59a478dfbeafa43ffa56, type: 3}
       propertyPath: m_Name
@@ -291,6 +305,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 526204081913427373, guid: ba46bce3e439cdd489820f759add8589, type: 3}
   m_PrefabInstance: {fileID: 5565478178470794961}
   m_PrefabAsset: {fileID: 0}
+--- !u!61 &6590362918855983845 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 1605850763079308340, guid: ba46bce3e439cdd489820f759add8589, type: 3}
+  m_PrefabInstance: {fileID: 5565478178470794961}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6910014811840088113 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1358329203599744736, guid: ba46bce3e439cdd489820f759add8589, type: 3}
@@ -321,6 +340,7 @@ MonoBehaviour:
   movementAcceleration: 30
   minDistanceFromPlayer: 2
   maxDistanceFromPlayer: 3
+  enemyCollider: {fileID: 6590362918855983845}
   damageZoneCollider: {fileID: 2159040945188584003}
   preChargeTime: 1
   postChargeTime: 1
