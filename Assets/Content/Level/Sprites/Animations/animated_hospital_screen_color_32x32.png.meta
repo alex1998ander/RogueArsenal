@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 52b183794fdf115478fcee81ff8ebace
+guid: 1151c034334a17447b3eef197e59d0f8
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: animated_control_room_server_32x32_0
+      name: animated_hospital_screen_color_32x32_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 32
-        height: 96
+        x: 6
+        y: 16
+        width: 46
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 128db9c90859d6e46a5581bbd3697a6c
-      internalID: -1516094562
+      spriteID: d57a61e3af4759547a73e414433d6d99
+      internalID: -501672716
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: animated_control_room_server_32x32_1
+      name: animated_hospital_screen_color_32x32_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 96
+        x: 70
+        y: 16
+        width: 46
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f061282a355d704aada424718ba33d9
-      internalID: 979921468
+      spriteID: 9f3098f4980cfc74b8c03e7f03d457a5
+      internalID: -419479173
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: animated_control_room_server_32x32_2
+      name: animated_hospital_screen_color_32x32_2
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 96
+        x: 134
+        y: 16
+        width: 46
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,8 +161,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aad1356020c1c2547a17d410d6793912
-      internalID: -2075200202
+      spriteID: 929ce102917664e46a9120117bbc81c2
+      internalID: -495116603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated_hospital_screen_color_32x32_3
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 16
+        width: 46
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e1dafcf7a7b93242a89d01b412817ed
+      internalID: 818177305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animated_hospital_screen_color_32x32_4
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 16
+        width: 46
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac0c0901346ad714897c85bf6f4ba41d
+      internalID: -1159158937
       vertices: []
       indices: 
       edges: []
@@ -178,9 +220,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      animated_control_room_server_32x32_0: -1516094562
-      animated_control_room_server_32x32_1: 979921468
-      animated_control_room_server_32x32_2: -2075200202
+      animated_hospital_screen_color_32x32_0: -501672716
+      animated_hospital_screen_color_32x32_1: -419479173
+      animated_hospital_screen_color_32x32_2: -495116603
+      animated_hospital_screen_color_32x32_3: 818177305
+      animated_hospital_screen_color_32x32_4: -1159158937
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
